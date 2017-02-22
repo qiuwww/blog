@@ -1,0 +1,16 @@
+
+
+/*单行文本的超出省略*/
+
+.style_1{
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+/*背景的颜色渐变*/
+.style_2{
+	background:-webkit-gradient();
+	/*-webkit-linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* )//最新发布书写语法
+    -webkit-gradient(<type>, <point> [, <radius>]?, <point> [, <radius>]? [, <stop>]*) //老式语法书写规则*/
+}
