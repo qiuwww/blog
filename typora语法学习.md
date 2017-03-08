@@ -114,27 +114,6 @@ $lim_{x \to \infty} \ exp(-x)=0$
 **changyangzhe-2016.7.22**
 
 
-sdfsdf 1 | header 2
----|---
-row 1 col 1 | row 1 col 2
-row 2 col 1 | row 2 col 2
-
-
-
-
-```
-// webpack should be in the node_modules directory, install if not.
-var webpack = require("webpack");
-
-module.exports = {
-    plugins: [
-        new webpack.ResolverPlugin([
-            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-        ], ["normal", "loader"])
-    ]
-};
-```
-
 
 
 
