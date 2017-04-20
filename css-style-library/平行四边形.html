@@ -1,0 +1,91 @@
+<!-- 平行四边形.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>平行四边形.html</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h2>目标样式，下载base64源代码，添加头部部分data:image/jpg;base64,</h2>
+<img src="data:image/jpg;base64,UklGRtwDAABXRUJQVlA4INADAAAQHACdASpOATMAPp1InkqlpCKhpjcLwLATiWU7fI15YA402DnoT2wHPTaYBvPOQ2eb7LGt33pygeAulfabJaiTHnAC4f7PWPP2f89mKSL9RBq/YWnKtT+mU1nHrJr9upbYiacFB8CJHjXBU7j9fzfk4jOS6HZLLByaXvJf0tEVqKX1sj8VtPYJKaA2GTlLQNQdhq+aSqoPKwZ1Q7ldaOILgKzbWcWgkCrlpwm9oibu5e0ByS+Cxm3O/fZFMDoYQwJ89x2zUdreDl4GVyJmzvdaXR6suT4vq721KNxFY8JbdcWH/O8cysdUAAD+/NqD3fzqkb49MplpTtRiWyP+2+jnfWD+zoFEfljIJqNHUJB8wBQoE+f4yGhJO7/fHhxM7Gn49Otb+gyYlTYUe3eNJmYVQVIPAA5t5q2uBA/UWgmW+/dgJRrmZ47U7fldYShsUcRSybMGBfqRvVeZCwRy+8F3rfrKl5PtFh06gknbEJQI53XjGcZF47kFbLToEon4Ie9m9zxzuKXeC9RKOCj95tpO13ZEl9yD2jDMBMjHfIvCIfWpXNpXKF4BV1BcsThY1M7wQrJL/PUs74mJAi0dmNHL0eSyR8D5YveDMq7TwG0mm4wQcRaRkzu4L8obGDfKSsgFWgcQS4gZnI8F20Yo0iqDodJavhn6w2DrrtHOt3MxpzKspmv7YCorgOiMLt0Q8/pH4Wu+NCfEg9KYpNOpmJIueWc8aUch0YHIhq+u3urRQCPOBLzDsy96XBsYKOyOaZ3s0zoyYmfaDvs6Vbg20f8Kvo521JI83JDTqWaellTHBjviKDjBn5YL2PjlvKvQfEUZ/skgLB7Vg0qkHfBVoimGVBmaC+myLAAvWAGQrjCHYRwuDAkmrt4Lv4Pbg4Kiku0SkRAOTeqt/JnKUMGwqRXKh2kUJNggPWGHHwF/duu+rhfd9s9Pvh5WZYdU86e8B6aPSDml7HKLBFq+clcd2YYPd6jRhKP5bPbVXuEqHSMckvpuUm3gdFVQhFZK9vn+ebMQDCvgFHwWaRX4lbsCT0nzwNCO2/qKpLjuAkL9I0F8zJqp+fpGWORPgT+RRJMdXwSuzFBvjdYNoJug5wrLze/ZpNkN65npNBdsbHZTh8tGzeG4KYim/bLw6mN5Fy3pCCTW6qi3terlUjXoN2ykqYx7mX13wS47XleiuN/dwIrcIDP2AbYeabB9kYWo/QkpCIyE0rl4p95D9plnMhuVriB4nhTy/juPyX0L/r8BqYOitHWqPjYAUOhAgq/D3wta81dAKupRsxq/9BVhdlqgAAAA">
+<h2>方法一,利用border,两个三角形加一个矩形</h2>
+
+<section class="use-border">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+</section>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		padding: 20px;
+	}
+	.use-border{
+		height: 100px;
+	}
+	.use-border div{
+		width: 100px;
+		height: 100px;
+		background-color: blue;
+		display: inline-block;
+		margin-left: 120px;
+		position: relative;
+		text-align: center;
+		line-height: 100px;
+	}
+	.use-border div::before{
+		content: "";
+		height: 0;
+		width: 0;
+		display: block;
+		position: absolute;
+		left: -100px;
+		border: 50px solid rgba(0,0,0,0);
+		border-right: 50px solid red;
+		border-bottom: 50px solid green;
+	}
+	.use-border div::after{
+		content: "";
+		height: 0;
+		width: 0;
+		display: block;
+		position: absolute;
+		left: 100px;
+		top: 0;
+		border: 50px solid rgba(0,0,0,0);
+		border-left: 50px solid red;
+		border-top: 50px solid green;
+	}
+
+</style>
+<h2>方法二，利用transform</h2>
+<section class="use-transform">
+	<div class="city">
+		<div>北京</div>
+	</div>
+	<div class="city">
+		<div>上海</div>
+	</div>
+	<div class="city">
+		<div>杭州</div>
+	</div>
+</section>
+<style type="text/css">
+	.city{
+		display: inline-block;
+		padding: 10px 20px;
+		border: 1px solid #44a5fc;
+		color: #333;
+		transform: skew(-40deg);
+	}
+	.city div {
+  		transform: skew(40deg);
+	}
+</style>
+
+
+</body>
+</html>
