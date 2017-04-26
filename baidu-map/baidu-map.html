@@ -1014,17 +1014,273 @@ body .markdown-body
     page-break-after: avoid;
   }
 }
-</style><title>baidu-map</title></head><body><article class="markdown-body"><h2 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>基本的原理</h2>
+</style><title>baidu-map</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>百度地图开发</h1>
+<div class="toc">
+<ul>
+<li><a href="#_1">百度地图开发</a><ul>
+<li><a href="#_2">开发首页</a></li>
+<li><a href="#_3">自定义地图代码</a></li>
+<li><a href="#_4">实例</a></li>
+<li><a href="#api">API接口</a></li>
+<li><a href="#_5">定制地图的样式</a></li>
+<li><a href="#_6">检索实例</a></li>
+<li><a href="#_7">定位实例  都不准</a></li>
+<li><a href="#_8">百度地图的原理</a></li>
+<li><a href="#api_1">静态图API</a></li>
+<li><a href="#overlay-lable">覆盖物信息 overlay  主要就是标注物，lable提示框，自定义信息窗口，自定义图层</a></li>
+<li><a href="#maptype">地图类型 MapType</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>开发首页</h2>
+<p><a href="http://lbsyun.baidu.com/index.php">http://lbsyun.baidu.com/index.php</a></p>
+<h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>自定义地图代码</h2>
+<p><a href="http://api.map.baidu.com/lbsapi/createmap/index.html">http://api.map.baidu.com/lbsapi/createmap/index.html</a></p>
+<h2 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>实例</h2>
+<p><a href="http://lbsyun.baidu.com/jsdemo.htm#f0_1">http://lbsyun.baidu.com/jsdemo.htm#f0_1</a></p>
+<h2 id="api"><a name="user-content-api" href="#api" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>API接口</h2>
+<p><a href="http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a0b0">http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a0b0</a><br />
+Map:此类是地图API的核心类，用来实例化一个地图。包括地图实例上的各种事件，click，dblclick，zoomend，moveend，dragend。</p>
+<h2 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>定制地图的样式</h2>
+<p><a href="http://developer.baidu.com/map/custom/">http://developer.baidu.com/map/custom/</a></p>
+<h2 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>检索实例</h2>
+<p><a href="http://lbsyun.baidu.com/jsdemo.htm#i1_1">http://lbsyun.baidu.com/jsdemo.htm#i1_1</a></p>
+<h2 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>定位实例  都不准</h2>
+<p><a href="http://lbsyun.baidu.com/jsdemo.htm#i8_1">http://lbsyun.baidu.com/jsdemo.htm#i8_1</a><br />
+基于HTML5的 navigator.geolocation <br />
+这里 BMap.Geolocation </p>
+<h2 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>百度地图的原理</h2>
 <ol>
-<li>图片拼接；</li>
-<li>资源缓存；</li>
-<li>别的一些地图的对比；</li>
-<li>优缺点，相对于google地图；</li>
+<li>
+<p>加载图片示例 <br />
+<a href="http://online4.map.bdimg.com/tile/?qt=tile&amp;x=1582&amp;y=587&amp;z=13&amp;styles=pl&amp;scaler=1&amp;udt=20170420">http://online4.map.bdimg.com/tile/?qt=tile&amp;x=1582&amp;y=587&amp;z=13&amp;styles=pl&amp;scaler=1&amp;udt=20170420</a></p>
+</li>
+<li>
+<p>加载当前的地图的信息 <br />
+<a href="http://api.map.baidu.com/?qt=cen&amp;b=12951635.02%2C4815295.77%3B12964594.98%2C4838495.85&amp;l=13&amp;ie=utf-8&amp;oue=1&amp;fromproduct=jsapi&amp;callback=BMap._rd._cbk55919&amp;ak=E4805d16520de693a3fe707cdc962045">http://api.map.baidu.com/?qt=cen&amp;b=12951635.02%2C4815295.77%3B12964594.98%2C4838495.85&amp;l=13&amp;ie=utf-8&amp;oue=1&amp;fromproduct=jsapi&amp;callback=BMap._rd._cbk55919&amp;ak=E4805d16520de693a3fe707cdc962045</a></p>
+</li>
+<li>
+<p>查询poi事件的信息 <br />
+<a href="http://online1.map.bdimg.com/js/?qt=vQuest&amp;styles=pl&amp;x=1581&amp;y=589&amp;z=13&amp;v=056&amp;fn=MPC_Mgr.TANGRAM__1.getPoiData">http://online1.map.bdimg.com/js/?qt=vQuest&amp;styles=pl&amp;x=1581&amp;y=589&amp;z=13&amp;v=056&amp;fn=MPC_Mgr.TANGRAM__1.getPoiData</a></p>
+</li>
+<li>
+<p>加载api.js<br />
+插入一个script标签来加载script代码，请求添加了一些用户的信息<br />
+<strong>可用ak</strong><br />
+6usbEbwRrAoG37xItcWMdwZM6aq6tBty</p>
+</li>
+<li>
+<p>地图的坐标系统<br />
+百度地图坐标转换说明：<a href="http://lbsyun.baidu.com/index.php?title=jspopular/guide/coorinfo">http://lbsyun.baidu.com/index.php?title=jspopular/guide/coorinfo</a><br />
+百度地图开发坐标问题总结：<a href="https://segmentfault.com/a/1190000008549028">https://segmentfault.com/a/1190000008549028</a><br />
+坐标系转换实例：<a href="http://lbsyun.baidu.com/jsdemo.htm#a5_1">http://lbsyun.baidu.com/jsdemo.htm#a5_1</a></p>
+</li>
+<li>百度地图的缩放等级<br />
+<strong>百度地图，比例尺分别为：</strong><br />
+[1:20米（简称20米，后同），50米，100米，200米，500米，1公里，2公里，5公里，10公里，20公里，25公里，50公里，100公里，200公里，500公里，1000公里，2000公里，5000公里，10000公里]<br />
+<strong>分别对应：</strong><br />
+[19级，18级，17级，16级，15级，14级，13级，12级，11级，10级，9级，8级，7级，6级，5级，4级，3级，2级，1级]<br />
+<strong>提供的api可以支持3~19级，17个等级</strong><br />
+<strong>根据实际情况限制缩放等级</strong><br />
+map.setMinZoom(5); // 设置最小缩放等级<br />
+map.setMaxZoom(19); // 设置最小缩放等级</li>
+<li>控件<br />
+<pre><code>// 缩放比例控件
+var top_left_control = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_TOP_LEFT }); // 左上角，添加比例尺
+map.addControl(top_left_control);
+var top_left_navigation = new BMap.NavigationControl(); //左上角，添加默认缩放平移控件 
+map.addControl(top_left_navigation);
+实例：http://lbsyun.baidu.com/jsdemo.htm#b0_2
+</code></pre></li>
+<li>初始化地图：<br />
+<pre><code>map.centerAndZoom(&quot;中国&quot;,5);  // 初始化地图,设置中心点坐标和地图级别
+map.enableScrollWheelZoom(); //支持滚轮缩放
+map.enableKeyboard(); //开启键盘控制地图缩放与位置
+map.setMinZoom(5); // 最小||最大缩放等级
+map.setMaxZoom(19); // 缩放等级指示
+// 地图的当前窗口的信息
+var bs = map.getBounds(); //获取可视区域 
+var bssw = bs.getSouthWest(); //可视区域左下角
+var bsne = bs.getNorthEast(); //可视区域右上角
+var center = map.getCenter();
+var zoom = map.getZoom();
+</code></pre></li>
+<li>
+<p>地理解析器，解析地址信息为地图信息<br />
+批量地址解析实例: <a href="http://lbsyun.baidu.com/jsdemo.htm#i7_3">http://lbsyun.baidu.com/jsdemo.htm#i7_3</a><br />
+<pre><code>// 创建地址解析器实例
+var myGeo = new BMap.Geocoder();
+// 将地址解析结果显示在地图上,并调整地图视野
+myGeo.getPoint(place, function (point) {
+    if (point) {
+        map.centerAndZoom(point, 19); // 这里控制显示单个公司的缩放等级    
+            // 自定义覆盖物 
+            var myIcon = new BMap.Icon(myIcon_img, new BMap.Size(23, 53));
+            var marker = new BMap.Marker(point, { icon: myIcon }); // 创建标注
+            map.addOverlay(marker); // 将标注添加到地图中
+            var opts = {
+                position: point, // 指定文本标注所在的地理位置
+                offset: new BMap.Size(0, 0) //设置文本偏移量
+            };
+            var title = place;
+            // place  = place.length &gt; 20 ? place.substring(0,19) +&quot;...&quot; : place; 
+            var html = '&lt;div id=&quot;label&quot;&gt;' + '&lt;div class=&quot;label-header&quot;&gt;' + '&lt;div class=&quot;title ellipsis-display&quot; title=&quot;' + name + '&quot;&gt;' + name + '&lt;/div&gt;' + '&lt;div class=&quot;cancle&quot;&gt;×&lt;/div&gt;' + '&lt;/div&gt;' + '&lt;div class=&quot;addr-det&quot;&gt;' + '&lt;div class=&quot;addr&quot; title = &quot;' + title + '&quot;&gt;' + place + '&lt;/div&gt;' + '&lt;div class=&quot;det popupIframe&quot; data-href = &quot;' + url + '&quot;&gt;查看详情&lt;/div&gt;' + '&lt;/div&gt;' + '&lt;div class=&quot;triangle&quot;&gt;' + '&lt;/div&gt;' + '&lt;/div&gt;';
+
+            var label = new BMap.Label(html, opts);
+
+            label.setStyle({
+                border: &quot;none&quot;,
+                borderRadius: &quot;5px&quot;,
+                boxShadow: &quot;0 0 20px #666&quot;,
+                transform: &quot;translate(-120px,-160px)&quot;
+            });
+            marker.setLabel(label);
+            $(&quot;#label .cancle&quot;).click(function () {
+                $(this).parents(&quot;#label&quot;).remove();
+            });
+            $(&quot;#label .det&quot;).click(function () {
+                enterprise_map.open_iframe(url);
+            });
+        } else {
+            alert(&quot;您选择地址没有解析到结果!&quot;);
+        }
+    }, place);
+}
+
+</code></pre></p>
+</li>
+<li>
+<p>创建label,位置-公司数量显示<br />
+<pre><code>map.clearOverlays();
+var point, label;
+data.forEach(function (item, index) {
+var _label$setStyle;
+point = new BMap.Point(item.lng, item.lat);
+var opts = {
+    position: point, // 指定文本标注所在的地理位置
+    offset: new BMap.Size(0, 0) //设置文本偏移量
+};
+label = new BMap.Label(&quot;&lt;p data-area='&quot; + item.name + &quot;' data-lat ='&quot; + item.lat + &quot;' data-lng ='&quot; + item.lng + &quot;'&gt;&quot; + item.num + &quot;&lt;/p&gt;&quot;, opts);
+label.setStyle((_label$setStyle = {
+    color: &quot;#fff&quot;,
+    fontSize: &quot;16px&quot;,
+    height: &quot;18px&quot;,
+    lineHeight: &quot;18px&quot;,
+    fontWeight: &quot;blod&quot;,
+    border: &quot;none&quot;,
+    backgroundColor: color
+}, _defineProperty(_label$setStyle, 'height', r + &quot;px&quot;), _defineProperty(_label$setStyle, 'width', r + &quot;px&quot;), _defineProperty(_label$setStyle, 'lineHeight', r + &quot;px&quot;), _defineProperty(_label$setStyle, 'textAlign', &quot;center&quot;), _defineProperty(_label$setStyle, 'borderRadius', r / 2 + &quot;px&quot;), _defineProperty(_label$setStyle, 'opacity', &quot;0.8&quot;), _defineProperty(_label$setStyle, 'boxShadow', &quot;0 0 20px &quot; + color), _defineProperty(_label$setStyle, 'transform', &quot;translate(-50%,-50%)&quot;), _label$setStyle));
+
+var timeIdLabel,
+    flag = true;
+label.addEventListener(&quot;click&quot;, function (e) {
+    var target = e.target;
+    flag = true;
+    timeIdLabel = setTimeout(function () {
+        if (flag) {
+            // debugger
+            var center = $(target.content).data(&quot;area&quot;);
+            render_listAndMap(center, true); //不刷新右侧的地图
+        }
+    }, 200);
+});
+label.addEventListener(&quot;dblclick&quot;, function (e) {
+    var target = e.target;
+    clearTimeout(timeIdLabel);
+    clearTimeout(baidu_map.state.moveTimeID);
+    // debugger
+    flag = false;
+    var center = $(target.content).data(&quot;area&quot;);
+    var lat = $(target.content).data(&quot;lat&quot;);
+    var lng = $(target.content).data(&quot;lng&quot;);
+    render_listAndMap(center, false, lat, lng); //同时刷新地图与公司列表
+});
+map.addOverlay(label);
+// 缩放事件
+zoomend: function zoomend(map) {
+    var that = this;
+    map.addEventListener(&quot;zoomend&quot;, function (e) {
+        that.state.moveTimeID = setTimeout(function () {
+            console.log(&quot;zoomend&quot;);
+            var detail = baidu_map.detailMessage();
+            if (baidu_map.state.isMouseOver) {
+                // debugger
+                enterprise_map.area_get_data();
+            }
+        }, 200);
+    });
+},
+dragend: function dragend() {
+    var map = this.map;
+    map.addEventListener(&quot;dragend&quot;, function (e) {
+        if (baidu_map.state.isMouseOver) {
+            // debugger
+            enterprise_map.area_get_data();
+        }
+    });
+}
+});
+</code></pre></p>
+</li>
 </ol>
-<h2 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>基本使用</h2>
+<h2 id="api_1"><a name="user-content-api_1" href="#api_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>静态图API</h2>
+<p><a href="http://lbsyun.baidu.com/index.php?title=static">http://lbsyun.baidu.com/index.php?title=static</a><br />
+实例：<a href="http://api.map.baidu.com/staticimage/v2?ak=6usbEbwRrAoG37xItcWMdwZM6aq6tBty&amp;mcode=666666&amp;center=116.403874,39.914888&amp;width=500&amp;height=500&amp;zoom=11">http://api.map.baidu.com/staticimage/v2?ak=6usbEbwRrAoG37xItcWMdwZM6aq6tBty&amp;mcode=666666&amp;center=116.403874,39.914888&amp;width=500&amp;height=500&amp;zoom=11</a></p>
+<h2 id="overlay-lable"><a name="user-content-overlay-lable" href="#overlay-lable" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>覆盖物信息 overlay  主要就是标注物，lable提示框，自定义信息窗口，自定义图层</h2>
 <ol>
-<li>demo ；</li>
-<li>常用的接口；</li>
-<li>常用的操作；</li>
+<li>marker || polyline <br />
+<strong>在地图的下一层，可以透过覆盖物点击下边的poi点的事件</strong><br />
+    map.addOverlay(marker);            //增加点<br />
+    map.addOverlay(polyline);          //增加折线<br />
+    map.addOverlay(circle);            //增加圆<br />
+    map.addOverlay(polygon);           //增加多边形<br />
+    map.addOverlay(rectangle);         //增加矩形<br />
+<strong>当然也可以自定义</strong> <br />
+<a href="http://lbsyun.baidu.com/jsdemo.htm#c1_16">http://lbsyun.baidu.com/jsdemo.htm#c1_16</a></li>
+<li>label 在地图地图图层的上一层<br />
+<pre><code>    var opts = {
+      position : point,    // 指定文本标注所在的地理位置
+      offset   : new BMap.Size(30, -30)    //设置文本偏移量
+    }
+    var html = &quot;欢迎使用百度地图，这是一个简单的文本标注哦~&quot; || &lt;h4&gt;&quot;欢迎使用百度地图，这是一个简单的文本标注哦~&quot;&lt;/h4&gt;; 
+    var label = new BMap.Label(, opts);  // 创建文本标注对象
+        label.setStyle({
+             color : &quot;red&quot;,
+             fontSize : &quot;12px&quot;,
+             height : &quot;20px&quot;,
+             border:&quot;none&quot;,
+             backgroundColor:&quot;none&quot;,
+             lineHeight : &quot;20px&quot;,
+             fontFamily:&quot;微软雅黑&quot;
+         });
+    map.addOverlay(label); 
+    marker.setLabel(label); 为marker添加文字标签
+</code></pre></li>
+<li>overlay 添加，获取目标与清除地图上的覆盖物<br />
+    map.addOverlay(label); <br />
+    map.getOverlays();<br />
+    map.clearOverlays();</li>
+<li>
+<p>点聚合<br />
+<a href="http://lbsyun.baidu.com/jsdemo.htm#c1_4">http://lbsyun.baidu.com/jsdemo.htm#c1_4</a><br />
+<a href="http://lbsyun.baidu.com/jsdemo.htm#c1_5">http://lbsyun.baidu.com/jsdemo.htm#c1_5</a></p>
+</li>
+<li>
+<p>信息窗口  支持html内容<br />
+<pre><code>var opts = {
+      width : 200,     // 信息窗口宽度
+      height: 100,     // 信息窗口高度
+      title : &quot;海底捞王府井店&quot; , // 信息窗口标题
+      enableMessage:true,//设置允许信息窗发送短息
+      message:&quot;亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~&quot;
+    }
+    var infoWindow = new BMap.InfoWindow(&quot;地址：北京市东城区王府井大街88号乐天银泰百货八层&quot;, opts);  // 创建信息窗口对象 
+    map.openInfoWindow(infoWindow,point); //开启信息窗口
+</code></pre></p>
+</li>
+<li>自定义图层 TileLayer<br />
+路况信息 <a href="http://lbsyun.baidu.com/jsdemo.htm#g0_3">http://lbsyun.baidu.com/jsdemo.htm#g0_3</a></li>
 </ol>
-<h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>本次用到的一些方法和技术</h2></article></body></html>
+<h2 id="maptype"><a name="user-content-maptype" href="#maptype" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>地图类型 MapType</h2>
+<p><a href="http://lbsyun.baidu.com/jsdemo.htm#k0_2">http://lbsyun.baidu.com/jsdemo.htm#k0_2</a></p></article></body></html>
