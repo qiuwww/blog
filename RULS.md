@@ -7,7 +7,8 @@
 1. https://developer.microsoft.com/en-us/microsoft-edge/platform/usage/
 2. http://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&mid=2651551766&idx=1&sn=cde581719de10ddf225a4ba9666eaa89&chksm=8025afd7b75226c13d31b88d8230cc65da622c2c423efc40d712abfc010273e6aaf46aff9ba3&mpshare=1&scene=23&srcid=0225KIgc0wHAWYoyvGjkhgVq#rd
 3. http://howtocenterincss.com/#contentType=div&horizontal=center&vertical=middle&browser.IE=6
-4. ​
+4. https://juejin.im/post/591a64c30ce4630069048520?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com
+5. http://caibaojian.com/toutiao/4398
 
 
 
@@ -133,9 +134,9 @@ https://segmentfault.com/p/1210000007251540?utm_source=weekly&utm_medium=email&u
 
 http://hao.caibaojian.com/14709.html
 
+http://www.jianshu.com/p/af13f350d16c
 
-
-
+https://juejin.im/entry/591a8478570c3500696051f7?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com
 
 ## 正则
 
@@ -189,7 +190,7 @@ http://www.imooc.com/article/12479
 
 
 
-
+http://www.runoob.com/jquery/misc-extend.html
 
 
 
@@ -201,7 +202,7 @@ http://mp.weixin.qq.com/s?__biz=MzA4Njc1MzY4Ng==&mid=2651428077&idx=2&sn=f64af53
 
 
 
-
+http://emacoo.cn/arch/test-web-automation/?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com
 
 
 
