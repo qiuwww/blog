@@ -98,7 +98,7 @@ People.prototype.sayName = function (){
 	return this;
 }
 People.prototype.sayAge = function (){
-	alert(this.Age);
+	alert(this.age);
 	return this;
 }
 var  xiaoming = new People ("xiaoming", 20);

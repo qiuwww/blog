@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="84" height="84" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+
+<circle cx="41" cy="41" r="40" stroke="blue"
+stroke-width="1" fill="blue"/>
+
+<circle cx="41" cy="41" r="20" stroke="green"
+stroke-width="1" fill="red"/>
+
+</svg>
