@@ -1,0 +1,69 @@
+
+
+/**
+ * ES6
+ */
+
+class Shape {
+    constructor (id, x, y) {
+        this.id = id
+        this.move(x, y)
+    }
+    move (x, y) {
+        this.x = x
+        this.y = y
+    }
+}
+class Rectangle extends Shape {
+    constructor (id, x, y, width, height) {
+        super(id, x, y);// 关键步骤
+        this.width  = width
+        this.height = height
+    }
+}
+class Circle extends Shape {
+    constructor (id, x, y, radius) {
+        super(id, x, y)
+        this.radius = radius
+    }
+}
+
+
+/**
+ * ES5
+ */
+
+// 使用构造函数与原型混合的方法，似乎更方便一些
+var Shape = function (id, x, y) {
+    this.id = id;
+    this.move(x, y);
+};
+Shape.prototype.move = function (x, y) {
+    this.x = x;
+    this.y = y;
+};
+
+
+var Rectangle = function (id, x, y, width, height) {
+    Shape.call(this, id, x, y);
+    this.width  = width;
+    this.height = height;
+};
+Rectangle.prototype = Object.create(Shape.prototype);
+Rectangle.prototype.constructor = Rectangle;
+
+
+var Circle = function (id, x, y, radius) {
+    Shape.call(this, id, x, y);
+    this.radius = radius;
+};
+Circle.prototype = Object.create(Shape.prototype);
+Circle.prototype.constructor = Circle;
+
+
+/**
+ * 上下两段代码ES6完胜ES5，类的声明更简洁也更专业，有点Java的味道。
+ * 另外，extends命令，super方法让继承变的简单。这对于习惯于面向对象开发的同学而言简直就是福音啊。
+ * 个人觉得面向对象是JavaScript开发很重要的一部分，虽然强调组件化，但是组件的开发依然无法离开面向对象存在。
+ * 再加上ES6的静态方法，模块化让JS开发生产力更上一层楼。
+ */
