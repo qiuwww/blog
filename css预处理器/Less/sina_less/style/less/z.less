@@ -1,0 +1,677 @@
+// =============================================
+// @des:            zless
+// @author:       Busy
+// @url:              www.aibusy.com
+// @time:           2013-12-08
+// @lastTime     2014-03-08
+// @version       0.3 beta
+// =============================================
+
+// common reset use kissy reset
+.reset(){
+  *{margin:0; padding:0;}
+  li{list-style:none;}
+  img{border:none;}
+  input,select,textarea{outline:none; border:none; background:none;}
+  textarea{resize:none;}
+  a{text-decoration:none;}
+}
+.reset-sina(){
+  html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+  fieldset, img { border:none; }
+  img{display: block;}
+  address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:normal; }
+  ul, ol { list-style:none; }
+  input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}
+  input::-moz-focus-inner { border:none; padding:0; }
+  select, input { vertical-align:middle; }
+  select, input, textarea { font-size:12px; margin:0; }
+  input[type="text"], input[type="password"], textarea { outline-style:none; -webkit-appearance:none; }
+  textarea { resize:none; }
+  input,textarea{background: none; border: none;}
+  table { border-collapse:collapse; }
+  body { color:#333; font:12px/20px "SimSun","宋体","Arial Narrow",HELVETICA; background:#fff; }
+  a { color:#666; text-decoration:none; }
+  a:visited { color:#666; }
+  a:hover, a:active, a:focus { color:#ff8400; text-decoration:underline; }
+}
+//去除a和label的虚线
+.remove_dotted(){
+  a,label {blr:~'expression(this.onFocus=this.blur())'}
+  a,label {outline:none;}
+}
+//浮动
+.fl(@f:left;){
+    float: @f;
+    display: inline;
+}
+.fr(@f:right){
+  float: @f;
+  display: inline;
+}
+//定位
+.rel(@rel:relative){
+  position: @rel;
+}
+.abs(@abs:absolute){
+  position: @abs;
+}
+.fix(@fix:fixed){
+  position: @fix;
+}
+//全局定位
+.pos (r){
+  position: relative;
+}
+.pos (a){
+  position: absolute;
+}
+.pos (f){
+  position: fixed;
+}
+.pos-box(@w:500px,@h:400px,@pos:absolute){
+  width: @w;
+  height: @h;
+  position: absolute;
+  left:0;
+  top:0;
+}
+//定位居中
+.pos-box-cc(@w:600px,@h:360px,@pos:absolute){
+  width: @w;
+  height: @h;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -@w / 2;
+  margin-top: -@h / 2;
+}
+//布局
+.bc(){
+  margin-left: auto;
+  margin-right: auto;
+}
+.bc-d(@w:500px){
+  width: @w;
+  .bc();
+}
+.wh(@w){
+  width: @w;
+  height: @w;
+}
+.w-be-h(@w){
+  width: @w;
+  height: @w;
+}
+.z-index(@index:1){
+  z-index: @index;
+}
+//高度100%
+.h100(){
+  height: 100%;
+}
+//文字垂直居中
+.txt-ver(@h){
+  height: @h;
+  line-height: @h;
+}
+// 同.txt-ver
+.l-h(@h)
+{
+  height: @h;
+  line-height: @h;
+}
+//display
+.d-b(){
+  display: block;
+}
+.d-i(){
+  display: inline;
+}
+.d-ib(){
+  display: inline-block;
+}
+.d-ib7(){
+  display: inline-block;
+  *display: inline;
+  *zoom:1;
+}
+.d-t(){
+  display:table;
+}
+.d-n(){
+  display: none;
+}
+//font family
+.font-fm(){
+  font-family: "Microsoft Yahei","微软雅黑";
+}
+.font-fs(){
+  font-family: "SimSun","宋体";
+}
+.font-fa(){
+  font-family: "Arial";
+}
+.font-fv(){
+  font-family:Verdana;
+}
+
+//font weight
+.font-w700(){
+  font-weight: 700;
+}
+.font-wb(){
+  font-weight: bold;
+}
+.font-w400(){
+  font-weight: 400;
+}
+.font-wn(){
+  font-weight: normal;
+}
+//font size
+.font-s(@p: 12px){
+  font-size: @p;
+}
+.font-s0(){font-size: 0px;}
+.font-s1(){font-size: 1px;}
+.font-s2(){font-size: 2px;}
+.font-s3(){font-size: 3px;}
+.font-s4(){font-size: 4px;}
+.font-s5(){font-size: 5px;}
+.font-s6(){font-size: 6px;}
+.font-s7(){font-size: 7px;}
+.font-s8(){font-size: 8px;}
+.font-s9(){font-size: 9px;}
+.font-s10(){font-size: 10px;}
+.font-s11(){font-size: 11px;}
+.font-s12(){font-size: 12px;}
+.font-s13(){font-size: 13px;}
+.font-s14(){font-size: 14px;}
+.font-s15(){font-size: 15px;}
+.font-s16(){font-size: 16px;}
+.font-s17(){font-size: 17px;}
+.font-s18(){font-size: 18px;}
+.font-s19(){font-size: 19px;}
+.font-s20(){font-size: 20px;}
+.font-s21(){font-size: 21px;}
+.font-s22(){font-size: 22px;}
+.font-s23(){font-size: 23px;}
+.font-s24(){font-size: 24px;}
+.font-s25(){font-size: 25px;}
+.font-s26(){font-size: 26px;}
+.font-s27(){font-size: 27px;}
+.font-s28(){font-size: 28px;}
+.font-s29(){font-size: 29px;}
+.font-s30(){font-size: 30px;}
+.font-s31(){font-size: 31px;}
+.font-s32(){font-size: 32px;}
+.font-s33(){font-size: 33px;}
+.font-s34(){font-size: 34px;}
+.font-s35(){font-size: 35px;}
+.font-s36(){font-size: 36px;}
+.font-s37(){font-size: 37px;}
+.font-s38(){font-size: 38px;}
+.font-s39(){font-size: 39px;}
+.font-s40(){font-size: 40px;}
+.font-s41(){font-size: 41px;}
+.font-s42(){font-size: 42px;}
+.font-s43(){font-size: 43px;}
+.font-s44(){font-size: 44px;}
+.font-s45(){font-size: 45px;}
+.font-s46(){font-size: 46px;}
+.font-s47(){font-size: 47px;}
+.font-s48(){font-size: 48px;}
+.font-s49(){font-size: 49px;}
+.font-s50(){font-size: 50px;}
+.font-s51(){font-size: 51px;}
+.font-s52(){font-size: 52px;}
+.font-s53(){font-size: 53px;}
+.font-s54(){font-size: 54px;}
+.font-s55(){font-size: 55px;}
+.font-s56(){font-size: 56px;}
+.font-s57(){font-size: 57px;}
+.font-s58(){font-size: 58px;}
+.font-s59(){font-size: 59px;}
+.font-s60(){font-size: 60px;}
+.font-s61(){font-size: 61px;}
+.font-s62(){font-size: 62px;}
+.font-s63(){font-size: 63px;}
+.font-s64(){font-size: 64px;}
+.font-s65(){font-size: 65px;}
+.font-s66(){font-size: 66px;}
+.font-s67(){font-size: 67px;}
+.font-s68(){font-size: 68px;}
+.font-s69(){font-size: 69px;}
+.font-s70(){font-size: 70px;}
+.font-s71(){font-size: 71px;}
+.font-s72(){font-size: 72px;}
+.font-s73(){font-size: 73px;}
+.font-s74(){font-size: 74px;}
+.font-s75(){font-size: 75px;}
+.font-s76(){font-size: 76px;}
+.font-s77(){font-size: 77px;}
+.font-s78(){font-size: 78px;}
+.font-s79(){font-size: 79px;}
+.font-s80(){font-size: 80px;}
+.font-s81(){font-size: 81px;}
+.font-s82(){font-size: 82px;}
+.font-s83(){font-size: 83px;}
+.font-s84(){font-size: 84px;}
+.font-s85(){font-size: 85px;}
+.font-s86(){font-size: 86px;}
+.font-s87(){font-size: 87px;}
+.font-s88(){font-size: 88px;}
+.font-s89(){font-size: 89px;}
+.font-s90(){font-size: 90px;}
+.font-s91(){font-size: 91px;}
+.font-s92(){font-size: 92px;}
+.font-s93(){font-size: 93px;}
+.font-s94(){font-size: 94px;}
+.font-s95(){font-size: 95px;}
+.font-s96(){font-size: 96px;}
+.font-s97(){font-size: 97px;}
+.font-s98(){font-size: 98px;}
+.font-s99(){font-size: 99px;}
+.font-s100(){font-size: 100px;}
+
+//background
+.bg(@url)
+{
+  background: url(@url) 0 0 repeat;
+}
+.bg-m(@url,@x:0,@y:0,@repeat:no-repeat)
+{
+  background: url(@url) @x @y @repeat;
+}
+.bgi(@url)
+{
+  background-image: url(@url);
+}
+.bgp(@x:0,@y:0){
+  background-position: @x @y;
+}
+.bgr-r(){
+  background-repeat: repeat;
+}
+.bgr-x(){
+  background-repeat: repeat-x;
+}
+.bgr-y(){
+  background-repeat: repeat-y;
+}
+.bgr-no(){
+  background-repeat: no-repeat;
+}
+.bga-fix(){
+  background-attachment: fixed;
+}
+
+//lis
+.list-sn(){
+  list-style: none;
+}
+//text
+.text-n(@p: none){
+  text-decoration: @p;
+}
+//添加下划线
+.tu(){
+  text-decoration: underline;
+}
+.tn(){
+  text-decoration: none;
+}
+.tl(){
+  text-align: left;
+}
+.text-l(){
+  text-align: left;
+}
+.tc(){
+  text-align: center;
+}
+.text-c(){
+  text-align: center;
+}
+.tr(){
+  text-align: right;
+}
+.text-r(){
+  text-align: right;
+}
+//特殊需求
+.min-width(@width){
+  min-width: @width;
+  _width:@width;
+}
+.max-width(@width,@id){
+  max-width: @width;
+  _width:~'expression(document.getElementById("@{id}").offsetHeight>parseInt("@{width}")?"@{width}": "auto")';
+  overflow:hidden;
+}
+.min-height(@height){
+  min-height: @height;
+  _height:@height;
+}
+.max-height(@height,@id){
+  max-height: @height;
+  _height:~'expression(document.getElementById("@{id}").offsetHeight>parseInt("@{height}")?"@{height}": "auto")';
+  overflow:hidden;
+}
+//三角
+.triangle (top,@w:5px,@color:#ccc){
+  border-style:solid dashed dashed dashed;
+  border-color:@color transparent transparent transparent;
+  border-width:@w;
+}
+.triangle (right,@w:5px,@color:#ccc){
+  border-style:dashed solid dashed dashed;
+  border-color:transparent @color transparent transparent;
+  border-width:@w;
+}
+.triangle (bottom,@w:5px,@color:#ccc){
+  border-style:dashed dashed solid dashed;
+  border-color:transparent transparent @color transparent;
+  border-width:@w;
+}
+.triangle (left,@w:5px,@color:#ccc){
+  border-style:dashed dashed dashed solid;
+  border-color:transparent transparent transparent @color;
+  border-width:@w;
+}
+.triangle (@_,@w:5px,@color:#ccc){
+  .triangle-compatible();
+}
+//边框附加内容
+.triangle-compatible()
+{
+    width: 0; height: 0; overflow:hidden;
+}
+//单独方向
+.triangle-b(@w:5px,@color:#ccc){
+  border-style:solid dashed dashed dashed;
+  border-color:@color transparent transparent transparent;
+  border-width:@w;
+  .triangle-compatible();
+}
+.triangle-l(@w:5px,@color:#ccc){
+  border-style:dashed solid dashed dashed;
+  border-color:transparent @color transparent transparent;
+  border-width:@w;
+  .triangle-compatible();
+}
+.triangle-t(@w:5px,@color:#ccc){
+  border-style:dashed dashed solid dashed;
+  border-color:transparent transparent @color transparent;
+  border-width:@w;
+  .triangle-compatible();
+}
+.triangle-r(@w:5px,@color:#ccc){
+  border-style:dashed dashed dashed solid;
+  border-color:transparent transparent transparent @color;
+  border-width:@w;
+  .triangle-compatible();
+}
+//透明度
+.opa(@opacity: 80) {
+  opacity: @opacity / 100;
+  filter: ~"alpha(opacity=@{opacity})";
+}
+.rgba(@red, @green, @blue, @alpha:1){
+        @filtercolor:`(_f = function(d){ var v = (parseInt(d)|0).toString(16);return v.length<2 ? "0"+v : v;},
+                                        '#'+_f(@{alpha}*255) + _f(@{red}) + _f(@{green})+ _f(@{blue}))`;
+        
+        background-color: ~'rgba(@{red},@{green},@{blue},@{alpha})';
+        -ms-filter:~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{filtercolor}',endColorstr='@{filtercolor}')";
+        filter:~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{filtercolor}',endColorstr='@{filtercolor}')";        
+}
+
+.clearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+//文字省略号
+// @substract单位为%
+.ellipsis-basic(){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  .font-fa();
+}
+.ellipsis(@substract:0) {
+  .ellipsis-basic();
+  width:100% - @substract;
+}
+
+// =============================================
+// .jumbotron {
+//   .retina-image("/img/bg-1x.png", "/img/bg-2x.png", 100px, 100px);
+// }
+// =============================================
+
+
+.retina-image(@file-1x, @file-2x, @width-1x, @height-1x) {
+  background-image: url("@{file-1x}");
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: url("@{file-2x}");
+    background-size: @width-1x @height-1x;
+  }
+}
+
+// =============================================
+// 创建24列 自适应流式布局
+// HTML结构:
+// <div class="vl-fluid"> <div class="row-fluid"> <div class="span span6 first-child"></div> <div class="span span6"></div> <div class="span span6"></div> <div class="span span6"></div> </div> <div class="row-fluid"> <div class="span span8 first-child"></div> <div class="span span8"></div> <div class="span span8"></div> </div> <div class="row-fluid"> <div class="span span12 first-child"></div> <div class="span span12"></div> </div> </div>
+// =============================================
+
+.makeFluid(@colnum: 24, @colwidth: 30px, @margin: 10px){
+  @gridColumns:             @colnum;
+  @gridColumnWidth:         @colwidth;
+  @gridGutterWidth:         @margin;
+  @gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+  @fluidGridColumnWidth:    percentage(@gridColumnWidth/@gridRowWidth);
+  @fluidGridGutterWidth:    percentage(@gridGutterWidth/@gridRowWidth);
+  .fluid (@fluidGridColumnWidth, @fluidGridGutterWidth) {
+
+    .spanX (@index) when (@index > 0) {
+      .span@{index} { .span(@index); }
+      .spanX(@index - 1);
+    }
+    .spanX (0) {}
+
+    .offsetX (@index) when (@index > 0) {
+      .offset@{index} { .offset(@index); }
+      .offset@{index}:first-child { .offsetFirstChild(@index); }
+      .offsetX(@index - 1);
+    }
+    .offsetX (0) {}
+
+    .offset (@columns) {
+      margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) + (@fluidGridGutterWidth*2);
+      *margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%) + (@fluidGridGutterWidth*2) - (.5 / @gridRowWidth * 100 * 1%);
+    }
+
+    .offsetFirstChild (@columns) {
+      margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) + (@fluidGridGutterWidth);
+      *margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%) + @fluidGridGutterWidth - (.5 / @gridRowWidth * 100 * 1%);
+    }
+
+    .span (@columns) {
+      width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1));
+      *width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%);
+    }
+
+    .row-fluid {
+      width: 100%;
+      .clearfix();
+      .span {
+        float: left;
+        margin-left: @fluidGridGutterWidth;
+        *margin-left: @fluidGridGutterWidth - (.5 / @gridRowWidth * 100 * 1%);
+      }
+      .first-child {
+        margin-left: 0;
+      }
+
+      // Space grid-sized controls properly if multiple per line
+      .controls-row [class*="span"] + [class*="span"] {
+        margin-left: @fluidGridGutterWidth;
+      }
+
+      // generate .spanX and .offsetX
+      .spanX (@gridColumns);
+      .offsetX (@gridColumns);
+    }
+  }
+
+  .vl-fluid{
+    .fluid (@fluidGridColumnWidth, @fluidGridGutterWidth);
+  }
+}
+// =============================================
+// 创建栅格布局
+// 默认950宽 24列 每列30px 间距10px
+// html结构
+// <div class="vl-grid"> <div class="row"> <div class="span span6"></div> <div class="span span6"></div> <div class="span span6"></div> <div class="span span6"></div> </div> <div class="row"> <div class="span span24"></div> </div> </div>
+// =============================================
+//栅格化
+
+.makeGrid(@colnum: 24, @colwidth: 30, @margin: 10px){
+  
+  //列数
+  @gridColumns:             @colnum;
+  //每一列宽度
+  @gridColumnWidth:         @colwidth;
+  //间距
+  @gridGutterWidth:         @margin;
+  //行宽度 = (列数 * 每一列的宽度 ) + (margin * (列数-1));
+  @gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+  //每一列的宽度 间距
+  .gridX (@gridColumnWidth, @gridGutterWidth) {
+    .spanX (@index) when (@index > 0) {
+      .span@{index} { .span(@index); }
+      .spanX(@index - 1);
+    }
+    .spanX (0) {}
+
+    .offsetX (@index) when (@index > 0) {
+      .offset@{index} { .offset(@index); }
+      .offsetX(@index - 1);
+    }
+    .offsetX (0) {}
+
+    .offset (@columns) {
+      margin-left: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns + 1));
+    }
+
+    .span (@columns) {
+      width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
+    }
+
+    .row {
+      margin-left: @gridGutterWidth * -1;
+      .clearfix();
+    }
+
+    .span{
+      float: left;
+      min-height: 1px; // prevent collapsing columns
+      //background-color: #ccc; //this is a test - busy
+      margin-left: @gridGutterWidth;
+    }
+
+    // generate .spanX and .offsetX
+    .spanX (@gridColumns);
+    .offsetX (@gridColumns);
+
+  }
+  .vl-grid{
+    .gridX(@gridColumnWidth, @gridGutterWidth);
+  }
+
+}
+
+// =============================================
+// 创建Metro风格布局 
+// 默认950宽 6列 每列150px 间距10px
+// html结构
+//<div class="vl-metro"> <div class="row"> <div class="span span2"> <div class="row"> <div class="span span2 line2"></div> <div class="span span2 line1"></div> </div> </div> <div class="span span2"> <div class="row"> <div class="span span1 line2"></div> <div class="span span1"> <div class="row"> <div class="span span1 line1"></div> <div class="span span1 line1"></div> </div> </div> </div> <div class="row"> <div class="span span2 line1"></div> </div> </div> <div class="span span2"> <div class="row"> <div class="span span2 line1"></div> <div class="span span2 line2"></div> </div> </div> </div> </div>
+// =============================================
+
+.makeMetro(@colnum: 6, @colwidth: 150px, @margin: 10px){
+  
+  @gridColumns:             @colnum;
+  @gridColumnWidth:         @colwidth;
+  @gridGutterWidth:         @margin;
+  @gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+
+  .metroX (@gridColumnWidth, @gridGutterWidth) {
+    .spanX (@index) when (@index > 0) {
+      .span@{index} { .span(@index); }
+      .spanX(@index - 1);
+    }
+    .spanX (0) {}
+    .lineX (@index) when (@index > 0) {
+      .line@{index} { .line(@index); }
+      .lineX(@index - 1);
+    }
+    .lineX (0) {}
+
+    .offsetX (@index) when (@index > 0) {
+      .offset@{index} { .offset(@index); }
+      .offsetX(@index - 1);
+    }
+    .offsetX (0) {}
+
+    .offset (@columns) {
+      margin-left: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns + 1));
+    }
+
+    .span (@columns) {
+      width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
+    }
+    .line (@columns){
+      height: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
+      margin-bottom: @margin;
+    }
+
+    .row {
+      margin-left: @gridGutterWidth * -1;
+      .clearfix();
+    }
+
+    .span{
+      float: left;
+      min-height: 1px; // prevent collapsing columns
+      margin-left: @gridGutterWidth;
+    }
+
+    // generate .spanX and .offsetX
+    .spanX (@gridColumns);
+    .lineX (@gridColumns);
+    .offsetX (@gridColumns);
+
+  }
+  .vl-metro{
+    .metroX(@gridColumnWidth, @gridGutterWidth);
+  }
+
+}

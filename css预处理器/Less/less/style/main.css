@@ -1,0 +1,82 @@
+@charset "utf-8";
+/*我是被编译的*/
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: yellow;
+  border: solid 5px pink;
+}
+.border {
+  border: solid 5px pink;
+}
+.test_hunhe {
+  border: solid #ffff00 30px;
+}
+.test_hunhe_03 {
+  border: solid #008000 10px;
+}
+.radius_test {
+  width: 100px;
+  height: 40px;
+  background-color: green;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.sanjiao {
+  border-width: 100px;
+  border-color: transparent transparent transparent #cccccc;
+  border-style: dashed dashed dashed solid;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.pipei {
+  width: 200px;
+  height: 200px;
+  background-color: green;
+  position: fixed;
+}
+.box_02 {
+  width: 1400px;
+  color: #c2c2c2;
+}
+/*
+.list{}
+.list li{}
+.list a{}
+.list span{}
+ */
+.list {
+  width: 600px;
+  margin: 30px auto;
+  padding: 0;
+  list-style: none;
+}
+.list li {
+  height: 30px;
+  line-height: 30px;
+  background-color: pink;
+  margin-bottom: 5px;
+  padding: 0 10px;
+}
+.list a {
+  float: left;
+}
+.list a:hover {
+  color: red;
+}
+.list span {
+  float: right;
+}
+.test_arguments {
+  border: 40px #ff0000 solid;
+}
+.test_03 {
+  width: calc(300px - 30px);
+}
+.test_important {
+  -webkit-border-radius: 5px !important;
+  -moz-border-radius: 5px !important;
+  border-radius: 5px !important;
+}

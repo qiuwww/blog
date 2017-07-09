@@ -1,0 +1,128 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  border: none;
+}
+.tudou_main {
+  width: 616px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title {
+  height: 62px;
+  line-height: 62px;
+  border-top: solid 1px #d0d0d0;
+  margin-top: 20px;
+}
+.title h3 {
+  color: #575757;
+  font: 22px/62px "微软雅黑";
+  width: 106px;
+  border-top: solid 2px #F97374;
+  margin-top: -1px;
+  position: relative;
+  float: left;
+  display: inline;
+  height: 61px;
+}
+.title_nav {
+  float: right;
+  font-size: 14px;
+  color: #575757;
+}
+.title_nav li {
+  float: left;
+  display: inline;
+}
+.title_nav span {
+  margin: 0 11px;
+}
+.title_nav a {
+  color: #575757;
+}
+.title_nav a:hover {
+  color: red;
+}
+.content {
+  margin-right: -32px;
+  zoom: 1;
+}
+.content:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.item {
+  width: 130px;
+  height: 164px;
+  float: left;
+  display: inline;
+  margin-right: 32px;
+}
+.item_img {
+  height: 78px;
+  position: relative;
+  margin-bottom: 5px;
+}
+.item_img img {
+  width: 130px;
+  height: 78px;
+  display: block;
+}
+.item_img span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 35px;
+  height: 18px;
+  line-height: 18px;
+  font-size: 12px;
+  color: #FFF;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  text-indent: 9px;
+}
+.item_img .cq {
+  background-image: url(../img/cq.png);
+}
+.item_img .gq {
+  background-image: url(../img/gq.png);
+}
+.item_list {
+  line-height: 22px;
+  font-size: 12px;
+}
+.item_list a {
+  color: #666;
+}
+.item_list a:hover {
+  color: red;
+}
+.item_list .userName,
+.item_list .play,
+.item_list .mess {
+  padding-left: 17px;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+.item_list .userName {
+  background-image: url(../img/01.jpg);
+  padding-top: 1px;
+}
+.item_list .play {
+  background-image: url(../img/02.jpg);
+  margin-right: 4px;
+}
+.item_list .mess {
+  background-image: url(../img/03.jpg);
+}

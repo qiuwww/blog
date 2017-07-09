@@ -1,5 +1,9 @@
 # 我的收藏夹
 
+### juzhong居中设置
+
+http://howtocenterincss.com/#contentType=div&horizontal=center&vertical=middle&browser.IE=6
+
 
 
 ## CSS
