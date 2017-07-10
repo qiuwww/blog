@@ -1,0 +1,28 @@
+/*stylus语法.css*/
+
+1、变量
+
+font-size = 14px
+
+body
+    font font-size Arial, sans-seri
+
+#prompt
+    position: absolute
+    top: 150px
+    left: 50%
+    width: w = 200px
+    margin-left: -(w / 2)
+
+#prompt
+    position: absolute
+    width: 200px
+    margin-left: -(@width / 2)
+
+
+/**
+ * 不需要添加引号
+ */
+
+2、 
+

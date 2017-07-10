@@ -1,0 +1,29 @@
+.tableData::-webkit-scrollbar {
+    height: 17px;
+    border-top: 1px solid #1f2125;
+    border-bottom: 1px solid #1f2125
+}
+/*对应垂直方向上的设置verticle*/
+.tableData::-webkit-scrollbar-button:horizontal:increment {
+    background: url(/thsft/images/VisualMedia/scrollRight.png) no-repeat;
+    width: 20px;
+    height: 17px
+}
+
+.tableData::-webkit-scrollbar-button:horizontal:decrement {
+    background: url(/thsft/images/VisualMedia/scrollLeft.png) no-repeat;
+    width: 20px;
+    height: 17px
+}
+
+.tableData::-webkit-scrollbar-track {
+    background-color: #14181e
+}
+
+.tableData::-webkit-scrollbar-thumb {
+    background-color: #4d596d
+}
+
+.tableData::-webkit-scrollbar-corner {
+    background-color: #14181e
+}

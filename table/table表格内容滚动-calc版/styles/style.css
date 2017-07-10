@@ -1,0 +1,88 @@
+/*各个部分样式*/
+
+@charset "utf-8";
+body{
+	overflow: hidden;
+}
+.container {
+	border: 1px #ccc solid;
+	width: 90%;
+	margin: 100px auto;
+}
+
+.form-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 0 auto;
+	text-align: center;
+	table-layout: fixed;
+}
+
+.form-table th {
+	border-left: none;
+	border-top: none;
+	border-right: 1px #ccc solid;
+	border-bottom: 1px #ccc solid;
+	background: #F3F3F3;
+}
+
+.form-table td {
+	border-left: none;
+	border-top: none;
+	border-bottom: 1px #ccc solid;
+	border-right: 1px #ccc solid;
+}
+.fixed-thead,
+.fixed-tfoot {
+	display: block;
+	/*width: 99%;*/
+	width: -webkit-calc(100% - 17px);
+	width: -moz-calc()(100% - 17px);
+	width: calc(100% - 17px);
+	height: 50px;
+}
+.fixed-tfoot tr td {
+	background: #F3F3F3;
+	border-bottom: none;
+}
+.fixed-thead tr,
+.fixed-tfoot tr {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	display: block;
+}
+
+.fixed-thead tr th,
+.fixed-tfoot tr td {
+	float: left;
+	display: block;
+	width: 25%;
+	height: 50px;
+	font-size: 16px;
+	text-align: center;
+}
+
+.scroll-tbody {
+	display: block;
+	height: 306px;
+	overflow: auto;
+	width: 100%;
+}
+
+.scroll-tbody tr {
+	width: 100%;
+	display: block;
+	height: 40px;
+	line-height: 40px;
+}
+
+.scroll-tbody tr td {
+	float: left;
+	display: block;
+	width: 25%;
+}
+
+.form-table .scroll-tbody tr:nth-child(odd) td {
+ background-color: #ECE9D8;
+}
