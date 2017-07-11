@@ -1,7 +1,7 @@
 
 
 
-# handlebars.js的使用.js
+# handlebars.js的使用.md
 
 ## 注意点如下：
 
@@ -15,15 +15,16 @@
 http://www.ghostchina.com/handlebars-wen-dang-bi-ji/
 http://www.cnblogs.com/yldf55/p/5147996.html
 http://handlebarsjs.com/
-http://blog.csdn.net/vuturn/article/details/51259355
+官网译文：https://segmentfault.com/a/1190000000342636
 http://caibaojian.com/handlebars-js.html
 
 ## 特点
 
-handlebars作为一个logicless的模板，不支持特别复杂的表达式、语句，只内置了一些基本的语法，像if、each这些。
+1. handlebars作为一个logicless的模板，不支持特别复杂的表达式、语句，只内置了一些基本的语法，像if、each这些。
 可惜的是就连if都十分弱，只能判断值是否为true/false，或转化后是否为true/false，不能对值进行比较。
-不过，handlebars提供了自定义helper的能力，通过自定义helper，可以实现非常丰富的功能。
-
+2. 不过，handlebars提供了自定义helper的能力，通过自定义helper，可以实现非常丰富的功能。
+3. 在加载时被预编译，而不是到了客户端执行到代码时再去编译， 这样可以保证模板加载和运行的速度。
+4. 简单的说就是：Handlebars是一个很好的前后端的分离的方案
 
 
 ## 点分割表达式
@@ -84,7 +85,8 @@ link 是 helper 名字，story 是 helper 参数。
 ```
 ## 注册 helper
 ```
-Handlebars.registerHelper('link', function(object) {  
+Handlebars.registerHelper('link', function(object) { 
+  // 在Helper里Handlebars.SafeString就是不转义Html，如果想转义Html直接return内容即可。 
   return new Handlebars.SafeString(
     "<a href='" + object.url + "'>" + object.text + "</a>"
   );
@@ -161,6 +163,7 @@ Handlebars.registerHelper('link', function(text, options) {
 ```
 
 # 基础 Blocks
+**有时候当你需要对某条表达式进行更深入的操作时，Blocks就派上用场了，在Handlebars中，你可以在表达式后面跟随一个#号来表示Blocks，然后通过{{/表达式}}来结束Blocks。 如果当前的表达式是一个数组，则Handlebars会“自动展开数组”，并将Blocks的上下文设为数组中的元素。**
 ```
 <div class="entry">  
   <h1>{{title}}</h1>
@@ -178,6 +181,7 @@ noop helper 实际跟没有 helper 类似，只是**传递上下文，返回字�
 Handlebars 把当前的上下文作为 this 。
 
 ## with helper
+**{{#with}}一般情况下，Handlebars模板会在编译的阶段的时候进行context传递和赋值。使用with的方法，我们可以将context转移到数据的一个section里面（如果你的数据包含section）。这个方法在操作复杂的template时候非常有用。【简单的说就是，with可以判断这几数据有没有; 个人感觉和if挺像的】**
 ```
 根据模板传递的上下文解析模板
 
@@ -205,6 +209,9 @@ Handlebars.registerHelper('with', function(context, options) {
 ```
 
 ## 简单迭代器 each helper
+**Handlebar的遍历对于数组和对象都适用。**
+1. @index或者@key都可以获得序号，但是序号都是从0开始的，如果需要从1开始需要写一个helper; @key还可获得对象的索引值
+2. @first和@last可以判断是否是数组的第一个或者最后一个。
 ```
 Handlebars 内建了　each　迭代器
 
@@ -286,6 +293,10 @@ Handlebars.registerHelper('each', function(context, options) {
 **数组迭代**的第一步和最后一步用 @first 和 @last 变量表示， 对象迭代时仅 @first 可用。
 
 ## 条件语句 if  helper  unless(表示与if刚好相反)
+**Handlebars的if判断只能判断true和false，没办法进行这种a===10的逻辑判断。**
+**在Helper里也能做一些判断，然后在页面上使用else判断；
+通过return options.fn(this)返回true的结果，
+通过return options.inverse(this)返回else要执行的内容**
 ```
 Handlebars 内建了 if 和 unless 语句
 
@@ -357,6 +368,7 @@ var html    = template(context);
 ```
 
 # Partials 局部模板
+**共享同一个模板内容，有些公共部分希望一次书写，然后就能重复使用了；类似一些include的功能; 不需要也能调用Helper的方法**
 ```
 用{{> partialName}}
 
@@ -401,4 +413,19 @@ Handlebars.Utils.isArray(obj)
 判断函数
 
 Handlebars.Utils.isFunction(obj) 
+```
+# jq封装
+```
+(function($) {
+    var compiled = {};
+    $.fn.handlebars = function(template, data) {
+        if (template instanceof jQuery) {
+            template = $(template).html();
+        }
+    compiled[template] = Handlebars.compile(template);
+    this.html(compiled[template](data));
+    };
+})(jQuery);
+
+$('#content').handlebars($('#template'), { name: "Alan" });
 ```
