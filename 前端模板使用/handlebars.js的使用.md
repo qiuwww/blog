@@ -20,14 +20,14 @@ http://caibaojian.com/handlebars-js.html
 
 ## 特点
 
-1. handlebars作为一个logicless的模板，不支持特别复杂的表达式、语句，只内置了一些基本的语法，像if、each这些。
+1. handlebars作为一个logic less的模板，不支持特别复杂的表达式、语句，只内置了一些基本的语法，像if、each这些。
 可惜的是就连if都十分弱，只能判断值是否为true/false，或转化后是否为true/false，不能对值进行比较。
 2. 不过，handlebars提供了自定义helper的能力，通过自定义helper，可以实现非常丰富的功能。
-3. 在加载时被预编译，而不是到了客户端执行到代码时再去编译， 这样可以保证模板加载和运行的速度。
-4. 简单的说就是：Handlebars是一个很好的前后端的分离的方案
+3. **在加载时被预编译，而不是到了客户端执行到代码时再去编译**， 这样可以保证模板加载和运行的速度。
+4. 简单的说就是：Handlebars是一个很好的前后端的分离的方案。
 
 
-## 点分割表达式
+# 点分割表达式
 ```
 <h1>{{article.title}}</h1>  
 ```
@@ -35,7 +35,7 @@ http://caibaojian.com/handlebars-js.html
 当前上下文找 article 属性，再找它的 title 属性;
 标识符可以是除了以下字符以外的 unicode 字符 Whitespace ! “ # % & ‘ ( ) * + , . / ; < = > @ [ \ ] ^ ` { | } ~
 
-## 不合法的标识符用 “[]” 包装,应该是数字属性，或者是特殊字符属性；
+## 不合法的标识符用 “[ ]” 包装,应该是数字属性，或者是特殊字符属性；
 ```
 {{#each articles.[10].[#comments]}}
   <h1>{{subject}}</h1>
@@ -45,7 +45,7 @@ http://caibaojian.com/handlebars-js.html
 {{/each}}
 ```
 
-## 不转义, 如果包含一些标签或者转义字符，就使用三个大括号
+# 不转义, 如果包含一些标签或者转义字符，就使用三个大括号
 ```
 {{{foo}}}
 ```
@@ -54,10 +54,9 @@ http://caibaojian.com/handlebars-js.html
 
 ## helper说明
 ```
-helper大概可以分为两类，一类是用于格式化输出数据，
-使用起来像这样：{{formatDate date}}，官方没有给起名字，我姑且叫做简单helper好了。
-另一类叫块级helper，**块级helper有自己的作用域**，可以拿到上下文数据，
-并可以定义渲染的内容，可以发挥的作用就比较大了。
+helper大概可以分为两类，
+1. 一类是用于格式化输出数据，使用起来像这样：{{formatDate date}}，官方没有给起名字，我姑且叫做简单helper好了。
+2. 另一类叫块级helper，**块级helper有自己的作用域**，可以拿到上下文数据，并可以定义渲染的内容，可以发挥的作用就比较大了。
 ```
 **options**: 是一个对象，包含上下文相关的一些信息。
 
@@ -66,8 +65,11 @@ helper大概可以分为两类，一类是用于格式化输出数据，
 
 **options.inverse**，它是取相反的意思。
 
-**块级helper**：在用的时候开头要加"#"，并且要有结束符，就是上面的{{/if_even}}
+# 块级helper
+在用的时候开头要加"#"，并且要有结束符，就是上面的{{/if_even}}
+
 **helper的销毁**: 调用Handlebars.unregisterHelper('list')即可销毁一个helper
+
 **一次注册多个helper**:
 ```
 andlebars.registerHelper({
@@ -75,8 +77,6 @@ andlebars.registerHelper({
     bar: function() {}
 });
 ```
-
-
 
 **0或多个参数，用空格分割，每个参数是个 handlebars 表达式**
 ```
@@ -95,7 +95,6 @@ Handlebars.registerHelper('link', function(object) {
 helper 返回 HTML ，不想被转义，用`Handlebars.SafeString()。`
 
 ## 上下文和 helper：
-
 helper 把接收的上下文作为 this 上下文;
 ```
 <ul>  
@@ -136,14 +135,13 @@ Handlebars.registerHelper('agree_button', function() {
 等价于
 ```
 {{{link story.text story.url}}}
-
 Handlebars.registerHelper('link', function(text, url) {  
   return new Handlebars.SafeString(
     "<a href='" + url + "'>" + text + "</a>"
   );
 });
 ```
-## helper 最后一个参数也可以接收可选的键值对序列（文档提到的 hash 参数），使用options.hash来取得该对象
+### helper 最后一个参数也可以接收可选的键值对序列（文档提到的 hash 参数），使用options.hash来取得该对象
 ```
 {{{link "See more..." href=story.url class="story"}}}
 ```
@@ -151,11 +149,9 @@ hash 参数的 key 必须是简单的标识符，value 是 Handlebars 表达式�
 ```
 Handlebars.registerHelper('link', function(text, options) {  
   var attrs = [];
-
   for(var prop in options.hash) {
     attrs.push(prop + '="' + options.hash[prop] + '"');
   }
-
   return new Handlebars.SafeString(
     "<a " + attrs.join(" ") + ">" + text + "</a>"
   );
@@ -163,7 +159,12 @@ Handlebars.registerHelper('link', function(text, options) {
 ```
 
 # 基础 Blocks
-**有时候当你需要对某条表达式进行更深入的操作时，Blocks就派上用场了，在Handlebars中，你可以在表达式后面跟随一个#号来表示Blocks，然后通过{{/表达式}}来结束Blocks。 如果当前的表达式是一个数组，则Handlebars会“自动展开数组”，并将Blocks的上下文设为数组中的元素。**
+**有时候当你需要对某条表达式进行更深入的操作时，Blocks就派上用场了，
+在Handlebars中，你可以在表达式后面跟随一个#号来表示Blocks，
+然后通过{{/表达式}}来结束Blocks。 
+如果当前的表达式是一个数组，则Handlebars会“自动展开数组”，
+并将Blocks的上下文设为数组中的元素。**
+
 ```
 <div class="entry">  
   <h1>{{title}}</h1>
@@ -173,18 +174,19 @@ Handlebars.registerHelper('link', function(text, options) {
     {{/noop}}
   </div>
 </div>  
+
 Handlebars.registerHelper('noop', function(options) {  
   return options.fn(this);
 });
-```
-noop helper 实际跟没有 helper 类似，只是**传递上下文，返回字符串**。
+noop helper 实际跟没有 helper 类似，只是  传递上下文，返回字符串。
 Handlebars 把当前的上下文作为 this 。
-
+```
 ## with helper
-**{{#with}}一般情况下，Handlebars模板会在编译的阶段的时候进行context传递和赋值。使用with的方法，我们可以将context转移到数据的一个section里面（如果你的数据包含section）。这个方法在操作复杂的template时候非常有用。【简单的说就是，with可以判断这几数据有没有; 个人感觉和if挺像的】**
+**{{#with}}一般情况下，Handlebars模板会在编译的阶段的时候进行context传递和赋值。
+使用with的方法，我们可以将context转移到数据的一个section里面（如果你的数据包含section）。
+这个方法在操作复杂的template时候非常有用。【简单的说就是，with可以判断这几数据有没有; 个人感觉和if挺像的】**
 ```
 根据模板传递的上下文解析模板
-
 <div class="entry">  
   <h1>{{title}}</h1>
   {{#with story}}
@@ -192,6 +194,7 @@ Handlebars 把当前的上下文作为 this 。
     <div class="body">{{{body}}}</div>
   {{/with}}
 </div>  
+
 当 JSON 对象包含嵌套属性时，不必再三重复父属性的名字。比如以下数据：
 
 {
@@ -201,6 +204,7 @@ Handlebars 把当前的上下文作为 this 。
     body: "After the jump"
   }
 }
+
 helper 接收参数，参数为 JSON 属性的 上下文。
 
 Handlebars.registerHelper('with', function(context, options) {  
@@ -210,11 +214,12 @@ Handlebars.registerHelper('with', function(context, options) {
 
 ## 简单迭代器 each helper
 **Handlebar的遍历对于数组和对象都适用。**
-1. @index或者@key都可以获得序号，但是序号都是从0开始的，如果需要从1开始需要写一个helper; @key还可获得对象的索引值
+
+1. @index或者@key都可以获得序号，但是序号都是从0开始的，
+如果需要从1开始需要写一个helper; @key还可获得对象的索引值
 2. @first和@last可以判断是否是数组的第一个或者最后一个。
 ```
 Handlebars 内建了　each　迭代器
-
 <div class="comments">  
   {{#each comments}}
     <div class="comment">
@@ -223,27 +228,24 @@ Handlebars 内建了　each　迭代器
     </div>
   {{/each}}
 </div>  
+
 实现原理如下：　把 comments 数组的每一个元素作为上下文解析模板
 
 Handlebars.registerHelper('each', function(context, options) {  
   var ret = "";
-
   for(var i=0, j=context.length; i<j; i++) {
     ret = ret + options.fn(context[i]);
   }
-
   return ret;
 });
-
 
 可以用 this 引用迭代元素
 
 <ul class="people_list">  
   {{#each people}}
-  <li>{{this}}</li>
+  <li>{{this}}</li> // 多层嵌套，遍历this
   {{/each}}
 </ul>  
-
 
 上下文：
 
@@ -254,6 +256,7 @@ Handlebars.registerHelper('each', function(context, options) {
     "Charles Jolley"
   ]
 }
+
 结果：
 
 <ul class="people_list">  
@@ -261,7 +264,6 @@ Handlebars.registerHelper('each', function(context, options) {
   <li>Alan Johnson</li>
   <li>Charles Jolley</li>
 </ul>  
-
 
 当某一项为空时，可以用
 
@@ -275,9 +277,7 @@ Handlebars.registerHelper('each', function(context, options) {
   <p class="empty">No content</p>
 {{/each}}
 
-通过
-
-{{@index}}: 可以引用当前的循环索引   // 不需要重新而写helper
+通过{{@index}}: 可以引用当前的循环索引   // 不需要重新而写helper
 
 {{#each array}}
   {{@index}}: {{this}}
@@ -285,24 +285,30 @@ Handlebars.registerHelper('each', function(context, options) {
 用
 
 {{@key}}： 引用当前的键名：
+
 {{#each object}}
   {{@key}}: {{this}}
 {{/each}}
 ```
 
-**数组迭代**的第一步和最后一步用 @first 和 @last 变量表示， 对象迭代时仅 @first 可用。
+## 数组迭代
 
-## 条件语句 if  helper  unless(表示与if刚好相反)
+的第一步和最后一步用 @first 和 @last 变量表示， 
+对象迭代时仅 @first 可用。
+
+# 条件语句 if  helper  unless(表示与if刚好相反)
+
 **Handlebars的if判断只能判断true和false，没办法进行这种a===10的逻辑判断。**
 **在Helper里也能做一些判断，然后在页面上使用else判断；
 通过return options.fn(this)返回true的结果，
 通过return options.inverse(this)返回else要执行的内容**
 ```
-Handlebars 内建了 if 和 unless 语句
+Handlebars 内建了 if 和 unless 语句。
 
 {{#if isActive}}
   <img src="star.gif" alt="Active">
 {{/if}}
+
 实现原理：根据传入的条件参数，判断是否解析模板
 
 Handlebars.registerHelper('if', function(conditional, options) {  
@@ -322,16 +328,15 @@ unless 跟 if 正好相反，如果表达式返回 false ，模板将被渲染�
 
 <div class="entry">  
   {{#unless license}}
-  <h3 class="warning">WARNING: This entry does not have a license!</h3>
+    <h3 class="warning">WARNING: This entry does not have a license!</h3>
   {{/unless}}
 </div> 
 
 ```
 
-## log helper
+# log helper
 ```
 记录上下文状态
-
 {{log "Look at me!"}}
 ```
 
@@ -345,7 +350,8 @@ unless 跟 if 正好相反，如果表达式返回 false ，模板将被渲染�
 然后用 Handlebars.compile 编译模板
 
 var source   = $("#entry-template").html();  
-var template = Handlebars.compile(source);  
+var template = Handlebars.compile(source); 
+
 获取编译后的 HTML 模板，用 JSON 数据填充模板
 
 var context = {title: "My New Post", body: "This is my first post!"}  
@@ -360,7 +366,7 @@ var html    = template(context);
 </div>
 ```
 
-## 模板注释
+# 模板注释
 ```
 {{! }}
 或者
@@ -368,12 +374,15 @@ var html    = template(context);
 ```
 
 # Partials 局部模板
-**共享同一个模板内容，有些公共部分希望一次书写，然后就能重复使用了；类似一些include的功能; 不需要也能调用Helper的方法**
-```
-用{{> partialName}}
 
+**共享同一个模板内容，有些公共部分希望一次书写，
+然后就能重复使用了；类似一些include的功能; 
+不需要也能调用Helper的方法**
+
+用{{> partialName}}
 引入局部模板，局部模板可以使字符串，也可以是编译模板的函数。
 
+```
 var source = "<ul>{{#people}}<li>{{> link}}</li>{{/people}}</ul>";
 
 Handlebars.registerPartial('link', '<a href="/people/{{id}}">{{name}}</a>')
@@ -388,32 +397,36 @@ var data = { "people": [
 template(data);
 
 结果：Should render:
+
 <ul>
    <li><a href="/people/1">Alan</a></li>
    <li><a href="/people/2">Yehuda</a></li>
 </ul>
 ```
+
 # 内建工具
+
 ```
 转义字符串
+Handlebars.Utils.escapeExpression(string)
 
-Handlebars.Utils.escapeExpression(string)  
 判断空值
-
 Handlebars.Utils.isEmpty(value)  
+
 扩展对象
-
 Handlebars.Utils.extend(foo, {bar: true})  
+
 转字符串
-
 Handlebars.Utils.toString(obj)  
+
 判断数组
-
 Handlebars.Utils.isArray(obj)  
-判断函数
 
+判断函数
 Handlebars.Utils.isFunction(obj) 
+
 ```
+
 # jq封装
 ```
 (function($) {
@@ -426,6 +439,6 @@ Handlebars.Utils.isFunction(obj)
     this.html(compiled[template](data));
     };
 })(jQuery);
-
+// 调用
 $('#content').handlebars($('#template'), { name: "Alan" });
 ```
