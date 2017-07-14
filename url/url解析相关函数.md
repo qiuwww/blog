@@ -47,3 +47,8 @@ URL特殊符号及对应的十六进制值编码：
 6. # 表示书签 %23  
 7. & URL 中指定的参数间的分隔符 %26  
 8. = URL 中指定参数的值 %3D 
+
+
+
+# URLSearchParams对象
+https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
