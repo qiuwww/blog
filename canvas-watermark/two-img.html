@@ -1,0 +1,61 @@
+<!-- two-img.html -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Html5 Canvas 实现图片合成</title>
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/Canvas2Image.js" type="text/javascript" charset="utf-8"></script>
+<style>
+img{border:solid 1px #ddd;}
+</style>
+</head>
+
+<body>
+<div align="center" class="img_photo">
+    <img src="imgs/2017-1.jpg" width="300">
+    <img src="imgs/4.jpg" width="300">
+    <img src="imgs/14.jpg" width="300">
+    <img src="imgs/14.jpg" width="300">
+</div>
+<input type="button" value="一键合成" onClick="draw()" style="display:block;width: 60px; margin: 0 auto;">
+<div id="imgBox" align="center"></div>
+<script>
+function draw(fn){
+    var data1= new Array();
+    for(var i=0;i<$('.img_photo img').length;i++){
+        data1[i]=$('.img_photo img').eq(i).attr('src');
+    }
+    var c=document.createElement('canvas'),
+        ctx=c.getContext('2d'),
+        len=data1.length;
+    c.width=290;
+    c.height=290;
+    ctx.rect(0,0,c.width,c.height);
+    ctx.fillStyle='transparent';//画布填充颜色
+    ctx.fill();
+    function drawing(n){
+        if(n<len){
+            var img=new Image;
+            img.crossOrigin = 'Anonymous'; //解决跨域
+            img.src=data1[n];
+            img.onload=function(){
+                ctx.drawImage(img,0,0,290,290);
+                drawing(n+1);//递归
+            }
+        }else{
+            //保存生成作品图片
+            convertCanvasToImage(c);
+            Canvas2Image.saveAsJPEG(c); //保存到电脑
+        }
+    }
+    drawing(0);
+}
+function convertCanvasToImage(canvas) {
+    var hc_image = new Image();
+    hc_image.src = canvas.toDataURL("image/png");
+    $('#imgBox').html(hc_image);
+}
+</script>
+</body>
+</html>
