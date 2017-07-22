@@ -1,0 +1,25 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "for test ",
+  "main": "no",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moonbreezee/blog.git"
+  },
+  "keywords": [
+    "up"
+  ],
+  "author": "qiu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moonbreezee/blog/issues"
+  },
+  "homepage": "https://github.com/moonbreezee/blog#readme",
+  "devDependencies": {
+    "express": "^4.15.3"
+  }
+}
