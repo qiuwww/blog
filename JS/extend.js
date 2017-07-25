@@ -32,3 +32,9 @@ function extendDeep(obj){
 extendDeep({a:1,b:2}, {b:3, c:4}, {d:10, e:20});
 
 // ok
+
+
+// 原生方法
+Object.assign(target, ...sources)
+// jquery方法
+$.extend(target, ...sources)

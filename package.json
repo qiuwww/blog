@@ -21,5 +21,8 @@
   "homepage": "https://github.com/moonbreezee/blog#readme",
   "devDependencies": {
     "express": "^4.15.3"
+  },
+  "dependencies": {
+    "events": "^1.1.1"
   }
 }

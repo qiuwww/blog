@@ -1,0 +1,38 @@
+/*预编译器.css*/
+
+
+命名规范：
+
+
+BEM命名规范： BEM的意思就是块（block）、元素（element）、修饰符（modifier）。
+
+添加一个前置的块命名，且可以保证第一个不嵌套：
+
+.confirm{
+	&-title{
+		color: red;
+	}
+	&-bottom{
+		color: gray;
+	}
+}
+
+编译后的结果是：
+
+.comfirm-title{
+	color: red;
+}
+.confirm-bottom{
+	color: gray;
+}
+无嵌套，不过标签内的名字也是比较长的。
+
+
+代码块注释
+
+reset
+
+使用变量
+
+模块化
+
