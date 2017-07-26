@@ -5,15 +5,18 @@
  */
 
 class Shape {
+    // 构造函数
     constructor (id, x, y) {
         this.id = id
         this.move(x, y)
     }
+    // 静态方法
     move (x, y) {
         this.x = x
         this.y = y
     }
 }
+// 继承子类
 class Rectangle extends Shape {
     constructor (id, x, y, width, height) {
         super(id, x, y);// 关键步骤
@@ -23,6 +26,7 @@ class Rectangle extends Shape {
 }
 class Circle extends Shape {
     constructor (id, x, y, radius) {
+        // 调用父类的静待方法，添加到子类上
         super(id, x, y)
         this.radius = radius
     }
@@ -67,3 +71,8 @@ Circle.prototype.constructor = Circle;
  * 个人觉得面向对象是JavaScript开发很重要的一部分，虽然强调组件化，但是组件的开发依然无法离开面向对象存在。
  * 再加上ES6的静态方法，模块化让JS开发生产力更上一层楼。
  */
+
+
+// test code
+
+

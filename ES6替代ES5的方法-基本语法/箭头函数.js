@@ -157,3 +157,44 @@ foo.call( { id: 42 } )()()();
 //  保存当前函数的上下文环境，以便后边使用
 var context = this;
 
+
+
+/**
+ * 测试默认参数
+ */
+function fn(x, y = 'world'){
+    console.log(`${x} ${y}`);
+} 
+fn('hello');// hello world
+fn('hello', 'qiu');// hello qiu
+fn('hello', '');// hello 
+
+/**
+ * rest求和函数,参数不定
+ */
+function add(...args){
+    let sum = 0;
+    if(Array.isArray(args)){
+        for(let val of args){
+            sum += val;
+        }
+    } 
+    return sum;
+}
+add(1,2,3,3,3,3,3,3,3,3,5,3);
+
+// 参数数组替代
+使用rest来替代arguments，会语法更简单一些
+
+
+ES5替代方法
+let arguments = [1,2,3];
+Array.prototype.slice.call(arguments) -> (...arguments)
+function testArguments(a, b, c){
+    console.log('arguments: ', arguments);//  类数组 
+    console.log('Array.prototype.slice.call(arguments): ', Array.prototype.slice.call(arguments));// [1, 2, 3]
+    console.log('...arguments: ', ...arguments);//  1 2 3
+}
+testArguments(1,2,3);
+
+Math.max.apply(null, [1,2,3]) -> Math.max(...[1,2,3])
