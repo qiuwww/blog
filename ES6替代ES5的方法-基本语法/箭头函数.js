@@ -197,4 +197,39 @@ function testArguments(a, b, c){
 }
 testArguments(1,2,3);
 
-Math.max.apply(null, [1,2,3]) -> Math.max(...[1,2,3])
+Math.max.apply(null, [1,2,3]) -> Math.max(...[1,2,3]);
+
+new Date(...[2017, 12, 12]) -> new (Date.bind.apply(Date, [null, 2017, 12, 12]))
+// Fri Jan 12 2018 00:00:00 GMT+0800 (中国标准时间)
+
+
+
+// 尾递归
+// 注意stack overflow
+
+// 阶乘计算：
+
+/**
+ * 这个时候需要保存n个调用记录，复杂度为O(n);
+ */
+
+function factorial(n){
+  if(n === 1){
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+factorial(10);
+
+
+function endFactorial(m, total){
+  if(m === 1){
+    return total;
+  }
+  return endFactorial(m -1, m * total);
+}
+endFactorial(10, 1);
+
+
+
+
