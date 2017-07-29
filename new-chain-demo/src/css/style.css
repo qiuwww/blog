@@ -1,0 +1,26 @@
+/*style.css*/
+.left,
+.right{
+	width: 48%;
+	box-sizing:border-box;
+	float: left;
+	height:500px;
+	border:1px solid gray;
+	margin:1%;
+}
+h2{
+	background-color:#D0DC6A;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+}
+textarea{
+    width: 98%;
+    height: 400px;
+    box-sizing:border-box;
+    margin: 1%;
+    overflow: auto;
+    border: 1px solid blue;
+    font: 14px "Courier New", Courier, monospace;
+}
