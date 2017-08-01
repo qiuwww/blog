@@ -5,7 +5,7 @@
 import {log} from './common/common.js'
 
 
-log('test', '123');
+log('test', '123123123');
 
 // 测试async.await
 var sleep = function (time) {
@@ -33,10 +33,11 @@ class Person {
 		this.age = age;		
 	}
 	sayName (){
-		console.log(this.name);
+        console.log(this.name);
+		console.log(this.age);
 	}
 }
 
-let lilei = new Person('lilei', '20');
+let lilei = new Person('li0lei', '20000');
 
 lilei.sayName();

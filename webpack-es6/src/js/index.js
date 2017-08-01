@@ -18,7 +18,7 @@ var sleep = function (time) {
 
 var start = async function () {
     console.log('start');
-    await sleep(2000);
+    await sleep(3000);
     console.log('end');
 };
 

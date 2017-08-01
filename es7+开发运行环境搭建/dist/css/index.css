@@ -1,0 +1,13 @@
+/*index.styl*/
+div {
+  height: 50px;
+  width: 100px;
+  border-radius: 60%;
+}
+body {
+  color: #f00;
+}
+body div {
+  background-color: #ff0;
+  font-size: 20px;
+}

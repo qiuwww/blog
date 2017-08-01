@@ -1,6 +1,12 @@
 // class-test.js
 
 
+// 测试import与moudle
+import {log} from './common/common.js'
+
+
+log('test', '123');
+
 class dog {
 	constructor(name){
 		this.name = name;
