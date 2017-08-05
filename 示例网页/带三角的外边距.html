@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>字符制作三角边框</title>
+<script>
+	var arr = [];
+for(var num=0; num<10000;num++){
+
+
+	if(num%2==1){
+		if(num%4==1){
+			if(num%5==4){
+				if(num%6==3){
+					if(num%7==5){
+						if(num%9==0){
+							arr.push(num);
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+}
+
+console.log(arr);
+
+
+
+</script>
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	font-family:SimSun;
+}
+h1{
+    text-align:center;
+}
+
+.demo1{
+	width:300px;
+	margin:20px auto;
+	border:1px solid red;
+	height:100px;
+}
+.demo1 em,.demo1 span{
+	display:block;    /*此元素将显示为块级元素，此元素前后会带有换行符。*/
+	width:30px;       /*"◆ "行宽*/	
+	height:16px;      /*"◆ "调整高，*/
+	font-size:30px;   /*"◆ "的字体大小*/
+	overflow:hidden;  /*重复的内容会被修剪，并且其余内容是不可见的。*/
+	_position:relative;
+	margin-left:50px;
+}
+.demo1 em{
+	margin-top:-16px;
+	color:red;
+	font-style:normal; /*默认值。浏览器显示一个标准的字体样式。*/
+}
+.demo1 span{
+	margin-top:-14px;
+	color:white;
+}
+
+.demo2{            /*利用上下叠加来控制显示于隐藏，隐藏也就是显示白色*/
+	width:300px;
+	border:1px solid #F00;
+	height:100px;
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+}
+.demo2 em,.demo2 span{
+	font-style:normal;
+	font-size:30px;
+	position:absolute;
+	left:-16px;
+	top:40px;
+	color:red;
+}
+.demo2 span{
+	left:-14px;
+	color:white;
+}
+
+.demo3{
+	height: 100px;
+	width: 300px;
+	margin: 20px auto;
+	border:1px solid red;
+}
+.demo3 em,.demo3 span{	
+	position: relative;
+	left: 300px;
+	top: 20px;
+	width: 30px;
+	height: 16px;
+	font-size:30px;
+	overflow: hidden;
+	_position:relative;
+}
+.demo3 em{
+	margin-left: -14px;
+	color: red;
+	font-style: normal;
+}
+.demo3 span{
+	margin-left: -40px;
+	color: white;
+}
+
+.demo4{
+	height: 100px;
+	width: 300px;
+	border: 1px solid blue;
+	position: relative;
+	margin: 20px auto;
+}
+.demo4 em,.demo4 span{
+	font-style: normal;
+	position: absolute;
+	font-size: 30px;
+	top: 82px;
+	left: 20px;
+	color:white;
+}
+.demo4 em{
+	top: 84px;
+	color: blue;
+}
+
+</style>
+</head>
+<body>
+<h1>demo1 是用 margin 方法</h1>
+<div class="demo1">
+<em>&#9670;</em>         <!-- 来强调突出文本 -->    <!-- html编码 "◆ "  &#9670; -->
+<span>&#9670;</span>
+</div>
+<h1>demo2 是用 position 方法</h1>
+<div class="demo2">
+<em>&#9670;</em>
+<span>&#9670;</span>
+</div>
+<h1>demo3 写的是今天面试的问题</h1>
+<div class="demo3">
+<em>&#9670;</em>
+<span>&#9670;</span>
+</div>
+<h1>demo4 完善</h1>
+<div class="demo4">
+<em>&#9670;</em>
+<span>&#9670;</span>
+</div>
+</body>
+</html>

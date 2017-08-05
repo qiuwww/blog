@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+  *{
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+.wrap{
+      height:170px;
+        width:490px;
+        overflow: hidden;
+        position: relative;
+        margin:100px auto;}
+  .wrap ul{position:absolute;} 
+  .wrap ul li{height:170px;}
+  .wrap ol{position:absolute;
+           right:5px;
+           bottom:10px;}
+  .wrap ol li{height:20px; 
+              width: 20px;
+              background:#ccc;
+              border:solid 1px #666;
+              margin-left:5px;
+              color:#000;
+              float:left;
+              line-height:20px;
+              text-align:center;
+              cursor:pointer;}
+  .wrap ol .on{background:#E97305;
+               color:#fff;}
+
+  </style>
+  <script type="text/javascript">
+  window.onload=function(){
+    var wrap=document.getElementById('wrap'),
+        pic=document.getElementById('pic'),
+        pics=pic.getElementsByTagName('li'),
+        list=document.getElementById('list').getElementsByTagName('li'),
+        index=0,
+        timer=null;
+
+
+      // 定义并调用自动播放函数
+    function count(){
+        index++;
+        if(index>=list.length){
+            index=0;
+            };
+        qiehuan(index);
+        };
+    timer=setInterval(count,1000);
+ 
+    pic.onmouseover=function(){     //鼠标移动到图片上图片停止切换
+        clearInterval(timer);
+        };
+    pic.onmouseout=function(){
+        timer=setInterval(count,1000);
+        };
+    for (var j = 0; j < list.length; j++) {
+        list[j].id=j;
+        list[j].onmouseover=function(){
+            qiehuan(this.id);
+            clearInterval(timer);
+        };
+    };
+    function qiehuan(num){
+        for (var i = 0; i < list.length; i++) {
+            //pics[i].style.display='none';
+            list[i].className='';
+            };
+        //pics[num].style.display='block';
+        pic.style.top="-"+num*170+"px";
+        list[num].className='on';            //前边给on一个样式
+    }
+   }
+
+  </script> 
+</head>
+<body>
+
+  <div class="wrap" id='wrap'>
+    <ul id="pic">
+      <li><img src="http://img.mukewang.com/54111cd9000174cd04900170.jpg" alt=""></li>
+      <li><img src="http://img.mukewang.com/54111dac000118af04900170.jpg" alt=""></li>
+      <li><img src="http://img.mukewang.com/54111d9c0001998204900170.jpg" alt=""></li>
+      <li><img src="http://img.mukewang.com/54111d8a0001f41704900170.jpg" alt=""></li>
+      <li><img src="http://img.mukewang.com/54111d7d00018ba604900170.jpg" alt=""></li>    
+    </ul>
+    <ol id="list">
+      <li class="on">1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ol>
+  </div>
+</body>
+</html>

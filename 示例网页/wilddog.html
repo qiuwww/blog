@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+  <meta chartset= "utf-8">
+  <script src="https://cdn.wilddog.com/js/client/current/wilddog.js"></script>
+  <script src="https://cdn.wilddog.com/js/vendor/jquery-1.11.2.min.js"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/examples/demo-chat/chat.css"> -->
+</head>
+<body>
+<!-- chat.css -->
+<style type="text/css">
+  
+.example-chat{
+  border: 1px solid #CCC;;
+  width: 500px;
+  margin: 40px auto 0px auto;
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+.example-chat header{
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.9), 0px 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 3px 3px 0px 0px;
+    border-bottom: 1px solid #CCC;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: center;
+    color: #999;
+    display: block;
+}
+.example-chat .example-chat-toolbar{
+  background-color: #FFF;
+    padding: 10px;
+    position: relative;
+    border-bottom: 1px solid #CCC;
+
+}
+
+.example-chat input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    height: 30px;
+    font-size: 18px;
+    width: 100%;
+    font-weight: normal;
+    outline: none;
+    border: 1px solid #FFF;
+}
+.example-chat .example-chat-toolbar input {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid #FFF;
+    padding-left: 100px;
+    color: #999;
+}
+
+.example-chat ul {
+    list-style: none;
+    margin: 0px;
+    padding: 20px;
+    height: 200px;
+    overflow: auto;
+}
+.example-chat footer {
+    display: block;
+    padding: 10px;
+}
+.example-chat footer input {
+    border: 1px solid #ced3db;
+    height: 40px;
+}
+
+.example-chat-messages li{
+  padding: 5px;
+}
+.example-chat-messages li span{
+  border-radius: 3px;
+  border: 1px solid #CCC;
+
+}
+</style>
+<!-- CHAT MARKUP -->
+<div class="example-chat">
+  <header>简单聊天demo</header>
+
+  <div class='example-chat-toolbar'>
+    <input type='text' id='nameInput' placeholder='输入一个用户名...'>
+  </div>
+
+  <ul id='example-messages' class="example-chat-messages"></ul>
+
+  <footer>
+    <input type='text' id='messageInput'  placeholder='输入一条消息...'>
+  </footer>
+</div>
+
+<!-- CHAT JAVACRIPT -->
+<script>
+  // 创建一个Wilddog 对象
+  var messagesRef = new Wilddog('https://demochat.wilddogio.com/msg/demo');
+
+  // var messagesRef = new Wilddog('https://changyangzhe.wilddogio.com/');
+  // REGISTER
+  var messageField = $('#messageInput');
+  var nameField = $('#nameInput');
+  var messageList = $('#example-messages');
+
+  // 监听键盘事件
+  messageField.keypress(function (e) {
+    if (e.keyCode == 13) {
+      //获取数据
+      var username = nameField.val();
+      var message = messageField.val();
+
+      //把数据保存到Wilddog，并同步到云端
+      messagesRef.push({name:username, text:message});
+      messageField.val('');
+    }
+  });
+
+  // 每来一条消息都触发回调函数
+  messagesRef.limitToLast(10).on('child_added', function (snapshot) {
+    //获取数据
+    var data = snapshot.val();
+    var username = data.name || "anonymous";
+    var message = data.text;
+
+    //操作DOM
+    var messageElement = $("<li>");
+    var nameElement = $("<strong class='example-chat-username'></strong>")
+    nameElement.text(username+" : ");
+    messageElement.text(message).prepend(nameElement);
+
+    //把这条消息加到列表底部
+    messageList.append(messageElement)
+    messageList[0].scrollTop = messageList[0].scrollHeight;
+  });
+</script>
+</body>
+</html>

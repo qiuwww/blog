@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="jquery-1.11.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+ // 将文件从test.txt中读取出来的信息放在ID名为"test.txt"的元素中
+ $("#testDiv").load("test.txt");
+</script>
+<title>test</title>
+</head>
+
+<body>
+<!-- 操作对象的DOM -->
+<div class="testClass">显示文字内容</div>
+<div id="testDiv">sss</div>
+</body><!-- 这里不能正常加载，什么原因？ -->
+</html>
