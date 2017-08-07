@@ -21,8 +21,8 @@ const livereload = require('gulp-livereload');
 const WATCH_LIST = ['src/**/*.js', 'src/*.js'];
 const stylList = 'src/css/*.styl';
 
-let handleErrors = function(){
-    let args = Array.prototype.slice.call(arguments);
+const handleErrors = function(){
+    const args = Array.prototype.slice.call(arguments);
     notify.onError({
         title: 'compile error',
         message: '<%=error.message %>'
@@ -39,6 +39,10 @@ gulp.task('stylus', function(){
     .pipe(stylus())
     .pipe(base64())
     // .pipe(sourcemaps.write())
+    //  .pipe(sourcemaps.write({
+    //     includeContent: false,
+    //     sourceRoot: 'src'
+    // }))
     .on('error', handleErrors)
     .pipe(gulp.dest('./dist/css/'))
     .pipe(livereload());

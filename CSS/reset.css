@@ -22,3 +22,8 @@ article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
 *{
 	box-sizing:border-box;
 }
+.less-word(){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
