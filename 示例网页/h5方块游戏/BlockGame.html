@@ -1,0 +1,40 @@
+<DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset= UTF-8" /><!-- 此处出现的问题是用GBK的时候，网页打开会乱码 -->
+<!--   script建议：
+                  (1)在用Eclipse或者Myeclipse新建XX.js，进行编辑时，建议先将Textfile encoding改为，然后进行编辑保存。
+                  (2)用文本文档或者其他编辑器编辑保存XX.js，建议以UTF-8的编码方式保存。
+                  (3)在引用XX.js的页面上“显示”加上XX.js文件的编码方式UTF-8。此处没有安装GBk。 -->
+  <title>疯狂俄罗斯方块</title>
+
+  <script type="text/javascript" src="BlockGame.js">//第一次没能正常加载js文件的原因是少写了个.js文件
+  </script>
+
+  <style type="text/css">
+     @font-face {
+     	font-family: water;
+     	src: url("water.TTF") format("TrueType");
+     }
+     body>div{
+     	font-size: 13pt;                 /*pt——点。一般为网页中标识字体的单位。px——象素。一般也为网页中标识字体的单位。两种关系：一英寸=72pt(点)=96px(像素) 
+     	                                   网页中常用到的：9pt=12px。 在Flash中一般也是字体的常用标识单位。*/
+     	padding-bottom: 8px;
+     }
+     span{
+     	font-family: water;
+     	font-size: 20pt;
+     	color:green;
+     }
+  </style>
+
+</head>
+
+<body>
+  <h1>疯狂俄罗斯方块</h1>
+  <div style="width:336px;height:20pt;border:1px solid black;background:#ff9;"> &nbsp;     
+  <div style="float:left;">速度：<span id="curSpeedEle"></span>&nbsp;当前积分：<span id="curScoreEle"></span></div>
+  <div style="float:right;">最高积分：<span id="maxScoreEle"></span></div>
+  </div>
+</body>
+</html>

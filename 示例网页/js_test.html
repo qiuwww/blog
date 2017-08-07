@@ -1,0 +1,574 @@
+<html> 
+<head> 
+<meta charset="utf-8">
+<script> 
+function foo() 
+{ 
+// 在此处添加代码 
+var rg = document.getElementsByName("radioGroup"); 
+for( var i = 0; i < rg.length; i++ ) 
+{ 
+if( rg[i].checked ) 
+{ 
+alert("你选择了第" + (i+1) + "个单选框"); 
+} 
+} 
+return false; 
+} 
+
+</script> 
+</head> 
+<body> 
+<form name="form1" onsubmit="return foo();"> 
+<input type="radio" name="radioGroup" /> 
+<input type="radio" name="radioGroup" /> 
+<input type="radio" name="radioGroup" /> 
+<input type="radio" name="radioGroup" /> 
+<input type="radio" name="radioGroup" /> 
+<input type="radio" name="radioGroup" /> 
+<input type="submit" /> 
+</form> 
+
+<div style="position:absolute;
+      left:180px;
+      top:150px;
+      width:250px; 
+      border:1px solid black;">
+    <div style="background-color:#416ea5; 
+      width:250px;
+      height:22px;
+      cursor:move;     
+      font-weight:bold;
+      border-bottom:1px solid black;"
+      onmousedown="drag(this.parentNode, event);">可拖动标题   
+  </div>       <!-- 当前的目标节点的父元素，div为目标事件 -->
+  <p>可被拖动的窗口</p>
+  <p>窗口内容</p>
+</div>
+<div id="wrap" style="position:absolute;cursor:pointer"
+  onmousedown="if (event.shiftKey) drag(this, event)";>55555555555</div><!-- 按住shift建然后拖动 -->
+</body> 
+
+<script>
+
+	var str = "abcdefg";
+
+   function reverse(str){
+   		var newStr = str.split("");
+   		console.log(newStr);
+        var len = newStr.length;
+        console.log(len);        
+        var revStr="" ;
+        var arr = [];
+        for (var i = 0; i< len;i++){
+        	
+        	console.log(newStr[len - i-1]);
+            arr.push(newStr[len-i-1]);
+        	// newStr[i]=newStr[len-i];        	      	 	
+        }
+        console.log(arr);
+        revStr = arr.join("");      
+        console.log(revStr);
+        return revStr;
+   }
+   reverse(str);
+   
+  
+   
+   
+ var b = null;
+console.log( (2==true));
+var foo="11"+2-"1";
+console.log(typeof(foo));
+
+var a= new Object();
+a.value = 1;
+var b= a ;
+b.value = 2;
+console.log((a)) ;
+
+
+var foo ="get-element-by-id";
+function combo(msg){
+	var arr = msg.split("-");
+	for(var i= 1;i < arr.length;i++){
+		arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substr(1,arr[i].length-1);
+	}
+	msg=arr.join("");
+	return msg;
+}
+
+console.log(combo(foo));
+
+var numberArray = [3,6,2,4,1,5];
+function do1(arr){
+	var len = arr.length;
+	var arrc=[];
+	for (i=0;i<len;i++){
+         arrc[i]=arr[len-i-1];
+	}
+	arr=arrc;
+	console.log(arr);
+	return arr;
+}
+do1(numberArray);
+function down(a,b){
+	return b-a;
+}
+console.log(numberArray.sort(down));
+
+
+var date = new Date();
+console.log(date);
+var year =date.getFullYear();
+var month = date.getMonth()+1;
+month =  month > 10 ? month : "0"+month;
+console.log(month);
+var day =date.getDate();
+console.log(day);
+console.log(year + "-" + month + "-" + day + " "+ date.getHours() + ":"+date.getSeconds());
+
+
+var str = "<tr><td>{$id}</td><td>{$name}</td></tr>";
+console.log(str);
+console.log(str.replace(/{\$id}/g,"10").replace(/{\$name}/g,"Tony"));
+
+
+
+function _replace(str){
+    return str.replace(/[<>"&]/g,function(match){
+		switch(match){
+			case "<": return "&lt;";
+			case ">": return "&gt;";
+			case "&": return "&amp;";
+			case "\"": return "&quot;";
+		}
+    });
+}
+
+console.log(_replace("<a>"));
+var bar = "000000";
+var fooo ;
+    fooo = fooo||bar;
+console.log(fooo);
+
+
+
+//随机生成num个数，起始位置start，结束位置end，并且对数据进行排序。
+function getRandom(start,end,num){
+    var _arr = [];
+    var choices = end - start +1;
+    for (i = 0;i<num;i++){
+    	_arr[i] = Math.floor(Math.random()*choices) + start;
+    }
+    function up(a,b){
+    	return a-b;
+    }
+    _arr.sort(up);
+    console.log(_arr);
+    return _arr;
+}
+
+//合并两个数组，且删除第二个数组元素
+var numArr1=getRandom(10,100,10);
+var numArr2=getRandom(10,100,10);
+var sumArr= numArr1.concat(numArr2);
+
+console.log(sumArr);
+sumArr.splice(1,1);
+console.log(sumArr);
+
+
+//dom操作
+var a = document.createElement("div");
+console.log(a);
+var b = document.createTextNode("444444444");
+console.log(b);
+var c = document.createElement("p");
+console.log(c);
+var wrap = document.getElementById("wrap");
+wrap.appendChild(a);
+a.appendChild(b);
+a.removeChild(b);
+wrap.replaceChild(c,a);
+wrap.insertBefore(a,c);
+
+console.log(wrap);
+
+
+
+//url处理
+var url = "https://www.baidu.com/s?ie=UTF-8&wd=insertChild";
+function serilizeurl(url){
+	var result = {};
+	url = url.split("?")[1];
+	console.log(url);
+	var map = url.split("&");
+    console.log(map);
+    for(var i=0,len = map.length;i<len;i++){
+    	var key = map[i].split("=")[0];
+    	var value = map[i].split("=")[1];
+    	console.log(key+"    "+value);
+    	result[map[i].split("=")[0]] = map[i].split("=")[1];
+    }
+    console.log(result);
+    return result;
+}
+
+
+serilizeurl(url);
+
+
+/**
+     * 克隆一个对象
+     * @param Obj
+     * @returns
+     */
+    function clone(Obj) {   
+        var buf;   
+        if (Obj instanceof Array) {   
+            buf = [];                    //创建一个空的数组 
+            var i = Obj.length;   
+            while (i--) {   
+                buf[i] = clone(Obj[i]);   
+            }   
+            return buf;    
+        }else if (Obj instanceof Object){   
+            buf = {};                   //创建一个空对象 
+            for (var k in Obj) {           //为这个对象添加新的属性 
+                buf[k] = clone(Obj[k]);   
+            }   
+            return buf;   
+        }else{                         //普通变量直接赋值
+            return Obj;   
+        }   
+    }
+console.log(clone(sumArr));
+
+
+//一只狗与一只疯狗的对象
+function Dog(){
+	this.wow = function(){
+		console.log("Wow");
+	}
+	this.yelp = function(){
+		this.wow();
+	}
+}
+function MadDog(){
+	this.yelp =function(){
+	     var self = this;
+	     setInterval(function(){
+	     	self.wow();
+	     },500);
+	}
+}
+MadDog.prototype = new Dog();
+//for test
+var dog =new Dog();
+// dog.yelp();
+var maddog = new MadDog();
+// maddog.yelp();
+
+
+//jquery 选择器的实现
+var query = function(selector) {
+   var reg = /^(#)?(\.)?(\w+)$/;
+   var regResult = reg.exec(selector);
+   console.log(regResult);
+		 var allDoms = document.getElementsByTagName("*") ;
+		 console.log(allDoms);
+   var result = [];
+   //如果是id选择器
+   if(regResult[1]) {
+   if(regResult[3]) {
+   if(typeof document.querySelector === "function") {
+   result.push(document.querySelector(regResult[3]));
+   }
+         else {   
+              result.push(document.getElementById(regResult[3]));
+                        }
+           }
+      }
+    //如果是class选择器
+    else if(regResult[2]) {
+    if(regResult[3]) {
+    if(typeof document.getElementsByClassName === 'function') {
+    var doms = document.getElementsByClassName(regResult[3]);
+   if(doms) {
+       result = converToArray(doms);
+   }
+      }
+  //如果不支持getElementsByClassName函数
+    else {
+		 var allDoms = document.getElementsByTagName("*") ;
+		 console.log(allDoms);
+		 for(var i = 0, len = allDoms.length; i < len; i++) {
+		 if(allDoms[i].className.search(new RegExp(regResult[2])) > -1) {
+		 	console.log(allDoms[i]);
+		   result.push(allDoms[i]);
+      }
+     }
+                        }
+                    }
+                }
+                //如果是标签选择器
+       else if(regResult[3]) {
+ var doms = document.getElementsByTagName(regResult[3].toLowerCase());
+ console.log(doms);
+  if(doms) {
+   result = converToArray(doms);
+      }
+                }
+                return result;
+            }
+ 
+  function converToArray(nodes){
+   var array = null;         
+   try{        
+  array = Array.prototype.slice.call(nodes,0);//针对非IE浏览器         
+                  }catch(ex){
+     array = new Array();         
+   for( var i = 0 ,len = nodes.length; i < len ; i++ ) { 
+     array.push(nodes[i])         
+         }         
+    }      
+    console.log(array);
+    return array;
+          }
+query("#id");
+query(".class");
+query("div");
+
+
+//加大字符串字母之间的间隔
+String.prototype.spacify = function(){
+  return this.split("").join(" ");
+}
+var str = "hello world!";
+console.log(str.spacify());
+
+var nodelist = document.getElementsByTagName("input");
+console.log(typeof(nodelist));
+
+
+//nodelist---->array
+function realArray(c) {
+    try {
+        return Array.prototype.slice.call(c);
+    } catch (e) {
+        var ret = [], i = 0, len = c.length;
+        for (; i < len; i++) {
+            ret[i] = c[i];
+        }
+        console.log(ret);
+        return ret;
+    }
+}
+console.log(typeof(realArray(nodelist)));
+
+function log(){
+      var args = Array.prototype.slice.call(arguments);  //为了使用unshift数组方法，将argument转化为真正的数组
+      args.unshift('(app)');
+      console.log.apply(console, args);
+};
+log(str.spacify());
+//关于this
+var User = {
+  count: 1,
+  getCount: function() {
+    return this.count;
+  }
+};
+console.log(User.getCount());  // what? 
+var func = User.getCount;
+console.log(func());  // what?
+
+Function.prototype.cc = Function.prototype.bind || function(context){
+   var self = this; 
+   return function(){
+      return self.apply(context, arguments);
+   };
+}
+ 
+var func = User.getCount.cc(User);
+console.log(func());
+
+
+
+//实现元素拖拽函数
+var drag = function(target, event)
+{
+  // 定义开始拖动时的鼠标位置（相对window座标）
+  var startX = event.clientX;//clientX 设置或获取鼠标指针位置相对于窗口客户区域的 x 坐标，
+                             //其中客户区域不包括窗口自身的控件和滚动条。
+  var startY = event.clientY;
+  // 定义将要被拖动元素的位置（相对于document座标）
+  // 因为该target的position为absolutely，
+  // 所以我们认为它的座标系是基于document的
+  //obj.offsetTop 指 obj 相对于版面或由 offsetParent 属性指定的父坐标的计算上侧位置，整型，单位像素。
+  var origX = target.offsetLeft;
+  var origY = target.offsetTop;
+  // 因为后面根据event的clientX、clientY来获取鼠标位置时，
+  // 只能获取windows座标系的位置，所以需要计算window座标系
+  // 和document座标系的偏移。
+  // 计算windows座标系和document座标系之间的偏移
+  var deltaX = startX - origX;
+  var deltaY = startY - origY;
+
+
+  // 鼠标松开的事件处理器
+  var upHandler = function(evt) 
+  {
+    // 对于IE事件模型，获取事件对象
+    if (!evt) 
+      evt = window.event; 
+    // 取消被拖动对象的鼠标移动（mousemove）和鼠标松开（mouseup）的事件处理器
+    if (document.removeEventListener)
+    {
+      // DOM事件模型
+      // 取消在事件捕获阶段的事件处理器
+      //true - 在捕获阶段移除事件句柄   false- 默认。在冒泡阶段移除事件句柄
+      document.removeEventListener("mouseup", upHandler, true);
+      document.removeEventListener("mousemove", moveHandler, true);
+    }
+    else if (document.detachEvent) 
+    {  //detachEvent方法可以在网页内删除一个已注册好的事件．
+      target.detachEvent("onlosecapture", upHandler);
+      target.detachEvent("onmouseup", upHandler);
+      target.detachEvent("onmousemove", moveHandler);
+      target.releaseCapture( );
+    }
+    // 阻止事件传播
+    stopProp(evt);
+  }
+  // 阻止事件传播(该函数可以跨浏览器)
+  var stopProp = function(evt)
+  {
+    // DOM事件模型  不再派发事件。终止事件在传播过程的捕获、目标处理或起泡阶段进一步传播。
+    if (evt.stopPropagation)
+    {
+      evt.stopPropagation( );
+    }
+    // IE事件模型
+    else
+    {
+      evt.cancelBubble = true;
+    }
+  }
+  // 为被拖动对象的鼠标移动（mousemove）和鼠标松开（mouseup）注册事件处理器
+  if (document.addEventListener)
+  {
+    // DOM事件模型
+    // 在事件捕获阶段绑定事件处理器
+    document.addEventListener("mousemove", moveHandler, true);
+    document.addEventListener("mouseup", upHandler, true);
+  }
+  else if (document.attachEvent) 
+  {
+    // IE事件模型
+    // 设置该元素直接捕获该事件
+    target.setCapture();
+    // 为该元素鼠标移动时绑定事件处理器
+    target.attachEvent("onmousemove", moveHandler);
+    // 为鼠标松开时绑定事件处理器
+    target.attachEvent("onmouseup", upHandler);
+    // 将失去捕获事件当成鼠标松开处理。
+    target.attachEvent("onlosecapture", upHandler);
+  }
+  // 阻止事件传播
+  stopProp(event);
+  // 取消事件默认行为
+  if (event.preventDefault)
+  {
+    // DOM事件模型
+    event.preventDefault( ); 
+  }
+  else
+  {
+    // IE事件模型
+    event.returnValue = false;
+  }
+  
+  // 鼠标移动的事件处理器
+    function moveHandler(evt)
+  {
+    // 对于IE事件模型，/*获取事件对象*/
+    if (!evt) evt = window.event; 
+    // 将被拖动元素的位置移动到当前鼠标位置。
+    // 先将window座标系位置转换成document座标系位置，再修改目标对象的CSS位置。
+    target.style.left = (evt.clientX - deltaX) + "px";
+    target.style.top = (evt.clientY - deltaY) + "px";
+    // 阻止事件传播
+    stopProp(evt);
+  }
+}
+
+
+//测试试题
+console.log(["1","2","3"].map(parseInt));
+
+function aaa(){// typeof     function
+   name:"jhhh";
+}
+var bbb=new aaa();
+console.log(typeof(bbb));//object
+
+var val = "value";
+console.info("value id" + (val === "value")?"something":"nothing");
+
+var END = 2000;
+var START = END -100;
+var count = 0;
+for (var i = START;i<=END; i++){
+  count++;
+}
+console.info(count);
+
+var arr=[1,23,5,78,34,55,13];
+    arr[10] = 10;
+var max23=[]; 
+arr.filter(function(element,pos){return element>23});
+console.info(arr.filter(function(x){return x=== undefined}));
+
+console.log((0.8-0.6-0.2)<1E-10);
+
+console.warn(parseInt(55,0x16));
+function ggg(a,b,c){
+  console.log(arguments);
+}
+ggg(1,2,5);
+
+
+setTimeout(function(){
+  console.log(new Date());
+  for(var i = 0;i<10;i++){
+    console.log("*");
+  }
+  console.log(new Date());
+  setTimeout(arguments.callee,1000);
+},1000);
+// setInterval(function(){
+//   console.log(new Date());
+// },1000);
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
