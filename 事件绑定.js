@@ -72,3 +72,8 @@ $("body").on("click", 'p', function(){
 });
 
 // body上没法绑定scroll事件，这个时间似乎没法冒泡，所以只能绑定到本身的元素上
+
+// 检测页面滚动条的滚动距离
+$(window).scroll(function(e){
+	console.log($(this).scrollTop());
+});

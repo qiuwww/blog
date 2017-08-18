@@ -4,7 +4,6 @@
 // 测试import与moudle
 import {log} from './common/common.js'
 
-
 log('test', '123123123');
 
 // 测试async.await
@@ -41,3 +40,22 @@ class Person {
 let lilei = new Person('li0lei', '20000');
 
 lilei.sayName();
+
+// 单词拼错，loader和文件名
+import ejsTestTpl from './template/confirm.ejs';
+
+let html = ejsTestTpl({ejs_template_out: 'ejs-template-out'});
+
+console.log(html);
+
+let node = document.createElement("div");
+node.innerHTML = html;
+
+document.querySelector('body').appendChild(node);
+
+
+var div = document.createElement("div");  
+  
+div.innerHTML="数据"; 
+
+document.querySelector('body').appendChild(div);

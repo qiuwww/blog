@@ -2,17 +2,17 @@
 1 verbose cli [ 'D:\\Program Files\\nodejs\\node.exe',
 1 verbose cli   'C:\\Users\\viruser.v-desktop\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'run',
-1 verbose cli   'gulp' ]
+1 verbose cli   'server' ]
 2 info using npm@4.0.5
 3 info using node@v6.9.2
-4 verbose run-script [ 'pregulp', 'gulp', 'postgulp' ]
-5 info lifecycle gulp-es7@1.0.0~pregulp: gulp-es7@1.0.0
-6 silly lifecycle gulp-es7@1.0.0~pregulp: no script for pregulp, continuing
-7 info lifecycle gulp-es7@1.0.0~gulp: gulp-es7@1.0.0
-8 verbose lifecycle gulp-es7@1.0.0~gulp: unsafe-perm in lifecycle true
-9 verbose lifecycle gulp-es7@1.0.0~gulp: PATH: C:\Users\viruser.v-desktop\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;D:\learn-space\blog\es7+开发运行环境搭建\node_modules\.bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;D:\Program Files\nodejs\;C:\Users\viruser.v-desktop\AppData\Local\atom\bin
-10 verbose lifecycle gulp-es7@1.0.0~gulp: CWD: D:\learn-space\blog\es7+开发运行环境搭建
-11 silly lifecycle gulp-es7@1.0.0~gulp: Args: [ '/d /s /c', 'gulp' ]
+4 verbose run-script [ 'preserver', 'server', 'postserver' ]
+5 info lifecycle gulp-es7@1.0.0~preserver: gulp-es7@1.0.0
+6 silly lifecycle gulp-es7@1.0.0~preserver: no script for preserver, continuing
+7 info lifecycle gulp-es7@1.0.0~server: gulp-es7@1.0.0
+8 verbose lifecycle gulp-es7@1.0.0~server: unsafe-perm in lifecycle true
+9 verbose lifecycle gulp-es7@1.0.0~server: PATH: C:\Users\viruser.v-desktop\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;D:\learn-space\blog\es7+开发运行环境搭建\node_modules\.bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;D:\Program Files\nodejs\;C:\Users\viruser.v-desktop\AppData\Local\atom\bin
+10 verbose lifecycle gulp-es7@1.0.0~server: CWD: D:\learn-space\blog\es7+开发运行环境搭建
+11 silly lifecycle gulp-es7@1.0.0~server: Args: [ '/d /s /c', 'node express-server' ]
 12 verbose stack Error: kill ENOSYS
 12 verbose stack     at exports._errnoException (util.js:1022:11)
 12 verbose stack     at process.kill (internal/process.js:172:13)
@@ -24,7 +24,7 @@
 12 verbose stack     at Signal.wrap.onsignal (internal/process.js:199:44)
 13 verbose cwd D:\learn-space\blog\es7+开发运行环境搭建
 14 error Windows_NT 6.1.7601
-15 error argv "D:\\Program Files\\nodejs\\node.exe" "C:\\Users\\viruser.v-desktop\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "run" "gulp"
+15 error argv "D:\\Program Files\\nodejs\\node.exe" "C:\\Users\\viruser.v-desktop\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "run" "server"
 16 error node v6.9.2
 17 error npm  v4.0.5
 18 error code ENOSYS

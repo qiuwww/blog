@@ -68,6 +68,10 @@
 	
 	var _common = __webpack_require__(21);
 	
+	var _confirm = __webpack_require__(76);
+	
+	var _confirm2 = _interopRequireDefault(_confirm);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	(0, _common.log)('test', '123123123');
@@ -136,6 +140,24 @@
 	var lilei = new Person('li0lei', '20000');
 	
 	lilei.sayName();
+	
+	// 单词拼错，loader和文件名
+	
+	
+	var html = (0, _confirm2.default)({ ejs_template_out: 'ejs-template-out' });
+	
+	console.log(html);
+	
+	var node = document.createElement("div");
+	node.innerHTML = html;
+	
+	document.querySelector('body').appendChild(node);
+	
+	var div = document.createElement("div");
+	
+	div.innerHTML = "数据";
+	
+	document.querySelector('body').appendChild(div);
 
 /***/ }),
 /* 1 */
@@ -2506,6 +2528,48 @@
 	  } catch(e){ /* empty */ }
 	  return safe;
 	};
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports) {
+
+	module.exports = function anonymous(locals, filters, escape, rethrow) {
+	    escape = escape || function(html) {
+	        return String(html).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+	    };
+	    var __stack = {
+	        lineno: 1,
+	        input: "\r\n\r\n\r\n\r\n\r\n<div><%ejs_template_out%>123123</div>\r\n<div><%ejs_template_out%>123123</div>\r\n\r\n",
+	        filename: "."
+	    };
+	    function rethrow(err, str, filename, lineno) {
+	        var lines = str.split("\n"), start = Math.max(lineno - 3, 0), end = Math.min(lines.length, lineno + 3);
+	        var context = lines.slice(start, end).map(function(line, i) {
+	            var curr = i + start + 1;
+	            return (curr == lineno ? " >> " : "    ") + curr + "| " + line;
+	        }).join("\n");
+	        err.path = filename;
+	        err.message = (filename || "ejs") + ":" + lineno + "\n" + context + "\n\n" + err.message;
+	        throw err;
+	    }
+	    try {
+	        var buf = [];
+	        with (locals || {}) {
+	            (function() {
+	                buf.push("\n\n\n\n\n<div>");
+	                __stack.lineno = 6;
+	                ejs_template_out;
+	                buf.push("123123</div>\n<div>");
+	                __stack.lineno = 7;
+	                ejs_template_out;
+	                buf.push("123123</div>\n\n");
+	            })();
+	        }
+	        return buf.join("");
+	    } catch (err) {
+	        rethrow(err, __stack.input, __stack.filename, __stack.lineno);
+	    }
+	}
 
 /***/ })
 /******/ ]);
