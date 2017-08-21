@@ -2,6 +2,7 @@
 
 // 事件绑定.js
 
+// on方法
 1. $('').click()事件只能绑定静态元素。动态添加的元素上事件将会失效。
 2. $(select).on('click',function(){}); 
    $('body').on('click','ul li',function(){}); 
