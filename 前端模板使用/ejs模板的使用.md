@@ -16,3 +16,27 @@ nodejs的模板引擎有很多， ejs是比较简单和容易上手的。
 ```
 
 本质上就是html里边插入js
+
+## 数据编译与更新
+
+RENDER
+/*第一次渲染的时候调用该方法,返回值是被数据填充的模版*/    
+html = new EJS({url: '/template.ejs'}).render(data)
+
+UPDATE
+/*当数据有更新的时候，调用update方法*/
+new EJS({url: '/template.ejs'}).update(document.body, data2)  
+
+为了最大提高模版的性能，默认是开启了缓存的。
+
+
+
+## 模版嵌套
+
+模版可以嵌套：示例如下：
+
+<h2>This is from the containing template</h2>
+<div class='template'>
+    <%= this.partial({url: 'templates/partial.ejs'}) %>
+</div>
+该模版中包含一个子模版partial.ejs。这样对结构重用有很大的益处。  

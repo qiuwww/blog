@@ -65,3 +65,5 @@ npm info webpack
 **切记切记**
 
 ## 基本实现对js和css的编译与重启，mock可以,另外下载了两个库mockjs和jquery
+
+## 使用gulp-rename来更改文件名称

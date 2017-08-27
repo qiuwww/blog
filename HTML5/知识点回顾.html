@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>知识点回顾</title>
+	<meta charset = "utf-8">
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+</head>
+<body>
+<style type="text/css">
+	*{
+		word-spacing: 12px;
+	}
+</style>
+<a href = "#target">锚链接</a>
+
+知识点回顾：
+HyperText Markup Language \n
+cascading style sheets
+
+spa : single page application
+
+<p id = "target" class="three-people">
+中国共产党要始终代表中国先进生产力的发展要求
+中国共产党要始终代表中国先进文化的前进方向
+中国共产党要始终代表中国最广大人民的根本利益
+</p>
+<p class="wrap"></p>
+<h2></h2>
+<input type = "button" value = "click" onclick = "open_window()"/>
+<script type="text/javascript">
+
+function open_window(){
+	window.open("https://www.baidu.com");
+}
+
+
+window.onload = function (e){
+	console.log("event",e);
+	var target = document.getElementById("target");
+	console.log("target.innerHtml",target.innerHTML);
+	target.style.color = 'red';
+	var byClass = document.getElementsByTagName("p");
+	console.log("byClass",byClass);
+	byClass[0].onclick = function(e){
+		this.style.color = 'blue';
+		document.write("Hello World!");
+	}
+
+	document.querySelectorAll(".wrap")[0].innerHTML = target.innerHTML;
+
+	var array = new Array(20).fill(8);
+	console.log(array.toString());
+
+	document.getElementsByTagName("h2")[0].innerHTML = array.toString();
+
+
+}
+
+$(function(){
+	var _text = $("<p></p>").css("border","1px solid red");
+	_text.html($.param({width:200,height:500}));	
+	_text.appendTo($("body"))
+
+	var $target = $("#target");
+	console.log("$target",$target.html());
+    $( "#target" ).contextmenu(function() {
+        alert( "处理程序.contextmenu()被调用。" );
+    });
+
+
+    var obj_1 = {width:200,height:500,color:'red'};
+    var obj_2 = {a:10,color:'blue'};
+    var obj_3 = $.extend(obj_1,obj_2);
+    console.log("obj_3",obj_3);
+})
+
+</script>
+</body>
+</html>
+
+
+
+
