@@ -1,0 +1,21 @@
+{
+  "name": "mock_data",
+  "version": "1.0.0",
+  "description": "mock data intercept ajax",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mock",
+    "ajax"
+  ],
+  "author": "qiu",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.15.4",
+    "fetch-mock": "^5.12.2",
+    "mockjs": "^1.0.1-beta3",
+    "opn": "^5.1.0"
+  }
+}
