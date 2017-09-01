@@ -8,16 +8,18 @@
 <body>
 mock ajax fetch
 
+
+
+
+
+
 <img src="https://mdn.mozillademos.org/files/15083/fetch-api.png">
 
 <script src="https://cdn.bootcss.com/jquery/1.12.2/jquery.js"></script>
 <script type="text/javascript" src="node_modules/mockjs/dist/mock.js"></script>
 <script type="text/javascript">
 	// 先读取拦截再发送请求
-	// Mock.setup({ // 确实是这样设置 
-	//     timeout: '200-600'
-	// });
-	
+
 	Mock.mock('/api/ajax', {
 		'name': 'Jack', // 写死的字符串
 		'age|10-20': 1, // 最小到最大之间的一个数值
@@ -59,8 +61,8 @@ mock ajax fetch
 		    }]
 	    }]
 	}).setup({
-    timeout: '200-600'
-});
+	    timeout: '200-600'
+	});
 
 	// ajax
 	$.getJSON('/api/ajax', function(res){
@@ -99,12 +101,13 @@ mock ajax fetch
 		mode: "cors",
 		cache: 'default'
 	};	
-	var myRequest = new Request('/api/fetch', myInit);
+	var myRequest = new Request('/api/fetch-2', myInit);
 	fetch(myRequest).then(function(response) {
 	  	console.log("response", response);
 	  	return response.json();
 	}).then(function(result) {
 	  	console.log("result", result);
+	  	$('body').append(result.toString());
 	});
 	
 	// 可以
