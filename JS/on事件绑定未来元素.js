@@ -73,8 +73,19 @@ $("body").on("click", 'p', function(){
 });
 
 // body上没法绑定scroll事件，这个时间似乎没法冒泡，所以只能绑定到本身的元素上
+// The above would not work 
+// because the scroll event does not bubble up in DOM which is used for event delegation, 
+// see this question why doesn't delegate work for scroll?
+
 
 // 检测页面滚动条的滚动距离
 $(window).scroll(function(e){
 	console.log($(this).scrollTop());
 });
+
+
+使用on绑定事件，绑定的目标元素是on前面的元素，如果要阻止冒泡注意这里
+
+$('body').on('click', ...)
+
+$('div').on('click', ....)
