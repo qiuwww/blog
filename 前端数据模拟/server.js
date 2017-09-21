@@ -21,7 +21,7 @@ app.get('/api/fetch', function (req, res){
 	// 同样
 	setTimeout(function() {
 		res.send(JSON.stringify(Mock.mock({'hello': '@cname'}),null, 4));
-	}, 3000);	
+	}, 500);	
 });
 
 // 拦截fetch，mock, 可以
@@ -32,7 +32,9 @@ app.get('/api/fetch-2', function (req, res){
 	})
 	var jsonObj = JSON.stringify(data, null, 4);
 	console.log("jsonObj: ", jsonObj);
-	res.send(jsonObj);
+	setTimeout(function() {
+		res.send(jsonObj);
+	}, 500);
 });
 
 

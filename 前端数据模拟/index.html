@@ -66,61 +66,68 @@ mock ajax fetch
 	});
 
 	// ajax
-	$.getJSON('/api/ajax', function(res){
-		console.log(res);
-	});
+	// $.getJSON('/api/ajax', function(res){
+	// 	console.log(res);
+	// });
 	
 
-	// fetch img
-	var myImage = document.querySelector('img');
-	var result;
-	fetch('logo.png')
-	.then(function(response) {
-		// 不能重复调用blob方法
-		result = response.blob();
-		console.log(result);
-		return result;
-	})
-	// 上一步的结果传递给下一步
-	.then(function(myBlob) {
-		// 替换图片
-		setTimeout(function(){
-		    var objectURL = URL.createObjectURL(myBlob);
-		    myImage.src = objectURL;				
-		}, 2000);    
-	});
+	// // fetch img
+	// var myImage = document.querySelector('img');
+	// var result;
+	// fetch('logo.png')
+	// .then(function(response) {
+	// 	// 不能重复调用blob方法
+	// 	result = response.blob();
+	// 	console.log(result);
+	// 	return result;
+	// })
+	// // 上一步的结果传递给下一步
+	// .then(function(myBlob) {
+	// 	// 替换图片
+	// 	setTimeout(function(){
+	// 	    var objectURL = URL.createObjectURL(myBlob);
+	// 	    myImage.src = objectURL;				
+	// 	}, 2000);    
+	// });
 
 
-	// mock.js默认是不支持拦截页面fetch请求的，需要搭配fetch-mock库来实现。
-	// fetch xhr
-	var myInit = {
-		method: 'GET',
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		},
-		mode: "cors",
-		cache: 'default'
-	};	
-	var myRequest = new Request('/api/fetch-2', myInit);
-	fetch(myRequest).then(function(response) {
-	  	console.log("response", response);
-	  	return response.json();
-	}).then(function(result) {
-	  	console.log("result", result);
-	  	$('body').append(result.toString());
-	});
+	// // mock.js默认是不支持拦截页面fetch请求的，需要搭配fetch-mock库来实现。
+	// // fetch xhr
+	// var myInit = {
+	// 	method: 'GET',
+	// 	headers: {
+	// 		'Accept': 'application/json',
+	// 		'Content-Type': 'application/json'
+	// 	},
+	// 	mode: "cors",
+	// 	cache: 'default'
+	// };	
+	// var myRequest = new Request('/api/fetch-2', myInit);
+	// fetch(myRequest).then(function(response) {
+	//   	console.log("response", response);
+	//   	return response.json();
+	// }).then(function(result) {
+	//   	console.log("result", result);
+	//   	$('body').append(result.toString());
+	// });
 	
-	// 可以
-	fetch("/api/fetch")
-	.then(function(response) {
-		console.log("response", response);
-	    return response.json();
-	})
-	.then(function(data) {
-	  	console.log('got data', data);
-	});
+	// // 可以
+	// fetch("/api/fetch")
+	// .then(function(response) {
+	// 	console.log("response", response);
+	//     return response.json();
+	// })
+	// .then(function(data) {
+	//   	console.log('got data', data);
+	// });
 	
+
+
+	// 测试jquery同时发送多个请求
+	// 同时发送，所有的都返回的时候结束
+	$.when($.getJSON( "/api/fetch-2"), $.getJSON("/api/fetch")).done(function(res1, res2){
+		console.log("when: ", res1[0], res2[0]);
+	}).then(function(){console.log('resolve')}, function(){console.log('fail')} );
 
 </script>
 </body>
