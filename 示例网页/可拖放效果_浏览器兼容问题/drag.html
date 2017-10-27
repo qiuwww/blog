@@ -1,0 +1,94 @@
+<!DOCTYPE html> 
+<html lang="zh"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+<title>Qing's Web</title> 
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<style type="text/css"> 
+.footer { 
+position: fixed; 
+bottom: 0; 
+width: 100%; 
+} 
+.moveBar { 
+	position: absolute; 
+	width: 250px; 
+	height: 300px; 
+	background: #666; 
+	border: solid 1px #000; 
+} 
+#banner { 
+	background: #52CCCC; 
+	cursor: move; 
+} 
+</style> 
+</head> 
+<body style="padding-top: 50px;"> 
+
+<div class="moveBar"> 
+<div id="banner">按住此处移动当前div</div> 
+<div class="content">这里是其它内容</div> 
+</div> 
+<div class="footer"> 
+<p align="center" class="label">ALL Rights Reserved Qing 版权所有</p> 
+</div> 
+<script> 
+jQuery(document).ready( 
+	function () { 
+
+		$('#banner').mousedown( 
+			function (event) { 
+				var isMove = true; 
+				var abs_x = event.pageX - $('div.moveBar').offset().left; 
+				var abs_y = event.pageY - $('div.moveBar').offset().top; 
+
+				$(document).mousemove(function (event) { 
+					if (isMove) { 
+						var obj = $('div.moveBar'); 
+						obj.css({'left':event.pageX - abs_x, 'top':event.pageY - abs_y}); 
+					} 
+				}).mouseup(function () { 
+						isMove = false; 
+					} 
+				); 
+			}
+		); 
+	} 
+); 
+
+
+
+
+
+
+</script> 
+
+<script type="text/javascript">
+
+// $(document).ready(function() 
+// { 
+// 	$(".show").mousedown(function(e)//e鼠标事件 
+// 		{ 
+// 			$(this).css("cursor","move");//改变鼠标指针的形状 
+// 				var offset = $(this).offset();//DIV在页面的位置 
+// 				var x = e.pageX - offset.left;//获得鼠标指针离DIV元素左边界的距离 
+// 				var y = e.pageY - offset.top;//获得鼠标指针离DIV元素上边界的距离 
+// 			$(document).bind("mousemove",function(ev)//绑定鼠标的移动事件，因为光标在DIV元素外面也要有效果，所以要用doucment的事件，而不用DIV元素的事件 
+// 			{ 
+// 				$(".show").stop();//加上这个之后 
+// 				var _x = ev.pageX - x;//获得X轴方向移动的值 
+// 				var _y = ev.pageY - y;//获得Y轴方向移动的值 
+// 				$(".show").animate({left:_x+"px",top:_y+"px"},10); 
+// 				}); 
+// 		}); 
+// 			$(document).mouseup(function() 
+// 			{ 
+// 				$(".show").css("cursor","default"); 
+// 				$(this).unbind("mousemove"); 
+// 		}) 
+// }) 
+</script> 
+
+
+</body> 
+</html> 

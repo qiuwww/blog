@@ -1,0 +1,79 @@
+<!-- test.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+<style type="text/css">
+	.H{
+		transform: scale(.2,.2);
+	}
+	.H{
+		position:relative;
+		top:12.5px;
+		left:10px;
+		width:60px;
+		height:125px;
+		border-width:0 16px 0 16px;
+		border-color:#000000;
+		border-style:solid;
+	}
+	.H:before{
+		position:absolute;
+		content:'';
+		top:53px;
+		left:0;
+		width:60px;
+		height:14px;
+		background-color:#000000;
+	}
+</style>
+
+<div class="H"></div>
+
+<script type="text/javascript">
+// $(function(){
+
+// $(window).unbind('beforeunload');
+
+// window.onbeforeunload = null;
+
+// })
+// function close(){ 
+// alert("this is a test");
+// } 
+// window.onbeforeunload=close;
+
+//  function close(){ 
+//      if(document.body.clientWidth-event.clientX< 170&&event.clientY< 0||event.altKey) 
+//      { 
+//          alert("this is a test");
+//      }  
+//  } 
+//  window.onbeforeunload=close; 
+// $(window).bind('beforeunload',function(){
+// alert(123133)
+// return '您输入的内容尚未保存，确定离开此页面吗？';
+
+// });
+
+
+
+window.onload = function() {
+	alert('你好，欢迎光临');//各浏览器均正常弹出
+}
+window.onbeforeunload = function() {
+	alert('谢谢光临'); //IE 火狐浏览器提示
+	return ('谢谢光临');//IE 谷歌浏览器提示（opera浏览器只有刷新时提示）
+}
+window.onunload = function() {
+	alert('再见');//只有IE正常弹出
+//chrome opera调试都执行该行，但“Blocked alert() during beforeunload.”
+//firefox 刷新执行该行，弹出“NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIDOMWindow.alert]”
+}
+</script>
+</body>
+</html>

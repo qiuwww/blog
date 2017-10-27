@@ -1,8 +1,12 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "for test ",
-  "main": "no",
+  "description": "Ideas Technical-points 2017-2-22",
+  "main": "html位置相关方法.js",
+  "dependencies": {
+    "anywhere": "^1.4.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,19 +14,11 @@
     "type": "git",
     "url": "git+https://github.com/moonbreezee/blog.git"
   },
-  "keywords": [
-    "up"
-  ],
-  "author": "qiu",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/moonbreezee/blog/issues"
   },
-  "homepage": "https://github.com/moonbreezee/blog#readme",
-  "devDependencies": {
-    "express": "^4.15.3"
-  },
-  "dependencies": {
-    "events": "^1.1.1"
-  }
+  "homepage": "https://github.com/moonbreezee/blog#readme"
 }
