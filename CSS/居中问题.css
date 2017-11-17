@@ -1,0 +1,7 @@
+/*居中问题.css*/
+{
+	display: flex; 
+	align-items: center; 
+	justify-content: center;
+}
+ 

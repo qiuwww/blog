@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>采用react封装</title>
+<head>
+    <style type="text/css">
+        canvas{
+            border:1px solid #ccc;
+        }
+        .container{
+            width:600px;
+            margin:20px auto;
+            user-select:none;
+        }
+        .tool{
+            border:1px solid #ccc;
+            padding:10px;
+            border-bottom:none;
+            width:580px;
+        }
+        .tool span.button{
+            border:1px solid #ccc;
+            display:inline-block;
+            padding:5px;
+            margin-bottom:10px;
+            margin-right:10px;
+            cursor:pointer;
+        }
+        .tool span.selected{
+            border:1px solid #f00;
+        }
+        .tool span.disabled,
+        .setting span.disabled{
+            border:1px solid #ddd;
+            color:#ddd;
+            cursor:not-allowed;
+        }
+        .setting{
+            height:60px;
+            width:100%;
+            border:1px solid #ccc;
+            border-bottom:none;
+        }
+        .setting input
+        .setting select,
+        .setting .button{
+            display:inline-block;
+            width:40px;
+            height:40px;
+            text-align:center;
+            line-height:40px;
+            margin:10px 10px 0 10px;
+            cursor:pointer;
+            border:1px solid #ccc;
+        }
+        .setting select,
+        .setting span.button{
+            position:relative;
+            top:-10px;
+        }
+        .setting .selected.button{
+            background:#4CAF50;
+            border-color:#4CAF50;
+        }
+        .setting select.button{
+            width:60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+    </div>
+    <script type="text/javascript" src="dist/painter.js"></script>
+    <script type="text/javascript" src="dist/app.js"></script>
+</body>
+</html>

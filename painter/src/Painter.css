@@ -1,0 +1,10 @@
+.wrapper-canvas{
+    position:relative;
+}
+.text-editor{
+    position:absolute;
+    border:none;
+    background:transparent;
+    outline:none;
+    padding:0;
+}
