@@ -4,7 +4,8 @@
   "description": "Ideas Technical-points 2017-2-22",
   "main": "html位置相关方法.js",
   "dependencies": {
-    "anywhere": "^1.4.0"
+    "anywhere": "^1.4.0",
+    "events": "^1.1.1"
   },
   "devDependencies": {},
   "scripts": {
