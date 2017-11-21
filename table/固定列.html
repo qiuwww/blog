@@ -1,0 +1,187 @@
+<!-- 固定列.html -->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+function divScroll(scrollDiv){
+    var scrollLeft = scrollDiv.scrollLeft;
+    document.getElementById("tableDiv_title").scrollLeft = scrollLeft;
+    document.getElementById("tableDiv_body").scrollLeft = scrollLeft;        
+}
+function divYScroll(scrollYDiv){
+    var scrollTop = scrollYDiv.scrollTop;
+    document.getElementById("tableDiv_y").scrollTop = scrollTop;    
+}
+function onwheel(event){
+    var evt = event||window.event;
+    var bodyDivY = document.getElementById("tableDiv_y");
+    var scrollDivY = document.getElementById("scrollDiv_y");
+    if (bodyDivY.scrollHeight>bodyDivY.offsetHeight){
+        if (evt.deltaY){
+            bodyDivY.scrollTop = bodyDivY.scrollTop + evt.deltaY*7;
+            scrollDivY.scrollTop = scrollDivY.scrollTop + evt.deltaY*7;
+        }else{
+            bodyDivY.scrollTop = bodyDivY.scrollTop - evt.wheelDelta/5;
+            scrollDivY.scrollTop = scrollDivY.scrollTop - evt.wheelDelta/5;
+        }
+    }
+}
+</script>
+<style type="text/css">
+body {
+margin:0;
+padding:0;
+}
+table {
+border-collapse:collapse;
+border:0;
+border:none;
+}
+
+table td  {
+border:1px solid #000;
+overflow:hidden;
+padding:0 2px;
+}
+</style>
+</head>
+<body>
+<div style="width:500px; position:relative; padding-right:18px;">
+   <div style="position:relative;height:368px;overflow:hidden;width:100%">
+    <div style="padding-left:108px; width:auto;  overflow:hidden; background:#f00;" id="tableDiv_title" >
+    <table border="0" cellspacing="0" cellpadding="0"  >
+      <tr>
+        <td  style="min-width:30px; max-width:30px; left:0; top:0; width:30px;  overflow:hidden; background-color:#f00;position:absolute;z-index:1;">000</td>
+        <td  style="min-width:74px; max-width:74px; left:30px; top:0; width:74px;  overflow:hidden; background-color:#f00;position:absolute;z-index:1;">自动表格</td>
+        <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+        <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+        <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+        <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+        <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+        <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >最后一列</td>
+      </tr>
+      </table>
+      </div>  
+    <div style="overflow:hidden; position:absolute;height:128px; width:100%;" id="tableDiv_y" onmousewheel="onwheel(event);" onwheel="onwheel(event);">
+       <div style="padding-left:108px; width:auto;overflow:hidden;" id="tableDiv_body">
+        <table border="0" cellspacing="0" cellpadding="0" >
+          <tr>
+            <td  style="min-width:30px; max-width:30px; left:0; width:30px; overflow:hidden; background-color:#fff;position:absolute;z-index:1;">001</td>
+            <td  style="min-width:74px; max-width:74px;  left: 30px; width: 74px; overflow:hidden; background-color:#fff;position:absolute;z-index:1;">自动表格</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >最后一列</td>
+          </tr>
+           <tr>
+           <td  style="min-width:30px; max-width:30px; left:0; width:30px; overflow:hidden; background-color:#fff; position:absolute; z-index:1;">002</td>
+            <td  style="min-width:74px; max-width:74px; left:30px; width:74px; overflow:hidden;background-color:#fff; position:absolute; z-index:1;">自动表格</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >最后一列</td>
+          </tr>
+          <tr>
+            <td  style="min-width:30px; max-width:30px; left:0; width:30px; overflow:hidden; background-color:#fff;position:absolute;z-index:1;">003</td>
+            <td  style="min-width:74px; max-width:74px;left: 30px; width: 74px; overflow:hidden;background-color:#fff;position:absolute;z-index:1;">自动表格</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >最后一列</td>
+          </tr>
+          <tr>
+            <td  style="min-width:30px; max-width:30px; left:0; width:30px; overflow:hidden; background-color:#fff;position:absolute;z-index:1;">004</td>
+            <td  style="min-width:74px; max-width:74px;  left: 30px; width: 74px; overflow:hidden;background-color:#fff;position:absolute;z-index:1;">自动表格</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >最后一列</td>
+          </tr>
+           <tr>
+            <td  style="min-width:30px; max-width:30px; left:0; width:30px; overflow:hidden; background-color:#fff;position:absolute;z-index:1;">005</td>
+            <td  style="min-width:74px; max-width:74px;  left: 30px; width: 74px; overflow:hidden;background-color:#fff;position:absolute;z-index:1;">自动表格</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >最后一列</td>
+          </tr>
+           <tr>
+            <td  style="min-width:30px; max-width:30px; left:0; width:30px; overflow:hidden; background-color:#fff;position:absolute;z-index:1;">006</td>
+            <td  style="min-width:74px; max-width:74px;  left: 30px; width: 74px; overflow:hidden;background-color:#fff;position:absolute;z-index:1;">自动表格</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >最后一列</td>
+          </tr>     
+          <tr>
+            <td  style="min-width:30px; max-width:30px; left:0; width:30px; overflow:hidden; background-color:#fff;position:absolute;z-index:1;">007</td>
+            <td  style="min-width:74px; max-width:74px;  left: 30px; width: 74px; overflow:hidden;background-color:#fff;position:absolute;z-index:1;">自动表格</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >最后一列</td>
+          </tr>
+           <tr>
+            <td  style="min-width:30px; max-width:30px; left:0; width:30px; overflow:hidden; background-color:#fff;position:absolute;z-index:1;">008</td>
+            <td  style="min-width:74px; max-width:74px;  left: 30px; width: 74px; overflow:hidden;background-color:#fff;position:absolute;z-index:1;">自动表格</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >最后一列</td>
+          </tr>
+           <tr>
+            <td  style="min-width:30px; max-width:30px; left:0; width:30px; overflow:hidden; background-color:#fff;position:absolute;z-index:1;">009</td>
+            <td  style="min-width:74px; max-width:74px;  left: 30px; width: 74px; overflow:hidden;background-color:#fff;position:absolute;z-index:1;">自动表格</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >最后一列</td>
+          </tr>
+            <tr>
+            <td  style="min-width:30px; max-width:30px; left:0; width:30px; overflow:hidden; background-color:#fff;position:absolute;z-index:1;">010</td>
+            <td  style="min-width:74px; max-width:74px;  left: 30px; width: 74px; overflow:hidden;background-color:#fff;position:absolute;z-index:1;">自动表格</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >56454自动</td>
+            <td  style="min-width: 100px; max-width: 100px;  width: 100px;" >最后一列</td>
+          </tr>           
+        </table>
+    </div>          
+    </div> 
+     <div style="background-color:#eee;overflow:hidden;top:150px; width:100%; z-index:2;position:absolute;">
+        <div style="margin-left:108px; width:auto;overflow-x:scroll;overflow-y:hidden;" onscroll='divScroll(this);'>
+            <div style="width:630px; height:1px;"></div>
+        </div>
+    </div>
+    </div>
+        <div id="scrollDiv_y" style="display:block; overflow-x:hidden; overflow-y:scroll; position:absolute; top:22px; right:0px; height:118px; padding-bottom:10px;" onscroll='divYScroll(this);'>
+            <div style="width:1px; height:194px;"></div>
+         </div>
+    </div>
+   </div>
+</body>
+</html>
