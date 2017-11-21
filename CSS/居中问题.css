@@ -1,3 +1,6 @@
+
+页面布局问题
+https://mp.weixin.qq.com/s?__biz=MjM5MzMyNzg0MA==&mid=2650403032&idx=2&sn=5e038f33454625d3ea77c4edad4b19d0&chksm=be95ef5789e266413fbb9ad039329818c142bbf9754cbdf84db83f37779a449f0824b55cf3c8&scene=0#rd
 /*居中问题.css*/
 {
 	display: flex; 
@@ -5,3 +8,53 @@
 	justify-content: center;
 }
  
+
+居中布局
+　　以下居中布局均以不定宽为前提，定宽情况包含其中
+　　1、水平居中
+
+　　a) inline-block + text-align
+	.parent{
+		text-align: center;
+	}
+	.child{
+		display: inline-block;
+	}
+　　tips：此方案兼容性较好，可兼容至IE8，对于IE567并不支持inline-block，需要使用css hack进行兼容
+　　b) table + margin
+.child{
+    display: table;
+    margin: 0 auto;
+}
+　　tips：此方案兼容至IE8，可以使用<table/>代替css写法，兼容性良好
+　　c) absolute + transform
+.parent{
+    position: relative;
+    height:1.5em;
+}
+.child{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+　　tips：此方案兼容至IE9，因为transform兼容性限制，如果.child为定宽元素，可以使用以下写法，兼容性极佳
+.parent{
+    position: relative;
+    height:1.5em;
+}
+.child{
+    position: absolute;
+    width:100px;
+    left: 50%;
+    margin-left:-50px;
+}
+　　d) flex + justify-content
+.parent{
+    display: flex;
+    justify-content: center;
+}
+.child{
+    margin: 0 auto;
+}
+　　tips：flex是一个强大的css，生而为布局，它可以轻松的满足各种居中、对其、平分的布局要求，但由于现浏览器兼容性问题，此方案很少被使用，但是值得期待浏览器兼容性良好但那一天！
+

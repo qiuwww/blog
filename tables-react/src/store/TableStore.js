@@ -1,6 +1,12 @@
 // TableStore.js
 // 用于保存整个这一块的需要交互改变的数据
 // 这里边的函数是同步执行的，但是变量的改变需要在重新渲染之后才能得到
+
+
+// 先把垂直方向上做好
+
+
+
 import mobx, { observable, computed, action } from 'mobx';
 import tableConfig from '../config/tableConfig.js';
 
@@ -176,15 +182,23 @@ export default class TableStore {
 
     	// 上下左右的位置到达触发    	
     	(() => {
+			// 可视区域的宽高
+			let viewHeight = 440;
+			let viewWidth = 930;
     		// 当前左上角距离顶部的距离和底部的距离，限制范围
     		// 以左上角为基准点
+			// 这里的tbody的高度要动态计算出来，不能一成不变的，当加载到后边的时候，数据两比较少了，需要缩小高度
+
     		let bottomPoint = memoryPosition.scrollTop + (multiple - 1) * tbodyHeight; // 下边缘坐标
     		let topPoint = memoryPosition.scrollTop - multiple * tbodyHeight; // 上边缘坐标
 
     		// 超限处理
-    		if(topPoint <= 0) topPoint = 0;
-
-    		if(bottomPoint >= H - tbodyHeight) bottomPoint = H - tbodyHeight;
+    		if(topPoint <= 0) {
+				topPoint = 0;
+			}
+    		if(bottomPoint >= H - viewHeight) {
+				bottomPoint = H - viewHeight;
+			}
 
     		let rightPoint = memoryPosition.scrollLeft + (multiple - 1) * tbodyWidth; // 右边缘坐标   		
     		
@@ -202,7 +216,9 @@ export default class TableStore {
     			rightPoint,
     			scrollLeft,
     			tbodyHeight,
-    			tbodyWidth
+    			tbodyWidth,
+				W,
+				H
     		});
 
     		let range = this.rangeToJsObj;
@@ -211,14 +227,19 @@ export default class TableStore {
     		let memoryT = memoryPosition.scrollTop;
     		// 判断是不是在这个范围内
     		// 垂直运动
+			// 这个时候需要减去可视区域的高度
     		if(scrollLeft == memoryL){
     			if(scrollTop < topPoint){ // 向上滚动
-	    			range['rowStart'] = rowStart - rowSkip;
-	    			range['rowEnd'] = rowEnd - rowSkip;
+	    			range['rowStart'] = rowStart - rowSkip * (multiple - 1);
+	    			range['rowEnd'] = rowEnd + rowSkip * (multiple - 1);
 	    			scrollTop = topPoint;
     			}else if(scrollTop > bottomPoint){ // 向下滚动
-	    			range['rowStart'] = rowStart + rowSkip;
-	    			range['rowEnd'] = rowEnd + rowSkip;
+					rowStart = rowStart - rowSkip * (multiple - 1);
+					if(rowStart <= 0) {
+						rowStart = 0;
+					}
+	    			range['rowStart'] = rowStart;
+	    			range['rowEnd'] = rowEnd + rowSkip * (multiple - 1);
 	    			scrollTop = bottomPoint;	    			
     			}else if(scrollTop == 0){
 	    			range['rowStart'] = rowStart;
@@ -245,7 +266,7 @@ export default class TableStore {
     				return false;
     			}
     		}
-   		
+			// 滚动了外层middleWrap到准确的位置
     		target.scrollTop = scrollTop;
     		target.scrollLeft = scrollLeft;
 
