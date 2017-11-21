@@ -17,7 +17,6 @@ class Header extends Component {
 	// props永远是只读的。
 	constructor(props) {
 		super(props); // 使用this.props引用传递过来的属性
-		console.log(this);		
 	}	
 	onChangeHandler(v) {
 		// 需要从父组件传过来，自己不可以更改自己的状态，需要使用事件来更改props（父组件传入）

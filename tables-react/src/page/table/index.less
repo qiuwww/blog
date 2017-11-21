@@ -40,6 +40,7 @@ h3{
 #table{
 	height: 520px;
 	width: 433px;
+	position: relative;
 }
 #table.active{
 	width: 1200px;
@@ -175,7 +176,6 @@ h3{
 	table{
 		border-collapse: collapse;
 		table-layout: fixed;
-		height: 100%;			
 		width: 100%; 
 		th{
 			height: 26px;
@@ -200,7 +200,6 @@ h3{
 		&>div{
 			float: left;
 			height: 100%;	
-			border: 1px solid blue;
 			overflow: hidden;
 		}
 	}
@@ -210,12 +209,24 @@ h3{
     	.right th{
 			width: 100px;
 		}
+		tr{
+			height: 24px;
+			th{
+				height: 24px;
+			}
+		}
 	}
 	.tbody{
 		height: 440px;
 		width: 100%;
 		.right td{
 			width: 100px;
+		}
+		tr{
+			height: 24px;
+			td{
+				height: 24px;
+			}
 		}
 	}
 	.left{
@@ -227,20 +238,54 @@ h3{
 	.right.top{
 		table{
 			position: relative;
-			left: -20px;
+			/*left: -20px;*/
 		}
 	}
 	.left.bottom{
 		height: 432px;
 		table{
 			position: relative;
-			top: -20px;
-		}
+			/*top: -20px;*/
+		}		
 	}
 	.right.bottom{
 		overflow: auto;
+		&::-webkit-scrollbar{
+		    width: 10px;
+		    height: 10px;
+		}
+		&::-webkit-scrollbar-track{
+			background-color: #fff;
+		}
+		&::-webkit-scrollbar-thumb{
+			background-color: #e6e6e6;
+			border-radius: 10px;
+			border: 2px solid #fff;
+		}
 		table{
 			border: 1px solid #eee;
 		}
+		/*内层包裹*/
+		.middleWrap{
+			position: relative;
+			left: 0;
+			top: 0;
+			width: 10000px;
+			height: 1000px;
+			border: 1px solid red;
+			table{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		}
 	}
+}
+
+#loading {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: gray;
+	z-index: 20;
 }

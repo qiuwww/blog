@@ -4,10 +4,7 @@ import React, {Component} from 'react';
 import * as mobx from 'mobx';
 import {observer, Provider, inject} from 'mobx-react';
 
-
 export default class LeftTop extends Component {
-
-
 	render() {
 		return (<div className="left top">
 			<table>
@@ -21,5 +18,4 @@ export default class LeftTop extends Component {
 			</table>
 		</div>)
 	}
-
 }
