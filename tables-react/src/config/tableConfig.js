@@ -5,7 +5,7 @@ const tableConfig = {
 	// 这里至少需要配置18行9列
 	tableRange: {
 		rowStart: 0,
-		rowEnd: 20, // 展示的默认行数，最大行数
+		rowEnd: 18, // 展示的默认行数，最大行数
 		colStart: 0,
 		colEnd: 20 // 默认的列数，最大列数
 	},

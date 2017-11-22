@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import * as mobx from 'mobx';
 import {observer, Provider, inject} from 'mobx-react';
 // import { Input } from 'antd';
-
+import './header.less';
 // 这里需要监控的属性有，输入框的值、原始值||同比||环比
 
 
@@ -67,8 +67,8 @@ class Header extends Component {
 	        	    	<li>显示同比</li>
 	        	    	<li>显示环比</li>
 	        	    </ul>
-	        	    <div className="add-compute">
-	        	   		<div className="add" onClick={this.addClickHandler.bind(this)}>变频</div>
+	        	    <div className="btns">
+	        	   		<div className="switch" onClick={this.addClickHandler.bind(this)}>变频</div>
 	        	   		<div className="add" onClick={this.addClickHandler.bind(this)}>新增</div>
 	        	   		<div className="compute" onClick={this.computeClickHandler.bind(this)}>计算</div>
 	        	    </div>

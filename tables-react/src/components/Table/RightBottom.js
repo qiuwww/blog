@@ -42,10 +42,10 @@ export default class RightBottom extends Component {
 
 
 		let tds = !!rightBottom && rightBottom.map((item, index) => {
-			if(index >= rowStart * multiple && index < rowEnd * multiple){
+			if(index >= 0 && index < 60){
 				return (<tr key={index}> 
 					{!!item && item.map((_item, _index) => {
-						if(_index >= colStart * multiple && _index < colEnd * multiple){
+						if(_index >= 0 && _index < 50){
 							return (<td key={_index}>
 								{_item}
 							</td>);
@@ -59,7 +59,7 @@ export default class RightBottom extends Component {
 			}	
 		});
 
-		return (<div className="right bottom" onScroll={this.props.scrollHandler.bind(this)}>
+		return (<div className="right bottom" >
 			<div className="middleWrap" style={middleWrapStyle}>
 				<table style={this.props.tableStyle}>
 					<tbody>
