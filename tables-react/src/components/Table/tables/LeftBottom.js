@@ -9,8 +9,7 @@ import {observer, inject} from 'mobx-react';
 	let TS = store.TableStore;
 	return {
 		scrollHandler: TS.scrollHandler,
-		leftBottom: TS.tableAllDataToJsObj.leftBottom,
-		trClickHandler: TS.trClickHandler
+		leftBottom: TS.tableAllDataToJsObj.leftBottom
 	}
 })@observer
 export default class LeftBottom extends Component {

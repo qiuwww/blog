@@ -79,29 +79,65 @@ export default class TableStore {
 		if(target.tagName == 'TD'){
 			let parentTr = target.parentNode;
 			let index = parentTr.dataset.index;
-			parentTr.setAttribute('class', 'currentHover');		
+			// this.getCurrentTr(index, false);
+			parentTr.classList.add('currentHover');		
 		}
 	}
 	onMouseLeave(e) {
 		e.stopPropagation();
 		let target = e.target;		
 		if(target.tagName == 'TD'){
-			let parentTr = target.parentNode;			
-			parentTr.removeAttribute('class', 'currentHover');		
+			let parentTr = target.parentNode;		
+			parentTr.classList.remove("currentHover");	
 		}
 	}
 	trClickHandler(e) {
-		debugger
-
 		e.stopPropagation();
 		let target = e.target;
 		if(target.tagName == 'TD'){
 			let parentTr = target.parentNode;
 			let index = parentTr.dataset.index;
+			getCurrentTr(index, true);			
 			// 移除兄弟节点的这个属性
-			parentTr.parentNode.querySelectorAll('tr.trSelect')[0].removeAttribute('class', 'trSelect');
-			parentTr.setAttribute('class', 'trSelect');		
+			// let hasClassTr = parentTr.parentNode.querySelectorAll('tr.trSelect')[0];
+			// hasClassTr && hasClassTr.classList.remove('trSelect');
+			// parentTr.classList.add('trSelect');		
 		}
+		function getCurrentTr(index, isClick) {
+			let leftBottomTr = document.querySelectorAll('.left.bottom tr');
+			let rightBottomTr = document.querySelectorAll('.right.bottom tr');
+			debugger
+			let allTr = Array.prototype.slice.call(leftBottomTr).concat(Array.prototype.slice.call(rightBottomTr));
+			!!allTr && allTr.forEach(function(item, index){
+				if(item.dataset.index == index) {
+					if(isClick){
+						let trSelect = document.querySelectorAll('.trSelect');
+						trSelect.length && trSelect.classList.remove('trSelect');
+						item.classList.add('trSelect');
+					}else{
+						let currentHover = document.querySelectorAll('.currentHover');
+						currentHover.length && currentHover.classList.remove('currentHover');					
+						item.classList.add('currentHover');					
+					}
+				}
+			});		
+		}
+	}
+	getCurrentTr(index, isClick) {
+		let leftBottomTr = document.querySelectorAll('.left.bottom tr');
+		let rightBottomTr = document.querySelectorAll('.right.bottom tr');
+		let allTr = leftBottomTr.concat(rightBottomTr);
+		!!allTr && allTr.forEach(function(item, index){
+			if(item.dataset.index == index) {
+				if(isClick){
+					document.querySelectorAll('.trSelect').classList.remove('trSelect');
+					item.classList.add('trSelect');
+				}else{
+					document.querySelectorAll('.currentHover').classList.remove('currentHover');					
+					item.classList.add('currentHover');					
+				}
+			}
+		});		
 	}
 
 }
