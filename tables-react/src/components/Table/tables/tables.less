@@ -116,6 +116,57 @@
 						text-align: left;
 					}
 				}
+				&.user-add{
+					.operation{
+						span{
+							width: 110px;
+						}
+						ul{
+							li:nth-child(n+2){
+								display: block;								
+							}
+						}						
+					}
+				}
+				.operation{
+					span{
+						float: left;						
+						display: inline-block;
+						height: 24px;
+						line-height: 24px;
+						width: 150px;
+						overflow: hidden;
+					    white-space: nowrap;
+					    text-overflow: ellipsis;
+					}
+					ul{
+						display: inline-block;
+						float: left;
+						height: 24px;
+						line-height: 24px;
+						li{
+							width: 20px;
+							height: 24px;
+							display: inline-block;
+							float: left;
+							background-size: 16px;
+							background-position: center center;
+							background-repeat: no-repeat; 
+							cursor: pointer;
+							&:nth-child(1){
+								background-image: url(../images/toTop.png);
+							}
+							&:nth-child(2){
+								display: none;
+								background-image: url(../images/edit.png);
+							}
+							&:nth-child(3){
+								display: none;								
+								background-image: url(../images/delete.png);
+							}
+						}
+					}
+				}
 			}
 		}		
 	}
@@ -134,7 +185,12 @@
 			border: 2px solid #fff;
 		}
 		table{
-			border: 1px solid #eee;
+			/*border: 1px solid #eee;*/
+			tr{
+				td{
+					border-left: 1px solid #eee;
+				}
+			}
 		}		
 	}
 }

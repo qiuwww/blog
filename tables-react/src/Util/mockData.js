@@ -21,21 +21,35 @@ let res = () => Mock.mock({
 	'errmsg': 'this is error message',
 	'total|0-8': 1,
 	'data': {
+		'frequency': 'quarter',
 		'leftBottom|40': [{
 			'index|+1': 1,
-			'title': '@cword(3,5)',
-			'id|10000-100000': 10000
+			'title': '@cword(3,15)',
+			'id|10000-100000': 10000,
+			'isUserAdd|1': [0, 1] 
 		}],
-		'rightTop|1000': ['@date("yyyy-MM-dd")'],		
-		'rightBottom|1000': function(){ // 第一层是行
+		'rightTop|10': ['@date("yyyy-MM-dd")'],		
+		'rightBottom|100': function(){ // 第一层是行
 			row = Mock.mock({
-				'rightBottomCol|1000': ['@cword(3,5)'] // 第二层是列
+				'rightBottomCol|10': ['@cword(3,5)'] // 第二层是列
 			})
-			return new Array(40).fill(row.rightBottomCol);
+			return new Array(4).fill(row.rightBottomCol);
 		}
 	}
 });
-export {mockData, res};
+
+// 返回指标列表
+let returnIndexLis = () => Mock.mock({
+	'errno|1': [0],
+	'errmsg': 'this is error message',
+	'total|0-8': 1,
+	'data|1-1000': [{
+		'id|10000-90000': 1,
+		'text': '@cword(3,15)' 
+	}]
+});
+
+export {mockData, res, returnIndexLis};
 
 
 

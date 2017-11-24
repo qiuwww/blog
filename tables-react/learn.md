@@ -389,3 +389,21 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 # 与其他类库混合使用
 
 最简单的方式就是阻止 React 更新外部在操作的节点，那么你可以通过生成一个 React 根本不会去更新的元素来实现，比如空的 <div />。
+
+# e.target与e.currentTarget
+
+e.target: 表示当前鼠标指向的元素
+e.currentTarget: 表示当前绑定事件的目标元素 
+
+# 标签元素引用
+`
+this.refs.getPosition.mouseWheel(this.state.indexs);
+
+},
+
+render : function() {
+return <div onWheel={this.handleWheel} className="main">
+        <Nav ref="getPosition"  indexs={this.state.indexs}></Nav>
+    </div>
+}
+`

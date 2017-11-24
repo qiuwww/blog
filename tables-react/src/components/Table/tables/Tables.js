@@ -19,8 +19,8 @@ import './tables.less';
 		synchronizePosition: TS.synchronizePositionToJsObj,
 		onMouseEnter: TS.onMouseEnter,
 		onMouseLeave: TS.onMouseLeave,
-		trClickHandler: TS.trClickHandler
-
+		trClickHandler: TS.trClickHandler,
+		trEvent: TS.trEvent
 		// 左边是别名
 		// currentSelect: store.TableStore.currentSelect,
 		// testAttribute: store.TableStore.testAttribute,
@@ -43,8 +43,8 @@ export default class Tables extends Component {
 
 	render() {
 
-		let  { synchronizePosition, onMouseLeave, onMouseEnter, trClickHandler} = this.props;
-		let passDownProps = { synchronizePosition, onMouseLeave, onMouseEnter, trClickHandler };
+		let  { synchronizePosition, trEvent} = this.props;
+		let passDownProps = { synchronizePosition, trEvent };
 
 		return(<div className="tables"> 
 			<div className="thead">

@@ -7,6 +7,8 @@ import {observer, Provider, inject} from 'mobx-react';
 // 组件 
 import Header from './header/Header';
 import Tables from './tables/Tables';
+import Dialog from './dialogs/Dialog';
+import ComputeIndex from './dialogs/ComputeIndex';
 // 引入需要的组件，填充页面
 
 
@@ -29,6 +31,8 @@ let multiple = tableConfig.multiple;
 	return {
 		// 初始化数据
 		initTableAllData: TS.initTableAllData,
+		openDialog: TS.openDialogToJsObj,
+		computeIndex: TS.computeIndexToJsObj
 		// 左边是别名
 		// currentSelect: store.TableStore.currentSelect,
 		// testAttribute: store.TableStore.testAttribute,
@@ -98,15 +102,18 @@ export default class Table extends Component {
 	// 其实这里参数放到props之后（行列范围，总的数据），避免了操作嵌套数据
     render() {
     	// 需要传递的属性要在constructor内生命好，然后通过标签传递给子组件
+    	// 这里直接引用组件，就是直接实例化一个对象组件
         return (<div id="table" className={this.state.isEnter ? '' : 'active'}> 
         	<div className="slide-area">
         		<div className="slide-btn" onClick={this.changeSlideState}></div>
         	</div>
         	<div className="content">
 				<Header initValue={this.state.value} onChange={this.handleChange.bind(this)}></Header>	   
-	        	<Tables></Tables>	        	
+	        	<Tables></Tables>	        		        	
         	</div>
         	{ this.props.isLoadingShow && <div id="loading"></div> }
+        	{ this.props.openDialog && <Dialog></Dialog> }
+        	{ this.props.computeIndex && <ComputeIndex></ComputeIndex> }
         </div>)
     }
 }

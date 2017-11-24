@@ -9,11 +9,12 @@ import './header.less';
 
 
 @inject((store) => {
+	let TS = store.TableStore;
 	return {
-		// currentSelect: store.TableStore.currentSelect
+		computeClickHandler: TS.computeClickHandler
 	}
 })@observer
-class Header extends Component { 
+export default class Header extends Component { 
 	// 组件内部通过props来访问传过来的参数，组件都继承于Component
 	// props是组件唯一的数据来源，对于组件来说：
 	// props永远是只读的。
@@ -33,11 +34,7 @@ class Header extends Component {
 		console.log(this);
 		
 	}
-	computeClickHandler(e) {
-		// 需要从父组件传过来，自己不可以更改自己的状态，需要使用事件来更改props（父组件传入）
-		console.log(this);
-		
-	}
+	
 	//点击选择框操作
 	selectLiEvent(e) {		
 
@@ -70,7 +67,7 @@ class Header extends Component {
 	        	    <div className="btns">
 	        	   		<div className="switch" onClick={this.addClickHandler.bind(this)}>变频</div>
 	        	   		<div className="add" onClick={this.addClickHandler.bind(this)}>新增</div>
-	        	   		<div className="compute" onClick={this.computeClickHandler.bind(this)}>计算</div>
+	        	   		<div className="compute" onClick={this.props.computeClickHandler.bind(this)}>计算</div>
 	        	    </div>
         	    </div>);
     }
@@ -91,4 +88,3 @@ Header.defaultProps = {
 	placeholder: '请输入指标名称或关键字'
 }
 
-export default Header;

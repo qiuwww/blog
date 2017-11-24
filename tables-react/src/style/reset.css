@@ -27,3 +27,8 @@ article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+.inner-center{
+	display: flex; 
+	align-items: center; 
+	justify-content: center;
+}

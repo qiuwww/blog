@@ -9,7 +9,11 @@ import {observer, inject} from 'mobx-react';
 	let TS = store.TableStore;
 	return {
 		scrollHandler: TS.scrollHandler,
-		leftBottom: TS.tableAllDataToJsObj.leftBottom
+		leftBottom: TS.tableAllDataToJsObj.leftBottom,
+		toTopHandler: TS.toTopHandler,
+		editHandler: TS.editHandler,
+		deleteHandler: TS.deleteHandler,
+		openDialogEvent: TS.openDialogEvent
 	}
 })@observer
 export default class LeftBottom extends Component {
@@ -35,13 +39,20 @@ export default class LeftBottom extends Component {
 		let tds = !!leftBottom && leftBottom.map((item, index) => {
 			return (
 				<tr key={index}
-					 data-index={index}
-					 onMouseEnter={this.props.onMouseEnter.bind(this)}					 
-					 onMouseLeave={this.props.onMouseLeave.bind(this)}
-					 onClick={this.props.trClickHandler.bind(this)}>					  					 
+					 className={item.isUserAdd ? '' : 'user-add'}
+					 onMouseEnter={this.props.trEvent.bind(this, 'mouseenter', index)}					 
+					 onMouseLeave={this.props.trEvent.bind(this, 'mouseleave', index)}
+					 onClick={this.props.trEvent.bind(this, 'click', index)}>					 					  					 
 					<td onClick={this.selectClickHandler.bind(this)}></td>
 					<td>{item.index}</td>
-					<td>{item.title}</td>
+					<td className="operation">
+						<span>{item.title}</span>
+						<ul>
+							<li onClick={this.props.toTopHandler.bind(this, index)}></li>							
+							<li onClick={this.props.editHandler.bind(this, index)}></li>
+							<li onClick={this.props.openDialogEvent.bind(this, {type: 4, text: item.title})}></li>
+						</ul>
+					</td>
 				</tr>)
 		});
 		return (<div className="left bottom">

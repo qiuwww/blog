@@ -42,9 +42,9 @@ export default class RightBottom extends Component {
 		let trs = !!rightBottom && rightBottom.map((item, index) => {			
 			return (<tr key={index}
 					 data-index={index}
-					 onMouseEnter={this.props.onMouseEnter.bind(this)}					 
-					 onMouseLeave={this.props.onMouseLeave.bind(this)}
-					 onClick={this.props.trClickHandler.bind(this)}> 
+					 onMouseEnter={this.props.trEvent.bind(this, 'mouseenter', index)}					 
+					 onMouseLeave={this.props.trEvent.bind(this, 'mouseleave', index)}
+					 onClick={this.props.trEvent.bind(this, 'click', index)}> 
 				{ !!item && item.map((_item, _index) => {
 					return (<td key={_index}>
 						{_item}
