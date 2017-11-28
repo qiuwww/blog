@@ -118,7 +118,7 @@
 				}
 				&.user-add{
 					.operation{
-						span{
+						&>p{
 							width: 110px;
 						}
 						ul{
@@ -129,7 +129,7 @@
 					}
 				}
 				.operation{
-					span{
+					&>p{
 						float: left;						
 						display: inline-block;
 						height: 24px;
@@ -138,6 +138,12 @@
 						overflow: hidden;
 					    white-space: nowrap;
 					    text-overflow: ellipsis;
+					    &>input{
+							width: 100%;
+							&.hide{
+								display: none;
+							}
+						}						
 					}
 					ul{
 						display: inline-block;

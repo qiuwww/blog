@@ -39,6 +39,14 @@ export default class TableStore {
 		return mobx.toJS(this.tableAllData);
 	}
 
+	// 编辑来改变初始化的对象
+	// index, leftBottom的数组的index； text是要改变的数据
+	@action.bound	
+	editChangeAllData(index) {
+		this.tableAllData.leftBottom[index]["title"] = text;
+	}
+
+
 	// 滚动条事件
 	// 滚动rightBottom的时候的处理函数
 	@action.bound	
@@ -108,11 +116,50 @@ export default class TableStore {
 		e.stopPropagation();
 		console.log('toTopHandler:', index);
 	}
+
+	// 编辑自定义指标的名称
 	@action.bound
 	editHandler(index, e) {
 		e.stopPropagation();
-		console.log('editHandler:', index);
+		let target = e.currentTarget;
+		// 这里来切换input的显示与隐藏，显示的时候，span元素是被挤到看不到的位置		
+		let td = target.parentNode.parentNode;
+		let input = td.querySelector('input');
+		let span = td.querySelector('span');
+		// debugger
+		let text = span.innerText;
+		if (input.classList.contains('hide')) {
+			input.classList.remove('hide');
+			this.changeCurrentIndexText(text);
+		}else{
+			input.classList.add('hide');
+			this.changeCurrentIndexText('');			
+		}
 	}
+	// 当前编辑的指标名称的缓存
+	@observable currentIndexText = '';
+	@computed 
+	get currentIndexTextToJsObj() {
+		return mobx.toJS(this.currentIndexText);
+	}
+	// 编辑输入框的input change事件
+	@action.bound
+	changeCurrentIndexTextHandler(index, e) {
+		e.stopPropagation();
+		let target = e.currentTarget;
+		this.changeCurrentIndexText(target.value, index);
+	}
+	// 改变当前值的函数
+	@action.bound
+	changeCurrentIndexText(currentIndexText, index) {
+		this.currentIndexText = currentIndexText;
+		// 同步改变tableAllData
+		if(index != undefined){
+			this.editChangeAllData(index, currentIndexText);
+		}
+	}
+
+	// 删除操作
 	@action.bound
 	deleteHandler(index, e) {
 		e.stopPropagation();
@@ -133,7 +180,7 @@ export default class TableStore {
 	}
 
 	// 打开计算弹框
-	@observable computeIndexOpen = true;
+	@observable computeIndexOpen = false;
 	@computed
 	get computeIndexToJsObj() {
 		return mobx.toJS(this.computeIndexOpen);
@@ -144,7 +191,7 @@ export default class TableStore {
 	}
 
 	
-
+	// 确认按钮的事件处理
 	@action.bound
 	beSureHandler(type, e) {
 		e.stopPropagation();
@@ -178,7 +225,7 @@ export default class TableStore {
 	openDialogEvent({type, text}, e) {
 		// 修改type， 说明弹框的类型及参数
 		this.changeDialogType(type);
-
+		// 一些特殊处理，删除指标的问题
 		!!text && this.changeDeleteIndex(text);
 		// 打开弹框, 控制弹框显示与隐藏
 		this.changeDialogstate();
@@ -203,7 +250,7 @@ export default class TableStore {
 	@action.bound
 	changeFrequencyHandler(e) {
 		e.stopPropagation();
-		let target = e.target;
+		let target = e.target;		
 		if(target.tagName == 'LI' && !target.classList.contains('disabled')){
 			let frequency = target.dataset.frequency;
 			this.changeFrequency(frequency);
@@ -216,28 +263,59 @@ export default class TableStore {
 	// 打开指标计算的弹框
 	@action.bound
 	computeClickHandler(e) {
+		e.stopPropagation();		
 		this.changeComputeState();
-
 	}
 	// 计算对话框的确认操作
 	@action.bound
 	computeSureHandler(e) {
-
+		e.stopPropagation();
+		// 拼接服务器接收的字符串
+		let expressObj = this.expressToJsObj;
+		let result = '';
+		let entity = '';
+		expressObj.length && expressObj.forEach((item, index) => {
+			if(item.id){
+				entity = item.id;
+			}else{
+				entity = item.text;
+			}			
+			result += entity;
+		});
+		if(result.length){
+			// 发送ajax请求
+			console.log("result表达式传递的规格", result);	
+			// 并且在成功之后关闭弹框		
+			setTimeout(() => {
+				this.closeCompute();
+			});
+		}else{
+			// 模拟点击关闭按钮
+			this.closeCompute();
+		}
 	}
-	// 计算对话框的关闭操作
+	// 计算对话框的关闭操作, 点击关闭的时候需要置空表达式
 	@action.bound
 	closeCompute(e) {
-
+		// e.stopPropagation();		
+		this.changeComputeState();
+		// 置空表达式, 什么也不传
+		this.operateExpress({});
 	}
 
-
+	/**
+	 * 表达式
+	 */
 	// 保存当前编辑的表达式的参数
-	@observable express = [{text: "123131", id: 1321321312}, {text: '/', id: undefined}, {text: 123131, id: 1321321312}];
+	@observable express = [];
 	@computed
 	get expressToJsObj() {
 		return mobx.toJS(this.express);
 	}
 	// 如下函数操作express对象，增、删、改，使用索引来操作
+	/**
+	 * index是对象数组的索引，addIndex是要插入的对象
+	 */
 	@action.bound
 	operateExpress({index, addIndex}) {
 		// 如果索引存在，就是替换，否则就是最后面添加
@@ -245,7 +323,11 @@ export default class TableStore {
 		if(index){
 			express.splice(index, 1, addIndex);
 		}else{
-			express.push(addIndex);
+			if(addIndex){
+				express.push(addIndex);
+			}else{
+				express = [];
+			}
 		}
 		this.express = express;
 		console.log("express", express);
@@ -294,6 +376,7 @@ export default class TableStore {
 		this.operateExpress(obj);
 	}
 
+	// 指标ajax取值保存结果
 	@observable indexLis = [];
 	@computed
 	get indexLisToJsObj() {
@@ -304,13 +387,14 @@ export default class TableStore {
 		this.indexLis = indexLis;
 	}
 
+	// 表达式的元素的选中与取消
 	@action.bound
 	selectExpressHandler(e) {
 		e.stopPropagation();
 		let target = e.target;
 		// 这里有一个问题就是取消别的部分的seleted
 		let selected = document.querySelector('.express .selected');
-		selected && selected.classList.remove('selected');
+
 
 		if(target.tagName === 'SPAN'){
 			target = target.parentElement;			
@@ -318,9 +402,10 @@ export default class TableStore {
 			target = target;
 		}
 
-		if(target.classList.contains('selected')){
+		if(selected == target){
 			target.classList.remove('selected');
 		}else{
+			selected && selected.classList.remove('selected');
 			target.classList.add('selected');
 		}
 	}
@@ -336,4 +421,46 @@ export default class TableStore {
 		}		
 		return index;
 	}
+
+
+	/**
+	 * 搜索框相关
+	 */
+	@observable searchValue = '';
+	@computed
+	get searchValueToJsObj() {
+		return mobx.toJS(this.searchValue);
+	}
+	@action.bound
+	changeSearchValue(value) {
+		this.searchValue = value;
+	}
+
+	// 处理函数, 搜索框点击事件
+	@action.bound
+	searchChangeHandler(e) {
+		console.log(e);
+		let target = e.target;
+		let value = target.value;
+		this.changeSearchValue(value);
+	}
+
+	// 搜索框enter搜索
+	@action.bound
+	onKeyDownHandler(e) {
+		let target = e.target;
+		let code = e.keyCode;
+		if(e.keyCode === 13){
+			console.log('搜索的信息：', target.value)
+		}
+	}
+	// search-btn
+	@action.bound
+	searchBtnHandler(e) {
+		e.stopPropagation();
+		let target = e.target;
+		// 执行搜索操作
+		console.log("target:", target);
+	}
+	
 }

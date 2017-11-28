@@ -13,7 +13,9 @@ import {observer, inject} from 'mobx-react';
 		toTopHandler: TS.toTopHandler,
 		editHandler: TS.editHandler,
 		deleteHandler: TS.deleteHandler,
-		openDialogEvent: TS.openDialogEvent
+		openDialogEvent: TS.openDialogEvent,
+		changeCurrentIndexTextHandler: TS.changeCurrentIndexTextHandler,
+		currentIndexText: TS.currentIndexTextToJsObj
 	}
 })@observer
 export default class LeftBottom extends Component {
@@ -36,6 +38,7 @@ export default class LeftBottom extends Component {
 		let tableStyle = {
 			top: -synchronizePosition.scrollTop
 		}
+		console.log(this.props)
 		let tds = !!leftBottom && leftBottom.map((item, index) => {
 			return (
 				<tr key={index}
@@ -46,7 +49,7 @@ export default class LeftBottom extends Component {
 					<td onClick={this.selectClickHandler.bind(this)}></td>
 					<td>{item.index}</td>
 					<td className="operation">
-						<span>{item.title}</span>
+						<p><input value={this.props.currentIndexText} className="hide" onChange={this.props.changeCurrentIndexTextHandler.bind(this, index)} /><span>{item.title}</span></p>
 						<ul>
 							<li onClick={this.props.toTopHandler.bind(this, index)}></li>							
 							<li onClick={this.props.editHandler.bind(this, index)}></li>

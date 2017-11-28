@@ -201,13 +201,13 @@
   width: 170px;
   text-align: left;
 }
-.tables .left.bottom table tr.user-add .operation span {
+.tables .left.bottom table tr.user-add .operation > p {
   width: 110px;
 }
 .tables .left.bottom table tr.user-add .operation ul li:nth-child(n+2) {
   display: block;
 }
-.tables .left.bottom table tr .operation span {
+.tables .left.bottom table tr .operation > p {
   float: left;
   display: inline-block;
   height: 24px;
@@ -216,6 +216,12 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.tables .left.bottom table tr .operation > p > input {
+  width: 100%;
+}
+.tables .left.bottom table tr .operation > p > input.hide {
+  display: none;
 }
 .tables .left.bottom table tr .operation ul {
   display: inline-block;
@@ -509,6 +515,9 @@
   padding: 0 5px 5px;
   color: #444;
   line-height: 24px;
+  display: inline-block;
+  overflow-y: auto;
+  height: 198px;
 }
 .dialog.compute .dialog-wrap .detail > div.right .express li {
   user-select: none;

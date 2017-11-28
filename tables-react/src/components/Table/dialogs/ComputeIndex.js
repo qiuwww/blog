@@ -55,13 +55,13 @@ export default class Dialog extends Component {
 	// 需要保存这个html片段作为名称保存起来
 	render() {
 		let { expressArr } = this.props;
-		let express = expressArr.length && expressArr.map((item, index) => {
+		let express = expressArr.length ? expressArr.map((item, index) => {
 			if(item.id){
 				return (<li key={index} data-index={index}><span>{item.text}</span></li>);
 			}else{
 				return (<li key={index} data-index={index}>{item.text}</li>);				
 			}
-		});
+		}) : null;
 		return (
 			<div className="dialog compute">
 				<div className="dialog-wrap">

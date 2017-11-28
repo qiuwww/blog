@@ -11,7 +11,13 @@ import './header.less';
 @inject((store) => {
 	let TS = store.TableStore;
 	return {
-		computeClickHandler: TS.computeClickHandler
+		computeClickHandler: TS.computeClickHandler,
+		searchValue: TS.searchValueToJsObj,
+		searchChangeHandler: TS.searchChangeHandler,
+		onKeyDownHandler: TS.onKeyDownHandler,
+		searchBtnHandler: TS.searchBtnHandler,
+		changeFrequencyHandler: TS.changeFrequencyHandler,
+		openDialogEvent: TS.openDialogEvent
 	}
 })@observer
 export default class Header extends Component { 
@@ -32,6 +38,7 @@ export default class Header extends Component {
 	addClickHandler(e) {
 		// 需要从父组件传过来，自己不可以更改自己的状态，需要使用事件来更改props（父组件传入）
 		console.log(this);
+		console.log("打开安哥的弹框");
 		
 	}
 	
@@ -53,11 +60,16 @@ export default class Header extends Component {
 	} 
     render() {            	
     	console.log('this.props: ', this.props);
-    	const { initValue } = this.props; 
+    	const { searchValue } = this.props; 
+    	console.log("searchValue: ", searchValue);
         return (<div className="header search-btns">        	
 	        		<div className="search-input">
-	        			<input placeholder={this.props.placeholder}  value={initValue} onChange={this.onChangeHandler.bind(this)} />
-	        			<span className="search-btn" onChange={this.onChangeHandler.bind(this)}></span>
+	        			<input 
+	        			placeholder={this.props.placeholder} 
+	        			value={searchValue} 
+	        			onKeyDown={this.props.onKeyDownHandler.bind(this)}
+	        			onChange={this.props.searchChangeHandler.bind(this)} />
+	        			<span className="search-btn" onClick={this.props.searchBtnHandler.bind(this)}></span>
 	        	    </div>
 	        	    <ul className="radios" onClick={this.selectLiEvent.bind(this)}>
 	        	    	<li>显示原始数值</li>
@@ -65,7 +77,7 @@ export default class Header extends Component {
 	        	    	<li>显示环比</li>
 	        	    </ul>
 	        	    <div className="btns">
-	        	   		<div className="switch" onClick={this.addClickHandler.bind(this)}>变频</div>
+	        	   		<div className="switch" title="变频操作" onClick={this.props.openDialogEvent.bind(this, {type: 5})}>变频</div>
 	        	   		<div className="add" onClick={this.addClickHandler.bind(this)}>新增</div>
 	        	   		<div className="compute" onClick={this.props.computeClickHandler.bind(this)}>计算</div>
 	        	    </div>

@@ -1,0 +1,19 @@
+{
+  "name": "Desktop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1"
+  },
+  "devDependencies": {
+    "stylus-loader": "^3.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
