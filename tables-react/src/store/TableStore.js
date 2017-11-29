@@ -3,6 +3,10 @@
 
 import mobx, { observable, computed, action } from 'mobx';
 import tableConfig from '../config/tableConfig.js';
+import { fetch, logMsg } from '../Util/utils.js';
+
+import { resData } from '../Util/mockData.js';
+
 
 // 定义可观察的属性和方法，需要的时候使用inject来注入到组件中
 export default class TableStore {
@@ -14,11 +18,20 @@ export default class TableStore {
 		};
 		// 这个根据第一次得到的数据计算，不随着frequency变化
 		this.flag = '';
-
+		this.isMore = true;
+		this.pagesize = 40;
 	}
 
 
-
+	@observable page = 1;
+	@computed
+	get pageToJsObj() {
+		return mobx.toJS(this.page);
+	}
+	@action.bound
+	changePage(page) {
+		this.page = page;
+	}
 
 	// table总的数据，添加观察《定义》这里的数据，除了第一页20条，后边的都是40条
 	@observable tableAllData = {
@@ -32,6 +45,7 @@ export default class TableStore {
 		// 拿到总的数据，需要做如下操作
 		this.tableAllData = data;
 		this.changeFrequency(data.frequency);
+
 	}
 	// 转为js对象，以便在页面处理中用到 《使用》
 	@computed
@@ -39,11 +53,133 @@ export default class TableStore {
 		return mobx.toJS(this.tableAllData);
 	}
 
+	// 显示同比||历史数据||环比
+	@observable radios = [];
+	@action.bound
+	radiosChange(radios) {
+		this.radios = radios;
+		this.refreshTable();
+	}
+	@computed
+	get radiosToJsObj() {
+		return mobx.toJS(this.radios);
+	}
+
+
+	// 刷新数据，这个函数在componentDidMount的时候需要调用一次使用默认参数
+	@action.bound
+	refreshTable() {
+		let params = {
+			searchValue: this.searchValueToJsObj,
+			page: this.page,
+			pagesize: 20,
+			radios: this.radiosToJsObj, // 参数滞后更新
+			frequency: this.frequencyToJsObj
+
+		};
+		logMsg('prams:', params, 'red');
+		this.changeIsLoadingShow();
+		// setInterval(() => {
+			setTimeout(() => {
+				let res = resData();		
+				// 这里传入同比||环比||原始数据，三个
+				logMsg("getData: ", res, 'blue');		
+				if(!res.errno){
+					this.initTableAllData(res.data);
+				}else{
+					console.log('数据获取失败');
+				}					 
+
+				this.changeIsLoadingShow();
+
+			}, 1000);	
+
+		// }, 5000);
+	}
+
+	// 选中列的数组
+	@observable selectTrIndexs = [];
+	@computed
+	get selectTrIndexsToJsObj() {
+		return mobx.toJS(this.selectTrIndexs);
+	}
+	@action.bound
+	changeSelectTrIndexs(selectTrIndexs) {
+		this.selectTrIndexs = selectTrIndexs;
+		// 这里执行数据提取然后调用安哥这边的函数
+		let data = this.selectAllDataTr();
+		console.warn('要发给安哥的数据： ', data);
+	}
+
+	// 计算选中的行
+
+	@action.bound
+	selectAllDataTr() {
+		let selectTrIndexs = this.selectTrIndexsToJsObj;
+		let data = [];
+		let rightTop = this.tableAllData.rightTop; // 第一行
+
+		let rightBottom = this.tableAllData.rightBottom;
+		let middleArr = [rightTop]; // 中间数组
+		
+
+		selectTrIndexs.length && selectTrIndexs.forEach((item, index) =>{
+			rightBottom.forEach((_item, _index) => {
+				if(_index == parseInt(item)) {
+					middleArr.push(_item);
+				}
+			});
+		});		
+		// 这个二维数组求一个转置
+		let len = middleArr.length;
+		let subArr;
+		len > 1 && middleArr.forEach((item, index) => { // 循环四次
+			item.forEach((_item, _index) => { // 循环列数次
+				if(Array.isArray(data[_index])){
+					data[_index].push(_item);
+				}else{
+					data[_index] = [_item];
+				}
+			});
+		});
+		return data;
+	}
+
 	// 编辑来改变初始化的对象
 	// index, leftBottom的数组的index； text是要改变的数据
 	@action.bound	
-	editChangeAllData(index) {
+	editChangeAllData(index, text) {
 		this.tableAllData.leftBottom[index]["title"] = text;
+	}
+	// 删除某一行
+	@action.bound
+	deleteAllDataTr(index) {
+		this.tableAllData.leftBottom.splice(index, 1);
+		this.tableAllData.rightBottom.splice(index, 1);
+
+		// this.changeDeleteIndex(index);
+
+		// this.deleteIndex = index;
+		// 这里发起ajax请求，删除节点，然后更改拿到的数据
+		setTimeout(() => {
+			this.changeDialogstate();
+		}, 1000);
+
+		// 删除之后，去除右侧的选中状态
+		let trSelect = document.querySelector('.right.bottom .trSelect');
+		!!trSelect && trSelect.classList.remove('trSelect');
+	}
+	// 置顶操作
+	@action.bound
+	toTopTr(index) {
+		if(index !== 0){
+			// ajax请求吧，刷新整个数据树
+			let tr1 = this.tableAllData.leftBottom.splice(index, 1);
+			this.tableAllData.leftBottom.unshift(tr1[0]);
+
+			let tr2 = this.tableAllData.rightBottom.splice(index, 1);
+			this.tableAllData.rightBottom.unshift(tr2[0]);
+		}
 	}
 
 
@@ -52,13 +188,6 @@ export default class TableStore {
 	@action.bound	
 	scrollHandler(e){
     	let target = e.currentTarget;
-    	// 左侧滚动的时候，委托给右侧，需要添加在body上才可以检测出来，后边再说
-    	// if(target === document.querySelector('.left.bottom')[0]) {
-    	// 	target = document.querySelector('.right.bottom')[0];
-    	// }
-
-    	// let table = target.getElementsByTagName('table')[0];
-
     	// 当前目标元素滚动之后的位置
     	let scrollLeft = parseInt(target.scrollLeft);
 
@@ -66,12 +195,36 @@ export default class TableStore {
 
 		let position = {scrollLeft, scrollTop};
 
+		let scrollHeight = target.scrollHeight;
+		let offsetHeight = target.offsetHeight;
+
+		if(this.synchronizePosition.scrollTop != scrollTop){
+			// 滚动加载,需要改变page和pagesize
+			if( scrollTop + offsetHeight >= scrollHeight - 10){
+				this.changePage(this.pageToJsObj + 1);
+				if(this.isMore) {
+					this.refreshTable();
+				}
+			}else if(scrollTop == 0){
+				this.changePage(this.pageToJsObj - 1);
+				if(this.pageToJsObj < 1){
+					this.changePage(1);
+				}else{
+					this.refreshTable();		
+				}
+			}	
+		}
+
+
+
 		// 同步左下与右上, 为什么这里可以调用this
-    	this.synchronizeFunc(position);
-  		
+		this.synchronizeFunc(position);  		
 	}
 
-	// 处理滚动条跟随的问题
+	
+	
+
+	// 处理滚动条跟随的问题, 保存上一次加载的位置
 	@observable synchronizePosition = {
 		scrollLeft: 0,
 		scrollTop: 0
@@ -84,6 +237,13 @@ export default class TableStore {
 	get synchronizePositionToJsObj() {
 		return mobx.toJS(this.synchronizePosition);
 	}
+
+	// 记录当前的选中的行， 便于下边的置顶操作和删除操作
+	@observable currentIndex = '';
+	@computed
+	get currentIndexToJsObj() {
+		return mobx.toJS(this.currentIndex);
+	}
 	// 左右关联操作，hover和点击事件
 	@action.bound		
 	trEvent(type, index, e) {
@@ -95,7 +255,8 @@ export default class TableStore {
 			}else if(type === 'mouseleave'){
 				trChange(index, 'currentHover', true);
 			}else if(type === 'click') {
-				trChange(index, 'trSelect');				
+				trChange(index, 'trSelect');		
+				this.currentIndex = index;		
 			}
 		}
 		function trChange(index, className, isLeave) {
@@ -114,7 +275,8 @@ export default class TableStore {
 	@action.bound
 	toTopHandler(index, e) {
 		e.stopPropagation();
-		console.log('toTopHandler:', index);
+		// 置顶操作
+		this.toTopTr(index);
 	}
 
 	// 编辑自定义指标的名称
@@ -128,12 +290,10 @@ export default class TableStore {
 		let span = td.querySelector('span');
 		// debugger
 		let text = span.innerText;
+		// 显示输入框
 		if (input.classList.contains('hide')) {
 			input.classList.remove('hide');
 			this.changeCurrentIndexText(text);
-		}else{
-			input.classList.add('hide');
-			this.changeCurrentIndexText('');			
 		}
 	}
 	// 当前编辑的指标名称的缓存
@@ -154,19 +314,20 @@ export default class TableStore {
 	changeCurrentIndexText(currentIndexText, index) {
 		this.currentIndexText = currentIndexText;
 		// 同步改变tableAllData
-		if(index != undefined){
+		if(index != undefined && currentIndexText != ''){
 			this.editChangeAllData(index, currentIndexText);
 		}
 	}
-
-	// 删除操作
+	// 输入框失去焦点的时候，触发保存
 	@action.bound
-	deleteHandler(index, e) {
+	blurHandler(e) {
 		e.stopPropagation();
-		console.log('deleteHandler:', index);
-		this.changeDialogstate();
-	}
-
+		// target就是指向input
+		let target = e.currentTarget;
+		target.classList.add('hide');
+		this.changeCurrentIndexText('');
+	} 
+	
 	// 打开弹框
 	@observable openDialog = false;
 	@computed
@@ -190,16 +351,23 @@ export default class TableStore {
 		this.computeIndexOpen = !this.computeIndexToJsObj;
 	}
 
+
 	
-	// 确认按钮的事件处理
+	// 确认按钮的事件处理, 基本对话框的确认事件
 	@action.bound
 	beSureHandler(type, e) {
 		e.stopPropagation();
-		console.log('type', type);
 		// 这里区分类型，做不同的处理
+		let index = this.currentIndexToJsObj;
+		if(type == 4){
+			this.deleteAllDataTr(index);
+		}else if(type == 5){
+			this.refreshTable();
+			this.changeDialogstate();// 成功后关闭弹框
+		}
 	}	
 
-	@observable dialogType = 5;
+	@observable dialogType = '';
 	@action.bound
 	changeDialogType(type) {
 		this.dialogType = type;
@@ -215,18 +383,22 @@ export default class TableStore {
 	get deleteIndexToJsObj() {
 		return mobx.toJS(this.deleteIndex);
 	}
+	// 删除一行，发起请求
 	@action.bound
 	changeDeleteIndex(deleteIndex) {
 		this.deleteIndex = deleteIndex;
+		// 这里发起ajax请求，删除节点，然后更改拿到的数据
+		setTimeout(() => {
+			this.changeDialogstate();
+		}, 1000);
 	}
 
 	// 打开基本的对话框
+	// 1. 删除操作
 	@action.bound // 把这个函数绑定到当前的对象上
-	openDialogEvent({type, text}, e) {
+	openDialogEvent({type, text, index}, e) {
 		// 修改type， 说明弹框的类型及参数
-		this.changeDialogType(type);
-		// 一些特殊处理，删除指标的问题
-		!!text && this.changeDeleteIndex(text);
+		this.changeDialogType(type);		
 		// 打开弹框, 控制弹框显示与隐藏
 		this.changeDialogstate();
 	}
@@ -284,11 +456,11 @@ export default class TableStore {
 		});
 		if(result.length){
 			// 发送ajax请求
-			console.log("result表达式传递的规格", result);	
 			// 并且在成功之后关闭弹框		
 			setTimeout(() => {
 				this.closeCompute();
-			});
+				this.refreshTable(); // 添加了一条，所以要刷新整个部分
+			}, 1000);
 		}else{
 			// 模拟点击关闭按钮
 			this.closeCompute();
@@ -330,7 +502,6 @@ export default class TableStore {
 			}
 		}
 		this.express = express;
-		console.log("express", express);
 	}
 
 	// 添加操作符
@@ -439,10 +610,44 @@ export default class TableStore {
 	// 处理函数, 搜索框点击事件
 	@action.bound
 	searchChangeHandler(e) {
-		console.log(e);
+		e.stopPropagation();
 		let target = e.target;
 		let value = target.value;
 		this.changeSearchValue(value);
+		// 这里要显示联想搜索框
+		let timeID;
+		clearTimeout(timeID);
+		timeID = setTimeout(() => {
+			if(value != ''){
+				this.lenovoFetch(value);				
+			}
+		}, 500);
+	}
+
+
+	// 联想框的数据
+	@observable lenovoData = [];
+	@computed
+	get lenovoDataToJsObj() {
+		return mobx.toJS(this.lenovoData);
+	}
+	@action.bound
+	changeLenovoData(lenovoData) {
+		this.lenovoData = lenovoData;
+	}
+	// 联想输入的模拟请求返回
+	@action.bound
+	lenovoFetch(value) {
+		setTimeout(() => {
+			// 打开弹框，填入数据
+			let data = ['水电费的说法水电费', 
+				'水电费的说法水电费','水电费的说法水电费',
+				'水电费的说法水电费','水电费的说法水电费',
+				'水电费的说法水电费','水电费的说法水电费',
+				'水电费的说法水电费'];
+
+			this.changeLenovoData(data);
+		}, 1000);
 	}
 
 	// 搜索框enter搜索
@@ -451,7 +656,7 @@ export default class TableStore {
 		let target = e.target;
 		let code = e.keyCode;
 		if(e.keyCode === 13){
-			console.log('搜索的信息：', target.value)
+			this.searchCommonFunc();
 		}
 	}
 	// search-btn
@@ -460,7 +665,24 @@ export default class TableStore {
 		e.stopPropagation();
 		let target = e.target;
 		// 执行搜索操作
-		console.log("target:", target);
+		this.searchCommonFunc();
+	}
+	// 很明显这里的这段代码是要拿到搜索值，并且搜索
+	@action.bound
+	searchCommonFunc() {
+		this.refreshTable();
+		this.changeLenovoData([]);			
+	}
+
+	// loading show
+	@observable isLoadingShow = false;
+	@action.bound
+	changeIsLoadingShow() {
+		this.isLoadingShow = !this.isLoadingShowToJsObj;
+	}
+	@computed
+	get isLoadingShowToJsObj() {
+		return mobx.toJS(this.isLoadingShow);
 	}
 	
 }

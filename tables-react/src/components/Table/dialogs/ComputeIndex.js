@@ -113,11 +113,3 @@ export default class Dialog extends Component {
 		);
 	}
 }
-
-// var str = '<span id="sdfsdfsdf">长安CS95</span>dfds<span id="sdfsdfsdf">长安CS95</span>';
-
-// // console.log(str.match(/\"(.+)\"/));
-
-// str.replace(/.+\"(.+)\".+/ig, function(match, id){
-// 	return id;
-// });

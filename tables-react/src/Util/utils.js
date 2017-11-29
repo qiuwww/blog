@@ -77,4 +77,7 @@ let fetch = async(url = '', data = {}, type = 'GET', method = 'fetch') => {
 	}
 }        
 
-export default {fetch};
+let logMsg = (desc, msg, color) => {
+ 	console.log(`%c ${desc}: `, `color: ${color};font-size: 20px;`, msg);
+}
+export { fetch, logMsg };

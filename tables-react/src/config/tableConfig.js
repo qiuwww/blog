@@ -30,6 +30,16 @@ const tableConfig = {
 		text: '年',
 		key: 'year',
 		value: 4
+	}],
+	radius: [{
+		type: 'ysz',
+		text: '显示原始数值'
+	},{
+		type: 'tb',
+		text: '显示同比'	
+	},{
+		type: 'hb',
+		text: '显示环比'	
 	}]
 }
 

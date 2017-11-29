@@ -10,6 +10,7 @@
 		width: 200px;	
 		margin: 11px;
 		height: 28px;	
+		position: relative;
 		input{
 			height: 100%;
 			width: 160px;
@@ -19,7 +20,11 @@
 			border-right: 0;
 			border-top-left-radius: 50px;			
 			border-bottom-left-radius: 50px;
-			text-indent: 10px;			
+			text-indent: 20px;	
+			&::-webkit-input-placeholder{
+				font-size: 12px;
+			}		
+		    font-size: 12px;
 		}
 		.search-btn{
 			height: 100%;			
@@ -33,6 +38,44 @@
 			background: url(../images/search.png) no-repeat center center;	
 			background-size: 20px;	
 			cursor: pointer;
+		}
+		.lenovoSelect{
+			position: absolute;
+			max-height: 120px;
+			left: 10px;
+			right: 10px;
+			top: 28px;
+			border: 1px solid #ccc;
+			z-index: 20;
+			overflow-y: auto;
+			&::-webkit-scrollbar{
+			    width: 10px;
+			}
+			&::-webkit-scrollbar-track{
+				background-color: #fff;
+			}
+			&::-webkit-scrollbar-thumb{
+				background-color: #e6e6e6;
+				border-radius: 10px;
+				border: 2px solid #fff;
+			} 
+			ul{
+				width: 100%;
+				background-color: #fff;
+				li{
+					width: 100%;
+					height: 20px;
+					line-height: 20px;
+					text-indent: 10px;
+					&:hover{
+						background-color: #e3edfe;
+					}
+				    overflow: hidden;
+    				white-space: nowrap;
+					text-overflow: ellipsis;
+					cursor: pointer;
+				}
+			}
 		}
 	}
 	.btns{

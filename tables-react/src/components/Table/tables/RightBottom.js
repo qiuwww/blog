@@ -28,13 +28,9 @@ export default class RightBottom extends Component {
 
 	}
 	componentWillUpdate() {
-		// console.log('1');
-
 		console.time('Update');
 	}
 	componentDidUpdate() {
-		// console.log('2');
-
 		console.timeEnd('Update');
 	}
 	render() {

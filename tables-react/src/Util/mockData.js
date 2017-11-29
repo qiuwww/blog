@@ -16,7 +16,7 @@ let mockData = () => Mock.mock({
 });
 
 var row;
-let res = () => Mock.mock({
+let resData = () => Mock.mock({
 	'errno|1': [0],
 	'errmsg': 'this is error message',
 	'total|0-8': 1,
@@ -28,12 +28,12 @@ let res = () => Mock.mock({
 			'id|10000-100000': 10000,
 			'isUserAdd|1': [0, 1] 
 		}],
-		'rightTop|10': ['@date("yyyy-MM-dd")'],		
-		'rightBottom|100': function(){ // 第一层是行
+		'rightTop|100': ['@date("yyyy-MM-dd")'],		
+		'rightBottom|40': function(){ // 第一层是行
 			row = Mock.mock({
-				'rightBottomCol|10': ['@cword(3,5)'] // 第二层是列
+				'rightBottomCol|100': ['@float(1, 10000, 2, 2)'] // 第二层是列
 			})
-			return new Array(4).fill(row.rightBottomCol);
+			return new Array(40).fill(row.rightBottomCol);
 		}
 	}
 });
@@ -49,7 +49,7 @@ let returnIndexLis = () => Mock.mock({
 	}]
 });
 
-export {mockData, res, returnIndexLis};
+export {mockData, resData, returnIndexLis};
 
 
 

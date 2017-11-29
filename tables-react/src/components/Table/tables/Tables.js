@@ -21,15 +21,6 @@ import './tables.less';
 		onMouseLeave: TS.onMouseLeave,
 		trClickHandler: TS.trClickHandler,
 		trEvent: TS.trEvent
-		// 左边是别名
-		// currentSelect: store.TableStore.currentSelect,
-		// testAttribute: store.TableStore.testAttribute,
-		// changeValue2: store.TableStore.changeValue2,
-		// range: store.TableStore.rangeToJsObj,
-		// changeLoadingState: store.TableStore.changeLoadingState,
-		// isLoadingShow: store.TableStore.isLoadingShowToJsObj,
-		// tablePosition: store.TableStore.tableStyleToJsObj,
-		// memoryPosition: store.TableStore.memoryPositionToJsObj 
 	}
 })@observer
 export default class Tables extends Component {

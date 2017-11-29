@@ -32,16 +32,10 @@ let multiple = tableConfig.multiple;
 		// 初始化数据
 		initTableAllData: TS.initTableAllData,
 		openDialog: TS.openDialogToJsObj,
-		computeIndex: TS.computeIndexToJsObj
-		// 左边是别名
-		// currentSelect: store.TableStore.currentSelect,
-		// testAttribute: store.TableStore.testAttribute,
-		// changeValue2: store.TableStore.changeValue2,
-		// range: store.TableStore.rangeToJsObj,
-		// changeLoadingState: store.TableStore.changeLoadingState,
-		// isLoadingShow: store.TableStore.isLoadingShowToJsObj,
-		// tablePosition: store.TableStore.tableStyleToJsObj,
-		// memoryPosition: store.TableStore.memoryPositionToJsObj 
+		computeIndex: TS.computeIndexToJsObj,
+		changeLenovoData: TS.changeLenovoData,
+		refreshTable: TS.refreshTable,
+		isLoadingShow: TS.isLoadingShow
 	}
 })@observer
 // 观察下边的内容变化, 输出Table， 使用的部分引用Table
@@ -55,27 +49,22 @@ export default class Table extends Component {
 		this.changeSlideState =this.changeSlideState.bind(this)
 		// 使用mobx替代这里的方式，是这种方式的一种封装
 		this.state = {
-				value: 'testStr',
-				isEnter: true,
+			value: 'testStr',
+			isEnter: true,
 		}
 
 	}
 
 	// 第一次渲染结束render后执行， table部分的数据请求
 	componentDidMount() {
-		let res = this.getData();		
-		// 这里传入同比||环比||原始数据，三个
-		console.log("getData: ", res);		
-		if(!res.errno){
-			this.props.initTableAllData(res.data);
-		}else{
-			console.log('数据获取失败');
-		}
-	}
-
-	getData() {
-		let params = {};
-		return res();
+		this.props.refreshTable();
+		// body上绑定方法, 这里会影响到所有事件的还行
+		document.body.addEventListener('click', (e) => {
+			let target = e.target;
+			if(!target.classList.contains('noPop')){
+				this.props.changeLenovoData([]);
+			}
+		}, false);
 	}
 
 	componentWillUpdate() {

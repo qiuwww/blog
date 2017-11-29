@@ -27477,6 +27477,16 @@ var tableConfig = {
 		text: '年',
 		key: 'year',
 		value: 4
+	}],
+	radius: [{
+		type: 'ysz',
+		text: '显示原始数值'
+	}, {
+		type: 'tb',
+		text: '显示同比'
+	}, {
+		type: 'hb',
+		text: '显示环比'
 	}]
 };
 
@@ -27764,7 +27774,7 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.returnIndexLis = exports.res = exports.mockData = undefined;
+exports.returnIndexLis = exports.resData = exports.mockData = undefined;
 
 var _mockjs = __webpack_require__(293);
 
@@ -27790,7 +27800,7 @@ var mockData = function mockData() {
 };
 
 var row;
-var res = function res() {
+var resData = function resData() {
 	return _mockjs2.default.mock({
 		'errno|1': [0],
 		'errmsg': 'this is error message',
@@ -27803,13 +27813,13 @@ var res = function res() {
 				'id|10000-100000': 10000,
 				'isUserAdd|1': [0, 1]
 			}],
-			'rightTop|10': ['@date("yyyy-MM-dd")'],
-			'rightBottom|100': function rightBottom100() {
+			'rightTop|100': ['@date("yyyy-MM-dd")'],
+			'rightBottom|40': function rightBottom40() {
 				// 第一层是行
 				row = _mockjs2.default.mock({
-					'rightBottomCol|10': ['@cword(3,5)'] // 第二层是列
+					'rightBottomCol|100': ['@float(1, 10000, 2, 2)'] // 第二层是列
 				});
-				return new Array(4).fill(row.rightBottomCol);
+				return new Array(40).fill(row.rightBottomCol);
 			}
 		}
 	});
@@ -27829,7 +27839,7 @@ var returnIndexLis = function returnIndexLis() {
 };
 
 exports.mockData = mockData;
-exports.res = res;
+exports.resData = resData;
 exports.returnIndexLis = returnIndexLis;
 
 // 这里需要接口如下：
@@ -28946,16 +28956,10 @@ var Table = (_dec = (0, _mobxReact.inject)(function (store) {
 		// 初始化数据
 		initTableAllData: TS.initTableAllData,
 		openDialog: TS.openDialogToJsObj,
-		computeIndex: TS.computeIndexToJsObj
-		// 左边是别名
-		// currentSelect: store.TableStore.currentSelect,
-		// testAttribute: store.TableStore.testAttribute,
-		// changeValue2: store.TableStore.changeValue2,
-		// range: store.TableStore.rangeToJsObj,
-		// changeLoadingState: store.TableStore.changeLoadingState,
-		// isLoadingShow: store.TableStore.isLoadingShowToJsObj,
-		// tablePosition: store.TableStore.tableStyleToJsObj,
-		// memoryPosition: store.TableStore.memoryPositionToJsObj 
+		computeIndex: TS.computeIndexToJsObj,
+		changeLenovoData: TS.changeLenovoData,
+		refreshTable: TS.refreshTable,
+		isLoadingShow: TS.isLoadingShow
 	};
 }), _dec(_class = (0, _mobxReact.observer)(_class = function (_Component) {
 	(0, _inherits3.default)(Table, _Component);
@@ -28985,20 +28989,16 @@ var Table = (_dec = (0, _mobxReact.inject)(function (store) {
 	(0, _createClass3.default)(Table, [{
 		key: 'componentDidMount',
 		value: function componentDidMount() {
-			var res = this.getData();
-			// 这里传入同比||环比||原始数据，三个
-			console.log("getData: ", res);
-			if (!res.errno) {
-				this.props.initTableAllData(res.data);
-			} else {
-				console.log('数据获取失败');
-			}
-		}
-	}, {
-		key: 'getData',
-		value: function getData() {
-			var params = {};
-			return (0, _mockData.res)();
+			var _this2 = this;
+
+			this.props.refreshTable();
+			// body上绑定方法, 这里会影响到所有事件的还行
+			document.body.addEventListener('click', function (e) {
+				var target = e.target;
+				if (!target.classList.contains('noPop')) {
+					_this2.props.changeLenovoData([]);
+				}
+			}, false);
 		}
 	}, {
 		key: 'componentWillUpdate',
@@ -29094,6 +29094,7 @@ var _dec, _class; // header.js
 
 // import { Input } from 'antd';
 
+// 这里需要监控的属性有，输入框的值、原始值||同比||环比
 
 var _react = __webpack_require__(19);
 
@@ -29107,12 +29108,13 @@ var _mobxReact = __webpack_require__(35);
 
 __webpack_require__(284);
 
+var _tableConfig = __webpack_require__(227);
+
+var _tableConfig2 = _interopRequireDefault(_tableConfig);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// 这里需要监控的属性有，输入框的值、原始值||同比||环比
-
 
 var Header = (_dec = (0, _mobxReact.inject)(function (store) {
 	var TS = store.TableStore;
@@ -29123,7 +29125,13 @@ var Header = (_dec = (0, _mobxReact.inject)(function (store) {
 		onKeyDownHandler: TS.onKeyDownHandler,
 		searchBtnHandler: TS.searchBtnHandler,
 		changeFrequencyHandler: TS.changeFrequencyHandler,
-		openDialogEvent: TS.openDialogEvent
+		openDialogEvent: TS.openDialogEvent,
+		changeSearchValue: TS.changeSearchValue,
+		changeLenovoData: TS.changeLenovoData,
+		lenovoData: TS.lenovoDataToJsObj,
+		refreshTable: TS.refreshTable,
+		radiosChange: TS.radiosChange,
+		radius: TS.radiosToJsObj
 	};
 }), _dec(_class = (0, _mobxReact.observer)(_class = function (_Component) {
 	(0, _inherits3.default)(Header, _Component);
@@ -29140,7 +29148,6 @@ var Header = (_dec = (0, _mobxReact.inject)(function (store) {
 		key: 'onChangeHandler',
 		value: function onChangeHandler(v) {
 			// 需要从父组件传过来，自己不可以更改自己的状态，需要使用事件来更改props（父组件传入）
-			console.log(this);
 			this.props.onChange({
 				structure: this.props.structure,
 				value: v.target.value
@@ -29150,7 +29157,6 @@ var Header = (_dec = (0, _mobxReact.inject)(function (store) {
 		key: 'addClickHandler',
 		value: function addClickHandler(e) {
 			// 需要从父组件传过来，自己不可以更改自己的状态，需要使用事件来更改props（父组件传入）
-			console.log(this);
 			console.log("打开安哥的弹框");
 		}
 
@@ -29159,26 +29165,89 @@ var Header = (_dec = (0, _mobxReact.inject)(function (store) {
 	}, {
 		key: 'selectLiEvent',
 		value: function selectLiEvent(e) {
+			var _this2 = this;
 
 			var self = e.target;
-			console.log(self.tagName);
-
 			if (self.tagName !== 'LI') {
 				return;
 			}
+			var types = document.querySelectorAll('.header .radios li.select');
+
 			if (self.getAttribute('class')) {
-				e.target.setAttribute('class', '');
+				if (types.length > 1) {
+					e.target.setAttribute('class', '');
+				}
 			} else {
 				e.target.setAttribute('class', 'select');
+			}
+			setTimeout(function () {
+				types = document.querySelectorAll('.header .radios li.select');
+				// 显示同比||环比||原始值
+				var resArr = [];
+				types.length && types.forEach(function (item, index) {
+					resArr.push(item.dataset.type);
+				});
+				_this2.props.radiosChange(resArr);
+			}, 0);
+		}
+		// 联想框选择处理函数
+
+	}, {
+		key: 'selectLenovoHandler',
+		value: function selectLenovoHandler(e) {
+			e.stopPropagation();
+			var target = e.target;
+			if (target.tagName == 'LI') {
+				var text = target.innerText;
+				// 拿到这个text来改变上边input的值，并且搜索
+				this.props.changeSearchValue(text);
+				// 关闭弹框并且搜索
+				this.props.changeLenovoData([]); // 传入空数组就表示关闭当前的联想结果框
+				// 搜索事件
+				this.props.refreshTable();
 			}
 		}
 	}, {
 		key: 'render',
 		value: function render() {
-			console.log('this.props: ', this.props);
-			var searchValue = this.props.searchValue;
+			var _props = this.props,
+			    searchValue = _props.searchValue,
+			    lenovoData = _props.lenovoData,
+			    radius = _props.radius;
 
-			console.log("searchValue: ", searchValue);
+			var lenovo = null;
+			if (lenovoData.length) {
+				var lis = lenovoData.map(function (item, index) {
+					return _react2.default.createElement(
+						'li',
+						{ key: index, className: 'noPop' },
+						item
+					);
+				});
+				lenovo = _react2.default.createElement(
+					'div',
+					{ className: 'lenovoSelect' },
+					_react2.default.createElement(
+						'ul',
+						{ onClick: this.selectLenovoHandler.bind(this) },
+						lis
+					)
+				);
+			}
+			// 依据刷新的数据来显示当前显示的
+			var radiusConfig = _tableConfig2.default.radius;
+			var type = void 0;
+			var className = void 0;
+			var radiusLis = radiusConfig.map(function (item, index) {
+				type = item.type;
+				className = radius.indexOf(type) != -1 ? 'select' : '';
+				return _react2.default.createElement(
+					'li',
+					{ key: index, 'data-type': type, className: className },
+					item.text
+				);
+			});
+
 			return _react2.default.createElement(
 				'div',
 				{ className: 'header search-btns' },
@@ -29190,26 +29259,13 @@ var Header = (_dec = (0, _mobxReact.inject)(function (store) {
 						value: searchValue,
 						onKeyDown: this.props.onKeyDownHandler.bind(this),
 						onChange: this.props.searchChangeHandler.bind(this) }),
-					_react2.default.createElement('span', { className: 'search-btn', onClick: this.props.searchBtnHandler.bind(this) })
+					_react2.default.createElement('span', { className: 'search-btn', onClick: this.props.searchBtnHandler.bind(this) }),
+					lenovo
 				),
 				_react2.default.createElement(
 					'ul',
 					{ className: 'radios', onClick: this.selectLiEvent.bind(this) },
-					_react2.default.createElement(
-						'li',
-						null,
-						'\u663E\u793A\u539F\u59CB\u6570\u503C'
-					),
-					_react2.default.createElement(
-						'li',
-						null,
-						'\u663E\u793A\u540C\u6BD4'
-					),
-					_react2.default.createElement(
-						'li',
-						null,
-						'\u663E\u793A\u73AF\u6BD4'
-					)
+					radiusLis
 				),
 				_react2.default.createElement(
 					'div',
@@ -29242,13 +29298,6 @@ var Header = (_dec = (0, _mobxReact.inject)(function (store) {
 
 exports.default = Header;
 Header.defaultProps = {
-	text: '文字输入',
-	initValue: '',
-	displayRow: false,
-	structure: null,
-	handleChange: null,
-	onChange: null,
-	onChangeHandler: null,
 	placeholder: '请输入指标名称或关键字'
 };
 
@@ -29336,15 +29385,6 @@ var Tables = (_dec = (0, _mobxReact.inject)(function (store) {
 		onMouseLeave: TS.onMouseLeave,
 		trClickHandler: TS.trClickHandler,
 		trEvent: TS.trEvent
-		// 左边是别名
-		// currentSelect: store.TableStore.currentSelect,
-		// testAttribute: store.TableStore.testAttribute,
-		// changeValue2: store.TableStore.changeValue2,
-		// range: store.TableStore.rangeToJsObj,
-		// changeLoadingState: store.TableStore.changeLoadingState,
-		// isLoadingShow: store.TableStore.isLoadingShowToJsObj,
-		// tablePosition: store.TableStore.tableStyleToJsObj,
-		// memoryPosition: store.TableStore.memoryPositionToJsObj 
 	};
 }), _dec(_class = (0, _mobxReact.observer)(_class = function (_Component) {
 	(0, _inherits3.default)(Tables, _Component);
@@ -29537,10 +29577,13 @@ var LeftBottom = (_dec = (0, _mobxReact.inject)(function (store) {
 		leftBottom: TS.tableAllDataToJsObj.leftBottom,
 		toTopHandler: TS.toTopHandler,
 		editHandler: TS.editHandler,
-		deleteHandler: TS.deleteHandler,
 		openDialogEvent: TS.openDialogEvent,
 		changeCurrentIndexTextHandler: TS.changeCurrentIndexTextHandler,
-		currentIndexText: TS.currentIndexTextToJsObj
+		currentIndexText: TS.currentIndexTextToJsObj,
+		blurHandler: TS.blurHandler,
+		changeSelectTrIndexs: TS.changeSelectTrIndexs,
+		page: TS.pageToJsObj,
+		pagesize: TS.pagesize
 	};
 }), _dec(_class = (0, _mobxReact.observer)(_class = function (_Component) {
 	(0, _inherits3.default)(LeftBottom, _Component);
@@ -29554,13 +29597,24 @@ var LeftBottom = (_dec = (0, _mobxReact.inject)(function (store) {
 
 	(0, _createClass3.default)(LeftBottom, [{
 		key: 'selectClickHandler',
-		value: function selectClickHandler(e) {
+		value: function selectClickHandler(index, e) {
 			var target = e.target;
-			if (target.getAttribute('class') == 'select') {
+			if (target.getAttribute('class') == 's   lect') {
 				target.setAttribute('class', '');
 			} else {
 				target.setAttribute('class', 'select');
 			}
+			// 选中的列
+			var trSelects = document.querySelectorAll('.left.bottom tr td.select');
+			var selectArr = [];
+
+			if (trSelects.length) {
+				trSelects.forEach(function (item, index) {
+					selectArr.push(item.dataset.index);
+				});
+			}
+
+			this.props.changeSelectTrIndexs(selectArr);
 		}
 	}, {
 		key: 'render',
@@ -29569,12 +29623,13 @@ var LeftBottom = (_dec = (0, _mobxReact.inject)(function (store) {
 
 			var _props = this.props,
 			    leftBottom = _props.leftBottom,
-			    synchronizePosition = _props.synchronizePosition;
+			    synchronizePosition = _props.synchronizePosition,
+			    page = _props.page,
+			    pagesize = _props.pagesize;
 
 			var tableStyle = {
 				top: -synchronizePosition.scrollTop
 			};
-			console.log(this.props);
 			var tds = !!leftBottom && leftBottom.map(function (item, index) {
 				return _react2.default.createElement(
 					'tr',
@@ -29583,11 +29638,11 @@ var LeftBottom = (_dec = (0, _mobxReact.inject)(function (store) {
 						onMouseEnter: _this2.props.trEvent.bind(_this2, 'mouseenter', index),
 						onMouseLeave: _this2.props.trEvent.bind(_this2, 'mouseleave', index),
 						onClick: _this2.props.trEvent.bind(_this2, 'click', index) },
-					_react2.default.createElement('td', { onClick: _this2.selectClickHandler.bind(_this2) }),
+					_react2.default.createElement('td', { onClick: _this2.selectClickHandler.bind(_this2, index), 'data-index': index }),
 					_react2.default.createElement(
 						'td',
 						null,
-						item.index
+						(page - 1) * pagesize + index + 1
 					),
 					_react2.default.createElement(
 						'td',
@@ -29595,7 +29650,11 @@ var LeftBottom = (_dec = (0, _mobxReact.inject)(function (store) {
 						_react2.default.createElement(
 							'p',
 							null,
-							_react2.default.createElement('input', { value: _this2.props.currentIndexText, className: 'hide', onChange: _this2.props.changeCurrentIndexTextHandler.bind(_this2, index) }),
+							_react2.default.createElement('input', { value: _this2.props.currentIndexText,
+								className: 'hide',
+								onChange: _this2.props.changeCurrentIndexTextHandler.bind(_this2, index),
+								onBlur: _this2.props.blurHandler.bind(_this2)
+							}),
 							_react2.default.createElement(
 								'span',
 								null,
@@ -29607,7 +29666,7 @@ var LeftBottom = (_dec = (0, _mobxReact.inject)(function (store) {
 							null,
 							_react2.default.createElement('li', { onClick: _this2.props.toTopHandler.bind(_this2, index) }),
 							_react2.default.createElement('li', { onClick: _this2.props.editHandler.bind(_this2, index) }),
-							_react2.default.createElement('li', { onClick: _this2.props.openDialogEvent.bind(_this2, { type: 4, text: item.title }) })
+							_react2.default.createElement('li', { onClick: _this2.props.openDialogEvent.bind(_this2, { type: 4, text: item.title, index: index }) })
 						)
 					)
 				);
@@ -29813,15 +29872,11 @@ var RightBottom = (_dec = (0, _mobxReact.inject)(function (store) {
 	}, {
 		key: 'componentWillUpdate',
 		value: function componentWillUpdate() {
-			// console.log('1');
-
 			console.time('Update');
 		}
 	}, {
 		key: 'componentDidUpdate',
 		value: function componentDidUpdate() {
-			// console.log('2');
-
 			console.timeEnd('Update');
 		}
 	}, {
@@ -29995,13 +30050,12 @@ var Dialog = (_dec = (0, _mobxReact.inject)(function (store) {
 						);
 						break;
 					case 4:
+						// “{deleteIndex}”， 删除的指标名称不需要加上去
 						detail = _react2.default.createElement(
 							'p',
 							{ className: 'attation' },
 							_react2.default.createElement('i', null),
-							'\u662F\u5426\u5220\u9664\u6307\u6807\u201C',
-							deleteIndex,
-							'\u201D\uFF1F'
+							'\u662F\u5426\u5220\u9664\u6307\u6807\uFF1F'
 						);
 						break;
 					case 5:
@@ -30336,15 +30390,6 @@ var Dialog = (_dec = (0, _mobxReact.inject)(function (store) {
 	}]);
 	return Dialog;
 }(_react.Component)) || _class) || _class);
-
-// var str = '<span id="sdfsdfsdf">长安CS95</span>dfds<span id="sdfsdfsdf">长安CS95</span>';
-
-// // console.log(str.match(/\"(.+)\"/));
-
-// str.replace(/.+\"(.+)\".+/ig, function(match, id){
-// 	return id;
-// });
-
 exports.default = Dialog;
 
 /***/ }),
@@ -38907,6 +38952,7 @@ return /******/ (function(modules) { // webpackBootstrap
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+exports.logMsg = exports.fetch = undefined;
 
 var _regenerator = __webpack_require__(296);
 
@@ -39056,7 +39102,11 @@ var fetch = function () {
 	};
 }();
 
-exports.default = { fetch: fetch };
+var logMsg = function logMsg(desc, msg, color) {
+	console.log('%c ' + desc + ': ', 'color: ' + color + ';font-size: 20px;', msg);
+};
+exports.fetch = fetch;
+exports.logMsg = logMsg;
 
 /***/ }),
 /* 296 */
@@ -40549,7 +40599,7 @@ var _createClass2 = __webpack_require__(26);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _dec23, _dec24, _dec25, _dec26, _dec27, _dec28, _dec29, _dec30, _dec31, _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11; // TableStore.js
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _dec23, _dec24, _dec25, _dec26, _dec27, _dec28, _dec29, _dec30, _dec31, _dec32, _dec33, _dec34, _dec35, _dec36, _dec37, _dec38, _dec39, _dec40, _dec41, _dec42, _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17; // TableStore.js
 
 
 var _mobx = __webpack_require__(24);
@@ -40559,6 +40609,10 @@ var _mobx2 = _interopRequireDefault(_mobx);
 var _tableConfig = __webpack_require__(227);
 
 var _tableConfig2 = _interopRequireDefault(_tableConfig);
+
+var _utils = __webpack_require__(295);
+
+var _mockData = __webpack_require__(243);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40606,42 +40660,61 @@ function _initializerWarningHelper(descriptor, context) {
 }
 
 // 定义可观察的属性和方法，需要的时候使用inject来注入到组件中
-var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 = _mobx.action.bound, _dec4 = _mobx.action.bound, _dec5 = _mobx.action.bound, _dec6 = _mobx.action.bound, _dec7 = _mobx.action.bound, _dec8 = _mobx.action.bound, _dec9 = _mobx.action.bound, _dec10 = _mobx.action.bound, _dec11 = _mobx.action.bound, _dec12 = _mobx.action.bound, _dec13 = _mobx.action.bound, _dec14 = _mobx.action.bound, _dec15 = _mobx.action.bound, _dec16 = _mobx.action.bound, _dec17 = _mobx.action.bound, _dec18 = _mobx.action.bound, _dec19 = _mobx.action.bound, _dec20 = _mobx.action.bound, _dec21 = _mobx.action.bound, _dec22 = _mobx.action.bound, _dec23 = _mobx.action.bound, _dec24 = _mobx.action.bound, _dec25 = _mobx.action.bound, _dec26 = _mobx.action.bound, _dec27 = _mobx.action.bound, _dec28 = _mobx.action.bound, _dec29 = _mobx.action.bound, _dec30 = _mobx.action.bound, _dec31 = _mobx.action.bound, (_class = function () {
+var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 = _mobx.action.bound, _dec4 = _mobx.action.bound, _dec5 = _mobx.action.bound, _dec6 = _mobx.action.bound, _dec7 = _mobx.action.bound, _dec8 = _mobx.action.bound, _dec9 = _mobx.action.bound, _dec10 = _mobx.action.bound, _dec11 = _mobx.action.bound, _dec12 = _mobx.action.bound, _dec13 = _mobx.action.bound, _dec14 = _mobx.action.bound, _dec15 = _mobx.action.bound, _dec16 = _mobx.action.bound, _dec17 = _mobx.action.bound, _dec18 = _mobx.action.bound, _dec19 = _mobx.action.bound, _dec20 = _mobx.action.bound, _dec21 = _mobx.action.bound, _dec22 = _mobx.action.bound, _dec23 = _mobx.action.bound, _dec24 = _mobx.action.bound, _dec25 = _mobx.action.bound, _dec26 = _mobx.action.bound, _dec27 = _mobx.action.bound, _dec28 = _mobx.action.bound, _dec29 = _mobx.action.bound, _dec30 = _mobx.action.bound, _dec31 = _mobx.action.bound, _dec32 = _mobx.action.bound, _dec33 = _mobx.action.bound, _dec34 = _mobx.action.bound, _dec35 = _mobx.action.bound, _dec36 = _mobx.action.bound, _dec37 = _mobx.action.bound, _dec38 = _mobx.action.bound, _dec39 = _mobx.action.bound, _dec40 = _mobx.action.bound, _dec41 = _mobx.action.bound, _dec42 = _mobx.action.bound, (_class = function () {
 	function TableStore() {
 		(0, _classCallCheck3.default)(this, TableStore);
 
-		_initDefineProp(this, 'tableAllData', _descriptor, this);
+		_initDefineProp(this, 'page', _descriptor, this);
 
-		_initDefineProp(this, 'synchronizePosition', _descriptor2, this);
+		_initDefineProp(this, 'tableAllData', _descriptor2, this);
 
-		_initDefineProp(this, 'currentIndexText', _descriptor3, this);
+		_initDefineProp(this, 'radios', _descriptor3, this);
 
-		_initDefineProp(this, 'openDialog', _descriptor4, this);
+		_initDefineProp(this, 'selectTrIndexs', _descriptor4, this);
 
-		_initDefineProp(this, 'computeIndexOpen', _descriptor5, this);
+		_initDefineProp(this, 'synchronizePosition', _descriptor5, this);
 
-		_initDefineProp(this, 'dialogType', _descriptor6, this);
+		_initDefineProp(this, 'currentIndex', _descriptor6, this);
 
-		_initDefineProp(this, 'deleteIndex', _descriptor7, this);
+		_initDefineProp(this, 'currentIndexText', _descriptor7, this);
 
-		_initDefineProp(this, 'frequency', _descriptor8, this);
+		_initDefineProp(this, 'openDialog', _descriptor8, this);
 
-		_initDefineProp(this, 'express', _descriptor9, this);
+		_initDefineProp(this, 'computeIndexOpen', _descriptor9, this);
 
-		_initDefineProp(this, 'indexLis', _descriptor10, this);
+		_initDefineProp(this, 'dialogType', _descriptor10, this);
 
-		_initDefineProp(this, 'searchValue', _descriptor11, this);
+		_initDefineProp(this, 'deleteIndex', _descriptor11, this);
+
+		_initDefineProp(this, 'frequency', _descriptor12, this);
+
+		_initDefineProp(this, 'express', _descriptor13, this);
+
+		_initDefineProp(this, 'indexLis', _descriptor14, this);
+
+		_initDefineProp(this, 'searchValue', _descriptor15, this);
+
+		_initDefineProp(this, 'lenovoData', _descriptor16, this);
+
+		_initDefineProp(this, 'isLoadingShow', _descriptor17, this);
 
 		// 静态属性
 		this.config = {};
 		// 这个根据第一次得到的数据计算，不随着frequency变化
 		this.flag = '';
+		this.isMore = true;
+		this.pagesize = 40;
 	}
 
-	// table总的数据，添加观察《定义》这里的数据，除了第一页20条，后边的都是40条
-
-
 	(0, _createClass3.default)(TableStore, [{
+		key: 'changePage',
+		value: function changePage(page) {
+			this.page = page;
+		}
+
+		// table总的数据，添加观察《定义》这里的数据，除了第一页20条，后边的都是40条
+
+	}, {
 		key: 'initTableAllData',
 
 		// 填充这里，这里获取页面的总的数据 《改变》
@@ -40653,9 +40726,134 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 		// 转为js对象，以便在页面处理中用到 《使用》
 
 	}, {
+		key: 'radiosChange',
+		value: function radiosChange(radios) {
+			this.radios = radios;
+			this.refreshTable();
+		}
+	}, {
+		key: 'refreshTable',
+		value: function refreshTable() {
+			var _this = this;
+
+			var params = {
+				searchValue: this.searchValueToJsObj,
+				page: this.page,
+				pagesize: 20,
+				radios: this.radiosToJsObj, // 参数滞后更新
+				frequency: this.frequencyToJsObj
+
+			};
+			(0, _utils.logMsg)('prams:', params, 'red');
+			this.changeIsLoadingShow();
+			// setInterval(() => {
+			setTimeout(function () {
+				var res = (0, _mockData.resData)();
+				// 这里传入同比||环比||原始数据，三个
+				(0, _utils.logMsg)("getData: ", res, 'blue');
+				if (!res.errno) {
+					_this.initTableAllData(res.data);
+				} else {
+					console.log('数据获取失败');
+				}
+
+				_this.changeIsLoadingShow();
+			}, 1000);
+
+			// }, 5000);
+		}
+
+		// 选中列的数组
+
+	}, {
+		key: 'changeSelectTrIndexs',
+		value: function changeSelectTrIndexs(selectTrIndexs) {
+			this.selectTrIndexs = selectTrIndexs;
+			// 这里执行数据提取然后调用安哥这边的函数
+			var data = this.selectAllDataTr();
+			console.warn('要发给安哥的数据： ', data);
+		}
+
+		// 计算选中的行
+
+	}, {
+		key: 'selectAllDataTr',
+		value: function selectAllDataTr() {
+			var selectTrIndexs = this.selectTrIndexsToJsObj;
+			var data = [];
+			var rightTop = this.tableAllData.rightTop; // 第一行
+
+			var rightBottom = this.tableAllData.rightBottom;
+			var middleArr = [rightTop]; // 中间数组
+
+
+			selectTrIndexs.length && selectTrIndexs.forEach(function (item, index) {
+				rightBottom.forEach(function (_item, _index) {
+					if (_index == parseInt(item)) {
+						middleArr.push(_item);
+					}
+				});
+			});
+			// 这个二维数组求一个转置
+			var len = middleArr.length;
+			var subArr = void 0;
+			len > 1 && middleArr.forEach(function (item, index) {
+				// 循环四次
+				item.forEach(function (_item, _index) {
+					// 循环列数次
+					if (Array.isArray(data[_index])) {
+						data[_index].push(_item);
+					} else {
+						data[_index] = [_item];
+					}
+				});
+			});
+			return data;
+		}
+
+		// 编辑来改变初始化的对象
+		// index, leftBottom的数组的index； text是要改变的数据
+
+	}, {
 		key: 'editChangeAllData',
-		value: function editChangeAllData(index) {
+		value: function editChangeAllData(index, text) {
 			this.tableAllData.leftBottom[index]["title"] = text;
+		}
+		// 删除某一行
+
+	}, {
+		key: 'deleteAllDataTr',
+		value: function deleteAllDataTr(index) {
+			var _this2 = this;
+
+			this.tableAllData.leftBottom.splice(index, 1);
+			this.tableAllData.rightBottom.splice(index, 1);
+
+			// this.changeDeleteIndex(index);
+
+			// this.deleteIndex = index;
+			// 这里发起ajax请求，删除节点，然后更改拿到的数据
+			setTimeout(function () {
+				_this2.changeDialogstate();
+			}, 1000);
+
+			// 删除之后，去除右侧的选中状态
+			var trSelect = document.querySelector('.right.bottom .trSelect');
+			!!trSelect && trSelect.classList.remove('trSelect');
+		}
+		// 置顶操作
+
+	}, {
+		key: 'toTopTr',
+		value: function toTopTr(index) {
+			if (index !== 0) {
+				// ajax请求吧，刷新整个数据树
+				var tr1 = this.tableAllData.leftBottom.splice(index, 1);
+				this.tableAllData.leftBottom.unshift(tr1[0]);
+
+				var tr2 = this.tableAllData.rightBottom.splice(index, 1);
+				this.tableAllData.rightBottom.unshift(tr2[0]);
+			}
 		}
 
 		// 滚动条事件
@@ -40665,13 +40863,6 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 		key: 'scrollHandler',
 		value: function scrollHandler(e) {
 			var target = e.currentTarget;
-			// 左侧滚动的时候，委托给右侧，需要添加在body上才可以检测出来，后边再说
-			// if(target === document.querySelector('.left.bottom')[0]) {
-			// 	target = document.querySelector('.right.bottom')[0];
-			// }
-
-			// let table = target.getElementsByTagName('table')[0];
-
 			// 当前目标元素滚动之后的位置
 			var scrollLeft = parseInt(target.scrollLeft);
 
@@ -40679,11 +40870,31 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 
 			var position = { scrollLeft: scrollLeft, scrollTop: scrollTop };
 
+			var scrollHeight = target.scrollHeight;
+			var offsetHeight = target.offsetHeight;
+
+			if (this.synchronizePosition.scrollTop != scrollTop) {
+				// 滚动加载,需要改变page和pagesize
+				if (scrollTop + offsetHeight >= scrollHeight - 10) {
+					this.changePage(this.pageToJsObj + 1);
+					if (this.isMore) {
+						this.refreshTable();
+					}
+				} else if (scrollTop == 0) {
+					this.changePage(this.pageToJsObj - 1);
+					if (this.pageToJsObj < 1) {
+						this.changePage(1);
+					} else {
+						this.refreshTable();
+					}
+				}
+			}
+
 			// 同步左下与右上, 为什么这里可以调用this
 			this.synchronizeFunc(position);
 		}
 
-		// 处理滚动条跟随的问题
+		// 处理滚动条跟随的问题, 保存上一次加载的位置
 
 	}, {
 		key: 'synchronizeFunc',
@@ -40705,6 +40916,7 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 					trChange(index, 'currentHover', true);
 				} else if (type === 'click') {
 					trChange(index, 'trSelect');
+					this.currentIndex = index;
 				}
 			}
 			function trChange(index, className, isLeave) {
@@ -40725,7 +40937,8 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 		key: 'toTopHandler',
 		value: function toTopHandler(index, e) {
 			e.stopPropagation();
-			console.log('toTopHandler:', index);
+			// 置顶操作
+			this.toTopTr(index);
 		}
 
 		// 编辑自定义指标的名称
@@ -40741,12 +40954,10 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 			var span = td.querySelector('span');
 			// debugger
 			var text = span.innerText;
+			// 显示输入框
 			if (input.classList.contains('hide')) {
 				input.classList.remove('hide');
 				this.changeCurrentIndexText(text);
-			} else {
-				input.classList.add('hide');
-				this.changeCurrentIndexText('');
 			}
 		}
 		// 当前编辑的指标名称的缓存
@@ -40765,19 +40976,20 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 		value: function changeCurrentIndexText(currentIndexText, index) {
 			this.currentIndexText = currentIndexText;
 			// 同步改变tableAllData
-			if (index != undefined) {
+			if (index != undefined && currentIndexText != '') {
 				this.editChangeAllData(index, currentIndexText);
 			}
 		}
-
-		// 删除操作
+		// 输入框失去焦点的时候，触发保存
 
 	}, {
-		key: 'deleteHandler',
-		value: function deleteHandler(index, e) {
+		key: 'blurHandler',
+		value: function blurHandler(e) {
 			e.stopPropagation();
-			console.log('deleteHandler:', index);
-			this.changeDialogstate();
+			// target就是指向input
+			var target = e.currentTarget;
+			target.classList.add('hide');
+			this.changeCurrentIndexText('');
 		}
 
 		// 打开弹框
@@ -40796,14 +41008,20 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 			this.computeIndexOpen = !this.computeIndexToJsObj;
 		}
 
-		// 确认按钮的事件处理
+		// 确认按钮的事件处理, 基本对话框的确认事件
 
 	}, {
 		key: 'beSureHandler',
 		value: function beSureHandler(type, e) {
 			e.stopPropagation();
-			console.log('type', type);
 			// 这里区分类型，做不同的处理
+			var index = this.currentIndexToJsObj;
+			if (type == 4) {
+				this.deleteAllDataTr(index);
+			} else if (type == 5) {
+				this.refreshTable();
+				this.changeDialogstate(); // 成功后关闭弹框
+			}
 		}
 	}, {
 		key: 'changeDialogType',
@@ -40813,22 +41031,28 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 	}, {
 		key: 'changeDeleteIndex',
 		value: function changeDeleteIndex(deleteIndex) {
+			var _this3 = this;
+
 			this.deleteIndex = deleteIndex;
+			// 这里发起ajax请求，删除节点，然后更改拿到的数据
+			setTimeout(function () {
+				_this3.changeDialogstate();
+			}, 1000);
 		}
 
 		// 打开基本的对话框
+		// 1. 删除操作
 
 	}, {
 		key: 'openDialogEvent',
 		// 把这个函数绑定到当前的对象上
 		value: function openDialogEvent(_ref2, e) {
 			var type = _ref2.type,
-			    text = _ref2.text;
+			    text = _ref2.text,
+			    index = _ref2.index;
 
 			// 修改type， 说明弹框的类型及参数
 			this.changeDialogType(type);
-			// 一些特殊处理，删除指标的问题
-			!!text && this.changeDeleteIndex(text);
 			// 打开弹框, 控制弹框显示与隐藏
 			this.changeDialogstate();
 		}
@@ -40868,7 +41092,7 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 	}, {
 		key: 'computeSureHandler',
 		value: function computeSureHandler(e) {
-			var _this = this;
+			var _this4 = this;
 
 			e.stopPropagation();
 			// 拼接服务器接收的字符串
@@ -40885,11 +41109,11 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 			});
 			if (result.length) {
 				// 发送ajax请求
-				console.log("result表达式传递的规格", result);
 				// 并且在成功之后关闭弹框		
 				setTimeout(function () {
-					_this.closeCompute();
-				});
+					_this4.closeCompute();
+					_this4.refreshTable(); // 添加了一条，所以要刷新整个部分
+				}, 1000);
 			} else {
 				// 模拟点击关闭按钮
 				this.closeCompute();
@@ -40929,7 +41153,6 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 				}
 			}
 			this.express = express;
-			console.log("express", express);
 		}
 
 		// 添加操作符
@@ -41040,10 +41263,42 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 	}, {
 		key: 'searchChangeHandler',
 		value: function searchChangeHandler(e) {
-			console.log(e);
+			var _this5 = this;
+
+			e.stopPropagation();
 			var target = e.target;
 			var value = target.value;
 			this.changeSearchValue(value);
+			// 这里要显示联想搜索框
+			var timeID = void 0;
+			clearTimeout(timeID);
+			timeID = setTimeout(function () {
+				if (value != '') {
+					_this5.lenovoFetch(value);
+				}
+			}, 500);
+		}
+
+		// 联想框的数据
+
+	}, {
+		key: 'changeLenovoData',
+		value: function changeLenovoData(lenovoData) {
+			this.lenovoData = lenovoData;
+		}
+		// 联想输入的模拟请求返回
+
+	}, {
+		key: 'lenovoFetch',
+		value: function lenovoFetch(value) {
+			var _this6 = this;
+
+			setTimeout(function () {
+				// 打开弹框，填入数据
+				var data = ['水电费的说法水电费', '水电费的说法水电费', '水电费的说法水电费', '水电费的说法水电费', '水电费的说法水电费', '水电费的说法水电费', '水电费的说法水电费', '水电费的说法水电费'];
+
+				_this6.changeLenovoData(data);
+			}, 1000);
 		}
 
 		// 搜索框enter搜索
@@ -41054,7 +41309,7 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 			var target = e.target;
 			var code = e.keyCode;
 			if (e.keyCode === 13) {
-				console.log('搜索的信息：', target.value);
+				this.searchCommonFunc();
 			}
 		}
 		// search-btn
@@ -41065,7 +41320,28 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 			e.stopPropagation();
 			var target = e.target;
 			// 执行搜索操作
-			console.log("target:", target);
+			this.searchCommonFunc();
+		}
+		// 很明显这里的这段代码是要拿到搜索值，并且搜索
+
+	}, {
+		key: 'searchCommonFunc',
+		value: function searchCommonFunc() {
+			this.refreshTable();
+			this.changeLenovoData([]);
+		}
+
+		// loading show
+
+	}, {
+		key: 'changeIsLoadingShow',
+		value: function changeIsLoadingShow() {
+			this.isLoadingShow = !this.isLoadingShowToJsObj;
+		}
+	}, {
+		key: 'pageToJsObj',
+		get: function get() {
+			return _mobx2.default.toJS(this.page);
 		}
 	}, {
 		key: 'tableAllDataToJsObj',
@@ -41073,13 +41349,33 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 			return _mobx2.default.toJS(this.tableAllData);
 		}
 
-		// 编辑来改变初始化的对象
-		// index, leftBottom的数组的index； text是要改变的数据
+		// 显示同比||历史数据||环比
 
+	}, {
+		key: 'radiosToJsObj',
+		get: function get() {
+			return _mobx2.default.toJS(this.radios);
+		}
+
+		// 刷新数据，这个函数在componentDidMount的时候需要调用一次使用默认参数
+
+	}, {
+		key: 'selectTrIndexsToJsObj',
+		get: function get() {
+			return _mobx2.default.toJS(this.selectTrIndexs);
+		}
 	}, {
 		key: 'synchronizePositionToJsObj',
 		get: function get() {
 			return _mobx2.default.toJS(this.synchronizePosition);
+		}
+
+		// 记录当前的选中的行， 便于下边的置顶操作和删除操作
+
+	}, {
+		key: 'currentIndexToJsObj',
+		get: function get() {
+			return _mobx2.default.toJS(this.currentIndex);
 		}
 		// 左右关联操作，hover和点击事件
 
@@ -41115,6 +41411,8 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 		get: function get() {
 			return _mobx2.default.toJS(this.deleteIndex);
 		}
+		// 删除一行，发起请求
+
 	}, {
 		key: 'frequencyToJsObj',
 		get: function get() {
@@ -41142,9 +41440,24 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 		get: function get() {
 			return _mobx2.default.toJS(this.searchValue);
 		}
+	}, {
+		key: 'lenovoDataToJsObj',
+		get: function get() {
+			return _mobx2.default.toJS(this.lenovoData);
+		}
+	}, {
+		key: 'isLoadingShowToJsObj',
+		get: function get() {
+			return _mobx2.default.toJS(this.isLoadingShow);
+		}
 	}]);
 	return TableStore;
-}(), (_descriptor = _applyDecoratedDescriptor(_class.prototype, 'tableAllData', [_mobx.observable], {
+}(), (_descriptor = _applyDecoratedDescriptor(_class.prototype, 'page', [_mobx.observable], {
+	enumerable: true,
+	initializer: function initializer() {
+		return 1;
+	}
+}), _applyDecoratedDescriptor(_class.prototype, 'pageToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'pageToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changePage', [_dec], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changePage'), _class.prototype), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, 'tableAllData', [_mobx.observable], {
 	enumerable: true,
 	initializer: function initializer() {
 		return {
@@ -41153,7 +41466,17 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 			rightBottom: []
 		};
 	}
-}), _applyDecoratedDescriptor(_class.prototype, 'initTableAllData', [_dec], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'initTableAllData'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'tableAllDataToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'tableAllDataToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'editChangeAllData', [_dec2], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'editChangeAllData'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'scrollHandler', [_dec3], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'scrollHandler'), _class.prototype), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, 'synchronizePosition', [_mobx.observable], {
+}), _applyDecoratedDescriptor(_class.prototype, 'initTableAllData', [_dec2], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'initTableAllData'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'tableAllDataToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'tableAllDataToJsObj'), _class.prototype), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, 'radios', [_mobx.observable], {
+	enumerable: true,
+	initializer: function initializer() {
+		return [];
+	}
+}), _applyDecoratedDescriptor(_class.prototype, 'radiosChange', [_dec3], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'radiosChange'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'radiosToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'radiosToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'refreshTable', [_dec4], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'refreshTable'), _class.prototype), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, 'selectTrIndexs', [_mobx.observable], {
+	enumerable: true,
+	initializer: function initializer() {
+		return [];
+	}
+}), _applyDecoratedDescriptor(_class.prototype, 'selectTrIndexsToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'selectTrIndexsToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeSelectTrIndexs', [_dec5], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeSelectTrIndexs'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'selectAllDataTr', [_dec6], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'selectAllDataTr'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'editChangeAllData', [_dec7], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'editChangeAllData'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'deleteAllDataTr', [_dec8], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'deleteAllDataTr'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'toTopTr', [_dec9], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'toTopTr'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'scrollHandler', [_dec10], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'scrollHandler'), _class.prototype), _descriptor5 = _applyDecoratedDescriptor(_class.prototype, 'synchronizePosition', [_mobx.observable], {
 	enumerable: true,
 	initializer: function initializer() {
 		return {
@@ -41161,52 +41484,67 @@ var TableStore = (_dec = _mobx.action.bound, _dec2 = _mobx.action.bound, _dec3 =
 			scrollTop: 0
 		};
 	}
-}), _applyDecoratedDescriptor(_class.prototype, 'synchronizeFunc', [_dec4], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'synchronizeFunc'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'synchronizePositionToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'synchronizePositionToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'trEvent', [_dec5], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'trEvent'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'toTopHandler', [_dec6], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'toTopHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'editHandler', [_dec7], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'editHandler'), _class.prototype), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, 'currentIndexText', [_mobx.observable], {
+}), _applyDecoratedDescriptor(_class.prototype, 'synchronizeFunc', [_dec11], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'synchronizeFunc'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'synchronizePositionToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'synchronizePositionToJsObj'), _class.prototype), _descriptor6 = _applyDecoratedDescriptor(_class.prototype, 'currentIndex', [_mobx.observable], {
 	enumerable: true,
 	initializer: function initializer() {
 		return '';
 	}
-}), _applyDecoratedDescriptor(_class.prototype, 'currentIndexTextToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'currentIndexTextToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeCurrentIndexTextHandler', [_dec8], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeCurrentIndexTextHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeCurrentIndexText', [_dec9], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeCurrentIndexText'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'deleteHandler', [_dec10], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'deleteHandler'), _class.prototype), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, 'openDialog', [_mobx.observable], {
+}), _applyDecoratedDescriptor(_class.prototype, 'currentIndexToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'currentIndexToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'trEvent', [_dec12], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'trEvent'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'toTopHandler', [_dec13], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'toTopHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'editHandler', [_dec14], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'editHandler'), _class.prototype), _descriptor7 = _applyDecoratedDescriptor(_class.prototype, 'currentIndexText', [_mobx.observable], {
+	enumerable: true,
+	initializer: function initializer() {
+		return '';
+	}
+}), _applyDecoratedDescriptor(_class.prototype, 'currentIndexTextToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'currentIndexTextToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeCurrentIndexTextHandler', [_dec15], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeCurrentIndexTextHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeCurrentIndexText', [_dec16], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeCurrentIndexText'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'blurHandler', [_dec17], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'blurHandler'), _class.prototype), _descriptor8 = _applyDecoratedDescriptor(_class.prototype, 'openDialog', [_mobx.observable], {
 	enumerable: true,
 	initializer: function initializer() {
 		return false;
 	}
-}), _applyDecoratedDescriptor(_class.prototype, 'openDialogToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'openDialogToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeDialogstate', [_dec11], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeDialogstate'), _class.prototype), _descriptor5 = _applyDecoratedDescriptor(_class.prototype, 'computeIndexOpen', [_mobx.observable], {
+}), _applyDecoratedDescriptor(_class.prototype, 'openDialogToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'openDialogToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeDialogstate', [_dec18], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeDialogstate'), _class.prototype), _descriptor9 = _applyDecoratedDescriptor(_class.prototype, 'computeIndexOpen', [_mobx.observable], {
 	enumerable: true,
 	initializer: function initializer() {
 		return false;
 	}
-}), _applyDecoratedDescriptor(_class.prototype, 'computeIndexToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'computeIndexToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeComputeState', [_dec12], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeComputeState'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'beSureHandler', [_dec13], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'beSureHandler'), _class.prototype), _descriptor6 = _applyDecoratedDescriptor(_class.prototype, 'dialogType', [_mobx.observable], {
-	enumerable: true,
-	initializer: function initializer() {
-		return 5;
-	}
-}), _applyDecoratedDescriptor(_class.prototype, 'changeDialogType', [_dec14], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeDialogType'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'dialogTypeToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'dialogTypeToJsObj'), _class.prototype), _descriptor7 = _applyDecoratedDescriptor(_class.prototype, 'deleteIndex', [_mobx.observable], {
+}), _applyDecoratedDescriptor(_class.prototype, 'computeIndexToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'computeIndexToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeComputeState', [_dec19], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeComputeState'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'beSureHandler', [_dec20], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'beSureHandler'), _class.prototype), _descriptor10 = _applyDecoratedDescriptor(_class.prototype, 'dialogType', [_mobx.observable], {
 	enumerable: true,
 	initializer: function initializer() {
 		return '';
 	}
-}), _applyDecoratedDescriptor(_class.prototype, 'deleteIndexToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'deleteIndexToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeDeleteIndex', [_dec15], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeDeleteIndex'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'openDialogEvent', [_dec16], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'openDialogEvent'), _class.prototype), _descriptor8 = _applyDecoratedDescriptor(_class.prototype, 'frequency', [_mobx.observable], {
+}), _applyDecoratedDescriptor(_class.prototype, 'changeDialogType', [_dec21], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeDialogType'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'dialogTypeToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'dialogTypeToJsObj'), _class.prototype), _descriptor11 = _applyDecoratedDescriptor(_class.prototype, 'deleteIndex', [_mobx.observable], {
 	enumerable: true,
 	initializer: function initializer() {
 		return '';
 	}
-}), _applyDecoratedDescriptor(_class.prototype, 'changeFrequency', [_dec17], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeFrequency'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'frequencyToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'frequencyToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeFrequencyHandler', [_dec18], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeFrequencyHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'computeClickHandler', [_dec19], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'computeClickHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'computeSureHandler', [_dec20], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'computeSureHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'closeCompute', [_dec21], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'closeCompute'), _class.prototype), _descriptor9 = _applyDecoratedDescriptor(_class.prototype, 'express', [_mobx.observable], {
+}), _applyDecoratedDescriptor(_class.prototype, 'deleteIndexToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'deleteIndexToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeDeleteIndex', [_dec22], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeDeleteIndex'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'openDialogEvent', [_dec23], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'openDialogEvent'), _class.prototype), _descriptor12 = _applyDecoratedDescriptor(_class.prototype, 'frequency', [_mobx.observable], {
+	enumerable: true,
+	initializer: function initializer() {
+		return '';
+	}
+}), _applyDecoratedDescriptor(_class.prototype, 'changeFrequency', [_dec24], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeFrequency'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'frequencyToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'frequencyToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeFrequencyHandler', [_dec25], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeFrequencyHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'computeClickHandler', [_dec26], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'computeClickHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'computeSureHandler', [_dec27], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'computeSureHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'closeCompute', [_dec28], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'closeCompute'), _class.prototype), _descriptor13 = _applyDecoratedDescriptor(_class.prototype, 'express', [_mobx.observable], {
 	enumerable: true,
 	initializer: function initializer() {
 		return [];
 	}
-}), _applyDecoratedDescriptor(_class.prototype, 'expressToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'expressToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'operateExpress', [_dec22], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'operateExpress'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'addOperatorsHandler', [_dec23], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'addOperatorsHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'addIndexHandler', [_dec24], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'addIndexHandler'), _class.prototype), _descriptor10 = _applyDecoratedDescriptor(_class.prototype, 'indexLis', [_mobx.observable], {
+}), _applyDecoratedDescriptor(_class.prototype, 'expressToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'expressToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'operateExpress', [_dec29], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'operateExpress'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'addOperatorsHandler', [_dec30], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'addOperatorsHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'addIndexHandler', [_dec31], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'addIndexHandler'), _class.prototype), _descriptor14 = _applyDecoratedDescriptor(_class.prototype, 'indexLis', [_mobx.observable], {
 	enumerable: true,
 	initializer: function initializer() {
 		return [];
 	}
-}), _applyDecoratedDescriptor(_class.prototype, 'indexLisToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'indexLisToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'indexLisChange', [_dec25], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'indexLisChange'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'selectExpressHandler', [_dec26], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'selectExpressHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'getExpressSelected', [_dec27], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'getExpressSelected'), _class.prototype), _descriptor11 = _applyDecoratedDescriptor(_class.prototype, 'searchValue', [_mobx.observable], {
+}), _applyDecoratedDescriptor(_class.prototype, 'indexLisToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'indexLisToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'indexLisChange', [_dec32], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'indexLisChange'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'selectExpressHandler', [_dec33], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'selectExpressHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'getExpressSelected', [_dec34], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'getExpressSelected'), _class.prototype), _descriptor15 = _applyDecoratedDescriptor(_class.prototype, 'searchValue', [_mobx.observable], {
 	enumerable: true,
 	initializer: function initializer() {
 		return '';
 	}
-}), _applyDecoratedDescriptor(_class.prototype, 'searchValueToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'searchValueToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeSearchValue', [_dec28], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeSearchValue'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'searchChangeHandler', [_dec29], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'searchChangeHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'onKeyDownHandler', [_dec30], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'onKeyDownHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'searchBtnHandler', [_dec31], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'searchBtnHandler'), _class.prototype)), _class));
+}), _applyDecoratedDescriptor(_class.prototype, 'searchValueToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'searchValueToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeSearchValue', [_dec35], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeSearchValue'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'searchChangeHandler', [_dec36], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'searchChangeHandler'), _class.prototype), _descriptor16 = _applyDecoratedDescriptor(_class.prototype, 'lenovoData', [_mobx.observable], {
+	enumerable: true,
+	initializer: function initializer() {
+		return [];
+	}
+}), _applyDecoratedDescriptor(_class.prototype, 'lenovoDataToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'lenovoDataToJsObj'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'changeLenovoData', [_dec37], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeLenovoData'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'lenovoFetch', [_dec38], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'lenovoFetch'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'onKeyDownHandler', [_dec39], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'onKeyDownHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'searchBtnHandler', [_dec40], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'searchBtnHandler'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'searchCommonFunc', [_dec41], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'searchCommonFunc'), _class.prototype), _descriptor17 = _applyDecoratedDescriptor(_class.prototype, 'isLoadingShow', [_mobx.observable], {
+	enumerable: true,
+	initializer: function initializer() {
+		return false;
+	}
+}), _applyDecoratedDescriptor(_class.prototype, 'changeIsLoadingShow', [_dec42], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'changeIsLoadingShow'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'isLoadingShowToJsObj', [_mobx.computed], (0, _getOwnPropertyDescriptor2.default)(_class.prototype, 'isLoadingShowToJsObj'), _class.prototype)), _class));
 exports.default = TableStore;
 
 /***/ }),

@@ -53,7 +53,8 @@ export default class Dialog extends Component {
 					detail = <p>频率不同，无法参加计算!</p>;
 					break;
 				case 4:
-					detail = <p className="attation"><i></i>是否删除指标“{deleteIndex}”？</p>;
+					// “{deleteIndex}”， 删除的指标名称不需要加上去
+					detail = <p className="attation"><i></i>是否删除指标？</p>;
 					break;
 				case 5:
 					let class1 = '';
