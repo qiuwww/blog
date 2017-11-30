@@ -8,11 +8,6 @@
 <body>
 mock ajax fetch
 
-
-
-
-
-
 <img src="https://mdn.mozillademos.org/files/15083/fetch-api.png">
 
 <script src="https://cdn.bootcss.com/jquery/1.12.2/jquery.js"></script>
@@ -65,7 +60,7 @@ mock ajax fetch
 	    timeout: '200-600'
 	});
 
-	ajax
+
 	$.getJSON('/api/ajax', function(res){
 		console.log(res);
 	});
@@ -108,7 +103,7 @@ mock ajax fetch
 	  	return response.json();
 	}).then(function(result) {
 	  	console.log("result", result);
-	  	$('body').append(result.toString());
+	  	$('body').append(JSON.stringify(result));
 	});
 	
 	// 可以
@@ -128,6 +123,47 @@ mock ajax fetch
 	$.when($.getJSON( "/api/fetch-2"), $.getJSON("/api/fetch")).done(function(res1, res2){
 		console.log("when: ", res1[0], res2[0]);
 	}).then(function(){console.log('resolve')}, function(){console.log('fail')} );
+
+
+
+
+
+	// 函数生成
+	let mockData = (row, col) => { // 这里使用函数来生成，当然可以使用ajax来
+		return Mock.mock({ // 这里模拟一个可配置的二维数组
+			data: function() {
+				return new Array(row).fill('').map(() => {
+					return new Array(col).fill('').map(() => {
+						return Mock.mock('@float(1, 10000, 1, 3)');
+					});
+				});
+			}
+		});
+	}
+
+	console.log('mockData(10, 20): ', mockData(10, 20));
+
+	// 拦截ajax参数
+	// Mock.mock( rurl, rtype, function(options) )
+	Mock.mock(/testgetparams/, 'get', function(options) {
+	    console.log("options: ", options);
+	    return '测试成功，请求的参数对象是' + JSON.stringify(options);
+	});
+	// 这里的参数都是拼接在url后边的
+	$.get('testgetparams?id=123', {key: 456}, function(res){
+		console.log(res);
+	});
+
+	Mock.mock(/testpostparams/, 'post', function(options) {
+	    console.log("options: ", options);
+	    return '测试成功，请求的参数对象是' + JSON.stringify(options);
+	}).setup({
+    	timeout: '200-1600'
+	});
+	// 可以直接拿到key参数的
+	$.post('testpostparams?id=123456', {key: 456789}, function(res){
+		console.log(res);
+	});
 
 </script>
 </body>
