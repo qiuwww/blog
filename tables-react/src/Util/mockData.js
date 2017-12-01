@@ -30,8 +30,8 @@ let resData = () => Mock.mock({
 		}],
 		'rightTop|100': ['@date("yyyy-MM-dd")'],		
 		'rightBottom|40': function() {
-			return new Array(row).fill('').map(() => {
-				return new Array(col).fill('').map(() => {
+			return new Array(40).fill('').map(() => {
+				return new Array(100).fill('').map(() => {
 					return Mock.mock('@float(1, 10000, 1, 3)');
 				});
 			});
@@ -64,7 +64,7 @@ let mockData = (row, col) => { // 这里使用函数来生成，当然可以使�
 	});
 }
 
-mockData(10, 20);
+// mockData(10, 20);
 
 
 
