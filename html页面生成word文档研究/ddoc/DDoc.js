@@ -331,9 +331,9 @@ DDoc.prototype.generate = function () {
     }
     this.zip.add("word/document.xml", this._generateDocument());
     var dataStr = 'data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,' + this.zip.generate();
-    debugger
-    return dataStr;
-    // document.location.href = dataStr;
+    // debugger
+    // return dataStr;
+    document.location.href = dataStr;
 };
 
 
