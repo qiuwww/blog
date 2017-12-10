@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style type="text/css">
+        .box2{
+            margin: 20px 0;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            flex-flow: row; /*横向的 CSS flex-flow 属性是 flex-direction 和 flex-wrap 的简写。*/
+        }
+        .left2{
+            width: 100px;
+            height: 100%;
+            margin-right: 20px; /*flex: 1;会排出margin的*/
+            background-color: red;
+        }
+        .right2{
+            /*右侧div的flex:1，这里很关键，1会将剩余宽度全部占满，即如果左侧宽度发生改变的话，
+            右侧能够自适应，而不用像第一种方法那样margin-left也要修改。*/
+            flex: 1; /*剩余的所有全部*/
+            height: 100%;
+            background-color: blue;            
+        }
+        /*flaot + margin-left*/
+        .box3{
+            width: 100%;
+            height: 200px;
+        }
+        .left3{
+            float: left;
+            width: 200px;
+            height: 100%;
+            background-color: red;
+        }
+        .right3{
+            /*margin-left不设置的话，也是要居左让出来left3的宽度*/
+             /*==等于左边栏宽度==*/
+            margin-left: 220px; 
+            background-color: blue;
+            height: 100%;
+        }
+
+    </style>
+
+    
+    <div class="box2">
+        <div class="left2"></div>
+        <div class="right2"></div>
+    </div>
+    <div class="box3">
+        <div class="left3"></div>
+        <div class="right3"></div>
+    </div>
+
+</body>
+
+</html>
