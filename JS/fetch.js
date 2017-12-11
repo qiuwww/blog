@@ -29,7 +29,8 @@ fetch(`http://i.baidu.com/calendars/calendars/listInfo`)
 // 做了兼容性处理，需要配置支持es7的环境
 let dataRequest = async (url = '', data = {}, type = 'GET', method = 'fetch') => {
 	type = type.toUpperCase();
-	if (type == 'GET') {
+	// if (type == 'GET') {
+		// 不管怎么样都要拼接，不通过url，特殊字符就不会被解析
 		let dataStr = ''; //数据拼接字符串
 		Object.keys(data).forEach(key => {
 			dataStr += key + '=' + data[key] + '&';
@@ -39,7 +40,7 @@ let dataRequest = async (url = '', data = {}, type = 'GET', method = 'fetch') =>
 			dataStr = dataStr.substr(0, dataStr.lastIndexOf('&'));
 			url = url + '?' + dataStr;
 		}
-	}
+	// }
 	if (window.fetch && method == 'fetch') {
 		let requestConfig = {
 			credentials: 'include',
@@ -54,7 +55,9 @@ let dataRequest = async (url = '', data = {}, type = 'GET', method = 'fetch') =>
 
 		if (type == 'POST') {
 			Object.defineProperty(requestConfig, 'body', {
-				value: JSON.stringify(data)
+				// 麻痹的，这里的数据不是一个json字符串，而是一个key=value&型字符串				
+				// value: JSON.stringify(data)
+				value: dataStr
 			})
 		}
 		
@@ -80,7 +83,7 @@ let dataRequest = async (url = '', data = {}, type = 'GET', method = 'fetch') =>
 			}
 
 			requestObj.open(type, url, true);
-			requestObj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			requestObj.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			requestObj.send(sendData);
 
 			requestObj.onreadystatechange = () => {
