@@ -22,3 +22,11 @@ DOCX files are XML-based and can contain text, objects, styles, formatting, and 
 Microsoft started using DOCX files in Microsoft Word beginning in Word 2007. Earlier versions of Word use the DOC file extension.
 
 自2007年起，微软开始使用docx这种文件格式，这是通过使用Office Open XML创建的。该格式是一种zip文件，其中包含XML、图形和其他数据格式的文本，可以使用专利保护的二进制格式转换为字节的序列。起初，人们认为这种格式将取代doc，但是这两种格式沿用至今。
+
+
+
+
+
+关键的问题
+1. 确认react导出pdf的问题；
+2. 确认table布局相对于完全重写的方式，哪种方式更方便；

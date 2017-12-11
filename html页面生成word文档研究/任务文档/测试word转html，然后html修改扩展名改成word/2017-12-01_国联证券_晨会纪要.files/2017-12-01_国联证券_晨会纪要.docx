@@ -1,0 +1,1120 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv=Content-Type  content="text/html; charset=gb2312" ><title>&#24464;&#28023;&#33721;</title><!--[if gte mso 9]><xml><w:WordDocument><w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel><w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery><w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery><w:DocumentKind>DocumentNotSpecified</w:DocumentKind><w:DrawingGridVerticalSpacing>7.8</w:DrawingGridVerticalSpacing><w:View>Web</w:View><w:Compatibility></w:Compatibility><w:Zoom>0</w:Zoom></w:WordDocument></xml><![endif]--><style>
+@font-face{
+font-family:"Times New Roman";
+}
+
+@font-face{
+font-family:"&#23435;&#20307;";
+}
+
+@font-face{
+font-family:"&#24494;&#36719;&#38597;&#40657;";
+}
+
+@font-face{
+font-family:"Tahoma";
+}
+
+@font-face{
+font-family:"Symbol";
+}
+
+@font-face{
+font-family:"Arial";
+}
+
+@font-face{
+font-family:"&#40657;&#20307;";
+}
+
+@font-face{
+font-family:"Courier New";
+}
+
+@font-face{
+font-family:"Wingdings";
+}
+
+@font-face{
+font-family:"&#26999;&#20307;_GB2312";
+}
+
+@font-face{
+font-family:"Calibri";
+}
+
+@font-face{
+font-family:"&#26999;&#20307;";
+}
+
+@font-face{
+font-family:"Calibri Light";
+}
+
+@font-face{
+font-family:"Microsoft YaHei UI";
+}
+
+p.p0{
+margin:0pt;
+margin-bottom:0.0001pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+h1{
+margin-bottom:16.5000pt;
+margin-top:17.0000pt;
+page-break-after:void;
+text-align:justify;
+line-height:240%;
+font-weight:bold; font-size:22.0000pt; font-family:'Arial'; }
+
+h2{
+margin-bottom:13.0000pt;
+margin-top:13.0000pt;
+page-break-after:void;
+text-align:justify;
+line-height:173%;
+font-weight:bold; font-size:16.0000pt; font-family:'Calibri Light'; }
+
+h3{
+margin-bottom:13.0000pt;
+margin-top:13.0000pt;
+page-break-after:void;
+text-align:justify;
+line-height:173%;
+font-weight:bold; font-size:16.0000pt; font-family:'Arial'; }
+
+h4{
+margin-bottom:14.5000pt;
+margin-top:14.0000pt;
+page-break-after:void;
+text-align:justify;
+line-height:156%;
+font-weight:bold; font-size:14.0000pt; font-family:'Calibri Light'; }
+
+h5{
+margin-bottom:14.5000pt;
+margin-top:14.0000pt;
+page-break-after:void;
+text-align:justify;
+line-height:156%;
+font-weight:bold; font-size:14.0000pt; font-family:'Arial'; }
+
+h6{
+margin-bottom:3.2000pt;
+margin-top:12.0000pt;
+page-break-after:void;
+text-align:justify;
+line-height:133%;
+font-weight:bold; font-size:12.0000pt; font-family:'Calibri Light'; }
+
+p.p7{
+margin-bottom:3.2000pt;
+margin-top:12.0000pt;
+page-break-after:void;
+text-align:justify;
+line-height:133%;
+font-weight:bold; font-size:12.0000pt; font-family:'Arial'; }
+
+p.p8{
+margin-bottom:3.2000pt;
+margin-top:12.0000pt;
+page-break-after:void;
+text-align:justify;
+line-height:133%;
+font-size:12.0000pt; font-family:'Calibri Light'; }
+
+p.p9{
+margin-bottom:3.2000pt;
+margin-top:12.0000pt;
+page-break-after:void;
+text-align:justify;
+line-height:133%;
+font-size:10.5000pt; font-family:'Calibri Light'; }
+
+span.10{
+font-size:10.0000pt; font-family:'Times New Roman'; }
+
+span.15{
+font-weight:bold; font-size:22.0000pt; font-family:'Arial'; }
+
+span.16{
+font-size:10.0000pt; font-family:'Calibri Light'; }
+
+span.17{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.18{
+color:rgb(5,99,193); text-decoration:underline ;font-size:10.0000pt; font-family:'Times New Roman'; }
+
+span.19{
+font-size:12.0000pt; font-family:'Calibri Light'; background:rgb(127,127,127); mso-shading:rgb(127,127,127); }
+
+span.20{
+font-size:9.0000pt; font-family:'Arial'; }
+
+span.21{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.22{
+font-size:9.0000pt; font-family:'Times New Roman'; }
+
+span.23{
+font-weight:bold; font-size:16.0000pt; font-family:'Arial'; }
+
+span.24{
+font-weight:bold; font-size:12.0000pt; font-family:'Calibri Light'; }
+
+span.25{
+font-size:8.0000pt; font-family:'Arial'; }
+
+span.26{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.27{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.28{
+font-weight:bold; font-size:10.0000pt; font-family:'Times New Roman'; }
+
+span.29{
+font-size:8.0000pt; font-family:'Arial'; }
+
+span.30{
+font-size:9.0000pt; font-family:'Times New Roman'; }
+
+span.31{
+font-size:9.0000pt; font-family:'Arial'; }
+
+span.32{
+font-weight:bold; font-size:16.0000pt; font-family:'Calibri Light'; }
+
+span.33{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.34{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.35{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.36{
+font-weight:bold; font-size:14.0000pt; font-family:'Arial'; }
+
+span.37{
+font-size:12.0000pt; font-family:'Calibri Light'; }
+
+span.38{
+font-weight:bold; font-size:10.0000pt; font-family:'Arial'; }
+
+span.39{
+font-size:9.0000pt; font-family:'Microsoft YaHei UI'; }
+
+span.40{
+font-weight:bold; font-size:16.0000pt; font-family:'Calibri Light'; }
+
+span.41{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.42{
+font-weight:bold; font-size:12.0000pt; font-family:'Arial'; }
+
+span.43{
+font-style:italic; font-size:10.0000pt; font-family:'Arial'; }
+
+span.44{
+font-size:10.0000pt; font-family:'&#23435;&#20307;'; }
+
+span.45{
+font-size:12.0000pt; font-family:'Courier New'; }
+
+span.46{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.47{
+font-size:10.0000pt; font-family:'Courier New'; }
+
+span.48{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.49{
+font-weight:bold; font-size:16.0000pt; font-family:'Calibri Light'; }
+
+span.50{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.51{
+font-weight:bold; font-size:14.0000pt; font-family:'Calibri Light'; }
+
+span.52{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.53{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.54{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.55{
+font-size:18.0000pt; font-family:'Arial'; }
+
+span.56{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.57{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.58{
+font-size:14.0000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+span.59{
+font-weight:bold; font-style:italic; font-size:10.0000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+span.60{
+color:rgb(76,73,71); font-weight:bold; font-size:12.0000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+span.61{
+color:rgb(91,155,213); font-style:italic; font-size:10.0000pt; font-family:'Arial'; }
+
+span.62{
+font-weight:bold; font-size:14.0000pt; font-family:'Arial'; }
+
+span.63{
+font-size:9.0000pt; font-family:'Arial'; }
+
+span.64{
+font-size:10.5000pt; font-family:'Times New Roman'; }
+
+span.65{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.66{
+font-size:9.0000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+span.67{
+font-size:9.0000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+span.68{
+font-size:10.0000pt; font-family:'Arial'; }
+
+span.69{
+font-weight:bold; font-size:15.0000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+span.70{
+font-size:7.5000pt; font-family:'Arial'; }
+
+span.71{
+color:rgb(193,0,14); font-size:9.0000pt; font-family:'Arial'; }
+
+span.72{
+color:rgb(63,63,63); font-style:italic; font-size:10.0000pt; font-family:'Arial'; }
+
+span.73{
+font-weight:bold; font-size:12.0000pt; font-family:'Arial'; }
+
+span.74{
+font-weight:bold; font-size:18.0000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+span.75{
+font-weight:bold; font-size:10.0000pt; font-family:'Arial'; }
+
+p.p76{
+margin-left:105.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p77{
+margin-bottom:3.0000pt;
+margin-top:12.0000pt;
+text-align:center;
+line-height:130%;
+font-weight:bold; font-size:16.0000pt; font-family:'Calibri Light'; }
+
+p.p78{
+margin-left:105.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+p.p79{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:left;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p80{
+margin-left:39.0000pt;
+text-indent:-18.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p81{
+margin-left:42.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p82{
+margin-left:147.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p83{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:left;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p84{
+margin-left:81.0000pt;
+text-indent:-18.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p85{
+margin-left:126.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p86{
+margin-left:126.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p87{
+margin-left:63.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p88{
+margin-bottom:0pt;
+margin-top:0pt;
+border-bottom:0.7500pt solid rgb(0,0,0);
+mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);
+padding:0pt 0pt 1pt 0pt ;
+text-align:center;
+font-size:9.0000pt; font-family:'Arial'; }
+
+p.p89{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:9.0000pt; font-family:'Arial'; }
+
+p.p90{
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p91{
+margin-left:18.0000pt;
+text-indent:-18.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p92{
+margin-left:102.0000pt;
+text-indent:-18.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p93{
+margin-left:168.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p94{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:left;
+font-size:9.0000pt; font-family:'Arial'; }
+
+p.p95{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:left;
+font-size:9.0000pt; font-family:'Arial'; }
+
+p.p96{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.0000pt; font-family:'Calibri Light'; }
+
+p.p97{
+margin-left:43.2000pt;
+margin-right:43.2000pt;
+margin-bottom:8.0000pt;
+margin-top:10.0000pt;
+text-align:center;
+color:rgb(63,63,63); font-style:italic; font-size:10.5000pt; font-family:'Arial'; }
+
+p.p98{
+margin-left:84.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p99{
+margin-bottom:3.0000pt;
+margin-top:12.0000pt;
+text-align:center;
+font-weight:bold; font-size:16.0000pt; font-family:'Calibri Light'; }
+
+p.p100{
+margin-left:60.0000pt;
+text-indent:-18.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p101{
+margin-left:18.0000pt;
+text-indent:-18.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p102{
+margin-left:73.5000pt;
+margin-right:73.5000pt;
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p103{
+margin-left:63.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p104{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p105{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:12.0000pt; font-family:'Times New Roman'; }
+
+p.p106{
+margin-left:42.0000pt;
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p107{
+margin-left:21.0000pt;
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p108{
+margin-left:81.0000pt;
+text-indent:-18.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p109{
+margin-left:42.0000pt;
+text-indent:-21.0000pt;
+margin-left:21.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p110{
+text-indent:15.7500pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-weight:bold; font-size:15.0000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+p.p111{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:14.0000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+p.p112{
+margin-bottom:0pt;
+margin-top:0pt;
+border-bottom:1.0000pt solid rgb(255,120,0);
+mso-border-bottom-alt:1.0000pt solid rgb(255,120,0);
+padding:0pt 0pt 4pt 0pt ;
+text-align:left;
+color:rgb(193,0,14); font-size:9.0000pt; font-family:'Arial'; }
+
+p.p113{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:left;
+line-height:120%;
+font-weight:bold; font-size:10.5000pt; font-family:'Arial'; }
+
+p.p114{
+margin-left:21.0000pt;
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+font-size:8.0000pt; font-family:'Arial'; }
+
+p.p115{
+margin-left:220.5000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p116{
+margin-left:262.5000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p117{
+margin-left:21.0000pt;
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+line-height:200%;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p118{
+margin-left:147.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p119{
+margin-left:42.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p120{
+margin-left:84.0000pt;
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p121{
+margin-left:105.0000pt;
+margin-bottom:0pt;
+margin-top:12.0000pt;
+text-align:left;
+line-height:107%;
+font-weight:bold; font-size:14.0000pt; font-family:'Calibri Light'; }
+
+p.p122{
+margin-left:126.0000pt;
+text-indent:-21.0000pt;
+margin-bottom:0pt;
+margin-top:7.8000pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p123{
+margin-left:148.6000pt;
+text-indent:-21.0000pt;
+margin-bottom:5.0000pt;
+margin-top:7.8000pt;
+text-align:left;
+font-weight:bold; font-size:12.0000pt; font-family:'Arial'; }
+
+p.p124{
+margin-bottom:0pt;
+margin-top:0pt;
+layout-grid-mode:char; text-align:left;
+line-height:140%;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p125{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'&#23435;&#20307;'; }
+
+p.p126{
+margin-left:21.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p127{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-weight:bold; font-size:10.5000pt; font-family:'Calibri Light'; }
+
+p.p128{
+margin-left:21.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p129{
+margin-left:84.0000pt;
+text-indent:-21.0000pt;
+margin-left:21.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p130{
+margin-left:126.0000pt;
+text-indent:21.0000pt;
+margin-bottom:7.8000pt;
+margin-top:7.8000pt;
+text-align:justify;
+line-height:114%;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p131{
+margin-left:148.6000pt;
+text-indent:-21.0000pt;
+margin-bottom:0pt;
+margin-top:7.8000pt;
+text-align:left;
+font-weight:bold; font-size:14.0000pt; font-family:'Arial'; }
+
+p.p132{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:right;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p133{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:18.0000pt; font-family:'Arial'; }
+
+p.p134{
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+line-height:200%;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p135{
+text-indent:10.5000pt;
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p136{
+margin-bottom:0pt;
+margin-top:0pt;
+word-break:simple;
+font-size:12.0000pt; font-family:'Courier New'; }
+
+p.p137{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-style:italic; font-size:10.5000pt; font-family:'Arial'; }
+
+p.p138{
+margin-left:63.0000pt;
+text-indent:-21.0000pt;
+margin-left:21.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p139{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Calibri Light'; }
+
+p.p140{
+margin-bottom:8.0000pt;
+margin-top:2.0000pt;
+text-align:justify;
+color:rgb(192,0,0); font-size:7.5000pt; font-family:'Arial'; }
+
+p.p141{
+margin-left:220.5000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p142{
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+font-size:8.0000pt; font-family:'Arial'; }
+
+p.p143{
+margin-left:21.0000pt;
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p144{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-weight:bold; font-style:italic; font-size:10.5000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+p.p145{
+margin-bottom:2.0000pt;
+margin-top:0pt;
+page-break-after:void;
+text-align:justify;
+line-height:12.0000pt;
+font-weight:bold; font-style:italic; font-size:10.5000pt; font-family:'Arial'; }
+
+p.p146{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-weight:bold; font-size:18.0000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+p.p147{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:left;
+font-weight:bold; font-size:10.5000pt; font-family:'Arial'; }
+
+p.p148{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p149{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p150{
+text-indent:21.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p151{
+margin-bottom:0pt;
+margin-top:6.0000pt;
+text-align:justify;
+font-size:12.0000pt; font-family:'Calibri Light'; }
+
+p.p152{
+margin-left:168.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p153{
+margin-left:84.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p154{
+margin-left:105.0000pt;
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p155{
+margin-left:10.0000pt;
+text-indent:-21.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p156{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:left;
+font-size:7.5000pt; font-family:'Arial'; }
+
+p.p157{
+margin-left:5.6500pt;
+margin-right:5.6500pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:right;
+line-height:20.0000pt;
+color:rgb(76,73,71); font-weight:bold; font-size:12.0000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+p.p158{
+margin-bottom:0pt;
+margin-top:0pt;
+border-top:1.0000pt solid rgb(255,120,0);
+mso-border-top-alt:1.0000pt solid rgb(255,120,0);
+padding:1pt 0pt 0pt 0pt ;
+text-align:center;
+font-size:9.0000pt; font-family:'Arial'; }
+
+p.p159{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:9.0000pt; font-family:'Microsoft YaHei UI'; }
+
+p.p160{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p161{
+margin-left:126.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p162{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p163{
+margin-left:147.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:12.0000pt; font-family:'Calibri Light'; }
+
+p.p164{
+margin-left:43.2000pt;
+margin-right:43.2000pt;
+margin-bottom:18.0000pt;
+margin-top:18.0000pt;
+border-top:0.5000pt solid rgb(91,155,213);
+mso-border-top-alt:0.5000pt solid rgb(91,155,213);
+border-bottom:0.5000pt solid rgb(91,155,213);
+mso-border-bottom-alt:0.5000pt solid rgb(91,155,213);
+padding:10pt 0pt 10pt 0pt ;
+text-align:center;
+color:rgb(91,155,213); font-style:italic; font-size:10.5000pt; font-family:'Arial'; }
+
+p.p165{
+margin-left:102.0000pt;
+text-indent:-18.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p166{
+margin-left:60.0000pt;
+text-indent:-18.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p167{
+margin-left:21.0000pt;
+text-indent:-21.0000pt;
+margin-left:21.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p168{
+text-indent:21.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p169{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:left;
+font-size:9.0000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+p.p170{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.0000pt; font-family:'Courier New'; }
+
+p.p171{
+margin-left:52.5000pt;
+text-indent:-52.5000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+border-top:0.7500pt solid rgb(0,0,0);
+mso-border-top-alt:0.7500pt solid rgb(0,0,0);
+border-right:0.7500pt solid rgb(0,0,0);
+mso-border-right-alt:0.7500pt solid rgb(0,0,0);
+border-bottom:0.7500pt solid rgb(0,0,0);
+mso-border-bottom-alt:0.7500pt solid rgb(0,0,0);
+border-left:0.7500pt solid rgb(0,0,0);
+mso-border-left-alt:0.7500pt solid rgb(0,0,0);
+padding:1pt 1pt 1pt 1pt ;
+text-align:justify;
+background:rgb(127,127,127);
+font-size:12.0000pt; font-family:'Calibri Light'; background:rgb(127,127,127); mso-shading:rgb(127,127,127); }
+
+p.p172{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:center;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p173{
+margin-left:105.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p174{
+margin-left:63.0000pt;
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p175{
+margin-left:39.0000pt;
+text-indent:-18.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p176{
+margin-bottom:2.0000pt;
+margin-top:0pt;
+page-break-after:void;
+text-align:justify;
+line-height:12.0000pt;
+color:rgb(192,0,0); font-weight:bold; font-style:italic; font-size:10.5000pt; font-family:'Arial'; }
+
+p.p177{
+margin-left:105.0000pt;
+text-indent:-21.0000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+
+p.p178{
+margin-bottom:0pt;
+margin-top:0pt;
+text-align:right;
+font-size:9.0000pt; font-family:'&#26999;&#20307;_GB2312'; }
+
+p.p179{
+margin-left:35.2000pt;
+text-indent:-21.0000pt;
+margin-right:10.5000pt;
+margin-bottom:0pt;
+margin-top:0pt;
+layout-grid-mode:char; text-align:left;
+font-weight:bold; font-size:10.5000pt; font-family:'Wingdings'; }
+
+p.p180{
+margin-left:21.0000pt;
+text-indent:21.0000pt;
+margin-bottom:6.0000pt;
+margin-top:0pt;
+text-align:justify;
+font-size:10.5000pt; font-family:'Arial'; }
+@page{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;}@page Section0{
+margin-top:70.9000pt;
+margin-bottom:35.4500pt;
+margin-left:42.5500pt;
+margin-right:42.5500pt;
+size:595.3000pt 841.9000pt;
+layout-grid:15.6000pt;
+}
+div.Section0{page:Section0;}@page Section1{
+margin-top:70.9000pt;
+margin-bottom:35.4500pt;
+margin-left:42.5500pt;
+margin-right:42.5500pt;
+size:595.3000pt 841.9000pt;
+layout-grid:15.6000pt;
+}
+div.Section1{page:Section1;}</style></head><body style="tab-interval:21pt; " ><!--StartFragment--><div class="Section0"  style="layout-grid:15.6000pt;
+" ><table style="border-collapse:collapse;
+margin-left:5.4000pt; mso-table-layout-alt:fixed;
+padding:0.0000pt 0.0000pt 0.0000pt 0.0000pt ; " ><tr style="height:842.0000pt; page-break-inside:TableInfo; " ><td width=1  valign=top  style="width:1.0000pt; padding:0.0000pt 0.0000pt 0.0000pt 0.0000pt ; background:rgb(255,0,0); " ><p class=p0  style="margin-left:5.6500pt; margin-right:5.6500pt; margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(255,192,0); font-size:1.0000pt; font-family:'&#26999;&#20307;'; " >Table_First</span><span style="color:rgb(255,192,0); font-size:1.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=45  valign=top  style="width:34.0500pt; padding:0.0000pt 0.0000pt 0.0000pt 0.0000pt ; background:rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="font-weight:bold; font-size:12.0000pt; font-family:'&#26999;&#20307;'; " ><a name="_top" ></a><o:p></o:p></span></p><table style="border-collapse:collapse;
+margin-left:5.6500pt; margin-top:6.7500pt; margin-bottom:6.7500pt; mso-table-layout-alt:fixed;
+padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><tr style="height:1.0000pt; page-break-inside:TableInfo; " ><td width=45  valign=center  style="width:34.0000pt; padding:0.0000pt 0.0000pt 0.0000pt 0.0000pt ; " ><p class=p157  style="margin-bottom:0pt; margin-top:0pt; text-align:justify; " ><span style="mso-spacerun:'yes'; color:rgb(76,73,71); font-weight:normal; font-size:12.0000pt; font-family:'&#26999;&#20307;'; " ><a name="OLE_LINK2" >Table_First|</a></span><span style="mso-spacerun:'yes'; color:rgb(76,73,71); font-weight:normal; font-size:12.0000pt; font-family:'&#26999;&#20307;_GB2312'; " ><a name="OLE_LINK9" >Table_ReportType</a></span><span style="color:rgb(255,192,0); font-weight:normal; font-size:1.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:197.6000pt; page-break-inside:TableInfo; " ><td width=45  valign=center  style="width:34.0000pt; padding:0.0000pt 0.0000pt 0.0000pt 0.0000pt ; background:rgb(207,0,13); " ><p class=p157  style="margin-left:5.6700pt; text-indent:66.8850pt; margin-bottom:0pt; margin-top:0pt; word-break:break-all; text-align:justify; " ><span style="mso-spacerun:'yes'; color:rgb(255,255,255); font-weight:bold; font-size:12.0000pt; font-family:'&#26999;&#20307;'; " >&#35777;&#21048;&#30740;&#31350;&#25253;&#21578;</span><span style="color:rgb(255,255,255); font-weight:bold; font-size:12.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:1.1500pt; page-break-inside:TableInfo; " ><td width=45  valign=center  style="width:34.0000pt; padding:0.0000pt 0.0000pt 0.0000pt 0.0000pt ; " ><p class=p0  style="margin-left:5.6700pt; text-indent:35.4000pt; margin-right:5.6500pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="color:rgb(255,255,255); font-weight:bold; font-size:12.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:162.1500pt; page-break-inside:TableInfo; " ><td width=45  valign=center  style="width:34.0000pt; padding:0.0000pt 0.0000pt 0.0000pt 0.0000pt ; " ><p class=p0  style="margin-left:5.6700pt; text-indent:35.4000pt; margin-right:5.6500pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(255,255,255); font-weight:bold; font-size:12.0000pt; font-family:'&#26999;&#20307;'; " >&#26216;&#20250;&#32426;&#35201;</span><span style="color:rgb(255,255,255); font-weight:bold; font-size:12.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr></table><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="font-weight:bold; font-size:12.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=19  valign=top  style="width:14.2500pt; padding:0.0000pt 0.0000pt 0.0000pt 0.0000pt ; " ><p class=p0  style="margin-left:-11.1500pt; text-indent:11.0250pt; margin-left:-11.0250pt; margin-bottom:0pt; margin-top:0pt; " ><span style="font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=712  valign=center  style="width:534.2500pt; padding:0.0000pt 0.0000pt 0.0000pt 0.0000pt ; " ><table style="border-collapse:collapse;
+margin-left:5.6500pt; mso-table-layout-alt:fixed;
+padding:0.0000pt 0.0000pt 0.0000pt 0.0000pt ; " ><tr style="height:793.8000pt; " ><td width=774  valign=top  style="width:581.2000pt; padding:0.0000pt 0.0000pt 0.0000pt 0.0000pt ; " ><table style="border-collapse:collapse;
+margin-left:5.6500pt; mso-table-layout-alt:fixed;
+padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><tr style="height:1.0000pt; " ><td width=699  valign=top  colspan=2  style="width:524.5000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:right; " ><span style="mso-spacerun:'yes'; color:rgb(255,255,255); font-size:1.0000pt; font-family:'&#26999;&#20307;'; " >Table_First|Table_Summary</span><span style="color:rgb(255,255,255); font-size:1.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:45.3500pt; " ><td width=538  valign=top  style="width:404.0000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.5000pt solid rgb(207,0,13); mso-border-bottom-alt:1.5000pt solid rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><img width="209"  height="52"  src="2017-12-01_&#22269;&#32852;&#35777;&#21048;_&#26216;&#20250;&#32426;&#35201;.files/2017-12-01_&#22269;&#32852;&#35777;&#21048;_&#26216;&#20250;&#32426;&#35201;-88.png" ></span><span style="font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=160  valign=bottom  style="width:120.5000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.5000pt solid rgb(207,0,13); mso-border-bottom-alt:1.5000pt solid rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:right; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >2017&#24180;12&#26376;01&#26085;</span><span style="font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:39.7000pt; " ><td width=538  valign=center  style="width:404.0000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-top:none; ; mso-border-top-alt:1.5000pt solid rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span class="74"  style="mso-spacerun:'yes'; font-weight:bold; font-size:18.0000pt; font-family:'&#26999;&#20307;'; " >2017&#24180;12&#26376;01&#26085;&#26216;&#20250;&#32426;&#35201;</span><span style="font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=160  valign=center  style="width:120.5000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-top:none; ; mso-border-top-alt:1.5000pt solid rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:46.2000pt; " ><td width=538  valign=center  style="width:404.0000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:0.5000pt solid rgb(192,0,0); mso-border-bottom-alt:0.5000pt solid rgb(192,0,0); " ><p class=p110  style="margin-bottom:0pt; margin-top:0pt; " ><span style="font-weight:bold; font-size:15.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=160  valign=center  style="width:120.5000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:0.5000pt solid rgb(255,120,0); mso-border-bottom-alt:0.5000pt solid rgb(255,120,0); " ><p class=p0  style="margin-right:10.5000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#20998;&#26512;&#24072;&#65306;&#24352;&#26195;&#26149;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#25191;&#19994;&#35777;&#20070;&#32534;&#21495;&#65306;&nbsp;&nbsp;&nbsp;<font face="Times New Roman" >S0590513090003</font></span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:right; " ><span style="font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:657.9500pt; " ><td width=699  valign=top  colspan=2  style="width:524.5000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-top:none; ; mso-border-top-alt:0.5000pt solid rgb(192,0,0); " ><p class=p113  style="margin-bottom:6.2000pt; margin-top:6.2000pt; line-height:114%; " ><span style="font-weight:normal; font-size:10.5000pt; font-family:'Times New Roman'; " ><img width="255"  height="821"  src="2017-12-01_&#22269;&#32852;&#35777;&#21048;_&#26216;&#20250;&#32426;&#35201;.files/2017-12-01_&#22269;&#32852;&#35777;&#21048;_&#26216;&#20250;&#32426;&#35201;-157.png"  align="left"  hspace="12" ></span><span style="mso-spacerun:'yes'; font-weight:bold; font-size:12.0000pt; font-family:'&#26999;&#20307;'; " >&#25237;&#36164;&#35201;&#28857;&#65306;</span><span style="font-weight:bold; font-size:12.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p168  style="margin-left:21.0000pt; text-indent:-21.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:150%; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Wingdings'; " >&#216;&nbsp;</span><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><a name="OLE_LINK23" >&#23439;&#35266;&#35201;&#38395;&#21450;&#24066;&#22330;&#31574;&#30053;&#65306;</a></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >11<font face="&#26999;&#20307;" >&#26376;</font><font face="Times New Roman" >PMI</font><font face="&#26999;&#20307;" >&#25968;&#25454;&#20844;&#24067;&#65292;&#20379;&#38656;&#20851;&#31995;&#21521;&#22909;&#65292;&#21046;&#36896;&#19994;&#26223;&#27668;&#24230;&#22238;&#21319;&#65307;&#21457;&#25913;&#22996;&#40723;&#21169;&#27665;&#38388;&#36164;&#26412;&#21442;&#19982;</font><font face="Times New Roman" >PPP</font><font face="&#26999;&#20307;" >&#39033;&#30446;</font></span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " >&#12290;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p168  style="margin-left:21.0000pt; text-indent:-21.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:150%; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Wingdings'; " >&#216;&nbsp;</span><span style="font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >T</span><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >MT</span><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#34892;&#19994;&#65306;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#26681;&#25454;&#12298;&#26085;&#26412;&#32463;&#27982;&#26032;&#38395;&#12299;&#25253;&#23548;&#65292;&#20840;&#29699;&#26368;&#22823;&#30340;<font face="Times New Roman" >MLCC</font><font face="&#26999;&#20307;" >&#21046;&#36896;&#21830;&#9472;&#9472;&#26085;&#26412;&#26449;&#30000;&#21046;&#20316;&#25152;&#65288;</font><font face="Times New Roman" >Murata</font><font face="&#26999;&#20307;" >&#65289;&#23558;&#25237;&#36164;</font><font face="Times New Roman" >100</font><font face="&#26999;&#20307;" >&#20159;&#26085;&#22278;&#20852;&#24314;&#26032;&#30340;</font><font face="Times New Roman" >MLCC</font><font face="&#26999;&#20307;" >&#20135;&#32447;&#65292;&#20197;&#22240;&#24212;&#30446;&#21069;&#24066;&#22330;&#23545;</font><font face="Times New Roman" >MLCC</font><font face="&#26999;&#20307;" >&#30340;&#38656;&#27714;&#12290;</font></span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:21.0000pt; text-indent:-21.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:150%; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Wingdings'; " >&#216;&nbsp;</span><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#29983;&#29289;&#21307;&#33647;</span><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#34892;&#19994;&#65306;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#39318;&#25209;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " >7</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#20010;&#20223;&#21046;&#33647;&#19968;&#33268;&#24615;&#35780;&#20215;&#21697;&#31181;&#21551;&#21160;&#29616;&#22330;&#26816;&#26597;&#12290;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:21.0000pt; text-indent:-21.0000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:150%; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Wingdings'; " >&#216;&nbsp;</span><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#20808;&#36827;&#21046;&#36896;&#34892;&#19994;&#65306;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#31185;&#36798;&#27905;&#33021;&#65288;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >600499.SH</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#65289;&#21457;&#24067;&#38750;&#20844;&#24320;&#21457;&#34892;&#32929;&#31080;&#21457;&#34892;&#24773;&#20917;&#25253;&#21578;&#20070;</span><span style="font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#12290;</span><span style="font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:150%; " ><span style="font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:21.0000pt; text-indent:-21.0000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:150%; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Wingdings'; " >&#216;&nbsp;</span><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#26032;&#32929;&#25552;&#31034;&#65306;</span><span style="font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="text-indent:21.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:150%; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#20170;&#26085;&#26080;&#26032;&#32929;&#30003;&#36141;&#12290;</span><span style="color:rgb(0,0,0); font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="text-indent:21.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:150%; " ><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:21.0000pt; text-indent:-21.0000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:150%; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Wingdings'; " >&#216;&nbsp;</span><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#39118;&#38505;&#25552;&#31034;&#65306;</span><span style="font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:21.9450pt; margin-bottom:0pt; margin-top:0pt; line-height:150%; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#23439;&#35266;&#32463;&#27982;&#19979;&#34892;&#39118;&#38505;&#12290;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p113  style="margin-bottom:0pt; margin-top:0pt; " ><span style="font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr></table><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr></table><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=19  valign=center  style="width:14.2500pt; padding:0.0000pt 0.0000pt 0.0000pt 0.0000pt ; " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr></table><p class=p105  style="margin-left:126.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " >&#23439;&#35266;&#35201;&#38395;&#21450;&#24066;&#22330;&#31574;&#30053;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:126.0000pt; text-indent:21.0000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:126.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " >&#23439;&#35266;&#35201;&#38395;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:126.0000pt; text-indent:21.0000pt; margin-right:10.5000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Wingdings'; " >&#216;&nbsp;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >11<font face="&#26999;&#20307;" >&#26376;</font><font face="Times New Roman" >PMI</font><font face="&#26999;&#20307;" >&#25968;&#25454;&#20844;&#24067;&#65292;&#20379;&#38656;&#20851;&#31995;&#21521;&#22909;&#65292;&#21046;&#36896;&#19994;&#26223;&#27668;&#24230;&#22238;&#21319;</font></span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:127.6000pt; text-indent:21.0000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#22269;&#32852;&#28857;&#35780;&#65306;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&nbsp;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#26152;&#26085;&#65292;&#22269;&#23478;&#32479;&#35745;&#23616;&#20844;&#24067;&#20102;<font face="Times New Roman" >2017</font><font face="&#26999;&#20307;" >&#24180;</font><font face="Times New Roman" >11</font><font face="&#26999;&#20307;" >&#26376;&#20013;&#22269;&#37319;&#36141;&#32463;&#29702;&#25351;&#25968;</font><font face="Times New Roman" >(PMI)</font><font face="&#26999;&#20307;" >&#25968;&#25454;&#65306;&#23448;&#26041;&#21046;&#36896;&#19994;&#32508;&#21512;</font><font face="Times New Roman" >PMI</font><font face="&#26999;&#20307;" >&#20026;</font><font face="Times New Roman" >51.8%</font><font face="&#26999;&#20307;" >&#65292;&#27604;&#19978;&#26376;&#24494;&#21319;</font><font face="Times New Roman" >0.2</font><font face="&#26999;&#20307;" >&#20010;&#30334;&#20998;&#28857;&#65307;&#38750;&#21046;&#36896;&#19994;&#21830;&#21153;&#27963;&#21160;</font><font face="Times New Roman" >PMI</font><font face="&#26999;&#20307;" >&#25351;&#25968;&#20026;</font><font face="Times New Roman" >54.8%</font><font face="&#26999;&#20307;" >&#65292;&#27604;&#19978;&#26376;&#22238;&#21319;</font><font face="Times New Roman" >0.5</font><font face="&#26999;&#20307;" >&#20010;&#30334;&#20998;&#28857;&#12290;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:127.6000pt; text-indent:21.0000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#9;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#21046;&#36896;&#19994;&#25972;&#20307;&#21521;&#22909;&#65292;&#36825;&#24471;&#30410;&#20110;&#20379;&#38656;&#31471;&#30340;&#20849;&#21516;&#22238;&#26262;&#12290;&#38656;&#27714;&#26041;&#38754;&#65292;&#20013;&#22269;&#26032;&#35746;&#21333;&#25351;&#25968;&#22238;&#21319;<font face="Times New Roman" >0.7</font><font face="&#26999;&#20307;" >&#20010;&#30334;&#20998;&#28857;&#33267;</font><font face="Times New Roman" >53.6%</font><font face="&#26999;&#20307;" >&#65307;&#26032;&#20986;&#21475;&#35746;&#21333;&#21319;&#33267;</font><font face="Times New Roman" >50.8%</font><font face="&#26999;&#20307;" >&#65292;&#24674;&#22797;&#33267;&#24180;&#20869;&#22343;&#20540;&#65292;&#21046;&#36896;&#19994;&#20869;&#22806;&#38656;&#25193;&#24352;&#21183;&#22836;&#24378;&#21170;&#12290;&#20379;&#32473;&#26041;&#38754;&#65292;</font><font face="Times New Roman" >11</font><font face="&#26999;&#20307;" >&#26376;&#29983;&#20135;&#37327;&#25351;&#25968;&#22238;&#21319;</font><font face="Times New Roman" >0.9</font><font face="&#26999;&#20307;" >&#20010;&#30334;&#20998;&#28857;&#33267;</font><font face="Times New Roman" >54.3%</font><font face="&#26999;&#20307;" >&#65292;</font><font face="Times New Roman" >10</font><font face="&#26999;&#20307;" >&#26376;&#21463;&#29615;&#20445;&#38480;&#20135;&#31561;&#24433;&#21709;&#32780;&#22823;&#24133;&#19979;&#38477;&#30340;&#24577;&#21183;&#24182;&#26410;&#24471;&#21040;&#25345;&#32493;&#12290;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:127.6000pt; text-indent:21.0000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#9;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#21407;&#26448;&#26009;&#36141;&#36827;&#20215;&#26684;&#25351;&#25968;&#19982;&#20986;&#21378;&#20215;&#26684;&#25351;&#25968;&#38388;&#30340;&#20215;&#24046;&#32487;<font face="Times New Roman" >10</font><font face="&#26999;&#20307;" >&#26376;&#25910;&#31364;&#21518;&#32487;&#32493;&#22823;&#24133;&#25910;&#31364;&#65292;&#21046;&#36896;&#19994;&#20225;&#19994;&#30340;&#21387;&#21147;&#26377;&#25152;&#20943;&#23567;&#65292;&#20225;&#19994;&#21033;&#28070;&#24471;&#21040;&#24041;&#22266;&#12290;&#21407;&#26448;&#26009;&#20215;&#26684;&#25351;&#25968;&#22823;&#24133;&#19979;&#36300;&#65292;&#21378;&#21830;&#21152;&#22823;&#37319;&#36141;&#21147;&#24230;&#30340;&#21516;&#26102;&#21152;&#22823;&#29983;&#20135;&#21147;&#24230;&#65292;&#21407;&#26448;&#26009;&#24211;&#23384;&#38477;&#20302;&#65292;&#20135;&#25104;&#21697;&#32500;&#25345;&#19981;&#21464;&#12290;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:127.6000pt; text-indent:21.0000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#9;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#22823;&#22411;&#20225;&#19994;&#21644;&#20013;&#22411;&#20225;&#19994;&#12289;&#23567;&#22411;&#20225;&#19994;&#30340;&#21046;&#36896;&#19994;<font face="Times New Roman" >PMI</font><font face="&#26999;&#20307;" >&#25351;&#25968;&#36208;&#21183;&#20998;&#21270;&#12290;&#20043;&#21069;&#34920;&#29616;&#33391;&#22909;&#30340;&#22823;&#22411;&#20225;&#19994;</font><font face="Times New Roman" >PMI</font><font face="&#26999;&#20307;" >&#30053;&#26377;&#19979;&#38477;&#33267;</font><font face="Times New Roman" >52.9%</font><font face="&#26999;&#20307;" >&#65307;&#20013;&#22411;&#20225;&#19994;&#12289;&#23567;&#22411;&#20225;&#19994;</font><font face="Times New Roman" >PMI</font><font face="&#26999;&#20307;" >&#22238;&#21319;&#65292;&#20013;&#22411;&#20225;&#19994;&#21319;</font><font face="Times New Roman" >0.7</font><font face="&#26999;&#20307;" >&#20010;&#30334;&#20998;&#28857;&#65292;&#37325;&#22238;&#26223;&#27668;&#21306;&#38388;&#65292;&#23567;&#22411;&#20225;&#19994;&#21319;&#33267;</font><font face="Times New Roman" >49.8%</font><font face="&#26999;&#20307;" >&#65292;&#25509;&#36817;&#26543;&#33635;&#32447;&#12290;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:127.6000pt; text-indent:21.0000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#9;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#38750;&#21046;&#36896;&#19994;&#21830;&#21153;&#27963;&#21160;<font face="Times New Roman" >PMI</font><font face="&#26999;&#20307;" >&#25351;&#25968;&#20013;&#65292;&#24314;&#31569;&#19994;&#25351;&#25968;&#22823;&#24133;&#22238;&#21319;</font><font face="Times New Roman" >2.9</font><font face="&#26999;&#20307;" >&#20010;&#30334;&#20998;&#28857;&#20026;</font><font face="Times New Roman" >61.4%</font><font face="&#26999;&#20307;" >&#65292;&#37325;&#26032;&#22238;&#21040;&#20170;&#24180;&#30340;&#39640;&#20301;&#26223;&#27668;&#27700;&#24179;&#12290;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:127.6000pt; text-indent:21.0000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:126.0000pt; text-indent:21.0000pt; margin-right:10.5000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Wingdings'; " >&#216;&nbsp;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#21457;&#25913;&#22996;&#40723;&#21169;&#27665;&#38388;&#36164;&#26412;&#21442;&#19982;<font face="Times New Roman" >PPP</font><font face="&#26999;&#20307;" >&#39033;&#30446;</font></span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:12.0000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:127.6000pt; text-indent:21.0000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#22269;&#32852;&#28857;&#35780;&#65306;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#22269;&#23478;&#21457;&#25913;&#22996;<font face="Times New Roman" >11</font><font face="&#26999;&#20307;" >&#26376;</font><font face="Times New Roman" >28</font><font face="&#26999;&#20307;" >&#26085;&#19979;&#21457;&#40723;&#21169;&#27665;&#38388;&#36164;&#26412;&#21442;&#19982;&#25919;&#24220;&#21644;&#31038;&#20250;&#36164;&#26412;&#21512;&#20316;&#65288;</font><font face="Times New Roman" >PPP</font><font face="&#26999;&#20307;" >&#65289;&#39033;&#30446;&#30340;&#25351;&#23548;&#24847;&#35265;&#65292;&#35201;&#27714;&#21152;&#22823;&#23545;&#27665;&#38388;&#36164;&#26412;&#21442;&#19982;</font><font face="Times New Roman" >PPP</font><font face="&#26999;&#20307;" >&#39033;&#30446;&#34701;&#36164;&#30340;&#25903;&#25345;&#21147;&#24230;&#12290;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:127.6000pt; text-indent:21.0000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#9;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#25351;&#23548;&#24847;&#35265;&#20013;&#20889;&#36947;&#65292;&#38500;&#22269;&#23478;&#27861;&#24459;&#27861;&#35268;&#26126;&#30830;&#31105;&#27490;&#20934;&#20837;&#30340;&#34892;&#19994;&#21644;&#39046;&#22495;&#22806;&#65292;&#19968;&#24459;&#21521;&#27665;&#38388;&#36164;&#26412;&#24320;&#25918;&#65292;&#35201;&#27714;&#19981;&#24471;&#20197;&#20219;&#20309;&#21517;&#20041;&#12289;&#20219;&#20309;&#24418;&#24335;&#38480;&#21046;&#27665;&#38388;&#36164;&#26412;&#21442;&#19982;<font face="Times New Roman" >PPP</font><font face="&#26999;&#20307;" >&#39033;&#30446;&#12290;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:127.6000pt; text-indent:21.0000pt; margin-bottom:0pt; margin-top:0pt; text-align:left; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#9;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#19968;&#26041;&#38754;&#26159;&#22269;&#23478;&#21457;&#25913;&#22996;&#40723;&#21169;&#27665;&#38388;&#36164;&#26412;&#21442;&#19982;<font face="Times New Roman" >PPP</font><font face="&#26999;&#20307;" >&#39033;&#30446;&#65292;&#32780;&#21478;&#19968;&#26041;&#38754;&#23545;</font><font face="Times New Roman" >PPP</font><font face="&#26999;&#20307;" >&#39118;&#38505;&#30340;&#30417;&#31649;&#21147;&#24230;&#36234;&#26469;&#36234;&#22823;&#12290;&#20170;&#24180;&#19977;&#23395;&#24230;</font><font face="Times New Roman" >PPP</font><font face="&#26999;&#20307;" >&#39033;&#30446;&#23454;&#26045;&#30340;&#27493;&#20240;&#20877;&#27425;&#21152;&#36895;&#65292;&#22312;&#23547;&#25214;&#21512;&#36866;&#30340;&#25237;&#36164;&#26426;&#20250;&#30340;&#21516;&#26102;&#38656;&#35686;&#24789;&#22320;&#26041;&#25919;&#24220;&#30340;&#20538;&#21153;&#39118;&#38505;&#12290;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p130  style="margin-left:126.0000pt; text-indent:21.0000pt; margin-bottom:7.8000pt; margin-top:7.8000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Arial'; " ><o:p></o:p></span></p><p class=p130  style="margin-left:126.0000pt; text-indent:21.0000pt; margin-bottom:7.8000pt; margin-top:7.8000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Arial'; " ><o:p></o:p></span></p><p class=p130  style="margin-left:126.0000pt; text-indent:21.0000pt; margin-bottom:7.8000pt; margin-top:7.8000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Arial'; " ><o:p></o:p></span></p><p class=p130  style="margin-left:126.0000pt; text-indent:21.0000pt; margin-bottom:7.8000pt; margin-top:7.8000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Arial'; " ><o:p></o:p></span></p><p class=p130  style="margin-left:126.0000pt; text-indent:21.0000pt; margin-bottom:7.8000pt; margin-top:7.8000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Arial'; " ><o:p></o:p></span></p><p class=p130  style="margin-left:126.0000pt; text-indent:21.0000pt; margin-bottom:7.8000pt; margin-top:7.8000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Arial'; " ><o:p></o:p></span></p><p class=p105  style="margin-left:126.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " >A<font face="&#26999;&#20307;" >&#32929;&#31574;&#30053;</font></span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p130  style="margin-left:126.0000pt; text-indent:21.0000pt; margin-right:13.9650pt; margin-bottom:7.8000pt; margin-top:7.8000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><table align=right  style="border-collapse:collapse;
+mso-table-layout-alt:fixed;
+padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><tr style="height:21.0000pt; " ><td width=491  valign=center  colspan=3  style="width:368.7500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:31.8750pt none rgb(255,255,255); mso-border-left-alt:31.8750pt none rgb(255,255,255); border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:31.8750pt none rgb(255,255,255); mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(31,73,125); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:center; " ><span style="mso-spacerun:'yes'; color:rgb(255,255,255); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#22823;&#30424;&#22238;&#39038;</span><span style="color:rgb(255,255,255); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td></tr><tr style="height:21.0000pt; " ><td width=106  valign=center  style="width:79.9500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:31.8750pt none rgb(255,255,255); mso-border-left-alt:31.8750pt none rgb(255,255,255); border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(197,217,241); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#24066;&#22330;</span><span style="color:rgb(0,0,0); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td><td width=385  valign=center  colspan=2  style="width:288.8000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:none; ; mso-border-left-alt:none; ; border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:31.8750pt none rgb(255,255,255); mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(197,217,241); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:center; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#34920;&#29616;&#21450;&#21407;&#22240;</span><span style="color:rgb(0,0,0); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td></tr><tr style="height:21.0000pt; " ><td width=106  valign=center  style="width:79.9500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:31.8750pt none rgb(255,255,255); mso-border-left-alt:31.8750pt none rgb(255,255,255); border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >A<font face="&#26999;&#20307;" >&#32929;</font></span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td><td width=385  valign=center  colspan=2  style="width:288.8000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:none; ; mso-border-left-alt:none; ; border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#19977;&#22823;&#32929;&#25351;&#20840;&#32447;&#25910;&#36300;&#65292;&#25151;&#22320;&#20135;&#12289;&#20445;&#38505;&#39046;&#36300;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td></tr><tr style="height:21.0000pt; " ><td width=106  valign=center  style="width:79.9500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:31.8750pt none rgb(255,255,255); mso-border-left-alt:31.8750pt none rgb(255,255,255); border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#28207;&#32929;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td><td width=385  valign=center  colspan=2  style="width:288.8000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:none; ; mso-border-left-alt:none; ; border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#25972;&#20307;&#19979;&#25506;&#65292;&#24658;&#29983;&#25351;&#25968;&#22823;&#36300;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td></tr><tr style="height:21.0000pt; " ><td width=106  valign=center  style="width:79.9500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:31.8750pt none rgb(255,255,255); mso-border-left-alt:31.8750pt none rgb(255,255,255); border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#32654;&#32929;&#21450;&#20854;&#20182;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td><td width=385  valign=center  colspan=2  style="width:288.8000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:none; ; mso-border-left-alt:none; ; border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#36947;&#25351;&#12289;&#26631;&#26222;<font face="Times New Roman" >5</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >00</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#21019;&#26032;&#39640;&#65307;&#40644;&#37329;&#36300;&#21407;&#27833;&#28072;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td></tr><tr style="height:15.6000pt; " ><td width=491  valign=center  colspan=3  style="width:368.7500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:31.8750pt none rgb(255,255,255); mso-border-left-alt:31.8750pt none rgb(255,255,255); border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(31,73,125); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:center; " ><span style="mso-spacerun:'yes'; color:rgb(255,255,255); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#22823;&#21183;&#30740;&#21028;</span><span style="color:rgb(255,255,255); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td></tr><tr style="height:21.0000pt; " ><td width=106  valign=center  style="width:79.9500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:31.8750pt none rgb(255,255,255); mso-border-left-alt:31.8750pt none rgb(255,255,255); border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(197,217,241); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#26102;&#38388;</span><span style="color:rgb(0,0,0); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td><td width=94  valign=center  style="width:70.8000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:none; ; mso-border-left-alt:none; ; border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:31.8750pt none rgb(255,255,255); mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(197,217,241); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#26041;&#21521;</span><span style="color:rgb(0,0,0); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td><td width=290  valign=center  style="width:218.0000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:none; ; mso-border-left-alt:none; ; border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:31.8750pt none rgb(255,255,255); mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(197,217,241); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#29702;&#30001;</span><span style="color:rgb(0,0,0); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td></tr><tr style="height:21.0000pt; " ><td width=106  valign=center  style="width:79.9500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:31.8750pt none rgb(255,255,255); mso-border-left-alt:31.8750pt none rgb(255,255,255); border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#30701;&#26399;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td><td width=94  valign=center  style="width:70.8000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:none; ; mso-border-left-alt:none; ; border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#38663;&#33633;</span><span style="color:rgb(0,32,96); font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td><td width=290  valign=center  style="width:218.0000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:none; ; mso-border-left-alt:none; ; border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#36164;&#37329;&#38754;&#25910;&#32039;&#65292;&#37329;&#34701;&#30417;&#31649;&#21152;&#24378;&#65292;&#24066;&#22330;&#20559;&#35880;&#24910;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td></tr><tr style="height:20.4000pt; " ><td width=491  valign=center  colspan=3  style="width:368.7500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:31.8750pt none rgb(255,255,255); mso-border-left-alt:31.8750pt none rgb(255,255,255); border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(31,73,125); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:center; " ><span style="mso-spacerun:'yes'; color:rgb(255,255,255); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#34892;&#19994;&#37197;&#32622;&#19982;&#20027;&#39064;&#25512;&#33616;</span><span style="color:rgb(255,255,255); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td></tr><tr style="height:35.4000pt; " ><td width=106  valign=center  style="width:79.9500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:31.8750pt none rgb(255,255,255); mso-border-left-alt:31.8750pt none rgb(255,255,255); border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#30701;&#26399;&#34892;&#19994;&#36229;&#37197;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td><td width=385  valign=center  colspan=2  style="width:288.8000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:none; ; mso-border-left-alt:none; ; border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:31.8750pt none rgb(255,255,255); mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#24314;&#31569;&#12289;&#38050;&#38081;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#31561;&#26495;&#22359;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td></tr><tr style="height:20.4000pt; " ><td width=106  valign=center  style="width:79.9500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:31.8750pt none rgb(255,255,255); mso-border-left-alt:31.8750pt none rgb(255,255,255); border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:1.0000pt solid rgb(0,0,0); mso-border-bottom-alt:1.0000pt solid rgb(0,0,0); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#20027;&#39064;&#25512;&#33616;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td><td width=385  valign=center  colspan=2  style="width:288.8000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:none; ; mso-border-left-alt:none; ; border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:1.0000pt solid rgb(0,0,0); mso-border-bottom-alt:1.0000pt solid rgb(0,0,0); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#22269;&#20225;&#25913;&#38761;&#65292;&#19968;&#24102;&#19968;&#36335;&#65292;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#33258;&#36152;&#21306;&#31561;</span><span style="font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p></td></tr></table><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:126.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " >TMT<font face="&#26999;&#20307;" >&#34892;&#19994;</font></span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:126.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " >&#34892;&#19994;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:127.6000pt; text-indent:21.2500pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Wingdings'; " >&#216;&nbsp;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#26681;&#25454;&#12298;&#26085;&#26412;&#32463;&#27982;&#26032;&#38395;&#12299;&#25253;&#23548;&#65292;&#20840;&#29699;&#26368;&#22823;&#30340;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >MLCC<font face="&#26999;&#20307;" >&#21046;&#36896;&#21830;</font><font face="Times New Roman" >&#9472;&#9472;</font><font face="&#26999;&#20307;" >&#26085;&#26412;&#26449;&#30000;&#21046;&#20316;&#25152;&#65288;</font><font face="Times New Roman" >Murata</font><font face="&#26999;&#20307;" >&#65289;&#23558;&#25237;&#36164;</font><font face="Times New Roman" >100</font><font face="&#26999;&#20307;" >&#20159;&#26085;&#22278;&#20852;&#24314;&#26032;&#30340;</font><font face="Times New Roman" >MLCC</font><font face="&#26999;&#20307;" >&#20135;&#32447;&#65292;&#20197;&#22240;&#24212;&#30446;&#21069;&#24066;&#22330;&#23545;</font><font face="Times New Roman" >MLCC</font><font face="&#26999;&#20307;" >&#30340;&#38656;&#27714;&#12290;</font></span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:127.6000pt; text-indent:21.0000pt; margin-right:6.9300pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#22269;&#32852;&#28857;&#35780;&#65306;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#26412;&#26449;&#30000;&#21046;&#20316;&#25152;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >MLCC<font face="&#26999;&#20307;" >&#30340;&#20840;&#29699;&#24066;&#22330;&#20221;&#39069;&#39640;&#36798;</font><font face="Times New Roman" >40%</font><font face="&#26999;&#20307;" >&#65292;&#21152;&#19978;&#26449;&#30000;&#21046;&#20316;&#25152;&#19982;&#21478;&#19968;&#23478;&#20027;&#35201;&#20379;&#36135;&#21830;&nbsp;</font><font face="Times New Roman" >SEMCO</font><font face="&#26999;&#20307;" >&#19994;&#21153;&#25972;&#21512;&#65292;&#20840;&#29699;&#20221;&#39069;&#26356;&#39640;&#36798;</font><font face="Times New Roman" >60%</font><font face="&#26999;&#20307;" >&#20197;&#19978;&#12290;&#20294;&#22240;</font><font face="Times New Roman" >MLCC</font><font face="&#26999;&#20307;" >&#30340;&#29983;&#20135;&#20165;&#38480;&#20840;&#29699;&#20960;&#20010;&#22320;&#26041;&#65292;&#20135;&#33021;&#22686;&#21152;&#19981;&#26131;&#65292;&#25152;&#20197;&#36896;&#25104;&#24066;&#22330;&#20379;&#19981;&#24212;&#27714;&#65292;&#20063;&#20351;</font><font face="Times New Roman" >MLCC</font><font face="&#26999;&#20307;" >&#33719;&#21033;&#25345;&#32493;&#25552;&#21319;&#12290;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#26449;&#30000;&#21046;&#20316;&#25152;&#20915;&#23450;&#24314;&#36896;&#26032;&#24037;&#21378;&#20197;&#20379;&#24212;&#20840;&#29699;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >MLCC<font face="&#26999;&#20307;" >&#38656;&#27714;&#12290;&#39044;&#35745;&#26032;&#21378;</font><font face="Times New Roman" >2018</font><font face="&#26999;&#20307;" >&#24180;&#31532;</font><font face="Times New Roman" >4</font><font face="&#26999;&#20307;" >&#23395;&#23436;&#25104;&#21518;&#65292;&#23558;&#20110;</font><font face="Times New Roman" >2019</font><font face="&#26999;&#20307;" >&#24180;&#31532;</font><font face="Times New Roman" >2</font><font face="&#26999;&#20307;" >&#23395;&#21021;&#25237;&#20837;&#37327;&#20135;&#12290;&#25972;&#20307;&#30475;&#26469;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#65292;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >MLCC<font face="&#26999;&#20307;" >&#32570;&#36135;&#30340;&#24773;&#20917;&#21487;&#25345;&#32493;&#21040;&#26126;&#24180;&#24180;&#20013;&#12290;&#25105;&#20204;&#24314;&#35758;&#22823;&#23478;&#32487;&#32493;&#20851;&#27880;&#39118;&#21326;&#39640;&#31185;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#65288;<font face="Times New Roman" >00</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >0636</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >.SZ<font face="&#26999;&#20307;" >&#65289;</font></span><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#12290;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:126.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'&#26999;&#20307;'; " >&#29983;&#29289;&#21307;&#33647;&#34892;&#19994;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:126.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'&#26999;&#20307;'; " >&#34892;&#19994;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p168  style="margin-left:126.1500pt; text-indent:21.1000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'Wingdings'; " >&#216;&nbsp;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#39318;&#25209;<font face="Times New Roman" >7</font><font face="&#26999;&#20307;" >&#20010;&#20223;&#21046;&#33647;&#19968;&#33268;&#24615;&#35780;&#20215;&#21697;&#31181;&#21551;&#21160;&#29616;&#22330;&#26816;&#26597;</font></span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#12290;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p168  style="margin-left:126.0000pt; text-indent:21.1000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#22269;&#32852;&#28857;&#35780;&#65306;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#26085;&#21069;<font face="Arial" >CDE</font><font face="&#26999;&#20307;" >&#23448;&#32593;&#21457;&#24067;&#12298;&#20851;&#20110;&#20570;&#22909;&#20223;&#21046;&#33647;&#19968;&#33268;&#24615;&#35780;&#20215;&#21697;&#31181;&#26816;&#26597;&#25110;&#25277;&#26679;&#20934;&#22791;&#24037;&#20316;&#30340;&#36890;&#30693;&#12299;&#65292;&#25552;&#37266;&#30003;&#35831;&#20154;&#25552;&#20132;&#20223;&#21046;&#33647;&#36136;&#37327;&#21644;&#30103;&#25928;&#19968;&#33268;&#24615;&#35780;&#20215;&#30003;&#35831;&#21518;&#65292;&#20851;&#27880;&#23457;&#35780;&#30340;&#36827;&#24230;&#65292;&#20570;&#22909;&#25509;&#21463;&#30001;</font><font face="Arial" >CFDA</font><font face="&#26999;&#20307;" >&#39135;&#21697;&#33647;&#21697;&#23457;&#26680;&#26597;&#39564;&#20013;&#24515;&#65288;</font><font face="Arial" >CFDI</font><font face="&#26999;&#20307;" >&#65289;&#32479;&#19968;&#32452;&#32455;&#36827;&#34892;&#30340;&#30740;&#21046;&#29616;&#22330;&#12289;&#29983;&#20135;&#29616;&#22330;&#25110;&#20020;&#24202;&#35797;&#39564;&#25968;&#25454;&#30340;&#26377;&#22240;&#26816;&#26597;&#25110;&#25277;&#26679;&#30340;&#20934;&#22791;&#24037;&#20316;&#12290;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Arial'; " ><o:p></o:p></span></p><p class=p168  style="margin-left:126.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >11<font face="&#26999;&#20307;" >&#26376;</font><font face="Times New Roman" >29</font><font face="&#26999;&#20307;" >&#26085;&#65292;</font><font face="Times New Roman" >CFDI</font><font face="&#26999;&#20307;" >&#23448;&#32593;&#24037;&#20316;&#21160;&#24577;&#26639;&#30446;&#26174;&#31034;&#65292;</font><font face="Times New Roman" >CFDI</font><font face="&#26999;&#20307;" >&#20110;</font><font face="Times New Roman" >11</font><font face="&#26999;&#20307;" >&#26376;</font><font face="Times New Roman" >23</font><font face="&#26999;&#20307;" >&#26085;&#21551;&#21160;&#20102;&#39318;&#25209;&#20223;&#21046;&#33647;&#19968;&#33268;&#24615;&#35780;&#20215;&#21697;&#31181;&#30340;&#26377;&#22240;&#29616;&#22330;&#26816;&#26597;&#24037;&#20316;&#12290;&#25454;&#20171;&#32461;&#65292;&#39318;&#25209;&#21551;&#21160;&#29616;&#22330;&#26816;&#26597;&#30340;</font><font face="Times New Roman" >7</font><font face="&#26999;&#20307;" >&#20010;&#21697;&#31181;&#26159;&#22312;</font><font face="Times New Roman" >CDE</font><font face="&#26999;&#20307;" >&#23436;&#25104;&#31435;&#21367;&#23457;&#26597;&#30340;&#22522;&#30784;&#19978;&#24320;&#23637;&#30340;&#12290;&#26412;&#27425;&#26816;&#26597;</font><font face="Times New Roman" >CFDI</font><font face="&#26999;&#20307;" >&#20849;&#27966;&#20986;</font><font face="Times New Roman" >6</font><font face="&#26999;&#20307;" >&#20010;&#26816;&#26597;&#32452;&#65292;&#20998;&#21035;&#22868;&#36212;&#21271;&#20140;&#12289;&#37325;&#24198;&#12289;&#27993;&#27743;&#12289;&#27743;&#33487;&#12289;&#28246;&#21335;&#12289;&#27743;&#35199;&#31561;&#22320;&#12290;&#39044;&#35745;&#39318;&#25209;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#36890;&#36807;&#35780;&#20215;&#30340;&#21697;&#31181;&#23558;&#20110;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >2018<font face="&#26999;&#20307;" >&#24180;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#21021;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#23436;&#25104;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#65292;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#24314;&#35758;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#20851;&#27880;&#30456;&#20851;&#21697;&#31181;&#22312;&#19968;&#33268;&#24615;&#35780;&#20215;&#20013;&#36827;&#24230;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#38752;&#21069;&#30340;&#19978;&#24066;&#20844;&#21496;&#22914;&#20140;&#26032;&#33647;&#19994;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >&#65288;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >002020</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >.SZ<font face="&#26999;&#20307;" >&#65289;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#12290;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:126.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " >&#20808;&#36827;&#21046;&#36896;&#34892;&#19994;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:126.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'&#26999;&#20307;'; " >&#20844;&#21496;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:126.0000pt; text-indent:22.6800pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Wingdings'; " >&#216;&nbsp;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#31185;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#36798;&#27905;&#33021;&#65288;<font face="Times New Roman" >600499.SH</font><font face="&#26999;&#20307;" >&#65289;&#21457;&#24067;&#38750;&#20844;&#24320;&#21457;&#34892;&#32929;&#31080;&#21457;&#34892;&#24773;&#20917;&#25253;&#21578;&#20070;&#12290;</font></span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:126.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#9;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:10.5000pt; font-family:'Times New Roman'; " >&#22269;&#32852;&#28857;&#35780;&#65306;</span><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-size:10.5000pt; font-family:'Times New Roman'; background:rgb(255,255,255); mso-shading:rgb(255,255,255); " >&#26412;&#27425;&#23450;&#22686;&#21457;&#34892;&#32929;&#31080;&#25968;&#37327;&#20026;<font face="Times New Roman" >1.66</font><font face="&#26999;&#20307;" >&#20159;&#32929;&#65292;&#21457;&#34892;&#20215;&#26684;&#20026;</font><font face="Times New Roman" >7.24</font><font face="&#26999;&#20307;" >&#20803;</font><font face="Times New Roman" >/</font><font face="&#26999;&#20307;" >&#32929;&#12290;&#21457;&#34892;&#23545;&#35937;&#26032;&#21326;&#32852;&#25511;&#32929;&#19982;&#33436;&#28246;&#22522;&#30707;&#21508;&#35748;&#36141;</font><font face="Times New Roman" >10</font><font face="&#26999;&#20307;" >&#20159;&#20803;&#12289;</font><font face="Times New Roman" >2</font><font face="&#26999;&#20307;" >&#20159;&#20803;&#12290;&#26032;&#21326;&#32852;&#25511;&#32929;&#25104;&#31435;&#20110;</font><font face="Times New Roman" >2001</font><font face="&#26999;&#20307;" >&#24180;&#65292;&#19994;&#21153;&#28085;&#30422;&#22320;&#20135;&#12289;&#30707;&#27833;&#12289;&#30719;&#19994;&#12289;&#21270;&#24037;&#12289;&#37329;&#34701;&#31561;&#22810;&#39046;&#22495;&#12290;&#26032;&#21326;&#32852;&#25511;&#32929;&#25311;&#35748;&#36141;&#20854;&#20013;&#32422;</font><font face="Times New Roman" >1.38</font><font face="&#26999;&#20307;" >&#20159;&#32929;&#65292;&#25345;&#26377;&#31185;&#36798;&#27905;&#33021;&#32929;&#20221;&#21344;&#27604;</font><font face="Times New Roman" >8.67%</font><font face="&#26999;&#20307;" >&#65292;&#22686;&#21457;&#23436;&#25104;&#21518;&#23558;&#36291;&#21319;&#20026;&#20844;&#21496;&#31532;&#20108;&#22823;&#32929;&#19996;&#12290;&#21516;&#26102;&#65292;&#26032;&#21326;&#32852;&#25511;&#32929;&#25110;&#20854;&#19968;&#33268;&#34892;&#21160;&#20154;&#21518;&#32493;&#39044;&#35745;&#23558;&#32487;&#32493;&#22686;&#25345;&#20844;&#21496;&#32929;&#20221;&#65292;&#22686;&#25345;&#25968;&#37327;&#32422;</font><font face="Times New Roman" >100</font><font face="&#26999;&#20307;" >&#19975;&#32929;</font><font face="Times New Roman" >~2,500</font><font face="&#26999;&#20307;" >&#19975;&#32929;&#12290;&#25353;&#22686;&#21457;&#21518;&#24635;&#32929;&#26412;</font><font face="Times New Roman" >157,720.57</font><font face="&#26999;&#20307;" >&#19975;&#32929;&#35745;&#31639;&#65292;&#20844;&#21496;&#22823;&#32929;&#19996;&#36793;&#31243;&#25345;&#26377;&#20844;&#21496;&#32929;&#20221;&#21344;&#27604;&#23558;&#30001;&#22686;&#21457;&#21069;&#30340;</font><font face="Times New Roman" >12.33%</font><font face="&#26999;&#20307;" >&#31232;&#37322;&#33267;&#22686;&#21457;&#21518;&#30340;</font><font face="Times New Roman" >11.03%</font><font face="&#26999;&#20307;" >&#65292;&#25345;&#32929;&#27604;&#20363;&#36739;&#31532;&#20108;&#22823;&#32929;&#19996;&#26032;&#21326;&#32852;&#25511;&#32929;&#39046;&#20808;</font><font face="Times New Roman" >2.27</font><font face="&#26999;&#20307;" >&#20010;&#30334;&#20998;&#28857;&#12290;&#26032;&#21326;&#32852;&#25511;&#32929;&#25112;&#30053;&#25237;&#36164;&#31185;&#36798;&#27905;&#33021;&#20027;&#35201;&#22522;&#20110;&#23545;&#20110;&#20844;&#21496;&#20013;&#38271;&#26399;&#21457;&#23637;&#30340;&#22362;&#23450;&#20449;&#24515;&#65292;&#21516;&#26102;&#65292;&#20854;&#29616;&#26377;&#19994;&#21153;&#26500;&#25104;&#19982;&#20844;&#21496;</font><font face="Times New Roman" >&#8220;</font><font face="&#26999;&#20307;" >&#19977;&#39550;&#39532;&#36710;</font><font face="Times New Roman" >&#8221;</font><font face="&#26999;&#20307;" >&#20027;&#19994;&#21457;&#23637;&#26041;&#21521;&#25317;&#26377;&#20132;&#38598;&#65292;&#21452;&#26041;&#23588;&#20854;&#22312;&#27905;&#33021;&#26448;&#26009;&#39046;&#22495;&#20855;&#22791;&#21512;&#20316;&#20849;&#36194;&#30340;&#24819;&#35937;&#31354;&#38388;&#12290;</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:126.0000pt; margin-bottom:0pt; margin-top:0pt; line-height:20.0000pt; " ><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " >&#26032;&#32929;&#30003;&#36141;</span><span style="mso-spacerun:'yes'; color:rgb(31,73,125); font-weight:bold; font-size:14.0000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:126.0000pt; text-indent:21.0000pt; margin-bottom:7.8000pt; margin-top:7.8000pt; line-height:114%; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#20170;&#26085;&#26080;&#26032;&#32929;&#30003;&#36141;&#12290;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-left:126.0000pt; text-indent:21.0000pt; margin-bottom:7.8000pt; margin-top:7.8000pt; line-height:114%; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></div>
+<span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><br clear=all style='page-break-before:auto;mso-break-type:section-break'></span>
+<div class="Section1"  style="layout-grid:15.6000pt;
+" ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(192,0,0); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#20998;&#26512;&#24072;&#22768;&#26126;</span><span style="mso-spacerun:'yes'; color:rgb(192,0,0); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; layout-grid-mode:char; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#26412;&#25253;&#21578;&#32626;&#21517;&#20998;&#26512;&#24072;&#22312;&#27492;&#22768;&#26126;&#65306;&#25105;&#20204;&#20855;&#26377;&#20013;&#22269;&#35777;&#21048;&#19994;&#21327;&#20250;&#25480;&#20104;&#30340;&#35777;&#21048;&#25237;&#36164;&#21672;&#35810;&#25191;&#19994;&#36164;&#26684;&#25110;&#30456;&#24403;&#30340;&#19987;&#19994;&#32988;&#20219;&#33021;&#21147;&#65292;&#26412;&#25253;&#21578;&#25152;&#34920;&#36848;&#30340;&#25152;&#26377;&#35266;&#28857;&#22343;&#20934;&#30830;&#22320;&#21453;&#26144;&#20102;&#25105;&#20204;&#23545;&#26631;&#30340;&#35777;&#21048;&#21644;&#21457;&#34892;&#20154;&#30340;&#20010;&#20154;&#30475;&#27861;&#12290;&#25105;&#20204;&#25152;&#24471;&#25253;&#37228;&#30340;&#20219;&#20309;&#37096;&#20998;&#19981;&#26366;&#19982;&#65292;&#19981;&#19982;&#65292;&#20063;&#23558;&#19981;&#20250;&#19982;&#26412;&#25253;&#21578;&#20013;&#30340;&#20855;&#20307;&#25237;&#36164;&#24314;&#35758;&#25110;&#35266;&#28857;&#26377;&#30452;&#25509;&#25110;&#38388;&#25509;&#32852;&#31995;&#12290;</span><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; layout-grid-mode:char; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; color:rgb(192,0,0); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#25237;&#36164;&#35780;&#32423;&#35828;&#26126;</span><span style="mso-spacerun:'yes'; color:rgb(192,0,0); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><table align=right  style="border-collapse:collapse;
+mso-table-layout-alt:fixed;
+padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><tr><td width=94  valign=center  rowspan=5  style="width:70.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-top:1.0000pt solid rgb(192,0,0); mso-border-top-alt:1.0000pt solid rgb(192,0,0); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; layout-grid-mode:char; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#32929;&#31080;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; layout-grid-mode:char; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#25237;&#36164;&#35780;&#32423;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=141  valign=top  style="width:106.3000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-top:1.0000pt solid rgb(192,0,0); mso-border-top-alt:1.0000pt solid rgb(192,0,0); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; layout-grid-mode:char; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#24378;&#28872;&#25512;&#33616;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=451  valign=top  style="width:338.4000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-top:1.0000pt solid rgb(192,0,0); mso-border-top-alt:1.0000pt solid rgb(192,0,0); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; layout-grid-mode:char; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#32929;&#31080;&#20215;&#26684;&#22312;&#26410;&#26469;6&#20010;&#26376;&#20869;&#36229;&#36234;&#22823;&#30424;20%&#20197;&#19978;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr><td width=141  valign=top  style="width:106.3000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; layout-grid-mode:char; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#25512;&#33616;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=451  valign=top  style="width:338.4000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; layout-grid-mode:char; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#32929;&#31080;&#20215;&#26684;&#22312;&#26410;&#26469;6&#20010;&#26376;&#20869;&#36229;&#36234;&#22823;&#30424;10%&#20197;&#19978;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr><td width=141  valign=top  style="width:106.3000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#35880;&#24910;&#25512;&#33616;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=451  valign=top  style="width:338.4000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#32929;&#31080;&#20215;&#26684;&#22312;&#26410;&#26469;6&#20010;&#26376;&#20869;&#36229;&#36234;&#22823;&#30424;5%&#20197;&#19978;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr><td width=141  valign=top  style="width:106.3000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; layout-grid-mode:char; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#35266;&#26395;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=451  valign=top  style="width:338.4000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; layout-grid-mode:char; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#32929;&#31080;&#20215;&#26684;&#22312;&#26410;&#26469;6&#20010;&#26376;&#20869;&#30456;&#23545;&#22823;&#30424;&#21464;&#21160;&#24133;&#24230;&#20026;&#65293;10%&#65374;10%</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr><td width=141  valign=top  style="width:106.3000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:31.8750pt none rgb(255,255,255); mso-border-left-alt:31.8750pt none rgb(255,255,255); border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:31.8750pt none rgb(255,255,255); mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:1.0000pt solid rgb(192,0,0); mso-border-bottom-alt:1.0000pt solid rgb(192,0,0); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#21334;&#20986;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=451  valign=top  style="width:338.4000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:none; ; mso-border-left-alt:none; ; border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:31.8750pt none rgb(255,255,255); mso-border-top-alt:31.8750pt none rgb(255,255,255); border-bottom:1.0000pt solid rgb(192,0,0); mso-border-bottom-alt:1.0000pt solid rgb(192,0,0); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#32929;&#31080;&#20215;&#26684;&#22312;&#26410;&#26469;6&#20010;&#26376;&#20869;&#30456;&#23545;&#22823;&#30424;&#19979;&#36300;10%&#20197;&#19978;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr><td width=94  valign=center  rowspan=3  style="width:70.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:31.8750pt none rgb(255,255,255); mso-border-left-alt:31.8750pt none rgb(255,255,255); border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:none; ; border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#34892;&#19994;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#25237;&#36164;&#35780;&#32423;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=141  valign=top  style="width:106.3000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:none; ; mso-border-left-alt:none; ; border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:1.0000pt solid rgb(192,0,0); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#20248;&#24322;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=451  valign=top  style="width:338.4000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-left:none; ; mso-border-left-alt:none; ; border-right:31.8750pt none rgb(255,255,255); mso-border-right-alt:31.8750pt none rgb(255,255,255); border-top:none; ; mso-border-top-alt:1.0000pt solid rgb(192,0,0); border-bottom:31.8750pt none rgb(255,255,255); mso-border-bottom-alt:31.8750pt none rgb(255,255,255); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#34892;&#19994;&#25351;&#25968;&#22312;&#26410;&#26469;6&#20010;&#26376;&#20869;&#24378;&#20110;&#22823;&#30424;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr><td width=141  valign=top  style="width:106.3000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#20013;&#24615;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=451  valign=top  style="width:338.4000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#34892;&#19994;&#25351;&#25968;&#22312;&#26410;&#26469;6&#20010;&#26376;&#20869;&#19982;&#22823;&#30424;&#25345;&#24179;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr><td width=141  valign=top  style="width:106.3000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(192,0,0); mso-border-bottom-alt:1.0000pt solid rgb(192,0,0); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#33853;&#21518;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=451  valign=top  style="width:338.4000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(192,0,0); mso-border-bottom-alt:1.0000pt solid rgb(192,0,0); background:rgb(255,255,255); " ><p class=p0  style="margin-bottom:5.0000pt; margin-top:5.0000pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#34892;&#19994;&#25351;&#25968;&#22312;&#26410;&#26469;6&#20010;&#26376;&#20869;&#24369;&#20110;&#22823;&#30424;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr></table><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; layout-grid-mode:char; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(192,0,0); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#19968;&#33324;&#22768;&#26126;</span><span style="mso-spacerun:'yes'; color:rgb(192,0,0); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; layout-grid-mode:char; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#38500;&#38750;&#21478;&#26377;&#35268;&#23450;&#65292;&#26412;&#25253;&#21578;&#20013;&#30340;&#25152;&#26377;&#26448;&#26009;&#29256;&#26435;&#22343;&#23646;&#22269;&#32852;&#35777;&#21048;&#32929;&#20221;&#26377;&#38480;&#20844;&#21496;&#65288;&#24050;&#33719;&#20013;&#22269;&#35777;&#30417;&#20250;&#35768;&#21487;&#30340;&#35777;&#21048;&#25237;&#36164;&#21672;&#35810;&#19994;&#21153;&#36164;&#26684;&#65289;&#21450;&#20854;&#38468;&#23646;&#26426;&#26500;&#65288;&#20197;&#19979;&#32479;&#31216;&#8220;&#22269;&#32852;&#35777;&#21048;&#8221;&#65289;&#12290;&#26410;&#32463;&#22269;&#32852;&#35777;&#21048;&#20107;&#20808;&#20070;&#38754;&#25480;&#26435;&#65292;&#19981;&#24471;&#20197;&#20219;&#20309;&#26041;&#24335;&#20462;&#25913;&#12289;&#21457;&#36865;&#25110;&#32773;&#22797;&#21046;&#26412;&#25253;&#21578;&#21450;&#20854;&#25152;&#21253;&#21547;&#30340;&#26448;&#26009;&#12289;&#20869;&#23481;&#12290;&#25152;&#26377;&#26412;&#25253;&#21578;&#20013;&#20351;&#29992;&#30340;&#21830;&#26631;&#12289;&#26381;&#21153;&#26631;&#35782;&#21450;&#26631;&#35760;&#22343;&#20026;&#22269;&#32852;&#35777;&#21048;&#30340;&#21830;&#26631;&#12289;&#26381;&#21153;&#26631;&#35782;&#21450;&#26631;&#35760;&#12290;</span><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; layout-grid-mode:char; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#26412;&#25253;&#21578;&#26159;&#26426;&#23494;&#30340;&#65292;&#20165;&#20379;&#25105;&#20204;&#30340;&#23458;&#25143;&#20351;&#29992;&#65292;&#22269;&#32852;&#35777;&#21048;&#19981;&#22240;&#25910;&#20214;&#20154;&#25910;&#21040;&#26412;&#25253;&#21578;&#32780;&#35270;&#20854;&#20026;&#22269;&#32852;&#35777;&#21048;&#30340;&#23458;&#25143;&#12290;&#26412;&#25253;&#21578;&#20013;&#30340;&#20449;&#24687;&#22343;&#26469;&#28304;&#20110;&#25105;&#20204;&#35748;&#20026;&#21487;&#38752;&#30340;&#24050;&#20844;&#24320;&#36164;&#26009;&#65292;&#20294;&#22269;&#32852;&#35777;&#21048;&#23545;&#36825;&#20123;&#20449;&#24687;&#30340;&#20934;&#30830;&#24615;&#21450;&#23436;&#25972;&#24615;&#19981;&#20316;&#20219;&#20309;&#20445;&#35777;&#12290;&#26412;&#25253;&#21578;&#20013;&#30340;&#20449;&#24687;&#12289;&#24847;&#35265;&#31561;&#22343;&#20165;&#20379;&#23458;&#25143;&#21442;&#32771;&#65292;&#19981;&#26500;&#25104;&#25152;&#36848;&#35777;&#21048;&#20080;&#21334;&#30340;&#20986;&#20215;&#25110;&#24449;&#20215;&#36992;&#35831;&#25110;&#35201;&#32422;&#12290;&#35813;&#31561;&#20449;&#24687;&#12289;&#24847;&#35265;&#24182;&#26410;&#32771;&#34385;&#21040;&#33719;&#21462;&#26412;&#25253;&#21578;&#20154;&#21592;&#30340;&#20855;&#20307;&#25237;&#36164;&#30446;&#30340;&#12289;&#36130;&#21153;&#29366;&#20917;&#20197;&#21450;&#29305;&#23450;&#38656;&#27714;&#65292;&#22312;&#20219;&#20309;&#26102;&#20505;&#22343;&#19981;&#26500;&#25104;&#23545;&#20219;&#20309;&#20154;&#30340;&#20010;&#20154;&#25512;&#33616;&#12290;&#23458;&#25143;&#24212;&#24403;&#23545;&#26412;&#25253;&#21578;&#20013;&#30340;&#20449;&#24687;&#21644;&#24847;&#35265;&#36827;&#34892;&#29420;&#31435;&#35780;&#20272;&#65292;&#24182;&#24212;&#21516;&#26102;&#32771;&#37327;&#21508;&#33258;&#30340;&#25237;&#36164;&#30446;&#30340;&#12289;&#36130;&#21153;&#29366;&#20917;&#21644;&#29305;&#23450;&#38656;&#27714;&#65292;&#24517;&#35201;&#26102;&#23601;&#27861;&#24459;&#12289;&#21830;&#19994;&#12289;&#36130;&#21153;&#12289;&#31246;&#25910;&#31561;&#26041;&#38754;&#21672;&#35810;&#19987;&#23478;&#30340;&#24847;&#35265;&#12290;&#23545;&#20381;&#25454;&#25110;&#32773;&#20351;&#29992;&#26412;&#25253;&#21578;&#25152;&#36896;&#25104;&#30340;&#19968;&#20999;&#21518;&#26524;&#65292;&#22269;&#32852;&#35777;&#21048;&#21450;/&#25110;&#20854;&#20851;&#32852;&#20154;&#21592;&#22343;&#19981;&#25215;&#25285;&#20219;&#20309;&#27861;&#24459;&#36131;&#20219;&#12290;</span><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; layout-grid-mode:char; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#26412;&#25253;&#21578;&#25152;&#36733;&#30340;&#24847;&#35265;&#12289;&#35780;&#20272;&#21450;&#39044;&#27979;&#20165;&#20026;&#26412;&#25253;&#21578;&#20986;&#20855;&#26085;&#30340;&#35266;&#28857;&#21644;&#21028;&#26029;&#12290;&#35813;&#31561;&#24847;&#35265;&#12289;&#35780;&#20272;&#21450;&#39044;&#27979;&#26080;&#38656;&#36890;&#30693;&#21363;&#21487;&#38543;&#26102;&#26356;&#25913;&#12290;&#36807;&#24448;&#30340;&#34920;&#29616;&#20134;&#19981;&#24212;&#20316;&#20026;&#26085;&#21518;&#34920;&#29616;&#30340;&#39044;&#31034;&#21644;&#25285;&#20445;&#12290;&#22312;&#19981;&#21516;&#26102;&#26399;&#65292;&#22269;&#32852;&#35777;&#21048;&#21487;&#33021;&#20250;&#21457;&#20986;&#19982;&#26412;&#25253;&#21578;&#25152;&#36733;&#24847;&#35265;&#12289;&#35780;&#20272;&#21450;&#39044;&#27979;&#19981;&#19968;&#33268;&#30340;&#30740;&#31350;&#25253;&#21578;&#12290;</span><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; layout-grid-mode:char; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#22269;&#32852;&#35777;&#21048;&#30340;&#38144;&#21806;&#20154;&#21592;&#12289;&#20132;&#26131;&#20154;&#21592;&#20197;&#21450;&#20854;&#20182;&#19987;&#19994;&#20154;&#22763;&#21487;&#33021;&#20250;&#20381;&#25454;&#19981;&#21516;&#20551;&#35774;&#21644;&#26631;&#20934;&#12289;&#37319;&#29992;&#19981;&#21516;&#30340;&#20998;&#26512;&#26041;&#27861;&#32780;&#21475;&#22836;&#25110;&#20070;&#38754;&#21457;&#34920;&#19982;&#26412;&#25253;&#21578;&#24847;&#35265;&#21450;&#24314;&#35758;&#19981;&#19968;&#33268;&#30340;&#24066;&#22330;&#35780;&#35770;&#21644;/&#25110;&#20132;&#26131;&#35266;&#28857;&#12290;&#22269;&#32852;&#35777;&#21048;&#27809;&#26377;&#23558;&#27492;&#24847;&#35265;&#21450;&#24314;&#35758;&#21521;&#25253;&#21578;&#25152;&#26377;&#25509;&#25910;&#32773;&#36827;&#34892;&#26356;&#26032;&#30340;&#20041;&#21153;&#12290;&#22269;&#32852;&#35777;&#21048;&#30340;&#36164;&#20135;&#31649;&#29702;&#37096;&#38376;&#12289;&#33258;&#33829;&#37096;&#38376;&#20197;&#21450;&#20854;&#20182;&#25237;&#36164;&#19994;&#21153;&#37096;&#38376;&#21487;&#33021;&#29420;&#31435;&#20570;&#20986;&#19982;&#26412;&#25253;&#21578;&#20013;&#30340;&#24847;&#35265;&#25110;&#24314;&#35758;&#19981;&#19968;&#33268;&#30340;&#25237;&#36164;&#20915;&#31574;&#12290;</span><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; layout-grid-mode:char; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; color:rgb(192,0,0); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#29305;&#21035;&#22768;&#26126;</span><span style="mso-spacerun:'yes'; color:rgb(192,0,0); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><p class=p0  style="margin-bottom:0pt; margin-top:0pt; layout-grid-mode:char; text-align:left; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#22312;&#27861;&#24459;&#35768;&#21487;&#30340;&#24773;&#20917;&#19979;&#65292;&#22269;&#32852;&#35777;&#21048;&#21487;&#33021;&#20250;&#25345;&#26377;&#26412;&#25253;&#21578;&#20013;&#25552;&#21450;&#20844;&#21496;&#25152;&#21457;&#34892;&#30340;&#35777;&#21048;&#24182;&#36827;&#34892;&#20132;&#26131;&#65292;&#20063;&#21487;&#33021;&#20026;&#36825;&#20123;&#20844;&#21496;&#25552;&#20379;&#25110;&#20105;&#21462;&#25552;&#20379;&#25237;&#36164;&#38134;&#34892;&#12289;&#36130;&#21153;&#39038;&#38382;&#21644;&#37329;&#34701;&#20135;&#21697;&#31561;&#21508;&#31181;&#37329;&#34701;&#26381;&#21153;&#12290;&#22240;&#27492;&#65292;&#25237;&#36164;&#32773;&#24212;&#24403;&#32771;&#34385;&#21040;&#22269;&#32852;&#35777;&#21048;&#21450;/&#25110;&#20854;&#30456;&#20851;&#20154;&#21592;&#21487;&#33021;&#23384;&#22312;&#24433;&#21709;&#26412;&#25253;&#21578;&#35266;&#28857;&#23458;&#35266;&#24615;&#30340;&#28508;&#22312;&#21033;&#30410;&#20914;&#31361;&#65292;&#25237;&#36164;&#32773;&#35831;&#21247;&#23558;&#26412;&#25253;&#21578;&#35270;&#20026;&#25237;&#36164;&#25110;&#20854;&#20182;&#20915;&#23450;&#30340;&#21807;&#19968;&#21442;&#32771;&#20381;&#25454;&#12290;</span><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><table style="border-collapse:collapse;
+margin-left:6.7500pt; margin-right:6.7500pt; mso-table-layout-alt:fixed;
+padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><tr style="height:15.7500pt; " ><td width=678  valign=top  style="width:508.6500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; background:rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; color:rgb(255,255,255); font-weight:bold; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#26080;&#38177;</span><span style="color:rgb(255,255,255); font-weight:bold; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:15.7500pt; " ><td width=678  valign=top  style="width:508.6500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#22269;&#32852;&#35777;&#21048;&#32929;&#20221;&#26377;&#38480;&#20844;&#21496;&#30740;&#31350;&#25152;</span><span style="color:rgb(255,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:15.7500pt; " ><td width=678  valign=top  style="width:508.6500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#27743;&#33487;&#30465;&#26080;&#38177;&#24066;&#22826;&#28246;&#26032;&#22478;&#37329;&#34701;&#19968;&#34903;8&#21495;&#22269;&#32852;&#37329;&#34701;&#22823;&#21414;9&#23618;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:15.7500pt; " ><td width=678  valign=top  style="width:508.6500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#30005;&#35805;&#65306;0510-82833337</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:15.7500pt; " ><td width=678  valign=top  style="width:508.6500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#20256;&#30495;&#65306;0510-82833217</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:15.7500pt; " ><td width=678  valign=top  style="width:508.6500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; background:rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; color:rgb(255,255,255); font-weight:bold; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#19978;&#28023;</span><span style="color:rgb(255,255,255); font-weight:bold; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:15.7500pt; " ><td width=678  valign=top  style="width:508.6500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#22269;&#32852;&#35777;&#21048;&#32929;&#20221;&#26377;&#38480;&#20844;&#21496;&#30740;&#31350;&#25152;</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:15.7500pt; " ><td width=678  valign=top  style="width:508.6500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#19978;&#28023;&#24066;&#28006;&#19996;&#26032;&#21306;&#28304;&#28145;&#36335;1088&#21495;&#33883;&#27954;&#22365;&#22823;&#21414;22F</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:15.7500pt; " ><td width=678  valign=top  style="width:508.6500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#30005;&#35805;&#65306;021-38991500</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:15.7500pt; " ><td width=678  valign=top  style="width:508.6500pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#20256;&#30495;&#65306;021-38571373</span><span style="font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr></table><p class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; color:rgb(192,0,0); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " >&#20998;&#20844;&#21496;&#26426;&#26500;&#38144;&#21806;&#32852;&#31995;&#26041;&#24335;</span><span style="mso-spacerun:'yes'; color:rgb(192,0,0); font-weight:bold; font-size:10.5000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p><table style="border-collapse:collapse;
+mso-table-layout-alt:fixed;
+padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; " ><tr style="height:14.2500pt; " ><td width=229  valign=bottom  style="width:171.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(207,0,13); mso-border-bottom-alt:1.0000pt solid rgb(207,0,13); background:rgb(203,0,17); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="color:rgb(255,255,255); font-weight:bold; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#22320;</span><span style="color:rgb(255,255,255); font-weight:bold; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#21306;</span><span style="color:rgb(255,255,255); font-weight:bold; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=229  valign=bottom  style="width:171.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(207,0,13); mso-border-bottom-alt:1.0000pt solid rgb(207,0,13); background:rgb(203,0,17); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(255,255,255); font-weight:bold; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#22995;&#21517;</span><span style="color:rgb(255,255,255); font-weight:bold; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=229  valign=bottom  style="width:171.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(207,0,13); mso-border-bottom-alt:1.0000pt solid rgb(207,0,13); background:rgb(203,0,17); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(255,255,255); font-weight:bold; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#22266;&#23450;&#30005;&#35805;</span><span style="color:rgb(255,255,255); font-weight:bold; font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:14.2500pt; " ><td width=229  valign=bottom  style="width:171.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(207,0,13); mso-border-bottom-alt:1.0000pt solid rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#21271;&#20140;</span><span style="color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=229  valign=bottom  style="width:171.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(207,0,13); mso-border-bottom-alt:1.0000pt solid rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#31649;&#23792;</span><span style="color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=229  valign=bottom  style="width:171.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(207,0,13); mso-border-bottom-alt:1.0000pt solid rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >010-68790949-8007</span><span style="color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:14.2500pt; " ><td width=229  valign=bottom  style="width:171.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(207,0,13); mso-border-bottom-alt:1.0000pt solid rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#19978;&#28023;</span><span style="color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=229  valign=bottom  style="width:171.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(207,0,13); mso-border-bottom-alt:1.0000pt solid rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#21016;&#33673;</span><span style="color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=229  valign=bottom  style="width:171.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(207,0,13); mso-border-bottom-alt:1.0000pt solid rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >021-38991500-831</span><span style="color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr><tr style="height:14.2500pt; " ><td width=229  valign=bottom  style="width:171.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(207,0,13); mso-border-bottom-alt:1.0000pt solid rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#28145;&#22323;</span><span style="color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=229  valign=bottom  style="width:171.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(207,0,13); mso-border-bottom-alt:1.0000pt solid rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >&#24352;&#26480;&#29995;</span><span style="color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td><td width=229  valign=bottom  style="width:171.9000pt; padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ; border-bottom:1.0000pt solid rgb(207,0,13); mso-border-bottom-alt:1.0000pt solid rgb(207,0,13); " ><p class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:left; " ><span style="mso-spacerun:'yes'; color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " >0755-82556064</span><span style="color:rgb(0,0,0); font-size:9.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></td></tr></table><p class=p121  style="margin-right:10.5000pt; margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-weight:bold; font-size:14.0000pt; font-family:'&#26999;&#20307;'; " ><o:p></o:p></span></p></div><!--EndFragment--></body></html>
