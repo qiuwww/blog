@@ -30,3 +30,9 @@ Microsoft started using DOCX files in Microsoft Word beginning in Word 2007. Ear
 关键的问题
 1. 确认react导出pdf的问题；
 2. 确认table布局相对于完全重写的方式，哪种方式更方便；
+
+
+
+目前似乎可以这样，就是写一份结构完美的页面（table嵌套），然后使用二进制转换导出页面；
+
+需要确认一下怎么控制导出的word的大小
