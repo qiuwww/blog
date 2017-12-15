@@ -30,3 +30,5 @@ Microsoft started using DOCX files in Microsoft Word beginning in Word 2007. Ear
 关键的问题
 1. 确认react导出pdf的问题；
 2. 确认table布局相对于完全重写的方式，哪种方式更方便；
+
+3. 使用contenteditable="true"来控制文档可编辑

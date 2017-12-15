@@ -1,0 +1,152 @@
+<!-- contenteditable操作页面.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style type="text/css">
+		*{
+			font-family: "Times New Roman","KaiTi"; 
+			/*font-family: "KaiTi";*/
+			/*font-family: "Times New Roman";*/
+		}
+	</style>
+
+	<div class="wrap">
+		<p class="text" contenteditable="true">中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益;中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益;<b>中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益;</b>
+			<span>The Chinese Communist Party always represents the requirements for the development of China's advanced productive forces, the way forward for China's advanced culture and the fundamental interests of the overwhelming majority of the Chinese people.</span>
+		</p>
+		<ul class="operate">
+			<li class="bold">加粗</li>
+			<li class="italic">斜体</li>
+			<li class="underline">下划线</li>
+			<li class="font">字体</li>
+			<li class="font-size">字号</li>
+		</ul>
+	</div>
+
+
+<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.js"></script>
+<script type="text/javascript">
+	
+$(function() {
+	// 右键事件
+	$('p.text').on('contextmenu', function(e){
+		e.stopPropagation();
+		e.preventDefault();
+		console.log("选中的文本的父元素", $(this));	
+		// 1. window.getSelection().toString(); 得到选中的文本
+		// 2. window.getSelection().removeAllRanges(); 取消选中的文本
+		console.log('选中的片段', window.getSelection().toString());
+		// document.execCommand('fontname', false, "SimHei");	
+		// document.execCommand('fontsize', false, 5);
+		document.execCommand('formatblock', false, '<p>'); // 不能设置属性，在editable的最外层添加一个包裹标签 
+		
+		
+	});
+	// 第三个参数对于某一些命令是需要的
+	$('.operate').on('click', 'bold', function(e){
+		document.execCommand('bold', false, null); // 默认对于选中的区块，加粗，添加b标签
+	})
+	.on('click', 'italic', function(e){
+		document.execCommand('italic', false, null);
+	})
+	.on('click', 'underline', function(e){
+		document.execCommand('underline', false, null);
+	})
+	.on('click', 'font', function(e){
+		document.execCommand('fontsize', false, 5);
+	})
+	.on('click', 'italic', function(e){
+		// 可以的，如果需要设置字体为特殊字体还需要定义字体名称		
+		document.execCommand('fontname', false, 'Georgia'); 
+		// http://www.jianshu.com/p/ba54a113c3e1?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
+		// KaiTi
+		// Times New Roman
+		// Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
+		// SimSun
+		// LiSu
+		// SimHei
+
+	})
+
+});
+
+
+
+
+	window.onload = function(){
+		// document.querySelect('text')
+	}
+
+
+	function getSelectedContents(){
+		if (window.getSelection) { //chrome,firefox,opera
+			var range=window.getSelection().getRangeAt(0);
+			var container = document.createElement('div');
+			container.appendChild(range.cloneContents());
+			return container.innerHTML;
+			//return window.getSelection(); //只复制文本
+		}
+		else if (document.getSelection) { //其他
+			var range=window.getSelection().getRangeAt(0);
+			var container = document.createElement('div');
+			container.appendChild(range.cloneContents());
+			return container.innerHTML;
+			//return document.getSelection(); //只复制文本
+		}
+		else if (document.selection) { //IE// lao8.org
+			return document.selection.createRange().htmlText;
+			//return document.selection.createRange().text; //只复制文本
+		}
+	}
+
+
+
+	$('[contenteditable]').each(function() {
+    // 干掉IE http之类地址自动加链接
+    try {
+        document.execCommand("AutoUrlDetect", false, false);
+    } catch (e) {}
+    
+    $(this).on('paste', function(e) {
+        e.preventDefault();
+        var text = null;
+    
+        if(window.clipboardData && clipboardData.setData) {
+            // IE
+            text = window.clipboardData.getData('text');
+        } else {
+            text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('在这里输入文本');
+        }
+        if (document.body.createTextRange) {    
+            if (document.selection) {
+                textRange = document.selection.createRange();
+            } else if (window.getSelection) {
+                sel = window.getSelection();
+                var range = sel.getRangeAt(0);
+                
+                // 创建临时元素，使得TextRange可以移动到正确的位置
+                var tempEl = document.createElement("span");
+                tempEl.innerHTML = "&#FEFF;";
+                range.deleteContents();
+                range.insertNode(tempEl);
+                textRange = document.body.createTextRange();
+                textRange.moveToElementText(tempEl);
+                tempEl.parentNode.removeChild(tempEl);
+            }
+            textRange.text = text;
+            textRange.collapse(false);
+            textRange.select();
+        } else {
+            // Chrome之类浏览器
+            document.execCommand("insertText", false, text);
+        }
+    });
+});
+</script>
+	
+</body>
+</html>
