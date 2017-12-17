@@ -8,6 +8,15 @@ export default Utils = {
 	},
 	log(msg) {
 		console.log(msg)
+	},
+	// 类数组转数组
+	// 用早querySelectAll方法和arguments属性的处理
+	formArr(arrayLike) {
+		if( Array.form ){
+			return Array.form(arrayLike);
+		}else{
+			return [].slice.call(arrayLike);
+		}
 	}	
 }
 
