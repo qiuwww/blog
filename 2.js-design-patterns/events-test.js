@@ -69,3 +69,38 @@ eventListeners = require('events').EventEmitter.listenerCount(eventEmitter,'conn
 console.log(eventListeners + " 个监听器监听连接事件。");
 
 console.log("程序执行完毕。");
+
+
+
+// weight表示质量的数组
+// value对应的质量
+// size表示总的质量
+function packageMaxValue(weight, value, size){
+    // 省略参数合法性校验
+    let bagMatrix = []
+    for(let w = 0; w <= size; w++) {// w表示weight，添加的质量逐渐增加
+        // js不能直接创建二维数组，所以在此初始化数组
+        bagMatrix[w] = []
+        for (let j = 0; j < 5; j++) {// 价值，随着质量的增加逐渐获取当前的最大值
+            // 背包的容量为0，那么一个东西也装不下，此时的值肯定也是为0
+            if(w === 0) {// 如果质量为0，什么也装不下，返回0
+                bagMatrix[w][j] = 0
+                continue
+            }
+            // 背包的容量小于物品j的重量，那么就没有上述情况a了
+            if(w < weight[j]){ // 判断j物品的质量与剩余的质量对比
+                bagMatrix[w][j] = bagMatrix[w][j-1] || 0
+                continue
+            }            
+            bagMatrix[w][j] = Math.max((bagMatrix[w-weight[j]][j-1] || 0) + value[j], bagMatrix[w][j-1] || 0)
+            console.log("物品总质量%s,%s号物品：bagMatrix[w][j]", w, j, bagMatrix[w][j])
+        }
+        console.log("---------------------------------------")
+    }
+    return bagMatrix
+}
+    
+let weight = [4, 5, 6, 2, 2]
+let value = [6, 4, 5, 3, 6]
+ 
+console.log(packageMaxValue(weight, value, 10))
