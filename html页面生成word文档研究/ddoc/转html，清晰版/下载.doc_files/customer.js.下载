@@ -1,0 +1,272 @@
+/*
+ * Copyright (c) I Doc View. 北京卓软在线信息技术有限公司. All rights reserved.
+ * 项目名称：I Doc View在线文档预览系统
+ * Date：20170804
+ * Author: Godwin<godwin668@gmail.com>
+ */
+
+/**
+ * 水印
+ */
+var isWatermark = false;
+// ref: http://www.cnblogs.com/daixinyu/p/6715398.html
+
+var watermarkName = $.url().param('watermark');
+var watermarkText = 'I Doc View';
+if (!!watermarkName) {
+    isWatermark = true;
+    watermarkText = watermarkName;
+}
+function watermark() {
+	if (!isWatermark) {
+		return;
+	}
+	try {
+		//默认设置
+		var defaultSettings = {
+			watermark_txt: watermarkText,
+			watermark_x:20,//水印起始位置x轴坐标
+			watermark_y:20,//水印起始位置Y轴坐标
+			watermark_rows:20,//水印行数
+			watermark_cols:20,//水印列数
+			watermark_x_space:100,//水印x轴间隔
+			watermark_y_space:50,//水印y轴间隔
+			watermark_color:'#aaa',//水印字体颜色
+			watermark_alpha:0.4,//水印透明度
+			watermark_fontsize:'15px',//水印字体大小
+			watermark_font:'微软雅黑',//水印字体
+			watermark_width:210,//水印宽度
+			watermark_height:80,//水印长度
+			watermark_angle:15//水印倾斜度数
+		};
+
+		var oTemp = document.createDocumentFragment();
+
+		//获取页面最大宽度
+		var page_width = Math.max(document.body.scrollWidth,document.body.clientWidth);
+		var cutWidth = page_width*0.0150;
+		var page_width=page_width-cutWidth;
+		//获取页面最大高度
+		var page_height = Math.max(document.body.scrollHeight,document.body.clientHeight) - 100;
+		// var page_height = document.body.scrollHeight+document.body.scrollTop;
+		//如果将水印列数设置为0，或水印列数设置过大，超过页面最大宽度，则重新计算水印列数和水印x轴间隔
+		if (defaultSettings.watermark_cols == 0 || (parseInt(defaultSettings.watermark_x + defaultSettings.watermark_width *defaultSettings.watermark_cols + defaultSettings.watermark_x_space * (defaultSettings.watermark_cols - 1)) > page_width)) {
+			defaultSettings.watermark_cols = parseInt((page_width-defaultSettings.watermark_x+defaultSettings.watermark_x_space) / (defaultSettings.watermark_width + defaultSettings.watermark_x_space));
+			defaultSettings.watermark_x_space = parseInt((page_width - defaultSettings.watermark_x - defaultSettings.watermark_width * defaultSettings.watermark_cols) / (defaultSettings.watermark_cols - 1));
+		}
+		//如果将水印行数设置为0，或水印行数设置过大，超过页面最大长度，则重新计算水印行数和水印y轴间隔
+		if (defaultSettings.watermark_rows == 0 || (parseInt(defaultSettings.watermark_y + defaultSettings.watermark_height * defaultSettings.watermark_rows + defaultSettings.watermark_y_space * (defaultSettings.watermark_rows - 1)) > page_height)) {
+			defaultSettings.watermark_rows = parseInt((defaultSettings.watermark_y_space + page_height - defaultSettings.watermark_y) / (defaultSettings.watermark_height + defaultSettings.watermark_y_space));
+			defaultSettings.watermark_y_space = parseInt(((page_height - defaultSettings.watermark_y) - defaultSettings.watermark_height * defaultSettings.watermark_rows) / (defaultSettings.watermark_rows - 1));
+		}
+		var x;
+		var y;
+		for (var i = 0; i < defaultSettings.watermark_rows; i++) {
+			y = defaultSettings.watermark_y + (defaultSettings.watermark_y_space + defaultSettings.watermark_height) * i;
+			for (var j = 0; j < defaultSettings.watermark_cols; j++) {
+				x = defaultSettings.watermark_x + (defaultSettings.watermark_width + defaultSettings.watermark_x_space) * j;
+				var mask_div = document.createElement('div');
+				mask_div.id = 'mask_div' + i + j;
+				mask_div.className = 'mask_div';
+				mask_div.appendChild(document.createTextNode(defaultSettings.watermark_txt));
+				//设置水印div倾斜显示
+				mask_div.style.webkitTransform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+				mask_div.style.MozTransform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+				mask_div.style.msTransform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+				mask_div.style.OTransform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+				mask_div.style.transform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+				mask_div.style.visibility = "";
+				mask_div.style.position = "fixed";
+				mask_div.style.left = x + 'px';
+				mask_div.style.top = y + 'px';
+				mask_div.style.overflow = "hidden";
+				mask_div.style.zIndex = "9999";
+				mask_div.style.pointerEvents='none';//pointer-events:none  让水印不遮挡页面的点击事件
+				//mask_div.style.border="solid #eee 1px";
+				mask_div.style.opacity = defaultSettings.watermark_alpha;
+				mask_div.style.fontSize = defaultSettings.watermark_fontsize;
+				mask_div.style.fontFamily = defaultSettings.watermark_font;
+				mask_div.style.color = defaultSettings.watermark_color;
+				mask_div.style.textAlign = "center";
+				mask_div.style.width = defaultSettings.watermark_width + 'px';
+				mask_div.style.height = defaultSettings.watermark_height + 'px';
+				mask_div.style.display = "block";
+				oTemp.appendChild(mask_div);
+			};
+		};
+		document.body.appendChild(oTemp);
+	} catch (e) {
+	}
+}
+
+/* ---------------------------------------------------------------------- */
+/*	自定义设置
+ /* ---------------------------------------------------------------------- */
+function afterLoad() {
+	/**
+	 * 是否隐藏左上角文件名
+	 */
+	var isHideTitleFileName = false;
+	isHideTitleFileName = isHideTitleFileName || (document.documentElement.clientWidth < 768);		// 手机屏幕下隐藏左上角文件名
+	if (isHideTitleFileName) {
+		$('.lnk-file-title').text("");
+	}
+
+	/**
+	 * 是否隐藏顶部标题栏
+	 */
+	var isHideTitleBar = false;
+	var ua = navigator.userAgent.toLowerCase();
+	var isWeixinBrowser = (/micromessenger/.test(ua)) ? true : false ;
+	isHideTitleBar = isHideTitleBar || isWeixinBrowser;						// 微信浏览器隐藏标题栏
+	if (isHideTitleBar) {
+		$('.lnk-file-title').text("");
+
+		if ($('.word-tab-title-li').length) {
+			// only hide title
+		} else {
+			$('.word-body .navbar').hide();
+			$('.word-body').css('padding-top', '0px');
+		}
+
+		$('.ppt-body .navbar').hide();
+		$('.ppt-body').css('padding-top', '20px');
+
+		$('.pdf-body .navbar').hide();
+		$('.pdf-body').css('padding-top', '20px');
+
+		$('.img-body .navbar').hide();
+		$('.img-body').css('padding-top', '20px');
+
+		$('.audio-body .navbar').hide();
+		$('.audio-body').css('padding-top', '20px');
+
+		$('.zip-body .navbar').hide();
+		$('.zip-body').css('padding-top', '20px');
+	}
+
+	/**
+	 * 隐藏或修改底部信息
+	 */
+	// 请修改文件：D:\idocv\docview\WEB-INF\views\footer.jsp
+
+	/**
+	 * 是否允许将预览页面里的图片拖拽出页面
+	 */
+	var isAllowDragImage = false;
+	if (!isAllowDragImage) {
+		window.ondragstart = window.ondrop = document.ondragstart = document.ondrop = function() { return false; }
+	}
+
+	/**
+	 * 从URL中获取name参数作为左上角文件名
+	 */
+	try {
+		var fileName = $.url().param('name');
+		if (!!fileName) {
+			$('.lnk-file-title').text(fileName);
+		}
+	} catch (e) {
+	}
+
+	/**
+	 * 设置预览页面标题（默认为文件名）
+	 */
+	var name = $('.lnk-file-title').text();
+	if (!! name) {
+		document.title = name;
+		// $('title').text(name);	IE 8 does NOT support this
+	}
+
+	/**
+	 * view checker
+	 */
+	try {
+		/**
+		 * 试读
+		 */
+		/* put these code at the end of word.js file
+		 var readCheck = $.cookie('IDOCV_THD_VIEW_CHECK_READ_' + uuid);
+		 if ((totalSize > 5) && !!readCheck && (readCheck > 0)) {
+		 $('.word-content').infinitescroll('destroy');
+		 $('.word-content').append('<br /><br /><div class="alert alert-info">试读结束，支付后阅读全文！</div>');
+		 $('.btn-search-toggle').hide();
+		 $('.word-tab-title').hide();
+		 $('.paging-bottom-all').hide();
+		 }
+		 */
+
+		// 是否允许下载
+		var isAllowDownload = true;
+		var downCheck = $.cookie('IDOCV_THD_VIEW_CHECK_DOWN_' + uuid);
+		isAllowDownload = isAllowDownload && (!downCheck || '0' != downCheck);
+		if (!isAllowDownload) {
+			$('.lnk-file-title').removeAttr('href');
+		}
+
+		// 是否允许文字拷贝
+		var isAllowCopy = true;
+		var copyCheck = $.cookie('IDOCV_THD_VIEW_CHECK_COPY_' + uuid);
+		isAllowCopy = isAllowCopy && (!copyCheck || '0' != copyCheck);
+		if (!isAllowCopy) {
+			$('body').css('-webkit-user-select', 'none');
+			$('body').css('-khtml-user-select', 'none');
+			$('body').css('-moz-user-select', 'none');
+			$('body').css('-ms-user-select', 'none');
+			$('body').css('user-select', 'none');
+			$('body').on("selectstart", function(e) { e.preventDefault(); });
+		}
+
+		/**
+		 * 是否允许右键菜单（上下文菜单）
+		 */
+		var isAllowContextMenu = true;
+		// × document.addEventListener("contextmenu", function(e){ e.preventDefault(); }, false);	// 不要用该方式，IE8或以下版本不支持addEventListener()
+		var menuCheck = $.cookie('IDOCV_THD_VIEW_CHECK_MENU_' + uuid);
+		isAllowContextMenu = isAllowContextMenu && (!menuCheck || '0' != menuCheck);
+		if (!isAllowContextMenu) {
+			document.oncontextmenu = document.body.oncontextmenu = function() {return false;}
+		}
+
+		/**
+		 * 是否允许打印
+		 */
+		var isAllowPrint = true;
+		var printCheck = $.cookie('IDOCV_THD_VIEW_CHECK_PRINT_' + uuid);
+		isAllowPrint = isAllowPrint && (!printCheck || '0' != printCheck);
+		if (!isAllowPrint) {
+			$('<style media="print"> body {display: none;}</style>').appendTo('head');
+		}
+	} catch (e) {
+	}
+
+	try {
+		// 预览压缩文件里面的文件时，左上角显示“返回”按钮
+		var puuid = $.url().param('puuid');
+		if (!!puuid && puuid.length > 0 && !!uuid) {
+			$('.lnk-file-title').removeAttr('href');
+			$('.lnk-file-title').text('< 返回');
+			$('.lnk-file-title').css('cursor', 'pointer');
+			$('.lnk-file-title').click(function() {
+				var parentViewUrl = contextPath + '/view/' + puuid;
+				if (!!urlObj.attr('query')) {
+					var zipQuery = urlObj.attr('query') + '&';
+					if (zipQuery.indexOf('puuid=') > -1) {
+						zipQuery = zipQuery.replace(/(puuid=).*?(&)/, '');
+					}
+					zipQuery = zipQuery.replace(/(&+)$/, '');
+					if (!!zipQuery) {
+						parentViewUrl = parentViewUrl + '?' + zipQuery;
+					}
+				}
+				window.location.href = parentViewUrl;
+			});
+		}
+	} catch (e) {
+	}
+
+	// 水印
+	watermark();
+
+	$('body').append('<div class="loader">加载中……</div>');
+}
