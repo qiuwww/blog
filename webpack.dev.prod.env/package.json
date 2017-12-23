@@ -1,0 +1,16 @@
+{
+  "name": "blog-webpack-test",
+  "version": "1.0.0",
+  "description": "dev prod",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "node ./node_modules/webpack/bin/webpack.js --progress --profile --colors --config webpack.config.js -p",
+    "build" : "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.config.dev.js"
+  },
+  "author": "qiu",
+  "license": "ISC",
+  "devDependencies": {
+
+  }
+}
