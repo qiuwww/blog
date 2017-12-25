@@ -5,6 +5,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtracTextPlugin = require('extract-text-webpack-plugin');
 const opn = require('opn');
+const serverMock = require("./server-mock.js");
 
 devConfig.plugins.push(
 	new webpack.HotModuleReplacementPlugin()
@@ -30,6 +31,11 @@ devConfig.devServer = {
 		'/js/webpack-config/index.js': 'http://127.0.0.1:3003'
 	}
 }
-// opn('http://127.0.0.1:3003');
+if(true){
+	serverMock();
+}
+opn('http://127.0.0.1:3003').then(function(){
+	console.log('http://127.0.0.1:3003');
+});
 
 module.exports = devConfig;

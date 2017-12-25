@@ -3,11 +3,10 @@
 // fetch() 必须接受一个参数——资源的路径。无论请求成功与否，它都返回一个 promise 对象，resolve 对应请求的 Response。
 // 你也可以传一个可选的第二个参数—— init（参考 Request）。
 // 做了兼容性处理，需要配置支持es7的环境
-let dataRequest = async (url = '', data = {}, type = 'GET', method = 'fetch') => {
+let httpRequest = async (url = '', data = {}, type = 'GET', method = 'fetch') => {
 	type = type.toUpperCase();
 	// if (type == 'GET') {
-		// 不管怎么样都要拼接，不通过url，特殊字符就不会被解析
-		let dataStr = ''; //数据拼接字符串
+		let dataStr = ''; 
 		Object.keys(data).forEach(key => {
 			dataStr += key + '=' + data[key] + '&';
 		})
@@ -17,7 +16,7 @@ let dataRequest = async (url = '', data = {}, type = 'GET', method = 'fetch') =>
 			url = url + '?' + dataStr;
 		}
 	// }
-	if (window.fetch && method == 'fetch') {
+	if (window.fetch && method == 'fetch' && false) {
 		let requestConfig = {
 			credentials: 'include',
 			method: type,
@@ -31,7 +30,6 @@ let dataRequest = async (url = '', data = {}, type = 'GET', method = 'fetch') =>
 
 		if (type == 'POST') {
 			Object.defineProperty(requestConfig, 'body', {
-				// 麻痹的，这里的数据不是一个json字符串，而是一个key=value&型字符串				
 				// value: JSON.stringify(data)
 				value: dataStr
 			})
@@ -79,8 +77,4 @@ let dataRequest = async (url = '', data = {}, type = 'GET', method = 'fetch') =>
 	}
 }        
 
-let response = dataRequest(`http://i.baidu.com/calendars/calendars/listInfo`);
-
-response.then(res => { // 已略过了 response => response.json() 这一步
-	console.log(res)
-});
+export { httpRequest };

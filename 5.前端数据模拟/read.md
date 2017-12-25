@@ -2,24 +2,35 @@
 
 # mockjs
 > 官网：http://mockjs.com/
-## 优点（实际使用的意义）
+## 实际工作中使用的意义 
 1. 不受制于后端接口的开发；
 2. 数据随机生成，发现可能出现的问题；
 3. ajax的拦截，与真正的接口对接代码的写法无差；
-4. 简单；
-
-
+4. 单元测试；
+5. 数据类型丰富，可扩展。
 
 
 ## 内部原理
 比较完备的随机数据字典
+### mockjs模块
+1. bin
+2. dist/mockjs->src/mock/random/*
+3. CHANGELOG.md
+
+## 如何使用
+1. 命令行random命令；
+2. 前端文件引用拦截ajax或封装为一个函数调用；
+3. dev模式下，服务端请求拦截。
+
+
+
 
 
 
 1. 全局安装mockjs，可以直接在命令行内使用random来生成数据；
 2. 属性值是函数 Function
 > 执行函数 function，取其返回值作为最终的属性值，函数的上下文为属性 'name' 所在的对象。
-3. 属性值是正则表达式 RegExp
+1. 属性值是正则表达式 RegExp
 ```根据正则表达式 regexp 反向生成可以匹配它的字符串。用于生成自定义格式的字符串。
 
 Mock.mock({
@@ -35,14 +46,14 @@ Mock.mock({
 }
 ```
 
-4. 数据占位符定义规范 DPD， 上下文环境是有用的。
+1. 数据占位符定义规范 DPD， 上下文环境是有用的。
 
 这里可以解决total与返回的数据长度一致的问题
 
-5. 分页怎么能确保准确
+1. 分页怎么能确保准确
 
-6. 声明请求方式
-7. Random.character( pool? ) pool
+2. 声明请求方式
+3. Random.character( pool? ) pool
 ```
 {
     lower: "abcdefghijklmnopqrstuvwxyz",
@@ -51,9 +62,9 @@ Mock.mock({
     symbol: "!@#$%^&*()[]"
 }
 ```
-8. Random.range( start?, stop, step? )
-9. Random.image( size?, background?, foreground?, format?, text? )  纯色图片，请求外网的，内网应该没法用
-Random.dataImage( size?, text? ) 生成一段随机的 Base64 图片编码。
+1. Random.range( start?, stop, step? )
+2. Random.image( size?, background?, foreground?, format?, text? )  纯色图片，请求外网的，内网应该没法用
+   Random.dataImage( size?, text? ) 生成一段随机的 Base64 图片编码。
 ## Mock.mock()方法
 **Mock.mock( rurl?, rtype?, template|function( options ) )**
 
