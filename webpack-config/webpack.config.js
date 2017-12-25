@@ -11,8 +11,8 @@ module.exports = {
 		index: './src/index.js'
 	},
 	output: {
-		path: path.resolve(__dirname, 'dist/'), // 输出文件的根目录
-		publicPath: './', // 访问文件的地址
+		path: path.resolve(__dirname, './'), // 输出文件的根目录
+		publicPath: '/', // 访问文件的地址
 		filename: 'js/' + projectName +'/[name].js' // 文件名，前面可以添加一部分路径
 	},
 	module: {
@@ -36,7 +36,7 @@ module.exports = {
 							loader: 'stylus-loader'
 						}
 					]
-				})				
+				})
 			},
 			{
 				test: /\.(png|jpg|jif)$/,
@@ -49,11 +49,12 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new webpack.optimize.CommonsChunkPlugin( // 公共计算文件提取
-			name: 'vendor',
-			filename: 'js/' + projectName +'/vendor,js',
-			minChunks: function(modules) {
-				return module.context && module.context.indexOf('node_modules') !== -1;
+		new webpack.optimize.CommonsChunkPlugin({ // 公共计算文件提取
+				name: 'vendor',
+				filename: 'js/' + projectName +'/vendor.js',
+				minChunks: function(modules) {
+					return module.context && module.context.indexOf('node_modules') !== -1;
+				}
 			}
 		),
 		new ExtracTextPlugin('css/' + projectName + '/[name].css')

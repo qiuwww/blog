@@ -1,4 +1,4 @@
-// test.js
+// test.js 这里需要改写toString  或者 toValue
 var num =1;
 function count(n){
 	this.num*=n;
@@ -7,4 +7,3 @@ function count(n){
 }
 console.dir(count(2)(2)(3)(4)(2)(3)(4)(2)(2)(3)(4));
 
- 
