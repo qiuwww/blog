@@ -16,7 +16,7 @@ let httpRequest = async (url = '', data = {}, type = 'GET', method = 'fetch') =>
 			url = url + '?' + dataStr;
 		}
 	// }
-	if (window.fetch && method == 'fetch' && false) {
+	if (window.fetch && method == 'fetch') {
 		let requestConfig = {
 			credentials: 'include',
 			method: type,

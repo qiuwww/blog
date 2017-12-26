@@ -88,29 +88,13 @@ Mock.mock( { email: '@email' } )
 ```
 
 
+## 模板验证数据
+> Mock.valid( template, data ), 校验真实数据 data 是否与数据模板 template 匹配。
 
-
-
-name: {
-​    first: '@FIRST',
-​    middle: '@FIRST',
-​    last: '@LAST',
-​    full: '@first @middle @last'
+var template = {
+    name: 'value1'
 }
-// 上面的示例可以得到如下结果：
-"name": {
-​    "first": "Charles",
-​    "middle": "Brenda",
-​    "last": "Lopez",
-​    "full": "Charles Brenda Lopez"
+var data = {
+    name: 'value2'
 }
-
-
-
-同一级才是一个上下文
-
-
-
-
-
-“errormsg”:  "错误信息为： @word(10, 20)"
+Mock.valid(template, data)
