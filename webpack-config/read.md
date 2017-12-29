@@ -1,5 +1,4 @@
 
-
 # mockjs
 > 官网：http://mockjs.com/
 ## 实际工作中使用的意义 
@@ -9,9 +8,9 @@
 4. 单元测试；
 5. 数据类型丰富，可扩展。
 
-
 ## 内部原理
 比较完备的随机数据字典
+
 ### mockjs模块
 1. bin
 2. dist/mockjs->src/mock/random/*
@@ -22,49 +21,14 @@
 2. 前端文件引用拦截ajax或封装为一个函数调用；
 3. dev模式下，服务端请求拦截。
 
+## 语法规范
 
+https://github.com/nuysoft/Mock/wiki/Syntax-Specification
+数据占位符定义规范 DPD 与 DTD， 上下文环境是有用的。
 
+## 扩展
+https://github.com/nuysoft/Mock/wiki/Mock.Random#%E6%89%A9%E5%B1%95
 
-
-
-1. 全局安装mockjs，可以直接在命令行内使用random来生成数据；
-2. 属性值是函数 Function
-> 执行函数 function，取其返回值作为最终的属性值，函数的上下文为属性 'name' 所在的对象。
-1. 属性值是正则表达式 RegExp
-```根据正则表达式 regexp 反向生成可以匹配它的字符串。用于生成自定义格式的字符串。
-
-Mock.mock({
-    'regexp1': /[a-z][A-Z][0-9]/,
-    'regexp2': /\w\W\s\S\d\D/,
-    'regexp3': /\d{5,10}/
-})
-// =>
-{
-    "regexp1": "pJ7",
-    "regexp2": "F)\fp1G",
-    "regexp3": "561659409"
-}
-```
-
-1. 数据占位符定义规范 DPD， 上下文环境是有用的。
-
-这里可以解决total与返回的数据长度一致的问题
-
-1. 分页怎么能确保准确
-
-2. 声明请求方式
-3. Random.character( pool? ) pool
-```
-{
-    lower: "abcdefghijklmnopqrstuvwxyz",
-    upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    number: "0123456789",
-    symbol: "!@#$%^&*()[]"
-}
-```
-1. Random.range( start?, stop, step? )
-2. Random.image( size?, background?, foreground?, format?, text? )  纯色图片，请求外网的，内网应该没法用
-   Random.dataImage( size?, text? ) 生成一段随机的 Base64 图片编码。
 ## Mock.mock()方法
 **Mock.mock( rurl?, rtype?, template|function( options ) )**
 
@@ -72,29 +36,6 @@ Mock.mock({
 延时请求，似乎目前只是支持timeout配置项
 目前，接口 Mock.setup( settings ) 仅用于配置 Ajax 请求，将来可能用于配置 Mock 的其他行为。
 
-
-## Mock.Random()
-Mock.Random 是一个工具类，用于生成各种随机数据。
-
-Mock.Random 的方法在数据模板中称为『占位符』，书写格式为 @占位符(参数 [, 参数]) 。
-```
-var Random = Mock.Random
-Random.email()
-// => "n.clark@miller.io"
-Mock.mock('@email')
-// => "y.lee@lewis.org"
-Mock.mock( { email: '@email' } )
-// => { email: "v.lewis@hall.gov" }
-```
-
-
 ## 模板验证数据
+https://github.com/nuysoft/Mock/wiki/Mock.valid()
 > Mock.valid( template, data ), 校验真实数据 data 是否与数据模板 template 匹配。
-
-var template = {
-    name: 'value1'
-}
-var data = {
-    name: 'value2'
-}
-Mock.valid(template, data)

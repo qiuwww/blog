@@ -69,7 +69,7 @@ html:5
     a 标签中往往需要附带 href 属性和 title 属性，如果我们想生成一个 href 为 “http://blog.wpjam.com” ，title 为“我爱水煮鱼”的 a 标签
         `a[href="http://blog.wpjam.com" title="我爱水煮鱼"]`
 
-### 对生成内容编号：$
+### 对生成内容编号：$, 依次递增||递减
 
     如无序列表，我想为五个 li 增加一个 class 属性值 item1 ，然后依次递增从 1-5，那么就需要使用 $ 符号：
         `ul>li.item$*5`

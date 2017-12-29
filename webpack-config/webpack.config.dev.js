@@ -31,10 +31,10 @@ devConfig.devServer = {
 		'/js/webpack-config/index.js': 'http://127.0.0.1:3003'
 	}
 }
-if(true){
+if (true) {
 	serverMock();
 }
-opn('http://127.0.0.1:3003').then(function(){
+opn('http://127.0.0.1:3003').then(function () {
 	console.log('http://127.0.0.1:3003');
 });
 
