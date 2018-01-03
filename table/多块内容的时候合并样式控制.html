@@ -1,0 +1,86 @@
+<!-- 多块内容的时候合并样式控制.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style type="text/css">
+		tbody tr:nth-child(odd){
+			background-color: blue;
+		}
+		tbody tr:nth-child(even){
+			background-color: gray;
+		}
+		tbody tr:hover{
+			background-color: red;
+		}
+	</style>
+	<!-- table[border="1"]>(thead>tr>th{测试表头$@2}*5)+(tbody>(tr>td{测试单元格$@10}*5)*5) -->
+	<table border="1">
+		<thead>
+			<tr>
+				<th>测试表头2</th>
+				<th>测试表头3</th>
+				<th>测试表头4</th>
+				<th>测试表头5</th>
+				<th>测试表头6</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td rowspan="3">测试单元格10</td>
+			</tr>
+			<tr>
+				<td>测试单元格11</td>
+				<td>测试单元格12</td>
+				<td>测试单元格13</td>
+				<td>测试单元格14</td>
+			</tr>
+			<tr>
+				<td>测试单元格11</td>
+				<td>测试单元格12</td>
+				<td>测试单元格13</td>
+				<td>测试单元格14</td>
+			</tr>
+			<tr>
+				<td rowspan="1">测试单元格10</td>
+				<td>测试单元格11</td>
+				<td>测试单元格12</td>
+				<td>测试单元格13</td>
+				<td>测试单元格14</td>
+			</tr>
+			<tr>
+				<td rowspan="4">测试单元格10</td>
+			</tr>
+			<tr>
+				<td>测试单元格11</td>
+				<td>测试单元格12</td>
+				<td>测试单元格13</td>
+				<td>测试单元格14</td>
+			</tr>
+			<tr>
+				<td>测试单元格11</td>
+				<td>测试单元格12</td>
+				<td>测试单元格13</td>
+				<td>测试单元格14</td>
+			</tr>
+			<tr>
+				<td>测试单元格11</td>
+				<td>测试单元格12</td>
+				<td>测试单元格13</td>
+				<td>测试单元格14</td>
+			</tr>
+			<tr>
+				<td>测试单元格10</td>
+				<td>测试单元格11</td>
+				<td>测试单元格12</td>
+				<td>测试单元格13</td>
+				<td>测试单元格14</td>
+			</tr>
+		</tbody>
+	</table>
+	
+</body>
+</html>

@@ -38,3 +38,20 @@ table
 p
 span
 image
+
+
+
+导出
+
+window.API.use('HXPrintPdf', '智能研报');
+
+设置分页样式
+STYLE="page-break-before:always"
+
+背景图片和颜色
+@media print and (color) {
+   * {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+   }
+}
