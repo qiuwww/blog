@@ -8,130 +8,114 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/jquery-ui.min.css">
     <link rel="stylesheet" href="./css/index.css">
-
 </head>
 
 <body>
+    <div class="wrap">
 
-    <section class="toolbar">
-        <div class="select-wrap">
-            <label for="industry-select">产业链：</label>
-            <select id="industry-select" class="industry-select">
+
+        <section class="toolbar">
+            <div class="select-wrap">
+                <label for="industry-select">产业链：</label>
+                <select id="industry-select" class="industry-select">
                 <option value="飞机制造">飞机制造</option>
                 <option value="智能手表">智能手表</option>
                 <option value="手机">手机</option>
+                <option value="手机">手机</option>
+                <option value="手机">手机</option>
+                <option value="手机">手机</option>
+                <option value="手机">手机</option>
             </select>
-        </div>
-
-        <button id="refresh">刷新</button>
-        <button id="update-server">更新服务器配置</button>
-    </section>
-    <!--需要插入的公司的数据-->
-    <section class="leftbar">
-        <p class="title">公司模块列表</p>
-        <ul class="companylis">
-            <li>
-                <p class="subtitle">车窗玻璃</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>机构ID</td>
-                            <td>公司名称</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>123</td>
-                            <td>132</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </li>
-            <li>
-                <p class="subtitle">后视镜</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>机构ID</td>
-                            <td>公司名称</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>豆腐干豆腐</td>
-                            <td>电饭锅电饭锅</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </li>
-        </ul>
-    </section>
-    <section class="img-company">
-        <div class="industryBox">
-            <img alt="产业链概况页面背景图片" src="http://172.19.80.62:81/thsft/static/chain/image/2017113013214854f94123d37844f0.png_20161229220014_20170628130551"
-                title="产业链概况页面背景图片">
-            <div id="pagewrap">
-                <div class="out-wrap" id="aircraft-base-wrap">
-                    <!--这里插入公司模块，只显示位置，不添加操作，就是所有操作都显示出来-->
-                    <!--单个模块-->
-                    <div class="area-block hover-show" style="top:158px;left:43px;width:241px;height:110px; " data-type="座椅" data-title="座椅"
-                        data-morebackground="undefined" data-height="undefined" data-width="undefined" data-color="#b8871a" data-editpos="right"
-                        data-morepos="right">
-                        <!--编辑按钮-->
-                        <div class="edit-outwrap" style="top:;left:;">
-                            <span class="edit-wrap J_edit" data-type="座椅">
-                                <span class="edit-btn " style="-webkit-filter:drop-shadow(#b8871a  20px  0px)">编辑按钮</span>
-                            </span>
-                        </div>
-                        <!--公司列表部分-->
-                        <ul style="color: #b8871a;height:95px;" xxks="60" id="searchList" class="company-item-list">
-                            <li style="width: undefined;height: undefined;" id="T000961119" data-jumpcode="" data-jumplx="5" title="幸运宝贝" data-gsdm="T000961119"
-                                class="gsdm-has companyJump">幸运宝贝
-                            </li>
-                            <li style="width: undefined;height: undefined;" id="T000961047" data-jumpcode="" data-jumplx="5" title="江苏恒盛" data-gsdm="T000961047"
-                                class="gsdm-has companyJump">江苏恒盛
-                            </li>
-                            <li style="width: undefined;height: undefined;" id="T000960978" data-jumpcode="" data-jumplx="5" title="湖北埃威尔" data-gsdm="T000960978"
-                                class="gsdm-has companyJump">湖北埃威尔
-                            </li>
-                            <li style="width: undefined;height: undefined;" id="T003309962" data-jumpcode="" data-jumplx="--" title="法国佐地亚克">
-                                法国佐地亚...
-                            </li>
-                            <li style="width: undefined;height: undefined;" id="T003309963" data-jumpcode="" data-jumplx="--" title="嘉航联合座椅技术">
-                                嘉航联合座...
-                            </li>
-                            <!--请添加公司，删除完之后，这个模块会留下这一部分-->
-                            <li class="nodata-show J_edit" data-type="座椅" style="display: none;">
-                                <span class="nodata-show-wrap ">
-                                    <span class="nodata-show-btn " style="-webkit-filter:drop-shadow(#b8871a  9px  0px)"></span>
-                                </span>
-                                请添加公司
-                            </li>
-                        </ul>
-                        <!--更多按钮的显示-->
-                        <div class="more-arr" style="display: none;">
-                            <span class="more-show" style="color: #b8871a">...</span>
-                            <div class="more-outwrap" style="">
-                                <span class="more-wrap J_more" data-type="座椅">
-                                    <span class="more-btn " style="-webkit-filter:drop-shadow(#b8871a  20px  0px)"></span>
-                                </span>
-                            </div>
-                        </div>
-                        <!--拖动框-->
-                        <div class="mask">
-                            蒙板
-                        </div>
-                    </div>
-                </div>
-                <ul class="export-operation">
-                    <!--保存图片的按钮-->
-                    <li class="save-pic">save-pic1</li>
-                    <li class="save-pic">save-pic2</li>
-                    <li class="save-pic">save-pic3</li>
-                </ul>
             </div>
+
+            <button id="refresh">刷新</button>
+            <button id="update-server">更新服务器配置</button>
+        </section>
+        <!--需要插入的公司的数据-->
+        <section class="company-title">
+            <h3>录入的模块对应的title，可能与图片上的不一样</h3>
+            <ol class="companylis">
+                
+            </ol>
+        </section>
+        <section class="img-company">
+
+            <!--产业链显示模块-->
+            <div class="industryBox">
+
+                <img class="bg_img" alt="产业链概况页面背景图片" src="./images/fj.png" title="产业链概况页面背景图片">
+                <div id="pagewrap">
+                    <div class="out-wrap" id="aircraft-base-wrap">
+                        <!--这里插入公司模块，只显示位置，不添加操作，就是所有操作都显示出来-->
+                        <!--单个模块-->
+                        
+                    </div>
+                    <ul class="export-operation">
+                        <!--保存图片的按钮-->
+
+                    </ul>
+                </div>
+                <!--拖动框-->
+                <div id="masks">
+                    <!--用来保存当前的mask-->
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <div id="loading"><img src="images/loading1.gif" alt="蒙板" title="loading"></div>
+    <div id="dialog">
+        <div class="inner-wrap">
+            <h2>添加/更改配置</h2>
+            <form action="" type="POST">
+                <div class="select-type">
+                    <label for="features">模式:</label>
+                    <select name="features" id="features">
+                        <option selected value="company">保存公司模块</option>
+                        <option value="pic">保存截图位置</option>
+                    </select>
+                    <span class="tips">*选择模式</span>
+                </div>
+                <section class="for-company">
+                    <div>
+                        <label for="title">标题: </label>
+                        <select name="title" id="title" style="width: 300px;">
+                            <option value="">是的范德萨发</option>
+                            <option value="">是的范德萨发</option>
+                        </select>
+                        <span class="tips">*选择模块名称</span>
+                    </div>
+                    <div>
+                        <label for="title">颜色: </label>
+                        <input type="text" value="" id="color" name="color" placeholder="输入这块内容的颜色">
+                        <span class="tips">*设置颜色,如：#5cb85c</span>
+                    </div>
+                    <div>
+                        <label for="num">个数: </label>
+                        <select name="num" id="">
+                        <option value="3">3</option>
+                        <option selected value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                        <span class="tips">*要显示的公司名的字体个数</span>
+                    </div>
+                </section>
+                <section class="for-pic">
+                    <div>
+                        <label for="title">标题: </label>
+                        <input type="text" value="" id="title" name="title" placeholder="请输入要匹配的块的名称">
+                        <span class="tips">*对应底图模块的标题，可复制上边</span>
+                    </div>
+                </section>
+                <section class="btns">
+                    <button class="delete">删除</button>
+                    <button class="save">保存</button>
+                    <button class="cancle">取消</button>
+                </section>
+            </form>
         </div>
-    </section>
+    </div>
+    <script type="text/javascript" src="./js/mock-min.js"></script>
     <script type="text/javascript" src="./js/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="./js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>

@@ -14,3 +14,7 @@
 	/*-webkit-linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* )//最新发布书写语法
     -webkit-gradient(<type>, <point> [, <radius>]?, <point> [, <radius>]? [, <stop>]*) //老式语法书写规则*/
 }
+
+.box-shadow{
+	box-shadow: 0 0 20px 1px #cdd1d3;
+}
