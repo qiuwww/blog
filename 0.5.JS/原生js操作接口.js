@@ -65,3 +65,15 @@ xxx.style.left = "233px";
 
 // 替换方案：
 xxx.style.cssText="width:233px;height:233px;position:fixed";
+
+
+
+getComputedStyle
+
+
+function getTheStyle(){
+    let elem = document.getElementById("elem-container");
+    let theCSSprop = window.getComputedStyle(elem,null).getPropertyValue("height");
+    document.getElementById("output").innerHTML = theCSSprop;
+   }
+  getTheStyle();
