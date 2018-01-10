@@ -7,8 +7,8 @@
 
 正则对象的方法;
 
-注意lastIndex属性;不要添加g标志;
-g标志下,lastIndex才有用;
+注意lastIndex属性; 不要添加g标志;
+g标志下, lastIndex才有用;
 /**
  * 正则方法：exec
  */
@@ -26,7 +26,7 @@ ret[2]; //"z"
 ret.index;//1
 ret.input;//"$1az2bb3cy4dd5ee"
 
-while(ret = reg4.exec(str)){
+while (ret = reg4.exec(str)) {
 	console.log(reg4.lastIndex + "\t" + ret.index + "\t" + ret.toString())
 }
 
@@ -37,7 +37,7 @@ while(ret = reg4.exec(str)){
 /**
  * 字符串的match方法
  */
-与exec对调,返回结果一样;功能相对弱;
+与exec对调, 返回结果一样; 功能相对弱;
 
 /**
  * 字符串的split方法，还可以传入正则
@@ -48,4 +48,7 @@ while(ret = reg4.exec(str)){
 /**
  * 字符串的replace方法
  */
+
+
+
 
