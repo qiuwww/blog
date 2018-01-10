@@ -447,9 +447,9 @@ $(function () {
                 e.stopPropagation();
                 e.preventDefault();
                 if ($(this).val() === 'company') {
-                    $('.for-company').show().sibling('.for-pic').hide();
+                    $('.for-company').show().siblings('.for-pic').hide();
                 } else {
-                    $('.for-company').hide().sibling('.for-pic').show();
+                    $('.for-company').hide().siblings('.for-pic').show();
                 }
             });
         }
