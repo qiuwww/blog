@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        /*这里需要同时设置html和body都为100%，body应该继承的html的高度*/
+        html,
+        body{
+            height: 100%;
+        }
+        p{
+            line-height: number(相对于当前的字体大小) || %(相对于字体大小) || inherit(继承自父元素) || length(固定的行间距) || normal(默认值)
+            height: 50px;
+            line-height: 50px; 
+        }
+    </style>
+</head>
+<body>
+    <div style="width:100%;height:100%;background-color: green;">test-text</div>
+    <p>test</p>
+</body>
+</html>
