@@ -5,6 +5,7 @@ const ExtracTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const config = require('./package.json');
 const projectName = config.name;
+const hwp = require('html-webpack-plugin');
 
 module.exports = {
 	entry: {
@@ -57,8 +58,10 @@ module.exports = {
 			}
 		}
 		),
-		new ExtracTextPlugin('css/' + projectName + '/[name].css')
+		new ExtracTextPlugin('css/' + projectName + '/[name].css'),		
+		new hwp({
 
+		})
 	],
 	resolve: {
 		extensions: ['.js', '.css', '.html', '.styl']
@@ -68,3 +71,4 @@ module.exports = {
 		'jquery': 'window.jQuery', // 用于文件直接页面引入，在需要使用的js中，需要 let $ = require('jquery');
 	}
 }
+
