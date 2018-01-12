@@ -10,3 +10,8 @@ export default class Point {
         return `x:${this.x};y:${this.y}`;
     }
 }
+/**
+ * 定义基本的点
+ * clone:
+ * toString(): 重写了toSting方法，为了什么？
+ */

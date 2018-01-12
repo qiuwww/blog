@@ -1,4 +1,5 @@
 const Util = {
+    // 取距离，point1 与 point2 的距离
     distance: function(point1, point2) {
         let a = Math.abs(point1.x - point2.x);
         let b = Math.abs(point1.y - point2.y);

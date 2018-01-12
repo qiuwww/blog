@@ -1058,6 +1058,8 @@ exports.Point = _Point2.default;
 exports.Util = _Util2.default;
 exports.ControlResize = _ControlResize2.default;
 
+// Util的入口文件
+
 /***/ }),
 /* 74 */,
 /* 75 */,
@@ -3611,6 +3613,10 @@ var ControlResize = {
 
 exports.default = ControlResize;
 
+/**
+ * 控制缩放的过程中的点的位置（负责计算）
+ */
+
 /***/ }),
 /* 205 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3654,6 +3660,12 @@ var Point = function () {
     }]);
     return Point;
 }();
+/**
+ * 定义基本的点
+ * clone:
+ * toString(): 重写了toSting方法，为了什么？
+ */
+
 
 exports.default = Point;
 
@@ -3668,6 +3680,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var Util = {
+    // 取距离，point1 与 point2 的距离
     distance: function distance(point1, point2) {
         var a = Math.abs(point1.x - point2.x);
         var b = Math.abs(point1.y - point2.y);
