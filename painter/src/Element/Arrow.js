@@ -3,6 +3,7 @@ import {Util} from '../Util/';
 
 export default class Arrow extends Line {
     constructor(start, end, config) {
+        // 需要传入结束和开始位置，
         super(start, end, config);
     }
     draw(ctx) {
@@ -10,3 +11,6 @@ export default class Arrow extends Line {
         if (this.selected) this.drawSelected(ctx);
     }
 }
+/**
+ * 箭头 
+ */

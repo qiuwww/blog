@@ -2702,6 +2702,8 @@ var Arrow = function (_Line) {
 
     function Arrow(start, end, config) {
         (0, _classCallCheck3.default)(this, Arrow);
+
+        // 需要传入结束和开始位置，
         return (0, _possibleConstructorReturn3.default)(this, (Arrow.__proto__ || (0, _getPrototypeOf2.default)(Arrow)).call(this, start, end, config));
     }
 
@@ -2714,6 +2716,10 @@ var Arrow = function (_Line) {
     }]);
     return Arrow;
 }(_Line3.default);
+/**
+ * 箭头 
+ */
+
 
 exports.default = Arrow;
 
@@ -3686,6 +3692,7 @@ var Util = {
         var b = Math.abs(point1.y - point2.y);
         return Math.sqrt(a * a + b * b);
     },
+
     getMaxMin: function getMaxMin(start, end) {
         return {
             minX: Math.min(start.x, end.x),

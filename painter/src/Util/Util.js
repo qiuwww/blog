@@ -5,6 +5,7 @@ const Util = {
         let b = Math.abs(point1.y - point2.y);
         return Math.sqrt(a*a + b*b);
     },
+    
     getMaxMin: function(start, end) {
         return {
             minX: Math.min(start.x, end.x),
