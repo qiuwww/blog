@@ -1,0 +1,131 @@
+<!-- flex-layout.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*居中布局*/
+		.layout1{
+		    width: 300px;
+		    height: 200px;
+		    background-color: blue;
+		    display: flex;
+		    justify-content:center;
+		    align-items:center;
+		}
+		.box{
+		    width: 200px;  /*宽度可以为任意*/
+		    height: 100px; /*高度可以为任意*/
+		    background-color: yellow;
+		}
+
+		/*布局方向控制*/
+		.layout2{
+			display: flex;
+			width: 100%;
+			/*flex-direction，可以使用控制台调整*/
+			/*也是默认值，即主轴的方向和正常的方向一样，从左到右排列。*/
+			flex-direction:row; 
+			/*和row的方向相反，从右到左排列。*/
+			/*flex-direction:row-reverse; */
+			/*从上到下排列。*/
+			/*flex-direction:column; */
+			/*从下到上排列。 以上只针对ltr书写方式，对于rtl正好相反了, 上下均分高度*/
+			/*flex-direction:column-reverse; */
+		}
+		.layout2 .direction{
+			width: 200px;
+			height: 200px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		/*控制伸缩容器是单行还是多行，也决定了侧轴方向*/
+		.layout3{
+			display: flex;
+			width: 300px;
+			height: 300px;
+			background-color: #999;
+			/*伸缩容器单行显示，默认值；*/
+			/*flex-wrap: nowrap;*/
+			/*伸缩容器多行显示；伸缩项目每一行的排列顺序由上到下依次。均分宽度*/
+			flex-wrap: wrap;
+			/*伸缩容器多行显示，但是伸缩项目每一行的排列顺序由下到上依次排列。横向还是顺序排列*/
+			/*flex-wrap:wrap-reverse;*/
+		}
+		.layout3 .wrap{
+			width: 100px;
+			height: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		/*justify-content, 主轴对齐方式*/
+		.layout4{
+			display: flex;
+			width: 100%;
+			background-color: #999;
+			/*伸缩项目向主轴的起始位置开始对齐，后面的每元素紧挨着前一个元素对齐。*/
+			justify-content:flex-start;
+			/*伸缩项目向主轴的结束位置对齐，前面的每一个元素紧挨着后一个元素对齐。*/
+			/*justify-content:flex-end;*/
+			/*伸缩项目相互对齐并在主轴上面处于居中，并且第一个元素到主轴起点的距离等于最后一个元素到主轴终点的位置。以上3中都是“捆绑”在一个分别靠左、靠右、居中对齐。*/
+			/*justify-content:center;*/
+			/*伸缩项目平均的分配在主轴上面，并且第一个元素和主轴的起点紧挨，最后一个元素和主轴上终点紧挨，中间剩下的伸缩项目在确保两两间隔相等的情况下进行平分。*/
+			/*justify-content:space-between;*/
+			/*伸缩项目平均的分布在主轴上面，并且第一个元素到主轴起点距离和最后一个元素到主轴终点的距离相等，且等于中间元素两两的间距的一半。完美的平均分配，这个布局在阿里系中很常见。*/
+			/*justify-content:space-around;*/
+		}
+		.layout4 .justify-content{
+			width: 200px;
+			height: 200px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<h2>居中布局</h2>
+	<div class="layout1">
+		<div class="box">
+			display: flex;
+	    	justify-content:center;
+	    	align-items:center;
+		</div>
+	</div>
+	<hr/>
+
+	<h2>flex-direction,布局方向控制</h2>      	
+	<div class="layout2">
+		<div class="direction" style="background-color: red;">1</div>
+		<div class="direction" style="background-color: blue;">2</div>
+		<div class="direction" style="background-color: green;">3</div>		
+		<div class="direction" style="background-color: yellow;">4</div>
+	</div>
+	<hr/>
+
+	<h2>flex-wrap, 属性控制伸缩容器是单行还是多行，也决定了侧轴方向（新的一行的堆放方向）。</h2>
+	<div class="layout3">
+		<div class="wrap" style="background-color: green;">1</div>
+		<div class="wrap" style="background-color: yellow;">2</div>
+		<div class="wrap" style="background-color: blue;">3</div>
+		<div class="wrap" style="background-color: red;">4</div>
+		<div class="wrap" style="background-color: gray;">5</div>
+	</div>
+	<hr/>
+
+	<h2>justify-content, 定义伸缩项目在主轴上面的的对齐方式</h2>
+	<div class="layout4">
+		<div class="justify-content" style="background-color: green;">1</div>
+		<div class="justify-content" style="background-color: yellow;">2</div>
+		<div class="justify-content" style="background-color: blue;">3</div>
+		<div class="justify-content" style="background-color: red;">4</div>
+		<div class="justify-content" style="background-color: gray;">5</div>
+	</div>
+	<hr/>
+
+</body>
+</html>
