@@ -6,9 +6,9 @@ js代码简写.js
 const x = 20;
 let answer;
 if (x > 10) {
-    answer = 'is greater';
+  answer = 'is greater';
 } else {
-    answer = 'is lesser';
+  answer = 'is lesser';
 }
 简写：
 const answer = x > 10 ? 'is greater' : 'is lesser';
@@ -21,10 +21,10 @@ const big = x > 10 ? " greater 10" : x
 2.短路求值简写方式
 当给一个变量分配另一个值时，想确定源始值不是null，undefined或空值。可以写撰写一个多重条件的if语句。
 if (variable1 !== null || variable1 !== undefined || variable1 !== '') {
-     let variable2 = variable1;
+  let variable2 = variable1;
 }
 或者可以使用短路求值方法：
-const variable2 = variable1  || 'new';
+const variable2 = variable1 || 'new';
 /**
  * 短路操作求值,
  * 如果前面存在就取后边的值
@@ -34,37 +34,37 @@ let x;
 let y;
 let z = 3;
 简写方法：
-let x, y, z=3;
+let x, y, z = 3;
 /**
  * 调试的时候不方便，代码压缩会自动转换
  */
 4.if存在条件简写方法
 if (likeJavaScript === true)
-简写：
+  简写：
 if (likeJavaScript)
-只有likeJavaScript是真值时，二者语句才相等
+  只有likeJavaScript是真值时，二者语句才相等
 如果判断值不是真值，则可以这样：
 let a;
-if ( a !== true ) {
-// do something...
+if (a !== true) {
+  // do something...
 }
 简写：
 let a;
-if ( !a ) {
-// do something...
+if (!a) {
+  // do something...
 }
 /**
  * 自动类型转换，或者可以强制转换 !!
  */
 5.JavaScript循环简写方法
 for (let i = 0; i < allImgs.length; i++)
-简写：
+  简写：
 for (let index in allImgs)
-/**
- * 不要使用for...in来遍历数组，会出问题的
- * 原型方法也可能会被遍历出来
- */
-也可以使用Array.forEach：
+  /**
+   * 不要使用for...in来遍历数组，会出问题的
+   * 原型方法也可能会被遍历出来
+   */
+  也可以使用Array.forEach：
 function logArrayElements(element, index, array) {
   console.log("a[" + index + "] = " + element);
 }
@@ -91,9 +91,9 @@ const dbHost = process.env.DB_HOST || 'localhost';
  */
 7.十进制指数
 当需要写数字带有很多零时（如10000000），可以采用指数（1e7）来代替这个数字：
-for (let i = 0; i < 10000; i++) {}
+for (let i = 0; i < 10000; i++) { }
 简写：
-for (let i = 0; i < 1e7; i++) {}
+for (let i = 0; i < 1e7; i++) { }
 
 // 下面都是返回true
 1e0 === 1;
@@ -104,7 +104,7 @@ for (let i = 0; i < 1e7; i++) {}
 1e5 === 100000;
 8.对象属性简写
 如果属性名与key名相同，则可以采用ES6的方法：
-const obj = { x:x, y:y };
+const obj = { x: x, y: y };
 简写：
 const obj = { x, y };
 /**
@@ -116,11 +116,11 @@ function sayHello(name) {
   console.log('Hello', name);
 }
 
-setTimeout(function() {
+setTimeout(function () {
   console.log('Loaded')
 }, 2000);
 
-list.forEach(function(item) {
+list.forEach(function (item) {
   console.log(item);
 });
 简写：
@@ -130,7 +130,7 @@ setTimeout(() => console.log('Loaded'), 2000);
 
 list.forEach(item => console.log(item));
 10.隐式返回值简写
-经常使用return语句来返回函数最终结果，一个单独语句的箭头函数能隐式返回其值（函数必须省略{}为了省略return关键字）
+经常使用return语句来返回函数最终结果，一个单独语句的箭头函数能隐式返回其值（函数必须省略{} 为了省略return关键字）
 为返回多行语句（例如对象字面表达式），则需要使用()包围函数体。
 function calcCircumference(diameter) {
   return Math.PI * diameter
@@ -155,7 +155,7 @@ function volume(l, w, h) {
   return l * w * h;
 }
 简写：
-volume = (l, w = 3, h = 4 ) => (l * w * h);
+volume = (l, w = 3, h = 4) => (l * w * h);
 
 volume(2) //output: 24
 /**
@@ -166,7 +166,7 @@ volume(2) //output: 24
 const welcome = 'You have logged in as ' + first + ' ' + last + '.'
 
 const db = 'http://' + host + ':' + port + '/' + database;
-ES6可以使用反引号和${}简写：
+ES6可以使用反引号和${} 简写：
 const welcome = `You have logged in as ${first} ${last}`;
 
 const db = `http://${host}:${port}/${database}`;
@@ -193,16 +193,16 @@ import { observable, action, runInAction } from 'mobx';
  */
 const { store, form, loading, errors, entity } = this.props;
 也可以分配变量名：
-const { store, form, loading, errors, entity:contact } = this.props;
+const { store, form, loading, errors, entity: contact } = this.props;
 //最后一个变量名为contact
 14.多行字符串简写
-需要输出多行字符串，需要使用+来拼接：
+需要输出多行字符串，需要使用 + 来拼接：
 const lorem = 'Lorem ipsum dolor sit amet, consectetur\n\t'
-    + 'adipisicing elit, sed do eiusmod tempor incididunt\n\t'
-    + 'ut labore et dolore magna aliqua. Ut enim ad minim\n\t'
-    + 'veniam, quis nostrud exercitation ullamco laboris\n\t'
-    + 'nisi ut aliquip ex ea commodo consequat. Duis aute\n\t'
-    + 'irure dolor in reprehenderit in voluptate velit esse.\n\t'
+  + 'adipisicing elit, sed do eiusmod tempor incididunt\n\t'
+  + 'ut labore et dolore magna aliqua. Ut enim ad minim\n\t'
+  + 'veniam, quis nostrud exercitation ullamco laboris\n\t'
+  + 'nisi ut aliquip ex ea commodo consequat. Duis aute\n\t'
+  + 'irure dolor in reprehenderit in voluptate velit esse.\n\t'
 使用反引号，则可以达到简写作用：
 const lorem = `Lorem ipsum dolor sit amet, consectetur
     adipisicing elit, sed do eiusmod tempor incididunt
@@ -341,3 +341,54 @@ var a = 12, b = 45;
 /**
  * 这里必须是var声明的变量， const已经声明不可改变；
  */
+
+21、对象与数组扩展
+
+const arr1 = [1, 2, 3];
+const arr2 = [2, 3, 4];
+
+// 合并数组操作
+const arr_1 = arr1.concat(arr2);
+const arr_2 = [1, 2, 3, ...arr2];
+
+// set去重操作
+const set1 = new Set(arr_1);
+const arr_3 = [...set1];
+[...new Set([1, 2, 3, ...[2, 3, 4]])];
+
+const obj1 = {a: 1, b: 2};
+const obj2 = {c: 1, d: 2};
+
+// 合并对象的操作
+const obj_1 = {...obj1, ...obj2};
+
+22、find操作（查找对象中的特定属性的值）
+
+const pets = [
+    { type: 'Dog', name: 'Max'}, 
+    { type: 'Cat', name: 'Karl'},  
+    { type: 'Dog', name: 'Tommy'}
+];
+function findDog(name) { 
+  for(let i = 0; i<pets.length; ++i) {    
+    if(pets[i].type === 'Dog' && pets[i].name === name) {      
+      return pets[i];    
+    }
+  }
+}
+
+// es6语法， 类似于underscore中的find方法
+pet = pets.find(pet => pet.type === 'Dog' && pet.name === 'Tommy');
+console.log(pet); 
+// { type: 'Dog', name: 'Tommy' }
+
+
+23、向下取整
+
+// 有一个有效用例用于双重非运算操作符。可以用来代替Math.floor()，其优势在于运行更快
+
+Math.floor(4.9) === 4  
+//true
+
+~~4.9 === 4  
+//true
