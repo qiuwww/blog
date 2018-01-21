@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        /*居中布局*/
+        .layout-1{
+            height: 200px;
+            width: 200px;
+            border: 1px solid #ccc;
+            /*= td, 并不用设置外层为table*/
+            display: table-cell;
+            text-align: center;            
+            vertical-align: middle;
+        }
+        .layout-1 img{
+            border: 1px solid red;
+        }
+
+        /*左定宽，右自适应*/
+        .layout-2{
+            display: table;
+            width: 100%;
+            height: 200px;
+        }
+        .layout-2 .left{
+            width: 200px;
+            background-color: aquamarine;
+            display: table-cell;
+        }
+        .layout-2 .center{
+            /*父元素设置为table之后，td自然适应分布占有所有宽度*/
+            background-color: darkcyan;
+            display: table-cell;
+        }
+        .layout-2 .right{
+            width: 100px;
+            /*height可以不设置，自然占满平分整个table的高度*/
+            height: 100%;
+            display: table-cell;
+            background-color: rebeccapurple;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>子元素不定高、不定宽的水平垂直居中</h2>
+    <div class="layout-1">
+        <img src="./images/1.png">
+    </div>
+    <hr/>
+
+    <div class="layout-2">
+        <div class="left">left</div>
+        <div class="center">right，利用了table布局的特性，不设置宽度的td，占满剩余的宽度，与flex布局的flex:1;功能类似</div>
+        <div class="right">right</div>
+    </div>
+
+
+</div>
+</body>
+</html>

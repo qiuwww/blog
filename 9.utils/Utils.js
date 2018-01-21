@@ -146,6 +146,10 @@ let getOS = () => {
 
 
 
+
+
+
+
 export default {
 	isInteger,
 	log,
@@ -159,6 +163,55 @@ export default {
 
 
 
+/**
+ * curry
+ * 使用递归。如果提供的参数（args）数量足够，则调用传递函数f，否则返回一个curried函数f。
+ */
+
+const curry = (fn, arity = fn.length, ...args) =>
+  arity <= args.length
+    ? fn(...args)
+    : curry.bind(null, fn, arity, ...args);
+// curry(Math.pow)(2)(10) -> 1024
+// curry(Math.min, 3)(10)(50)(2) -> 2
+
+/**
+ * 转移特殊字符
+ * 使用replace（）来转义特殊字符。
+ * 还需要研究一下，别的特殊字符怎么处理
+ */
+
+const escapeRegExp = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+// escapeRegExp('(test)') -> \\(test\\)
 
 
 
+/**
+ * 获取滚动位置
+ * 如果已定义，请使用pageXOffset和pageYOffset，否则使用scrollLeft和scrollTop，可以省略el来使用window的默认值。
+ */
+
+
+
+const getScrollPos = (el = window) =>
+  ({x: (el.pageXOffset !== undefined) ? el.pageXOffset : el.scrollLeft,
+    y: (el.pageYOffset !== undefined) ? el.pageYOffset : el.scrollTop});
+// getScrollPos() -> {x: 0, y: 200}
+
+
+/**
+ * 测试功能所花费的时间
+ * 使用performance.now（）获取函数的开始和结束时间，console.log（）所花费的时间。
+ * 第一个参数是函数名，随后的参数传递给函数。
+ */
+
+
+
+const timeTaken = callback => {
+  console.time('timeTaken');
+  const r = callback();
+  console.timeEnd('timeTaken');
+  return r;
+};
+// timeTaken(() => Math.pow(2, 10)) -> 1024
+// (logged): timeTaken: 0.02099609375ms
