@@ -103,3 +103,7 @@ const ControlResize = {
 };
 
 export default ControlResize;
+
+/**
+ * 控制缩放的过程中的点的位置（负责计算）
+ */

@@ -15,7 +15,7 @@ function isEmptyObject(obj) {
 /**
  * 
  * @desc 随机生成颜色
- * @return {String} 
+ * @return {String} 	
  */
 function randomColor() {
     return '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
@@ -70,4 +70,14 @@ function isPhoneNum(str) {
  */
 function isUrl(str) {
     return /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i.test(str);
+}
+
+
+// 判断是纯对象（非数组，非函数）
+let isObject = function(obj){
+	if(obj && typeof obj === 'object' && obj.toString === "[object Object]"){
+		return true;
+	}else{
+		return false;
+	}
 }

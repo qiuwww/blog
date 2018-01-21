@@ -5,3 +5,5 @@ import ControlResize from './ControlResize';
 exports.Point = Point;
 exports.Util = Util;
 exports.ControlResize = ControlResize;
+
+// Util的入口文件

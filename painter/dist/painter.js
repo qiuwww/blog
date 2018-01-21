@@ -1058,6 +1058,8 @@ exports.Point = _Point2.default;
 exports.Util = _Util2.default;
 exports.ControlResize = _ControlResize2.default;
 
+// Util的入口文件
+
 /***/ }),
 /* 74 */,
 /* 75 */,
@@ -2700,6 +2702,8 @@ var Arrow = function (_Line) {
 
     function Arrow(start, end, config) {
         (0, _classCallCheck3.default)(this, Arrow);
+
+        // 需要传入结束和开始位置，
         return (0, _possibleConstructorReturn3.default)(this, (Arrow.__proto__ || (0, _getPrototypeOf2.default)(Arrow)).call(this, start, end, config));
     }
 
@@ -2712,6 +2716,10 @@ var Arrow = function (_Line) {
     }]);
     return Arrow;
 }(_Line3.default);
+/**
+ * 箭头 
+ */
+
 
 exports.default = Arrow;
 
@@ -3611,6 +3619,10 @@ var ControlResize = {
 
 exports.default = ControlResize;
 
+/**
+ * 控制缩放的过程中的点的位置（负责计算）
+ */
+
 /***/ }),
 /* 205 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3654,6 +3666,12 @@ var Point = function () {
     }]);
     return Point;
 }();
+/**
+ * 定义基本的点
+ * clone:
+ * toString(): 重写了toSting方法，为了什么？
+ */
+
 
 exports.default = Point;
 
@@ -3668,11 +3686,13 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var Util = {
+    // 取距离，point1 与 point2 的距离
     distance: function distance(point1, point2) {
         var a = Math.abs(point1.x - point2.x);
         var b = Math.abs(point1.y - point2.y);
         return Math.sqrt(a * a + b * b);
     },
+
     getMaxMin: function getMaxMin(start, end) {
         return {
             minX: Math.min(start.x, end.x),
