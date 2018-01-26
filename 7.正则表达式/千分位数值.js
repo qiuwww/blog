@@ -8,7 +8,7 @@ var numArr = [
 	-45625.2352
 ]
 
-12332522.toString().split(/\d{3}/);
+Number(12332522).toString().split(/\d{3}/);
 
 function format (num) {
     return (num.toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');

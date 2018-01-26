@@ -1,3 +1,4 @@
+// 定义事件操作
 const actions = {
   bold: {
     icon: '<b>B</b>',
@@ -82,11 +83,11 @@ const classes = {
   button: 'pell-button',
   content: 'pell-content'
 }
-
+// 执行execCommand
 export const exec = (command, value = null) => {
   document.execCommand(command, false, value)
 }
-
+// 
 const preventTab = event => {
   if (event.which === 9) event.preventDefault()
 }

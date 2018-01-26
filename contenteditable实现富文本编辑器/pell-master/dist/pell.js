@@ -122,7 +122,10 @@ var exec = function exec(command) {
 };
 
 var preventTab = function preventTab(event) {
-  if (event.which === 9) event.preventDefault();
+  // 阻止tab事件
+  if (event.which === 9) {
+    event.preventDefault();
+  }
 };
 
 var init = function init(settings) {
