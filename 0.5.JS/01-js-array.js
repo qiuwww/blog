@@ -28,3 +28,5 @@ Array.prototype.max = function(){
 // 调用
 [1,2,3].max();
 
+
+
