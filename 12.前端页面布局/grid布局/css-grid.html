@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    body,html {
+    padding: 0;
+    margin: 0;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 5fr 3fr 20fr;
+        grid-column-gap: 1px;
+        grid-row-gap: 1px;
+        background-color: black;
+    }
+
+    .letter {
+        background-color: #0069b3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        font-size: 70px;
+        color: white;
+        line-height: 1;
+        font-family: 'hobeaux-rococeaux-background', Helvetica;
+        font-weight: 200;
+        cursor: pointer;
+        transition: all .3s ease;
+    }
+
+</style>
+
+<div class='wrapper'>
+  <div class='letter'>
+    A
+  </div>
+  <div class='letter'>
+    B
+  </div>
+  <div class='letter'>
+    C
+  </div>
+  <div class='letter'>
+    D
+  </div>
+</div>
+</body>
+</html>
