@@ -1,56 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
+
 <body>
-<style>
-    body,html {
-    padding: 0;
-    margin: 0;
+  <style>
+    /*base*/
+    body,
+    html {
+      padding: 0;
+      margin: 0;
     }
-
+    
     .wrapper {
-        display: grid;
-        grid-template-columns: 1fr 5fr 3fr 20fr;
-        grid-column-gap: 1px;
-        grid-row-gap: 1px;
-        background-color: black;
+      display: grid;
+      /*fr，也就是所占的比例，相当于百分比*/
+      grid-template-columns: 1fr 5fr 3fr 10fr;
+      grid-column-gap: 5px;
+      background-color: black;
     }
-
+    
     .letter {
-        background-color: #0069b3;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        font-size: 70px;
-        color: white;
-        line-height: 1;
-        font-family: 'hobeaux-rococeaux-background', Helvetica;
-        font-weight: 200;
-        cursor: pointer;
-        transition: all .3s ease;
+      background-color: #0069b3;
+      /*flex居中布局*/
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 20px;
+      font-size: 70px;
+      color: white;
+      line-height: 1;
+      font-family: 'hobeaux-rococeaux-background', Helvetica;
+      font-weight: 200;
+      cursor: pointer;
+      transition: all .3s ease;
+    }
+    /*基本实例*/
+    
+    .wrapper-1 {
+      /*grid 是一个CSS简写属性，可以用来设置以下属性：*/
+      /*显式网格属性 grid-template-rows、grid-template-columns 和 grid-template-areas，*/
+      /*隐式网格属性 grid-auto-rows、grid-auto-columns 和  grid-auto-flow，*/
+      /*间距属性 grid-column-gap 和 grid-row-gap。*/
+      display: grid;
+      /*函数，重复的次数：repeat(格数, 每格的宽度, 等价的比例)*/
+      /*https://developer.mozilla.org/zh-CN/docs/Web/CSS/repeat*/
+      /*最后的是不重复的宽度位置*/
+      grid-template-columns: repeat(3, 1fr) 200px;
+      /*间隔的宽度*/
+      grid-gap: 10px;
+      /*设置最小或者最大宽度*/
+      /*minmax( [ <length> | <percentage> | <flex> | min-content | max-content | auto ] , [ <length> | <percentage> | <flex> | min-content | max-content | auto ] )*/
+      /*下边的就是，最小100px， 最大自动*/
+      /*https://developer.mozilla.org/zh-CN/docs/Web/CSS/minmax*/
+      grid-auto-rows: minmax(100px, auto);
+    }
+    
+    .one {
+      /*1~3， 表示占据1，2两格*/
+      /*grid-column表示列坐标*/
+      /*grid-row表示行坐标*/
+      /*坐标确认好，宽度自然就确认了*/
+      grid-column: 1;
+      grid-row: 1;
+      background-color: blue;
+    }
+    
+    .two {
+      grid-column: 2 / 4;
+      grid-row: 1 / 3;
+      background-color: antiquewhite;
+    }
+    
+    .three {
+      grid-row: 2 / 5;
+      grid-column: 1;
+      background-color: blueviolet;
+    }
+    
+    .four {
+      grid-column: 3;
+      grid-row: 3;
+      background-color: aquamarine;
+    }
+    
+    .five {
+      grid-column: 2;
+      grid-row: 4;
+      background-color: aqua;
+    }
+    
+    .six {
+      grid-column: 3;
+      grid-row: 4;
+      background-color: blanchedalmond;
+    }
+    /*九个宫布局*/
+    
+    .wrapper-2 {
+      display: grid;
+      /*横向与竖向的排列*/
+      /*先是竖向，后是横向*/
+      grid-template: repeat(3, 200px) / repeat(3, 200px);
+      /*间距*/
+      grid-gap: 20px 10px;
+    }
+    
+    .wrapper-2 div {
+      background-color: lime;
+      height: 100px;
+    }
+    /*fit-content*/
+    
+    #container {
+      display: grid;
+      grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
+      grid-gap: 5px;
+      box-sizing: border-box;
+      height: 200px;
+      width: 100%;
+      background-color: #8cffa0;
+      padding: 10px;
+    }
+    
+    #container>div {
+      background-color: #8ca0ff;
+      padding: 5px;
     }
 
-</style>
+    /*layout-1*/
+    .layout-1{
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      height: 100px;
+    }
+    .layout-1 .left{
+      background-color: aqua;
+    }
+    .layout-1 .right{
+      background-color: #8cffa0;
+    }
 
-<div class='wrapper'>
-  <div class='letter'>
-    A
+    /*layout-2*/
+
+    .layout-2 {
+      display: grid;
+      grid-template-columns: 200px 2fr 1fr; 
+      height: 100px;
+    }
+    .layout-2 .left{
+      background-color: aqua;
+    }
+    .layout-2 .center{
+      background-color: bisque;
+    }
+    .layout-2 .right{
+      background-color: #8cffa0;
+    }
+
+  </style>
+  <!--base-->
+  <div class='wrapper'>
+    <div class='letter'>
+      A
+    </div>
+    <div class='letter'>
+      B
+    </div>
+    <div class='letter'>
+      C
+    </div>
+    <div class='letter'>
+      D
+    </div>
   </div>
-  <div class='letter'>
-    B
+
+
+  <hr/>
+  <!--基本实例-->
+  <h2>基本实例</h2>
+  <div class="wrapper-1">
+    <div class="one">One</div>
+    <div class="two">Two</div>
+    <div class="three">Three</div>
+    <div class="four">Four</div>
+    <div class="five">Five</div>
+    <div class="six">Six</div>
   </div>
-  <div class='letter'>
-    C
+  <hr/>
+  <!--九格宫布局-->
+  <h2>九格宫布局</h2>
+  <div class="wrapper-2">
+    <div class="block">block</div>
+    <div class="block">block</div>
+    <div class="block">block</div>
+    <div class="block">block</div>
+    <div class="block">block</div>
+    <div class="block">block</div>
+    <div class="block">block</div>
+    <div class="block">block</div>
+    <div class="block">block</div>
   </div>
-  <div class='letter'>
-    D
+  <hr/>
+
+  <h2>fit-content,很神奇的效果</h2>
+  <div id="container">
+    <div>Item as wide as the content.</div>
+    <div>
+      Item with more text in it. Because the contents of it are wider than the maximum width, it is clamped at 300 pixels.
+    </div>
+    <div>Flexible item</div>
   </div>
-</div>
+  <hr>
+  <h2>1. 左定宽，右自适应,使用grid布局，应该是左设置宽度，右1fr</h2>
+
+  <div class="layout-1">
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+  <hr>
+
+  <h2>2. 圣杯布局， 左右定宽，中间自适应</h2>
+  <div class="layout-2">
+    <div class="left">left</div>
+    <div class="center">center</div>
+    <div class="right">right</div>
+  </div>
+
 </body>
+
 </html>
