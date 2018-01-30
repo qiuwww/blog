@@ -1,32 +1,39 @@
 <!-- flex-layout.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style type="text/css">
 		/*居中布局*/
-		.layout1{
-		    width: 300px;
-		    height: 200px;
-		    background-color: blue;
-		    display: flex;
-		    justify-content:center;
-		    align-items:center;
+		
+		.layout1 {
+			width: 300px;
+			height: 200px;
+			background-color: blue;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
-		.box{
-		    width: 200px;  /*宽度可以为任意*/
-		    height: 100px; /*高度可以为任意*/
-		    background-color: yellow;
+		
+		.box {
+			width: 200px;
+			/*宽度可以为任意*/
+			height: 100px;
+			/*高度可以为任意*/
+			background-color: yellow;
 		}
-
 		/*布局方向控制*/
-		.layout2{
+		
+		.layout2 {
 			display: flex;
 			width: 100%;
 			/*flex-direction，可以使用控制台调整*/
 			/*也是默认值，即主轴的方向和正常的方向一样，从左到右排列。*/
-			flex-direction:row; 
+			flex-direction: row;
+			/*自定义控制间距*/
+			margin-right: 20px;
 			/*和row的方向相反，从右到左排列。*/
 			/*flex-direction:row-reverse; */
 			/*从上到下排列。*/
@@ -34,16 +41,17 @@
 			/*从下到上排列。 以上只针对ltr书写方式，对于rtl正好相反了, 上下均分高度*/
 			/*flex-direction:column-reverse; */
 		}
-		.layout2 .direction{
+		
+		.layout2 .direction {
 			width: 200px;
 			height: 200px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 		}
-
 		/*控制伸缩容器是单行还是多行，也决定了侧轴方向*/
-		.layout3{
+		
+		.layout3 {
 			display: flex;
 			width: 300px;
 			height: 300px;
@@ -55,7 +63,8 @@
 			/*伸缩容器多行显示，但是伸缩项目每一行的排列顺序由下到上依次排列。横向还是顺序排列*/
 			/*flex-wrap:wrap-reverse;*/
 		}
-		.layout3 .wrap{
+		
+		.layout3 .wrap {
 			width: 100px;
 			height: 100px;
 			display: flex;
@@ -63,12 +72,13 @@
 			align-items: center;
 		}
 		/*justify-content, 主轴对齐方式*/
-		.layout4{
+		
+		.layout4 {
 			display: flex;
 			width: 100%;
 			background-color: #999;
 			/*伸缩项目向主轴的起始位置开始对齐，后面的每元素紧挨着前一个元素对齐。*/
-			justify-content:flex-start;
+			justify-content: flex-start;
 			/*伸缩项目向主轴的结束位置对齐，前面的每一个元素紧挨着后一个元素对齐。*/
 			/*justify-content:flex-end;*/
 			/*伸缩项目相互对齐并在主轴上面处于居中，并且第一个元素到主轴起点的距离等于最后一个元素到主轴终点的位置。以上3中都是“捆绑”在一个分别靠左、靠右、居中对齐。*/
@@ -78,7 +88,8 @@
 			/*伸缩项目平均的分布在主轴上面，并且第一个元素到主轴起点距离和最后一个元素到主轴终点的距离相等，且等于中间元素两两的间距的一半。完美的平均分配，这个布局在阿里系中很常见。*/
 			/*justify-content:space-around;*/
 		}
-		.layout4 .justify-content{
+		
+		.layout4 .justify-content {
 			width: 200px;
 			height: 200px;
 			display: flex;
@@ -86,14 +97,15 @@
 			align-items: center;
 		}
 		/*align-items, 侧轴的对齐方式*/
-		.layout5{
+		
+		.layout5 {
 			display: flex;
-			width: 700px;
-			height: 700px;
+			width: 500px;
+			height: 500px;
 			background-color: #999;
 			/*伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起点的边*/
 			/*flex-direction: column;*/
-			align-items:flex-start;
+			align-items: flex-start;
 			/*伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边。*/
 			/*align-items:flex-end;*/
 			/*伸缩项目的外边距在侧轴上居中放置。*/
@@ -104,64 +116,164 @@
 			/*这个时候不设置高度（横向布局），不设置宽度（竖向布局），会被拉伸长度*/
 			/*align-items:stretch;*/
 		}
-		.layout5 .align-items{
+		
+		.layout5 .align-items {
 			min-width: 100px;
 			min-height: 100px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 		}
-
 		/*order，用来控制元素顺序*/
-		#main { display: flex; }
-		#main article { flex:1;         height: 100px; order: 2; background-color: #500;}
-		#main nav     { width: 200px;   height: 100px; order: 1; background-color: #050;}
-		#main aside   { width: 200px;   height: 100px; order: 3; background-color: #005;}
-
+		
+		#main {
+			display: flex;
+		}
+		
+		#main article {
+			flex: 1;
+			height: 100px;
+			order: 2;
+			background-color: #500;
+		}
+		
+		#main nav {
+			width: 200px;
+			height: 100px;
+			order: 1;
+			background-color: #050;
+		}
+		
+		#main aside {
+			width: 200px;
+			height: 100px;
+			order: 3;
+			background-color: #005;
+		}
 		/*测试子元素的flex属性*/
-		#flex{
+		
+		#flex {
 			display: flex;
 			width: 100%;
 			height: 200px;
 			background-color: blueviolet;
 		}
-		#flex .box1{
+		
+		#flex .box1 {
 			width: 200px;
 			height: 100%;
 		}
-		#flex .box2{
+		
+		#flex .box2 {
 			background-color: skyblue;
 			height: 100%;
 			/*= 1 1 auto*/
-			flex: 1; 
-			flex: none; 
+			flex: 1;
+			flex: none;
 			/*flex: 10em;*/
 			/*flex: 30px;*/
 			/*flex: initial;*/
 			/*flex: 1 30px;*/
 			/*flex: 2 2;*/
 			/*flex: 2 2 10%;*/
-
 		}
-
+		/*圣杯布局*/
+		/**
+		 * 1. Avoid the IE 10-11 `min-height` bug.
+		 * 2. Set `flex-shrink` to `0` to prevent some browsers from
+		 *    letting these items shrink to smaller than their content's default
+		 *    minimum size. See http://bit.ly/1Mn35US for details.
+		 * 3. Use `%` instead of `vh` since `vh` is buggy in older mobile Safari.
+		 */
+		
+		.HolyGrail {
+			display:flex;
+			flex-direction: column;
+			height: 200px;
+		}
+		
+		.HolyGrail-header,
+		.HolyGrail-footer {
+			/*不flex，宽高也就不会随外围变化*/
+			flex: none;
+			height: 50px;
+			width: 100%;
+			background-color: green;
+			/* 2 */
+		}
+		.HolyGrail-body{
+			height: 200px;
+			width: 100%;
+			display: flex;
+		}
+		
+		
+		.HolyGrail-nav,
+		.HolyGrail-asd {
+			width: 300px;
+			/*不设置flex: none;的情况下，width会发生改变的*/
+			flex: none;
+			background-color: blue;
+		}
+		.HolyGrail-content{
+			flex: 1;
+			background-color: yellow;
+		}
+		
+		
+		/*横向的复杂布局*/		
+		.complex {
+			display: -webkit-flex;
+			display: flex;
+			background-color: #eee;
+			height: 200px;
+			width: 100%;
+		}
+		
+		.complex .initial {
+			height: 100%;
+			-webkit-flex: initial;
+			flex: initial;
+			width: 200px;
+			min-width: 100px;
+			background-color: blue;
+		}
+		
+		.complex .none {
+			-webkit-flex: none;
+			flex: none;
+			width: 200px;
+			background-color: green;
+		}
+		
+		.complex .flex1 {
+			-webkit-flex: 1;
+			flex: 1;
+			background-color: yellow;
+		}
+		
+		.complex .flex2 {
+			-webkit-flex: 2;
+			flex: 2;
+			background-color: red;
+		}
 	</style>
 </head>
+
 <body>
 	<h2>居中布局</h2>
 	<div class="layout1">
 		<div class="box">
-			display: flex;
-	    	justify-content:center;
-	    	align-items:center;
+			display: flex; justify-content:center; align-items:center;
 		</div>
 	</div>
 	<hr/>
 
-	<h2>flex-direction,布局方向控制</h2>      	
+	<h2>flex-direction,布局方向控制</h2>
 	<div class="layout2">
 		<div class="direction" style="background-color: red;">1</div>
 		<div class="direction" style="background-color: blue;">2</div>
-		<div class="direction" style="background-color: green;">3</div>		
+		<div class="direction" style="background-color: green;">3</div>
 		<div class="direction" style="background-color: yellow;">4</div>
 	</div>
 	<hr/>
@@ -187,12 +299,12 @@
 	<hr/>
 
 	<h2>align-items, 用来定义伸缩项目在侧轴的对齐方式，这类似于[justify-content]属性，但是是另一个方向。</h2>
-		<div class="layout5">
-			<div class="align-items" style="background-color: red;">1</div>
-			<div class="align-items" style="background-color: blue;">2</div>
-			<div class="align-items" style="background-color: green;">3</div>		
-			<div class="align-items" style="background-color: yellow;">4</div>
-		</div>
+	<div class="layout5">
+		<div class="align-items" style="background-color: red;">1</div>
+		<div class="align-items" style="background-color: blue;">2</div>
+		<div class="align-items" style="background-color: green;">3</div>
+		<div class="align-items" style="background-color: yellow;">4</div>
+	</div>
 	<hr/>
 
 	<h2>子元素的属性设置，order</h2>
@@ -207,9 +319,36 @@
 		<div class="box1">box1</div>
 		<div class="box2">box2</div>
 	</div>
+	<hr/>
+
+	<!-- 后边还需要补充常用的样式结构 -->
+	<h2>圣杯布局样式</h2>
+	<div class="HolyGrail">
+		<header class="HolyGrail-header">header</header>
+		<div class="HolyGrail-body">
+			<nav class="HolyGrail-nav">HolyGrail-nav</nav>
+			<main class="HolyGrail-content">HolyGrail-content</main>
+			<aside class="HolyGrail-asd">HolyGrail-ads</aside>
+		</div>
+		<footer class="HolyGrail-footer">footer</footer>		
+	</div>
+	<hr/>
 
 
-	后边还需要补充常用的样式结构
+	<!-- 横向复杂布局 -->
+	<h2>横向复杂布局</h2>
 
+	<div class="complex">
+		<div class="initial">
+			空间足够的时候，我的宽度是200px，如果空间不足，我会变窄到100px，但不会再窄了。 flex: initial; width: 200px; min-width: 100px;
+		</div>
+		<div class="none">
+			无论窗口如何变化，我的宽度一直是200px。
+			flex: none;
+		</div>
+		<div class="flex1">我会占满剩余宽度的1/3。flex: 1;</div>
+		<div class="flex2">我会占满剩余宽度的2/3。flex: 2;</div>
+	</div>
 </body>
+
 </html>
