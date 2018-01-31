@@ -1,0 +1,254 @@
+
+
+body{
+    background: #fff;
+	display: flex; 
+	align-items: center; 
+	justify-content: center;
+}
+
+section{
+    /*border: 1px solid red;*/
+}
+.toolbar{
+    height: 60px;
+    line-height: 60px;
+}
+.toolbar .select-wrap{
+    float: left;
+    display: inline-block;
+}
+.toolbar .select-wrap label{
+    float: left;
+    font-size: 16px;
+}
+#industry-select{
+    float: left;
+    width: 120px;
+    height: 30px;
+    margin-top: 15px;
+}
+
+#refresh{
+    float: left;
+    display: inline-block;
+    margin-left: 40px;
+    height: 30px;
+    margin-top: 15px;
+    padding: 5px;
+    cursor: pointer;
+}
+#update-server{
+    float: left;
+    display: inline-block;
+    margin-left: 40px;
+    margin-top: 15px;
+    height: 30px;
+    padding: 5px;       
+    cursor: pointer;
+     
+}
+
+.company-title{
+    width: 100%;
+    height: auto;
+}
+.company-title h3{
+    height: 30px;
+    line-height: 30px;
+    background-color: #900; 
+}
+.company-title .companylis{
+    overflow: auto;
+    width: 100%;
+    max-height: 200px; 
+}
+.company-title .companylis::-webkit-scrollbar {
+    width: 10px;
+}
+.company-title .companylis::-webkit-scrollbar-track{
+    background-color: #fff; 
+}
+.company-title .companylis::-webkit-scrollbar-thumb{
+    border: 2px solid #fff; 
+    background-color: #666;
+    cursor: pointer;
+}
+.company-title .companylis::-webkit-scrollbar-thumb:hover{
+    background-color: #333;
+}
+.companylis li{
+    float: left;
+    margin: 0 40px;
+    list-style: decimal-leading-zero;
+    font-size: 14px;
+}
+
+.img-company{
+    text-align: center;
+}
+
+.industryBox{
+    width: 1400px;
+    position: relative;
+    margin: 0 auto;
+}
+#pagewrap{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+/*jquery.ui组件的样式控制*/
+.ui-selectable-helper{
+    background-color: rgba(3, 206, 162, .5);
+}
+
+#pagewrap,
+#masks{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#pagewrap{
+    z-index: 9;
+    width: 100%;
+    font-size: 12px;
+}
+#pagewrap .out-wrap{
+    position: relative;
+    width: 100%;
+    /*不设置基础相对位置*/
+    top: 0;
+    left: 0;
+    background-color: blue;
+}
+#pagewrap .area-block{
+    position: absolute;
+    background-color: yellow;
+}
+#pagewrap .export-operation{
+    position: relative;
+    background-color: #5cb85c;
+    left: 0;
+    top: 0;
+}
+#pagewrap .export-operation .save-pic{
+    position: absolute;
+    background-color: #269abc;
+    right: 60px;
+    height: 22px;
+    width: 90px;
+    cursor: pointer;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAAAWCAYAAABAMosVAAABo0lEQVRYhe2YMa6DMAxAOV7vwkGYOAS3SOd0ZUDqF1wgAxKiG6v/ZOQaJ4HwfwOkkaxWwXacF8cJZNntDl/5gEQPIBWJHkAqEj2AVCTESD9fsLXp5yv+ZM8GGgDE/6F62e0OShtQ2kA/TOJC9cO0sMmL2usXdda0vKhnu6YboazaN19l1YLS5jigsW8L6H6YIC/q+ZfDQtBNN64Gh76abnwbhwOk418aNAXpA83H4bqSbwRtWyRpgS8JGssGgrZlJ590041WfRwPQaMe9cPH5aDX7JiooEP0pAlTWHxSUubjAgDAnI28dNCazUuKL6N3yV+AdjUfaDwApS3pspGeoS/a58poXJR+mI4Peq8Nbl/XjYNuVZqRCNynzzNXSoQtpeOUoCls2ocTlfpt1zqlzSILOWj+zAbaVpo21eWjg6YwbSd9CGhsEngK1nbLuRRoes9FG6XNAs6ejMbaTKFT0LYz4zKg+csEtcHrnPSM1lPpDr625UUNZdU6YZ4a9H+Kq0ZzgL6Xn10SYhTyUenx8/2oFD+IFCR6AKlI9ABSkegBJCK/lDfKZ+G5aPoAAAAASUVORK5CYII=);
+}
+
+
+
+
+#masks{
+    z-index: 10;
+}
+
+.mask{
+    position: absolute!important;
+    background-color: rgba(3, 206, 162, .5);
+}
+
+#loading,
+#dialog{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 100;
+    display: none;
+	align-items: center; 
+	justify-content: center;
+}
+#dialog .inner-wrap{
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 20px 1px #cdd1d3;
+    padding: 10px;
+}
+#dialog .inner-wrap h2{
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+#dialog .inner-wrap form{
+    margin: 10px 0;
+}
+#dialog .inner-wrap form label{
+    font-size: 14px;
+}
+#dialog .inner-wrap form input{
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 10px;
+    width: 250px;
+}
+#dialog .inner-wrap form select{
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 10px;
+    width: 150px;
+}
+#dialog .inner-wrap form div{
+    height: 40px;
+    line-height: 40px;
+    width: 520px;
+    text-align: left;
+    text-indent: 30px;
+}
+
+#dialog .inner-wrap form .btns{
+    text-align: right;
+}
+#dialog .inner-wrap form .btns button{
+    width: 60px;
+    height: 26px;
+    line-height: 26px;
+    cursor: pointer;
+    margin-right: 30px;
+    border: 0;
+    border-radius: 3px;
+}
+button.delete{
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+button.save{
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+button.cancle{
+    color: #fff;
+    background-color: #269abc;
+    border-color: #1b6d85;
+}
+
+.company-mask{
+
+}
+.pic-mask{
+    color: #fff;
+    font-size: 14px;
+}
+.for-company{
+    display: block;
+}
+.for-pic{
+    display: none;
+}

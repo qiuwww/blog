@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <!-- cdn -->
+    <script src="https://cdn.bootcss.com/echarts/3.5.4/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+    // 基本思路就是，添加一组总数数据，总数需要自己计算好，
+    // 然后设置显示柱状图的显示颜色为图表的背景色，显示位置是在"insideBottomLeft"，
+    // 字体颜色为白色#e4e4e4；
+    // 检测到点击legend事件之后重新计算总数，设置坐标系最大值，代码部分被压缩过，看着有些麻烦
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        // 指定图表的配置项和数据
+        var a = '{"time":"2017年05月26日","lgName":["优酷","土豆","爱奇艺","搜狐","腾讯","乐视","芒果"],"caName":["俺爹是卧底","职场是个技术活","远征远征","卧底归来","龙珠传奇之无间道","人民的名义","思美人","白鹿原","择天记","欢乐颂2"],"data":[{"name":"优酷","type":"bar","stack":"总量","itemStyle":{"normal":{"label":{"show":false,"position":"insideRight"},"color":"#e4393c"}},"data":[473.66,656.62,383.94,"--",4101.46,2409.66,"--","--",5465.73,"--"]},{"name":"土豆","type":"bar","stack":"总量","itemStyle":{"normal":{"label":{"show":false,"position":"insideRight"},"color":"#ff8400"}},"data":["--","--","--","--","--","--","--","--","--","--"]},{"name":"爱奇艺","type":"bar","stack":"总量","itemStyle":{"normal":{"label":{"show":false,"position":"insideRight"},"color":"#ffd200"}},"data":[1110.17,1209.75,1742.01,5560.04,"--",1676.52,3563.15,"--",15330.82,26753.6]},{"name":"搜狐","type":"bar","stack":"总量","itemStyle":{"normal":{"label":{"show":false,"position":"insideRight"},"color":"#29c729"}},"data":[191.14,"--",261.51,"--","--",215.14,"--","--",1320.68,5324.97]},{"name":"腾讯","type":"bar","stack":"总量","itemStyle":{"normal":{"label":{"show":false,"position":"insideRight"},"color":"#00eaff"}},"data":[1108.97,1834.5,1180.16,"--",3659.56,1293.18,2330.42,"--",14812.36,28405.5]},{"name":"乐视","type":"bar","stack":"总量","itemStyle":{"normal":{"label":{"show":false,"position":"insideRight"},"color":"#1d9bff"}},"data":[449.26,"--",458.64,"--","--","--",9879.95,22748.74,14161.93,13779.83]},{"name":"芒果","type":"bar","stack":"总量","itemStyle":{"normal":{"label":{"show":false,"position":"insideRight"},"color":"#0866e5"}},"data":["--","--","--","--","--",4010.68,1140.1,"--",10740.1,"--"]},{"name":"总数","type":"bar","stack":"总量","itemStyle":{"normal":{"label":{"show":true,"position":"insideBottomLeft","textStyle":{"color":"#e4e4e4"}},"color":"#1D222A"}},"data":["3333.20","3700.87","4026.26","5560.04","7761.02","9605.18","16913.62","22748.74","61831.62","74263.90"]}],"max":74263}';
+        c = JSON.parse(a); 
+        console.log(c)
+        var option = {
+            title: {
+                text: c.time + "电视剧网络日播放量",
+                x: "center",
+                y: 20,
+                textStyle: {
+                    color: "#d8d8d8",
+                    fontSize: 16,
+                    fontFamily: "Microsoft YaHei"
+                }
+            },
+            tooltip: {
+                trigger: "axis",
+                axisPointer: {
+                    type: "shadow"
+                }
+            },
+            toolbox: {
+                show: !0,
+                orient: "vertical",
+                right: 5,
+                itemSize: 22,
+                feature: {
+                }
+            },
+            grid: {
+                right: "15%",
+                left: "16%",
+                borderWidth: 0
+            },
+            legend: {
+                data: c.lgName,
+                y: "bottom",
+                x: 80,
+                textStyle: {
+                    color: "#e4e4e4",
+                    fontFamily: "Microsoft YaHei"
+                }
+            },
+            calculable: !1,
+            backgroundColor: "#1D222A",
+            xAxis: [{
+                type: "value",
+                axisLine: {
+                    lineStyle: {
+                        color: "#4a4a4a",
+                        width: 1
+                    }
+                },
+                axisTick: {
+                    show: !0
+                },
+                name: "单位：万次",
+                nameTextStyle: {
+                    color: "#e4e4e4"
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: "#e4e4e4",
+                        fontFamily: "Microsoft yahei"
+                    }
+                },
+                max: c.max,
+                splitArea: {
+                    show: !1
+                },
+                splitLine: {
+                    show: !1
+                }
+            }],
+            yAxis: [{
+                type: "category",
+                axisLine: {
+                    lineStyle: {
+                        color: "#4a4a4a",
+                        width: 1
+                    }
+                },
+                axisLabel: {
+                    formatter: function(a) {
+                        for (i in a)
+                            return a.length > 5 ? a.substring(0, 4) + ".." : a
+                    },
+                    textStyle: {
+                        color: "#e4e4e4",
+                        fontFamily: "Microsoft yahei"
+                    }
+                },
+                axisTick: {
+                    show: !1
+                },
+                splitArea: {
+                    show: !1
+                },
+                splitLine: {
+                    show: !1
+                },
+                data: c.caName
+            }],
+            series: c.data,
+            noDataLoadingOption: {
+                text: "暂无数据",
+                effect: "whirling"
+            }
+        }
+        // 点击legend事件控制
+        myChart.on("legendselectchanged", function(a) {
+            var b = a.selected
+              , c = option.series
+              , d = new Array(10).fill(0)
+              , f = !0;
+            for (var g in b)
+                0 == b[g] && (f = !1);
+            if (f) {
+                // var h = sessionStorage.getItem("left");
+                // 由于直接使用省略后的数据相加得到的结果与实际有很小的偏差，
+                // 所以最开始的总数取值来自于后台
+                // 在所有的都没被取消的情况下得到的结果还从这里来取
+                var h = '3333.20,3700.87,4026.26,5560.04,7761.02,9605.18,16913.62,22748.74,61831.62,74263.90';
+                d = h.split(",")
+            } else
+                c.forEach(function(a, c) {
+                    name = a.name,
+                    b[name] && a.data.forEach(function(a, b) {
+                        "--" !== a && (d[b] = d[b] + Number(a))
+                    })
+                });
+            var i = Math.max.apply(null , d).toFixed(0);
+            d = d.map(function(a) {
+                return 0 == a ? "--" : Number(a).toFixed(2)
+            }),
+            option.series[7].data = d,
+            option.xAxis[0].max = i,
+            // 从新刷新图表
+            myChart.setOption(option)
+        }),
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
