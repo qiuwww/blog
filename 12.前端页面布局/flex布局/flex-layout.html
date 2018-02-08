@@ -349,6 +349,39 @@
 		<div class="flex1">我会占满剩余宽度的1/3。flex: 1;</div>
 		<div class="flex2">我会占满剩余宽度的2/3。flex: 2;</div>
 	</div>
+	<hr>
+	<!--多行的时候的行间距的设置-->
+	<h2>多行的时候的行间距的设置,给 .flex-item 设置 margin-bottom，然后给容器（.flex）设置负的 margin-bottom 来把最下面一行多余的 margin 给抵消。这样就行了。</h2>
+	<style type="text/css">
+		.multi-row{
+			width: 800px;
+			/*height: 300px;*/
+			background-color: cornflowerblue;
+			display: flex;
+			/*行等间距分隔，需要使用宽度来控制*/
+			justify-content: space-between; 
+			flex-wrap: wrap;
+			margin-bottom: -20px;
+		}
+		.multi-row .flex-item{
+			width: 30%;
+			height: 140px;
+			flex: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: forestgreen;
+			margin-bottom: 20px;
+		}
+	</style>
+	<div class="multi-row">
+		<div class="flex-item">1</div>
+		<div class="flex-item">2</div>
+		<div class="flex-item">3</div>
+		<div class="flex-item">4</div>
+		<div class="flex-item">5</div>
+		<div class="flex-item">6</div>
+	</div>
 </body>
 
 </html>
