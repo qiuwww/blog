@@ -7,4 +7,4 @@ WebAssembly是一种新的编码方式，可以在现代的网络浏览器中运
 WebAssembly被设计为可以和JavaScript一起协同工作——通过使用WebAssembly的JavaScript API，你可以把WebAssembly模块加载到一个JavaScript应用中并且在两者之间共享功能。这允许你在同一个应用中利用WebAssembly的性能和威力以及JavaScript的表达力和灵活性，即使你可能并不知道如何编写WebAssembly代码。
 
 
-于是 Google 在 2009 年在 V8 中引入了 JIT 技术 (Just in time compiling 江湖人称即时编译)。 有了这个buff, Javascript 瞬间提升了 20 － 40 倍的速度。直接导致一大波大型网页应用的出现。从此 Javascript 一骑绝尘。
+
