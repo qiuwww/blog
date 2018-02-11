@@ -1,0 +1,15 @@
+{
+  "name": "project-webpack-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.base.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --optimize-minimize",
+    "dev": "webpack-dev-server --config webpack.dev.config.js",
+    "start": "npm run dev" // 或添加你自己的 start 逻辑
+  },
+  "keywords": [],
+  "author": "qiu",
+  "license": "ISC"
+}
