@@ -117,6 +117,33 @@ numbers.push(4);
 disposer();
 numbers.push(5);
 // 不会再输出任何值。`sum` 不会再重新计算。
+
+// demo 2
+import {observable, autorun} from "mobx";
+
+var todos = observable([
+    { title: "Spoil tea", completed: true },
+    { title: "Make coffee", completed: false }
+]);
+
+autorun(() => {
+    console.log("Remaining:", todos
+        .filter(todo => !todo.completed)
+        .map(todo => todo.title)
+        .join(", ")
+    );
+});
+// 输出: 'Remaining: Make coffee'
+
+todos[0].completed = false;
+// 输出: 'Remaining: Spoil tea, Make coffee'
+
+todos[2] = { title: 'Take a nap', completed: false };
+// 输出: 'Remaining: Spoil tea, Make coffee, Take a nap'
+
+todos.shift();
+// 输出: 'Remaining: Make coffee, Take a nap'
+
 ```
 
 
@@ -127,3 +154,6 @@ numbers.push(5);
 
 *action.bound 不要和箭头函数一起使用；箭头函数已经是绑定过的并且不能重新绑定。*
 
+### 不要使用数组的索引作为 key
+
+**不用使用数组索引或者任何将来可能会改变的值作为 key** 。如果需要的话为你的对象生成 id。

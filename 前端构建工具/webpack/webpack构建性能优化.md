@@ -6,21 +6,19 @@
 
 **devtool配置决定了在构建过程中怎样生成 sourceMap 文件。**
 
-通常来说**eval的性能最高**，但是不能生成的 sourceMap 文件解析出来的代码，**和源代码差异较大**。
-
-**source-map 的性能较差，但是可以生成原始版本的代码。** 
-
-在大多数 Development 场景下 **cheap-module-eval-source-map 是最佳的选择**。
+- 通常来说**eval的性能最高**，但是不能生成的 sourceMap 文件解析出来的代码，**和源代码差异较大**。
+- **source-map 的性能较差，但是可以生成原始版本的代码。** 
+- 在大多数 Development 场景下 **cheap-module-eval-source-map 是最佳的选择**。
 
 
 
 ### 二、Build Cache
 
-Webpack 和一些 **Plugin/Loader** 都有 Cache 选项。开启 Cache 选项，有利用提高构建性能。
+Webpack 和一些 **Plugin/Loader** 都有 Cache 选项**。开启 Cache 选项，有利用提高构建性能**。
 
 使用 babel-loader 的时候开启 **cacheDirectory 选项**，会较为明显的提升构建速度。
 
-最好配置一下include,不用去一一查找目录。
+最好配置一下include，不用去一一查找目录。
 
 > module: {
 >
@@ -40,15 +38,17 @@ Webpack 和一些 **Plugin/Loader** 都有 Cache 选项。开启 Cache 选项，
 
 - 使用 CommonsChunksPlugin **提取多个 chunk 之间的通用模块，减少总体的代码体积。**
 - **把部分依赖（比较大的库之类的）转移到 CDN 上，避免在每次编译过程中都由 Webpack 处理。**
-- 对于支持**局部引入的类库**，在开发的过程中使用局部引入的方式，避免引入无用的文件。
+- 对于支持**局部引入的类库**，在开发的过程中使用**局部引入**的方式，避免引入无用的文件。
 
 比如 lodash（类underscore）就支持部分引入：
 
 > import isArray from 'lodash/isArray';
 
+
+
 #### 使用第三方 plugin，在编译过程中进行体积分析，并且以图表方式输出：
 
-推荐使用 webpack-bundle-analyzer。
+**代码大小分析工具：推荐使用 webpack-bundle-analyzer。**
 
 ```
 1、先安装
@@ -233,3 +233,107 @@ Webpack 的 DllPlugin 和 DllReferencePlugin 是在**新版本中推出的 Plugi
 > })
 
 在具体的使用过成中， 在 Dll 中包含的依赖没有变化的场景下，**可以先执行单次 webpack –config webpack.dll.config.js。然后可以多次执行业务代码的构建过程。由于把第三方依赖进行了剥离，业务代码的构建会快很多。**
+
+### 七、分离第三方依赖
+
+> 为减少 rebuild 的时间, 我们可以分离第三方依赖, 在项目启动之前, 将其单独打包和引入。
+
+### 八、多进程构建
+
+Webpack的构建过程是单进程的, 利用 HappyPack 可让 loader 对文件进行多进程处理。在业务文件依赖越多和复杂的情况下, HappyPack 对 Webpack 构建效率的提升会越明显。
+
+### 九、提取公共的依赖模块
+
+无论是**单页还是多页应用**, 在生产环境下, 通常都会利用 CommonsChunkPlugin 插件来提供公共的依赖模块:
+
+> new webpack.optimize.CommonsChunkPlugin({
+>
+> ​    name: "vendor",
+>
+> ​    minChunks: ({resource}) => {
+>
+> ​    	resource &&
+>
+> ​    	resource.indexOf('node_modules') &&
+>
+> ​    	resource.match(/.js$/)
+>
+> ​    }
+>
+> }),
+
+这种方式会导致两个问题:
+
+- 业务越复杂, 三方依赖会越多, vendor 包会越大
+- 没有隔离业务路由组件, 所有的路由都有可能会去加载 vendor, 但并不是所有的路由组件都依赖 node_modules 下的所有模块
+
+所以, 上述提取公共依赖的方式不可取. 我们应该去分析业务依赖和路由, 尽可能将所有路由组件的公共依赖提取出来:*（也就是把需要的提取出来，不是公共的就不要管了，都放在一个文件下面只有一个地方使用，完全没必要）。*
+
+> entry: {
+>
+> ​    app: path.resolve(__dirname, '../src/page/index.js'),
+>
+> ​    vendor: [
+>
+> ​        'vue', 'vuex', 'vue-router', 'vuex-router-sync', 'babel-polyfill',
+>
+> ​        'axios', '....'
+>
+> ​    ]
+>
+> },
+>
+>  
+>
+> new webpack.optimize.CommonsChunkPlugin({
+>
+> ​    name: "vendor",
+>
+> ​    filename: "vendor.js"
+>
+> }),
+
+###  十、资源混淆和压缩
+
+Webpack提供的 UglifyJS 插件由于采用单线程压缩, 速度比较慢,
+
+**可以使用 Parallel 插件进行优化**:
+
+> let ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
+>
+> let os = require('os');
+>
+> new ParallelUglifyPlugin({
+>
+> ​    workerCount: os.cpus().length,
+>
+> ​    cacheDir: '.cache/',
+>
+> ​    uglifyJS: {
+>
+> ​        compress: {
+>
+> ​            warnings: false,
+>
+> ​            drop_debugger: true,
+>
+> ​            drop_console: true
+>
+> ​        },
+>
+> ​        comments: false,
+>
+> ​        sourceMap: true,
+>
+> ​        mangle: true
+>
+> ​    }
+>
+> })
+
+**Gzip 压缩**
+
+在生产环境下, 如果想进一步减小 bundle 文件的大小, 可以使用 Gzip 压缩。
+
+
+
