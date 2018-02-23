@@ -34,6 +34,9 @@ function deepCopy(obj) {
     return newObj;
 }
 
+
+let deepCopy2 = (target) => JSON.parse(JSON.stringify(target));
+
 // Test case
 // 1. 只含有简单类型的Object{a: 1, b:2} => pass
 // 2. 简单类型和复杂类型同时存在的情况下的Object => pass:
