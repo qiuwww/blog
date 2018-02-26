@@ -1,110 +1,114 @@
 <!-- 冻结首行首列.html -->
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<title>Only_Copy</title>
 
-<script src="https://cdn.bootcss.com/jquery/1.12.2/jquery.js"></script>
-<script type="text/javascript">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>Only_Copy</title>
+
+    <script src="https://cdn.bootcss.com/jquery/1.12.2/jquery.js"></script>
+    <script type="text/javascript">
 
 </script>
-<style type="text/css">
-/*Table样式，无关紧要*/
-#MyTable{
-	width:500px;
-	height:250px;
-	
-	}
-#MyTable td{
-	border:solid 1px #000;
-	}
-
-/*冻结首行的样式*/
-.freezeTr{
-	background-color:#9FF;
-	z-index:10;
-	/*定位，必定位*/
-	position:relative;
-	/*通过某种机制，时该执行，IE8不在支持，关键语句*/
-	top:expression($("#OutDiv").scrollTop());
-	}
-/*冻结列的样式*/
-.freezeTd{
-	background-color:#9FF;
-	z-index:9;
-	/*相对定位，不会乱，绝对定位会乱*/
-	position:relative;
-	/*通过某种机制，时该执行，IE8不在支持，关键语句*/
-	left:expression($("#OutDiv").scrollLeft());
-	}
-
-</style>
+    <style type="text/css">
+        /*Table样式，无关紧要*/
+        
+        #MyTable {
+            width: 500px;
+            height: 250px;
+        }
+        
+        #MyTable td {
+            border: solid 1px #000;
+        }
+        /*冻结首行的样式*/
+        
+        .freezeTr {
+            background-color: #9FF;
+            z-index: 10;
+            /*定位，必定位*/
+            position: relative;
+            /*通过某种机制，时该执行，IE8不在支持，关键语句*/
+            top: expression($("#OutDiv").scrollTop());
+        }
+        /*冻结列的样式*/
+        
+        .freezeTd {
+            background-color: #9FF;
+            z-index: 9;
+            /*相对定位，不会乱，绝对定位会乱*/
+            position: relative;
+            /*通过某种机制，时该执行，IE8不在支持，关键语句*/
+            left: expression($("#OutDiv").scrollLeft());
+        }
+    </style>
 </head>
+
 <body>
-<div id="OutDiv" style="width:300px;height:200px;overflow:scroll;">
-	<table id="MyTable">
-    	<tr class="freezeTr">
-        	<td class="freezeTd">冻结首行首列</td>
-        	<td>冻结头A</td>
-            <td>冻结头B</td>
-            <td>冻结头C</td>
-            <td>冻结头D</td>
-            <td>冻结头E</td>
-        </tr>
-        <tr>
-        	<td class="freezeTd">锁定列一</td>
-            <td>一</td>
-            <td>地</td>
-            <td>在</td>
-            <td>要</td>
-            <td>工</td>
-        </tr>
-        <tr>
-        	<td class="freezeTd">锁定列二</td>
-            <td>上</td>
-            <td>是</td>
-            <td>中</td>
-            <td>国</td>
-            <td>同</td>
-        </tr>
-        <tr>
-        	<td class="freezeTd">锁定列三</td>
-            <td>和</td>
-            <td>的</td>
-            <td>有</td>
-            <td>人</td>
-            <td>我</td>
-        </tr>
-        <tr>
-        	<td class="freezeTd">锁定列四</td>
-            <td>主</td>
-            <td>产</td>
-            <td>不</td>
-            <td>为</td>
-            <td>这</td>
-        </tr>
-        <tr>
-        	<td class="freezeTd">锁定列五</td>
-            <td>民</td>
-            <td>了</td>
-            <td>发</td>
-            <td>以</td>
-            <td>经</td>
-        </tr>
-    </table>
-</div>
+    <div id="OutDiv" style="width:300px;height:200px;overflow:scroll;">
+        <table id="MyTable">
+            <tr class="freezeTr">
+                <td class="freezeTd">冻结首行首列</td>
+                <td>冻结头A</td>
+                <td>冻结头B</td>
+                <td>冻结头C</td>
+                <td>冻结头D</td>
+                <td>冻结头E</td>
+            </tr>
+            <tr>
+                <td class="freezeTd">锁定列一</td>
+                <td>一</td>
+                <td>地</td>
+                <td>在</td>
+                <td>要</td>
+                <td>工</td>
+            </tr>
+            <tr>
+                <td class="freezeTd">锁定列二</td>
+                <td>上</td>
+                <td>是</td>
+                <td>中</td>
+                <td>国</td>
+                <td>同</td>
+            </tr>
+            <tr>
+                <td class="freezeTd">锁定列三</td>
+                <td>和</td>
+                <td>的</td>
+                <td>有</td>
+                <td>人</td>
+                <td>我</td>
+            </tr>
+            <tr>
+                <td class="freezeTd">锁定列四</td>
+                <td>主</td>
+                <td>产</td>
+                <td>不</td>
+                <td>为</td>
+                <td>这</td>
+            </tr>
+            <tr>
+                <td class="freezeTd">锁定列五</td>
+                <td>民</td>
+                <td>了</td>
+                <td>发</td>
+                <td>以</td>
+                <td>经</td>
+            </tr>
+        </table>
+    </div>
 
 
-<div id = "test"></div>
-<style type="text/css">
-#test{
-    width: 0;
-    height: 0;
-    border: 100px solid yellow;
-    border-radius: 100px;
-    border-right-color: transparent;
-}
-</style>
+    <div id="test"></div>
+    <style type="text/css">
+        #test {
+            width: 0;
+            height: 0;
+            border: 100px solid yellow;
+            border-radius: 100px;
+            border-right-color: transparent;
+        }
+    </style>
 </body>
+
 </html>
