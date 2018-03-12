@@ -107,3 +107,55 @@ console.timeEnd('myTime'); //Ends the timer with Label - myTime
 
 > clear()
 
+
+
+
+
+## 反调试
+
+
+
+
+
+## 重定义console.log方法，来取消开发过程中的打印信息
+
+```
+console.log("HelloWorld");
+
+var fake = function() {};
+
+window['console']['log']= fake;
+
+console.log("Youcan't see me!");
+```
+
+
+
+
+
+## 利用一个无限循环的debugger指令来避免生产环境代码被人调试执行
+
+```
+setTimeout(function(){while (true) {eval("debugger")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
