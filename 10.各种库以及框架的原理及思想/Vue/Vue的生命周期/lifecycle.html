@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/vue/2.1.3/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <p>{{ message }}</p>
+    </div>
+
+    <script type="text/javascript">
+    
+  var app = new Vue({
+       el: '#app', // 为实例提供挂载元素，值可以是css选择符或者实际的HTML元素，返回HTML元素的函数， 只在由 new 创建的实例中遵守。
+       // Vue 实例的数据对象。Vue 将会递归将 data 的属性转换为 getter/setter，从而让 data 的属性能够响应数据变化。
+       // 对象必须是纯粹的对象(含有零个或多个的key/value对)：浏览器 API 创建的原生对象，原型上的属性会被忽略。
+       // 大概来说，data 应该只能是数据 - 不推荐观察拥有状态行为的对象。
+       data: {  //  组件的定义只接受 function。
+           message : "test lifecycle" 
+       },
+       // 在实例初始化之后，立即同步调用，在数据观察(data observer)和 event/watcher 配置之前被调用。
+       beforeCreate: function () {
+            console.group('beforeCreate 创建前状态===============》');
+            console.log("%c%s", "color:red" , "el     : " + this.$el); //undefined
+            console.log("%c%s", "color:red","data   : " + this.$data); //undefined 
+            console.log("%c%s", "color:red","message: " + this.message)  
+        },
+        // 实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。
+        // 然而，挂载阶段还没开始，$el 属性目前不可见。
+        created: function () {
+            console.group('created 创建完毕状态===============》');
+            console.log("%c%s", "color:red","el     : " + this.$el); //undefined
+            console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化 
+            console.log("%c%s", "color:red","message: " + this.message); //已被初始化
+        },
+        // 在挂载开始之前被调用：相关的 render 函数首次被调用。
+        beforeMount: function () {
+            console.group('beforeMount 挂载前状态===============》');
+            console.log("%c%s", "color:red","el     : " + (this.$el)); //已被初始化
+            console.log(this.$el);
+            console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化  
+            console.log("%c%s", "color:red","message: " + this.message); //已被初始化  
+        },
+        // 在实例挂载之后调用，其中 el 被新创建的 vm.$el 替代。
+        // 如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。
+        mounted: function () {
+            console.group('mounted 挂载结束状态===============》');
+            console.log("%c%s", "color:red","el     : " + this.$el); //已被初始化
+            console.log(this.$el);    
+            console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化
+            console.log("%c%s", "color:red","message: " + this.message); //已被初始化 
+        },
+        // 在 DOM 被 patch 之前调用数据修改。这是在 DOM 更新之前，访问已有 DOM 的最佳时机，例如，手动地移除之前添加的事件监听器。
+        beforeUpdate: function () {
+            console.group('beforeUpdate 更新前状态===============》');
+            console.log("%c%s", "color:red","el     : " + this.$el);
+            console.log(this.$el);   
+            console.log("%c%s", "color:red","data   : " + this.$data); 
+            console.log("%c%s", "color:red","message: " + this.message); 
+        },
+        // 由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。
+        // 当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。
+        // 然而在大多数情况下，你应该避免在此期间更改状态。如果要相应状态改变，通常最好使用计算属性或 watcher 取而代之。
+        updated: function () {
+            console.group('updated 更新完成状态===============》');
+            console.log("%c%s", "color:red","el     : " + this.$el);
+            console.log(this.$el); 
+            console.log("%c%s", "color:red","data   : " + this.$data); 
+            console.log("%c%s", "color:red","message: " + this.message); 
+        },
+        // 实例销毁之前调用。在这一步，实例仍然完全可用。
+        beforeDestroy: function () {
+            console.group('beforeDestroy 销毁前状态===============》');
+            console.log("%c%s", "color:red","el     : " + this.$el);
+            console.log(this.$el);    
+            console.log("%c%s", "color:red","data   : " + this.$data); 
+            console.log("%c%s", "color:red","message: " + this.message); 
+        },
+        // Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
+        destroyed: function () {
+            console.group('destroyed 销毁完成状态===============》');
+            console.log("%c%s", "color:red","el     : " + this.$el);
+            console.log(this.$el);  
+            console.log("%c%s", "color:red","data   : " + this.$data); 
+            console.log("%c%s", "color:red","message: " + this.message)
+        }
+    })
+</script>
+</body>
+</html>
