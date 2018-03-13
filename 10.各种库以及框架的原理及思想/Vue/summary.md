@@ -16,4 +16,25 @@ Vue 实例的数据对象。Vue 将会递归将 data 的属性转换为 getter/s
 
 注意，**不应该对 data 属性使用箭头函数** (例如`data: () => { return { a: this.myProp }}`)。理由是箭头函数绑定了父级作用域的上下文，所以 this 将不会按照期望指向 Vue 实例，`this.myProp` 将是 undefined。
 
- ### 2. {{}}：模板样式来渲染数据
+ ### 2. {{}}：模板样式来渲染数据;
+
+
+
+### 3. scoped
+
+```
+<style scoped>
+  @media (min-width: 250px) {
+    .list-container:hover {
+      background: orange;
+    }
+  }
+</style>
+```
+
+这个可选 `scoped` 属性会**自动添加一个唯一的属性（比如 `data-v-21e5b78`）为组件内 CSS 指定作用域**，编译的时候 `.list-container:hover` 会被编译成类似 `.list-container[data-v-21e5b78]:hover`。
+
+
+
+### 4. 不要使用HTML elements 作为 组件的id
+
