@@ -229,11 +229,63 @@ Vue.component('child', {
 
 
 
-## 5. 计算属性computed
+## 5. 计算属性computed（基本就是mobx的computed所要进行的操作了，可set，可get）
+
+官方文档说明：https://vuefe.cn/v2/guide/computed.html
+
+计算属性将被**混入到 Vue 实例**中。**所有 getter 和 setter 的 this 上下文自动地绑定为 Vue 实例**。
+
+计算属性的结果会被缓存，除非依赖的响应式属性变化才会重新计算。注意，如果实例范畴之外的依赖 (比如非响应式的 not reactive) 是**不会**触发计算属性更新的。
+
+```
+var vm = new Vue({
+  data: { a: 1 },
+  computed: {
+    // 只获取，值为函数
+    // 键值对的属性，值同data，只能使用function return
+    aDouble: function () {
+      return this.a * 2
+    },
+    // 获取和设置
+    // 值为对象
+    aPlus: {
+      // 需要获取aPlus的值，对用获取值的操作
+      get: function () {
+        return this.a + 1
+      },
+      // 对应赋值操作
+      // computed 属性默认只设置 getter 函数，不过在需要时，还可以提供 setter 函数。
+      set: function (v) {
+        this.a = v - 1
+      }
+    }
+  }
+})
+vm.aPlus   // => 2
+vm.aPlus = 3
+vm.a       // => 2
+vm.aDouble // => 4
+```
+
+#### 关联template操作
+
+https://vuefe.cn/v2/guide/computed.html#基础示例
+
+利用已有的变量来生成一个新的变量，前一个变量改变的时候会更新后一个变量的值。与mobx的computed操作基本类似。
 
 
 
+#### 对比method的方法，优点就是会缓存起来相应不改变的值，不用每次重新计算。computed可以实现的，method也都可以实现。
 
+如果computed依赖的参数不改变的时候，computed的结果会被缓存起来。
+
+#### https://vuefe.cn/v2/guide/computed.html#computed-属性和-watch-属性（命令式）
+
+这里的watch属性类似于mobx的autorun方法，当依赖的参数有改变的时候就去**做一些事情**，自动执行的函数。
+
+**过度滥用 watch 属性会造成一些问题，什么问题？**
+
+这个时候在一个watch的变量改变另一个变量，就可能造成相互调用，可能会溢出。
 
 ## 6. 表单输入绑定
 
@@ -270,11 +322,11 @@ data() {
 
 在**实例初始化之后**，立即**同步调用**，在数据观察(data observer)和 event/watcher 配置之前被调用。（这个时候应该参数也没拿到）
 
-#### created（js对象已生成，绑定dom节点的事还没做，这个时候可以用来请求数据，修改初始值）
+#### created（js对象已生成，绑定dom节点的事还没做，这个时候可以用来请求数据，修改初始值）（应该是在react组件的componentWillMount这个阶段）
 
-实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。然而，挂载阶段还没开始，`$el` 属性目前不可见。
+**实例已经创建完成之后被调用。**在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。然而，挂载阶段还没开始，`$el` 属性目前不可见。
 
-#### beforeMount
+#### beforeMount（应该是在react组件的componentWillMount这个阶段）
 
 在挂载开始之前被调用：**相关的 `render` 函数首次被调用**。
 
@@ -293,4 +345,67 @@ data() {
 **在服务器端渲染期间不会调用这个钩子函数，因为在服务器端只执行初始渲染。**
 
 #### updated
+
+
+
+
+
+
+
+## 9. 遍历||插入数据到页面中（指令v-for：https://vuefe.cn/v2/api/?#v-for） （for...of）（for...in）
+
+基于源数据（**数组类型**或者对象）多次渲染元素或模板块。此指令之值，必须使用特定语法 `alias in expression` ，为当前遍历的元素提供别名。
+
+`v-for` 默认行为试着不改变整体，而是替换元素。**迫使其重新排序的元素,你需要提供一个 `key` 的特殊属性。**（与react的操作基本一致，不用显式的拼接结果）
+
+```
+<my-component v-for="item in items" :key="item.id"></my-component>
+```
+
+
+
+`v-for` 还支持可选的第二个参数，作为当前项的索引。
+
+### 列表渲染
+
+官方文档地址：https://vuefe.cn/v2/guide/list.html
+
+#### 使用-v-for-遍历对象https://vuefe.cn/v2/guide/list.html
+
+```
+还可以提供第二个参数，作为对象的键名(key)：
+<div v-for="(value, key) in object">
+  {{ key }}: {{ value }}
+</div>
+```
+
+在遍历一个对象时，是按照 `Object.keys()` 得出 key 的枚举顺序来遍历，**无法**保证在所有 JavaScript 引擎实现中完全一致。
+
+**对象操作是无序的。属性同级**
+
+
+
+## 10. 条件渲染（v-if）
+
+### 绑定class属性
+
+官方文档说明：https://cn.vuejs.org/v2/guide/class-and-style.html#绑定-HTML-Class
+
+**使用对象语法**
+
+```
+我们可以传给 v-bind:class 一个对象，以动态地切换 class：
+<div v-bind:class="{ active: isActive }"></div>
+上面的语法表示 active 这个 class 存在与否将取决于数据属性 isActive 的 truthiness。
+```
+
+确定的class可以直接使用class属性来添加上去，v-bind:class会添加到classList中。
+
+###  绑定内联样式
+
+`v-bind:style` 的对象语法十分直观——看着非常像 CSS，但其实是一个 JavaScript 对象。
+
+```
+<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+```
 
