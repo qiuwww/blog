@@ -237,6 +237,8 @@ Vue.component('child', {
 
 计算属性的结果会被缓存，除非依赖的响应式属性变化才会重新计算。注意，如果实例范畴之外的依赖 (比如非响应式的 not reactive) 是**不会**触发计算属性更新的。
 
+- 计算属性不可以与data中定义的属性相同，data中定义的属性可以通过函method来改变，computed中的属性，会依据data中参数的改变而自动改变
+
 ```
 var vm = new Vue({
   data: { a: 1 },
@@ -324,6 +326,14 @@ data() {
 
 #### created（js对象已生成，绑定dom节点的事还没做，这个时候可以用来请求数据，修改初始值）（应该是在react组件的componentWillMount这个阶段）
 
+```
+created: function () { 
+	console.log(2) 
+},
+```
+
+
+
 **实例已经创建完成之后被调用。**在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。然而，挂载阶段还没开始，`$el` 属性目前不可见。
 
 #### beforeMount（应该是在react组件的componentWillMount这个阶段）
@@ -387,6 +397,27 @@ data() {
 
 ## 10. 条件渲染（v-if）
 
+根据表达式的值的真假条件渲染元素。在切换时元素及它的数据绑定 / 组件被销毁并重建。如果元素是 `<template>` ，将提出它的内容作为条件块。
+
+### v-if || v-else-if || v-else
+
+```
+<div v-if="type === 'A'">
+  A
+</div>
+<div v-else-if="type === 'B'">
+  B
+</div>
+<div v-else-if="type === 'C'">
+  C
+</div>
+<div v-else>
+  非 A/B/C
+</div>
+```
+
+## 11. 属性绑定操作（v-bind）
+
 ### 绑定class属性
 
 官方文档说明：https://cn.vuejs.org/v2/guide/class-and-style.html#绑定-HTML-Class
@@ -407,5 +438,51 @@ data() {
 
 ```
 <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+```
+
+
+
+## 12. watch
+
+watch是变量改变的时候需要执行的回调，就是观察模式的观察者。
+
+```
+var vm = new Vue({
+  data: {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
+    e: {
+      f: {
+        g: 5
+      }
+    }
+  },
+  watch: {
+    a: function (val, oldVal) {
+      console.log('new: %s, old: %s', val, oldVal)
+    },
+    // 字符串方法名
+    b: 'someMethod',
+    // 深度 watcher
+    c: {
+      handler: function (val, oldVal) { /* ... */ },
+      deep: true
+    },
+    // 回调函数会将在观察(data observer)开始后立即被调用
+    d: {
+      handler: function (val, oldVal) { /* ... */ },
+      immediate: true
+    },
+    e: [
+      function handle1 (val, oldVal) { /* ... */ },
+      function handle2 (val, oldVal) { /* ... */ }
+    ],
+    // watch vm.e.f's value: {g: 5}
+    'e.f': function (val, oldVal) { /* ... */ }
+  }
+})
+vm.a = 2 // => new: 2, old: 1
 ```
 

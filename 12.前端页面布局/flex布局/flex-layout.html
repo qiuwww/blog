@@ -96,8 +96,36 @@
 			justify-content: center;
 			align-items: center;
 		}
-		/*align-items, 侧轴的对齐方式*/
 		
+		/*align-content 侧轴对齐方式，取值与justify-content差不多*/
+        .layout6 {
+			display: flex;
+			width: 60px;
+            height: 350px;
+            flex-wrap: wrap;
+            justify-content: center;
+			background-color: #999;
+            /*与交叉轴的起点对齐。*/
+            align-content: flex-start;
+            /*与交叉轴的终点对齐。*/
+            /*align-content: flex-end;*/
+            /*与交叉轴的中点对齐。*/
+            /*align-content: center;*/
+            /*与交叉轴两端对齐，轴线之间的间隔平均分布。*/
+            /*align-content: space-between;*/
+            /*每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。*/
+            /*align-content: space-around;*/
+            /*（默认值）：轴线占满整个交叉轴。*/
+            /*align-content: stretch;*/
+		}
+        .layout6 .align-content {
+			width: 50px;
+			height: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
 		.layout5 {
 			display: flex;
 			width: 500px;
@@ -298,7 +326,17 @@
 	</div>
 	<hr/>
 
-	<h2>align-items, 用来定义伸缩项目在侧轴的对齐方式，这类似于[justify-content]属性，但是是另一个方向。</h2>
+    <h2>align-content, 多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</h2>
+	<div class="layout6">
+		<div class="align-content" style="background-color: green;">1</div>
+		<div class="align-content" style="background-color: yellow;">2</div>
+		<div class="align-content" style="background-color: blue;">3</div>
+		<div class="align-content" style="background-color: red;">4</div>
+		<div class="align-content" style="background-color: gray;">5</div>
+	</div>
+
+	<hr/>
+	<h2>align-items, 用来定义伸缩项目在侧轴的对齐方式，这类似于[justify-content]属性，但是是另一个方向。属性定义项目在交叉轴上如何对齐。</h2>
 	<div class="layout5">
 		<div class="align-items" style="background-color: red;">1</div>
 		<div class="align-items" style="background-color: blue;">2</div>
