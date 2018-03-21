@@ -215,3 +215,20 @@ const timeTaken = callback => {
 };
 // timeTaken(() => Math.pow(2, 10)) -> 1024
 // (logged): timeTaken: 0.02099609375ms
+
+
+// 评级组件
+"★★★★★☆☆☆☆☆".slice(5 - rate, 10 - rate); 
+
+try{
+    something
+} catch (e) {
+    window.location.href = "http://stackoverflow.com/search?q=[js]+" + e.message;
+}
+
+// 类数组转数组
+var argArray = Array.prototype.slice.call(arguments);
+// ES6：
+var argArray = Array.from(arguments);
+// or
+var argArray = [...arguments];

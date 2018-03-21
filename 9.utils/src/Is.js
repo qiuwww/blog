@@ -82,6 +82,26 @@ let isObject = function(obj){
 	}
 }
 
+// 检测是不是指数
+function isPrime(n) { 
+	return !(/^.?$|^(..+?)\1+$/).test('1'.repeat(n));
+}
+
+// 检测从str到end的所有质数
+function getPrime(str, end) {
+	let res = [];
+	for(let i = str; i <= end; i++){
+		if(isPrime(i)){
+			res.push(i);
+		}else{
+			continue;
+		}
+	}
+	return res;
+}
+// test
+getPrime(1, 1000);
+
 
 var $ = (function () {
     'use strict';

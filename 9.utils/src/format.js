@@ -121,3 +121,10 @@ function thousandsSeparator (num, fixNum) {
 export default { 
     separator: thousandsSeparator 
 }
+
+
+let getInt = function(){
+    let num = + arguments[0];
+    // 这里非数的话会转为0
+    return num | 0;
+}
