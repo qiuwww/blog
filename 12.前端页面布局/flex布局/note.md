@@ -89,3 +89,10 @@
 
 https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex
 
+
+
+## flex高度继承的问题
+
+- 在49版本的时候高度集成只能是一层一层的display: flex;  flex: 1; 不能穿插100%之类的百分比操作；继承的属性屏蔽了flex: 1;
+
+- 60版本的chrome不存在这个问题。
