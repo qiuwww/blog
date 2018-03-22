@@ -5,7 +5,7 @@ https://vuefe.cn/v2/api/
 
 ### 1. Vue.config 是一个对象，包含 Vue 的全局配置。silent配置。
 
-可以在启动应用程序之前，预先修改框架的属性。
+可以在启动应用程序之前，**预先修改框架的属性**。
 
 ```
 Vue.config.silent = true
@@ -14,9 +14,9 @@ Vue.config.silent = true
 
 ### 2. optionMergeStrategies
 
-用于定义选项(options)的自定义合并策略。
+用于定义选项(options)的自定义**合并策略**。
 
-`optionMergeStrategies` 主要用于 `mixin` 以及 `Vue.extend()` 方法时对于子组件和父组件如果有相同的属性(option)时的合并策略。
+`optionMergeStrategies` 主要用于 `mixin` 以及 `Vue.extend()` 方法时对于子组件和父组件**如果有相同的属性(option)时的合并策略。**
 
 - **默认的合并策略**：就是，子组件的选项不存在，才会使用父组件的选项，如果子组件的选项存在，使用子组件自身的。
 
@@ -34,7 +34,6 @@ Vue.config.silent = true
 ```
 // 务必在加载 Vue 之后，立即同步设置以下内容
 Vue.config.devtools = true
-
 ```
 
 设置是否允许 **vue-devtools**审查应用程序。
@@ -47,7 +46,6 @@ Vue.config.errorHandler = function (err, vm, info) {
   // `info` 是 Vue 特有的错误信息，例如，错误是在哪个生命周期钩子函数中发现的。
   // info 只在 2.2.0+ 可访问
 }
-
 ```
 
 设置一个处理函数，用于在组件渲染函数调用和 watcher 期间捕获错误。这个处理函数被调用时，传入 error 对象和 Vue 实例。
