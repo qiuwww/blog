@@ -186,6 +186,101 @@ install 方法调用时，会将 Vue 作为参数传入。自定义插件的添�
 - Vue 实例将会在实例化时调用 $watch()，遍历 watch 对象的每一个属性。
 - 深度watch，有什么用？，直接就可以添加回调啊。添加多个方法吗？
 
+## 选项/DOM
+### 27. el
+
+- 提供一个在页面上已存在的 DOM 元素作为 Vue 实例的**挂载目标**。可以是 CSS 选择器，也可以是一个 HTMLElement 实例。
+- 在实例挂载之后， 元素可以用 **vm.$el** 访问。
+- 如果这个选项在实例化时有作用，实例将立即进入编译过程，否则，需要显式调用 vm.$mount() **手动开启编译**。
+
+### 28. template
+
+一个字符串模板作为 Vue 实例的标识使用。模板将会 替换 挂载的元素。挂载元素的内容都将被忽略，除非模板的内容有分发 slot。
+
+
+### 29. render
+
+- 字符串模板的代替方案，允许你发挥 JavaScript 最大的编程能力。
+- render 函数接收一个 **createElement** 方法作为第一个参数用来创建 **VNode**。
+- 如果组件是一个函数组件，Render 函数还会接收一个额外的 context 参数，为没有实例的函数组件提供上下文信息。
+
+
+### 30. renderError
+
+- 当 render 函数遭遇错误时，**提供另外一种渲染输出**。
+- 其错误将会作为第二个参数传递到 renderError。这个功能配合 hot-reload 非常实用。
+```
+new Vue({
+  // 正常情况下的输出
+  render (h) {
+    throw new Error('oops')
+  },
+  // 不正常情况下的输出
+  renderError (h, err) {
+    return h('pre', { style: { color: 'red' }}, err.stack)
+  }
+  // 挂载节点
+}).$mount('#app')
+```
+## 选项/生命周期钩子
+
+### 31. beforeCreate
+
+- 在实例初始化之后，立即同步调用，在数据观察(data observer)和 event/watcher 配置之前被调用。
+- 这个时候能干什么？
+
+### 32. created
+
+- 实例已经创建完成之后被调用。
+- 在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。
+- 然而，挂载阶段还没开始，$el 属性目前不可见。
+
+- 这个时候能干什么？
+  - 参数获取操作；
+  - ajax请求；
+
+### 33. beforeMount
+
+- 在挂载开始之前被调用：相关的 render 函数首次被调用。(render后挂载$.mount)
+
+### 34. mounted
+- 在实例挂载之后调用，其中 el 被新创建的 vm.$el 替代。
+- 如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。
+
+### 35. beforeUpdate
+
+- 在 DOM 被 patch 之前调用数据修改。这是在 DOM 更新之前，访问已有 DOM 的最佳时机。
+
+### 36. updated
+由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。
+当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。
+```
+updated: function () {
+  // dom更新之后调用后续的操作
+  this.$nextTick(function () {
+    // Code that will run only after the
+    // entire view has been re-rendered
+  })
+}
+```
+### 37. activated
+
+keep-alive 组件激活时调用。
+
+### 38. deactivated
+
+keep-alive 组件停用时调用。
+
+### 39. beforeDestory
+
+实例销毁之前调用。在这一步，实例仍然完全可用。
+
+### 40. destoryed
+
+Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
+
+### 41. errorCaptured
+当任何一个来自后代组件的错误时被捕获时调用。此钩子函数会收到三个参数：错误对象、发生错误的组件实例，和一个包含错误在何处被捕获信息的字符串。此钩子函数可以返回 false，以阻止该错误继续向上冒泡。
 
 
 
