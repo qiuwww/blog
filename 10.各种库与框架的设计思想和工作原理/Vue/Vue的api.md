@@ -224,12 +224,12 @@ new Vue({
 ```
 ## 选项/生命周期钩子
 
-### 31. beforeCreate
+### 31. beforeCreate（实例还没有创造出来）
 
 - 在实例初始化之后，立即同步调用，在数据观察(data observer)和 event/watcher 配置之前被调用。
 - 这个时候能干什么？
 
-### 32. created
+### 32. created（实例已经存在了）
 
 - 实例已经创建完成之后被调用。
 - 在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。
@@ -239,19 +239,25 @@ new Vue({
   - 参数获取操作；
   - ajax请求；
 
-### 33. beforeMount
+### 33. beforeMount（将要挂载）
 
 - 在挂载开始之前被调用：相关的 render 函数首次被调用。(render后挂载$.mount)
 
 ### 34. mounted
+
 - 在实例挂载之后调用，其中 el 被新创建的 vm.$el 替代。
 - 如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。
+- 初始data数据在DOM节点上已经渲染完毕。
+- 如果是异步操作，这个时候还没有渲染。
 
 ### 35. beforeUpdate
 
+- 实例的data发生变化，这个阶段就是在实例状态（dom？）更新之前。
 - 在 DOM 被 patch 之前调用数据修改。这是在 DOM 更新之前，访问已有 DOM 的最佳时机。
+- data变化完毕。
 
 ### 36. updated
+
 由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。
 当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。
 ```
