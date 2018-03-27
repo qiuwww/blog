@@ -232,3 +232,22 @@ var argArray = Array.prototype.slice.call(arguments);
 var argArray = Array.from(arguments);
 // or
 var argArray = [...arguments];
+
+// 解析url为一个对象
+function parseUrl(url){
+	var result = {};
+	var keys = ['href','origin','protocol','host','hostname','port','pathname','search','hash'];
+	var regexp = /(([^:]+:)\/\/(([^:\/\?#]+)(:\d+)?))(\/[^?#]*)?(\?[^#]*)?(#.*)?/;
+	var match = regexp.exec(url);
+	console.log(match);
+	if(match){
+		for(var i=keys.length-1;i>=0;i--){
+			result[keys[i]] = match[i]?match[i]:' ';
+		}
+	}
+	return result;
+}
+var res = parseUrl('http://baidu.com:80/abd?id=123&&title=123213#521');
+console.log(res);
+
+
