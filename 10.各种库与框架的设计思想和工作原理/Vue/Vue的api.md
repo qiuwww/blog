@@ -98,11 +98,29 @@ var Profile = Vue.extend({
 new Profile().$mount('#mount-point')
 ```
 
-### 11. Vue.nextTick([callback, context]), 异步更新队列。
+### 11. Vue.nextTick([callback, context]), 异步更新队列。延迟更新后执行操作。
 
 在下次 DOM 更新循环结束之后执行延迟回调。**在修改数据之后，立即使用这个回调函数，获取更新后的 DOM**。
 
 事件发生在当前次代码执行过程中的，dom更新之后，返回一个promise对象。
+```
+new Vue({
+  // ...
+  methods: {
+    // ...
+    example: function () {
+      // 修改数据
+      this.message = 'changed'
+      // DOM 还没有更新
+      this.$nextTick(function () {
+        // DOM 现在更新了
+        // `this` 绑定到当前实例
+        this.doSomethingElse()
+      })
+    }
+  }
+})
+```
 
 ### 12. Vue.set(target, key, value)
 
@@ -115,6 +133,7 @@ new Profile().$mount('#mount-point')
 ### 14. Vue.directive( id, [definition] )
 
 注入或者获取全局指令。注册在全局Vue对象上。自己添加的方法注册在Vue对象上，为什么不注册在window对象上，^_^。有什么特殊的意义？
+
 
 ### 15. Vue.filter( id, [definition] )
 
@@ -260,6 +279,9 @@ new Vue({
 - 如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。
 - 初始data数据在DOM节点上已经渲染完毕。
 - 如果是异步操作，这个时候还没有渲染。
+- 注意 mounted 不会承诺所有的子组件也都一起被挂载。如果你希望等到整个视图都渲染完毕，可以用 vm.$nextTick 替换掉 mounted。
+- dom节点已经插入到页面内了。
+
 
 ### 35. beforeUpdate
 
@@ -305,6 +327,8 @@ Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解
 
 包含 Vue 实例可用指令的哈希表。
 
+可以添加自定义指令。
+
 ### 43 filters（过滤器）
 
 包含 Vue 实例可用过滤器的哈希表。
@@ -326,6 +350,10 @@ Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解
 mixins 选项接受一个混合对象的数组。这些混合实例对象可以像正常的实例对象一样包含选项,他们将在 Vue.extend() 里最终选择使用相同的选项合并逻辑合并。
 
 Mixin钩子按照传入顺序依次调用,并在调用组件自身的钩子**之前**被调用。
+
+相当于一个公用函数的提取。
+
+一个对外开发的扩展接口，组件会调用Vue.extend(),方法来添加到实例中。
 
 ### 47. extends（组件继承）
 
@@ -482,7 +510,7 @@ Vue 实例使用的根 DOM 元素。
 
 ## 十一、实例方法/事件
 
-### 71. vm.$on(event, callback)
+### 71. vm.$on(event, callback),(自定义事件监听回调函数)
 
 监听当前实例上的**自定义事件**。事件可以由vm.$emit触发。回调函数会接收所有传入事件触发函数的额外参数。
 ```
@@ -493,6 +521,10 @@ vm.$on('test', function (msg) {
 vm.$emit('test', 'hi')
 // => "hi"
 ```
+父组件是使用 props 传递数据给子组件，但如果子组件要把数据传递回去，应该怎样做？那就是自定义事件！
+
+父组件可以在使用子组件的地方直接用 v-on 来监听子组件触发的事件。然后再对应子组件方法执行处触发事件，两者缺一不可。
+
 ### 72. vm.$once
 
 监听一个自定义事件，但是只触发一次，在第一次触发之后移除监听器。
@@ -507,9 +539,46 @@ vm.$emit('test', 'hi')
 
 3. 如果同时提供了事件与回调，则只移除这个回调的监听器。
 
-### 74. vm.$emit（运行一下函数）
+### 74. vm.$emit（运行一下函数）,（自定义事件触发）
 
-触发当前实例上（包括父实例上的）的事件。附加参数都会传给监听器回调。
+触发当前实例上（包括父实例上的）的事件。附加参数都会传给监听器回调（$on）。
+
+```
+<!-- 父组件 -->
+<div id="app">
+  <!-- 子组件 -->
+  <!-- 父组件直接用 v-on 来监听子组件触发的事件。 -->
+  <!-- 需跟子组件中的$emit组合使用 -->
+  <mycon v-on:son_method="father_method"></mycon>
+</div>
+
+// 父组件
+new Vue({
+  el: "#app",
+  methods: {
+    father_method: function () {
+      console.log("father");
+    }
+  }
+});
+
+// 子组件
+Vue.component('mycon', {
+  template: '<button v-on:click="son_method">子按钮</button>',
+  methods: {
+  	// 按钮点击时候触发事件
+    son_method: function () {
+      this.counter += 1;
+ 	  console.log("son");
+      // 这句话来触发事件
+      // 必须跟模板中的v-on配合使用,抛出动作
+      this.$emit('son_method');
+    }
+  },
+});
+
+```
+
 
 ## 十二、实例方法/生命周期(这里是主动调用的方法)
 
@@ -556,7 +625,14 @@ document.getElementById('app').appendChild(component.$el)
 
 在大多数场景中你不应该调用这个方法。最好使用 v-if 和 v-for 指令以数据驱动的方式控制子组件的生命周期
 
-## 十三、指令
+## 十三、指令（多用于更新元素，直接操作html）
+
+**自定义指令**
+在 Vue2.0 中，代码复用和抽象的主要形式是组件。然而，有的情况下，你仍然需要对普通 DOM 元素进行底层操作，这时候就会用到自定义指令。
+
+官方文档说明：https://cn.vuejs.org/v2/guide/custom-directive.html
+
+响应的自定义指令也是有生命周期的。
 
 ### 79. v-text
 
@@ -579,6 +655,11 @@ document.getElementById('app').appendChild(component.$el)
 根据表达式的 truthy 和 falsy 值，切换元素的 display CSS 属性。(切换css显隐属性，区别于v-if实例的生成与销毁)
 
 当条件变化时该指令触发过渡效果。
+
+#### 对比v-if的选择
+
+通常来说，v-if 在切换时有更高的性能开销，而 v-show 在初始渲染时有更高的性能开销。
+因此，如果需要频繁切换，推荐使用 v-show，如果条件在运行时改变的可能性较少，推荐使用 v-if。
 
 ### 82. v-if
 
@@ -603,6 +684,7 @@ v-for 默认行为试着不改变整体，而是替换元素。迫使其重新�
 
 官方文档地址：https://vuefe.cn/v2/api/#v-on
 
+change事件 -> input事件
 
 ### 87. v-bind（:，属性绑定）
 
@@ -612,12 +694,24 @@ v-for 默认行为试着不改变整体，而是替换元素。迫使其重新�
 ```
 :style="{width:listwidth,padding:listpadding}" 
 ```
-
-
 ### 88. v-model
 
 官方文档地址：https://vuefe.cn/v2/api/#v-model
 在表单控件或者组件上创建双向绑定。
+
+```
+修饰符：
+.lazy - 取代 input 监听 change 事件
+.number - 输入字符串转为数字
+.trim - 输入首尾空格过滤
+```
+
+```
+在默认情况下，v-model 在每次 input 事件触发后将输入框的值与数据进行同步 (除了上述输入法组合文字时)。
+你可以添加 lazy 修饰符，从而转变为使用 change 事件进行同步：
+<!-- 在“change”时而非“input”时更新 -->
+<input v-model.lazy="msg" >
+```
 
 ### 89. v-pre
 
@@ -654,7 +748,57 @@ ref 被用来给元素或子组件注册引用信息。引用信息将会注册�
 
 ### 94. slot（插口）
 
-用于标记往哪个slot中插入子组件内容。
+用于标记往哪个slot中插入**子组件内容**。
+
+官方参考地址：https://vuefe.cn/v2/guide/components.html#使用-slot-分发内容-Content-Distribution-with-Slots
+
+为了能够使合成组件正常运行，我们需要一种组织方式，将父组件的“内容”和子组件自身的模板掺杂在一起。这个过程被称为内容分发(content distribution)。
+
+<slot> 元素有一个特殊的 name 属性，可以用于深度定制如何分发内容。可以给多个 slot 分配不同的名字。一个具有名称的 slot，会匹配内容片段中有对应 slot 属性的元素。
+
+slot位置插入的元素就是组件调用的时候内部嵌入的元素或者router-view（这个时候就可以分离router-link与router-view）。
+
+```
+<div class="container">
+  <header>
+    <slot name="header"></slot>
+  </header>
+  <main>
+    <slot></slot>
+  </main>
+  <footer>
+    <slot name="footer"></slot>
+  </footer>
+</div>
+
+父组件模板：
+
+<app-layout>
+  <h1 slot="header">这里可能是一个页面标题</h1>
+  <!--不说明slot的就放在没有名的slot-->
+  <p>主要内容的一个段落。</p>
+  <p>另一个主要段落。</p>
+
+  <p slot="footer">这里是一些联系信息</p>
+</app-layout>
+
+渲染结果：
+
+<div class="container">
+  <header>
+    <h1>这里可能是一个页面标题</h1>
+  </header>
+  <main>
+    <p>主要内容的一个段落。</p>
+    <p>另一个主要段落。</p>
+  </main>
+  <footer>
+    <p>这里是一些联系信息</p>
+  </footer>
+</div>
+```
+**在设计如何将组件组合在一起时，内容分发 API 是极其有用的机制。**
+
 
 ### 95. slot-scope（2.5+）
 

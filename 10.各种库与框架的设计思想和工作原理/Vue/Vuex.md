@@ -274,7 +274,6 @@ console.log(store.state.count)  // 1
 
 如果希望Vuex状态更新，相应的Vue组件也得到更新，最简单的方法就是在Vue的computed（计算属性）获取state
 
-
 `
 import { mapState } from 'vuex';
 export default {
@@ -291,13 +290,21 @@ computed: mapState([
   'count'
 ])
 
+等价于
+
+computed: {
+    ...mapState([
+        // 映射 this.count 为 store.state.count
+        'count'
+    ])
+}
 `
 
 mutations也有映射函数mapMutations，帮助我们简化代码，使用mapMutations辅助函数将组件中的methods映射为store.commit调用。
 
 
 
-## state
+## state(state可以在组件中直接使用，派生属性在getters中获取)
 
 https://vuex.vuejs.org/zh-cn/state.html
 
@@ -439,3 +446,13 @@ actions: {
   }
 }
 `
+
+## 混入到实例中
+
+mapState
+
+mapActions
+
+mapMutations
+
+mapGetters

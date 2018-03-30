@@ -59,6 +59,7 @@ replace: 替换，不留下历史记录；
 append: 拼接地址；
 active-class: 激活的时候添加的class，这个时候可以用来设置激活的样式；
 exact: 严格地址匹配
+
 <!-- 这个链接只会在地址为 / 的时候被激活 -->
 <router-link to="/" exact>
 event:  主动触发的事件；
@@ -72,12 +73,19 @@ exact-active-class:
 <router-view> 渲染的组件还可以内嵌自己的 <router-view>，根据嵌套路径，渲染嵌套组件。
 
 如果 <router-view>设置了名称，则会渲染对应的路由配置中 components 下的相应组件。查看 命名视图 中的例子。
+如果不设置名称就会都渲染到一个中间。
 
 ### 选项
+
+routers: 具体的路由
 
 name: 对应路由配置中的components下的相应组件。
 
 可以在外层套一层别的元素实现相应的行为表现。
+
+mode: "hash" (浏览器环境) | "abstract" (Node.js 环境)
+
+官方文档地址： https://router.vuejs.org/zh-cn/api/options.html
 
 
 ## 问题
@@ -85,6 +93,28 @@ name: 对应路由配置中的components下的相应组件。
 vue组件化， 要保证router-link 与 router-view，在同一个组件内，会不会限制了页面的布局，也就是切换部分页的时候需要切换的内容与触发的位置离的很近。
 
 
+## 与Vue的参数交换
 
+vue组件中，通过$route拿到router的相关参数
 
+可以观察$route的变化作出相应的响应：
+```
+const User = {
+  template: '...',
+  watch: {
+    '$route' (to, from) {
+      // 对路由变化作出响应...
+    }
+  }
+}
+```
 
+## 编程式导航
+
+使用push || replace || go来进行跳转。
+
+vue-router 的导航方法 （push、 replace、 go） 在各类路由模式（history、 hash 和 abstract）下表现一致。
+
+push(相当于location跳转)
+
+想要导航到不同的 URL，则使用 router.push 方法。这个方法会向 history 栈添加一个新的记录，所以，当用户点击浏览器后退按钮时，则回到之前的 URL。
