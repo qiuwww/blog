@@ -3,108 +3,108 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style type="text/css">
-		/*居中布局*/
-		
-		.layout1 {
-			width: 300px;
-			height: 200px;
-			background-color: blue;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-		
-		.box {
-			width: 200px;
-			/*宽度可以为任意*/
-			height: 100px;
-			/*高度可以为任意*/
-			background-color: yellow;
-		}
-		/*布局方向控制*/
-		
-		.layout2 {
-			display: flex;
-			width: 100%;
-			/*flex-direction，可以使用控制台调整*/
-			/*也是默认值，即主轴的方向和正常的方向一样，从左到右排列。*/
-			flex-direction: row;
-			/*自定义控制间距*/
-			margin-right: 20px;
-			/*和row的方向相反，从右到左排列。*/
-			/*flex-direction:row-reverse; */
-			/*从上到下排列。*/
-			/*flex-direction:column; */
-			/*从下到上排列。 以上只针对ltr书写方式，对于rtl正好相反了, 上下均分高度*/
-			/*flex-direction:column-reverse; */
-		}
-		
-		.layout2 .direction {
-			width: 200px;
-			height: 200px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-		/*控制伸缩容器是单行还是多行，也决定了侧轴方向*/
-		
-		.layout3 {
-			display: flex;
-			width: 300px;
-			height: 300px;
-			background-color: #999;
-			/*伸缩容器单行显示，默认值；*/
-			/*flex-wrap: nowrap;*/
-			/*伸缩容器多行显示；伸缩项目每一行的排列顺序由上到下依次。均分宽度*/
-			flex-wrap: wrap;
-			/*伸缩容器多行显示，但是伸缩项目每一行的排列顺序由下到上依次排列。横向还是顺序排列*/
-			/*flex-wrap:wrap-reverse;*/
-		}
-		
-		.layout3 .wrap {
-			width: 100px;
-			height: 100px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-		/*justify-content, 主轴对齐方式*/
-		
-		.layout4 {
-			display: flex;
-			width: 100%;
-			background-color: #999;
-			/*伸缩项目向主轴的起始位置开始对齐，后面的每元素紧挨着前一个元素对齐。*/
-			justify-content: flex-start;
-			/*伸缩项目向主轴的结束位置对齐，前面的每一个元素紧挨着后一个元素对齐。*/
-			/*justify-content:flex-end;*/
-			/*伸缩项目相互对齐并在主轴上面处于居中，并且第一个元素到主轴起点的距离等于最后一个元素到主轴终点的位置。以上3中都是“捆绑”在一个分别靠左、靠右、居中对齐。*/
-			/*justify-content:center;*/
-			/*伸缩项目平均的分配在主轴上面，并且第一个元素和主轴的起点紧挨，最后一个元素和主轴上终点紧挨，中间剩下的伸缩项目在确保两两间隔相等的情况下进行平分。*/
-			/*justify-content:space-between;*/
-			/*伸缩项目平均的分布在主轴上面，并且第一个元素到主轴起点距离和最后一个元素到主轴终点的距离相等，且等于中间元素两两的间距的一半。完美的平均分配，这个布局在阿里系中很常见。*/
-			/*justify-content:space-around;*/
-		}
-		
-		.layout4 .justify-content {
-			width: 200px;
-			height: 200px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-		
-		/*align-content 侧轴对齐方式，取值与justify-content差不多*/
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        /*居中布局*/
+        
+        .layout1 {
+            width: 300px;
+            height: 200px;
+            background-color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .box {
+            width: 200px;
+            /*宽度可以为任意*/
+            height: 100px;
+            /*高度可以为任意*/
+            background-color: yellow;
+        }
+        /*布局方向控制*/
+        
+        .layout2 {
+            display: flex;
+            width: 100%;
+            /*flex-direction，可以使用控制台调整*/
+            /*也是默认值，即主轴的方向和正常的方向一样，从左到右排列。*/
+            flex-direction: row;
+            /*自定义控制间距*/
+            margin-right: 20px;
+            /*和row的方向相反，从右到左排列。*/
+            /*flex-direction:row-reverse; */
+            /*从上到下排列。*/
+            /*flex-direction:column; */
+            /*从下到上排列。 以上只针对ltr书写方式，对于rtl正好相反了, 上下均分高度*/
+            /*flex-direction:column-reverse; */
+        }
+        
+        .layout2 .direction {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /*控制伸缩容器是单行还是多行，也决定了侧轴方向*/
+        
+        .layout3 {
+            display: flex;
+            width: 300px;
+            height: 300px;
+            background-color: #999;
+            /*伸缩容器单行显示，默认值；*/
+            /*flex-wrap: nowrap;*/
+            /*伸缩容器多行显示；伸缩项目每一行的排列顺序由上到下依次。均分宽度*/
+            flex-wrap: wrap;
+            /*伸缩容器多行显示，但是伸缩项目每一行的排列顺序由下到上依次排列。横向还是顺序排列*/
+            /*flex-wrap:wrap-reverse;*/
+        }
+        
+        .layout3 .wrap {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /*justify-content, 主轴对齐方式*/
+        
+        .layout4 {
+            display: flex;
+            width: 100%;
+            background-color: #999;
+            /*伸缩项目向主轴的起始位置开始对齐，后面的每元素紧挨着前一个元素对齐。*/
+            justify-content: flex-start;
+            /*伸缩项目向主轴的结束位置对齐，前面的每一个元素紧挨着后一个元素对齐。*/
+            /*justify-content:flex-end;*/
+            /*伸缩项目相互对齐并在主轴上面处于居中，并且第一个元素到主轴起点的距离等于最后一个元素到主轴终点的位置。以上3中都是“捆绑”在一个分别靠左、靠右、居中对齐。*/
+            /*justify-content:center;*/
+            /*伸缩项目平均的分配在主轴上面，并且第一个元素和主轴的起点紧挨，最后一个元素和主轴上终点紧挨，中间剩下的伸缩项目在确保两两间隔相等的情况下进行平分。*/
+            /*justify-content:space-between;*/
+            /*伸缩项目平均的分布在主轴上面，并且第一个元素到主轴起点距离和最后一个元素到主轴终点的距离相等，且等于中间元素两两的间距的一半。完美的平均分配，这个布局在阿里系中很常见。*/
+            /*justify-content:space-around;*/
+        }
+        
+        .layout4 .justify-content {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /*align-content 侧轴对齐方式，取值与justify-content差不多*/
+        
         .layout6 {
-			display: flex;
-			width: 60px;
+            display: flex;
+            width: 60px;
             height: 350px;
             flex-wrap: wrap;
             justify-content: center;
-			background-color: #999;
+            background-color: #999;
             /*与交叉轴的起点对齐。*/
             align-content: flex-start;
             /*与交叉轴的终点对齐。*/
@@ -117,309 +117,349 @@
             /*align-content: space-around;*/
             /*（默认值）：轴线占满整个交叉轴。*/
             /*align-content: stretch;*/
-		}
+        }
+        
         .layout6 .align-content {
-			width: 50px;
-			height: 50px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-
-		.layout5 {
-			display: flex;
-			width: 500px;
-			height: 500px;
-			background-color: #999;
-			/*伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起点的边*/
-			/*flex-direction: column;*/
-			align-items: flex-start;
-			/*伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边。*/
-			/*align-items:flex-end;*/
-			/*伸缩项目的外边距在侧轴上居中放置。*/
-			/*align-items:center;*/
-			/*如果伸缩项目的行内轴与侧轴为同一条，则该值与[flex-start]等效。 其它情况下，该值将参与基线对齐。*/
-			/*align-items:baseline;*/
-			/*伸缩项目拉伸填充整个伸缩容器。此值会使项目的外边距盒的尺寸在遵照「min/max-width/height」属性的限制下尽可能接近所在行的尺寸。*/
-			/*这个时候不设置高度（横向布局），不设置宽度（竖向布局），会被拉伸长度*/
-			/*align-items:stretch;*/
-		}
-		
-		.layout5 .align-items {
-			min-width: 100px;
-			min-height: 100px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-		/*order，用来控制元素顺序*/
-		
-		#main {
-			display: flex;
-		}
-		
-		#main article {
-			flex: 1;
-			height: 100px;
-			order: 2;
-			background-color: #500;
-		}
-		
-		#main nav {
-			width: 200px;
-			height: 100px;
-			order: 1;
-			background-color: #050;
-		}
-		
-		#main aside {
-			width: 200px;
-			height: 100px;
-			order: 3;
-			background-color: #005;
-		}
-		/*测试子元素的flex属性*/
-		
-		#flex {
-			display: flex;
-			width: 100%;
-			height: 200px;
-			background-color: blueviolet;
-		}
-		
-		#flex .box1 {
-			width: 200px;
-			height: 100%;
-		}
-		
-		#flex .box2 {
-			background-color: skyblue;
-			height: 100%;
-			/*= 1 1 auto*/
-			flex: 1;
-			flex: none;
-			/*flex: 10em;*/
-			/*flex: 30px;*/
-			/*flex: initial;*/
-			/*flex: 1 30px;*/
-			/*flex: 2 2;*/
-			/*flex: 2 2 10%;*/
-		}
-		/*圣杯布局*/
-		/**
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .layout5 {
+            display: flex;
+            width: 500px;
+            height: 500px;
+            background-color: #999;
+            /*伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起点的边*/
+            /*flex-direction: column;*/
+            align-items: flex-start;
+            /*伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边。*/
+            /*align-items:flex-end;*/
+            /*伸缩项目的外边距在侧轴上居中放置。*/
+            /*align-items:center;*/
+            /*如果伸缩项目的行内轴与侧轴为同一条，则该值与[flex-start]等效。 其它情况下，该值将参与基线对齐。*/
+            /*align-items:baseline;*/
+            /*伸缩项目拉伸填充整个伸缩容器。此值会使项目的外边距盒的尺寸在遵照「min/max-width/height」属性的限制下尽可能接近所在行的尺寸。*/
+            /*这个时候不设置高度（横向布局），不设置宽度（竖向布局），会被拉伸长度*/
+            /*align-items:stretch;*/
+        }
+        
+        .layout5 .align-items {
+            min-width: 100px;
+            min-height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /*order，用来控制元素顺序*/
+        
+        #main {
+            display: flex;
+        }
+        
+        #main article {
+            flex: 1;
+            height: 100px;
+            order: 2;
+            background-color: #500;
+        }
+        
+        #main nav {
+            width: 200px;
+            height: 100px;
+            order: 1;
+            background-color: #050;
+        }
+        
+        #main aside {
+            width: 200px;
+            height: 100px;
+            order: 3;
+            background-color: #005;
+        }
+        /*测试子元素的flex属性*/
+        
+        #flex {
+            display: flex;
+            width: 100%;
+            height: 200px;
+            background-color: blueviolet;
+        }
+        
+        #flex .box1 {
+            /*width: 200px;*/
+            height: 100%;
+            flex: 2;
+            flex-basis: 100px;
+        }
+        
+        #flex .box2 {
+            background-color: skyblue;
+            height: 100%;
+            flex-grow: 1;
+            flex-basis: 400px;
+            flex-shrink: 2;
+            /*在大多数情况下，开发者需要将flex设置为auto，initial，none或一个无单位数。*/
+            /*根据自身的宽地进行调整*/
+            /*flex: auto; */
+            /*flex: 1;*/
+            /*元素会根据自身宽高来设置尺寸。它是完全非弹性的：既不会缩短，也不会伸长来适应flex容器。相当于将属性设置为"flex: 0 0 auto"。*/
+            /*flex: none;*/
+            /*flex: 10em;*/
+            /*flex: 30px;*/
+            /*flex: initial;*/
+            /*flex: 1 30px;*/
+            /*flex: 2 2;*/
+            /*flex: 2 2 10%;*/
+        }
+        
+        #flex .box3 {
+            background-color: #050;
+            height: 100%;
+            /*flex: none;*/
+            flex-grow: 2;
+        }
+        /*圣杯布局*/
+        /**
 		 * 1. Avoid the IE 10-11 `min-height` bug.
 		 * 2. Set `flex-shrink` to `0` to prevent some browsers from
 		 *    letting these items shrink to smaller than their content's default
 		 *    minimum size. See http://bit.ly/1Mn35US for details.
 		 * 3. Use `%` instead of `vh` since `vh` is buggy in older mobile Safari.
 		 */
-		
-		.HolyGrail {
-			display:flex;
-			flex-direction: column;
-			height: 200px;
-		}
-		
-		.HolyGrail-header,
-		.HolyGrail-footer {
-			/*不flex，宽高也就不会随外围变化*/
-			flex: none;
-			height: 50px;
-			width: 100%;
-			background-color: green;
-			/* 2 */
-		}
-		.HolyGrail-body{
-			height: 200px;
-			width: 100%;
-			display: flex;
-		}
-		
-		
-		.HolyGrail-nav,
-		.HolyGrail-asd {
-			width: 300px;
-			/*不设置flex: none;的情况下，width会发生改变的*/
-			flex: none;
-			background-color: blue;
-		}
-		.HolyGrail-content{
-			flex: 1;
-			background-color: yellow;
-		}
-		
-		
-		/*横向的复杂布局*/		
-		.complex {
-			display: -webkit-flex;
-			display: flex;
-			background-color: #eee;
-			height: 200px;
-			width: 100%;
-		}
-		
-		.complex .initial {
-			height: 100%;
-			-webkit-flex: initial;
-			flex: initial;
-			width: 200px;
-			min-width: 100px;
-			background-color: blue;
-		}
-		
-		.complex .none {
-			-webkit-flex: none;
-			flex: none;
-			width: 200px;
-			background-color: green;
-		}
-		
-		.complex .flex1 {
-			-webkit-flex: 1;
-			flex: 1;
-			background-color: yellow;
-		}
-		
-		.complex .flex2 {
-			-webkit-flex: 2;
-			flex: 2;
-			background-color: red;
-		}
-	</style>
+        
+        .HolyGrail {
+            display: flex;
+            flex-direction: column;
+            height: 200px;
+        }
+        
+        .HolyGrail-header,
+        .HolyGrail-footer {
+            /*不flex，宽高也就不会随外围变化*/
+            flex: none;
+            height: 50px;
+            width: 100%;
+            background-color: green;
+            /* 2 */
+        }
+        
+        .HolyGrail-body {
+            height: 200px;
+            width: 100%;
+            display: flex;
+        }
+        
+        .HolyGrail-nav,
+        .HolyGrail-asd {
+            width: 300px;
+            /*不设置flex: none;的情况下，width会发生改变的*/
+            flex: none;
+            background-color: blue;
+        }
+        
+        .HolyGrail-content {
+            flex: 1;
+            background-color: yellow;
+        }
+        /*横向的复杂布局*/
+        
+        .complex {
+            display: -webkit-flex;
+            display: flex;
+            background-color: #eee;
+            height: 200px;
+            width: 100%;
+        }
+        
+        .complex .initial {
+            height: 100%;
+            -webkit-flex: initial;
+            flex: initial;
+            width: 200px;
+            min-width: 100px;
+            background-color: blue;
+        }
+        
+        .complex .none {
+            -webkit-flex: none;
+            flex: none;
+            width: 200px;
+            background-color: green;
+        }
+        
+        .complex .flex1 {
+            -webkit-flex: 1;
+            flex: 1;
+            background-color: yellow;
+        }
+        
+        .complex .flex2 {
+            -webkit-flex: 2;
+            flex: 2;
+            background-color: red;
+        }
+    </style>
 </head>
 
 <body>
-	<h2>居中布局</h2>
-	<div class="layout1">
-		<div class="box">
-			display: flex; justify-content:center; align-items:center;
-		</div>
-	</div>
-	<hr/>
+    <h2>居中布局</h2>
+    <div class="layout1">
+        <div class="box">
+            display: flex; justify-content:center; align-items:center;
+        </div>
+    </div>
+    <hr/>
 
-	<h2>flex-direction,布局方向控制</h2>
-	<div class="layout2">
-		<div class="direction" style="background-color: red;">1</div>
-		<div class="direction" style="background-color: blue;">2</div>
-		<div class="direction" style="background-color: green;">3</div>
-		<div class="direction" style="background-color: yellow;">4</div>
-	</div>
-	<hr/>
+    <h2>flex-direction,布局方向控制，控制沿着主轴还是侧轴</h2>
+    <div class="layout2">
+        <div class="direction" style="background-color: red;">1</div>
+        <div class="direction" style="background-color: blue;">2</div>
+        <div class="direction" style="background-color: green;">3</div>
+        <div class="direction" style="background-color: yellow;">4</div>
+    </div>
+    <hr/>
 
-	<h2>flex-wrap, 属性控制伸缩容器是单行还是多行，也决定了侧轴方向（新的一行的堆放方向）。</h2>
-	<div class="layout3">
-		<div class="wrap" style="background-color: green;">1</div>
-		<div class="wrap" style="background-color: yellow;">2</div>
-		<div class="wrap" style="background-color: blue;">3</div>
-		<div class="wrap" style="background-color: red;">4</div>
-		<div class="wrap" style="background-color: gray;">5</div>
-	</div>
-	<hr/>
+    <h2>flex-wrap, 属性控制伸缩容器是单行还是多行，也决定了侧轴方向（新的一行的堆放方向）。</h2>
+    <div class="layout3">
+        <div class="wrap" style="background-color: green;">1</div>
+        <div class="wrap" style="background-color: yellow;">2</div>
+        <div class="wrap" style="background-color: blue;">3</div>
+        <div class="wrap" style="background-color: red;">4</div>
+        <div class="wrap" style="background-color: gray;">5</div>
+    </div>
+    <hr/>
 
-	<h2>justify-content, 定义伸缩项目在主轴上面的的对齐方式</h2>
-	<div class="layout4">
-		<div class="justify-content" style="background-color: green;">1</div>
-		<div class="justify-content" style="background-color: yellow;">2</div>
-		<div class="justify-content" style="background-color: blue;">3</div>
-		<div class="justify-content" style="background-color: red;">4</div>
-		<div class="justify-content" style="background-color: gray;">5</div>
-	</div>
-	<hr/>
+    <h2>justify-content（水平）, 定义伸缩项目在主轴上面的的对齐方式</h2>
+    <div class="layout4">
+        <div class="justify-content" style="background-color: green;">1</div>
+        <div class="justify-content" style="background-color: yellow;">2</div>
+        <div class="justify-content" style="background-color: blue;">3</div>
+        <div class="justify-content" style="background-color: red;">4</div>
+        <div class="justify-content" style="background-color: gray;">5</div>
+    </div>
+    <hr/>
 
-    <h2>align-content, 多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</h2>
-	<div class="layout6">
-		<div class="align-content" style="background-color: green;">1</div>
-		<div class="align-content" style="background-color: yellow;">2</div>
-		<div class="align-content" style="background-color: blue;">3</div>
-		<div class="align-content" style="background-color: red;">4</div>
-		<div class="align-content" style="background-color: gray;">5</div>
-	</div>
+    <h2>align-content（竖直）, 多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。设置了flex-wrap: wrap;可控制在侧轴上的对齐方式</h2>
+    <div class="layout6">
+        <div class="align-content" style="background-color: green;">1</div>
+        <div class="align-content" style="background-color: yellow;">2</div>
+        <div class="align-content" style="background-color: blue;">3</div>
+        <div class="align-content" style="background-color: red;">4</div>
+        <div class="align-content" style="background-color: gray;">5</div>
+    </div>
 
-	<hr/>
-	<h2>align-items, 用来定义伸缩项目在侧轴的对齐方式，这类似于[justify-content]属性，但是是另一个方向。属性定义项目在交叉轴上如何对齐。</h2>
-	<div class="layout5">
-		<div class="align-items" style="background-color: red;">1</div>
-		<div class="align-items" style="background-color: blue;">2</div>
-		<div class="align-items" style="background-color: green;">3</div>
-		<div class="align-items" style="background-color: yellow;">4</div>
-	</div>
-	<hr/>
+    <hr/>
 
-	<h2>子元素的属性设置，order</h2>
-	<div id='main'>
-		<article>1</article>
-		<nav>2</nav>
-		<aside>3</aside>
-	</div>
+    <h2>align-items, 用来定义伸缩项目在侧轴的对齐方式。属性定义项目在交叉轴上如何对齐。</h2>
+    <div class="layout5">
+        <div class="align-items" style="background-color: red;">1</div>
+        <div class="align-items" style="background-color: blue;">2</div>
+        <div class="align-items" style="background-color: green;">3</div>
+        <div class="align-items" style="background-color: yellow;">4</div>
+    </div>
+    <hr/>
 
-	<h2>flex,属性测试</h2>
-	<div id="flex">
-		<div class="box1">box1</div>
-		<div class="box2">box2</div>
-	</div>
-	<hr/>
+    <h2>子元素的属性设置，order</h2>
+    <div id='main'>
+        <article>1</article>
+        <nav>2</nav>
+        <aside>3</aside>
+    </div>
+    <hr/>
 
-	<!-- 后边还需要补充常用的样式结构 -->
-	<h2>圣杯布局样式</h2>
-	<div class="HolyGrail">
-		<header class="HolyGrail-header">header</header>
-		<div class="HolyGrail-body">
-			<nav class="HolyGrail-nav">HolyGrail-nav</nav>
-			<main class="HolyGrail-content">HolyGrail-content</main>
-			<aside class="HolyGrail-asd">HolyGrail-ads</aside>
-		</div>
-		<footer class="HolyGrail-footer">footer</footer>		
-	</div>
-	<hr/>
+    <h2>flex,属性测试，瓜分父元素的空间，The flex property may be specified using one, two, or three values.</h2>
+    <div id="flex">
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+        <div class="box3">box3</div>
+    </div>
+    <p>说明：</p>
+    <ul>
+        <li>flex是一个复合属性，包括flex-grow, flex-shrink, flex-basis</li>
+        <li>flex-grow: 默认值0，当前元素占父元素（flex）的比例，其他元素默认flex: none；</li>
+        <li>flex-shrink: default: 1; 属性指定了 flex 元素的收缩规则。flex 元素仅在默认宽度之和大于容器的时候才会发生收缩，其收缩的大小是依据 flex-shrink 的值。上边的flex-grow对应的大小，如果不设置就是一个默认的，负值是不被允许的。</li>
+        <li>flex-basis: defalut:auto; 针对当前的元素，也就是替代width。上边的flex-grow对应的大小，如果不设置就是一个默认的，基数。 如果子容器设置了flex-basis或者width，那么在分配空间之前，他们会先跟父容器预约这么多的空间，然后剩下的才是归入到剩余空间，
+            然后父容器再把剩余空间分配给设置了flex-grow的容器。 如果同时设置flex-basis和width，那么width属性会被覆盖，也就是说flex-basis的优先级比width高。
+        </li>
+        <li>flex环境默认是不换行的，即使父容器宽度不够也不会，除非设置flex-wrap来换行</li>
+    </ul>
+
+    <div>
+        <p><b>总结 通过上面的分析，我们就可以得出这样几个结论：</b></p> 
+        <ul>
+            <li>1、剩余空间＝父容器空间－子容器1.flex-basis/width - 子容器2.flex-basis/width - … </li>
+            <li>2、如果父容器空间不够，就走压缩flex-shrink，否则走扩张flex-grow；</li>
+            <li>3、如果你不希望某个容器在任何时候都不被压缩，那设置flex-shrink:0；</li>
+            <li>4、如果子容器的的flex-basis设置为0(width也可以，不过flex-basis更符合语义)，那么计算剩余空间的时候将不会为子容器预留空间。</li>
+            <li>5、如果子容器的的flex-basis设置为auto(width也可以，不过flex-basis更符合语义)，那么计算剩余空间的时候将会根据子容器内容的多少来预留空间。</li>
+        </ul>
+        <b>flex-grow与flex-shink是对应的关系，一个填充的时候有用，一个压缩的时候有用</b>
+    <hr/>
+
+    <!-- 后边还需要补充常用的样式结构 -->
+    <h2>圣杯布局样式</h2>
+    <div class="HolyGrail">
+        <header class="HolyGrail-header">header</header>
+        <div class="HolyGrail-body">
+            <nav class="HolyGrail-nav">HolyGrail-nav</nav>
+            <main class="HolyGrail-content">HolyGrail-content</main>
+            <aside class="HolyGrail-asd">HolyGrail-ads</aside>
+        </div>
+        <footer class="HolyGrail-footer">footer</footer>
+    </div>
+    <hr/>
 
 
-	<!-- 横向复杂布局 -->
-	<h2>横向复杂布局</h2>
+    <!-- 横向复杂布局 -->
+    <h2>横向复杂布局</h2>
 
-	<div class="complex">
-		<div class="initial">
-			空间足够的时候，我的宽度是200px，如果空间不足，我会变窄到100px，但不会再窄了。 flex: initial; width: 200px; min-width: 100px;
-		</div>
-		<div class="none">
-			无论窗口如何变化，我的宽度一直是200px。
-			flex: none;
-		</div>
-		<div class="flex1">我会占满剩余宽度的1/3。flex: 1;</div>
-		<div class="flex2">我会占满剩余宽度的2/3。flex: 2;</div>
-	</div>
-	<hr>
-	<!--多行的时候的行间距的设置-->
-	<h2>多行的时候的行间距的设置,给 .flex-item 设置 margin-bottom，然后给容器（.flex）设置负的 margin-bottom 来把最下面一行多余的 margin 给抵消。这样就行了。</h2>
-	<style type="text/css">
-		.multi-row{
-			width: 800px;
-			/*height: 300px;*/
-			background-color: cornflowerblue;
-			display: flex;
-			/*行等间距分隔，需要使用宽度来控制*/
-			justify-content: space-between; 
-			flex-wrap: wrap;
-			margin-bottom: -20px;
-		}
-		.multi-row .flex-item{
-			width: 30%;
-			height: 140px;
-			flex: none;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background-color: forestgreen;
-			margin-bottom: 20px;
-		}
-	</style>
-	<div class="multi-row">
-		<div class="flex-item">1</div>
-		<div class="flex-item">2</div>
-		<div class="flex-item">3</div>
-		<div class="flex-item">4</div>
-		<div class="flex-item">5</div>
-		<div class="flex-item">6</div>
-	</div>
+    <div class="complex">
+        <div class="initial">
+            空间足够的时候，我的宽度是200px，如果空间不足，我会变窄到100px，但不会再窄了。 flex: initial; width: 200px; min-width: 100px;
+        </div>
+        <div class="none">
+            无论窗口如何变化，我的宽度一直是200px。 flex: none;
+        </div>
+        <div class="flex1">我会占满剩余宽度的1/3。flex: 1;</div>
+        <div class="flex2">我会占满剩余宽度的2/3。flex: 2;</div>
+    </div>
+    <hr>
+    <!--多行的时候的行间距的设置-->
+    <h2>多行的时候的行间距的设置,给 .flex-item 设置 margin-bottom，然后给容器（.flex）设置负的 margin-bottom 来把最下面一行多余的 margin 给抵消。这样就行了。</h2>
+    <style type="text/css">
+        .multi-row {
+            width: 800px;
+            /*height: 300px;*/
+            background-color: cornflowerblue;
+            display: flex;
+            /*行等间距分隔，需要使用宽度来控制*/
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: -20px;
+        }
+        
+        .multi-row .flex-item {
+            width: 30%;
+            height: 140px;
+            flex: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: forestgreen;
+            margin-bottom: 20px;
+        }
+    </style>
+    <div class="multi-row">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+    </div>
 </body>
 
 </html>

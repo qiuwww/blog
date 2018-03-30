@@ -75,16 +75,15 @@
 
 [CSS](https://developer.mozilla.org/zh-CN/docs/CSS) **order** 属性规定了弹性容器中的可伸缩项目在布局时的顺序。元素按照 `order` 属性的值的增序进行布局。拥有相同 `order` 属性值的元素按照它们在源代码中出现的顺序进行布局。类似于z-index的取值吧。
 
-## flex属性
+## flex属性(针对子元素的设置)
 
 [flex]属性可以用来指定可伸缩长度的部件，是flex-grow（扩展比例）,flow-shrink（收缩比例）,flex-basis（伸缩基准值）这个三个属性的缩写写法，建议大家采用缩写的方式而不是单独来使用这3个属性。
 
 > flex:none | [ <'flex-grow'> ?<'flew-shrink'> || <'flow-basis'>]
->
 > // flex-grow是必须得flex-shrink和flow-basis是可选的
 
 - flex-grow:;其中number作为**扩展比例**，没有单位，初始值是0，**主要用来决定伸缩容器剩余空间按比例应扩展多少空间。**
-- flex-grow:;其中number作为收缩比例，没有单位，初始值是1，**也就是剩余空间是负值的时候此伸缩项目相对于伸缩容器里其他伸缩项目能收缩的空间比例，**在收缩的时候收缩比率会以[flex-basis]伸缩基准值加权。
+- flex-shrink:;其中number作为收缩比例，没有单位，初始值是1，**也就是剩余空间是负值的时候此伸缩项目相对于伸缩容器里其他伸缩项目能收缩的空间比例，**在收缩的时候收缩比率会以[flex-basis]伸缩基准值加权。
 - flex-basis:|auto;默认是auto也就是**根据可伸缩比率计算出剩余空间的分布之前，伸缩项目主轴长度的起始数值。**若在「flex」缩写省略了此部件，则「flex-basis」的指定值是长度零。
 
 https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex
