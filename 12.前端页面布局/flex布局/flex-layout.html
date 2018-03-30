@@ -380,7 +380,7 @@
     <ul>
         <li>flex是一个复合属性，包括flex-grow, flex-shrink, flex-basis</li>
         <li>flex-grow: 默认值0，当前元素占父元素（flex）的比例，其他元素默认flex: none；</li>
-        <li>flex-shrink: default: 1; 属性指定了 flex 元素的收缩规则。flex 元素仅在默认宽度之和大于容器的时候才会发生收缩，其收缩的大小是依据 flex-shrink 的值。上边的flex-grow对应的大小，如果不设置就是一个默认的，负值是不被允许的。</li>
+        <li>flex-shrink: 基于自身的宽度压缩。 default: 1; 属性指定了 flex 元素的收缩规则。flex 元素仅在默认宽度之和大于容器的时候才会发生收缩，其收缩的大小是依据 flex-shrink 的值。上边的flex-grow对应的大小，如果不设置就是一个默认的，负值是不被允许的。</li>
         <li>flex-basis: defalut:auto; 针对当前的元素，也就是替代width。上边的flex-grow对应的大小，如果不设置就是一个默认的，基数。 如果子容器设置了flex-basis或者width，那么在分配空间之前，他们会先跟父容器预约这么多的空间，然后剩下的才是归入到剩余空间，
             然后父容器再把剩余空间分配给设置了flex-grow的容器。 如果同时设置flex-basis和width，那么width属性会被覆盖，也就是说flex-basis的优先级比width高。
         </li>
