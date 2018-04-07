@@ -359,6 +359,7 @@ const store = new Vuex.Store({
 `
 store.commit('increment')
 `
+当该同步事件混入到组件内的时候，可以直接调用组件。
 
 使用常量替代 Mutation 事件类型
 
@@ -456,3 +457,11 @@ mapActions
 mapMutations
 
 mapGetters
+
+## 更改数据的操作
+
+在actions或者mutations内更改数据需要把值赋给state对象，不能使用this。
+
+## 事件的触发
+
+在store内部使用commit来触发同步事件，在组件内可以直接调用。

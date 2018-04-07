@@ -1,9 +1,11 @@
 # Vue API
 https://vuefe.cn/v2/api/
 
-## 一、全局配置 Vue.config（框架配置）
+## 一、全局配置 （Vue.config框架配置）
 
-### 1. Vue.config 是一个对象，包含 Vue 的全局配置。silent配置。
+### 1. Vue.config 是一个对象，包含 Vue 的全局配置。
+
+#### silent配置
 
 可以在启动应用程序之前，**预先修改框架的属性**。
 
@@ -48,7 +50,7 @@ Vue.config.errorHandler = function (err, vm, info) {
 }
 ```
 
-设置一个处理函数，用于在组件渲染函数调用和 watcher 期间捕获错误。这个处理函数被调用时，传入 error 对象和 Vue 实例。
+设置一个处理函数，用于在**组件渲染函数调用和 watcher 期间捕获错误**。这个处理函数被调用时，传入 error 对象和 Vue 实例。
 
 ### 5. warnHandler，警告的全局处理方法
 
@@ -74,11 +76,17 @@ Vue.config.warnHandler = function (msg, vm, trace) {
 
 设置为 `false`，以禁止在 Vue 启动时的生产提示。 
 
+#### 可以给Vue对象添加属性和方法
+
+添加一些 Vue 实例方法，通过把这些方法添加到 Vue.prototype 上实现。
+
+方便使用全局变和方法。
+
 ## 二、全局API
 
 ### 10. Vue.extend(options)，Vue组件继承。 
 
-使用 Vue 的基础构造函数，创建一个“子类(subclass)”。参数是一个包含组件选项的对象。
+使用 Vue 的基础构造函数，创建一个“**子类(subclass)**”。参数是一个包含组件选项的对象。
 
 ```
 <div id="mount-point"></div>
@@ -100,9 +108,9 @@ new Profile().$mount('#mount-point')
 
 ### 11. Vue.nextTick([callback, context]), 异步更新队列。延迟更新后执行操作。
 
-在下次 DOM 更新循环结束之后执行延迟回调。**在修改数据之后，立即使用这个回调函数，获取更新后的 DOM**。
+在下次 DOM 更新循环结束之后执行延迟回调。**在修改数据之后，立即使用这个回调函数，获取当前次数据更改更新后的 DOM**。
 
-事件发生在当前次代码执行过程中的，dom更新之后，返回一个promise对象。
+事件发生在当前次代码执行过程中的，**dom更新之后，返回一个promise对象**。
 ```
 new Vue({
   // ...
@@ -112,6 +120,7 @@ new Vue({
       // 修改数据
       this.message = 'changed'
       // DOM 还没有更新
+      // 当前一次更改数据之后的页面回调（延后）
       this.$nextTick(function () {
         // DOM 现在更新了
         // `this` 绑定到当前实例
@@ -132,7 +141,21 @@ new Vue({
 
 ### 14. Vue.directive( id, [definition] )
 
-注入或者获取全局指令。注册在全局Vue对象上。自己添加的方法注册在Vue对象上，为什么不注册在window对象上，^_^。有什么特殊的意义？
+**注入或者获取全局指令。**注册在全局Vue对象上。自己添加的方法注册在Vue对象上，为什么不注册在window对象上，^_^。有什么特殊的意义？
+
+指令主要使用来完成一些公用的更复杂的处理。（类比一下内置的指令）
+
+除了核心功能默认内置的指令 (`v-model` 和 `v-show`)，Vue 也允许注册自定义指令。注意，在 Vue2.0 中，代码复用和抽象的主要形式是组件。然而，有的情况下，**你仍然需要对普通 DOM 元素进行底层操作**，这时候就会用到自定义指令。
+
+#### 自定义指令有如下的钩子函数：
+
+- `bind`：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。
+- `inserted`：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。
+- `update`：所在组件的 VNode 更新时调用，**但是可能发生在其子 VNode 更新之前**。指令的值可能发生了改变，也可能没有。但是你可以通过比较更新前后的值来忽略不必要的模板更新 (详细的钩子函数参数见下)。
+- `componentUpdated`：指令所在组件的 VNode **及其子 VNode** 全部更新后调用。
+- `unbind`：只调用一次，指令与元素解绑时调用。
+
+钩子函数的参数 (即 `el`、`binding`、`vnode` 和 `oldVnode`)。
 
 
 ### 15. Vue.filter( id, [definition] )
@@ -145,8 +168,10 @@ new Vue({
 
 ### 17. Vue.use( plugin )
 
-安装 Vue.js 插件。如果插件是一个对象，必须提供 install 方法。如果插件是一个函数，它会被作为 install 方法。
-install 方法调用时，会将 Vue 作为参数传入。自定义插件的添加。
+**安装 Vue.js 插件。**
+
+- 如果插件是一个对象，必须提供 **install 方法**。
+- 如果插件是一个函数，它会被作为 install 方法。install 方法调用时，会将 Vue 作为参数传入。自定义插件的添加。
 
 ### 18. Vue.mixin( mixin )
 
@@ -167,22 +192,24 @@ install 方法调用时，会将 Vue 作为参数传入。自定义插件的添�
 ### 21. data
 
 - 组件的data，只接受function，需要创建多个，不能都指向相同的位置。
-- Vue 将会递归将 data 的属性转换为 **getter/setter**，从而让 data 的属性能够响应数据变化。
-- data 应该只能是数据 - 不推荐观察拥有状态行为的对象。
+- Vue 将会**递归**将 data 的属性转换为 **getter/setter**，从而让 data 的属性能够响应数据变化。
+- data 应该只能是数据 - **不推荐观察拥有状态行为的对象**。
 - 推荐在创建实例之前，就声明所有的根级响应式属性。
 - 不应该对 data 属性使用箭头函数。
 
 
 #### 访问
 - 实例创建之后，可以通过**vm.$data** 访问原始数据对象。
-- Vue 实例也代理了 data 对象上所有的属性，因此访问 vm.a 等价于访问 vm.$data.a。
+- Vue 实例也代理了 data 对象上所有的属性，因此**访问 vm.a 等价于访问 vm.$data.a**。
 - 以 **_ 或 $ 开头的属性 不会 被 Vue 实例代理**，因为它们可能和 Vue 内置的属性、 API 方法冲突。你可以使用例如 vm.$data._property 的方式访问这些属性。
-- 阶段性属性值的读取操作。如果需要，可以通过将 vm.$data 传入 JSON.parse(JSON.stringify(...)) 得到**深拷贝**的原始数据对象。
+- **阶段性属性值的读取操作。**如果需要，可以通过将 vm.$data 传入 JSON.parse(JSON.stringify(...)) 得到**深拷贝**的原始数据对象。
 
 ### 22. props
 
-- props 可以是数组或对象，用于接收来自父组件的数据。
+- props 可以是数组或对象，用于**接收来自父组件的数据**。
 - props 可以是简单的数组，或者使用对象作为替代，对象允许配置高级选项，如类型检测、自定义校验和设置默认值。
+
+- computed属性的值与data内的值都是可以传递给子组件的，通过props。
 
 ### 23. propsData
 
@@ -693,6 +720,10 @@ change事件 -> input事件
 绑定style的处理：
 ```
 :style="{width:listwidth,padding:listpadding}" 
+
+<div class="static"
+     v-bind:class="{ active: isActive, 'text-danger': hasError }"
+</div>
 ```
 ### 88. v-model
 
@@ -739,6 +770,8 @@ key 的特殊属性主要用在 Vue的虚拟DOM算法，在新旧nodes对比时�
 使用key，它会基于key的变化重新排列元素顺序，并且会移除key不存在的元素。
 
 有相同父元素的子元素必须有独特的key。重复的key会造成渲染错误。
+
+为了便于 Vue 跟踪每个节点的身份，从而重新复用(reuse)和重新排序(reorder)现有元素，你需要为每项提供唯一的 key 属性，从而给 Vue 一个提示。
 
 ### 93. ref（与react类似）
 
