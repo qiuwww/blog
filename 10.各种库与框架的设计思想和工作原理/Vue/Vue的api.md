@@ -80,6 +80,14 @@ Vue.config.warnHandler = function (msg, vm, trace) {
 
 添加一些 Vue 实例方法，通过把这些方法添加到 Vue.prototype 上实现。
 
+可以添加Vue全局可用的变量到Vue的原型上。
+```
+添加：
+Vue.prototype.Const = '123';
+引用：
+组件中使用this.Const
+```
+
 方便使用全局变和方法。
 
 ## 二、全局API
@@ -196,7 +204,11 @@ new Vue({
 - data 应该只能是数据 - **不推荐观察拥有状态行为的对象**。
 - 推荐在创建实例之前，就声明所有的根级响应式属性。
 - 不应该对 data 属性使用箭头函数。
+#### 踩过的坑
 
+- 一开始就不存在的变量，不能被观察，包括不存在的对象属性值。
+  - 通过Vue.set()，方法来解决。设置对象的属性。如果对象是响应式的，确保属性被创建后也是响应式的，同时触发视图更新。这个方法主要用于避开 Vue 不能检测属性被添加的限制。
+  - 在实例上相应的调用vm.$set()方法。
 
 #### 访问
 - 实例创建之后，可以通过**vm.$data** 访问原始数据对象。
@@ -210,6 +222,12 @@ new Vue({
 - props 可以是简单的数组，或者使用对象作为替代，对象允许配置高级选项，如类型检测、自定义校验和设置默认值。
 
 - computed属性的值与data内的值都是可以传递给子组件的，通过props。
+
+- 父组件的props会覆盖data重定义的值。
+
+#### 踩过的坑
+- 当使用字符串的形式传递的时候，只能传递字符串，如 `noTips = 'false'`;如果使用`v-bind:noTips='fasle'`,  本质上是变量的引用，所以可以传递多种类型。
+
 
 ### 23. propsData
 
@@ -725,6 +743,13 @@ change事件 -> input事件
      v-bind:class="{ active: isActive, 'text-danger': hasError }"
 </div>
 ```
+<!--使用变量来控制样式的时候，如果有单位就一定要带上单位，不然会认为是一个错误的值，不更新-->
+```
+<!-- style 绑定 -->
+<div :style="{ fontSize: size + 'px' }"></div>
+<div :style="[styleObjectA, styleObjectB]"></div>
+```
+
 ### 88. v-model
 
 官方文档地址：https://vuefe.cn/v2/api/#v-model

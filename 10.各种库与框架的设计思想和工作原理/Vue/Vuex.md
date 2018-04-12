@@ -115,6 +115,10 @@ store.commit('increment', 10)
 - 在组件中提交 Mutation。
   你可以在组件中使用 this.$store.commit('xxx') 提交 mutation，或者使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用（需要在根节点注入 store）。
 
+触发actions
+
+store.commit('increment', 10)
+
 ### Action分发（mutations的异步版）
 
 Action 类似于 mutation，不同在于：
@@ -465,3 +469,9 @@ mapGetters
 ## 事件的触发
 
 在store内部使用commit来触发同步事件，在组件内可以直接调用。
+
+## 踩过的坑
+
+如果一个对象的某个属性一开始没有被观察，后边就不会被观察，
+
+自己在总数据上添加了一个属性，不能被观察？
