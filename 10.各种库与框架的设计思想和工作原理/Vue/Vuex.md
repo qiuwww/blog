@@ -97,6 +97,7 @@ mapGetters 辅助函数仅仅是将 store 中的 getter 映射到局部计算属
 
 **这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数**。
 
+只用来改变state，不能有返回值。
 
 - 你不能直接调用一个 mutation handler。这个选项更像是**事件注册**：“当触发一个**类型为 increment** 的 mutation 时，调用此函数。”要唤醒一个 mutation handler，你需要以相应的 type 调用 store.commit 方法：
 
@@ -475,3 +476,9 @@ mapGetters
 如果一个对象的某个属性一开始没有被观察，后边就不会被观察，
 
 自己在总数据上添加了一个属性，不能被观察？
+
+## 根本上理解这里的模块（模块都是用来处理state的，这是根本思想，不要返回值）
+
+getters： 派生属性，就是新get，只获取属性；
+mutations和actions： 用来改变state，就是set；
+state，就是保存当前的状态，直接引用就是调用get获取；
