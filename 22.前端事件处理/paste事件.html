@@ -7,6 +7,11 @@
 </head>
 
 <body>
+    <style type="text/css">
+        div{
+            border: 1px solid rosybrown;
+        }
+    </style>
     <!--https://segmentfault.com/a/1190000004288686-->
 
 这里的处理方式主要区分如下：
@@ -27,9 +32,20 @@
     <div contenteditable="true" class="pasteDiv">粘贴到这里</div>
     <hr>
 
+
+
 <input type="file" class="postimg">
 
+<h3>粘贴测试</h3>
+<div class="copyArea" contenteditable="true">
+    复制这里的内容，我会添加一部分内容
+</div>
+<div contenteditable="true">测试复制粘贴的内容</div>
+
+
     <script type="text/javascript">
+    $(function(){
+
         // input的输入
         var target = document.querySelector('.target');
         // 有用的，chrome下
@@ -161,7 +177,28 @@
         $('.postimg').change(function(e){
             var file = this.files[0];
             debugger
-        })
+        });
+
+
+        document.querySelector('.copyArea').addEventListener('copy', function(e){
+            // 这里只能调用一次
+            alert("不能复制");
+            e.clipboardData.setData('text/plain', 'Hello, world!');
+            e.clipboardData.setData('text/html', '<b>这里是截断复制事件添加的内容</b>');
+            // 不能使用clipboardData.getData()在事件处理函数中获取剪切板数据。
+            e.clipboardData.getData('text/html');
+            e.preventDefault();
+        }, false);
+
+        document.querySelector('.copyArea').addEventListener('paste', function(e){
+            // 不能使用clipboardData.getData()在事件处理函数中获取剪切板数据。
+            var dom = e.clipboardData.getData('text/html');
+            console.log("当前复制的内容如下：", dom);
+            $("div").append(dom);
+            e.preventDefault();
+        }, false);
+
+    });
     </script>
 </body>
 
