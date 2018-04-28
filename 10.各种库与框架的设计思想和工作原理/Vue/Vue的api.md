@@ -869,6 +869,24 @@ slot位置插入的元素就是组件调用的时候内部嵌入的元素或者r
 
 用于动态组件且基于 DOM 模板解析注意事项来工作。
 
+多个模板公共一个挂载点。通过使用保留的 <component> 元素，并对其 is 特性进行动态绑定，你可以在同一个挂载点动态切换多个组件
+```
+var vm = new Vue({
+  el: '#example',
+  data: {
+    currentView: 'home'
+  },
+  components: {
+    home: { /* ... */ },
+    posts: { /* ... */ },
+    archive: { /* ... */ }
+  }
+})
+<component v-bind:is="currentView">
+  <!-- 组件在 vm.currentview 变化时改变！ -->
+</component>
+```
+
 ## 十五、内置组件
 
 ### 98. component
