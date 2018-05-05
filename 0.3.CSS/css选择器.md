@@ -21,3 +21,10 @@ CSS选择符：id选择器(#myid)、类选择器(.myclassname)、标签选择器
 
 优先级（就近原则）：!important > [ id > class > tag ]
 !important 比内联优先级高
+
+
+伪类选择器
+
+p:empty {
+    background: #ff0000;
+}

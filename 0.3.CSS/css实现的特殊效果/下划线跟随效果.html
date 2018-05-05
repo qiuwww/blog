@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>Hover Me</div>
+
+    原理，借用伪元素来实现
+    <style>
+        body {
+            padding: 50px;
+        }
+        
+        div {
+            position: absolute;
+            width: 200px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 32px;
+            cursor: pointer;
+            color: #333;
+            text-align: center;
+
+            transition: color .5s;
+
+            margin: 20px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        div::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: deeppink;
+            z-index: -1;
+            transition: width .5s;
+        }
+        
+        div:hover::before {
+            width: 200px;
+        }
+    </style>
+
+
+
+</body>
+
+</html>
