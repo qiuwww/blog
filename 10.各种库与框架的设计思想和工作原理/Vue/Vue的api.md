@@ -181,6 +181,25 @@ new Vue({
 - 如果插件是一个对象，必须提供 **install 方法**。
 - 如果插件是一个函数，它会被作为 install 方法。install 方法调用时，会将 Vue 作为参数传入。自定义插件的添加。
 
+#### 自定义插件
+```
+插件
+util.js
+export default{
+  install(Vue,options){
+    Vue.prototype.getData = function () {
+      console.log('我是插件中的方法');
+    }
+  }
+}
+
+main.js 引入 
+并且全局注册import util from './util'
+Vue.use(util);
+
+其他组件中使用，这里所有的方法都在prototype上注册了
+this.getData();
+```
 ### 18. Vue.mixin( mixin )
 
 全局注册一个混合，**影响注册之后所有创建的每个 Vue 实例。**
