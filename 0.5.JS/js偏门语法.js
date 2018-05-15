@@ -181,3 +181,6 @@ typeof Greeters[0]
 Greeters[0]() 
 Greeters[1]() 
 Greeters[2]() 
+
+8. document.referrer
+返回跳转到当前页面的地址，没有则返回空字符串。
