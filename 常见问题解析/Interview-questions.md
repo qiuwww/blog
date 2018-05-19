@@ -22,4 +22,4 @@
 | :--- | :----------------- | :--- | :--- |
 | DNS  | domain name system | --   | --   |
 | HTTP | Hypertext Transfer Protocol | 协议即超文本传送协议 | --|
-| HTML | 
+| HTML | sss
