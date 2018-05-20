@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>布局</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+    </style>
+</head>
+<body>
+ 
+ <p>同理对于圣杯布局，调整一下元素的位置就可以了</p>
+<div class="parent">
+    <div class="left">左列定宽</div>
+    <div class="center">中列定宽</div>
+    <div class="right">右列自适应</div>
+</div>
+<style type="text/css">
+    .parent{background-color: yellow;}
+    .left{background-color: red;}
+    .center{background-color: blue;}
+    .right{background-color: green;}
+    /*1、使用float+margin实现*/
+    .left,.center{height:100px;width:100px;float:left;}
+    /*这个时候其实是right被盖在left和center下边了*/
+    .right{margin-left: 200px; height:100px;} 
+    /*2、使用flex，需要浏览器支持flex*/
+    /*.parent{display:flex;} .center,.left{width:100px;} .right{flex:1;}*/
+</style>
+</body>
+</html>
