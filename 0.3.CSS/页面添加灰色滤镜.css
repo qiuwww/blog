@@ -1,0 +1,17 @@
+
+
+/* 黑白图像 */
+/* 复制代码 */
+/* 灰度调整，灰度计算，所有的颜色都变黑白通道 */
+img.desaturate { 
+    filter: grayscale(100%); 
+    -webkit-filter: grayscale(100%); 
+    -moz-filter: grayscale(100%); 
+    -ms-filter: grayscale(100%); 
+    -o-filter: grayscale(100%); 
+}
+
+div:hover {
+    -webkit-filter: grayscale(0%);
+    filter:  grayscale(0%);
+}
