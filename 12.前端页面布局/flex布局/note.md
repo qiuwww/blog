@@ -1,6 +1,6 @@
 # flex布局
 
-![主轴与侧轴](D:\learn-space\blog\flex布局\主轴与侧轴.bmp)
+
 
 ##　display:flex
 
@@ -22,10 +22,10 @@
 
 ## flex-wrap
 
-属性控制伸缩容器是单行还是多行，也决定了侧轴方向（新的一行的堆放方向）。
+属性控制伸缩容器是单行还是多行，也决定了侧轴方向（新的一行的堆放方向）。![主轴与侧轴](D:\learn-space\blog\12.前端页面布局\flex布局\主轴与侧轴.bmp)
 
 - flex-wrap:nowrap;伸缩容器单行显示，默认值；
-- flex-wrap:wrap;伸缩容器多行显示；伸缩项目每一行的排列顺序由上到下依次。
+- flex-wrap:wrap;伸缩容器多行显示；伸缩项目每一行的排列顺序由上到下依次。![主轴与侧轴](D:\learn-space\blog\12.前端页面布局\flex布局\主轴与侧轴.bmp)
 - flex-wrap:wrap-reverse;伸缩容器多行显示，但是伸缩项目每一行的排列顺序由下到上依次排列。
 
 ## flex-flow
@@ -95,3 +95,9 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex
 - 在49版本的时候高度集成只能是一层一层的display: flex;  flex: 1; 不能穿插100%之类的百分比操作；继承的属性屏蔽了flex: 1;
 
 - 60版本的chrome不存在这个问题。
+
+## box-flex，属性规定框的子元素是否可伸缩其尺寸。
+
+目前没有浏览器支持 box-flex 属性。
+
+元素的可伸缩行。柔性是相对的，例如 box-flex 为 2 的子元素**两倍于** box-flex 为 1 的子元素。
