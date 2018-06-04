@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='one'>1
+        <div id='two'>2
+            <div id='three'>3
+                <div id='four'>4
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="button" value="click me" onclick="console.log(event)" />
+    <script type='text/javascript'>
+        var one = document.getElementById('one');
+        var two = document.getElementById('two');
+        var three = document.getElementById('three');
+        var four = document.getElementById('four');
+        one.addEventListener('click', function () {
+            alert('one');
+        }, true);
+        two.addEventListener('click', function () {
+            alert('two,bubble');
+        }, false);//这里的事件在冒泡阶段触发
+        two.addEventListener('click', function () {
+            alert('two,capture');
+        }, true);//这里的事件在捕获阶段触发
+        three.addEventListener('click', function () {
+            alert('three,bubble');
+        }, true);
+        four.addEventListener('click', function () {
+            alert('four');
+        }, true);
+
+
+        Person.prototype = {
+            constructor: Person,
+            sayFriends: function() {
+                alert(this.friends);
+            }
+        };
+    </script>
+</body>
+
+</html>
