@@ -47,3 +47,15 @@ Redux 试图让 state 的变化变得可预测。
 查看一下示例
 
 
+
+### Store
+
+我们学会了使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。
+
+Store 就是把它们联系到一起的对象。
+
+http://www.redux.org.cn/docs/basics/Store.html
+
+### reducers
+
+对于reducers中的case，可以理解为改变这个变量值的操作类型
