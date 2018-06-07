@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>document</title>
+</head>
+
+<body>
+	<div id="qrcode"></div>
+	<script src="qrcode.min.js"></script>
+	<script type="text/javascript">
+		var text = 'https://github.com/moonbreezee/blog';
+		var qrcode = new QRCode(document.getElementById("qrcode"), {
+			text: text,
+			width: 380,
+			height: 380
+		});
+	</script>
+</body>
+
+</html>
