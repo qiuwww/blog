@@ -416,3 +416,6 @@ react-mobx与react-redux 提供Provide模式，用于传递上下文环境，当
 所幸，React提供了一种自上而下传递数据的途径： context。我们可以把它看做组件树的一个全局变量。
 
 在app的最外部，我们可以提供一个Provider，它的唯一角色就是给当前的组件树的context增加数据，来提供给所有的子节点使用。
+
+
+

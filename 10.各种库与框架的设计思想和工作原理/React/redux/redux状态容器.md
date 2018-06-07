@@ -94,3 +94,17 @@ function addTodo(text) {
 react-redux 提供了两个重要的对象，Provider 和 connect，前者使 React 组件可被连接（connectable），后者把 React 组件和 Redux 的 store 真正连接起来。
 
 Provider 内的任何一个组件（比如这里的 Comp），如果需要使用 state 中的数据，就必须是「被 connect 过的」组件——使用 connect 方法对「你编写的组件（MyComp）」进行包装后的产物。
+
+connect 详解
+
+究竟 connect 方法到底做了什么，我们来一探究竟。
+
+首先看下函数的签名：
+
+connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
+
+connect() 接收四个参数，它们分别是 mapStateToProps，mapDispatchToProps，mergeProps和options。
+
+mapStateToProps(state, ownProps) : stateProps
+
+这个函数允许我们将 store 中的数据作为 props 绑定到组件上。
