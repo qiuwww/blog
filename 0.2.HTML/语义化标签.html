@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=6usbEbwRrAoG37xItcWMdwZM6aq6tBty"></script>
 </head>
 
 <body>
@@ -23,49 +24,153 @@
         HTML中的
         <blockquote>元素（或者 HTML 块级引用元素），代表其中的文字是引用内容。通常在渲染时，这部分的内容会有一定的缩进（注 中说明了如何更改）。若引文来源于网络，则可以将原内容的出处 URL 地址设置到 cite 特性上，若要以文本的形式告知读者引文的出处时，可以通过
             <cite> 元素。
-    </blockquote>
+        </blockquote>
 
-    <blockquote cite="http://developer.mozilla.org">
-        <p>This is a quotation taken from the Mozilla Developer Center.</p>
-    </blockquote>
+        <blockquote cite="http://developer.mozilla.org">
+            <p>This is a quotation taken from the Mozilla Developer Center.</p>
+        </blockquote>
 
-    <h3>dl|dt|dd</h3>
-    <dl>
-        <dt>列表标题</dt>
-        <dd>列表内容，自然向后退一段距离，有-webkit-margin-start: 40px;设置</dd>
-        <dd>列表内容，自然向后退一段距离</dd>
-    </dl>
+        <h3>dl|dt|dd</h3>
+        <dl>
+            <dt>列表标题</dt>
+            <dd>列表内容，自然向后退一段距离，有-webkit-margin-start: 40px;设置</dd>
+            <dd>列表内容，自然向后退一段距离</dd>
+        </dl>
 
-    <dialog open>
-        这里是一个对话框
-    </dialog>
-
-
-    <h3>datalist标签</h3>
-    <p>标签定义选项列表。请与 input 元素配合使用该元素，来定义 input 可能的值。datalist 及其选项不会被显示出来，它仅仅是合法的输入值列表。请使用 input 元素的 list 属性来绑定 datalist。</p>
-    
-    
-    <input id="myCar" list="cars" />
-    <datalist id="cars">
-        <option value="BMW">
-        <option value="Ford">
-        <option value="Volvo">
-    </datalist>
-
-    <h3>details</h3>
-
-    <details>
-    <summary>Copyright 2011.</summary>
-    <p>All pages and graphics on this web site are the property of W3School.</p>
-    </details>
-
-    <h3>figcaption</h3>
-    <figure>
-    <p>黄浦江上的的卢浦大桥</p>
-    <img src="shanghai_lupu_bridge.jpg" width="350" height="234" />
-    </figure>
+        <dialog open>
+            这里是一个对话框
+        </dialog>
 
 
+        <h3>datalist标签</h3>
+        <p>标签定义选项列表。请与 input 元素配合使用该元素，来定义 input 可能的值。datalist 及其选项不会被显示出来，它仅仅是合法的输入值列表。请使用 input 元素的 list 属性来绑定 datalist。</p>
+
+
+        <input id="myCar" list="cars" />
+        <datalist id="cars">
+            <option value="BMW">
+                <option value="Ford">
+                    <option value="Volvo">
+        </datalist>
+
+        <h3>details</h3>
+
+        <details>
+            <summary>Copyright 2011.</summary>
+            <p>All pages and graphics on this web site are the property of W3School.</p>
+        </details>
+
+        <h3>figcaption</h3>
+        <figure>
+            <p>黄浦江上的的卢浦大桥</p>
+            <img src="shanghai_lupu_bridge.jpg" width="350" height="234" />
+        </figure>
+
+        <!-- <header> 标签定义文档的页眉（介绍信息）。 -->
+        <header>
+            <h1>Welcome to my homepage</h1>
+            <p>My name is Donald Duck</p>
+        </header>
+
+        <!-- <section> 标签定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分。 -->
+        <section>
+            <!-- <nav> 标签定义导航链接的部分。 -->
+            <nav>
+                <a href="#">HTML</a> |
+                <a href="#">CSS</a> |
+                <a href="#">JavaScript</a> |
+                <a href="#">jQuery</a>
+            </nav>
+            <!-- <article> 标签规定独立的自包含内容。 -->
+            <article>
+                <h1>Internet Explorer 9</h1>
+                <p>Windows Internet Explorer 9（简称 IE9）于 2011 年 3 月 14 日发布.....</p>
+            </article>
+            <!-- <aside> 标签定义 article 以外的内容。aside 的内容应该与 article 的内容相关。 -->
+            <aside>
+                <h4>Epcot Center</h4>
+                The Epcot Center is a theme park in Disney World, Florida.
+            </aside>
+        </section>
+        <section>
+            <p>
+                <button onclick="geoFindMe()">Show my location</button>
+            </p>
+            <div id="out"></div>
+            <div id="allMap"></div>
+        </section>
+        <!-- 	<footer> 标签定义文档或节的页脚。
+	<footer> 元素应当含有其包含元素的信息。
+	页脚通常包含文档的作者、版权信息、使用条款链接、联系信息等等。
+	您可以在一个文档中使用多个 <footer> 元素。 -->
+        <footer>
+            <p>Posted by: W3School</p>
+            <p>Contact information:
+                <a href="mailto:someone@example.com">someone@example.com</a>.</p>
+        </footer>
+
+        <section>
+            <!-- 使用一组radio，必须确保name属性一致 -->
+            <form action="" method="get">
+                您最喜欢水果？
+                <br />
+                <br />
+                <label>
+                    <input name="Fruit" type="radio" value="" />苹果 </label>
+                <label>
+                    <input name="Fruit" type="radio" value="" />桃子 </label>
+                <label>
+                    <input name="Fruit" type="radio" value="" />香蕉 </label>
+                <label>
+                    <input name="Fruit" type="radio" value="" />梨 </label>
+                <label>
+                    <input name="Fruit" type="radio" value="" />其它 </label>
+            </form>
+        </section>
+        <script type="text/javascript">
+            function geoFindMe() {
+                var output = document.getElementById("out");
+                if (!navigator.geolocation) {
+                    output.innerHTML = "<p>您的浏览器不支持地理位置</p>";
+                    return;
+                }
+
+                function success(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+
+                    output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+                    var img = new Image();
+                    img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+                    output.appendChild(img);
+                    baiduMap(longitude, latitude);
+                };
+
+                function baiduMap(latitude, longitude) {
+                    var allMap = document.getElementById("allMap");//地图的外框的元素必须是页面元素
+                    allMap.style.width = "600px";
+                    allMap.style.height = "600px";
+                    // 百度地图API功能
+                    var map = new BMap.Map("allMap");    // 创建Map实例
+                    map.centerAndZoom(new BMap.Point(latitude, longitude), 17);  // 初始化地图,设置中心点坐标和地图级别
+                    map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+                    map.setCurrentCity("杭州");          // 设置地图显示的城市 此项是必须设置的
+                    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+                };
+
+                function error() {
+                    output.innerHTML = "无法获取您的位置";
+                };
+
+                output.innerHTML = "<p>Locating…</p>";
+
+                navigator.geolocation.getCurrentPosition(success, error, {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 25000
+                });
+            }
+        </script>
 
 </body>
 
