@@ -2,10 +2,8 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "Ideas Technical-points 2017-2-22",
-  "main": "html位置相关方法.js",
   "dependencies": {
-    "anywhere": "^1.4.0",
-    "events": "^1.1.1"
+    "anywhere": "^1.4.0"
   },
   "devDependencies": {},
   "scripts": {
