@@ -6,26 +6,26 @@
 
 class Shape {
     // 构造函数
-    constructor (id, x, y) {
+    constructor(id, x, y) {
         this.id = id
         this.move(x, y)
     }
     // 静态方法
-    move (x, y) {
+    move(x, y) {
         this.x = x
         this.y = y
     }
 }
 // 继承子类
 class Rectangle extends Shape {
-    constructor (id, x, y, width, height) {
+    constructor(id, x, y, width, height) {
         super(id, x, y);// 关键步骤
-        this.width  = width
+        this.width = width
         this.height = height
     }
 }
 class Circle extends Shape {
-    constructor (id, x, y, radius) {
+    constructor(id, x, y, radius) {
         // 调用父类的静待方法，添加到子类上
         super(id, x, y)
         this.radius = radius
@@ -50,7 +50,7 @@ Shape.prototype.move = function (x, y) {
 
 var Rectangle = function (id, x, y, width, height) {
     Shape.call(this, id, x, y);
-    this.width  = width;
+    this.width = width;
     this.height = height;
 };
 Rectangle.prototype = Object.create(Shape.prototype);
