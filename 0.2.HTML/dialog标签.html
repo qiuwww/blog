@@ -17,9 +17,14 @@
     <p>HTML 5.2 正式成为 W3C 的推荐标准（REC）</p>
     <p>open 属性表示此时 dialog 是可见的，如果没有 open，dialog 将会隐藏， 你可以使用 JavaScipt 将它显现出来</p>
 
-    <p>JavaScipt 有几个 方法 和 属性 可以很方便地处理 dialog 元素， 使用最多的可能还是 showModal() 和 close() const modal = document.querySelector('dialog');
-        // makes modal appear (adds `open` attribute) modal.showModal(); // hides modal (removes `open` attribute) modal.close();
-        modal.show(); 还有一个方法是 show()， 它也可以让 dialog 显现，但与 showModal() 不同的是它没有阴影，用户可以与非 dialog 元素进行交互
+    <p>JavaScipt 有几个 方法 和 属性 可以很方便地处理 dialog 元素， 使用最多的可能还是 showModal() 和 close()
+      const modal = document.querySelector('dialog');
+        // makes modal appear (adds `open` attribute)
+        modal.showModal();
+        // hides modal (removes `open` attribute)
+        modal.close();
+        modal.show(); 
+        还有一个方法是 show()， 它也可以让 dialog 显现，但与 showModal() 不同的是它没有阴影，用户可以与非 dialog 元素进行交互
     </p>
 
 

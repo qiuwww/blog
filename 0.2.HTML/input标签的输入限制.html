@@ -14,7 +14,8 @@
 
 
 
-    # input标签输入限制 1. input输入框只能输入数字，只能输入字母数字组合 1. 限制input的输入内容的长度，使用maxLength 输入大小写字母、数字、下划线：
+    # input标签输入限制 1. input输入框只能输入数字，只能输入字母数字组合
+    1. 限制input的输入内容的长度，使用maxLength 输入大小写字母、数字、下划线：
     <input type="text" onkeyup="this.value=this.value.replace(/1/g,'');"> 输入小写字母、数字、下划线：
     <input type="text" onkeyup="this.value=this.value.replace(/2/g,'');"> 输入数字和点
     <input type="text" onkeyup="value=value.replace(/3/g,'')"> 输入中文:
@@ -65,13 +66,13 @@
     <h3>使用js来控制输入：</h3>
     <script language="JavaScript" type="text/javascript">
         function clearNoNum(obj) {
-            //先把非数字的都替换掉，除了数字和.  
+            //先把非数字的都替换掉，除了数字和.
             obj.value = obj.value.replace(/[^\d.]/g, "");
-            //必须保证第一个为数字而不是.  
+            //必须保证第一个为数字而不是.
             obj.value = obj.value.replace(/^\./g, "");
-            //保证只有出现一个.而没有多个.  
+            //保证只有出现一个.而没有多个.
             obj.value = obj.value.replace(/\.{2,}/g, ".");
-            //保证.只出现一次，而不能出现两次以上  
+            //保证.只出现一次，而不能出现两次以上
             // 需要调试
             obj.value = obj.value.replace(".", "$#{1}quot;).replace(/\./g,'').replace("$#{1}quot;",".");
         }

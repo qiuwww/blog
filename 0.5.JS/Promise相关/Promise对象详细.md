@@ -170,7 +170,7 @@ function runAsync1(){
 
 	});
 
-	return p; 
+	return p;
 }
 
 
@@ -190,7 +190,7 @@ function runAsync2(){
 
 	});
 
-	return p; 
+	return p;
 
 }
 
@@ -210,7 +210,7 @@ function runAsync3(){
 
 	});
 
-	return p; 
+	return p;
 
 }
 ```
@@ -253,3 +253,16 @@ getNumber()
 
 8、Promise的all方法提供了**并行执行异步操作**的能力，并且在所有异步操作执行完后才执行回调。
 
+### delay函数
+
+```
+const delay = (timeout) => {
+  return new Promise(resolve => {
+    setTimeout(resolve, timeout);
+  });
+};
+
+delay(1000).then(_ => {
+  console.log('executed');
+});
+```
