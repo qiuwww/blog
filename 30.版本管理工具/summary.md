@@ -12,6 +12,11 @@
 
 ### feature分支，从develop分支fork，开发完成后合并到develop中，完成之后可以选择删除
 
+### 各个分支的文件版本不一致，在源文件里边的表现也不一致的，这个要明确，与feature/test这样的目录都是一致的。
+
+### 代码如果有commit，就没法切换到别的分支，除非放弃当前修改。
+
+### 一次修改之后的文件，如果各个分支都是一样的代码，就可以随意切换，随意提交到任意分支。
 
 ## 操作
 
@@ -29,3 +34,10 @@ develop branch：开发分支
 feature branch：功能分支
 release branch：预发布分支
 hotfix branch：bug修复分支
+
+
+## 基于develop分支创建新功能分支：（这里会创建一个文件夹）
+
+git checkout -b feature/demo develop
+推送到远程仓库，共享：
+
