@@ -5,4 +5,4 @@
 
 // logWrap('1232113')
 
-trrow new Error('数值太小了');
+throw new Error('数值太小了');

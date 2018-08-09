@@ -7,7 +7,7 @@
     <title>Document</title>
     <style type="text/css">
         /*居中布局*/
-        
+
         .layout1 {
             width: 300px;
             height: 200px;
@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         .box {
             width: 200px;
             /*宽度可以为任意*/
@@ -25,7 +25,7 @@
             background-color: yellow;
         }
         /*布局方向控制*/
-        
+
         .layout2 {
             display: flex;
             width: 100%;
@@ -41,7 +41,7 @@
             /*从下到上排列。 以上只针对ltr书写方式，对于rtl正好相反了, 上下均分高度*/
             /*flex-direction:column-reverse; */
         }
-        
+
         .layout2 .direction {
             width: 200px;
             height: 200px;
@@ -50,7 +50,7 @@
             align-items: center;
         }
         /*控制伸缩容器是单行还是多行，也决定了侧轴方向*/
-        
+
         .layout3 {
             display: flex;
             width: 300px;
@@ -63,7 +63,7 @@
             /*伸缩容器多行显示，但是伸缩项目每一行的排列顺序由下到上依次排列。横向还是顺序排列*/
             /*flex-wrap:wrap-reverse;*/
         }
-        
+
         .layout3 .wrap {
             width: 100px;
             height: 100px;
@@ -72,7 +72,7 @@
             align-items: center;
         }
         /*justify-content, 主轴对齐方式*/
-        
+
         .layout4 {
             display: flex;
             width: 100%;
@@ -88,7 +88,7 @@
             /*伸缩项目平均的分布在主轴上面，并且第一个元素到主轴起点距离和最后一个元素到主轴终点的距离相等，且等于中间元素两两的间距的一半。完美的平均分配，这个布局在阿里系中很常见。*/
             /*justify-content:space-around;*/
         }
-        
+
         .layout4 .justify-content {
             width: 200px;
             height: 200px;
@@ -97,7 +97,7 @@
             align-items: center;
         }
         /*align-content 侧轴对齐方式，取值与justify-content差不多*/
-        
+
         .layout6 {
             display: flex;
             width: 60px;
@@ -118,7 +118,7 @@
             /*（默认值）：轴线占满整个交叉轴。*/
             /*align-content: stretch;*/
         }
-        
+
         .layout6 .align-content {
             width: 50px;
             height: 50px;
@@ -126,7 +126,7 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         .layout5 {
             display: flex;
             width: 500px;
@@ -145,7 +145,7 @@
             /*这个时候不设置高度（横向布局），不设置宽度（竖向布局），会被拉伸长度*/
             /*align-items:stretch;*/
         }
-        
+
         .layout5 .align-items {
             min-width: 100px;
             min-height: 100px;
@@ -154,25 +154,25 @@
             align-items: center;
         }
         /*order，用来控制元素顺序*/
-        
+
         #main {
             display: flex;
         }
-        
+
         #main article {
             flex: 1;
             height: 100px;
             order: 2;
             background-color: #500;
         }
-        
+
         #main nav {
             width: 200px;
             height: 100px;
             order: 1;
             background-color: #050;
         }
-        
+
         #main aside {
             width: 200px;
             height: 100px;
@@ -180,21 +180,21 @@
             background-color: #005;
         }
         /*测试子元素的flex属性*/
-        
+
         #flex {
             display: flex;
             width: 100%;
             height: 200px;
             background-color: blueviolet;
         }
-        
+
         #flex .box1 {
             /*width: 200px;*/
             height: 100%;
             flex: 2;
             flex-basis: 100px;
         }
-        
+
         #flex .box2 {
             background-color: skyblue;
             height: 100%;
@@ -214,7 +214,7 @@
             /*flex: 2 2;*/
             /*flex: 2 2 10%;*/
         }
-        
+
         #flex .box3 {
             background-color: #050;
             height: 100%;
@@ -229,13 +229,13 @@
 		 *    minimum size. See http://bit.ly/1Mn35US for details.
 		 * 3. Use `%` instead of `vh` since `vh` is buggy in older mobile Safari.
 		 */
-        
-        .HolyGrail {     
+
+        .HolyGrail {
             display: flex;
             flex-direction: column;
             height: 200px;
         }
-        
+
         .HolyGrail-header,
         .HolyGrail-footer {
             /*不flex，宽高也就不会随外围变化*/
@@ -245,13 +245,13 @@
             background-color: green;
             /* 2 */
         }
-        
+
         .HolyGrail-body {
             height: 200px;
             width: 100%;
             display: flex;
         }
-        
+
         .HolyGrail-nav,
         .HolyGrail-asd {
             width: 300px;
@@ -259,13 +259,13 @@
             flex: none;
             background-color: blue;
         }
-        
+
         .HolyGrail-content {
             flex: 1;
             background-color: yellow;
         }
         /*横向的复杂布局*/
-        
+
         .complex {
             display: -webkit-flex;
             display: flex;
@@ -273,7 +273,7 @@
             height: 200px;
             width: 100%;
         }
-        
+
         .complex .initial {
             height: 100%;
             -webkit-flex: initial;
@@ -282,20 +282,20 @@
             min-width: 100px;
             background-color: blue;
         }
-        
+
         .complex .none {
             -webkit-flex: none;
             flex: none;
             width: 200px;
             background-color: green;
         }
-        
+
         .complex .flex1 {
             -webkit-flex: 1;
             flex: 1;
             background-color: yellow;
         }
-        
+
         .complex .flex2 {
             -webkit-flex: 2;
             flex: 2;
@@ -388,7 +388,7 @@
     </ul>
 
     <div>
-        <p><b>总结 通过上面的分析，我们就可以得出这样几个结论：</b></p> 
+        <p><b>总结 通过上面的分析，我们就可以得出这样几个结论：</b></p>
         <ul>
             <li>1、剩余空间＝父容器空间－子容器1.flex-basis/width - 子容器2.flex-basis/width - … </li>
             <li>2、如果父容器空间不够，就走压缩flex-shrink，否则走扩张flex-grow；</li>
@@ -440,7 +440,7 @@
             flex-wrap: wrap;
             margin-bottom: -20px;
         }
-        
+
         .multi-row .flex-item {
             width: 30%;
             height: 140px;
@@ -459,7 +459,45 @@
         <div class="flex-item">4</div>
         <div class="flex-item">5</div>
         <div class="flex-item">6</div>
-    </div>
+	</div>
+	<style type="text/css">
+		.test-1 {
+			height: 800px;
+			width: 100%;
+			background-color: #eee;
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			align-content: space-between;
+		}
+
+		.test-1 .flex-item {
+			width: 100px;
+			height: 100px;
+			margin-bottom: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: blueviolet;
+		}
+		.test-1 .last-item{
+
+		}
+		.test-1 .top{
+			flex: 1;
+		}
+
+	</style>
+	<div class="test-1">
+		<div class="top">
+			<div class="flex-item">1</div>
+			<div class="flex-item">2</div>
+			<div class="flex-item">3</div>
+			<div class="flex-item">4</div>
+		</div>
+		<div class="flex-item last-item">5</div>
+	</div>
+
 </body>
 
 </html>
