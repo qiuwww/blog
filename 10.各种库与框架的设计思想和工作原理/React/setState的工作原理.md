@@ -1,7 +1,7 @@
 
 
 ## setState的工作原理
-
+setState，合并渲染（异步），但是数据是实时更新的。
 ### setState并不奇怪
 
 有一个能反映问题的场景：
@@ -61,3 +61,53 @@ componentDidMount() {
 这是因为React会把`setState`里传进去的函数放在一个任务队列里，React 会依次调用队列中的函数，传递给它们**前一刻**的 state。
 
 **另外**，不知道你在[jsbin](http://jsbin.com/nazazo/edit?html,js,console,output)上的代码上注意到没有，调用`setState`后`console.log(this.state.score)`输出仍然为0，也就是`this.state`并未改变，并且只`render`了一次。
+
+
+
+
+## setState操作示例
+
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
+class Example extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      val: 0
+    };
+  }
+
+  componentDidMount() {
+    this.setState({val: this.state.val + 1});
+    console.log(this.state.val);    // 第 1 次 log
+
+    this.setState({val: this.state.val + 1});
+    console.log(this.state.val);    // 第 2 次 log
+
+    setTimeout(() => {
+      this.setState({val: this.state.val + 1});
+      console.log(this.state.val);  // 第 3 次 log
+
+      this.setState({val: this.state.val + 1});
+      console.log(this.state.val);  // 第 4 次 log
+    }, 0);
+  }
+
+  render() {
+    return <p>Example</p>;
+  }
+};
+
+ReactDOM.render(
+  <Example />,
+  document.getElementById('root')
+);
+打开console控制台，发现输出的结果是
+
+0，0，2，3
+
+
+这样就可以理解为什么第1次和第2次的setState执行后值没变了。因为在ComponentDidMount中调用setState时，渲染周期还没有结束，batchingStrategy中的isBatchingUpdates还是true，setState对应的components被存入dirtyComponents暂存起来，所以前2次setState之后的this.state.val的结果都是 0。
+
+再观察第2类调用栈，使用了setTimeout，会在结束当前调用栈之后执行，这时渲染周期已经结束，batchingStrategy中的isBatchingUpdates为false。setState会在执行流中调用，不会进入dirtyComponents存储，所以新的state会立马生效，打印第3次和第4次的this.state.val，就会出现生效后的值了。
