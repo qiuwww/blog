@@ -27,8 +27,8 @@ var argArr = Array.prototype.slice.call(arguments);
 原理就像是：-(-'20')
 
 长字符串，分段相加：
-var str = 'first line' + 
-	'second line' + 
+var str = 'first line' +
+	'second line' +
 	'third';
 
 函数表达式声明：
@@ -45,26 +45,26 @@ function add(len) {
 		lis += '<li>' + item + '</li>';
 	});
 	var str = '<ul>' + lis + '</ul>';
-	// console.log(str);	
-	console.log("1", new Date().getTime() - date1);		
+	// console.log(str);
+	console.log("1", new Date().getTime() - date1);
 }
 add(100000);
 // 确实下边这种方式快一点
 function arr(len) {
-	var date1 = new Date().getTime();	
+	var date1 = new Date().getTime();
 	var items = [];
 	for(var i = len; i >= 0; i--){
 		items.push('<li>' + i + '</li>');
 	}
 	var str = '<ul>' + items.join('') + '</ul>';
 	// console.log(str);
-	console.log("2", new Date().getTime() - date1);	
+	console.log("2", new Date().getTime() - date1);
 }
 arr(100000);
 
 不要在一个代码块内声明一个函数（ 会提升整个函数），可以使用变量赋值形式(到这个地方才可以使用，别的地方时undefined)。
 
-声明提升，但是赋值操作不会；var 
+声明提升，但是赋值操作不会；var
 function 声明会提升变量名及赋值，匿名函数不会
 
 注释都在上边，区分单行注释与块注释
@@ -104,3 +104,18 @@ People.prototype.sayAge = function (){
 var  xiaoming = new People ("xiaoming", 20);
 xiaoming.sayAge().sayName();
 
+// html属性用双引号，字符串用单引号。
+
+
+// 函数声明
+
+// good
+// lexical name distinguished from the variable-referenced invocation(s)
+const short = function longUniqueMoreDescriptiveLexicalFoo() {
+    // ...
+  };
+
+  // good， 默认参数
+function handleThings(opts = {}) {
+    // ...
+  }
