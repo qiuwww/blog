@@ -461,9 +461,10 @@
         <div class="flex-item">6</div>
 	</div>
 	<style type="text/css">
-		.test-1 {
+		.test-1,
+    .test-2 {
 			height: 800px;
-			width: 100%;
+			width: 300px;
 			background-color: #eee;
 			display: flex;
 			flex-wrap: wrap;
@@ -471,7 +472,8 @@
 			align-content: space-between;
 		}
 
-		.test-1 .flex-item {
+		.test-1 .flex-item,
+    .test-2 .flex-item  {
 			width: 100px;
 			height: 100px;
 			margin-bottom: 10px;
@@ -486,8 +488,17 @@
 		.test-1 .top{
 			flex: 1;
 		}
+    .test-2 .space{
+      background-color: aqua;
+      flex: 1;
+      margin-bottom: 10px;
+    }
 
-	</style>
+  </style>
+  <hr style="margin-top: 30px;">
+  <h2>实现前面的靠前，后边的靠后，需要分组显示</h2>
+  <h3>实现方式1 需要分组显示</h3>
+
 	<div class="test-1">
 		<div class="top">
 			<div class="flex-item">1</div>
@@ -496,7 +507,15 @@
 			<div class="flex-item">4</div>
 		</div>
 		<div class="flex-item last-item">5</div>
-	</div>
+  </div>
+  <h3>实现方式2</h3>
+  <div class="test-2">
+      <div class="flex-item">1</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="space"></div>
+      <div class="flex-item last-item">5</div>
+  </div>
 
 </body>
 
