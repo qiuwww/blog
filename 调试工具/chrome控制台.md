@@ -1,4 +1,4 @@
-# ##chrome控制台.md
+# chrome控制台.md
 
 
 ## 页面可编辑模式
@@ -7,7 +7,7 @@
 document.body.contentEditable=true
 `
 
-# JS调试技巧（适用于Chrome Inspector 和 Firefox）
+## JS调试技巧（适用于Chrome Inspector 和 Firefox）
 
 1. debugger
 
@@ -107,17 +107,9 @@ console.timeEnd('myTime'); //Ends the timer with Label - myTime
 
 > clear()
 
-
-
-
-
 ## 反调试
 
-
-
-
-
-## 重定义console.log方法，来取消开发过程中的打印信息
+### 重定义console.log方法，来取消开发过程中的打印信息
 
 ```
 console.log("HelloWorld");
@@ -126,7 +118,7 @@ var fake = function() {};
 
 window['console']['log']= fake;
 
-console.log("Youcan't see me!");
+console.log("You can't see me!");
 ```
 
 

@@ -29,4 +29,3 @@ PageNav.prototype = {
 	}
 
 }
-	

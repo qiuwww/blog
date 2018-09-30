@@ -109,9 +109,33 @@ $lim_{x \to \infty} \ exp(-x)=0$
 >
 > balabalabala
 
+## 流程图
+```flow
+st=>start: Start
+e=>end
+op=>operation: My Operation
+cond=>condition: Yes or No?
+
+st->op->cond
+cond(yes)->e
+cond(no)->op
+```
+
+以及时序图:
+
+```sequence
+Alice->Bob: Hello Bob, how are you?
+Note right of Bob: Bob thinks
+Bob-->Alice: I am good thanks!
+```
+
+> **提示：**想了解更多，请查看**流程图**[语法][3]以及**时序图**[语法][4]。
+
+
 # 目前到这里，有一点小问题，以后在学习别人怎么写，还要熟练运用
 
 **changyangzhe-2016.7.22**
+**moonbreezee-2018.9.14**
 
 
 
