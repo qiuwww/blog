@@ -1,33 +1,35 @@
-# chrome控制台.md
+# chrome控制台,调试技巧
 
 
-## 页面可编辑模式
+### 页面可编辑模式
 
 `
 document.body.contentEditable=true
 `
 
-## JS调试技巧（适用于Chrome Inspector 和 Firefox）
+### JS调试技巧（适用于Chrome Inspector 和 Firefox）
 
 1. debugger
 
-2. 控制台输出table
+2. 控制台输出table，可以直接输出data
 
-   ```
-   var animals = [
-       { animal: 'Horse', name: 'Henry', age: 43 },
-       { animal: 'Dog', name: 'Fred', age: 13 },
-       { animal: 'Cat', name: 'Frodo', age: 18 }
-   ];
-    
-   console.table(animals);
-   ```
+```
+var animals = [
+    { animal: 'Horse', name: 'Henry', age: 43 },
+    { animal: 'Dog', name: 'Fred', age: 13 },
+    { animal: 'Cat', name: 'Frodo', age: 18 }
+];
+console.table(animals);
+```
 
-3. 用 console.time() 和 console.timeEnd() 打印中间的代码执行时间（可测试同步代码和异步代码）
+3. 代码执行时间的问题
 
-4. ```
-   console.log，console.debug，console.warn，console.info，console.error
-   ```
+用 console.time() 和 console.timeEnd() 打印中间的代码执行时间（可测试同步代码和异步代码）;
+
+4. console的一些别的方法
+```
+console.log，console.debug，console.warn，console.info，console.error
+```
 
 5. 自定义log函数，显示描述、值、颜色。当然这里还可以添加别的一些属性，实用%c来添加样式
 
