@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>30-seconds-of-code.js</h2>
+  <script>
+
+    console.log("Array:", Array.prototype);
+    // array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+    var arr = [1, 2, 3];
+    var total = arr.reduce(function (pre, cur, index, arr) {
+      console.log(index);
+      return pre + cur;
+    }, 0);
+    console.log(total);
+
+    var result = [
+      {
+        subject: 'math',
+        score: 88
+      },
+      {
+        subject: 'chinese',
+        score: 95
+      },
+      {
+        subject: 'english',
+        score: 80
+      }
+    ];
+    var totalScore = result.reduce(function (pre, cur) {
+      return pre + cur.score;
+    }, 0);
+    console.log(totalScore);
+
+
+    // chunk, 数组分块
+    const chunk = (arr, size) =>
+      Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+        arr.slice(i * size, i * size + size)
+      );
+    console.log(chunk([1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5], 6));
+
+    const countBy = (arr, fn) =>
+      arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => {
+        acc[val] = (acc[val] || 0) + 1;
+        return acc;
+      }, {});
+    countBy([6.1, 4.2, 6.3], Math.floor); // {4: 1, 6: 2}
+    countBy(['one', 'two', 'three'], 'length'); // {3: 2, 5: 1}
+
+    // 数组深度展开
+    const deepFlatten = arr => [].concat(...arr.map(v => (Array.isArray(v) ? deepFlatten(v) : v)));
+    deepFlatten([1, [2], [[3], 4], 5]); // [1,2,3,4,5]
+
+
+    const initialize2DArray = (w, h, val = null) =>
+      Array.from({ length: h }).map(() => Array.from({ length: w }).fill(val));
+    initialize2DArray(2, 2, 0); // [[0,0], [0,0]]
+  </script>
+</body>
+
+</html>
