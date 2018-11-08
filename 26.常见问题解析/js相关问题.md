@@ -263,3 +263,66 @@ obj.method(fn, 1);
 // 第一次输出10应该没有问题。我们知道取对象属于除了点操作符还可以用中括号，
 // 所以第二次执行时相当于arguments调用方法，this指向arguments，而这里传了两个参数，故输出arguments长度为2。
 ```
+
+
+## js的类型检测
+typeof的结果有: 'number', 'string', 'object', 'undefined', 'boolean', 'function';
+实际的js类型有: string, number, boolean, undefined, null, object;
+
+### 检测json类型对象
+
+### 检测数组
+
+
+
+## 闭包问题
+
+```
+// 都输出10
+for (var i = 0; i < 10; ++i) {
+    setTimeout(function () {console.log(i)}, 0);
+}
+// 依次输出
+for (var i = 0; i < 10; ++i) {
+  (function(i) {
+    setTimeout(function () {console.log(i)}, 0);
+  })(i);
+}
+```
+
+## 严格模式 'use strict
+
+### 在JavaScript源文件的开头包含'use strict'的意义和有什么好处？
+
+这里最简单也是最重要的答案是use strict是一种在运行时自动执行更严格的JavaScript代码解析和错误处理的方法。如果代码错误被忽略或失败，将会产生错误或抛出异常。总的来说，这是一个很好的做法。
+
+严格模式的一些主要优点包括：
+
+- 使调试更容易。 如果代码错误本来会被忽略或失败，那么现在将会产生错误或抛出异常，从而更快地发现代码中的问题，并更快地指引它们的源代码。
+
+- 防止意外全局。 如果没有严格模式，将值赋给未声明的变量会自动创建一个具有该名称的全局变量。这是JavaScript中最常见的错误之一。在严格模式下，尝试这样做会引发错误。
+
+- 消除隐藏威胁。在没有严格模式的情况下，对null或undefined的这个值的引用会自动强制到全局。这可能会导致许多headfakes和pull-out-your-hair类型的错误。在严格模式下，引用null或undefined的这个值会引发错误。
+
+- 不允许重复的参数值。 严格模式在检测到函数的重复命名参数（例如，函数foo（val1，val2，val1）{}）时会引发错误，从而捕获代码中几乎可以肯定存在的错误，否则您可能会浪费大量的时间追踪。
+
+注意：它曾经是（在ECMAScript 5中）strict模式将禁止重复的属性名称（例如var object = {foo：“bar”，foo：“baz”};）但是从ECMAScript 2015 开始，就不再有这种情况了。
+
+- 使eval()更安全。  eval()在严格模式和非严格模式下的行为方式有些不同。最重要的是，在严格模式下，在eval()语句内部声明的变量和函数不会在包含范围中创建（它们是以非严格模式在包含范围中创建的，这也可能是问题的常见来源）。
+
+- 抛出无效的使用错误的删除符。 删除操作符（用于从对象中删除属性）不能用于对象的不可配置属性。当试图删除一个不可配置的属性时，非严格代码将自动失败，而在这种情况下，严格模式会引发错误。
+
+
+## Number相关
+
+### 浮点数相加的问题
+
+一个典型的解决方案是比较两个数字与特殊常数Number.EPSILON之间的绝对差值：
+```
+function areTheNumbersAlmostEqual(num1, num2) {
+  return Math.abs( num1 - num2 ) < Number.EPSILON;
+}
+console.log(areTheNumbersAlmostEqual(0.1 + 0.2, 0.3));
+```
+
+
