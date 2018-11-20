@@ -131,14 +131,18 @@ Bob-->Alice: I am good thanks!
 
 > **提示：**想了解更多，请查看**流程图**[语法][3]以及**时序图**[语法][4]。
 
+## 链接
 
-# 目前到这里，有一点小问题，以后在学习别人怎么写，还要熟练运用
+[超强大的云开发平台Coding](http://coding.net)
+
+## 目前到这里，有一点小问题，以后在学习别人怎么写，还要熟练运用
 
 **changyangzhe-2016.7.22**
 **moonbreezee-2018.9.14**
 
 
-
+## 其他资源
+[Markdown 语法介绍](https://coding.net/help/doc/project/markdown.html#Markdown)
 
 
 
