@@ -9,7 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "keepsmiling": "^1.1.0"
+  "dependencies": {},
+  "devDependencies": {
+    "keepsmiling": "^1.2.0"
   }
 }

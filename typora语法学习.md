@@ -1,9 +1,23 @@
-# 原文地址：http://www.jianshu.com/p/092de536d948
 
-这是目录，哈哈哈
+# typora语法学习
+
+这是目录
 
 [TOC]
 
+
+## 引用
+
+> 这是一个块引用，
+>
+> 应该可以写很长，很长
+> 
+> ### 引用的标题
+> balabalabala
+> > 这是第二级引用。
+> return shell_exec(`echo $input | $markdown_script`);
+
+## 常用的简单标记
 <u>这是下划线</u>
 
 ~这是删除线，但是不起作用，好像^与~都不可用~
@@ -28,35 +42,82 @@ __当然这样也表示强调__
 
 _当然这也是斜体_
 
-## 插入图片也是很简单的啊,直接拖过来就行了：
+## 列表
 
-this is an Image: ![6bb7f8198618367a3e08001f2b738bd4b11ce552](C:\Users\admin\Desktop\斗图\6bb7f8198618367a3e08001f2b738bd4b11ce552.jpg)
+### 任务列表
 
-## 网络图片，so easy：
+- [x] 吃饭
+- [x] 看电影
+- [ ] 看书
 
-![img](http://upload-images.jianshu.io/upload_images/1182605-1cbd9bb6f1ed0be4.gif?imageMogr2/auto-orient/strip)
+### 无序的列表
+> 使用星号、加号或是减号作为列表标记
+#### 无序的列表1
+* html
+* css
+* javascript
+#### 无序的列表2
+- vue
+- angularjs
+- react
+#### 无序的列表3
++ vue
++ angularjs
++ react
 
-## 当然重要的是插入url：
+### 有序的列表
 
+1. nodejs
+2. angularjs
+3. react
+
+### 嵌套块引用的列表
+* github有以下主要功能:
+  > 代码托管平台
+  > 在线运行环境    
+  > 代码质量监控    
+  > 项目管理平台
+
+## 代码块
+```
+/**
+ * @desc 判断`obj`是否为空
+ * @param {Object} obj object
+ * @return {Boolean}
+ */
+export function isEmptyObject(obj) {
+  if (!obj || typeof obj !== "object" || Array.isArray(obj))
+    return false;
+  return !Object.keys(obj).length;
+}
+```
+## 自动链接
 当然标准的url直接填入就是了。eg：www.baidu.com
 
-# 标题1
+[typora语法学习](https://github.com/moonbreezee/blog/blob/master/typora%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0.md)
 
-## 标题2
+## 表格
+| 姓名   |  性别  |  毕业学校  |   工资 |
+| :--- | :--: | :----: | ---: |
+| 杨洋   |  男   | 重庆交通大学 | 3200 |
+| 峰哥   |  男   |  贵州大学  | 5000 |
+| 坑货   |  女   |  北京大学  | 2000 |
+其中代码的第二行指定对齐的方式，第一个是左对齐，第二个和第三个是居中，最后一个是右对齐。
 
-### 标题3
+## 插入图片
 
-#### 标题4
+本地图片直接拖过来就行了：![react生命周期](/Users/qww/Documents/learn/blog/10.各种库与框架的设计思想和工作原理/React/React的生命周期/react生命周期.png)
 
-##### 标题5
-
-###### 标题6，这就是最小的了
+### 网络图片，so easy：
+![img](http://upload-images.jianshu.io/upload_images/1182605-1cbd9bb6f1ed0be4.gif?imageMogr2/auto-orient/strip)
 
 ## 这是两种分割线
 
+分割内容1
 ***
-
+分割内容2
 ___
+分割内容3
 
 ## 标注
 
@@ -64,52 +125,10 @@ ___
 
 [^注释]: 真的可以啊，但是这里为什么还在呢
 
-## 表格
-
-| 姓名   |  性别  |  毕业学校  |   工资 |
-| :--- | :--: | :----: | ---: |
-| 杨洋   |  男   | 重庆交通大学 | 3200 |
-| 峰哥   |  男   |  贵州大学  | 5000 |
-| 坑货   |  女   |  北京大学  | 2000 |
-
-其中代码的第二行指定对齐的方式，第一个是左对齐，第二个和第三个是居中，最后一个是右对齐。
-
- ## 数学表达式，虽然现在好像没什么用，以后用吧
-
-$lim_{x \to \infty} \ exp(-x)=0$
-
- $$\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\\end{vmatrix}$$
-
-## 任务列表
-
-- [ ] 吃饭
-- [ ] 看电影
-- [ ] 看书
-
-
-## 列表
-
-**无序的列表**
-
-* html
-* css
-* javascript
-
-**有序的列表**
-
-1. nodejs
-2. angularjs
-3. react
-
-## 块引用
-
-> 这是一个块引用，
->
-> 应该可以写很长，很长
->
-> balabalabala
-
 ## 流程图
+Markdown 编辑器已支持绘制流程图、时序图和甘特图。通过 mermaid 实现图形的插入，点击查看 更多语法详情。
+
+### 流程图
 ```flow
 st=>start: Start
 e=>end
@@ -121,28 +140,22 @@ cond(yes)->e
 cond(no)->op
 ```
 
-以及时序图:
+### 以及时序图:
 
 ```sequence
 Alice->Bob: Hello Bob, how are you?
 Note right of Bob: Bob thinks
 Bob-->Alice: I am good thanks!
 ```
-
 > **提示：**想了解更多，请查看**流程图**[语法][3]以及**时序图**[语法][4]。
-
-## 链接
-
-[超强大的云开发平台Coding](http://coding.net)
 
 ## 目前到这里，有一点小问题，以后在学习别人怎么写，还要熟练运用
 
-**changyangzhe-2016.7.22**
-**moonbreezee-2018.9.14**
+changyangzhe-2016.7.22
+moonbreezee-2018.9.14
 
 
-## 其他资源
-[Markdown 语法介绍](https://coding.net/help/doc/project/markdown.html#Markdown)
+
 
 
 
