@@ -35,3 +35,19 @@ var resetRem = function () {
 		}
 	}, 0);
 }
+// 与上边的一致，不过设置的方式不一致导致上边的可能不能实现这个功能
+window.onload = function () {
+  var html = document.getElementsByTagName('html')[0];
+  var settedFs = settingFs = parseInt(html.style.fontSize);
+  var whileCount = 0;
+  while (true) {
+    var realFs = parseInt(window.getComputedStyle(html).fontSize);
+    var delta = realFs - settedFs;
+    if (Math.abs(delta) > 1) {  //不相等
+      if (delta > 0) settingFs--; else settingFs++;
+      html.setAttribute('style', 'font-size:' + settingFs + 'px!important');
+    } else {
+      break;
+    }
+  }
+}

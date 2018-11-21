@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en" style="font-size: 100px;">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="screen-orientation" content="portrait" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="full-screen" content="yes">
+  <meta name="x5-fullscreen" content="true">
+  <script>
+    (function (doc, win) { var docEl = doc.documentElement, resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize', recalc = function () { var clientWidth = docEl.clientWidth; if (!clientWidth) return; if (clientWidth >= 640) { clientWidth = 640; } else if (clientWidth <= 320) { clientWidth = 320; } else { } docEl.style.fontSize = 100 * (clientWidth / 375) + 'px'; }; if (!doc.addEventListener) return; win.addEventListener(resizeEvt, recalc, false); doc.addEventListener('DOMContentLoaded', recalc, false); })(document, window);
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      max-height: 100%
+    }
+
+    body {
+      background-color: aqua;
+      width: 3.75rem;
+      height: 100%;
+    }
+
+    .wrap {
+      width: 3.25rem;
+      height: 2rem;
+      background-color: blueviolet;
+      font-size: 20px;
+    }
+  </style>
+
+<body>
+  <div class="wrap">
+    <p>这个问题的根源在于： 通过.style.fontSize与computedStyle(element).fontSize获取的大小不一样</p>
+    参考资料：<a href="https://github.com/amfe/lib-flexible/issues/97">针对部分Android机型的根px不等于设置的px，导致rem误差的解决方案</a>
+    <p>这里的关键点是：</p>
+    <ul>
+      <li>设置all element max-height: 100%;</li>
+      <li>调整fontSize，并设置important;</li>
+    </ul>
+  </div>
+  <script>
+    window.onload = function () {
+      var html = document.getElementsByTagName('html')[0];
+      var settedFs = settingFs = parseInt(html.style.fontSize);
+      var whileCount = 0;
+      while (true) {
+        var realFs = parseInt(window.getComputedStyle(html).fontSize);
+        var delta = realFs - settedFs;
+        if (Math.abs(delta) > 1) {  //不相等
+          if (delta > 0) settingFs--; else settingFs++;
+          html.setAttribute('style', 'font-size:' + settingFs + 'px!important');
+        } else {
+          break;
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
