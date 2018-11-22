@@ -1,7 +1,7 @@
 
 # typora语法学习
 
-这是目录
+## 目录
 
 [TOC]
 
@@ -18,6 +18,7 @@
 > return shell_exec(`echo $input | $markdown_script`);
 
 ## 常用的简单标记
+
 <u>这是下划线</u>
 
 ~这是删除线，但是不起作用，好像^与~都不可用~
@@ -51,6 +52,7 @@ _当然这也是斜体_
 - [ ] 看书
 
 ### 无序的列表
+
 > 使用星号、加号或是减号作为列表标记
 #### 无序的列表1
 * html
@@ -95,6 +97,15 @@ export function isEmptyObject(obj) {
 当然标准的url直接填入就是了。eg：www.baidu.com
 
 [typora语法学习](https://github.com/moonbreezee/blog/blob/master/typora%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0.md)
+
+### 页面内导航
+
+这里应该是转为html的时候会生成锚点
+
+[插入图片](#插入图片)
+
+**[:arrow_up: 返回目录](#目录)**
+
 
 ## 表格
 | 姓名   |  性别  |  毕业学校  |   工资 |
@@ -148,6 +159,20 @@ Note right of Bob: Bob thinks
 Bob-->Alice: I am good thanks!
 ```
 > **提示：**想了解更多，请查看**流程图**[语法][3]以及**时序图**[语法][4]。
+
+## markdown内部可以嵌入直接的html代码
+
+<h1 align="center">
+<br>
+  <a href="https://github.com/stephentian/33-js-concepts"><img src="https://github.com/stephentian/33-js-concepts" alt="每位 JS 开发应该懂的 33 个概念" width=200"></a>
+<br>
+<br>
+  JavaScript开发者应懂的33个概念
+<br>
+</h1>
+
+
+
 
 ## 目前到这里，有一点小问题，以后在学习别人怎么写，还要熟练运用
 
