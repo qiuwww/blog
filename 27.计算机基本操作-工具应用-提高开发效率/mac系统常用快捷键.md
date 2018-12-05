@@ -61,3 +61,15 @@ opion+command+s : 保存当前全部文件；
 操作方式：按下快捷键：Command+shift+4，然后通过鼠标来选取要截图的区域，松下鼠标按键即可完成截图，截图同样保存在桌面，默认png格式。
 
 **如果想截屏到剪贴板，请在上面的快捷键中多加一个control键！**
+
+
+### 输入emoji表情
+使用组合键：`control+command+space`
+🍇🐰
+
+### 向后删除内容
+
+文本编辑时按 Fn + Delete 键可向后删除内容。
+
+## command+tab / q(关闭)
+按Command+Tab切换应用的时候，可以松开Tab，然后按Q退出选中的应用。
