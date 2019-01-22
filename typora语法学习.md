@@ -105,7 +105,27 @@ export function isEmptyObject(obj) {
 }
 ```
 
-## 自动链接
+## 链接
+
+[内嵌式链接](https://www.google.com)
+
+[带标题的内嵌式链接](https://www.google.com "谷歌的主页")
+
+[引用式链接][arbitrary case-insensitive reference text]
+
+[相对引用一个库文件](../blob/master/LICENSE)
+
+[你可以在引用式链接定义中使用数字][1]
+
+或者空着什么都不写 [link text itself]
+
+用来说明引用链接的文字可以放在后面。
+
+[arbitrary case-insensitive reference text]: https://www.mozilla.org
+[1]: http://slashdot.org
+[link text itself]: http://www.reddit.com
+
+### 自动链接
 
 当然标准的url直接填入就是了。eg：www.baidu.com
 
@@ -197,6 +217,11 @@ Bob-->Alice: I am good thanks!
 <br>
 </h1>
 ```
+
+## 脚注
+
+Text prior to footnote reference.[^2]
+[^2]: Comment to include in footnote.
 
 ## 目前到这里，有一点小问题，以后在学习别人怎么写，还要熟练运用
 

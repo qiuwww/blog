@@ -1,12 +1,10 @@
 # blog
 
-路漫漫其修远兮，吾将上下而求索
-
 Ideas Technical-points 2017-2-22
 
 ## 运行命令得到当前文件目录的访问
 
-``` bash
+```
 npm install
 npm server
 ```
@@ -19,6 +17,7 @@ npm server
 
 查看当前页面的地址二维码：http://htmlpreview.github.io/?https://github.com/moonbreezee/blog/blob/master/0.5.JS/js%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81/url%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81.html
 
+
 ## description
 
 - 总结的笔记
@@ -26,12 +25,6 @@ npm server
 - demo测试
 
 ### 测试emoji
-
 使用组合键`control+command+space`;
 😆😁🛹
 更新信息也是可以用的
-
-## 查看&&A
-
-通过`moonbreezee.github.io/hexo-blog-source`生成页面。
-查看地址: [blog](http://blog.qiuww.site/)
