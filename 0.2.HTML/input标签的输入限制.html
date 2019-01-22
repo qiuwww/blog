@@ -2,84 +2,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 
 <body>
 
+  不能输入1
+  <input type="text" onkeyup="this.value=this.value.replace(/1/g,'');">
+  <hr>
+  <label for="">1. 只能输入和粘贴汉字: (在input内容改变的时候，匹配非汉字，然后替换为空，这里如果输入之后，不改变，也不会消除，所以还需要获取的时候验证一下)</label>
+  <input onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))" />
+  <hr />
+  <label for="">2. 只能输入和粘贴数字 </label>
+  <input onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
 
+  <hr />
+  <label for="">3. 只能输入数字和英文</label>
+  <input onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+  <hr />
+  <label for="">4. 输入数字和小数点</label>
+  <input onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" />
+  <br />
+  <hr />
+  <label for="">效果：只能显示，不能修改</label>
+  <input readonly value="只能显示，不能修改" />
+  <hr />
+  还可以使用js来限制输入内容：
+  1. 两个都添加，便于直接给出提示；
+  2. js验证数据格式正确；
+  <h3>使用js来控制输入：</h3>
+  <script language="JavaScript" type="text/javascript">
+    function clearNoNum(obj) {
+      // 先把非数字的都替换掉，除了数字和.
+      obj.value = obj.value.replace(/[^\d.]/g, "");
+      // 必须保证第一个为数字而不是.
+      obj.value = obj.value.replace(/^\./g, "");
+      // 保证只有出现一个.而没有多个.
+      obj.value = obj.value.replace(/\.{2,}/g, ".");
+      // 保证.只出现一次，而不能出现两次以上
+      // 需要调试
+      obj.value = obj.value.replace(".", "$#{1}quot;").replace(/\./g, '').replace("$#{1}quot;", ".");
+    }
 
-
-
-    # input标签输入限制 1. input输入框只能输入数字，只能输入字母数字组合
-    1. 限制input的输入内容的长度，使用maxLength 输入大小写字母、数字、下划线：
-    <input type="text" onkeyup="this.value=this.value.replace(/1/g,'');"> 输入小写字母、数字、下划线：
-    <input type="text" onkeyup="this.value=this.value.replace(/2/g,'');"> 输入数字和点
-    <input type="text" onkeyup="value=value.replace(/3/g,'')"> 输入中文:
-    <input type="text" onkeyup="this.value=this.value.replace(/4/g,'')"> 输入数字:
-    <input type="text" onkeyup="this.value=this.value.replace(/D/g,'')"> 输入英文:
-    <input type="text" onkeyup="this.value=this.value.replace(/5/g,'')"> 输入中文、数字、英文:
-    <input onkeyup="value=value.replace(/6/g, '')"> 输入数字和字母：
-    <input onKeyUp="value=value.replace(/[W]/g,'')"> 除了英文的标点符号以外，其他的都可以中文，英文字母，数字，中文标点
-    <input type="text" onkeyup="this.value=this.value.replace(/^7/g,'')"> 只能输入数字代码(小数点也不能输入)
-    <input onkeyup="this.value=this.value.replace(/D/g,'')" onafterpaste="this.value=this.value.replace(/D/g,'')"> 只能输入数字,能输小数点.
-    <input onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')">
-    <input name=txt1 onchange="if(/D/.test(this.value)){alert('只能输入数字');this.value='';}"> 数字和小数点方法二
-    <input type=text t_value="" o_value="" onkeypress="if(!this.value.match(/^[+-]?d?.?d?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[+-]?d+(?:.d+)?)?$/))this.o_value=this.value"
-        onkeyup="if(!this.value.match(/^[+-]?d?.?d?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[+-]?d+(?:.d+)?)?$/))this.o_value=this.value"
-        onblur="if(!this.value.match(/^(?:[+-]?d+(?:.d+)?|.d*?)?$/))this.value=this.o_value;else{if(this.value.match(/^.d+$/))this.value=0+this.value;if(this.value.match(/^.$/))this.value=0;this.o_value=this.value}">    只能输入字母和汉字
-    <input onkeyup="value=value.replace(/[d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[d]/g,''))"
-        maxlength=10 name="Numbers"> 只能输入英文字母和数字,不能输入中文
-    <input onkeyup="value=value.replace(/8/ig,'')"> 只能输入数字和英文
-    <input onKeyUp="value=value.replace(/9/g,'')"> 小数点后只能有最多两位(数字,中文都可输入),不能输入字母和运算符号:
-    <input onKeyPress="if((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46 || /.dd$/.test(value))event.returnValue=false">    小数点后只能有最多两位(数字,字母,中文都可输入),可以输入运算符号:
-    <input onkeyup="this.value=this.value.replace(/^(-)(d+).(dd).$/,'$1$2.$3')"> w_ ↩ a-z0-9_ ↩ d. ↩ u4e00-u9fa5 ↩ a-zA-Z
-    ↩ wu4E00-u9FA5 ↩ !@#$%^&*()-=+ ↩ w./ ↩ d|chun ↩
-
-
-
-
-    <hr/>
-    <label for="">1. 只能输入和粘贴汉字: (在input内容改变的时候，匹配非汉字，然后替换为空，这里如果输入之后，不改变，也不会消除，所以还需要获取的时候验证一下)</label>
-    <input onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"
-    />
-
-    <hr/>
-    <label for="">2. 只能输入和粘贴数字 </label>
-    <input onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
-
-    <hr/>
-    <label for="">3. 只能输入数字和英文</label>
-    <input onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
-
-    <hr/>
-    <label for="">4. 输入数字和小数点</label>
-    <input onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" /><br/>
-
-    <hr/>
-    <label for="">效果：只能显示，不能修改</label>
-    <input readonly value="只能显示，不能修改" /> 还可以使用js来限制输入内容： 1. 两个都添加，便于直接给出提示； 2. js验证数据格式正确；
-
-    <h3>使用js来控制输入：</h3>
-    <script language="JavaScript" type="text/javascript">
-        function clearNoNum(obj) {
-            //先把非数字的都替换掉，除了数字和.
-            obj.value = obj.value.replace(/[^\d.]/g, "");
-            //必须保证第一个为数字而不是.
-            obj.value = obj.value.replace(/^\./g, "");
-            //保证只有出现一个.而没有多个.
-            obj.value = obj.value.replace(/\.{2,}/g, ".");
-            //保证.只出现一次，而不能出现两次以上
-            // 需要调试
-            obj.value = obj.value.replace(".", "$#{1}quot;).replace(/\./g,'').replace("$#{1}quot;",".");
-        }
-    </script>
-    <!--把下面代码加到<body>与</body>之间-->
-    <label for="">只能输入数字和小数点的文本框：</label>
-    <input id="input1" onkeyup="clearNoNum(this)">
+  </script>
+  <!--把下面代码加到<body>与</body>之间-->
+  <label for="">只能输入数字和小数点的文本框：</label>
+  <input id="input1" onkeyup="clearNoNum(this)">
+  <hr />
 </body>
 
 </html>
