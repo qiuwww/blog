@@ -23,7 +23,7 @@ function getEntry() {
 module.exports = {
   entry: getEntry(),
   output: {
-      path: path.join(__dirname, "dist/js/"),        
+      path: path.join(__dirname, "dist/js/"),
       filename: "[name].js",
   },
   // 外部引用，不打包进源代码
@@ -34,7 +34,7 @@ module.exports = {
     loaders: [
       {
         test: /\.ejs$/,
-        exclude: /node_modules/,        
+        exclude: /node_modules/,
         loader: 'ejs-compiled'
       },
       {

@@ -1,0 +1,20 @@
+{
+  "presets": [
+    [
+      /* *
+       *  babel-preset-env
+       *  可以根据配置的目标运行环境自动启用需要的 babel 插件。
+       */
+      "env", {
+        "modules": false, // 关闭 babel 对 es module 的处理
+        "targets": { // 目标运行环境
+          "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "transform-runtime",
+    "syntax-dynamic-import" // 异步加载语法编译插件
+  ]
+}
