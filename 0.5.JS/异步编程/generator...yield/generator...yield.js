@@ -20,10 +20,9 @@ var gen = function* () {
     // 这里拿不到f1的结果，只能得到函数当前的执行状态，这里最开始的时候我的控制流程写错了
     console.log(1)
     console.log("f1.toString()", f1.toString().length);
-    var f2 = yield readFile('./async...await/movies/盗梦空间.jpg'); 
-
-    console.log(2)    
-    console.log("f2.toString()", f2.toString().length);    
+    var f2 = yield readFile('./async...await/movies/盗梦空间.jpg');
+    console.log(2)
+    console.log("f2.toString()", f2.toString().length);
   }catch(e){
     console.log('外部捕获：', e);
   }
@@ -45,7 +44,6 @@ g.next().value.then(function(data){
  * 当数据返回的时候，我们就通过next()执行下一步的操作，
  * 同时把上步操作的值带入到下一个阶段的执行流程之中。
  */
-
 
 // 写成async函数，就是下面这样。
 
@@ -79,8 +77,6 @@ setTimeout(function(){
 // async函数的返回值是 Promise 对象，这比 Generator 函数的返回值是 Iterator 对象方便多了。
 // 你可以用then方法指定下一步的操作。
 
-
-
 // generator函数的调用
 function* helloWorldGenerator () {
   yield console.log('hello');
@@ -92,17 +88,3 @@ var hw = helloWorldGenerator();
 hw.next();
 hw.next();
 hw.next();
-
-function* foo() {
-  yield 1;
-  yield 2;
-  yield 3;
-  yield 4;
-  yield 5;
-  return 6;
-}
-
-for( let v of foo()) {
-  console.log(v);
-}
-

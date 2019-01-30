@@ -13,59 +13,46 @@
     <h1>HTML</h1>
     <h2>Living Standard — Last Updated 12 August 2016</h2>
   </hgroup>
-
   <figure>
     <img src="" alt="">
     <figcaption></figcaption>
   </figure>
-
-
   <blockquote>
     HTML中的
     <blockquote>元素（或者 HTML 块级引用元素），代表其中的文字是引用内容。通常在渲染时，这部分的内容会有一定的缩进（注 中说明了如何更改）。若引文来源于网络，则可以将原内容的出处 URL 地址设置到 cite
       特性上，若要以文本的形式告知读者引文的出处时，可以通过
       <cite> 元素。
     </blockquote>
-
     <blockquote cite="http://developer.mozilla.org">
       <p>This is a quotation taken from the Mozilla Developer Center.</p>
     </blockquote>
-
     <h3>dl|dt|dd</h3>
     <dl>
       <dt>列表标题</dt>
       <dd>列表内容，自然向后退一段距离，有-webkit-margin-start: 40px;设置</dd>
       <dd>列表内容，自然向后退一段距离</dd>
     </dl>
-
     <dialog open>
       这里是一个对话框
     </dialog>
-
     <h3>datalist标签</h3>
     <p>标签定义选项列表。请与 input 元素配合使用该元素，来定义 input 可能的值。datalist 及其选项不会被显示出来，它仅仅是合法的输入值列表。请使用 input 元素的 list 属性来绑定 datalist。</p>
-
-
     <input id="myCar" list="cars" />
     <datalist id="cars">
       <option value="BMW">
       <option value="Ford">
       <option value="Volvo">
     </datalist>
-
     <h3>details</h3>
-
     <details>
       <summary>Copyright 2011.</summary>
       <p>All pages and graphics on this web site are the property of W3School.</p>
     </details>
-
     <h3>figcaption</h3>
     <figure>
       <p>黄浦江上的的卢浦大桥</p>
-      <img src="shanghai_lupu_bridge.jpg" width="350" height="234" />
+      <img src="./照片墙/img/1.jpg" width="350" height="234" />
     </figure>
-
     <!-- <header> 标签定义文档的页眉（介绍信息）。 -->
     <header>
       <h1>Welcome to my homepage</h1>
@@ -108,7 +95,6 @@
       <p>Contact information:
         <a href="mailto:someone@example.com">someone@example.com</a>.</p>
     </footer>
-
     <section>
       <!-- 使用一组radio，必须确保name属性一致 -->
       <form action="" method="get">
@@ -138,7 +124,6 @@
         function success(position) {
           var latitude = position.coords.latitude;
           var longitude = position.coords.longitude;
-
           output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
           var img = new Image();
           img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude +
@@ -162,9 +147,7 @@
         function error() {
           output.innerHTML = "无法获取您的位置";
         };
-
         output.innerHTML = "<p>Locating…</p>";
-
         navigator.geolocation.getCurrentPosition(success, error, {
           enableHighAccuracy: true,
           timeout: 10000,
@@ -173,7 +156,6 @@
       }
 
     </script>
-
 </body>
 
 </html>

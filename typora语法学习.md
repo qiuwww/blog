@@ -18,7 +18,7 @@
 
 ## 常用的简单标记
 
-这是<u>下划线</u>，但是这里为什么一直有一个提示错误
+这是`<u>`下划线`</u>`，但是这里为什么一直有一个提示错误
 
 ******
 分割线
@@ -28,7 +28,7 @@
 
 `代码样式显示，需要看的时候点到这里，也可以看别人的文档来学习这种语法`
 
-```html
+``` html
   代码块是这样的，
   对，就是这样的。
 ```
@@ -143,11 +143,11 @@ export function isEmptyObject(obj) {
 
 ## 表格
 
-| 姓名   |  性别  |  毕业学校  |   工资 |
-| :--- | :--: | :----: | ---: |
-| 杨洋   |  男   | 重庆交通大学 | 3200 |
-| 峰哥   |  男   |  贵州大学  | 5000 |
-| 坑货   |  女   |  北京大学  | 2000 |
+| 姓名 | 性别  |   毕业学校   | 工资 |
+| :--- | :---: | :----------: | ---: |
+| 杨洋 |  男   | 重庆交通大学 | 3200 |
+| 峰哥 |  男   |   贵州大学   | 5000 |
+| 坑货 |  女   |   北京大学   | 2000 |
 
 其中代码的第二行指定对齐的方式，第一个是左对齐，第二个和第三个是居中，最后一个是右对齐。
 
@@ -184,7 +184,7 @@ Markdown 编辑器已支持绘制流程图、时序图和甘特图。通过 merm
 
 ### 流程图1
 
-```flow
+``` flow
 st=>start: Start
 e=>end
 op=>operation: My Operation
@@ -210,7 +210,7 @@ Bob-->Alice: I am good thanks!
 ```html
 <h1 align="center">
 <br>
-  <a href="https://github.com/stephentian/33-js-concepts"><img src="https://github.com/stephentian/33-js-concepts" alt="每位 JS 开发应该懂的 33 个概念" width=200"></a>
+  <a href="https://github.com/stephentian/33-js-concepts"><img src="https://github.com/stephentian/33-js-concepts" alt="每位 JS 开发应该懂的 33 个概念" width="200"></a>
 <br>
 <br>
   JavaScript开发者应懂的33个概念
@@ -227,3 +227,24 @@ Text prior to footnote reference.[^2]
 
 changyangzhe-2016.7.22
 moonbreezee-2018.9.14
+
+## hero生成文章的配置头部
+
+``` md
+---
+layout: post
+title: title
+date: 2013-7-13 20:46:25
+updated: 2013-7-13 20:46:29
+photos: https://github.com/moonbreezee/treasure-pictures/blob/master/%E4%BA%8C%E5%8D%81%E5%9B%9B%E8%8A%82%E6%B0%94%E4%B8%8E%E4%BC%A0%E7%BB%9F%E8%8A%82%E6%97%A5/2019%E5%B9%B41%E6%9C%885%E6%97%A5-%E5%B0%8F%E5%AF%92.jpeg
+tags:
+- JavaScript
+- React
+# categories:
+# - 编程
+categories:
+- [Linux, Hexo]
+- [Tools, PHP]
+comments: true
+---
+```

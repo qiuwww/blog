@@ -1442,8 +1442,6 @@ so on...
 
 ### promise的实现原理，进一步会问async、await是否使用过
 
-### 实现gulp的功能
-
 ### 使用前端框架（angular/vue/react）带来哪些好处，相对于使用jQuery
 
 ### vue双向数据绑定的实现

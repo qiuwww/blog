@@ -890,3 +890,26 @@ next：function一定要调用该方法resolve这个钩子。执行效果依赖n
 $route是“路由信息对象”，包括path，params，hash，query，fullPath，matched，name等路由信息参数。
 
 而$router是“路由实例”对象包括了路由的跳转方法，钩子函数等。
+
+## Vue 的主体内容
+
+1. 依赖收集
+2. 依赖更新
+3. Virtual DOM ，dom 节点 生成虚拟Vnode 节点
+4. Compile， 模板编译
+5. Diff、Patch， 节点比较更新
+6. NextTick ，延迟执行回调
+7. Render， 渲染机制
+8. LifeCircle ，生命周期
+9. Model ，双向绑定
+10. Event ，事件机制
+
+## Vue 组件选项
+
+1. computed
+2. filter
+3. mixin
+4. directive
+5. slot
+6. props
+7. watch

@@ -1,0 +1,122 @@
+
+
+// z.less库说明
+// http://www.aibusy.com/zless/
+
+// Zencoding
+// adobe  fw工具
+// 以后可以把重置样式的文件和一些预定义的值写在一起。
+// 最好选择器嵌套不要太深，从右往左查找；
+// 研究一下z.less中的内容；
+
+// 声明编码格式
+@charset "utf-8";
+
+// 文件引入
+@import "less/z";
+
+// 变量定义
+@link_color:#333;
+// 也可以在一个选择器下边定义变量
+.header{
+  @color: red;
+  border: 1px dolid @color;
+}
+
+// 定义一块内容的重复
+.reset(){
+  *{margin:0; padding:0;}
+  li{list-style:none;}
+  img{border:none;}
+  input,select,textarea{outline:none; border:none; background:none;}
+  textarea{resize:none;}
+  a{text-decoration:none;}
+}
+
+// 调用的时候使用, 像函数一样运行。
+.body{
+  .reset();
+}
+
+// 定义几个属性，或者一个属性，要复用的代码段，还可以添加默认属性
+// 浮动
+.fl(@f:left;){
+  float: @f;
+  display: inline;
+}
+.fr(@f:right){
+  float: @f;
+  display: inline;
+}
+
+// 块嵌套
+// 共有背景和圆角
+.common_border_bg{
+  background-color: #fff;
+  .border-radius(@border_radius);
+  .box-shadow(0 0 1px rgba(0,0,0,.7));
+}
+// 热门话题，这里的stylus的写法是{common_border_bg}，定义变量@block
+.hotBox{
+  .common_border_bg;
+  overflow:hidden;
+}
+
+// 调用
+.fr();
+.fl();
+
+// 清除浮动
+.clearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// 文字省略号
+// @substract单位为%
+.ellipsis-basic(){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//三角
+.triangle (top,@w:5px,@color:#ccc){
+  border-style:solid dashed dashed dashed;
+  border-color:@color transparent transparent transparent;
+  border-width:@w;
+}
+.triangle (right,@w:5px,@color:#ccc){
+  border-style:dashed solid dashed dashed;
+  border-color:transparent @color transparent transparent;
+  border-width:@w;
+}
+.triangle (bottom,@w:5px,@color:#ccc){
+  border-style:dashed dashed solid dashed;
+  border-color:transparent transparent @color transparent;
+  border-width:@w;
+}
+.triangle (left,@w:5px,@color:#ccc){
+  border-style:dashed dashed dashed solid;
+  border-color:transparent transparent transparent @color;
+  border-width:@w;
+}
+.triangle (@_,@w:5px,@color:#ccc){
+  .triangle-compatible();
+}
+
+// 距离计算
+@height_1: 20px;
+@height_2: 30px;
+
+div {
+  margin-top: @height_2 - @height_1;
+}

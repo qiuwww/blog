@@ -3,11 +3,11 @@
 https://mp.weixin.qq.com/s?__biz=MjM5MzMyNzg0MA==&mid=2650403032&idx=2&sn=5e038f33454625d3ea77c4edad4b19d0&chksm=be95ef5789e266413fbb9ad039329818c142bbf9754cbdf84db83f37779a449f0824b55cf3c8&scene=0#rd
 /*居中问题.css*/
 {
-	display: flex; 
-	align-items: center; 
+	display: flex;
+	align-items: center;
 	justify-content: center;
 }
- 
+
 
 居中布局
 　　以下居中布局均以不定宽为前提，定宽情况包含其中
@@ -57,4 +57,3 @@ https://mp.weixin.qq.com/s?__biz=MjM5MzMyNzg0MA==&mid=2650403032&idx=2&sn=5e038f
     margin: 0 auto;
 }
 　　tips：flex是一个强大的css，生而为布局，它可以轻松的满足各种居中、对其、平分的布局要求，但由于现浏览器兼容性问题，此方案很少被使用，但是值得期待浏览器兼容性良好但那一天！
-
