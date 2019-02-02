@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .painting-wrap {
+      width: 600px;
+      height: 600px;
+    }
+
+    ul {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+
+    ul>li {
+      list-style-type: none;
+      font-size: 12px;
+      border-radius: 50%;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="painting-wrap">
+  </div>
+  <script>
+    var page = {
+      init: function () {
+        this.initColorArr(900);
+        console.log(this.colorArr);
+      },
+      randomColor: function () {
+        return "#" + (~~(Math.random() * (1 << 24))).toString(16);
+      },
+      initColorArr: function (len) {
+        var self = this;
+        this.colorArr = new Array(len).fill('');
+        return arr.map(item => {
+          return self.randomColor();
+        });
+      },
+      renderPage: function () {
+        var self = this;
+        var colorArr = this.colorArr;
+        var wh = 600 / Math.sqrt(colorArr.length);
+        debugger
+        var res = colorArr.map(item => {
+          var color = self.randomColor();
+          return `<li style="background-color:${color};width: ${wh}px; height: ${wh}px;"></li>`
+        });
+        var ul = `<ul>${res.join('')}</ul>`;
+        document.querySelector('.painting-wrap').innerHTML = ul;
+      }
+    }
+    var arr = [];
+    Object.defineProperty(page, 'colorArr', {
+      get: function () {
+        return arr || [];
+      },
+      set: function (arr) {
+        var self = this;
+        arr = arr;
+        debugger
+        setTimeout(function () {
+          self.renderPage();
+        }, 0);
+      },
+      enumerable: true,
+      configurable: true
+    });
+
+    window.onload = function () {
+      page.init();
+    }
+
+  </script>
+</body>
+
+</html>

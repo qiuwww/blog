@@ -147,3 +147,9 @@ hash 是用在文件输出的名字中的，如 [name].[hash].js，总的来说�
 extract-text-webpack-plugin 插件 -> 替代插件 mini-css-extract-plugin
 
 这里提取之后，还需要单独进行压缩optimize-css-assets-webpack-plugin
+
+## webpack指令配置
+
+--progress:  压缩的进程提示
+--colors ：显示不同的颜色
+--profile ： 每个文件的压缩时间
