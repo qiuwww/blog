@@ -1,0 +1,38 @@
+<!-- typewriter打字机效果.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <input type="button" onclick='start()' value="start" />
+  <div id="here">
+  </div>
+  <script type="text/javascript">
+    function start() {
+      var str1 =
+        "中国共产党要始终代表中国先进生产力的发展要求中国共产党要始终代表中国先进文化的前进方向中国共产党要始终代表中国最广大人民的根本利益中国共产党要始终代表中国先进生产力的发展要求中国共产党要始终代表中国先进文化的前进方向中国共产党要始终代表中国最广大人民的根本利益中国共产党要始终代表中国先进生产力的发展要求中国共产党要始终代表中国先进文化的前进方向中国共产党要始终代表中国最广大人民的根本利益中国共产党要始终代表中国先进生产力的发展要求中国共产党要始终代表中国先进文化的前进方向中国共产党要始终代表中国最广大人民的根本利益中国共产党要始终代表中国先进生产力的发展要求中国共产党要始终代表中国先进文化的前进方向中国共产党要始终代表中国最广大人民的根本利益中国共产党要始终代表中国先进生产力的发展要求中国共产党要始终代表中国先进文化的前进方向中国共产党要始终代表中国最广大人民的根本利益中国共产党要始终代表中国先进生产力的发展要求中国共产党要始终代表中国先进文化的前进方向中国共产党要始终代表中国最广大人民的根本利益";
+      str = str1;
+      len = str.length;
+      i = 0;
+      dwrite();
+    }
+
+    function dwrite() {
+      document.getElementById('here').innerHTML = document.getElementById('here').innerHTML + str.charAt(i);
+      if (i++ == len) {
+        i = 0;
+        return true;
+      }
+      setTimeout('dwrite()', 200);
+    }
+
+  </script>
+
+</body>
+
+</html>

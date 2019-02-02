@@ -10,223 +10,222 @@
 
 <body>
   <style>
-html, body {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
 
-body {
-  background-color: skyblue;
-  perspective: 500px;
-  overflow: hidden;
-}
+    body {
+      background-color: skyblue;
+      perspective: 500px;
+      overflow: hidden;
+    }
 
-.ground-plane {
-  position: absolute;
-  width: 1000%;
-  height: calc(10% + 200px);
-  bottom: 0;
-  left: -500%;
-  background-color: #45b3e0;
-}
+    .ground-plane {
+      position: absolute;
+      width: 1000%;
+      height: calc(10% + 200px);
+      bottom: 0;
+      left: -500%;
+      background-color: #45b3e0;
+    }
 
-.fan {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  left: 50%;
-  bottom: 10%;
-  transform: translateX(-50%);
-}
+    .fan {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      left: 50%;
+      bottom: 10%;
+      transform: translateX(-50%);
+    }
 
-input#switch {
-  display: none;
-}
+    input#switch {
+      display: none;
+    }
 
-.switch {
-  position: absolute;
-  background-color: #a6a6a6;
-  border: 5px solid #ccc;
-  height: 25px;
-  width: 15px;
-  border-radius: 50%;
-  bottom: 70px;
-  left: 35%;
-}
-.switch:before {
-  content: "";
-  width: 30px;
-  height: 10px;
-  position: absolute;
-  right: -2px;
-  top: 50%;
-  transform-origin: 100% 50%;
-  transform: translateY(-50%) rotate(-20deg);
-  background-color: #ccc;
-  border-radius: 5px 0 0 5px;
-  transition: all 150ms;
-}
+    .switch {
+      position: absolute;
+      background-color: #a6a6a6;
+      border: 5px solid #ccc;
+      height: 25px;
+      width: 15px;
+      border-radius: 50%;
+      bottom: 70px;
+      left: 35%;
+    }
+    .switch:before {
+      content: "";
+      width: 30px;
+      height: 10px;
+      position: absolute;
+      right: -2px;
+      top: 50%;
+      transform-origin: 100% 50%;
+      transform: translateY(-50%) rotate(-20deg);
+      background-color: #ccc;
+      border-radius: 5px 0 0 5px;
+      transition: all 150ms;
+    }
 
-#switch:checked ~ .switch:before {
-  transform: translateY(-50%) rotate(20deg);
-}
-#switch:checked ~ .head .blades {
-  animation: spin 1s linear infinite;
-}
+    #switch:checked ~ .switch:before {
+      transform: translateY(-50%) rotate(20deg);
+    }
+    #switch:checked ~ .head .blades {
+      animation: spin 1s linear infinite;
+    }
 
-.head {
-  position: absolute;
-  top: 0;
-  left: 60%;
-  transform: translateX(-50%) rotateY(3deg);
-  border: 10px solid silver;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  z-index: 5;
-  box-shadow: -1px 0px 0px 0px #b3b3b3, -2px 0px 0px 0px #b3b3b3, -3px 0px 0px 0px #b3b3b3, -4px 0px 0px 0px #b3b3b3, -5px 0px 0px -1px #b3b3b3, -6px 0px 0px -1px #b3b3b3, -7px 0px 0px -1px #b3b3b3, -8px 0px 0px -1px #b3b3b3, -10px 0px 0px -1px #b3b3b3, -12px 0px 0px -1px #b3b3b3, -14px 0px 0px -1px #b3b3b3, -16px 0px 0px -1px #b3b3b3;
-}
+    .head {
+      position: absolute;
+      top: 0;
+      left: 60%;
+      transform: translateX(-50%) rotateY(3deg);
+      border: 10px solid silver;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      z-index: 5;
+      box-shadow: -1px 0px 0px 0px #b3b3b3, -2px 0px 0px 0px #b3b3b3, -3px 0px 0px 0px #b3b3b3, -4px 0px 0px 0px #b3b3b3, -5px 0px 0px -1px #b3b3b3, -6px 0px 0px -1px #b3b3b3, -7px 0px 0px -1px #b3b3b3, -8px 0px 0px -1px #b3b3b3, -10px 0px 0px -1px #b3b3b3, -12px 0px 0px -1px #b3b3b3, -14px 0px 0px -1px #b3b3b3, -16px 0px 0px -1px #b3b3b3;
+    }
 
-.blades {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  z-index: 2;
-  animation: spinDown 1s ease-out forwards;
-}
+    .blades {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 2;
+      animation: spinDown 1s ease-out forwards;
+    }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes spinDown {
-  0% {
-    transform: rotate(-360deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-.blade {
-  position: absolute;
-  width: 20%;
-  height: 45%;
-  top: 5%;
-  left: 50%;
-  background-color: gray;
-  transform-origin: 50% 100%;
-  transform: perspective(150px) translateX(-50%);
-  border-radius: 50% 20px 20px 20px / 10px 100px 10px 10px;
-}
-.blade:nth-child(2) {
-  transform: perspective(150px) translateX(-50%) rotateZ(120deg);
-}
-.blade:nth-child(3) {
-  transform: perspective(150px) translateX(-50%) rotateZ(-120deg);
-}
-.blade:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 60%;
-  height: 100%;
-  background-color: #8d8d8d;
-  transform: skewX(8deg);
-  border-radius: 20px 0 0 0;
-  transform-origin: 100% 100%;
-}
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes spinDown {
+      0% {
+        transform: rotate(-360deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+    .blade {
+      position: absolute;
+      width: 20%;
+      height: 45%;
+      top: 5%;
+      left: 50%;
+      background-color: gray;
+      transform-origin: 50% 100%;
+      transform: perspective(150px) translateX(-50%);
+      border-radius: 50% 20px 20px 20px / 10px 100px 10px 10px;
+    }
+    .blade:nth-child(2) {
+      transform: perspective(150px) translateX(-50%) rotateZ(120deg);
+    }
+    .blade:nth-child(3) {
+      transform: perspective(150px) translateX(-50%) rotateZ(-120deg);
+    }
+    .blade:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60%;
+      height: 100%;
+      background-color: #8d8d8d;
+      transform: skewX(8deg);
+      border-radius: 20px 0 0 0;
+      transform-origin: 100% 100%;
+    }
 
-.center {
-  position: absolute;
-  border-radius: 50%;
-  left: 50%;
-  top: 50%;
-  width: 25%;
-  height: 25%;
-  transform: translate(-50%, -50%);
-  background-color: silver;
-  z-index: 10;
-  box-shadow: inset 1px 0px 0px 2px #b3b3b3, inset 2px 0px 0px 2px #b3b3b3, inset 3px 0px 0px 2px #b3b3b3, inset 4px 0px 0px 2px #b3b3b3, inset 5px 0px 0px 6px #b3b3b3, inset 6px 0px 0px 6px #b3b3b3, inset 7px 0px 0px 6px #b3b3b3, inset 8px 0px 0px 6px #b3b3b3;
-}
+    .center {
+      position: absolute;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      width: 25%;
+      height: 25%;
+      transform: translate(-50%, -50%);
+      background-color: silver;
+      z-index: 10;
+      box-shadow: inset 1px 0px 0px 2px #b3b3b3, inset 2px 0px 0px 2px #b3b3b3, inset 3px 0px 0px 2px #b3b3b3, inset 4px 0px 0px 2px #b3b3b3, inset 5px 0px 0px 6px #b3b3b3, inset 6px 0px 0px 6px #b3b3b3, inset 7px 0px 0px 6px #b3b3b3, inset 8px 0px 0px 6px #b3b3b3;
+    }
 
-.cover {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  z-index: 10;
-  background-image: radial-gradient(circle, transparent 20%, #ccc 20%, #ccc 22%, transparent 22%, transparent 40%, #ccc 40%, #ccc 42%, transparent 42%, transparent 60%, #ccc 60%, #ccc 62%, transparent 62%);
-}
-.cover:before, .cover:after {
-  content: "";
-  height: 100%;
-  width: 5px;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform-origin: 50% 50%;
-  background-color: #ccc;
-}
-.cover:before {
-  transform: translateX(-50%) rotate(45deg);
-}
-.cover:after {
-  transform: translateX(-50%) rotate(-45deg);
-}
+    .cover {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      z-index: 10;
+      background-image: radial-gradient(circle, transparent 20%, #ccc 20%, #ccc 22%, transparent 22%, transparent 40%, #ccc 40%, #ccc 42%, transparent 42%, transparent 60%, #ccc 60%, #ccc 62%, transparent 62%);
+    }
+    .cover:before, .cover:after {
+      content: "";
+      height: 100%;
+      width: 5px;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform-origin: 50% 50%;
+      background-color: #ccc;
+    }
+    .cover:before {
+      transform: translateX(-50%) rotate(45deg);
+    }
+    .cover:after {
+      transform: translateX(-50%) rotate(-45deg);
+    }
 
-.support {
-  position: absolute;
-  z-index: 1;
-  width: 60px;
-  height: 40%;
-  top: 150px;
-  left: 50%;
-  background-color: teal;
-  transform-origin: 50%, 100%;
-  transform: perspective(100px) rotateX(15deg);
-  outline: 1px solid transparent;
-}
-.support:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 30%;
-  height: 100%;
-  background-color: #006767;
-}
-.support:after {
-  content: "";
-  position: absolute;
-  top: -100px;
-  left: -100px;
-  height: 125px;
-  width: 150px;
-  border-radius: 50% 0 0 50%;
-  background-color: #006767;
-}
+    .support {
+      position: absolute;
+      z-index: 1;
+      width: 60px;
+      height: 40%;
+      top: 150px;
+      left: 50%;
+      background-color: teal;
+      transform-origin: 50%, 100%;
+      transform: perspective(100px) rotateX(15deg);
+      outline: 1px solid transparent;
+    }
+    .support:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 30%;
+      height: 100%;
+      background-color: #006767;
+    }
+    .support:after {
+      content: "";
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      height: 125px;
+      width: 150px;
+      border-radius: 50% 0 0 50%;
+      background-color: #006767;
+    }
 
-.base {
-  position: absolute;
-  bottom: 20px;
-  left: 55%;
-  width: 40%;
-  height: 40%;
-  transform-origin: 50% 50%;
-  transform: translateX(-50%) scaleY(0.2);
-  background: teal;
-  border-radius: 50%;
-  z-index: 0;
-  box-shadow: 0px 20px 0px 1px #006767, 0px 40px 0px 2px #006767, 0px 60px 0px 3px #006767, 0px 80px 0px 4px #006767, 0px 100px 0px 5px #006767, 0px 120px 0px 6px #006767, 0px 140px 0px 7px #006767, 0px 160px 0px 8px #006767, 0px 180px 0px 9px #006767, 0px 200px 0px 10px #006767, 0px 220px 0px 11px #006767;
-}
-
-
+    .base {
+      position: absolute;
+      bottom: 20px;
+      left: 55%;
+      width: 40%;
+      height: 40%;
+      transform-origin: 50% 50%;
+      transform: translateX(-50%) scaleY(0.2);
+      background: teal;
+      border-radius: 50%;
+      z-index: 0;
+      box-shadow: 0px 20px 0px 1px #006767, 0px 40px 0px 2px #006767, 0px 60px 0px 3px #006767, 0px 80px 0px 4px #006767, 0px 100px 0px 5px #006767, 0px 120px 0px 6px #006767, 0px 140px 0px 7px #006767, 0px 160px 0px 8px #006767, 0px 180px 0px 9px #006767, 0px 200px 0px 10px #006767, 0px 220px 0px 11px #006767;
+    }
   </style>
   <div class='ground-plane'></div>
   <div class='fan'>

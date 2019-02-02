@@ -9,44 +9,44 @@
  * 执行的结果是 n + 200，这个值将用于下一步骤
  */
 function takeLongTime(n) {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(n + 200), n);
-    });
+  return new Promise(resolve => {
+    setTimeout(() => resolve(n + 200), n);
+  });
 }
 
 function step1(n) {
-    console.log(`step1 with ${n}`);
-    return takeLongTime(n);
+  console.log(`step1 with ${n}`);
+  return takeLongTime(n);
 }
 
 function step2(m, n) {
-    console.log(`step2 with ${m} and ${n}`);
-    return takeLongTime(m + n);
+  console.log(`step2 with ${m} and ${n}`);
+  return takeLongTime(m + n);
 }
 
 function step3(k, m, n) {
-    console.log(`step3 with ${k}, ${m} and ${n}`);
-    return takeLongTime(k + m + n);
+  console.log(`step3 with ${k}, ${m} and ${n}`);
+  return takeLongTime(k + m + n);
 }
 
 // 现在用 Promise 方式来实现这三个步骤的处理
 
 function doItPromise() {
-    console.time("doIt");
-    const time1 = 300;
-    step1(time1)
-        .then(time2 => {
-            return step2(time1, time2)
-                .then(time3 => [time1, time2, time3]);
-        })
-        .then(times => {
-            const [time1, time2, time3] = times;
-            return step3(time1, time2, time3);
-        })
-        .then(result => {
-            console.log(`result is ${result}`);
-            console.timeEnd("doIt");
-        });
+  console.time("doIt");
+  const time1 = 300;
+  step1(time1)
+    .then(time2 => {
+      return step2(time1, time2)
+        .then(time3 => [time1, time2, time3]);
+    })
+    .then(times => {
+      const [time1, time2, time3] = times;
+      return step3(time1, time2, time3);
+    })
+    .then(result => {
+      console.log(`result is ${result}`);
+      console.timeEnd("doIt");
+    });
 }
 
 // doItPromise();
@@ -65,13 +65,13 @@ function doItPromise() {
 // 如果用 async/await 来实现呢，会是这样
 
 async function doItAsync() {
-    console.time("doIt");
-    const time1 = 300;
-    const time2 = await step1(time1);
-    const time3 = await step2(time1, time2);
-    const result = await step3(time1, time2, time3);
-    console.log(`result is ${result}`);
-    console.timeEnd("doIt");
+  console.time("doIt");
+  const time1 = 300;
+  const time2 = await step1(time1);
+  const time3 = await step2(time1, time2);
+  const result = await step3(time1, time2, time3);
+  console.log(`result is ${result}`);
+  console.timeEnd("doIt");
 }
 
 // c:\var\test>node --harmony_async_await .
@@ -88,9 +88,9 @@ doItAsync();
 
 // 结果和之前的 Promise 实现是一样的，但是这个代码看起来是不是清晰得多，几乎跟同步代码一样
 
-setTimeout(function(){
-	console.log('Promise处理方式：');
-	doItPromise();
+setTimeout(function () {
+  console.log('Promise处理方式：');
+  doItPromise();
 
 }, 5000);
 

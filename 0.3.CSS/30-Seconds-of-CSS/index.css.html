@@ -71,6 +71,7 @@
       float: left;
     }
 
+    /* 使用css来添加标号 */
     ul.counter {
       counter-reset: counter;
     }
@@ -84,11 +85,11 @@
       content: " ("attr(href) ")";
     }
 
-
     :root {
       /* Place variables within here to use the variables globally. */
     }
 
+    /* 直接引用的变量 */
     .custom-variables {
       --some-color: #da7800;
       --some-keyword: italic;
@@ -99,6 +100,7 @@
       font-style: var(--some-keyword);
       text-shadow: var(--some-complex-value);
     }
+
   </style>
 </head>
 
@@ -136,7 +138,9 @@
   </ul>
   <a href="http://www.runoob.com">菜鸟教程</a>
 
-  <p class="custom-variables">CSS is awesome!</p>
+  <p class="custom-variables">CSS is awesome!
+    <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_variables">CSS变量</a>
+  </p>
 </body>
 
 </html>
