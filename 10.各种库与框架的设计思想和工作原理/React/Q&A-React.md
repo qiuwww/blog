@@ -224,6 +224,7 @@ var inputRect = input.getBoundingClientRect();
 
 #### 初始化阶段，实例生成到挂载
 
+- `constructor`: 这是给组件“带来生命”时调用的第一个方法。通常，你会在 constructor 方法中**初始化 state 和绑定事件处理程序**。
 - `getDefaultProps`: 获取实例的默认属性，改为 component.defaultProps={}来设置
 - `getInitialState`: 获取每个实例的**初始化状态**，React 在 ES6 的实现中去掉了 getInitialState 这个 hook 函数,规定 state 在**constructor 中实现**。
 - `componentWillMount`：组件即将被装载、渲染到页面上，调用一次，相当于 jq 的 ready。
@@ -600,13 +601,13 @@ componentWillUpdate--使用 componentDidUpdate 代替
 
 componentWillReceiveProps--使用一个新的方法：static getDerivedStateFromProps 来代替。
 
-### getDerivedStateFromProps
+### getDerivedStateFromProps，在挂载和更新阶段都会调用这个方法。
 
-getDerivedStateFromProps 内部不可以有副作用，因为现在是无论是 state 改变还是 props 改变，
+这个方法以 props 和 state 作为参数。这个方法在组件**被初始挂载到 DOM 之前调用**。组件**被渲染之前更新它的状态**。组件更新的时候还会调用这里的参数。
 
-都会执行它。
+getDerivedStateFromProps 内部不可以有副作用，因为现在是无论是 state 改变还是 props 改变，都会执行它。这个方法允许组件**基于 props 的变更来更新其内部状态**。
 
-但是，问题来了。既然这个方法没有办法访问 this，那么如何调用 this.setState 呢？答案就是，不调用。这个方法直接返回需要更新的 state 的数据，或者返回 null，如果没有什么需要更新的话。
+但是，问题来了。既然这个方法**没有办法访问 this**，那么如何调用 this.setState 呢？答案就是，不调用。这个方法**直接返回需要更新的 state 的数据**，或者返回 null，如果没有什么需要更新的话。
 
 ```js
 static getDerivedStateFromProps(nextProps, prevState) {
@@ -621,3 +622,9 @@ static getDerivedStateFromProps(nextProps, prevState) {
 ```
 
 调用这个方法和之前调用 this.setState 的效果是一样的。只会修改这些返回的值，如果是 null 的话则不修改 state。state 的其他值都会保留。
+
+### getSnapshotBeforeUpdate()
+
+你不一定会用到这个生命周期方法，但在某些特殊情况下它可能会派上用场，特别是当你需要在 DOM 更新后从中获取一些信息。
+
+也就是如果需要在数据更新之后依据dom进行操作，就在这里操作。

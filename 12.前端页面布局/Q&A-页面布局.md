@@ -431,3 +431,96 @@
 - `CSS`基础知识扎实。
 - 思维灵活且积极上进。题目中可以通过`网格布局`来体现。
 - 代码书写规范。注意命名。上面的代码中，没有一行代码是多的。
+
+
+### 左右布局：左边定宽、右边自适应，不少于3种方法
+
+### 对栅格的理解
+
+
+**一个满屏 品 字布局 如何设计?**
+
+- 简单的方式：
+    - 上面的div宽100%，
+    - 下面的两个div分别宽50%，
+    - 然后用float或者inline使其不换行即可
+
+
+**用纯CSS创建一个三角形的原理是什么？**
+
+```
+// 把上、左、右三条边隐藏掉（颜色设为 transparent）
+#demo {
+  width: 0;
+  height: 0;
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+}
+```
+**圣杯布局的实现原理？**
+
+* 要求：三列布局；中间主体内容前置，且宽度自适应；两边内容定宽
+  * 好处：重要的内容放在文档流前面可以优先渲染
+  * 原理：利用相对定位、浮动、负边距布局，而不添加额外标签
+  
+ 
+```css
+  .container {
+      padding-left: 150px;
+      padding-right: 190px;
+  }
+  .main {
+      float: left;
+      width: 100%;
+  }
+  .left {
+      float: left;
+      width: 190px;
+      margin-left: -100%;
+      position: relative;
+      left: -150px;
+  }
+  .right {
+      float: left;
+      width: 190px;
+      margin-left: -190px;
+      position: relative;
+      right: -190px;
+  }
+```
+
+**什么是双飞翼布局？实现原理？**
+
+- 双飞翼布局：对圣杯布局（使用相对定位，对以后布局有局限性）的改进，消除相对定位布局
+- 原理：主体元素上设置左右边距，预留两翼位置。左右两栏使用浮动和负边距归位，消除相对定位。
+
+ 
+```css
+.container {
+    /*padding-left:150px;*/
+    /*padding-right:190px;*/
+}
+.main-wrap {
+    width: 100%;
+    float: left;
+}
+.main {
+    margin-left: 150px;
+    margin-right: 190px;
+}
+.left {
+    float: left;
+    width: 150px;
+    margin-left: -100%;
+    /*position: relative;*/
+    /*left:-150px;*/
+}
+.right {
+    float: left;
+    width: 190px;
+    margin-left: -190px;
+    /*position:relative;*/
+    /*right:-190px;*/
+}
+```

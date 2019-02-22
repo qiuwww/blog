@@ -1,8 +1,0 @@
-由带边框的块，变为只有背景色的块的时候可以设置背景色与border-color一致.css
-
-
-{
-	select-color = red;
-	background-color: select-color;
-	border-color: select-color	
-}
