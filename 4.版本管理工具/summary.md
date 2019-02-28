@@ -41,3 +41,7 @@ hotfix branch：bug修复分支
 git checkout -b feature/demo develop
 推送到远程仓库，共享：
 
+
+## 主要的目标
+
+本地开发 **(add)->** 本地暂存区 **(commit)->** 本地仓库 **(push)->** 远程仓库
