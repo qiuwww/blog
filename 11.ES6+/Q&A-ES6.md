@@ -623,4 +623,13 @@ import {stat, readFile} from 'fs';
     })
   ```
 
-  ​
+## 常见错误
+
+由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号，否则会报错。
+
+```js
+// 报错
+let getTempItem = id => { id: id, name: "Temp" };
+// 不报错
+let getTempItem = id => ({ id: id, name: "Temp" });
+```
