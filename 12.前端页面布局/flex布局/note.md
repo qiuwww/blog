@@ -1,13 +1,10 @@
 # flex布局
 
-
-
 ##　display:flex
 
 1. 当我们使用flexbox布局时候，需要先给父容器的display值定位flex（块级）或者inline-flex（行内级）。
 2. 当使用了这个值以后，伸缩容器会为内容建立新的伸缩格式化上下文（FFC），它的上下文展示效果和BFC根元素相同（**BFC特性：浮动不会闯入伸缩容器，且伸缩容器的边界不会与其内容边界叠加(margin叠加的处理原理)**）。
 3. 伸缩容器不是块容器，因此有些设计用来控制块布局的属性，**在伸缩布局中不适用**，特别是多栏（column)，float，clear，vertical-align这些属性。
-
 
 ## flex-direction
 
@@ -44,8 +41,6 @@
 - justify-content:space-between;伸缩项目平均的分配在主轴上面，并且第一个元素和主轴的起点紧挨，最后一个元素和主轴上终点紧挨，中间剩下的伸缩项目在确保两两间隔相等的情况下进行平分。
 - justify-content:space-around;伸缩项目平均的分布在主轴上面，并且第一个元素到主轴起点距离和最后一个元素到主轴终点的距离相等，且等于中间元素两两的间距的一半。完美的平均分配，这个布局在阿里系中很常见。
 
-
-
 ## align-items
 
 [align-items]用来定义伸缩项目在侧轴的对齐方式，这类似于[justify-content]属性，但是是另一个方向。（**flex-directon和flex-wrap是一对**，**justify-content和align-items是一对**，**前者分别定义主轴和侧轴的方向，后者分别定义主轴和侧轴中项目的对齐方式**）。
@@ -65,9 +60,7 @@
 - align-content: stretch;默认值,各行将会伸展以占用剩余的空间。
 - 其他可以参考[justify-content]用法。
 
-
-
-# 子元素设置
+## 子元素设置
 
 主要是3个，order，flex（flex-grow，flex-shrink，flex-basis的组合），align-self；用来比较多的是前两个。
 
@@ -87,8 +80,6 @@
 - flex-basis:|auto;默认是auto也就是**根据可伸缩比率计算出剩余空间的分布之前，伸缩项目主轴长度的起始数值。**若在「flex」缩写省略了此部件，则「flex-basis」的指定值是长度零。
 
 https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex
-
-
 
 ## flex高度继承的问题
 

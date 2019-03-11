@@ -14,7 +14,8 @@
 
 1. 对整个文件使用严格模式，注意合并文件的时候会不会造成别的文件也开启了严格模式；
 2. 对某个函数开启严格模式，{}内添加声明。
-```
+
+```js
 function usestrict(func) {
     'use strict';
     if(typeof func !== 'function') { return }

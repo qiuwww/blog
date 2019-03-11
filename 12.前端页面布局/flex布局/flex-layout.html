@@ -117,6 +117,8 @@
             /*align-content: space-around;*/
             /*（默认值）：轴线占满整个交叉轴。*/
             /*align-content: stretch;*/
+            /* 所有空余均分 */
+            /* justify-content: space-evenly; */
         }
 
         .layout6 .align-content {
@@ -342,7 +344,7 @@
     </div>
     <hr/>
 
-    <h2>align-content（竖直）, 多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。设置了flex-wrap: wrap;可控制在侧轴上的对齐方式</h2>
+    <h2>align-content（竖直）, 多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。设置了flex-wrap: wrap;可控制在侧轴上的对齐方式，这个时候align-items: center;控制单行布局方式。</h2>
     <div class="layout6">
         <div class="align-content" style="background-color: green;">1</div>
         <div class="align-content" style="background-color: yellow;">2</div>
@@ -361,6 +363,15 @@
         <div class="align-items" style="background-color: yellow;">4</div>
     </div>
     <hr/>
+
+    <h2>align-self, 设置当前元素的对齐方式，align-items: 作用于所有的子元素。这里调整2的嵌入属性</h2>
+    <div class="layout5">
+      <div class="align-items" style="background-color: red;">1</div>
+      <div class="align-items" style="background-color: blue;align-self: center;">2</div>
+      <div class="align-items" style="background-color: green;">3</div>
+      <div class="align-items" style="background-color: yellow;">4</div>
+    </div>
+    <hr />
 
     <h2>子元素的属性设置，order</h2>
     <div id='main'>
@@ -385,6 +396,7 @@
             然后父容器再把剩余空间分配给设置了flex-grow的容器。 如果同时设置flex-basis和width，那么width属性会被覆盖，也就是说flex-basis的优先级比width高。
         </li>
         <li>flex环境默认是不换行的，即使父容器宽度不够也不会，除非设置flex-wrap来换行</li>
+        <li>flex-flow: flex-direction与flex-wrap的组合形式，flex-flow:row-reverse wrap;</li>
     </ul>
 
     <div>
