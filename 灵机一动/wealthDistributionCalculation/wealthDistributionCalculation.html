@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./echarts-en.common.js"></script>
+    <h2>
+        房间内 100 个人，每人有 100 块，每分钟随机给另一个人 1 块，最后这个房间内的财富分布是怎样的？
+    </h2>
+    <div id="changevalue" style="border: 1px solid greenyellow; padding: 20px;">
+        <span>需要测试的人数：</span><input type="text" id="peopleNumber" value="100">
+        <br>
+        <span>需要测试的交换次数：</span><input type="text" id="switchNumber" value="1000">
+        <br>
+        <button id="btn">绘图图形</button>
+    </div>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width:50%;height:400px; float: left;"></div>
+    <div id="main2" style="width:50%;height:400px; float: right;"></div>
+    <script>
+        window.onload = () => {
+
+            let min = [];
+            let max = [];
+            let timeId = null;
+            // let top10 = [];
+            // let last10 = [];
+            // 基于准备好的dom，初始化echarts实例
+            const myChart = echarts.init(document.getElementById('main'));
+            const myChart2 = echarts.init(document.getElementById('main2'));
+            const xAxis = (peopleNumber) => new Array(peopleNumber).fill('').map((item, index) => {
+                return 'people: ' + (index + 1);
+            })
+            const xAxis2 = () => new Array(min.length).fill('').map((item, index) => {
+                return '第' + (index + 1) + '的结果';
+            })
+            // 房间内 100 个人，每人有 100 块，每分钟随机给另一个人 1 块，最后这个房间内的财富分布是怎样的？
+            function render(peopleNumber, switchNumber) {
+
+                let resArr = new Array(peopleNumber).fill(peopleNumber);
+
+                function randomNumber(end = peopleNumber, str = 0) {
+                    return Math.floor(Math.random() * (end - str));
+                }
+
+                function wealthDistributionCalculation(resArr = []) {
+                    resArr.filter((item, index, resArr) => {
+                        resArr[index] = item - 1;
+                        resArr[randomNumber()] += 1;
+                    });
+                    return resArr
+                }
+
+                let i = 0;
+                while (i < switchNumber) {
+                    resArr = wealthDistributionCalculation(resArr);
+                    ++i;
+                }
+
+                console.log(`结果resArr： `, resArr);
+
+                // 指定图表的配置项和数据
+                var option = {
+                    title: {
+                        text: `${peopleNumber}人，每人${peopleNumber}元，随机给别人钱，进行${switchNumber}轮之后的结果如下`,
+                        x: 'center'
+                    },
+
+                    tooltip: {},
+                    legend: {
+                        data: ['金钱数']
+                    },
+                    xAxis: {
+                        data: xAxis(peopleNumber)
+                    },
+                    yAxis: {},
+                    series: [{
+                        name: '金钱数',
+                        type: 'line',
+                        data: resArr
+                    }]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+                min.push(Math.min.call(null, ...resArr));
+                max.push(Math.max.call(null, ...resArr));
+
+            }
+
+
+            function render2(peopleNumber, switchNumber) {
+                const option = {
+                    title: {
+                        text: '每次的最多与最少的记录'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['最多', '最少']
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: xAxis2()
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                            name: '最多',
+                            type: 'line',
+                            data: max
+                        },
+                        {
+                            name: '最少',
+                            type: 'line',
+                            data: min
+                        }
+                    ]
+                };
+                myChart2.setOption(option);
+            }
+            document.getElementById('peopleNumber').addEventListener('keydown', () => {
+                clearInterval(timeId);
+            });
+            document.getElementById('switchNumber').addEventListener('keydown', () => {
+                clearInterval(timeId);
+            });
+            document.getElementById('btn').addEventListener('click', () => {
+                // 人数
+                peopleNumber = +document.getElementById('peopleNumber').value;
+                // 交换的次数
+                switchNumber = +document.getElementById('switchNumber').value;
+
+                clearInterval(timeId);
+                timeId = setInterval(() => {
+                    render(peopleNumber, switchNumber);
+                    render2(peopleNumber, switchNumber);
+                }, Math.log(peopleNumber * switchNumber) * 100);
+                console.log("刷新间隔： ", Math.log(peopleNumber * switchNumber) * 100);
+            })
+        }
+    </script>
+</body>
+
+</html>
