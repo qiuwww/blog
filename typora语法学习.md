@@ -248,3 +248,11 @@ categories:
 comments: true
 ---
 ```
+
+
+digraph G {
+    A -> B;
+    A -> c;
+    B -> D;
+    B -> E;
+}

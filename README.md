@@ -6,7 +6,7 @@ Ideas Technical-points 2017-2-22
 
 ## 运行命令得到当前文件目录的访问
 
-``` bash
+```bash
 npm install
 npm server
 ```
@@ -23,9 +23,9 @@ npm server
 
 - 总结的笔记
 - 可复用的代码
-- demo测试
+- demo 测试
 
-### 测试emoji
+### 测试 emoji
 
 使用组合键`control+command+space`;
 😆😁🛹
