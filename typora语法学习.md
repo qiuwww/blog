@@ -249,7 +249,6 @@ comments: true
 ---
 ```
 
-
 digraph G {
     A -> B;
     A -> c;
