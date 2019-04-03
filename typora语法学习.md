@@ -184,7 +184,7 @@ Markdown 编辑器已支持绘制流程图、时序图和甘特图。通过 merm
 
 ### 流程图1
 
-``` flow
+```flow
 st=>start: Start
 e=>end
 op=>operation: My Operation
