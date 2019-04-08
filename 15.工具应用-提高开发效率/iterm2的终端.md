@@ -16,12 +16,12 @@
 - ⌘ + t :新的标签页；
 - 快速唤出: option+space；
 - ⌘ + r :清屏。
+- ctrl + u: 清除当前行
+- ctrl + l: 清屏
+- ctrl + a: 到行首
+- ctrl + e: 到行尾
+- ctrl + f/b: 前进后退
+- ctrl + p: 上一条命令
+- ctrl + r: 搜索命令历史
 - command + ;: 查看历史命令
 - command + shift + h: 查看剪贴板历史
-- ctrl + u 清除当前行
-- ctrl + l 清屏
-- ctrl + a 到行首
-- ctrl + e 到行尾
-- ctrl + f/b 前进后退
-- ctrl + p 上一条命令
-- ctrl + r 搜索命令历史
