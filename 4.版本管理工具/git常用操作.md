@@ -29,11 +29,25 @@ git reset HEAD filepathname
 
 ## git 撤销 push
 
+`git push [remote-name] [branch-name]`
+
 ## 一般的常用操作
 
 ### pull
 
+#### draft pull requests
+
+draft
+
+- vt. 起草；制定；征募
+- vi. 拟稿；绘样；作草图
+- adj. 初步画出或（写出）的；（设计、草图、提纲或版本）正在起草中的，**草拟的**；以草稿形式的；草图的
+
+占坑的作用。
+
 ### fetch
+
+`$ git fetch [remote-name]`
 
 ### status
 
@@ -56,3 +70,11 @@ git merge 分支名
 ### 冲突
 
 有冲突的话，通过 IDE 解决冲突；
+
+### pr
+
+`pull request`是一种为了开发人员通知team member他们已经完成了一个feature的机制。一旦他们的feature branch ready了，开发人员就通过他们的github帐号执行一个pull request。这将使得每个相干人知晓这个事件，他们需要review这个feature branch的代码，并且需要决定是否merge到master分支上去。
+
+### tag
+
+
