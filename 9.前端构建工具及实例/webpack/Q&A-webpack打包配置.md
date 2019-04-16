@@ -36,12 +36,12 @@
   - 更小的bundle大小
   - 去除掉只在开发阶段运行的代码
   - Scope hoisting和Tree-shaking
-  ​
+
 ### webpack4删除了CommonsChunkPlugin插件
 
 它使用内置API **optimization.splitChunks** 和 **optimization.runtimeChunk**，这意味着webpack会默认为你生成共享的代码块。
 
-### 其它插件变化如下:
+### 其它插件变化如下
 
 - NoEmitOnErrorsPlugin 废弃，使用optimization.noEmitOnErrors替代，在生产环境中默认开启该插件。
 - ModuleConcatenationPlugin 废弃，使用optimization.concatenateModules替代，在生产环境默认开启该插件。
@@ -153,3 +153,21 @@ extract-text-webpack-plugin 插件 -> 替代插件 mini-css-extract-plugin
 --progress:  压缩的进程提示
 --colors ：显示不同的颜色
 --profile ： 每个文件的压缩时间
+
+## 通过webpack，给运行环境（浏览器window或者node的global）注入全局变量
+
+```js
+plugins: [
+  new webpack.DefinePlugin({
+    // 注入全局变量，注意这里的变量必须是'" "'包裹的。
+    "process.env.env": '"dev"',
+    // "process.env": require("../config/dev.env"),
+    // "process.env.BASE_URL": '"' + process.env.BASE_URL + '"'
+  }),
+]
+```
+
+## webpack运行的时候的环境配置
+
+
+
