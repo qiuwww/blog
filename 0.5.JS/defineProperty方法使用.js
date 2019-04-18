@@ -10,7 +10,7 @@ Object.defineProperty(o, "a", {
 
 // 对象o拥有了属性a，值为37
 
-// 在对象中添加一个属性与存取描述符的示例
+// 在对象中添加一个属性与存取描述符的示例，这里的中间变量不可缺少，因为在定义的过程中必须有一个中间变量
 var bValue;
 Object.defineProperty(o, "b", {
   get : function(){

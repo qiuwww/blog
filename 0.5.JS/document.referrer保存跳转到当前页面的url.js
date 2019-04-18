@@ -1,3 +1,0 @@
-document.referrer保存跳转到当前页面的url.js
-
-很有用啊，用于页面的倒退操作
