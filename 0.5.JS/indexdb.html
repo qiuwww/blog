@@ -1,89 +1,107 @@
 <!-- indexdb.html -->
 <!DOCTYPE html>
 <html>
-<head>
-<title>indexdb</title>
-<meta charset='utf-8'>
-<script src="https://cdn.bootcss.com/jquery/1.12.0/jquery.js"></script>
-<script type="text/javascript">
-var db = null;
-if (!window.indexedDB) {
-    window.indexedDB = window.mozIndexedDB || window.webkitIndexedDB;  
-}
-  
-var request = indexedDB.open("test",3);
-request.onupgradeneeded = function(event) {
-  alert(event.oldVersion);
-  db = request.result;
-  if (db.objectStoreNames.contains('books')) {  
-	db.deleteObjectStore('books');
-  }
-  var store = db.createObjectStore("books", {keyPath: "isbn"});
-  var titleIndex = store.createIndex("by_title", "title", {unique: true});
-  var authorIndex = store.createIndex("by_author", "author");
+  <head>
+    <title>indexdb</title>
+    <meta charset="utf-8" />
+    <script src="https://cdn.bootcss.com/jquery/1.12.0/jquery.js"></script>
+    <script type="text/javascript">
+      var db = null;
+      if (!window.indexedDB) {
+        window.indexedDB = window.mozIndexedDB || window.webkitIndexedDB;
+      }
 
-  // Populate with initial data.
-  store.put({title: "Quarry Memories", author: "Fred", isbn: 123456,other:"..ceshi...."});
-  store.put({title: "Water Buffaloes", author: "Fred", isbn: 234567});
-  store.put({title: "Bedrock Nights", author: "Barney", isbn: 3456780000000000000});
-};
+      var request = indexedDB.open("test", 3);
+      request.onupgradeneeded = function(event) {
+        alert(event.oldVersion);
+        db = request.result;
+        if (db.objectStoreNames.contains("books")) {
+          db.deleteObjectStore("books");
+        }
+        var store = db.createObjectStore("books", { keyPath: "isbn" });
+        var titleIndex = store.createIndex("by_title", "title", {
+          unique: true
+        });
+        var authorIndex = store.createIndex("by_author", "author");
 
-request.onsuccess = function() {
-  db = request.result;
-};
-//通过事务、索引获取数据
-function getDatas() {
-	var tx = db.transaction("books", "readonly");
-	var store = tx.objectStore("books");
-	var index = store.index("by_title");
+        // Populate with initial data.
+        store.put({
+          title: "Quarry Memories",
+          author: "Fred",
+          isbn: 123456,
+          other: "..ceshi...."
+        });
+        store.put({ title: "Water Buffaloes", author: "Fred", isbn: 234567 });
+        store.put({
+          title: "Bedrock Nights",
+          author: "Barney",
+          isbn: 3456780000000000000
+        });
+      };
 
-	var request = index.get("Bedrock Nights");
-	request.onsuccess = function() {
-	  var matching = request.result;
-	  if (matching !== undefined) {
-		// A match was found.
-		$("#d1").html(matching.isbn+";"+matching.title+";"+matching.author);
-	  } else {
-		// No match was found.
-		$("#d1").html(123);
-	  }
-	};
-}
-//通过事务、游标、索引获取数据
-function getDatas1() {
-	var tx = db.transaction("books", "readonly");
-	var store = tx.objectStore("books");
-	var index = store.index("by_author");
+      request.onsuccess = function() {
+        db = request.result;
+      };
+      // 通过事务、索引获取数据
+      function getDatas() {
+        var tx = db.transaction("books", "readonly");
+        var store = tx.objectStore("books");
+        var index = store.index("by_title");
 
-	var request = index.openCursor(IDBKeyRange.only("Fred"));
-	var tmp  = "";
-	request.onsuccess = function(event) {
-	  var cursor = request.result;//也可以写成var cursor = event.target.result;  
-	  if (cursor) {
-		tmp+=cursor.value.isbn+";"+cursor.value.title+";"+cursor.value.author;
-		cursor.continue();
-	  } else {
-		$("#d1").html('错误...');
-	  }
-	  $("#d1").html(tmp);
-	};
-}
-function deleteDb() {
-	var deleteDbRequest = indexedDB.deleteDatabase('test');
-	deleteDbRequest.onsuccess = function (event) {
-      alert('success...');
-    };
-    deleteDbRequest.onerror = function (e) {
-      alert('error...');
-    };
-}
-</script>
-</head>
-<body>
-indexdb demo...<br/>
-<button onclick="getDatas();">获取数据</button><br/>
-<button onclick="getDatas1();">获取数据1</button><br/>
-<button onclick="deleteDb();">删除数据库</button><br/>
-<div id="d1"></div>
-</body>
+        var request = index.get("Bedrock Nights");
+        request.onsuccess = function() {
+          var matching = request.result;
+          if (matching !== undefined) {
+            // A match was found.
+            $("#d1").html(
+              matching.isbn + ";" + matching.title + ";" + matching.author
+            );
+          } else {
+            // No match was found.
+            $("#d1").html(123);
+          }
+        };
+      }
+      // 通过事务、游标、索引获取数据
+      function getDatas1() {
+        var tx = db.transaction("books", "readonly");
+        var store = tx.objectStore("books");
+        var index = store.index("by_author");
+
+        var request = index.openCursor(IDBKeyRange.only("Fred"));
+        var tmp = "";
+        request.onsuccess = function(event) {
+          var cursor = request.result; //也可以写成var cursor = event.target.result;
+          if (cursor) {
+            tmp +=
+              cursor.value.isbn +
+              ";" +
+              cursor.value.title +
+              ";" +
+              cursor.value.author;
+            cursor.continue();
+          } else {
+            $("#d1").html("错误...");
+          }
+          $("#d1").html(tmp);
+        };
+      }
+      function deleteDb() {
+        var deleteDbRequest = indexedDB.deleteDatabase("test");
+        deleteDbRequest.onsuccess = function(event) {
+          alert("success...");
+        };
+        deleteDbRequest.onerror = function(e) {
+          alert("error...");
+        };
+      }
+    </script>
+  </head>
+  <body>
+    indexdb demo...<br />
+    <button onclick="getDatas();">获取数据</button><br />
+    <button onclick="getDatas1();">获取数据1</button><br />
+    <button onclick="deleteDb();">删除数据库</button><br />
+    <div id="d1"></div>
+  </body>
 </html>

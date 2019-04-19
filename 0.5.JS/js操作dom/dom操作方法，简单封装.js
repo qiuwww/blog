@@ -52,13 +52,13 @@ export function hasClass(elem, className) {
     return new RegExp("(^| )" + className + "( |$)", "gi").test(elem.className);
   }
 }
-//获取样式
+// 获取样式
 export function getStyle(dom, attr) {
   return dom.currentStyle
     ? dom.currentStyle[attr]
     : getComputedStyle(dom, false)[attr];
 }
-
+// 可视窗口的大小
 export function view() {
   return {
     w: document.documentElement.clientWidth,

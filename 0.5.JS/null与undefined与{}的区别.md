@@ -1,6 +1,19 @@
+# null与undefined与{}的区别
+
+## 数据类型
+
+js基本数据类型：Undefined、Null、Boolean、Number和String、Symbol
+js的复杂数据类型：Object
+
+## typeof的返回结果
+
+typeof操作符返回一个字符串，表示未经计算的操作数的类型。
+字符串的值有："string"、"number"、"boolean"、"object"(null和object)、"undefined"、"function"、"symbol"
 
 值 null 特指对象的值**未设置**。它是 JavaScript 基本类型 之一。
+
 全局属性undefined表示原始值undefined。它是一个JavaScript的 原始数据类型 。
+
 一个没有被赋值的变量的类型是undefined。如果方法或者是语句中操作的变量没有被赋值，则会返回undefined
 undefined是全局对象的一个属性。也就是说，它是全局作用域的一个变量。undefined的最初值就是原始数据类型undefined。
 值 null 是一个字面量，它不像undefined 是全局对象的一个属性。null 是表示缺少的标识，指示变量未指向任何对象。
@@ -35,3 +48,8 @@ var a=''; //声明一个字符串，但是很明显可以再变成一个别的�
 
 .js var o = Object.create(null);
 //我的理解o应该就是空对象，创建一个没有原型的对象。对于for-in属性遍历更加有利。可以不用递归去找原型链上的属性了。 
+
+null与{}不是同一个东西，{}是一个对象，null就是一个类型，表示什么也没有.js
+
+
+要被覆盖的属性可以添加null，如果是要调用扩展属性的方法需要初始化为{}
