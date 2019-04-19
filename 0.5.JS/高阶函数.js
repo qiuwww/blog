@@ -1,6 +1,6 @@
-
 // http://web.jobbole.com/87806/?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com
-// 高阶函数是指至少满足下列条件之一的函数：
+
+// 高阶函数是指至少满足下列条件之一的函数（是一种以函数为参数的函数）：
 
 // 函数可以作为参数被传递；
 // 函数可以作为返回值输出。
@@ -16,60 +16,57 @@
  * 编写对各种情况都适用的高阶函数与为单一情况编写递归函数相比，可以使程序更具可读性。
  */
 
-
 // 1. 作为参数传递
 // callback为待传入的回调函数
 var getUserInfo = function(userId, callback) {
-     $.ajax("http://xxx.com/getUserInfo?" + userId, function(data) {
-        if (typeof callback === "function") {
-            callback(data);
-        }
-    });
-}
- 
+  $.ajax("http://xxx.com/getUserInfo?" + userId, function(data) {
+    if (typeof callback === "function") {
+      callback(data);
+    }
+  });
+};
+
 getUserInfo(13157, function(data) {
-    alert (data.userName);
+  alert(data.userName);
 });
 
 // 2. 作为返回值
 var Type = {};
- 
-for (var i = 0, type; type = ['String', 'Array', 'Number'][i++];) {
-    (function(type) {
-        Type['is' + type] = function(obj) {
-            return Object.prototype.toString.call(obj) === '[object '+ type +']';
-           }
-       })(type)
-};
- 
-Type.isArray([]);     // 输出：true
-Type.isString("str");     // 输出：true
+for (var i = 0, type; (type = ["String", "Array", "Number"][i++]); ) {
+  (function(type) {
+    Type["is" + type] = function(obj) {
+      return Object.prototype.toString.call(obj) === "[object " + type + "]";
+    };
+  })(type);
+}
 
+Type.isArray([]); // 输出：true
+Type.isString("str"); // 输出：true
 
 // 单例模式
 // 在传统开发工程师眼里，单例就是保证一个类只有一个实例，实现的方法一般是先判断实例存在与否，
 // 如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。
 // 在JavaScript里，单例作为一个命名空间提供者，从全局命名空间里提供一个唯一的访问点来访问该对象。
-var Singleton = (function () {
-    var instantiated;
-    function init() {
-        /*这里定义单例代码*/
-        return {
-            publicMethod: function () {
-                console.log('hello world');
-            },
-            publicProperty: 'test'
-        };
-    }
-
+var Singleton = (function() {
+  var instantiated;
+  function init() {
+    /*这里定义单例代码*/
     return {
-        getInstance: function () {
-            if (!instantiated) {
-                instantiated = init();
-            }
-            return instantiated;
-        }
+      publicMethod: function() {
+        console.log("hello world");
+      },
+      publicProperty: "test"
     };
+  }
+
+  return {
+    getInstance: function() {
+      if (!instantiated) {
+        instantiated = init();
+      }
+      return instantiated;
+    }
+  };
 })();
 
 /*调用公有的方法来获取实例:*/

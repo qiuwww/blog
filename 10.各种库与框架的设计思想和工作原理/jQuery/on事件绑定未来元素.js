@@ -3,9 +3,9 @@
 // 事件绑定.js
 
 // on方法
-1. $('').click()事件只能绑定静态元素。动态添加的元素上事件将会失效。
-2. $(select).on('click',function(){}); 
-   $('body').on('click','ul li',function(){}); 
+1. $('').click() // 事件只能绑定静态元素。动态添加的元素上事件将会失效。
+2. $(select).on('click',function(){});
+   $('body').on('click','ul li',function(){});
 /**
  * 支持动态绑定元素，即页面上元素有添加或变化后仍可绑定,
  * 前提是selector须是目标绑定元素的父元素，如绑定body里的动态li元素：
@@ -73,8 +73,8 @@ $("body").on("click", 'p', function(){
 });
 
 // body上没法绑定scroll事件，这个时间似乎没法冒泡，所以只能绑定到本身的元素上
-// The above would not work 
-// because the scroll event does not bubble up in DOM which is used for event delegation, 
+// The above would not work
+// because the scroll event does not bubble up in DOM which is used for event delegation,
 // see this question why doesn't delegate work for scroll?
 
 

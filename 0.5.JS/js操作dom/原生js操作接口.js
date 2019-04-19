@@ -1,22 +1,19 @@
-
 // 1、创建新节点
 
-createDocumentFragment() //创建一个DOM片段
-createElement() //创建一个具体的元素
-createTextNode() //创建一个文本节点
-
+createDocumentFragment(); //创建一个DOM片段
+createElement(); //创建一个具体的元素
+createTextNode(); //创建一个文本节点
 
 // 2、添加、移除、替换、插入
-appendChild()
-removeChild()
-replaceChild()
-insertBefore() //在已有的子节点前插入一个新的子节点
+appendChild();
+removeChild();
+replaceChild();
+insertBefore(); //在已有的子节点前插入一个新的子节点
 
 // 3、查找
-getElementsByTagName() //通过标签名称
-getElementsByName() //通过元素的Name属性的值(IE容错能力较强，会得到一个数组，其中包括id等于name值的)
-getElementById() //通过元素Id，唯一性
-
+getElementsByTagName(); //通过标签名称
+getElementsByName(); //通过元素的Name属性的值(IE容错能力较强，会得到一个数组，其中包括id等于name值的)
+getElementById(); //通过元素Id，唯一性
 
 // 4、class操作使用classLis
 /**
@@ -35,19 +32,15 @@ div.classList.toggle("visible"); // 增删
 // 添加/删除 visible，取决于测试条件，i小于10
 div.classList.toggle("visible", i < 10);
 
-alert(div.classList.contains("foo"));// 查询
+alert(div.classList.contains("foo")); // 查询
 
 //添加或删除多个类
-div.classList.add("foo","bar");
+div.classList.add("foo", "bar");
 div.classList.remove("foo", "bar");
-
-
-
 
 // 5、元素查找
 // 6、操作自定义属性
 // 7、添加移除属性
-
 
 // 8、cssText 返回样式规则所包含的实际文本.想要能够动态的设置一个样式表规则
 // cssText，DOMString类型
@@ -64,16 +57,15 @@ xxx.style.position = "fixed";
 xxx.style.left = "233px";
 
 // 替换方案：
-xxx.style.cssText="width:233px;height:233px;position:fixed";
+xxx.style.cssText = "width:233px;height:233px;position:fixed";
 
+getComputedStyle;
 
-
-getComputedStyle
-
-
-function getTheStyle(){
-    let elem = document.getElementById("elem-container");
-    let theCSSprop = window.getComputedStyle(elem,null).getPropertyValue("height");
-    document.getElementById("output").innerHTML = theCSSprop;
-   }
-  getTheStyle();
+function getTheStyle() {
+  let elem = document.getElementById("elem-container");
+  let theCSSprop = window
+    .getComputedStyle(elem, null)
+    .getPropertyValue("height");
+  document.getElementById("output").innerHTML = theCSSprop;
+}
+getTheStyle();

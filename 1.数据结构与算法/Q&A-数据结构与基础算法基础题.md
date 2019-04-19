@@ -1,20 +1,20 @@
-1.实现destructuringArray方法，达到如下效果
+1.实现 destructuringArray 方法，达到如下效果
 // destructuringArray( [1,[2,4],3], "[a,[b],c]" );
 // result
 // { a:1, b:2, c:3 }
 
-### 2.需要通过threshold参数控制调用函数频率
+### 2.需要通过 threshold 参数控制调用函数频率
+
 const yourFunction = function(func, threshold) {
- // 请实现
+// 请实现
 }
 const triggerSearch = yourFunction((val) => {
-  const {
-    onSearch
-  } = this.props
-  onSearch(val)
+const {
+onSearch
+} = this.props
+onSearch(val)
 }, 300)
 triggerSearch(searchText)
-
 
 ### 组合求和
 
@@ -26,7 +26,7 @@ triggerSearch(searchText)
 
 #### 组合求和-实现
 
-使用hashMap，对撞取得结果，以当前值为键，对结果取余作为值，对比后边的key与前面的value，得到结果。
+使用 hashMap，对撞取得结果，以当前值为键，对结果取余作为值，对比后边的 key 与前面的 value，得到结果。
 
 ```js
 let nums = [2, 7, 11, 15];
@@ -35,11 +35,11 @@ let target = 9;
 let twoSum = (nums, target) => {
   let hashMap = new Map();
   let res = [];
-  if (!Array.isArray(nums) || typeof +target !== 'number') {
-    alert('参数不正确');
+  if (!Array.isArray(nums) || typeof +target !== "number") {
+    alert("参数不正确");
     return;
   }
-  let hasRes = nums.some((item) => {
+  let hasRes = nums.some(item => {
     // 遍历一次需要做的事情
     hashMap.set(item, target - item);
     res = [item, hashMap.get(item)];
@@ -48,7 +48,7 @@ let twoSum = (nums, target) => {
   console.log(hasRes && res);
   console.log(hashMap);
   return hasRes && res;
-}
+};
 twoSum(nums, target);
 twoSum(nums, 22);
 twoSum(nums, 220);
@@ -67,28 +67,30 @@ twoSum(nums, 220);
 双指针来实现
 
 ```js
-let str = 'aaabbbccccdfghh';
+let str = "aaabbbccccdfghh";
 
-let lengthOfLongestSubstring = (s) => {
-  if(typeof s !== 'string' && s.length > 0){
-    console.log('参数应该是字符串');
+let lengthOfLongestSubstring = s => {
+  if (typeof s !== "string" && s.length > 0) {
+    console.log("参数应该是字符串");
     return;
   }
   const len = s.length;
   let hashMap = new Map();
   let start = 0;
   let end = 1;
-  while (end < len) { // 第二个指针一直向后移动
-    if (s[end] === s[end-1]) { // 如果没有重复
+  while (end < len) {
+    // 第二个指针一直向后移动
+    if (s[end] === s[end - 1]) {
+      // 如果没有重复
       start = end;
-    }else{
+    } else {
       hashMap.set(start, end - start + 1);
     }
     end += 1;
   }
   console.log(hashMap);
   return Math.max.apply(null, [...hashMap.values()]);
-}
+};
 console.log(lengthOfLongestSubstring(str));
 ```
 
@@ -107,33 +109,32 @@ console.log(lengthOfLongestSubstring(str));
  * @param {number[]} height
  * @return {number}
  */
-var maxArea = function (height) {
+var maxArea = function(height) {
   if (height.length === 1 || height.length === 0) {
-    return 0
+    return 0;
   }
 
-  const len = height.length
-  let start = 0
-  let end = len - 1
-  let max = 0
+  const len = height.length;
+  let start = 0;
+  let end = len - 1;
+  let max = 0;
 
   while (start < end) {
-    max = Math.max(max, (Math.min(height[start], height[end]) * (end - start)));
+    max = Math.max(max, Math.min(height[start], height[end]) * (end - start));
     console.log(start, end, max);
-    if (height[start] <= height[end]) { // 谁高谁留下
-      start += 1
+    if (height[start] <= height[end]) {
+      // 谁高谁留下
+      start += 1;
     } else {
-      end -= 1
+      end -= 1;
     }
   }
   return {
     max
-  }
+  };
 };
 console.log(maxArea([1, 3, 6, 4, 6, 8, 9, 4, 6, 7, 5]));
 ```
-
-
 
 **栈和队列的区别?**
 
@@ -143,8 +144,8 @@ console.log(maxArea([1, 3, 6, 4, 6, 8, 9, 4, 6, 7, 5]));
 
 **栈和堆的区别？**
 
-- 栈区（stack）—   由编译器自动分配释放   ，存放函数的参数值，局部变量的值等。
-- 堆区（heap）   —   一般由程序员分配释放，   若程序员不释放，程序结束时可能由OS回收。
+- 栈区（stack）— 由编译器自动分配释放 ，存放函数的参数值，局部变量的值等。
+- 堆区（heap） — 一般由程序员分配释放， 若程序员不释放，程序结束时可能由 OS 回收。
 - 堆（数据结构）：堆可以被看成是一棵树，如：堆排序；
 - 栈（数据结构）：一种先进后出的数据结构
 
@@ -157,32 +158,30 @@ console.log(maxArea([1, 3, 6, 4, 6, 8, 9, 4, 6, 7, 5]));
 - （3）利用递归进行下次比较
 
 ```js
-function quickSort(arr){
-    if(arr.length<=1){
-        return arr;//如果数组只有一个数，就直接返回；
+function quickSort(arr) {
+  if (arr.length <= 1) {
+    return arr; //如果数组只有一个数，就直接返回；
+  }
+
+  var num = Math.floor(arr.length / 2); //找到中间数的索引值，如果是浮点数，则向下取整
+
+  var numValue = arr.splice(num, 1); //找到中间数的值
+  var left = [];
+  var right = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] < numValue) {
+      left.push(arr[i]); //基准点的左边的数传到左边数组
+    } else {
+      right.push(arr[i]); //基准点的右边的数传到右边数组
     }
+  }
 
-    var num = Math.floor(arr.length/2);//找到中间数的索引值，如果是浮点数，则向下取整
-
-    var numValue = arr.splice(num,1);//找到中间数的值
-    var left = [];
-    var right = [];
-
-    for(var i=0;i<arr.length;i++){
-        if(arr[i]<numValue){
-            left.push(arr[i]);//基准点的左边的数传到左边数组
-        }
-        else{
-           right.push(arr[i]);//基准点的右边的数传到右边数组
-        }
-    }
-
-    return quickSort(left).concat([numValue],quickSort(right));//递归不断重复比较
+  return quickSort(left).concat([numValue], quickSort(right)); //递归不断重复比较
 }
 
-alert(quickSort([32,45,37,16,2,87]));//弹出“2,16,32,37,45,87”
+alert(quickSort([32, 45, 37, 16, 2, 87])); //弹出“2,16,32,37,45,87”
 ```
-
 
 ### 几种排序算法
 
@@ -192,27 +191,30 @@ alert(quickSort([32,45,37,16,2,87]));//弹出“2,16,32,37,45,87”
 
 ### 其他常见的前端算法
 
-
-**XML和JSON的区别？**
+**XML 和 JSON 的区别？**
 
 - 数据体积方面
-  - JSON相对于XML来讲，数据的体积小，传递的速度更快些。
-  
+
+  - JSON 相对于 XML 来讲，数据的体积小，传递的速度更快些。
+
 - 数据交互方面
-  - JSON与JavaScript的交互更加方便，更容易解析处理，更好的数据交互
-  
+
+  - JSON 与 JavaScript 的交互更加方便，更容易解析处理，更好的数据交互
+
 - 数据描述方面
-  - JSON对数据的描述性比XML较差
-  
+
+  - JSON 对数据的描述性比 XML 较差
+
 - 传输速度方面
-  - JSON的速度要远远快于XML
-  
+
+  - JSON 的速度要远远快于 XML
+
 **JSON 的了解？**
 
 - JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式
-- 它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小
+- 它是基于 JavaScript 的一个子集。数据格式简单, 易于读写, 占用带宽小
 
-- JSON字符串转换为JSON对象:
+- JSON 字符串转换为 JSON 对象:
 
 ```
 var obj =eval('('+ str +')');
@@ -220,9 +222,60 @@ var obj = str.parseJSON();
 var obj = JSON.parse(str);
 ```
 
-- JSON对象转换为JSON字符串：
+- JSON 对象转换为 JSON 字符串：
 
 ```
 var last=obj.toJSONString();
 var last=JSON.stringify(obj);
 ```
+
+### 函数求和，参数不固定
+
+```js
+function sum(...args) {
+  //这里的三个点...是扩展运算符，该运算符将一个数组，变为参数序列。
+  if (args.length == 1) {
+    //判断参数个数的形式是否为1个，即第二种形式
+    var cache = [...args][0]; //将第一个参数的值暂存在cache中
+
+    var add = function(y) {
+      //创建一个方法用于实现第二个条件，最后并返回这个方法
+      cache += y;
+      console.log(cache);
+      return add;
+    };
+    return add;
+  } else {
+    //这里就是参数的第一种形式
+    var res = 0; //这里最好先声明要输出的变量，并给其赋值，不然值定义而不赋值会输出NaN，因为js将undefined+number两个数据类型相加结果为NaN
+    for (var i = 0; i < [...args].length; i++) {
+      res += [...args][i]; //参数累加
+    }
+    console.log(res); //输出最后的累加结果
+  }
+}
+sum(2, 3, 4); // 9
+sum(2)(3)(4)(5); //5//9//14
+```
+
+
+3，判断一个字符串中出现次数最多的字符，统计这个次数
+分隔组成一个对象，找到最大的值
+
+var str = "abcdabcdefgdddddd";
+var resObj = {};
+str.split('').forEach(item => {
+    if(resObj[item]) {
+        resObj[item] += 1;
+    }else{
+        resObj[item] = 1;
+    }
+});
+var max = 0;
+for(var key in resObj) {
+    if(resObj[key] >= max){
+        max = resObj[key];
+    }
+}
+
+console.log(max);
