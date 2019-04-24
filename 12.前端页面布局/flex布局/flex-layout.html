@@ -1,13 +1,11 @@
-<!-- flex-layout.html -->
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- flex-layout.html -->
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <style type="text/css">
+    <style>
         /*居中布局*/
-
         .layout1 {
             width: 300px;
             height: 200px;
@@ -304,6 +302,58 @@
             background-color: red;
         }
     </style>
+    <style>
+		.test-1,
+    .test-2 {
+			height: 800px;
+			width: 300px;
+			background-color: #eee;
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			align-content: space-between;
+		}
+
+		.test-1 .flex-item,
+    .test-2 .flex-item  {
+			width: 100px;
+			height: 100px;
+			margin-bottom: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: blueviolet;
+		}
+
+		.test-1 .top{
+			flex: 1;
+		}
+    .test-2 .space{
+      background-color: aqua;
+      flex: 1;
+      margin-bottom: 10px;
+    }
+    /* flex的例子2 */
+    #flex-parent{
+      display: flex;
+      height: 200px;
+      width: 600px;
+    }
+    #flex-parent > div{
+      height: 100%;
+    }
+    #flex-parent #flex-item-1{
+      width: 140px;
+      flex: 2 1 0%; /*这里的0%表示width不起作用*/
+    }
+    #flex-parent #flex-item-2{
+      width: 100px;
+      flex: 2 1 auto; /* 这里的auto，对应width的100px */
+    }
+    #flex-parent #flex-item-3{
+      flex: 1 1 200px;
+    }
+  </style>
 </head>
 
 <body>
@@ -387,16 +437,43 @@
         <div class="box2">box2</div>
         <div class="box3">box3</div>
     </div>
+
+    <h3>flex的取值的例子2</h3>
+    <div id="flex-parent">
+        <div id="flex-item-1" style="background-color: green;">flex-item-1</div>
+        <div id="flex-item-2" style="background-color: blue;">flex-item-2</div>
+        <div id="flex-item-3" style="background-color: yellowgreen;">flex-item-3</div>
+    </div>
+    <ul class="desc">
+      <li>主轴上父容器总尺寸为 600px</li>
+      <li>子元素的总基准值是：0% + auto + 200px = 300px，auto 对应取主尺寸width即 100px</li>
+      <li>故剩余空间为 600px - 300px = 300px</li>
+      <li>伸缩（flex-grow）放大系数之和为： 2 + 2 + 1 = 5</li>
+      <li>剩余空间分配如下：- item-1 和 item-2 各分配 2/5，各得 120px；- item-3 分配 1/5，得 60px</li>
+      <li>各项目最终宽度为：
+          - item-1 = 0% + 120px = 120px
+          - item-2 = auto + 120px = 220px
+          - item-3 = 200px + 60px = 260px
+      </li>
+      <li>当 item-1 基准值取 0% 的时候，是把该项目视为零尺寸的，故即便声明其尺寸为 140px，也并没有什么用，形同虚设</li>
+      <li>而 item-2 基准值取 auto 的时候，根据规则基准值使用值是主尺寸值即 100px，故这 100px 不会纳入剩余空间</li>
+    </ul>
+
+
     <p>说明：</p>
     <ul>
         <li>flex是一个复合属性，包括flex-grow, flex-shrink, flex-basis</li>
         <li>flex-grow: 默认值0，当前元素占父元素（flex）的比例，其他元素默认flex: none；</li>
         <li>flex-shrink: 基于自身的宽度压缩。 default: 1; 属性指定了 flex 元素的收缩规则。flex 元素仅在默认宽度之和大于容器的时候才会发生收缩，其收缩的大小是依据 flex-shrink 的值。上边的flex-grow对应的大小，如果不设置就是一个默认的，负值是不被允许的。</li>
-        <li>flex-basis: defalut:auto; 针对当前的元素，也就是替代width。上边的flex-grow对应的大小，如果不设置就是一个默认的，基数。 如果子容器设置了flex-basis或者width，那么在分配空间之前，他们会先跟父容器预约这么多的空间，然后剩下的才是归入到剩余空间，
-            然后父容器再把剩余空间分配给设置了flex-grow的容器。 如果同时设置flex-basis和width，那么width属性会被覆盖，也就是说flex-basis的优先级比width高。
+        <li>flex-basis: defalut:auto; 针对当前的元素，也就是替代width。上边的flex-grow对应的大小，如果不设置就是一个默认的，基数。 如果子容器设置了flex-basis或者width，那么在分配空间之前，他们会先跟父容器预约这么多的空间，然后剩下的才是归入到剩余空间，然后父容器再把剩余空间分配给设置了flex-grow的容器。 如果同时设置flex-basis和width，那么width属性会被覆盖，也就是说flex-basis的优先级比width高。
         </li>
+        <li>假设以上三个属性同样取默认值，则 flex 的默认值是 0 1 auto。</li>
+        <li>当 flex 取值为一个<b>非负数字</b>，则该数字为 flex-grow 值，flex-shrink 取 1，flex-basis 取 0%</li>
         <li>flex环境默认是不换行的，即使父容器宽度不够也不会，除非设置flex-wrap来换行</li>
         <li>flex-flow: flex-direction与flex-wrap的组合形式，flex-flow:row-reverse wrap;</li>
+        <li>当 flex 取值为 none，则计算值为 0 0 auto</li>
+        <li>当 flex 取值为 auto，则计算值为 1 1 auto</li>
+        <li>当 flex 取值为一个非负数字，则该数字为 flex-grow 值，flex-shrink 取 1，flex-basis 取 0%</li>
     </ul>
 
     <div>
@@ -472,41 +549,7 @@
         <div class="flex-item">5</div>
         <div class="flex-item">6</div>
 	</div>
-	<style type="text/css">
-		.test-1,
-    .test-2 {
-			height: 800px;
-			width: 300px;
-			background-color: #eee;
-			display: flex;
-			flex-wrap: wrap;
-			flex-direction: column;
-			align-content: space-between;
-		}
 
-		.test-1 .flex-item,
-    .test-2 .flex-item  {
-			width: 100px;
-			height: 100px;
-			margin-bottom: 10px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			background-color: blueviolet;
-		}
-		.test-1 .last-item{
-
-		}
-		.test-1 .top{
-			flex: 1;
-		}
-    .test-2 .space{
-      background-color: aqua;
-      flex: 1;
-      margin-bottom: 10px;
-    }
-
-  </style>
   <hr style="margin-top: 30px;">
   <h2>实现前面的靠前，后边的靠后，需要分组显示</h2>
   <h3>实现方式1 需要分组显示</h3>

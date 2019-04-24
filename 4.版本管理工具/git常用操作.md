@@ -73,8 +73,75 @@ git merge 分支名
 
 ### pr
 
-`pull request`是一种为了开发人员通知team member他们已经完成了一个feature的机制。一旦他们的feature branch ready了，开发人员就通过他们的github帐号执行一个pull request。这将使得每个相干人知晓这个事件，他们需要review这个feature branch的代码，并且需要决定是否merge到master分支上去。
+`pull request`是一种为了开发人员通知 team member 他们已经完成了一个 feature 的机制。一旦他们的 feature branch ready 了，开发人员就通过他们的 github 帐号执行一个 pull request。这将使得每个相干人知晓这个事件，他们需要 review 这个 feature branch 的代码，并且需要决定是否 merge 到 master 分支上去。
 
 ### tag
 
+### 克隆（clone）
 
+从远程仓库 URL 加载创建一个与远程仓库一样的本地仓库
+
+### 提交（commit）
+
+将**暂存文件**上传到本地仓库（我们在 Finder 中对本地仓库做修改后一般都得先提交一次，再推送）
+
+### 检出（checkout）
+
+切换不同分支
+
+### 暂存（git stash）
+
+保存工作现场
+
+### 重置（reset）
+
+回到最近添加（add）/提交（commit）状态
+
+### 合并（merge）
+
+将多个同名文件合并为一个文件，该文件包含多个同名文件的所有内容，相同内容抵消
+
+### 抓取（fetch）
+
+从远程仓库获取信息并同步至本地仓库
+
+### 拉取（pull）
+
+从远程仓库获取信息并同步至本地仓库，并且自动执行合并（merge）操作，即 pull=fetch+merge
+
+### 推送（push）
+
+将本地仓库**同步至远程仓库**，一般推送（push）前先拉取（pull）一次，确保一致
+
+### 分支（branch）
+
+创建/修改/删除分枝
+
+### 工作流（Git Flow）
+
+团队工作时，每个人创建属于自己的分枝（branch），确定无误后提交到 master 分支
+
+### 终端（terminal）
+
+可以输入 git 命令行
+
+## 放弃本地修改
+
+### 一、针对没有缓存的文件的，回退代码到修改之前的状态
+
+对应操作工具就是丢弃文件。
+
+1. git status 查看 git 文件的状态；
+2. git checkout -- <filename(+path)>
+
+### 二、已经缓存了的代码放弃修改的内容
+
+git reset HEAD filepathname
+
+此命令用来清除 git 对于文件修改的缓存。相当于撤销 git add 命令所在的工作。在使用本命令后，本地的修改并不会消失，而是回到了如（一）所示的状态。继续用（一）中的操作，就可以放弃本地的修改。
+
+### 三、可以使用 git reset --hard HEAD^ 来回退到上一次 commit 的状态。
+
+此命令可以用来回退到任意版本：git reset --hard commitid
+
+你可以使用 git log 命令来查看 git 的提交历史。git log 的输出如下,之一这里可以看到第一行就是 commitid：
