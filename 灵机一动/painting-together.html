@@ -1,104 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
-    }
-
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .painting-wrap {
-      width: 600px;
-      height: 600px;
-    }
-
-    ul {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-    }
-
-    ul>li {
-      list-style-type: none;
-      font-size: 12px;
-      border-radius: 50%;
-    }
-
-  </style>
-</head>
-
-<body>
-
-  <div class="painting-wrap">
-  </div>
-  <script>
-    var page = {
-      init: function () {
-        this.initColorArr(900);
-        console.log(this.colorArr);
-      },
-      randomColor: function () {
-        return "#" + (~~(Math.random() * (1 << 24))).toString(16);
-      },
-      initColorArr: function (len) {
-        var self = this;
-        this.colorArr = new Array(len).fill('');
-        return arr.map(item => {
-          return self.randomColor();
-        });
-      },
-      renderPage: function () {
-        var self = this;
-        var colorArr = this.colorArr;
-        var wh = 600 / Math.sqrt(colorArr.length);
-        debugger
-        var res = colorArr.map(item => {
-          var color = self.randomColor();
-          return `<li style="background-color:${color};width: ${wh}px; height: ${wh}px;"></li>`
-        });
-        var ul = `<ul>${res.join('')}</ul>`;
-        document.querySelector('.painting-wrap').innerHTML = ul;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
       }
-    }
-    var arr = [];
-    Object.defineProperty(page, 'colorArr', {
-      get: function () {
-        return arr || [];
-      },
-      set: function (arr) {
-        var self = this;
-        arr = arr;
-        debugger
-        setTimeout(function () {
-          self.renderPage();
-        }, 0);
-      },
-      enumerable: true,
-      configurable: true
-    });
 
-    window.onload = function () {
-      page.init();
-    }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+      }
 
-  </script>
-</body>
+      .painting-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px;
+      }
 
+      /* input本身的 */
+      input[type="color"] {
+        outline: none;
+        padding: 0;
+        margin: 0;
+        border: 0;
+      }
+      /* 这个是外面的容器 */
+      input[type="color"]::-webkit-color-swatch-wrapper {
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+        border: 0;
+      }
+      /* 这个是内部的颜色按钮，改变颜色后会改变 */
+      input[type="color"]::-webkit-color-swatch {
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="painting-wrap"></div>
+    <script>
+      var page = {
+        whTotal: 1000,
+        lineNum: 60,
+        init: function() {
+          this.renderPage();
+        },
+        randomColor: function() {
+          return "#" + (~~(Math.random() * (1 << 24))).toString(16);
+        },
+        initColorArr: function(len) {
+          var arr = new Array(len).fill(" ");
+          return arr.map(item => this.randomColor());
+        },
+        renderPage: function() {
+          var self = this;
+          var whTotal = this.whTotal;
+          var colorArr = this.initColorArr(this.lineNum * this.lineNum);
+          var wh = whTotal / Math.sqrt(colorArr.length);
+          var color;
+          var items = colorArr.map((item, index) => {
+            color = self.randomColor();
+            return `<input type="color" value="${color}" style="width: ${wh}px; height: ${wh}px;" data-id=${index} />`;
+          });
+          document.querySelector(".painting-wrap").style.width = whTotal + "px";
+          document.querySelector(".painting-wrap").style.height =
+            whTotal + "px";
+          document.querySelector(".painting-wrap").innerHTML = items.join("");
+        }
+      };
+      var arr = [];
+      Object.defineProperty(page, "colorArr", {
+        get: function() {
+          return arr || [];
+        },
+        set: function(arr) {
+          var self = this;
+          arr = arr;
+          // debugger
+          setTimeout(function() {
+            self.renderPage();
+          }, 0);
+        },
+        enumerable: true,
+        configurable: true
+      });
+
+      window.onload = function() {
+        page.init();
+      };
+    </script>
+    <p>这里后边可以使用websocket实现局部的信息实时传递。</p>
+    <p>后期需要可以保存当前的状态到服务器上，每次修改对应id的颜色值，然后推送给所有人。</p>
+    <p>nice</p>
+    <p>加入人工智能是不是更有意思</p>
+  </body>
 </html>
