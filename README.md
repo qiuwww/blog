@@ -35,13 +35,3 @@ npm server
 
 通过`moonbreezee.github.io/hexo-blog-source`生成页面。
 查看地址: [blog](http://blog.qiuww.site/)
-
-//定义类型和描述
-st=>start: 开始
-e=>end: 结束
-op=>operation: 我的操作
-cond=>condition: 判断确认？
-  
-st->op->cond
-cond(yes)->e
-cond(no)->op
