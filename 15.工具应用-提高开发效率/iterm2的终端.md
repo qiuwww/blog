@@ -25,3 +25,4 @@
 - ctrl + r: 搜索命令历史
 - command + ;: 查看历史命令
 - command + shift + h: 查看剪贴板历史
+- tab: 可以查看到下边的文件与补全名称
