@@ -216,17 +216,17 @@ alert(quickSort([32, 45, 37, 16, 2, 87])); //弹出“2,16,32,37,45,87”
 
 - JSON 字符串转换为 JSON 对象:
 
-```
-var obj =eval('('+ str +')');
+```js
+var obj = eval("(" + str + ")");
 var obj = str.parseJSON();
 var obj = JSON.parse(str);
 ```
 
 - JSON 对象转换为 JSON 字符串：
 
-```
-var last=obj.toJSONString();
-var last=JSON.stringify(obj);
+```js
+var last = obj.toJSONString();
+var last = JSON.stringify(obj);
 ```
 
 ### 函数求和，参数不固定
@@ -258,24 +258,36 @@ sum(2, 3, 4); // 9
 sum(2)(3)(4)(5); //5//9//14
 ```
 
-
 3，判断一个字符串中出现次数最多的字符，统计这个次数
 分隔组成一个对象，找到最大的值
 
+```js
 var str = "abcdabcdefgdddddd";
 var resObj = {};
-str.split('').forEach(item => {
-    if(resObj[item]) {
-        resObj[item] += 1;
-    }else{
-        resObj[item] = 1;
-    }
+str.split("").forEach(item => {
+  if (resObj[item]) {
+    resObj[item] += 1;
+  } else {
+    resObj[item] = 1;
+  }
 });
 var max = 0;
-for(var key in resObj) {
-    if(resObj[key] >= max){
-        max = resObj[key];
-    }
+for (var key in resObj) {
+  if (resObj[key] >= max) {
+    max = resObj[key];
+  }
 }
 
 console.log(max);
+```
+
+## 找到数组中唯一不重复的元素
+
+要求，空间复杂度为 O(1)，时间复杂度为 O(n)
+
+```js
+var arr = [2, 13, , 4, 5, 2, 13, 4];
+arr.reduce((cur, next) => {
+  return cur ^ next;
+}, 0);
+```

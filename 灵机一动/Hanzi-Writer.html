@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@1.3/dist/hanzi-writer.min.js"></script>
+  </head>
+  <body>
+    <div id="character-target-div"></div>
+
+    <div id="character-target-1"></div>
+    <div id="character-target-2"></div>
+    <button id="animate-button">Start</button>
+    <script>
+      window.onload = function() {
+        var writer = HanziWriter.create("character-target-div", "草", {
+          width: 150,
+          height: 150,
+          padding: 5,
+          radicalColor: "#168F16" // green
+        });
+
+        var char1 = HanziWriter.create("character-target-1", "很", {
+          width: 100,
+          height: 100,
+          padding: 5,
+          showCharacter: false
+        });
+        var char2 = HanziWriter.create("character-target-2", "爽", {
+          width: 100,
+          height: 100,
+          padding: 5,
+          showCharacter: false
+        });
+
+        function chainAnimations() {
+          var delayBetweenAnimations = 1000; // milliseconds
+          char1.hideCharacter();
+          char2.hideCharacter();
+
+          char1.animateCharacter({
+            onComplete: function() {
+              setTimeout(function() {
+                char2.animateCharacter();
+              }, delayBetweenAnimations);
+            }
+          });
+        }
+
+        document
+          .getElementById("animate-button")
+          .addEventListener("click", chainAnimations);
+      };
+    </script>
+  </body>
+</html>
