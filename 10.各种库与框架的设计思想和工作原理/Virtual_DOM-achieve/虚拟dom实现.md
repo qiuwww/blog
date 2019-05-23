@@ -2,7 +2,7 @@
 
 ## 实现原理
 
-简单来说，就是用一个**轻量级的 dom 结构（只包含真实[dom 节点](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction)的部分属性）**(用 js 模拟实现)，来模拟重量级的 dom 结构，进而通过轻量级结构的操作来**减少重量级结构的操作**，最终达到性能优化的目的。
+简单来说，就是用一个**轻量级的 dom 结构（只包含真实[dom 节点](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction)的部分属性）**(用 js 模拟实现)，来模拟**重量级的 dom 结构(真实的dom结构)**，进而通过轻量级结构的操作来**减少重量级结构的操作**，最终达到性能优化的目的。
 
 ## 内部实现大致如下：
 

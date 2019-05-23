@@ -8,14 +8,22 @@
 
 > 事件触发一般来说会按照上面的顺序进行，但是也有特例，如果给一个目标节点同时注册冒泡和捕获事件，事件触发会按照注册的顺序执行
 
-``` js
+```js
 // 以下会先打印冒泡然后是捕获
-node.addEventListener('click',(event) =>{
-	console.log('冒泡')
-},false);
-node.addEventListener('click',(event) =>{
-	console.log('捕获 ')
-},true)
+node.addEventListener(
+  "click",
+  event => {
+    console.log("冒泡");
+  },
+  false
+);
+node.addEventListener(
+  "click",
+  event => {
+    console.log("捕获 ");
+  },
+  true
+);
 ```
 
 ### 1.2 注册事件
@@ -24,14 +32,22 @@ node.addEventListener('click',(event) =>{
 - 一般来说，我们只希望事件只触发在目标上，这时候可以使用 `stopPropagation` 来阻止事件的进一步传播。通常我们认为 `stopPropagation` 是用来阻止事件冒泡的，其实该函数也可以阻止捕获事件。`stopImmediatePropagation` 同样也能实现阻止事件，但是还能阻止该事件目标执行别的注册事件
 
 ```javascript
-node.addEventListener('click',(event) =>{
-	event.stopImmediatePropagation()
-	console.log('冒泡')
-},false);
+node.addEventListener(
+  "click",
+  event => {
+    event.stopImmediatePropagation();
+    console.log("冒泡");
+  },
+  false
+);
 // 点击 node 只会执行上面的函数，该函数不会执行
-node.addEventListener('click',(event) => {
-	console.log('捕获 ')
-},true)
+node.addEventListener(
+  "click",
+  event => {
+    console.log("捕获 ");
+  },
+  true
+);
 ```
 
 ### 1.3 事件代理
@@ -40,17 +56,17 @@ node.addEventListener('click',(event) => {
 
 ```html
 <ul id="ul">
-	<li>1</li>
-    <li>2</li>
-	<li>3</li>
-	<li>4</li>
-	<li>5</li>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
 </ul>
 <script>
-	let ul = document.querySelector('##ul')
-	ul.addEventListener('click', (event) => {
-		console.log(event.target);
-	})
+  let ul = document.querySelector("##ul");
+  ul.addEventListener("click", event => {
+    console.log(event.target);
+  });
 </script>
 ```
 
@@ -65,25 +81,24 @@ node.addEventListener('click',(event) => {
 
 ### 2.1 JSONP
 
-> JSONP 的原理很简单，就是利用 <script> 标签没有跨域限制的漏洞。通过 <script> 标签指向一个需要访问的地址并提供一个回调函数来接收数据当需要通讯时
+JSONP 的原理很简单，就是利用 `<script>` 标签没有跨域限制的漏洞。通过 `<script>` 标签指向一个需要访问的地址并提供一个回调函数来接收数据当需要通讯时。
 
 ```html
 <script src="http://domain/api?param1=a&param2=b&callback=jsonp"></script>
 <script>
-    function jsonp(data) {
-    	console.log(data)
-	}
+  function jsonp(data) {
+    console.log(data);
+  }
 </script>
 ```
 
 - JSONP 使用简单且兼容性不错，但是只限于 get 请求
 
-### 2.2 CORS
+### 2.2 CORS，跨域资源共享 cross-origin sharing
 
 - `CORS`需要浏览器和后端同时支持
-- 浏览器会自动进行 `CORS` 通信，实现CORS通信的关键是后端。只要后端实现了 `CORS`，就实现了跨域。
-- 服务端设置 `Access-Control-Allow-Origin` 就可以开启 `CORS`。 该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源
-
+- 浏览器会自动进行 `CORS` 通信，实现 CORS 通信的**关键是后端**。只要后端实现了 `CORS`，就实现了跨域。
+- 服务端设置 `Access-Control-Allow-Origin` 就可以开启 `CORS`。 该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。
 
 ### 2.3 document.domain
 
@@ -92,60 +107,61 @@ node.addEventListener('click',(event) => {
 
 ### 2.4 postMessage
 
-> 这种方式通常用于获取嵌入页面中的第三方页面数据。一个页面发送消息，另一个页面判断来源并接收消息
+> 这种方式通常用于获取嵌入页面中的第三方页面数据。一个页面发送消息，另一个页面判断来源并接收消息。
 
 ```javascript
 // 发送消息端
-window.parent.postMessage('message', 'http://test.com');
+window.parent.postMessage("message", "http://test.com");
 
 // 接收消息端
 var mc = new MessageChannel();
-mc.addEventListener('message', (event) => {
-    var origin = event.origin || event.originalEvent.origin; 
-    if (origin === 'http://test.com') {
-        console.log('验证通过')
-    }
+mc.addEventListener("message", event => {
+  var origin = event.origin || event.originalEvent.origin;
+  if (origin === "http://test.com") {
+    console.log("验证通过");
+  }
 });
 ```
 
 ## 三、Event loop
 
-### 3.1 JS中的event loop
+### 3.1 JS 中的 event loop
 
 > 众所周知 JS 是门非阻塞单线程语言，因为在最初 JS 就是为了和浏览器交互而诞生的。如果 JS 是门多线程的语言话，我们在多个线程中处理 DOM 就可能会发生问题（一个线程中新加节点，另一个线程中删除节点）
 
 - JS 在执行的过程中会产生执行环境，这些执行环境会被顺序的加入到执行栈中。如果遇到异步的代码，会被挂起并加入到 Task（有多种 task） 队列中。一旦执行栈为空，Event Loop 就会从 Task 队列中拿出需要执行的代码并放入执行栈中执行，所以本质上来说 JS 中的异步还是同步行为
 
 ```javascript
-console.log('script start');
+console.log("script start");
 
 setTimeout(function() {
-  console.log('setTimeout');
+  console.log("setTimeout");
 }, 0);
 
-console.log('script end');
+console.log("script end");
 ```
 
 > 不同的任务源会被分配到不同的 `Task` 队列中，任务源可以分为 微任务（`microtask`） 和 宏任务（`macrotask`）。在 `ES6` 规范中，`microtask` 称为 jobs，macrotask 称为 task
 
-
 ```javascript
-console.log('script start');
+console.log("script start");
 
 setTimeout(function() {
-  console.log('setTimeout');
+  console.log("setTimeout");
 }, 0);
 
-new Promise((resolve) => {
-    console.log('Promise')
-    resolve()
-}).then(function() {
-  console.log('promise1');
-}).then(function() {
-  console.log('promise2');
-});
+new Promise(resolve => {
+  console.log("Promise");
+  resolve();
+})
+  .then(function() {
+    console.log("promise1");
+  })
+  .then(function() {
+    console.log("promise2");
+  });
 
-console.log('script end');
+console.log("script end");
 // script start => Promise => script end => promise1 => promise2 => setTimeout
 ```
 
@@ -160,11 +176,11 @@ console.log('script end');
 
 **宏任务**
 
-- `script `
+- `script`
 - `setTimeout`
-- `setInterval `
-- `setImmediate `
-- `I/O `
+- `setInterval`
+- `setImmediate`
+- `I/O`
 - `UI rendering`
 
 > 宏任务中包括了 script ，浏览器会先执行一个宏任务，接下来有异步代码的话就先执行微任务
@@ -183,7 +199,6 @@ console.log('script end');
 
 - `Node` 中的 `Event loop` 和浏览器中的不相同。
 - `Node` 的 `Event loop` 分为`6`个阶段，它们会按照顺序反复运行
-
 
 ```javascript
 ┌───────────────────────┐
@@ -221,9 +236,10 @@ idle, prepare 阶段内部实现
 **poll**
 
 - `poll` 阶段很重要，这一阶段中，系统会做两件事情
+
   - 执行到点的定时器
   - 执行 `poll` 队列中的事件
-  
+
 - 并且当 poll 中没有定时器的情况下，会发现以下两件事情
   - 如果 poll 队列不为空，会遍历回调队列并同步执行，直到队列为空或者系统限制
   - 如果 poll 队列为空，会有两件事发生
@@ -242,11 +258,11 @@ idle, prepare 阶段内部实现
 
 ```javascript
 setTimeout(() => {
-    console.log('setTimeout');
+  console.log("setTimeout");
 }, 0);
 setImmediate(() => {
-    console.log('setImmediate');
-})
+  console.log("setImmediate");
+});
 // 这里可能会输出 setTimeout，setImmediate
 // 可能也会相反的输出，这取决于性能
 // 因为可能进入 event loop 用了不到 1 毫秒，这时候会执行 setImmediate
@@ -256,21 +272,21 @@ setImmediate(() => {
 > 上面介绍的都是 macrotask 的执行情况，microtask 会在以上每个阶段完成后立即执行
 
 ```javascript
-setTimeout(()=>{
-    console.log('timer1')
+setTimeout(() => {
+  console.log("timer1");
 
-    Promise.resolve().then(function() {
-        console.log('promise1')
-    })
-}, 0)
+  Promise.resolve().then(function() {
+    console.log("promise1");
+  });
+}, 0);
 
-setTimeout(()=>{
-    console.log('timer2')
+setTimeout(() => {
+  console.log("timer2");
 
-    Promise.resolve().then(function() {
-        console.log('promise2')
-    })
-}, 0)
+  Promise.resolve().then(function() {
+    console.log("promise2");
+  });
+}, 0);
 
 // 以上代码在浏览器和 node 中打印情况是不同的
 // 浏览器中一定打印 timer1, promise1, timer2, promise2
@@ -280,25 +296,24 @@ setTimeout(()=>{
 
 > `Node` 中的 `process.nextTick` 会先于其他 `microtask` 执行
 
-
 ```javascript
 setTimeout(() => {
- console.log("timer1");
+  console.log("timer1");
 
- Promise.resolve().then(function() {
-   console.log("promise1");
- });
+  Promise.resolve().then(function() {
+    console.log("promise1");
+  });
 }, 0);
 
 process.nextTick(() => {
- console.log("nextTick");
+  console.log("nextTick");
 });
 // nextTick, timer1, promise1
 ```
 
 ## 四、Service Worker
 
-> Service workers 本质上充当Web应用程序与浏览器之间的代理服务器，也可以在网络可用时作为浏览器和网络间的代理。它们旨在（除其他之外）使得能够创建有效的离线体验，拦截网络请求并基于网络是否可用以及更新的资源是否驻留在服务器上来采取适当的动作。他们还允许访问推送通知和后台同步API
+> Service workers 本质上充当 Web 应用程序与浏览器之间的代理服务器，也可以在网络可用时作为浏览器和网络间的代理。它们旨在（除其他之外）使得能够创建有效的离线体验，拦截网络请求并基于网络是否可用以及更新的资源是否驻留在服务器上来采取适当的动作。他们还允许访问推送通知和后台同步 API
 
 **目前该技术通常用来做缓存文件，提高首屏速度**
 
@@ -341,7 +356,6 @@ self.addEventListener("fetch", e => {
 > 打开页面，可以在开发者工具中的 Application 看到 Service Worker 已经启动了
 
 ![](https://user-gold-cdn.xitu.io/2018/3/28/1626b1e8eba68e1c?w=1770&h=722&f=png&s=192277)
-
 
 > 在 Cache 中也可以发现我们所需的文件已被缓存
 
@@ -394,9 +408,9 @@ self.addEventListener("fetch", e => {
 
 **很多人不知道的是，重绘和回流其实和 Event loop 有关**
 
-- 当 Event loop 执行完 `Microtasks` 后，会判断 `document` 是否需要更新。因为浏览器是 `60Hz `的刷新率，每 `16ms `才会更新一次。
+- 当 Event loop 执行完 `Microtasks` 后，会判断 `document` 是否需要更新。因为浏览器是 `60Hz`的刷新率，每 `16ms`才会更新一次。
 - 然后判断是否有 `resize` 或者 `scroll` ，有的话会去触发事件，所以 `resize` 和 `scroll` 事件也是至少 `16ms` 才会触发一次，并且自带节流功能。
-- 判断是否触发了` media query`
+- 判断是否触发了`media query`
 - 更新动画并且发送事件
 - 判断是否有全屏操作事件
 - 执行 `requestAnimationFrame` 回调
@@ -407,18 +421,16 @@ self.addEventListener("fetch", e => {
 **减少重绘和回流**
 
 - 使用 `translate` 替代 `top`
-- 使用 `visibility` 替换` display: none` ，因为前者只会引起重绘，后者会引发回流（改变了布局）
+- 使用 `visibility` 替换`display: none` ，因为前者只会引起重绘，后者会引发回流（改变了布局）
 - 不要使用 `table` 布局，可能很小的一个小改动会造成整个 table 的重新布局
 - 动画实现的速度的选择，动画速度越快，回流次数越多，也可以选择使用 `requestAnimationFrame`
 - `CSS` 选择符从右往左匹配查找，避免 `DOM` 深度过深
-- 将频繁运行的动画变为图层，图层能够阻止该节点回流影响别的元素。比如对于 `video `标签，浏览器会自动将该节点变为图层
-
+- 将频繁运行的动画变为图层，图层能够阻止该节点回流影响别的元素。比如对于 `video`标签，浏览器会自动将该节点变为图层
 
 ### 回流和重绘
 
 [你真的了解回流和重绘吗](https://mp.weixin.qq.com/s/0jmzBlFZsiHXfu9mpjoW5w)
 
-
-### 从输入URL到页面加载的过程？由一道题完善自己的前端知识体系！
+### 从输入 URL 到页面加载的过程？由一道题完善自己的前端知识体系！
 
 https://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&mid=2651553818&idx=1&sn=3ce840113d28ee2b2cafe4c7fc48ef91&chksm=802557dbb752decd2118e3ad7a3ea803a0c41c6594f539fc54830dae9bbc2242b2fc03e7fb1c&scene=0#rd
