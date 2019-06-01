@@ -39,8 +39,8 @@
         width: 120px;
         height: 60px;
         background: green;
-        margin: auto;
         /*这里的原理就在于让元素自动计算margin，最终结果上下，左右都分别相等，所以可以居中*/
+        margin: auto;
         position: absolute;
         left: 0;
         /*如果不设置长宽，元素就会平铺到父元素的空间上*/
@@ -87,12 +87,12 @@
         background: green;
         /*这里的原理与使用margin来进行修正的原理一样，但是这里不需要知道元素的大小*/
         /* top相对于父元素的高度，left相对于宽度，所以不管父元素怎么变化，子元素的左上角一直会位于父元素的中心 */
-        top: 50%;
-        left: 50%;
+        /* top: 50%; */
+        /* left: 50%; */
         /* 这里的margin是相对于父级元素的宽度 */
-        /* margin-left: 50%; */
-        /* 同样相对于父元素的width */
-        /* margin-top: 50%; */
+        margin-left: 50%;
+        /* 同样相对于父元素的width，所以只能保证水平居中 */
+        margin-top: 50%;
 
         /* transform是相对于自身的宽高 */
         transform: translate(-50%, -50%);
@@ -165,9 +165,7 @@
         left: 50%;
         top: 50%;
         /* 这里的百分比，相当于自身的宽度 */
-        margin-left: -50px;
-        /*关键部分，需要知道定位元素的大小*/
-        margin-top: -50px;
+        transform: translate(-50%, -50%);
       }
 
       .wrap_7 {
