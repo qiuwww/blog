@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>一半的图片引入</h3>
+    <img src="./imgs/1.jpg" />
+
+    <h3>
+      像素密度的选择：srcset属性，srcset属性用来指定多张图像，适应不同像素密度的屏幕。它的值是一个逗号分隔的字符串，每个部分都是一张图像的
+      URL，后面接一个空格，然后是像素密度的描述符。
+    </h3>
+    <img
+      srcset="./imgs/1.jpg, ./imgs/2.jpg 1.5x, ./imgs/3.jpg 2x"
+      src="./imgs/1.jpg"
+    />
+
+    <h3>搭配sizes属性实现，自适应宽度</h3>
+
+    <img
+      srcset="
+        ./imgs/1.jpg  160w,
+        ./imgs/2.jpg  320w,
+        ./imgs/3.jpg  640w,
+        ./imgs/4.gif 1280w
+      "
+      sizes="(max-width: 440px) 100vw,
+            (max-width: 900px) 33vw,
+            254px"
+      src="./imgs/1.jpg"
+    />
+
+    <h3>加载不同的图片</h3>
+    <picture>
+      <source media="(max-width: 500px)" srcset="./imgs/1.jpg" />
+      <source media="(min-width: 501px)" srcset="./imgs/4.gif" />
+      <img src="./imgs/3.jpg" alt="cat" />
+    </picture>
+  </body>
+</html>
