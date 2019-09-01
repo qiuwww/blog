@@ -51,6 +51,6 @@
   },
   "dependencies": {
     "less-loader": "^4.1.0",
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.13"
   }
 }
