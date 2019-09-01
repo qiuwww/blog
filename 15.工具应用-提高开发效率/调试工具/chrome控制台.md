@@ -33,7 +33,7 @@ console.log，console.debug，console.warn，console.info，console.error
 
 5. 自定义log函数，显示描述、值、颜色。当然这里还可以添加别的一些属性，实用%c来添加样式
 
-   ```
+   ```js
    let log = function(desc, msg, color) {
      	console.log(`%c ${desc}: `, `color: ${color};font-size: 20px;`, msg,);
    }

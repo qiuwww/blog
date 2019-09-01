@@ -1,6 +1,7 @@
 const merge = require("webpack-merge");
 const base = require("./webpack.base.js");
 const webpack = require("webpack");
+const MyPlugin = require("./MyPlugin");
 
 // 这里可以访问到cross-env注入的变量
 console.log(process.env.year);
@@ -15,7 +16,10 @@ const devConfig = merge(base, {
       __DEV__: '"hahaha"'
       // "process.env": require("../config/dev.env")
       // "process.env.BASE_URL": '"' + process.env.BASE_URL + '"'
-    })
+    }),
+    // new MyPlugin({
+    //   name: "MyPlugin"
+    // })
   ],
   devServer: {
     // 启动热更新，这里不能设置，设置就报错

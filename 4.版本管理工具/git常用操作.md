@@ -145,3 +145,13 @@ git reset HEAD filepathname
 此命令可以用来回退到任意版本：git reset --hard commitid
 
 你可以使用 git log 命令来查看 git 的提交历史。git log 的输出如下,之一这里可以看到第一行就是 commitid：
+
+## 用户相关
+
+### git config user.name "setname"
+
+如果有 setname 就是设置，否则就是查看
+
+### git config user.email "setemail"
+
+如果有 setemail 就是设置，否则就是查看
