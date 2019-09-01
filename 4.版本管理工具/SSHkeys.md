@@ -14,3 +14,14 @@
 查看本地的 sshkeys: `ls -al ~/.ssh`
 
 创建一个SSH Key: `ssh-keygen -t rsa -C "你的email地址"`
+
+生成第一个key
+ssh-keygen -t rsa -C "1014913222@qq.com"
+
+生成第二个key
+
+ssh-keygen -t rsa -C "qiuww@eazytec.com" -b 4096
+
+.ssh/id_rsa_gitlab
+
+配置 sourcetree

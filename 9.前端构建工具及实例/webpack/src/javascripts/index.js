@@ -11,3 +11,5 @@ log(format("hello webpack"));
 
 console.log("这个变量是通过webpack.DefinePlugin注入的：", process.env.ENV);
 console.log(__DEV__);
+
+console.log({ ...{ a: 1 }, ...{ b: 2 } });

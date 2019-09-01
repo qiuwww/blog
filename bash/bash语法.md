@@ -44,3 +44,20 @@ else
 statments
 fi
 ```
+
+### 使用命令行，打开本地vscode
+
+code .
+
+### 创建一个文件
+
+`touch example.txt`
+
+### 创建目录
+
+`mkdir -p mydir`
+
+切勿mkdir直接使用，而应将其与-p旗帜一起使用。如果目录存在，此标志确保mkdir不会出错。
+
+### 
+
