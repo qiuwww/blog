@@ -27,6 +27,8 @@ git reset HEAD filepathname
 
 ## git 撤销 commit
 
+git reset HEAD filepathname
+
 ## git 撤销 push
 
 `git push [remote-name] [branch-name]`
@@ -51,6 +53,8 @@ draft
 
 ### status
 
+查看当前分支的状态
+
 ### add
 
 ### commit
@@ -66,6 +70,11 @@ git commit -m "备注"
 ```bash
 git merge 分支名
 ```
+
+### branch，查看分支
+
+`git branch` 本地分支
+`git branch -a` 远端分支与本地分支
 
 ### 冲突
 
@@ -155,3 +164,27 @@ git reset HEAD filepathname
 ### git config user.email "setemail"
 
 如果有 setemail 就是设置，否则就是查看
+
+## 检出线上分支到本地
+
+checkout 命令用来切换分支
+
+git checkout 是 git 最常用的命令之一，
+
+同时也是一个很危险的命令，因为这条命令会**重写工作区**。
+
+### 使用语法
+
+git checkout [-q][-f] [-m][<branch>]
+git checkout [-q][-f] [-m] --detach [<branch>]
+git checkout [-q][-f] [-m][--detach] <commit>
+git checkout [-q][-f] [-m][-b|-b|--orphan] <new_branch>] [<start_point>]
+git checkout [-f|--ours|--theirs|-m|--conflict=<style>][<tree-ish>] [--] <paths>…​
+git checkout [-p|--patch][<tree-ish>] [--][<paths>…]
+
+### 检出远端分支到本地
+
+git checkout -b 本地分支名 origin/远程分支名
+
+`git checkout -b feature/ft_qww_20190920_windows origin/feature/ft_qww_20190920_windows`
+

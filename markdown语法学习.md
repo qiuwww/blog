@@ -1,5 +1,4 @@
-
-# typora语法学习
+# typora 语法学习
 
 ## 目录
 
@@ -12,39 +11,41 @@
 > 应该可以写很长，很长
 >
 > ### 引用的标题
+>
 > balabalabala
+>
 > > 这是第二级引用。
-> return shell_exec(`echo $input | $markdown_script`);
+> > return shell_exec(`echo $input | $markdown_script`);
 
 ## 常用的简单标记
 
 这是`<u>`下划线`</u>`，但是这里为什么一直有一个提示错误
 
-******
+---
+
 分割线
-******
+
+---
 
 ~这是删除线，但是不起作用，好像^与~都不可用~
 
 `代码样式显示，需要看的时候点到这里，也可以看别人的文档来学习这种语法`
 
-``` html
-  代码块是这样的，
-  对，就是这样的。
+```html
+代码块是这样的， 对，就是这样的。
 ```
 
-~~~html
-  当然也可以这样，
-  就是这样啊。
-~~~
+```html
+当然也可以这样， 就是这样啊。
+```
 
 表示**强调**
 
-当然这样也表示__强调__，一般用在行内
+当然这样也表示**强调**，一般用在行内
 
 表示*斜体*，比强调少了一个说明符
 
-当然这也是_斜体_
+当然这也是*斜体*
 
 ## 列表
 
@@ -58,23 +59,23 @@
 
 > 使用星号、加号或是减号作为列表标记
 
-#### 无序的列表1，当然官方是推荐`-`的
+#### 无序的列表 1，当然官方是推荐`-`的
 
-* html
-* css
-* javascript
+- html
+- css
+- javascript
 
-#### 无序的列表2
+#### 无序的列表 2
 
 - vue
 - angularjs
 - react
 
-#### 无序的列表3
+#### 无序的列表 3
 
-+ vue
-+ angularjs
-+ react
+- vue
+- angularjs
+- react
 
 ### 有序的列表
 
@@ -84,11 +85,12 @@
 
 ### 嵌套块引用的列表
 
-github有以下主要功能:
-  > 代码托管平台
-  > 在线运行环境
-  > 代码质量监控
-  > 项目管理平台
+github 有以下主要功能:
+
+> 代码托管平台
+> 在线运行环境
+> 代码质量监控
+> 项目管理平台
 
 ## 代码块
 
@@ -99,10 +101,14 @@ github有以下主要功能:
  * @return {Boolean}
  */
 export function isEmptyObject(obj) {
-  if (!obj || typeof obj !== "object" || Array.isArray(obj))
-    return false;
+  if (!obj || typeof obj !== "object" || Array.isArray(obj)) return false;
   return !Object.keys(obj).length;
 }
+```
+
+```bash
+#!/bin/bash
+$ npm install module@latest
 ```
 
 ## 链接
@@ -127,15 +133,15 @@ export function isEmptyObject(obj) {
 
 ### 自动链接
 
-当然标准的url直接填入就是了。eg：www.baidu.com
+当然标准的 url 直接填入就是了。eg：www.baidu.com
 
 度娘一下，你就知道： <http://www.baidu.com>
 
-[typora语法学习](https://github.com/moonbreezee/blog/blob/master/typora%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0.md)
+[typora 语法学习](https://github.com/moonbreezee/blog/blob/master/typora%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0.md)
 
 ### 页面内导航
 
-这里应该是转为html的时候会生成锚点
+这里应该是转为 html 的时候会生成锚点
 
 [插入图片](#插入图片)
 
@@ -143,11 +149,11 @@ export function isEmptyObject(obj) {
 
 ## 表格
 
-| 姓名 | 性别  |   毕业学校   | 工资 |
-| :--- | :---: | :----------: | ---: |
-| 杨洋 |  男   | 重庆交通大学 | 3200 |
-| 峰哥 |  男   |   贵州大学   | 5000 |
-| 坑货 |  女   |   北京大学   | 2000 |
+| 姓名 | 性别 |   毕业学校   | 工资 |
+| :--- | :--: | :----------: | ---: |
+| 杨洋 |  男  | 重庆交通大学 | 3200 |
+| 峰哥 |  男  |   贵州大学   | 5000 |
+| 坑货 |  女  |   北京大学   | 2000 |
 
 其中代码的第二行指定对齐的方式，第一个是左对齐，第二个和第三个是居中，最后一个是右对齐。
 
@@ -161,12 +167,15 @@ export function isEmptyObject(obj) {
 
 ## 这是两种分割线
 
-分割内容1
+分割内容 1
 
-******
-分割内容2
-______
-分割内容3， 当然官方是推荐的`******`，六个
+---
+
+分割内容 2
+
+---
+
+分割内容 3， 当然官方是推荐的`******`，六个
 
 ## 删除线
 
@@ -182,7 +191,7 @@ ______
 
 Markdown 编辑器已支持绘制流程图、时序图和甘特图。通过 mermaid 实现图形的插入，点击查看 更多语法详情。
 
-### 流程图1
+### 流程图 1
 
 ```flow
 st=>start: Start
@@ -205,16 +214,21 @@ Bob-->Alice: I am good thanks!
 
 > **提示：**想了解更多，请查看**流程图**[语法][3]以及**时序图**[语法][4]。
 
-## markdown内部可以嵌入直接的html代码
+## markdown 内部可以嵌入直接的 html 代码
 
 ```html
 <h1 align="center">
-<br>
-  <a href="https://github.com/stephentian/33-js-concepts"><img src="https://github.com/stephentian/33-js-concepts" alt="每位 JS 开发应该懂的 33 个概念" width="200"></a>
-<br>
-<br>
+  <br />
+  <a href="https://github.com/stephentian/33-js-concepts"
+    ><img
+      src="https://github.com/stephentian/33-js-concepts"
+      alt="每位 JS 开发应该懂的 33 个概念"
+      width="200"
+  /></a>
+  <br />
+  <br />
   JavaScript开发者应懂的33个概念
-<br>
+  <br />
 </h1>
 ```
 
@@ -228,9 +242,9 @@ Text prior to footnote reference.[^2]
 changyangzhe-2016.7.22
 moonbreezee-2018.9.14
 
-## hero生成文章的配置头部
+## hero 生成文章的配置头部
 
-``` md
+```md
 ---
 layout: post
 title: title
@@ -238,13 +252,13 @@ date: 2013-7-13 20:46:25
 updated: 2013-7-13 20:46:29
 photos: https://github.com/moonbreezee/treasure-pictures/blob/master/%E4%BA%8C%E5%8D%81%E5%9B%9B%E8%8A%82%E6%B0%94%E4%B8%8E%E4%BC%A0%E7%BB%9F%E8%8A%82%E6%97%A5/2019%E5%B9%B41%E6%9C%885%E6%97%A5-%E5%B0%8F%E5%AF%92.jpeg
 tags:
-- JavaScript
-- React
+  - JavaScript
+  - React
 # categories:
 # - 编程
 categories:
-- [Linux, Hexo]
-- [Tools, PHP]
+  - [Linux, Hexo]
+  - [Tools, PHP]
 comments: true
 ---
 ```
