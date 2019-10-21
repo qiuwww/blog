@@ -188,3 +188,8 @@ git checkout -b 本地分支名 origin/远程分支名
 
 `git checkout -b feature/ft_qww_20190920_windows origin/feature/ft_qww_20190920_windows`
 
+### 生成新 SSH 密钥并添加到 ssh-agent 需要如下的步骤：
+
+1. 生成密钥，`ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+2. 本地将 SSH 密钥添加到 ssh-agent，`ssh-add -K ~/.ssh/id_rsa`
+3. github 仓库`setting -> new ssh key`

@@ -2,7 +2,8 @@ const merge = require("webpack-merge");
 const base = require("./webpack.base.js");
 const webpack = require("webpack");
 const MyPlugin = require("./MyPlugin");
-
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 // 这里可以访问到cross-env注入的变量
 console.log(process.env.year);
 
@@ -10,13 +11,14 @@ const devConfig = merge(base, {
   mode: "development",
   devtool: "inline-source-map",
   plugins: [
+    new BundleAnalyzerPlugin(),
     // 变量会被注入到window对象上边，使用process.env.ENV访问
     new webpack.DefinePlugin({
       "process.env.ENV": '"dev"',
       __DEV__: '"hahaha"'
       // "process.env": require("../config/dev.env")
       // "process.env.BASE_URL": '"' + process.env.BASE_URL + '"'
-    }),
+    })
     // new MyPlugin({
     //   name: "MyPlugin"
     // })

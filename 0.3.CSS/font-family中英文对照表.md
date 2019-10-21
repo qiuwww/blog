@@ -1,4 +1,4 @@
-# font-family中英文对照表
+# font-family 中英文对照表
 
 - 宋体：SimSun
 - 黑体：SimHei
@@ -10,11 +10,11 @@
 - 标楷体：DFKai-SB
 - 仿宋：FangSong
 - 楷体：KaiTi
-- 仿宋_GB2312：FangSong_GB2312
-- 楷体_GB2312：KaiTi_GB2312
-- 宋体：SimSuncss中中文字体（font-family）的英文名称
+- 仿宋\_GB2312：FangSong_GB2312
+- 楷体\_GB2312：KaiTi_GB2312
+- 宋体：SimSuncss 中中文字体（font-family）的英文名称
 
-## Mac OS的一些
+## Mac OS 的一些
 
 - 华文细黑：STHeiti Light [STXihei]
 - 华文黑体：STHeiti
@@ -26,7 +26,7 @@
 - 標楷體：BiauKai
 - 蘋果儷中黑：Apple LiGothic Medium
 - 蘋果儷細宋：Apple LiSung Light
-- Windows的一些：
+- Windows 的一些：
 - 新細明體：PMingLiU
 - 細明體：MingLiU
 - 標楷體：DFKai-SB
@@ -34,11 +34,11 @@
 - 新宋体：NSimSun
 - 仿宋：FangSong
 - 楷体：KaiTi
-- 仿宋_GB2312：FangSong_GB2312
-- 楷体_GB2312：KaiTi_GB2312
+- 仿宋\_GB2312：FangSong_GB2312
+- 楷体\_GB2312：KaiTi_GB2312
 - 微軟正黑體：Microsoft JhengHei
 - 微软雅黑体：Microsoft YaHei
-- 装Office会生出来的一些：
+- 装 Office 会生出来的一些：
 - 隶书：LiSu
 - 幼圆：YouYuan
 - 华文细黑：STXihei
@@ -53,3 +53,6 @@
 - 华文隶书：STLiti
 - 华文行楷：STXingkai
 - 华文新魏：STXinwei
+
+一种挺好看的英文字体：
+`medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;`

@@ -1,0 +1,9 @@
+{
+  "no-inline-html": {
+    "allowed_elements": ["a", "h1", "h3", "HR", "p", "img"]
+  },
+  "MD033": {
+    "allowed_elements": ["a", "h1", "h3", "HR", "p", "img"]
+  },
+  "line_length": false
+}

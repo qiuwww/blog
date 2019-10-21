@@ -108,7 +108,7 @@ export function isEmptyObject(obj) {
 
 ```bash
 #!/bin/bash
-$ npm install module@latest
+npm install module@latest
 ```
 
 ## 链接
@@ -232,6 +232,55 @@ Bob-->Alice: I am good thanks!
 </h1>
 ```
 
+## 插入数学公式
+
+[公式编辑](https://www.codecogs.com/latex/eqneditor.php)
+
+### 使用使用 Google Chart 的服务器
+
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=$$\sum_{k=1}^{n}w_k l_k$$" style="border:none;">
+
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" style="border:none;">
+
+### 使用 MathJax 引擎，在 vscode 内预览是可以的
+
+[举例参考](https://juejin.im/post/5a6721bd518825733201c4a2)
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+> $$公式$$表示行间公式，$公式$表示行内公式
+
+$$x_1$$
+
+$$x_1^2$$
+
+$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+
+$$a + b$$
+
+$$\frac{x+y}{2}$$
+
+$$\sqrt{1+\sqrt[^p\!]{1+a^2}}$$
+
+$\int_a^b f(x)dx$
+
+$\sum_{k=1}^n\frac{1}{k}$
+
+$(a + b)$
+
+$(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a})$
+
+紧贴 $a\!b$
+没有空格 $ab$
+小空格 a\,b
+中等空格 a\;b
+
+$$\int_a^b f(x)\,\mathrm{d}x$$
+
+$$\left(\sum_{k=\frac{1}{2}}^{N^2}\frac{1}{k}\right)$$
+
+$$\begin{Bmatrix}1 & 2\\\\3 &4\end{Bmatrix}$$
+
 ## 脚注
 
 Text prior to footnote reference.[^2]
@@ -244,7 +293,7 @@ moonbreezee-2018.9.14
 
 ## hero 生成文章的配置头部
 
-```md
+```yaml
 ---
 layout: post
 title: title
@@ -261,4 +310,5 @@ categories:
   - [Tools, PHP]
 comments: true
 ---
+
 ```
