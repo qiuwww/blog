@@ -1,4 +1,12 @@
-# Before submitting a pull request, please make sure the following is done:
+---
+name: pull request template
+about: pull request template
+title: ""
+labels: ""
+assignees: ""
+---
+
+**Before submitting a pull request, please make sure the following is done:**
 
 1. Fork the repository and create your branch from master.
 2. Run yarn in the repository root.
