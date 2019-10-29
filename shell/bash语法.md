@@ -45,7 +45,7 @@ statments
 fi
 ```
 
-### 使用命令行，打开本地vscode
+### 使用命令行，打开本地 vscode
 
 code .
 
@@ -57,7 +57,4 @@ code .
 
 `mkdir -p mydir`
 
-切勿mkdir直接使用，而应将其与-p旗帜一起使用。如果目录存在，此标志确保mkdir不会出错。
-
-### 
-
+切勿 mkdir 直接使用，而应将其与-p 旗帜一起使用。如果目录存在，此标志确保 mkdir 不会出错。
