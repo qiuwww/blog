@@ -3396,3 +3396,24 @@ testObj.c === copyObj.c // true, 复制了指向
 - 使用 typeof、instanceof 和 Object.prototype.toString 进行类型转换；
 - 使用回调、promise、await 和 async 处理异步调用；
 - 什么时候可以使用函数声明和表达式。
+
+### 自己实现一个 Symbol Interator 。
+
+// 给一个对象设置 Symbol Interator
+
+```js
+var obj = {
+  *[Symbol.iterator]() {
+    yield 1;
+    yield 2;
+    yield 3;
+  }
+};
+```
+
+### options 头是在什么时候会进行发送。
+
+检测服务器所支持的请求方法
+
+CORS 中的预检请求
+

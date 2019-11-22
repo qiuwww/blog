@@ -35,3 +35,7 @@ npm server
 
 通过`moonbreezee.github.io/hexo-blog-source`生成页面。
 查看地址: [blog](http://blog.qiuww.site/)
+
+## imgs 文件夹
+
+用来存放相关的截图及 md 文件插图。

@@ -159,9 +159,9 @@ npm install module@latest
 
 ## 插入图片
 
-本地图片直接拖过来就行了：![react生命周期](/Users/qww/Documents/learn/blog/10.各种库与框架的设计思想和工作原理/React/React的生命周期/react生命周期.png)
+本地图片直接拖过来就行了：![gitflow工作流](./4.版本管理工具/imgs/git-workflow-release-cycle-4maintenance.png)，这里最好自己写与当前文档相对地址，不然上传在别的地方就访问不到了。
 
-### 网络图片，so easy：，（当然标题前后需要空一格）
+### 网络图片，so easy，（当然标题前后需要空一格）
 
 ![img](http://upload-images.jianshu.io/upload_images/1182605-1cbd9bb6f1ed0be4.gif?imageMogr2/auto-orient/strip)
 

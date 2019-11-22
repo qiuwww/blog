@@ -1,5 +1,5 @@
 // EventEmitter模块-observer模式的一种实现.js
-
+// 发布订阅模式 EventEmitter
 /**
  * 基本用法，感觉与$.Callbacks()类似
  */

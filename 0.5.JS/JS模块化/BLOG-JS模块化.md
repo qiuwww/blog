@@ -223,6 +223,8 @@ ES6 发布的 module 并没有直接采用 CommonJS，甚至连 require 都没�
 
 ### ES6 模块导出 export
 
+
+
 ```js
 // a.js
 export default function() {}
@@ -235,7 +237,7 @@ export var c = 100;
 ```
 
 在要导出的接口前面，加入 export 指令。
-在 export 之后，b 还可以被修改，这和 CommonJS 有着巨大不同，CommonJS 导出之后，后续的使用都是一个缓存，除非使用 require.cache，`delete require.cache[PKG_PATH]`。
+在 export 之后，b 还可以被修改，这和 CommonJS 有着巨大不同，CommonJS 导出之后，后续的使用都是一个**缓存**，除非使用 require.cache，`delete require.cache[PKG_PATH]`。
 
 #### 下面的语法有严重错误
 
