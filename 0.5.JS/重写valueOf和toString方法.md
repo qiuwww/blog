@@ -49,13 +49,13 @@
 ```js
 var obj = {
   toString: function() {
-    console.log("调用了 obj.toString");
+    console.log('调用了 obj.toString');
     return {};
   },
   valueOf: function() {
-    console.log("调用了 obj.valueOf");
-    return "110";
-  }
+    console.log('调用了 obj.valueOf');
+    return '110';
+  },
 };
 
 console.log(obj);
@@ -67,13 +67,13 @@ console.log(obj);
 ```js
 var obj = {
   toString: function() {
-    console.log("调用了 obj.toString");
-    return "110";
+    console.log('调用了 obj.toString');
+    return '110';
   },
   valueOf: function() {
-    console.log("调用了 obj.valueOf");
+    console.log('调用了 obj.valueOf');
     return {};
-  }
+  },
 };
 
 console.log(obj);
@@ -128,15 +128,9 @@ toString 方法需要存在并且返回原始类型，那么如果返回的不�
 // currentIndex： 数组中正在处理的当前元素的索引。
 // array：array本身的引用。
 // initialValue： 如果没有提供初始值，则将使用数组中的第一个元素。初始值可写可不写，不谢就会少迭代一次√
-[0, 1, 2, 3, 4].reduce(function(
-  accumulator,
-  currentValue,
-  currentIndex,
-  array
-) {
+[0, 1, 2, 3, 4].reduce(function(accumulator, currentValue, currentIndex, array) {
   return accumulator + currentValue;
-},
-initialValue);
+}, initialValue);
 ```
 
 ```js
@@ -161,15 +155,15 @@ initialValue);
 
 ```js
 function add() {
-  console.log("进入add");
+  console.log('进入add');
   var args = Array.prototype.slice.call(arguments); // 获取参数
   var fn = function() {
     var arg_fn = Array.prototype.slice.call(arguments); // 获取参数
-    console.log("调用fn");
+    console.log('调用fn');
     return add.apply(null, args.concat(arg_fn)); // 合并参数
   };
   fn.valueOf = function() {
-    console.log("调用valueOf");
+    console.log('调用valueOf');
     return args.reduce(function(a, b) {
       // 参数求和
       return a + b;

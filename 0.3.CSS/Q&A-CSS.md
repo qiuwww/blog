@@ -15,8 +15,6 @@ comments: true
 
 [TOC]
 
-# CSS基础
-
 ## 理论
 
 ### 渐进增强与优雅降级

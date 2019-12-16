@@ -31,14 +31,14 @@
 - CommonJS -- 主要用在服务器端 node.js
 
 ```javascript
-var math = require("./math");
+var math = require('./math');
 math.add(2, 3);
 ```
 
 - AMD(异步模块定义) -- require.js
 
 ```javascript
-require(["./math"], function(math) {
+require(['./math'], function(math) {
   math.add(2, 3);
 });
 ```
@@ -46,14 +46,14 @@ require(["./math"], function(math) {
 - CMD(通用模块定义) -- sea.js
 
 ```javascript
-var math = require("./math");
+var math = require('./math');
 math.add(2, 3);
 ```
 
 - ES6 模块
 
 ```javascript
-import { math } from "./math";
+import { math } from './math';
 math.add(2, 3);
 ```
 
@@ -79,7 +79,7 @@ math.add(2, 3);
   - AMD 默认一开始就载入全部依赖模块
 
 ```javascript
-define(["./a", "./b"], function(a, b) {
+define(['./a', './b'], function(a, b) {
   a.doSomething();
   b.doSomething();
 });
@@ -89,9 +89,9 @@ define(["./a", "./b"], function(a, b) {
 
 ```javascript
 define(function(require, exports, module) {
-  var a = require("./a");
+  var a = require('./a');
   a.doSomething();
-  var b = require("./b");
+  var b = require('./b');
   b.doSomething();
 });
 ```
@@ -138,15 +138,15 @@ Node.js 的适用场景：
 
 ```javascript
 // mocha 示例
-describe("Test add", function() {
-  it("1 + 2 = 3", function() {
+describe('Test add', function() {
+  it('1 + 2 = 3', function() {
     expect(add(1, 2)).to.be.equal(3);
   });
 });
 
 // jasmin 示例
-describe("Test add", function() {
-  it("1 + 2 = 3", function() {
+describe('Test add', function() {
+  it('1 + 2 = 3', function() {
     expect(add(1, 2)).toEqual(3);
   });
 });
@@ -257,11 +257,13 @@ describe("Test add", function() {
 ## 什么是 MVC/MVP/MVVM/Flux？
 
 - MVC(Model-View-Controller)
+
   - V->C, C->M, M->V
   - 通信都是单向的；C 只起路由作用，业务逻辑都部署在 V
   - Backbone
 
 - MVP(Model-View-Presenter)
+
   - V<->P, P<->M
   - 通信都是双向的；V 和 M 不发生联系(通过 P 传)；V 非常薄，逻辑都部署在 P
   - Riot.js
@@ -292,7 +294,7 @@ describe("Test add", function() {
 
 - React 不是 MV\* 框架，用于构建用户界面的 **JavaScript 库**，侧重于 View 层
 - React **主要的原理**：
-  - 虚拟 DOM + diff 算法 -> **不直接操作 DOM 对象**，那就是间接操作dom节点
+  - 虚拟 DOM + diff 算法 -> **不直接操作 DOM 对象**，那就是间接操作 dom 节点
   - Components 组件 -> Virtual DOM 的节点
   - State **触发视图的渲染** -> 单向数据绑定
   - React 解决方案：React + Redux + react-router + Fetch + webpack
@@ -308,3 +310,14 @@ describe("Test add", function() {
 
 - Meteor 是一个**全栈开发框架**，基础构架是 Node.JS + MongoDB，并把延伸到了浏览器端。
 - Meteor 统一了服务器端和客户端的数据访问，使开发者可以轻松完成全栈式开发工作。
+
+## SPA、单页面应用重新部署后，正在浏览的页面如何更新缓存
+
+这里的这个问题，主要是当前项目已发，但是用户正在使用，这个时候 html 文件如果不去主动刷新，是不会请求到最新的 html 的，也就不可能会有最新的 js，css 了。所以这个时候，怎么检测最新版本并且刷新页面就显得很重要。
+
+对于一般的发布，修改 js 与 css 的 hash 值，html 不会缓存，所以一般都是可以拿到最新的修改的。
+
+目前临时解决方案有两个：
+
+- 通过**后端接口返回版本号判断是否有更新**，有更新，就把页面刷新一下。这个事情可以放到切换路由的时候做，比如 beforeEach，就是每次请求都查询，需要后端配合。
+- 在编译的时候**自己生成一个 js 文件**，然后前端用 jsonp 去请求这个 js，**判断是否有更新。有更新，就把页面刷新一下**。这个事情可以放到切换路由的时候做，比如 beforeEach。这个时候可以添加到每次的接口请求之前请求一下这个文件，或者使用定时的模式，到时间主动去请求，与 electron 的更新很类似。

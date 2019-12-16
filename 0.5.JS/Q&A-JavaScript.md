@@ -8,10 +8,10 @@
 
 ```js
 function deepClone(obj) {
-  let result = typeof obj.splice === "function" ? [] : {};
-  if (obj && typeof obj === "object") {
+  let result = typeof obj.splice === 'function' ? [] : {};
+  if (obj && typeof obj === 'object') {
     for (let key in obj) {
-      if (obj[key] && typeof obj[key] === "object") {
+      if (obj[key] && typeof obj[key] === 'object') {
         result[key] = deepClone(obj[key]); //如果对象的属性值为object的时候，递归调用deepClone,即在吧某个值对象复制一份到新的对象的对应值中。
       } else {
         result[key] = obj[key]; //如果对象的属性值不为object的时候，直接复制参数对象的每一个键值到新的对象对应的键值对中。
@@ -160,9 +160,9 @@ function Mobile(name, price) {
   this.price = price;
 }
 Mobile.prototype.sell = function() {
-  alert(this.name + "，售价 $" + this.price);
+  alert(this.name + '，售价 $' + this.price);
 };
-var iPhone7 = new Mobile("iPhone7", 1000);
+var iPhone7 = new Mobile('iPhone7', 1000);
 iPhone7.sell();
 ```
 
@@ -171,12 +171,12 @@ iPhone7.sell();
 
 ```javascript
 var Person = {
-  firstname: "Mark",
-  lastname: "Yun",
+  firstname: 'Mark',
+  lastname: 'Yun',
   age: 25,
   introduce: function() {
-    alert("I am " + Person.firstname + " " + Person.lastname);
-  }
+    alert('I am ' + Person.firstname + ' ' + Person.lastname);
+  },
 };
 
 var person = Object.create(Person);
@@ -201,8 +201,8 @@ var Cat = {
   createNew: function() {
     var cat = {};
     // var cat = Animal.createNew(); // 继承 Animal 类
-    cat.name = "小咪";
-    var sound = "喵喵喵"; // 私有属性--定义在 createNew() 内，输出对象外
+    cat.name = '小咪';
+    var sound = '喵喵喵'; // 私有属性--定义在 createNew() 内，输出对象外
     cat.makeSound = function() {
       alert(sound); // 暴露私有属性
     };
@@ -210,7 +210,7 @@ var Cat = {
       Cat.age = num; // 修改共享数据
     };
     return cat; // 输出对象
-  }
+  },
 };
 
 var cat = Cat.createNew();
@@ -226,7 +226,7 @@ class Point {
     this.y = y;
   }
   toString() {
-    return "(" + this.x + ", " + this.y + ")";
+    return '(' + this.x + ', ' + this.y + ')';
   }
 }
 
@@ -286,7 +286,7 @@ class ColorPoint extends Point {
     this.color = color;
   }
   toString() {
-    return this.color + " " + super.toString(); // 调用父类的toString()
+    return this.color + ' ' + super.toString(); // 调用父类的toString()
   }
 }
 ```
@@ -433,9 +433,9 @@ ulEl.addEventListener('click', function(e){
 var fireEvent = function(element, event) {
   if (document.createEventObject) {
     var mockEvent = document.createEventObject();
-    return element.fireEvent("on" + event, mockEvent);
+    return element.fireEvent('on' + event, mockEvent);
   } else {
-    var mockEvent = document.createEvent("HTMLEvents");
+    var mockEvent = document.createEvent('HTMLEvents');
     mockEvent.initEvent(event, true, true);
     return !element.dispatchEvent(mockEvent);
   }
@@ -511,9 +511,8 @@ parseInt('3', 2);  // NaN
 **解释一下这段代码的意思吗？**
 
 ```javascript
-[].forEach.call($$("*"), function(el) {
-  el.style.outline =
-    "1px solid #" + (~~(Math.random() * (1 << 24))).toString(16);
+[].forEach.call($$('*'), function(el) {
+  el.style.outline = '1px solid #' + (~~(Math.random() * (1 << 24))).toString(16);
 });
 ```
 
@@ -1445,10 +1444,6 @@ https://github.com/wengjq/Blog/issues/3
 https://mp.weixin.qq.com/s/scz9gRJeh7PM6GJ7wvnTsA
 
 https://mp.weixin.qq.com/s/SvtRJXtquh7dJxATCIwNgw
-
-## JS 运行机制及 Event Loop
-
-https://zhuanlan.zhihu.com/p/52114921
 
 ### 前端异步
 
@@ -3407,7 +3402,7 @@ var obj = {
     yield 1;
     yield 2;
     yield 3;
-  }
+  },
 };
 ```
 
@@ -3416,4 +3411,3 @@ var obj = {
 检测服务器所支持的请求方法
 
 CORS 中的预检请求
-
