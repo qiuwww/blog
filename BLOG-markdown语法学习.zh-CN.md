@@ -4,6 +4,27 @@
 
 [TOC]
 
+## 项目结构
+
+```lua
+Blog
+  ├── .github                     -- git仓库的配置
+  ├── .vscode                     -- vscode编辑器的配置
+  ├── 0.2.HTML                    -- html相关
+  ├── 0.3.CSS                     -- css相关
+  ├── 0.5.JS                      -- js相关
+      ├── 前端模板使用              -- 模板文件
+      ├── 异步编程                 -- 从callback到async...await
+          ├── async...await       -- async...await
+          ├── generator...yield   -- generator...yield
+          ├── promise
+      └── 原型与原型链与原型链与类
+  ├── 1.数据结构与算法              -- 数据结构与算法
+  ├── 2.js-design-patterns        -- js设计模式
+  ├── 3.浏览器原理                  -- 浏览器原理
+  └── BLOG-markdown语法学习.zh-CN   -- markdown规范示例
+```
+
 ## 引用
 
 > 这是一个块引用，
@@ -101,7 +122,7 @@ github 有以下主要功能:
  * @return {Boolean}
  */
 export function isEmptyObject(obj) {
-  if (!obj || typeof obj !== "object" || Array.isArray(obj)) return false;
+  if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return false;
   return !Object.keys(obj).length;
 }
 ```
@@ -115,7 +136,7 @@ npm install module@latest
 
 [内嵌式链接](https://www.google.com)
 
-[带标题的内嵌式链接](https://www.google.com "谷歌的主页")
+[带标题的内嵌式链接](https://www.google.com '谷歌的主页')
 
 [引用式链接][arbitrary case-insensitive reference text]
 
@@ -286,10 +307,11 @@ $$\begin{Bmatrix}1 & 2\\\\3 &4\end{Bmatrix}$$
 Text prior to footnote reference.[^2]
 [^2]: Comment to include in footnote.
 
-## 目前到这里，有一点小问题，以后在学习别人怎么写，还要熟练运用
+## 插入 html 标签
 
-changyangzhe-2016.7.22
-moonbreezee-2018.9.14
+<p>
+  <a href="https://github.com/moonbreezee/blog"><img src="https://avatars0.githubusercontent.com/u/9795348?s=400&u=9f4942de719b15791c2154fd0323ab74505f0876&v=4" alt="blog" style="width:100px;height:100px;">blog</a>
+</p>
 
 ## hero 生成文章的配置头部
 
@@ -312,3 +334,8 @@ comments: true
 ---
 
 ```
+
+## 目前到这里，有一点小问题，以后在学习别人怎么写，还要熟练运用
+
+changyangzhe-2016.7.22
+moonbreezee-2018.9.14
