@@ -1,5 +1,9 @@
 # 从输入 url 到页面加载完成的过程都发生了什么，HTML 页面的加载和解析流程
 
+参考文章，整理每一个细节，综合所有的文章，测试。
+
+[参考文章](https://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&mid=2651553818&idx=1&sn=3ce840113d28ee2b2cafe4c7fc48ef91&chksm=802557dbb752decd2118e3ad7a3ea803a0c41c6594f539fc54830dae9bbc2242b2fc03e7fb1c&scene=0#rd)
+
 ## HTML 页面加载和解析流程
 
 1. 用户输入网址（假设是个 html 页面，并且是第一次访问），浏览器向服务器发出请求，服务器返回 html 文件。

@@ -4,6 +4,14 @@
 
 [TOC]
 
+### 自己生成目录
+
+- [目录 1](#1)
+- [目录 2](#2)
+
+<h2 id="1">目录1</h2>
+<h2 id="2">目录2</h2>
+
 ## 项目结构
 
 ```lua
@@ -334,6 +342,23 @@ comments: true
 ---
 
 ```
+
+## 锚点
+
+[点击跳转到目标位置，通过 id 实现](#jump)
+
+<span id="jump">这里是要跳转到的位置，通过 id 标记</span>
+
+## 内容折叠
+
+<details>
+  <summary>展开查看</summary>
+  <pre>
+    <code>
+      System.out.println("Hello to see U!");
+    </code>
+  </pre>
+</details>
 
 ## 目前到这里，有一点小问题，以后在学习别人怎么写，还要熟练运用
 

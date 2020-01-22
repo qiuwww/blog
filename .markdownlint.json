@@ -1,9 +1,43 @@
 {
   "no-inline-html": {
-    "allowed_elements": ["a", "h1", "h3", "HR", "p", "img"]
+    "allowed_elements": [
+      "a",
+      "h1",
+      "h2",
+      "h3",
+      "h4",
+      "h5",
+      "h6",
+      "HR",
+      "p",
+      "img",
+      "span",
+      "details",
+      "summary",
+      "pre",
+      "code",
+      "script"
+    ]
   },
   "MD033": {
-    "allowed_elements": ["a", "h1", "h3", "HR", "p", "img"]
+    "allowed_elements": [
+      "a",
+      "h1",
+      "h2",
+      "h3",
+      "h4",
+      "h5",
+      "h6",
+      "HR",
+      "p",
+      "img",
+      "span",
+      "details",
+      "summary",
+      "pre",
+      "code",
+      "script"
+    ]
   },
   "line_length": false
 }
