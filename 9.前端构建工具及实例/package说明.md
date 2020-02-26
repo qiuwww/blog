@@ -1,5 +1,7 @@
 # package 说明
 
+[TOC]
+
 ```json
 {
   "name": "webpack-config",
@@ -134,6 +136,174 @@ npm 支持使**用本地路径来指向一个依赖包**，这时候需要在路
 }
 ```
 
-## package-lock.json
+## package-lock.json/yarn.lock
 
 package-lock.json 内部记录的是每一个依赖的实际安装信息，例如名字，安装的版本号，安装的地址 (npm registry 上的 tar 包地址)等等。额外的，它会把依赖的依赖也记录起来，因此**整个文件是一个树形结构**，保存依赖嵌套关系（类似以前版本的 node_modules 目录）。
+
+## 字段说明
+
+package.json 中有非常多的属性，其中**必须填写的只有两个：name 和 version** ，这两个属性组成一个 npm 模块的唯一标识。
+
+### npm 包命名规则，name
+
+name 即模块名称，其命名时需要遵循官方的一些规范和建议：
+
+- 包名会成为模块 url、命令行中的一个参数或者一个文件夹名称，**任何非 url 安全的字符在包名中都不能使用**，可以使用 validate-npm-package-name 包来检测包名是否合法。
+
+- 语义化包名，可以帮助开发者更快的找到需要的包，并且避免意外获取错误的包。
+
+- 若包名称中存在一些符号，将符号去除后不得与现有包名重复。由于 react-native 已经存在，react.native、reactnative 都不可以再创建。
+
+- 如果你的包名与现有的包名太相近导致你不能发布这个包，**那么推荐将这个包发布到你的作用域下**。用户名 ecoder，那么作用域为 @ecoder，发布的包可以是@ecoder/react。
+
+- 不推荐使用驼峰写法，不使用大写字母。
+
+name 是一个包的唯一标识，不得和其他包名重复，我们可以执行 `npm view packageName`查看包是否被占用。
+
+### 基本描述，description/keywords
+
+- description 用于添加模块的的描述信息，方便别人了解你的模块。
+
+- keywords 用于给你的模块添加关键字。
+
+当然，他们的还有一个非常重要的作用，就是利于模块检索。当你使用 **npm search** 检索模块时，会到 description 和 keywords 中进行匹配。写好 description 和 keywords 有利于你的模块获得更多更精准的曝光。
+
+### 开发人员，author 和 contributors
+
+author 和 contributors， author 指包的主要作者，一个 author 对应一个人。contributors 指贡献者信息，一个 contributors 对应多个贡献者，值为数组。
+
+数组元素格式如下：
+
+```json
+{
+  "name": "ConardLi",
+  "email": "lisqPersion@163.com",
+  "url": "https://github.com/ConardLi"
+}
+```
+
+### 地址
+
+```json
+{
+  "homepage": "http://ant.design/",
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/ant-design"
+  }
+}
+```
+
+会被展示到发包的位置，npmjs。
+
+- homepage 用于指定该模块的主页。
+- repository 用于指定模块的代码仓库。
+- bugs 指定一个地址或者一个邮箱，对你的模块存在疑问的人可以到这里提出问题。
+
+### 依赖配置
+
+#### dependencies
+
+指定了项目运行所依赖的模块，**开发环境和生产环境的依赖模块都可以配置到这里**。
+
+#### devDependencies
+
+有一些包有可能你只是在开发环境中用到，例如你用于检测代码规范的 eslint ,用于进行测试的 jest。
+
+**用户使用你的包时即使不安装这些依赖也可以正常运行**，反而安装他们会耗费更多的时间和资源，所以你可以把这些依赖添加到 devDependencies 中
+
+#### peerDependencies
+
+用于指定你正在开发的模块所依赖的版本以及用户安装的依赖包版本的**兼容性**。
+
+拿 ant-design 来举个例子，ant-design 的 package.json 中有如下配置：
+
+```json
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
+  }
+```
+
+当你正在开发一个系统，使用了 ant-design ，所以也肯定需要依赖 React。同时， ant-design 也是需要依赖 React 的，**它要保持稳定运行所需要的 React 版本是 16.0.0**。
+
+npm3 以后不会再要求 peerDependencies 所指定的依赖包被强制安装。
+
+#### optionalDependencies
+
+某些场景下，**依赖包可能不是强依赖的，这个依赖包的功能可有可无**，当这个依赖包无法被获取到时，你希望 npm install 继续运行，而不会导致失败，你可以将这个依赖放到 optionalDependencies 中。
+
+bundledDependencies
+和以上几个不同，bundledDependencies 的值是一个数组，数组里可以指定一些模块，这些模块将在这个**包发布时被一起打包**。
+
+```json
+"bundledDependencies": ["package1" , "package2"]
+```
+
+### 协议 license
+
+- MIT：只要用户在项目副本中包含了版权声明和许可声明，他们就可以拿你的代码做任何想做的事情，你也无需承担任何责任。
+
+- Apache：类似于 MIT，同时还包含了贡献者向用户提供专利授权相关的条款。
+
+- GPL：修改项目代码的用户再次分发源码或二进制代码时，必须公布他的相关修改。
+
+### 目录、文件相关
+
+- main 属性可以指定程序的主入口文件。
+- bin 当你的模块是一个命令行工具时，你需要为命令行工具指定一个入口，即指定你的命令名称和本地可指定文件的对应关系。
+
+### 发布文件配置 files
+
+files 属性用于描述你 npm publish 后推送到 npm 服务器的文件列表，如果指定文件夹，则文件夹内的所有内容都会包含进来。
+
+### man
+
+man 命令是 Linux 下的帮助指令，通过 man 指令可以查看 Linux 中的指令帮助、配置文件帮助和编程帮助等信息。
+
+如果你的 node.js 模块是一个全局的命令行工具，在 package.json **通过 man 属性可以指定 man 命令查找的文档地址**。
+
+### 脚本配置
+
+- npm run test、
+- npm run dist、
+- npm run compile、
+- npm run build
+
+### config
+
+config 字段用于**配置脚本中使用的环境变量**，例如下面的配置，可以在脚本中使用**process.env.npm_package_config_port**进行获取。
+
+### 发布配置
+
+#### private
+
+如果将 private 属性设置为 true，npm 将拒绝发布它，这是为了防止一个私有模块被无意间发布出去。
+
+#### preferGlobal
+
+如果你的 node.js 模块主要用于安装到全局的命令行工具，那么该值设置为 true ，当用户将该模块安装到本地时，**将得到一个警告**。这个配置并不会阻止用户安装，而是会提示用户防止错误使用而引发一些问题。
+
+#### publishConfig
+
+```json
+"publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+```
+
+### 发布平台 os
+
+```json
+"os" : [ "darwin", "linux" ]
+"os" : [ "!win32" ]
+```
+
+在 node 环境下可以使用 process.platform 来判断操作系统。
+
+## .npmignore
+
+另外，你还可以通过配置一个 .npmignore 文件来排除一些文件, 防止大量的垃圾文件推送到 npm。
