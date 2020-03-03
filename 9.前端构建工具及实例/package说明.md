@@ -268,9 +268,9 @@ man 命令是 Linux 下的帮助指令，通过 man 指令可以查看 Linux 中
 
 ### 脚本配置
 
-- npm run test、
-- npm run dist、
-- npm run compile、
+- npm run test
+- npm run dist
+- npm run compile
 - npm run build
 
 ### config

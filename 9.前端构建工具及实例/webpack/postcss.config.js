@@ -6,10 +6,10 @@ module.exports = {
     'postcss-url': {},
     // 自动前缀
     'autoprefixer': {
-      "browsers": [
-        "> 1%",
-        "last 2 versions"
-      ]
+      // "browserslist": [
+      //   "> 1%",
+      //   "last 2 versions"
+      // ]
     }
 
   }

@@ -1,4 +1,11 @@
-# webpack 打包配置
+---
+title: webpack 打包配置
+date: 2020-03-03
+---
+
+[TOC]
+
+[参考文章](https://mp.weixin.qq.com/s/ciyc9z8ZaVwSpriQoUCHHA)
 
 ## 目标
 
@@ -16,7 +23,7 @@
 
 ## webpack4 的新特性
 
-### 官方宣布不在支持 Node 4
+### 官方宣布不再支持 Node 4
 
 [Node 6](https://link.juejin.im/?target=https%3A%2F%2Fnodejs.org%2Fen%2Fblog%2Frelease%2Fv6.0.0%2F)
 
@@ -75,8 +82,8 @@ webpack 4 的零配置主要应用于：
 new webpack.optimize.UglifyJsPlugin({
   minimize: true,
   compress: {
-    warnings: false
-  }
+    warnings: false,
+  },
 });
 ```
 
@@ -160,10 +167,10 @@ extract-text-webpack-plugin 插件 -> 替代插件 mini-css-extract-plugin
 plugins: [
   new webpack.DefinePlugin({
     // 注入全局变量，注意这里的变量必须是'" "'包裹的。
-    "process.env.env": '"dev"'
+    'process.env.env': '"dev"',
     // "process.env": require("../config/dev.env"),
     // "process.env.BASE_URL": '"' + process.env.BASE_URL + '"'
-  })
+  }),
 ];
 ```
 
@@ -176,3 +183,91 @@ plugins: [
 页面访问地址: `http://localhost:1314/`
 
 页面分析的访问地址: `http://127.0.0.1:8888/`
+
+## webpack4 利用 import 动态加载的一些说明
+
+ES6 的 import 语法告诉我们，模块只能做静态加载。ES6 模块加载，加载的是引用，必须文件头部声明，加载的地址不可修改，即静态加载。
+
+```js
+// 所谓静态加载，就是你不能写成如下形式：
+let filename  = 'module.js';
+import {mod} from './' + filename;
+// 也不能写成如下形式：
+if(condition) {
+  import {mod} from './path1'
+} else {
+  import {mod} from './path2'
+}
+```
+
+### 但是 webpack 已经开始用了
+
+import 的加载是加载的模块的引用。而 import()加载的是模块的拷贝，就是类似于 require()。
+
+[代码参见](blog/9.前端构建工具及实例/webpack/src/javascripts/dynamicModule.js)
+
+## 添加 react 文件的打包支持
+
+## webpack 优化策略，提高 dev 及 build 的速度
+
+[参考文章](https://juejin.im/post/5d614dc96fb9a06ae3726b3e)
+
+### 使用工具分析各部分执行时常
+
+[Speed Measure Plugin(for webpack)](https://www.npmjs.com/package/speed-measure-webpack-plugin)
+
+参考代码 scripts。
+
+### 具体优化策略
+
+#### 缓存
+
+cache-loader，插件开启，缓存及并行。
+
+#### 多核
+
+happypack，多核开启，提高编译速度，MiniCssExtractPlugin 必须置于 cache-loader 执行之后，否则无法生效。
+
+#### 抽离
+
+常见的方案有两种，一种是使用 **webpack-dll-plugin** 的方式，在首次构建时候就将这些静态依赖单独打包，后续只需要引用这个早就被打好的静态依赖包即可，有点类似“预编译”的概念；另一种，也是**业内常见的 [Externals](https://webpack.docschina.org/configuration/externals/) 的方式**，我们将这些不需要打包的静态资源从构建逻辑中剔除出去，而使用 CDN 的方式，去引用它们。
+
+Externals 使用主要三步：参照 jquery 引入。
+
+1. html 引入；
+2. externals 声明；
+3. 文件内导入。
+
+#### 以及拆分
+
+因为如今团队在实践前端微服务，因此每一个子模块都被拆分成了一个单独的 repo，因此我们的项目与生俱来就继承了集群编译的基因，但是如果把这些子项目以 entry 的形式打在一个 repo 中，也是一个很常见的情况，这时候，就需要进行拆分，集群编译便能发挥它的优势。
+
+### 提升体验
+
+#### 展示进度条，progress-bar-webpack-plugin
+
+#### 完成提醒，webpack-build-notifier
+
+#### dashboard 输出，webpack-dashboard
+
+## 如何更好地优化打包资源，减小体积
+
+[参考文章](https://mp.weixin.qq.com/s/H-w4LtY3qVNAQLiyGFsEaA)
+
+1. 减小打包的整体体积
+   - 代码压缩，MiniCssExtractPlugin，UglifyJsPlugin
+   - 移除不必要的模块，(仅仅引入而未在代码中使用，该模块仍然会被打包)
+   - 按需引入模块，`import Button from 'antd/es/button';`
+   - 选择可以替代的体积较小的模块，moment -> DateTime
+2. Code Splitting: 按需加载，优化页面首次加载体积。如根据路由按需加载，根据是否可见按需加载
+   - 使用 import() 动态加载模块
+   - 使用 **React.lazy() 动态加载组件**
+   - 使用 lodable-component 动态加载路由，组件或者模块
+3. Bundle Splitting：分包，根据模块更改频率分层次打包，充分利用缓存
+   - webpack-runtime: 应用中的 webpack 的版本比较稳定，分离出来，保证长久的永久缓存
+   - react-runtime: react 的版本更新频次也较低
+   - vendor: 常用的第三方模块打包在一起，如 lodash，classnames 基本上每个页面都会引用到，但是它们的更新频率会更高一些
+
+## 自定义loader
+
+参见srcipt/，同步和异步loader。

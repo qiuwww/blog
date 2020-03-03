@@ -15,7 +15,9 @@ const prodConfig = merge(base, {
     minimizer: [
       new UglifyJsPlugin({
         uglifyOptions: {
+          // 缓存，并行，提高打包速度
           cache: true,
+          parallel: true,
           warnings: false,
           ie8: false,
           compress: true,
