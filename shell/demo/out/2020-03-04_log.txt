@@ -1,0 +1,982 @@
+2020-03-04 13:54:03
+  PID COMM             ARGS                                                              %CPU      VSZ     STIME USER               UID
+    1 /sbin/launchd    /sbin/launchd                                                      0.0  4417876   8:50.00 root                 0
+   46 /usr/sbin/syslog /usr/sbin/syslogd                                                  0.0  4395956   0:02.41 root                 0
+   47 /usr/libexec/Use /usr/libexec/UserEventAgent (System)                               0.0  4424908   0:04.69 root                 0
+   50 /System/Library/ /System/Library/PrivateFrameworks/Uninstall.framework/Resources/   0.0  4353516   0:02.74 root                 0
+   51 /usr/libexec/kex /usr/libexec/kextd                                                 0.0  4431496   0:06.78 root                 0
+   52 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Versions/A/Fra   0.0  4540600   1:27.55 root                 0
+   54 /System/Library/ /System/Library/PrivateFrameworks/MediaRemote.framework/Support/   0.0  4424160   0:01.28 root                 0
+   58 /System/Library/ /System/Library/CoreServices/appleeventsd --server                 0.0  4424804   0:01.18 _appleevents        55
+   59 /usr/sbin/system /usr/sbin/systemstats --daemon                                     0.0  4450484   1:09.94 root                 0
+   61 /usr/libexec/con /usr/libexec/configd                                               0.0  4430980   0:10.07 root                 0
+   62 /Library/Applica /Library/Application Support/iStat Menus 6/iStatMenusDaemon        0.1  4425632   4:06.99 root                 0
+   63 /System/Library/ /System/Library/CoreServices/powerd.bundle/powerd                  0.0  4422364   0:50.69 root                 0
+   66 /usr/libexec/log /usr/libexec/logd                                                  0.0  4522924   0:46.49 root                 0
+   67 /usr/libexec/key /usr/libexec/keybagd -t 15                                         0.0  4334544   0:00.01 root                 0
+   68 /Library/Applica /Library/Application Support/QQMacMgr/QQMacMgrAgent loadBySystem   0.0  4437772   0:13.61 root                 0
+   71 /Library/Applica /Library/Application Support/iStat Menus 6/iStatMenusFans          0.0  4396500   0:04.92 root                 0
+   76 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4891200  22:21.40 root                 0
+   77 /System/Library/ /System/Library/CoreServices/iconservicesd                         0.0  4396436   0:00.03 _iconservices      240
+   78 /usr/libexec/dis /usr/libexec/diskarbitrationd                                      0.0  4421476   0:09.94 root                 0
+   82 /System/Library/ /System/Library/CoreServices/backupd.bundle/Contents/Resources/b   0.0  4422536   0:40.34 root                 0
+   83 /usr/libexec/cor /usr/libexec/coreduetd                                             0.0  4431092   0:01.19 root                 0
+   87 /usr/libexec/ope /usr/libexec/opendirectoryd                                        0.0  4460296   0:13.05 root                 0
+   88 /System/Library/ /System/Library/PrivateFrameworks/ApplePushService.framework/aps   0.0  4429236   0:02.42 root                 0
+   89 /System/Library/ /System/Library/PrivateFrameworks/Noticeboard.framework/Versions   0.0  4353636   0:00.01 root                 0
+   90 /System/Library/ /System/Library/CoreServices/launchservicesd                       0.1  4427088   0:21.21 root                 0
+   91 /usr/libexec/tim /usr/libexec/timed                                                 0.0  4421724   0:01.46 _timed             266
+   92 /usr/sbin/securi /usr/sbin/securityd -i                                             0.0  4425520   0:03.92 root                 0
+   93 /System/Library/ /System/Library/PrivateFrameworks/MobileDevice.framework/Version   0.0  4422300   0:00.21 _usbmuxd           213
+   95 /usr/libexec/loc /usr/libexec/locationd                                             0.0  4429356   0:06.49 _locationd         205
+   97 autofsd          autofsd                                                            0.0  4325740   0:00.01 root                 0
+   98 /usr/libexec/dis /usr/libexec/displaypolicyd -k 1                                   0.0  4398264   0:03.42 _displaypolicyd    244
+   99 /usr/libexec/das /usr/libexec/dasd                                                  0.0  4428076   0:03.50 root                 0
+  103 /System/Library/ /System/Library/CoreServices/loginwindow.app/Contents/MacOS/logi   0.0  5095332   0:08.70 qww                501
+  104 /System/Library/ /System/Library/CoreServices/logind                                0.0  4394928   0:00.09 root                 0
+  105 /System/Library/ /System/Library/PrivateFrameworks/GenerationalStorage.framework/   0.0  4429376   0:00.28 root                 0
+  106 /usr/sbin/Kernel /usr/sbin/KernelEventAgent                                         0.0  4336620   0:00.01 root                 0
+  108 /usr/sbin/blueto /usr/sbin/bluetoothd                                               0.0  4426416   0:04.37 root                 0
+  109 /usr/libexec/hid /usr/libexec/hidd                                                  0.3  4427532  12:02.77 _hidd              261
+  111 /usr/libexec/cor /usr/libexec/corebrightnessd --launchd                             0.0  4425664   0:14.03 root                 0
+  112 /usr/libexec/Air /usr/libexec/AirPlayXPCHelper                                      0.0  4423136   0:01.80 root                 0
+  113 /usr/sbin/notify /usr/sbin/notifyd                                                  0.0  4321812   0:20.74 root                 0
+  118 /usr/sbin/distno /usr/sbin/distnoted daemon                                         0.0  4396008   0:09.18 _distnote          241
+  119 /usr/libexec/amf /usr/libexec/amfid                                                 0.0  4429312   0:00.43 root                 0
+  127 /usr/libexec/sys /usr/libexec/syspolicyd                                            0.0  4430196   0:01.75 root                 0
+  128 /System/Library/ /System/Library/Frameworks/Security.framework/Versions/A/XPCServ   0.0  4425940   0:00.43 root                 0
+  129 /System/Library/ /System/Library/CoreServices/coreservicesd                         0.0  4471624   0:07.51 root                 0
+  130 /usr/sbin/cfpref /usr/sbin/cfprefsd daemon                                          0.0  4395336   0:05.76 root                 0
+  131 aslmanager       aslmanager                                                         0.0  4395632   0:00.11 root                 0
+  160 /System/Library/ /System/Library/PrivateFrameworks/SkyLight.framework/Resources/W   1.4 10307180  71:44.75 _windowserver       88
+  162 /System/Library/ /System/Library/PrivateFrameworks/CoreDuetContext.framework/Reso   0.0  4430120   0:11.97 root                 0
+  165 /usr/libexec/neh /usr/libexec/nehelper                                              0.0  4438792   0:00.77 root                 0
+  170 /System/Library/ /System/Library/Frameworks/PCSC.framework/Versions/A/XPCServices   0.0  4360508   0:00.01 root                 0
+  175 /usr/libexec/tru /usr/libexec/trustd                                                0.0  4440692   0:06.46 root                 0
+  178 /System/Library/ /System/Library/Frameworks/CryptoTokenKit.framework/ctkd -s        0.0  4343280   0:00.01 _ctkd              259
+  179 /usr/sbin/coreau /usr/sbin/coreaudiod                                               0.0  4440892   1:03.72 _coreaudiod        202
+  182 /usr/libexec/sym /usr/libexec/symptomsd                                             0.0  4443044   0:25.19 _networkd           24
+  187 /System/Library/ /System/Library/PrivateFrameworks/WirelessDiagnostics.framework/   0.0  4422672   0:00.53 root                 0
+  199 /System/Library/ /System/Library/Frameworks/CoreAudio.framework/Versions/A/XPCSer   0.0  4422172   0:00.18 _coreaudiod        202
+  200 /usr/sbin/mDNSRe /usr/sbin/mDNSResponder                                            0.0  4425356   0:09.49 _mdnsresponder      65
+  201 /usr/sbin/mDNSRe /usr/sbin/mDNSResponderHelper                                      0.0  4422528   0:03.42 root                 0
+  205 /System/Library/ /System/Library/PrivateFrameworks/CoreSymbolication.framework/co   0.0  4397504   0:00.39 root                 0
+  206 /usr/libexec/nsu /usr/libexec/nsurlsessiond --privileged                            0.0  4439684   0:02.05 _nsurlsessiond     242
+  207 /usr/libexec/mul /usr/libexec/multiversed                                           0.0  4315928   0:00.01 root                 0
+  208 /System/Library/ /System/Library/CryptoTokenKit/com.apple.ifdreader.slotd/Content   0.0  4362088   0:00.04 root                 0
+  209 /usr/libexec/apf /usr/libexec/apfsd                                                 0.0  4378428   0:00.12 root                 0
+  210 /usr/libexec/air /usr/libexec/airportd                                              0.0  4432804   0:19.98 root                 0
+  211 /usr/libexec/usb /usr/libexec/usbd                                                  0.0  4422592   0:00.35 root                 0
+  212 /System/Library/ /System/Library/Frameworks/CoreMediaIO.framework/Resources/VDC.p   0.0  4454500   0:00.29 _cmiodalassistants   262
+  216 /usr/libexec/App /usr/libexec/ApplicationFirewall/socketfilterfw                    0.0  4426460   0:03.89 root                 0
+  217 /System/Library/ /System/Library/PrivateFrameworks/BridgeOSSoftwareUpdate.framewo   0.0  4395420   0:00.32 _softwareupdate    200
+  218 /System/Library/ /System/Library/CoreServices/SubmitDiagInfo server-init            0.0  4422500   0:00.43 root                 0
+  219 /usr/libexec/rtc /usr/libexec/rtcreportingd                                         0.0  4424780   0:01.10 root                 0
+  221 /usr/libexec/lsd /usr/libexec/lsd runAsRoot                                         0.0  4439360   0:01.09 root                 0
+  222 /System/Library/ /System/Library/PrivateFrameworks/CoreAnalytics.framework/Suppor   0.0  4423984   0:02.81 _analyticsd        263
+  227 /usr/libexec/smd /usr/libexec/smd                                                   0.0  4332528   0:00.01 root                 0
+  228 /usr/libexec/wat /usr/libexec/watchdogd                                             0.0  4363660   0:03.05 root                 0
+  230 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/AudioComponent   0.0  4363976   0:00.05 root                 0
+  231 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/XPCServices/co   0.0  4304908   0:00.00 _coreaudiod        202
+  232 /usr/libexec/the /usr/libexec/thermald                                              0.0  4303676   0:00.37 root                 0
+  233 /System/Library/ /System/Library/PrivateFrameworks/TCC.framework/Resources/tccd s   0.0  4442616   0:12.85 root                 0
+  234 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  7933876   7:02.26 root                 0
+  236 /usr/libexec/sec /usr/libexec/secinitd                                              0.0  4423788   0:00.17 root                 0
+  237 /usr/libexec/Tou /usr/libexec/TouchBarServer                                        0.2  4535752   1:15.06 root                 0
+  238 /System/Library/ /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries   0.0  4421244   0:02.22 root                 0
+  239 /usr/libexec/col /usr/libexec/colorsync.displayservices                             0.0  4394856   0:00.23 root                 0
+  240 /usr/libexec/col /usr/libexec/colorsyncd                                            0.0  4395628   0:00.14 root                 0
+  248 /usr/libexec/sys /usr/libexec/sysmond                                               0.0  4394996   0:09.92 root                 0
+  249 /System/Library/ /System/Library/Frameworks/Security.framework/Versions/A/XPCServ   0.0  4399284   0:00.35 root                 0
+  251 /usr/sbin/system /usr/sbin/systemstats --logger-helper /private/var/db/systemstat   0.0  4423324   0:00.51 root                 0
+  253 /usr/libexec/cap /usr/libexec/captiveagent                                          0.0  4423640   0:00.19 _captiveagent      258
+  254 /usr/libexec/boo /usr/libexec/bootinstalld                                          0.0  4322984   0:00.01 root                 0
+  260 /System/Library/ /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/XPCS   0.0  4395360   0:00.05 root                 0
+  264 /System/Library/ /System/Library/CoreServices/sharedfilelistd                       0.0  4422980   0:00.20 root                 0
+  265 /System/Library/ /System/Library/PrivateFrameworks/PerformanceAnalysis.framework/   0.0  4399876   0:05.45 root                 0
+  266 /System/Library/ /System/Library/PrivateFrameworks/ViewBridge.framework/Versions/   0.0  4422584   0:10.38 root                 0
+  267 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0  4396008   0:03.25 root                 0
+  269 /System/Library/ /System/Library/Frameworks/LocalAuthentication.framework/Support   0.0  4422848   0:00.42 root                 0
+  270 /System/Library/ /System/Library/PrivateFrameworks/AccountPolicy.framework/XPCSer   0.0  4387100   0:00.05 root                 0
+  271 /usr/libexec/bio /usr/libexec/biometrickitd --launchd                               0.0  4422944   0:01.26 root                 0
+  272 /usr/libexec/bio /usr/libexec/biokitaggdd                                           0.0  4421876   0:00.13 root                 0
+  273 /System/Library/ /System/Library/Frameworks/CryptoTokenKit.framework/ctkahp.bundl   0.0  4396080   0:00.04 root                 0
+  278 /usr/sbin/system /usr/sbin/systemsoundserverd                                       0.0  4426948   0:00.71 root                 0
+  280 /System/Library/ /System/Library/PrivateFrameworks/AmbientDisplay.framework/Versi   0.0  4423264   0:07.90 root                 0
+  285 /usr/libexec/fin /usr/libexec/findmydeviced                                         0.0  4426196   0:01.53 root                 0
+  287 /usr/libexec/nfc /usr/libexec/nfcd                                                  0.0  4422716   0:00.20 _applepay          260
+  293 /System/Library/ /System/Library/PrivateFrameworks/AuthKit.framework/Versions/A/S   0.0  4426304   0:01.20 root                 0
+  295 /System/Library/ /System/Library/PrivateFrameworks/CoreADI.framework/adid           0.0  4399092   0:00.48 _fpsd              265
+  300 /System/Library/ /System/Library/Frameworks/GSS.framework/Helpers/GSSCred           0.0  4321864   0:00.02 root                 0
+  303 /System/Library/ /System/Library/Frameworks/LocalAuthentication.framework/Support   0.0  4421860   0:00.16 qww                501
+  304 /usr/sbin/cfpref /usr/sbin/cfprefsd agent                                           0.0  4396176   0:13.10 qww                501
+  305 /usr/libexec/sec /usr/libexec/securityd_service                                     0.0  4336052   0:00.01 root                 0
+  306 /usr/libexec/Use /usr/libexec/UserEventAgent (Aqua)                                 0.0  4424764   0:04.94 qww                501
+  308 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0  4396008   0:19.06 qww                501
+  310 /System/Library/ /System/Library/Frameworks/CoreTelephony.framework/Support/CommC   0.0  4436080   0:06.40 qww                501
+  311 /usr/libexec/lsd /usr/libexec/lsd                                                   0.0  4432188   0:01.64 qww                501
+  312 /usr/libexec/tru /usr/libexec/trustd --agent                                        0.0  4440796   0:06.90 qww                501
+  314 /System/Library/ /System/Library/CoreServices/sharedfilelistd                       0.0  4424268   0:00.45 qww                501
+  315 /Applications/Go /Applications/Google Chrome.app/Contents/MacOS/Google Chrome -ps   1.1  6709608  27:02.18 qww                501
+  317 /usr/libexec/sec /usr/libexec/secd                                                  0.0  4431192   0:01.30 qww                501
+  318 /System/Library/ /System/Library/CoreServices/backgroundtaskmanagementagent         0.0  4423548   0:00.20 qww                501
+  319 /usr/sbin/Wirele /usr/sbin/WirelessRadioManagerd                                    0.0  4422540   0:00.59 root                 0
+  320 /System/Library/ /System/Library/PrivateFrameworks/TelephonyUtilities.framework/c   0.0  4431604   0:00.81 qww                501
+  322 /System/Library/ /System/Library/Frameworks/Accounts.framework/Versions/A/Support   0.0  4480708   0:03.08 qww                501
+  323 /System/Library/ /System/Library/PrivateFrameworks/CloudKitDaemon.framework/Suppo   0.0  4448940   0:04.68 qww                501
+  324 /usr/libexec/rap /usr/libexec/rapportd                                              0.0  4423100   0:00.62 qww                501
+  325 /System/Library/ /System/Library/PrivateFrameworks/IDS.framework/identityservices   0.0  4432884   0:00.84 qww                501
+  326 /System/Library/ /System/Library/PrivateFrameworks/IMCore.framework/imagent.app/C   0.0  4423400   0:00.39 qww                501
+  327 /usr/libexec/rou /usr/libexec/routined LAUNCHED_BY_LAUNCHD                          0.0  4431468   0:02.55 qww                501
+  328 /usr/sbin/userno /usr/sbin/usernoted                                                0.0  4434988   0:01.10 qww                501
+  329 /usr/libexec/nsu /usr/libexec/nsurlsessiond                                         0.0  4445900   0:03.25 qww                501
+  330 /System/Library/ /System/Library/CoreServices/ControlStrip.app/Contents/MacOS/Con   0.0  4981172   0:08.64 qww                501
+  331 /usr/libexec/net /usr/libexec/networkserviceproxy                                   0.0  4423572   0:00.09 qww                501
+  332 /System/Library/ /System/Library/PrivateFrameworks/CalendarAgent.framework/Execut   0.0  4465848   0:04.39 qww                501
+  333 /System/Library/ /System/Library/PrivateFrameworks/TCC.framework/Resources/tccd     0.0  4432992   0:00.87 qww                501
+  334 /System/Library/ /System/Library/CoreServices/APFSUserAgent                         0.0  4395396   0:00.05 qww                501
+  335 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Framewo   0.0  4424788   0:06.18 qww                501
+  336 /usr/libexec/sec /usr/libexec/secinitd                                              0.0  4424832   0:00.65 qww                501
+  337 /System/Library/ /System/Library/CoreServices/WiFiAgent.app/Contents/MacOS/WiFiAg   0.0  4564704   0:06.99 qww                501
+  338 /System/Library/ /System/Library/PrivateFrameworks/IMDPersistence.framework/XPCSe   0.0  4422868   0:00.23 qww                501
+  339 /System/Library/ /System/Library/Frameworks/AddressBook.framework/Executables/Con   0.0  4394968   0:00.38 qww                501
+  340 /System/Library/ /System/Library/PrivateFrameworks/AssistantServices.framework/Ve   0.0  4466112   0:03.69 qww                501
+  342 /System/Library/ /System/Library/CoreServices/cloudphotosd.app/Contents/MacOS/clo   0.0  4481228   0:06.50 qww                501
+  344 /usr/libexec/adp /usr/libexec/adprivacyd                                            0.0  4435644   0:01.35 qww                501
+  345 /System/Library/ /System/Library/PrivateFrameworks/Tourist.framework/Versions/A/R   0.0  4433272   0:04.74 qww                501
+  346 /System/Library/ /System/Library/CoreServices/CrashReporterSupportHelper server-i   0.0  4386644   0:00.05 root                 0
+  347 /System/Library/ /System/Library/CoreServices/NotificationCenter.app/Contents/Mac   0.0  5302184   0:07.38 qww                501
+  348 /System/Library/ /System/Library/PrivateFrameworks/CalendarNotification.framework   0.0  4429660   0:01.35 qww                501
+  349 /usr/sbin/wirele /usr/sbin/wirelessproxd                                            0.0  4422892   0:00.35 root                 0
+  351 /System/Library/ /System/Library/PrivateFrameworks/CoreCDP.framework/Versions/A/R   0.0  4394812   0:00.08 qww                501
+  352 /System/Library/ /System/Library/PrivateFrameworks/ProtectedCloudStorage.framewor   0.0  4422308   0:00.17 qww                501
+  353 /System/Library/ /System/Library/Frameworks/Security.framework/Versions/A/Resourc   0.0  4395808   0:00.17 qww                501
+  354 /System/Library/ /System/Library/CoreServices/EscrowSecurityAlert.app/Contents/Ma   0.0  4394972   0:00.08 qww                501
+  355 /System/Library/ /System/Library/CoreServices/Keychain Circle Notification.app/Co   0.0  4450672   0:04.77 qww                501
+  356 /System/Library/ /System/Library/PrivateFrameworks/IMFoundation.framework/XPCServ   0.0  4422896   0:00.24 qww                501
+  357 /System/Library/ /System/Library/PrivateFrameworks/MessagesKit.framework/Resource   0.0  4428668   0:00.32 qww                501
+  358 /System/Library/ /System/Library/PrivateFrameworks/UserActivity.framework/Agents/   0.0  4423656   0:03.85 qww                501
+  359 /usr/libexec/nsu /usr/libexec/nsurlstoraged                                         0.0  4435316   0:01.77 qww                501
+  360 /usr/libexec/sha /usr/libexec/sharingd                                              0.0  4448724   0:10.09 qww                501
+  361 /System/Library/ /System/Library/PrivateFrameworks/MediaRemote.framework/Support/   0.0  4394816   0:00.15 qww                501
+  362 /System/Library/ /System/Library/PrivateFrameworks/FamilyCircle.framework/Version   0.0  4423132   0:00.11 qww                501
+  363 /usr/libexec/fmf /usr/libexec/fmfd                                                  0.0  4430108   0:01.40 qww                501
+  364 /System/Library/ /System/Library/PrivateFrameworks/IMFoundation.framework/XPCServ   0.0  4394776   0:00.06 qww                501
+  365 /System/Library/ /System/Library/PrivateFrameworks/IMFoundation.framework/XPCServ   0.0  4422896   0:00.23 qww                501
+  366 /System/Library/ /System/Library/CoreServices/talagent                              0.0  4485268   0:05.48 qww                501
+  367 /System/Library/ /System/Library/CoreServices/Dock.app/Contents/MacOS/Dock          0.0  5406560   0:35.79 qww                501
+  368 /System/Library/ /System/Library/CoreServices/SystemUIServer.app/Contents/MacOS/S   0.0  5071468   0:24.54 qww                501
+  369 /System/Library/ /System/Library/CoreServices/Finder.app/Contents/MacOS/Finder      0.0  5248052   1:38.63 qww                501
+  373 /System/Library/ /System/Library/PrivateFrameworks/CommerceKit.framework/Versions   0.0  4444420   0:01.75 qww                501
+  375 /System/Library/ /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/Vers   0.0  4424720   0:00.61 qww                501
+  376 /System/Library/ /System/Library/PrivateFrameworks/AuthKit.framework/Versions/A/S   0.0  4437992   0:01.75 qww                501
+  377 /System/Library/ /System/Library/PrivateFrameworks/IMFoundation.framework/XPCServ   0.0  4422896   0:00.24 qww                501
+  378 /System/Library/ /System/Library/PrivateFrameworks/CloudServices.framework/Versio   0.0  4434728   0:01.56 qww                501
+  379 /usr/sbin/fileco /usr/sbin/filecoordinationd                                        0.0  4395808   0:00.29 root                 0
+  380 /usr/libexec/mob /usr/libexec/mobileactivationd                                     0.0  4433144   0:01.40 root                 0
+  381 /usr/libexec/swc /usr/libexec/swcd                                                  0.0  4424156   0:00.20 qww                501
+  382 /usr/libexec/pbo /usr/libexec/pboard                                                0.0  4395896   0:07.07 qww                501
+  383 /System/Library/ /System/Library/PrivateFrameworks/CoreParsec.framework/parsecd     0.0  4435884   0:02.15 qww                501
+  385 /usr/libexec/pkd /usr/libexec/pkd                                                   0.0  4430244   0:01.53 qww                501
+  387 /System/Library/ /System/Library/CoreServices/SafariSupport.bundle/Contents/MacOS   0.0  4427568   0:14.50 qww                501
+  388 /System/Library/ /System/Library/PrivateFrameworks/ViewBridge.framework/Versions/   0.0  4422784   0:23.88 qww                501
+  389 /System/Library/ /System/Library/Frameworks/InputMethodKit.framework/Resources/im   0.0  4426180   0:03.64 qww                501
+  390 /System/Library/ /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/XPCS   0.0  4422040   0:00.10 qww                501
+  391 /System/Library/ /System/Library/PrivateFrameworks/SafariShared.framework/Version   0.0  4424268   0:00.17 qww                501
+  392 /usr/libexec/mob /usr/libexec/mobileassetd                                          0.0  4432656   0:00.84 root                 0
+  393 /System/Library/ /System/Library/CoreServices/Spotlight.app/Contents/MacOS/Spotli   0.0  5097960   0:08.10 qww                501
+  395 /System/Library/ /System/Library/CoreServices/CoreLocationAgent.app/Contents/MacO   0.0  4454976   0:04.99 qww                501
+  396 /System/Library/ /System/Library/Input Methods/SCIM.app/Contents/PlugIns/SCIM_Ext   0.0  5444196   1:41.65 qww                501
+  397 /System/Library/ /System/Library/PrivateFrameworks/CloudPhotoServices.framework/V   0.0  4451188   0:00.29 qww                501
+  398 /System/Library/ /System/Library/Input Methods/EmojiFunctionRowIM.app/Contents/Pl   0.0  5210140   0:14.97 qww                501
+  399 /System/Library/ /System/Library/Input Methods/PressAndHold.app/Contents/PlugIns/   0.0  4942572   0:06.82 qww                501
+  400 /usr/libexec/nsu /usr/libexec/nsurlstoraged --privileged                            0.0  4388268   0:00.06 _nsurlstoraged     243
+  403 /System/Library/ /System/Library/CoreServices/iconservicesagent                     0.0  4470172   0:08.02 qww                501
+  404 /System/Library/ /System/Library/PrivateFrameworks/GeoServices.framework/Versions   0.0  4449160   0:02.44 qww                501
+  407 /System/Library/ /System/Library/PrivateFrameworks/CoreWLANKit.framework/Versions   0.0  4421924   0:00.40 qww                501
+  408 /System/Library/ /System/Library/PrivateFrameworks/login.framework/Versions/A/XPC   0.0  4378868   0:00.01 qww                501
+  409 /System/Library/ /System/Library/PrivateFrameworks/CharacterPicker.framework/Vers   0.0  4386736   0:00.05 qww                501
+  410 /System/Library/ /System/Library/PrivateFrameworks/CommerceKit.framework/Versions   0.0  4396640   0:00.13 qww                501
+  411 /System/Library/ /System/Library/CoreServices/Dock.app/Contents/XPCServices/com.a   0.0  5041100   0:04.88 qww                501
+  413 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Version   0.0  4395380   0:00.66 qww                501
+  414 /System/Library/ /System/Library/CoreServices/pbs                                   0.0  4430420   0:00.30 qww                501
+  415 /System/Library/ /System/Library/PrivateFrameworks/CallHistory.framework/Support/   0.0  4422132   0:00.11 qww                501
+  416 /usr/libexec/vid /usr/libexec/videosubscriptionsd                                   0.0  4424196   0:00.12 qww                501
+  417 /System/Library/ /System/Library/Services/AppleSpell.service/Contents/MacOS/Apple   0.0  4826324   0:02.08 qww                501
+  418 /usr/libexec/key /usr/libexec/keyboardservicesd                                     0.0  4429540   0:01.31 qww                501
+  420 /System/Library/ /System/Library/PrivateFrameworks/CoreFollowUp.framework/Version   0.0  4395052   0:00.08 qww                501
+  421 /System/Library/ /System/Library/PrivateFrameworks/CoreSuggestions.framework/Vers   0.0  4697340   0:01.92 qww                501
+  422 /System/Library/ /System/Library/PrivateFrameworks/AssetCacheServices.framework/V   0.0  4430084   0:01.38 qww                501
+  423 /usr/libexec/Ass /usr/libexec/AssetCache/AssetCache                                 0.0  4425544   0:00.16 _assetcache        235
+  425 /System/Library/ /System/Library/PrivateFrameworks/AssistantServices.framework/Ve   0.0  4502060   0:00.18 qww                501
+  426 /usr/libexec/Saf /usr/libexec/SafariCloudHistoryPushAgent                           0.0  4422512   0:14.03 qww                501
+  428 /System/Library/ /System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/c   0.0  4482592   0:03.96 qww                501
+  430 /Library/Develop /Library/Developer/PrivateFrameworks/CoreSimulator.framework/Ver   0.0  4943276   0:04.91 qww                501
+  431 /Library/Develop /Library/Developer/PrivateFrameworks/CoreSimulator.framework/Ver   0.0  4941836   0:04.53 qww                501
+  432 /System/Library/ /System/Library/PrivateFrameworks/CommunicationsFilter.framework   0.0  4394860   0:00.10 qww                501
+  433 /System/Library/ /System/Library/Frameworks/iTunesLibrary.framework/Versions/A/XP   0.0  4424216   0:00.21 qww                501
+  435 SafeEjectGPUAgen SafeEjectGPUAgent                                                  0.0  4839728   0:00.00 qww                501
+  436 /System/Library/ /System/Library/CoreServices/Menu Extras/SafeEjectGPUExtra.menu/   0.0  4423392   0:00.09 qww                501
+  439 /System/Library/ /System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/   0.0  4428452   0:01.21 qww                501
+  440 /System/Library/ /System/Library/CoreServices/ScopedBookmarkAgent                   0.0  4424792   0:00.24 qww                501
+  441 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/AudioComponent   0.0  4423828   0:00.12 qww                501
+  443 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/XPCServices/co   0.0  4362512   0:00.01 qww                501
+  445 /usr/libexec/fin /usr/libexec/findmydevice-user-agent                               0.0  4396108   0:00.11 qww                501
+  446 /System/Library/ /System/Library/PrivateFrameworks/ContextKit.framework/Versions/   0.0  4484416   0:00.23 qww                501
+  447 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4806264   0:01.55 qww                501
+  448 /usr/libexec/dpr /usr/libexec/dprivacyd                                             0.0  4427844   0:00.18 root                 0
+  449 /System/Library/ /System/Library/PrivateFrameworks/AssistantServices.framework/Ve   0.0  4502976   0:05.04 qww                501
+  450 /System/Library/ /System/Library/PrivateFrameworks/CoreSpeech.framework/corespeec   0.0  4422520   0:01.11 qww                501
+  452 /System/Library/ /System/Library/CoreServices/SocialPushAgent.app/Contents/MacOS/   0.0  4421512   0:00.12 qww                501
+  455 /usr/libexec/dmd /usr/libexec/dmd                                                   0.0  4422872   0:00.25 qww                501
+  457 /System/Library/ /System/Library/Image Capture/Support/icdd                         0.0  4422868   0:00.22 qww                501
+  458 /usr/local/Cella /usr/local/Cellar/watchman/4.9.0/libexec/bin/watchman --foregrou   0.0  4385984   0:01.32 qww                501
+  459 /Library/Applica /Library/Application Support/iStat Menus 6/iStatMenusAgent.app/C   0.0  4460480   0:05.81 qww                501
+  461 /Library/Applica /Library/Application Support/Adobe/AdobeGCClient/AGMService -mod   0.0  4425388   0:00.53 qww                501
+  462 /System/Library/ /System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/A   0.0  4950328   0:05.37 qww                501
+  464 /usr/libexec/kno /usr/libexec/knowledge-agent                                       0.0  4436612   0:00.98 qww                501
+  465 /System/Library/ /System/Library/CoreServices/cloudpaird                            0.0  4423296   0:00.42 qww                501
+  468 /System/Library/ /System/Library/PrivateFrameworks/Noticeboard.framework/Versions   0.0  4454408   0:04.98 qww                501
+  469 /Library/Applica /Library/Application Support/iStat Menus 6/iStat Menus Status.ap   0.2  4590092   9:49.40 qww                501
+  470 /System/Library/ /System/Library/CoreServices/diagnostics_agent                     0.0  4426632   0:01.05 qww                501
+  473 /System/Library/ /System/Library/Frameworks/CryptoTokenKit.framework/ctkahp.bundl   0.0  4396200   0:00.07 qww                501
+  474 /usr/libexec/tas /usr/libexec/taskgated                                             0.0  4424312   0:06.41 root                 0
+  475 /System/Library/ /System/Library/CoreServices/Menu Extras/TextInput.menu/Contents   0.0  4544248   0:05.64 qww                501
+  476 /System/Library/ /System/Library/Frameworks/CryptoTokenKit.framework/ctkd -tw       0.0  4396636   0:00.06 qww                501
+  477 /Applications/QQ /Applications/QQMacMgr.app/Contents/Frameworks/QQMacMgrMonitor.a   0.0  5081740   1:09.70 qww                501
+  481 /usr/libexec/dmd /usr/libexec/dmd                                                   0.0  4422828   0:00.16 root                 0
+  482 /System/Library/ /System/Library/CoreServices/iconservicesagent runAsRoot           0.0  4439524   0:01.06 root                 0
+  486 /System/Library/ /System/Library/PrivateFrameworks/CacheDelete.framework/deleted    0.0  4425600   0:26.45 qww                501
+  490 /System/Library/ /System/Library/Frameworks/iTunesLibrary.framework/Versions/A/XP   0.0  4424216   0:00.20 qww                501
+  493 /usr/libexec/log /usr/libexec/loginitemregisterd                                    0.0  4395908   0:00.06 qww                501
+  539 /System/Library/ /System/Library/CoreServices/Software Update.app/Contents/Resour   0.0  4371508   0:00.07 qww                501
+  541 /System/Library/ /System/Library/CoreServices/Software Update.app/Contents/Resour   0.0  4428472   0:00.31 _softwareupdate    200
+  542 /System/Library/ /System/Library/CoreServices/Software Update.app/Contents/Resour   0.0  4362360   0:00.04 root                 0
+  543 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Framewo   0.0  4423628   0:00.10 _atsserver          97
+  547 /usr/libexec/sir /usr/libexec/siriknowledged                                        0.0  4422236   0:00.15 qww                501
+  548 /System/Library/ /System/Library/PrivateFrameworks/FMClient.framework/Versions/A/   0.0  4405656   0:00.12 qww                501
+  552 /usr/libexec/tru /usr/libexec/trustd --agent                                        0.0  4425912   0:00.16 _spotlight          89
+  560 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0  4396008   0:03.23 _spotlight          89
+  582 /usr/sbin/spindu /usr/sbin/spindump                                                 0.0  4465316   0:02.65 root                 0
+  583 /usr/libexec/spi /usr/libexec/spindump_agent                                        0.0  4396000   0:00.08 qww                501
+  606 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Framewo   0.0  4447912   0:00.32 qww                501
+  651 /System/Library/ /System/Library/CoreServices/ReportCrash agent                     0.0  4434104   0:01.59 qww                501
+  704 /System/Library/ /System/Library/Frameworks/LocalAuthentication.framework/Support   0.0  5032980   0:05.26 qww                501
+  705 /usr/libexec/USB /usr/libexec/USBAgent                                              0.0  4388256   0:00.05 qww                501
+  719 /System/Library/ /System/Library/CoreServices/PowerChime.app/Contents/MacOS/Power   0.0  4541160   0:05.75 qww                501
+  721 /System/Library/ /System/Library/CoreServices/ReportCrash daemon                    0.0  4353456   0:00.01 root                 0
+  738 /System/Library/ /System/Library/PrivateFrameworks/AppStoreDaemon.framework/Suppo   0.0  4437940   0:03.38 qww                501
+  739 /System/Library/ /System/Library/PrivateFrameworks/CommerceKit.framework/Versions   0.0  4432072   0:00.12 qww                501
+  740 /System/Library/ /System/Library/PrivateFrameworks/CommerceKit.framework/Versions   0.0  4432628   0:01.21 qww                501
+  741 /System/Library/ /System/Library/PrivateFrameworks/AssistantServices.framework/Ve   0.0  4406496   0:00.08 qww                501
+  746 /System/Library/ /System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versio   0.0  4421472   0:00.16 qww                501
+  752 /System/Library/ /System/Library/CoreServices/mapspushd                             0.0  4424372   0:00.32 qww                501
+  755 /System/Library/ /System/Library/PrivateFrameworks/UsageTracking.framework/Versio   0.0  4422640   0:00.12 qww                501
+  757 /usr/libexec/per /usr/libexec/periodic-wrapper daily                                0.0  4326608   0:00.01 root                 0
+  758 /System/Library/ /System/Library/PrivateFrameworks/QuickLookThumbnailing.framewor   0.0  4413500   0:00.07 qww                501
+  822 /usr/libexec/sil /usr/libexec/silhouette                                            0.0  4388284   0:00.10 qww                501
+  826 /System/Library/ /System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/   0.0  4451780   0:00.14 qww                501
+  828 /usr/bin/sysdiag /usr/bin/sysdiagnose                                               0.0  4423408   0:00.09 root                 0
+  833 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4423604   0:03.02 qww                501
+  978 /System/Library/ /System/Library/PrivateFrameworks/IMDPersistence.framework/IMAut   0.0  4422360   0:00.16 qww                501
+ 1400 /usr/libexec/gam /usr/libexec/gamecontrollerd                                       0.0  4395480   0:03.98 _gamecontrollerd   247
+ 1402 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  4381732   0:00.07 qww                501
+ 1405 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  6084832  18:47.84 qww                501
+ 1407 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.1  4693524   2:54.13 qww                501
+ 1409 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  4429764   0:00.09 qww                501
+ 1410 /System/Library/ /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPC   0.0  4432684   0:01.40 qww                501
+ 1415 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8934868   0:01.08 qww                501
+ 1422 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8937596   0:00.84 qww                501
+ 1423 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9101392   0:03.99 qww                501
+ 1424 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8935892   0:09.04 qww                501
+ 1425 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8939996   0:01.80 qww                501
+ 1426 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9066936   0:01.61 qww                501
+ 1427 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8931756   0:00.57 qww                501
+ 1465 /System/Library/ /System/Library/Frameworks/Metal.framework/Versions/A/XPCService   0.0  4861580   0:00.06 qww                501
+ 1466 /System/Library/ /System/Library/Frameworks/Metal.framework/Versions/A/XPCService   0.0  4822664   0:00.01 qww                501
+ 2165 /System/Library/ /System/Library/PreferencePanes/Displays.prefPane/Contents/Resou   0.0  4572416   0:04.44 qww                501
+ 2186 /usr/libexec/ass /usr/libexec/assertiond                                            0.0  4395120   0:00.23 qww                501
+ 2194 /System/Library/ /System/Library/CoreServices/OSDUIHelper.app/Contents/MacOS/OSDU   0.0  4969984   0:05.31 qww                501
+ 2253 /System/Library/ /System/Library/PrivateFrameworks/KerberosHelper/Helpers/DiskUnm   0.0  4326608   0:00.01 qww                501
+ 2265 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChat                     0.5  5943404   7:10.89 qww                501
+ 2271 /Applications/So /Applications/Sourcetree.app/Contents/MacOS/Sourcetree             0.0  7632280   0:56.04 qww                501
+ 2394 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2                      8.1  5878040   3:16.98 qww                501
+ 2698 /Applications/Di /Applications/DingTalk.app/Contents/MacOS/DingTalk                 0.0  5872088   4:13.03 qww                501
+ 2699 /Applications/Di /Applications/DingTalk.app/Contents/Frameworks/DingTalk Helper.a   0.0  4774176   0:03.59 qww                501
+ 2700 /System/Library/ /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPC   0.0  4423972   0:00.09 qww                501
+ 2706 /Applications/Di /Applications/DingTalk.app/Contents/Frameworks/DingTalk Helper.a   0.2  5136700   0:58.56 qww                501
+ 2707 /Applications/Di /Applications/DingTalk.app/Contents/Frameworks/DingTalk Helper.a   1.3  5096704   3:28.18 qww                501
+ 2710 /Applications/QQ /Applications/QQ.app/Contents/MacOS/QQ                             3.7  6573636  19:30.26 qww                501
+ 2713 /Applications/QQ /Applications/QQ.app/Contents/Library/LoginItems/QQ jietu plugin   0.0  4968392   0:32.12 qww                501
+ 2714 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/XPCServices/co   0.0  4322316   0:00.01 qww                501
+ 2788 /Applications/Vi /Applications/Visual Studio Code.app/Contents/MacOS/Electron       0.0  5812032  11:06.15 qww                501
+ 2789 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4422728   0:00.14 qww                501
+ 2790 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5424844   8:56.04 qww                501
+ 2791 /System/Library/ /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPC   0.0  4423972   0:00.09 qww                501
+ 2792 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5694348   1:30.67 qww                501
+ 2793 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6035124   4:40.34 qww                501
+ 2815 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Electro   0.0  4365320   0:00.05 qww                501
+ 2819 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4812072   2:48.03 qww                501
+ 2849 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5086172   0:39.21 qww                501
+ 3209 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Framewo   0.0  4467336   0:05.97 qww                501
+ 3303 /System/Library/ /System/Library/PrivateFrameworks/FileProvider.framework/Support   0.0  4395900   0:00.13 qww                501
+ 3306 /System/Library/ /System/Library/Frameworks/Metal.framework/Versions/A/XPCService   0.0  4851496   0:00.07 qww                501
+ 3307 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5732336   7:00.92 qww                501
+ 3335 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4799620   0:01.33 qww                501
+ 3337 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4810832   2:34.39 qww                501
+ 3939 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6202568   3:14.61 qww                501
+ 3940 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5821788   8:39.46 qww                501
+ 3941 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4824220   3:38.99 qww                501
+ 6064 /System/Library/ /System/Library/Frameworks/MediaAccessibility.framework/Versions   0.0  4395372   0:00.06 qww                501
+ 6065 /System/Library/ /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPC   0.0  4463168   0:03.52 qww                501
+ 6164 /System/Library/ /System/Library/PrivateFrameworks/PackageKit.framework/Resources   0.0  4395420   0:00.06 root                 0
+ 6165 /System/Library/ /System/Library/PrivateFrameworks/PackageKit.framework/Resources   0.0  4421940   0:00.07 root                 0
+ 6171 /System/Library/ /System/Library/Frameworks/MediaLibrary.framework/Versions/A/XPC   0.0  4449488   0:00.44 qww                501
+ 6243 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4816256   0:02.41 qww                501
+ 6244 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4833492   0:01.23 qww                501
+ 6313 /System/Library/ /System/Library/PrivateFrameworks/PassKitCore.framework/passd      0.0  4433880   0:01.48 qww                501
+ 6314 /usr/libexec/sel /usr/libexec/seld                                                  0.0  4421604   0:00.11 _applepay          260
+ 6688 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8946008   0:03.56 qww                501
+ 6690 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8973944   0:03.16 qww                501
+ 6693 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9383604   0:13.29 qww                501
+ 6708 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4787620   0:06.04 qww                501
+ 6709 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.4  5292728   5:18.85 qww                501
+ 6710 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4836436   1:31.61 qww                501
+ 6712 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4855540   0:04.38 qww                501
+ 7160 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9318128   0:14.82 qww                501
+ 7347 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9208060   0:22.27 qww                501
+ 7468 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8950808   0:10.18 qww                501
+ 7480 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8940104   0:11.41 qww                501
+ 7481 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8941060   0:12.22 qww                501
+ 7482 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9144016   0:11.35 qww                501
+ 7498 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  4649768   0:07.50 qww                501
+ 7499 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/XPCServices/co   0.0  4332556   0:00.01 qww                501
+10854 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9119684   0:10.21 qww                501
+11223 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9123296   0:10.91 qww                501
+12034 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9116676   0:10.60 qww                501
+12151 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9350392   0:10.53 qww                501
+12246 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9139108   0:14.39 qww                501
+12303 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5898712   0:00.62 qww                501
+12330 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5943884   0:00.77 qww                501
+12341 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5957080   0:01.21 qww                501
+12780 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9139888   0:23.76 qww                501
+13307 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9264788   0:09.12 qww                501
+14446 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6013816   0:01.20 qww                501
+14736 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4837088   0:01.10 qww                501
+15663 /System/Library/ /System/Library/CoreServices/ControlStrip.app/Contents/XPCServic   0.0  4394992   0:00.12 qww                501
+15665 /System/Library/ /System/Library/PrivateFrameworks/AssistantServices.framework/Ve   0.0  4406276   0:00.05 qww                501
+15902 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5881368   0:00.37 qww                501
+16261 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5948556   0:00.71 qww                501
+16305 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6071552   0:00.99 qww                501
+16583 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4782296   0:03.61 qww                501
+16584 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5037452   1:28.13 qww                501
+16587 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4810248   1:10.31 qww                501
+17014 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4789608   0:01.01 qww                501
+17188 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4791716   0:01.07 qww                501
+17360 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.1 13514200   0:13.35 qww                501
+18636 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6016216   0:01.88 qww                501
+18693 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6015984   0:01.82 qww                501
+19056 /Applications/QQ /Applications/QQLive.app/Contents/MacOS/QQLive                     0.0  7092536   9:23.76 qww                501
+19079 /System/Library/ /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServic   0.0  4448436   0:04.41 qww                501
+19854 /System/Library/ /System/Library/CoreServices/Siri.app/Contents/MacOS/Siri launch   0.2  4454224   0:11.85 qww                501
+19860 /System/Library/ /System/Library/CoreServices/Siri.app/Contents/XPCServices/SiriN   0.0  5091328   0:09.29 qww                501
+20239 /System/Library/ /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPC   0.0  4430964   0:00.19 qww                501
+20490 /usr/libexec/app /usr/libexec/applessdstatistics                                    0.0  4340692   0:00.01 root                 0
+21132 /Applications/Di /Applications/DingTalk.app/Contents/Frameworks/DingTalk Helper.a   0.0  5084328   0:01.12 qww                501
+21496 /Applications/Su /Applications/Sublime Text.app/Contents/MacOS/Sublime Text         0.0  5236348   0:11.80 qww                501
+21497 /Applications/Su /Applications/Sublime Text.app/Contents/MacOS/plugin_host 21496    0.0  5096044   0:01.15 qww                501
+21637 /usr/local/bin/n /usr/local/bin/node /Users/qww/Library/Application Support/Subli   0.0  4617212   0:00.04 qww                501
+21815 /Applications/La /Applications/Lantern.app/Contents/MacOS/lantern                   0.4  5033908  39:34.77 qww                501
+21816 /Applications/La /Applications/Lantern.app/Contents/MacOS/lantern                   0.5  4858812  37:13.46 qww                501
+21820 /Users/qww/Libra /Users/qww/Library/Application Support/byteexec/sysproxy-cmd wai   0.0  4277220   0:00.01 root                 0
+21948 /usr/libexec/stu /usr/libexec/studentd                                              0.0  4469344   0:02.99 qww                501
+23761 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9081512   0:06.09 qww                501
+23822 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9298864   0:11.97 qww                501
+23950 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9440248   0:21.80 qww                501
+25085 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6038108   0:01.32 qww                501
+26126 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9080800   0:54.97 qww                501
+26191 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 13556604   0:09.74 qww                501
+26216 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9255056   0:04.57 qww                501
+26409 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9086428   0:04.56 qww                501
+26437 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9096716   0:06.04 qww                501
+26679 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5905116   0:00.57 qww                501
+28451 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 13616212   0:07.82 qww                501
+30232 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9112364   0:04.08 qww                501
+30249 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9271664   0:06.07 qww                501
+30313 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9078948   0:03.80 qww                501
+32892 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9075556   0:03.69 qww                501
+33103 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9122324   0:04.51 qww                501
+33106 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9301184   0:04.53 qww                501
+35232 /System/Library/ /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServic   0.0 106675292   0:03.11 qww                501
+35347 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4418012   0:00.07 _spotlight          89
+36289 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6079640   0:01.34 qww                501
+38973 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5892460   0:00.44 qww                501
+40062 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5839316   0:00.18 qww                501
+40202 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6051884   0:00.77 qww                501
+40344 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4437312   0:03.35 qww                501
+40345 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4437980   0:03.56 qww                501
+40593 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8930732   0:00.14 qww                501
+40940 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4755164   0:00.28 qww                501
+43634 /usr/bin/ssh-age /usr/bin/ssh-agent -l                                              0.0  4292464   0:00.02 qww                501
+43689 /usr/libexec/san /usr/libexec/sandboxd                                              0.0  4424868   0:00.93 root                 0
+43769 /usr/sbin/netbio /usr/sbin/netbiosd                                                 0.0  4396944   0:00.20 _netbios           222
+46253 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5830644   0:00.21 qww                501
+46254 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5839924   0:00.22 qww                501
+46255 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5831908   0:00.17 qww                501
+47333 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5839224   0:00.12 qww                501
+48106 /usr/libexec/Per /usr/libexec/PerfPowerServices                                     0.0  4423864   0:01.21 root                 0
+48154 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9223292   0:01.40 qww                501
+49461 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9271520   0:01.31 qww                501
+49982 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9093816   0:01.47 qww                501
+50122 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8936748   0:00.93 qww                501
+50267 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9065688   0:00.79 qww                501
+51349 /System/Library/ /System/Library/CoreServices/CoreServicesUIAgent.app/Contents/Ma   0.0  4458724   0:00.35 qww                501
+52008 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4421076   0:00.47 qww                501
+52480 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.2  9080060   0:01.52 qww                501
+52847 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4417200   0:00.33 qww                501
+53386 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4386212   0:00.15 qww                501
+53944 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4354588   0:00.02 qww                501
+54225 /System/Library/ /System/Library/CoreServices/backupd.bundle/Contents/Resources/b   0.0  4398512   0:00.03 root                 0
+54269 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9085396   0:00.44 qww                501
+54271 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4416396   0:00.19 qww                501
+54294 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9078020   0:00.49 qww                501
+54298 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8874756   0:00.02 qww                501
+28530 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4364420   0:00.03 qww                501
+28531 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4339504   0:00.01 root                 0
+28532 -zsh             -zsh                                                               0.0  4356680   0:00.21 qww                501
+28688 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4372612   0:00.03 qww                501
+28689 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4350768   0:00.01 root                 0
+28690 -zsh             -zsh                                                               0.0  4372040   0:00.12 qww                501
+ 2407 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4356228   0:00.03 qww                501
+ 2416 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4370224   0:00.01 root                 0
+ 2420 -zsh             -zsh                                                               0.0  4372040   0:00.09 qww                501
+ 2412 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4372612   0:00.02 qww                501
+ 2418 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4369200   0:00.01 root                 0
+ 2422 -zsh             -zsh                                                               0.0  4372040   0:00.18 qww                501
+24827 node             node /usr/local/bin/yarn start                                     0.0  4654060   0:01.75 qww                501
+24828 /usr/local/bin/n /usr/local/bin/node /Users/qww/Documents/eazytec/ecoder-web/ecod   0.0  4636048   0:00.10 qww                501
+24829 /usr/local/bin/n /usr/local/bin/node /Users/qww/Documents/eazytec/ecoder-web/ecod   0.0  5968196   0:06.87 qww                501
+ 2415 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4364420   0:00.02 qww                501
+ 2421 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4370224   0:00.01 root                 0
+ 2424 -zsh             -zsh                                                               0.0  4371016   0:00.85 qww                501
+33397 node             node /usr/local/bin/yarn run dev                                   0.0  4656160   0:01.26 qww                501
+33398 /usr/local/bin/n /usr/local/bin/node /Users/qww/Documents/eazytec/ecoder-web/ecod   0.0  4613992   0:00.09 qww                501
+33399 /usr/local/bin/n /usr/local/bin/node --require /Users/qww/Documents/eazytec/ecode   0.0  5793240   0:00.15 qww                501
+33401 /usr/local/bin/n /usr/local/bin/node --require /Users/qww/Documents/eazytec/ecode   0.0  5764012   0:01.09 qww                501
+33402 /usr/local/bin/n /usr/local/bin/node --require /Users/qww/Documents/eazytec/ecode   0.0  5805800   0:01.58 qww                501
+ 7082 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4397188   0:00.04 qww                501
+ 7083 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4340528   0:00.01 root                 0
+ 7084 -zsh             -zsh                                                               0.0  4322888   0:00.19 qww                501
+ 7193 node             node bin/iceworks.js                                               0.0  4673656   0:00.39 qww                501
+ 7194 node             node /Users/qww/.iceworks-server/node_modules/.bin/egg-scripts s   0.0  4606960   0:00.03 qww                501
+ 7195 node             node /Users/qww/.iceworks-server/node_modules/egg-scripts/lib/st   0.0  5667008   0:00.35 qww                501
+ 7196 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5745492   0:04.06 qww                501
+ 7197 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5756548   0:03.19 qww                501
+ 7198 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5751512   0:02.70 qww                501
+ 7199 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5751620   0:02.59 qww                501
+ 7200 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5751116   0:02.46 qww                501
+ 7201 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5751712   0:02.48 qww                501
+ 7202 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5752520   0:02.53 qww                501
+ 7203 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5751604   0:02.50 qww                501
+ 7204 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5752428   0:02.70 qww                501
+ 7205 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5751116   0:02.49 qww                501
+ 7206 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5750088   0:02.55 qww                501
+ 7207 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5750760   0:02.43 qww                501
+ 7208 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5753000   0:02.56 qww                501
+45606 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4347012   0:00.03 qww                501
+45607 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4359984   0:00.01 root                 0
+45609 -zsh             -zsh                                                               0.5  4372104   0:02.67 qww                501
+54411 /bin/bash        /bin/bash ./file.sh                                                0.0  4269684   0:00.00 qww                501
+54415 ps               ps -e -o pid,comm,args,pcpu,rsz,vsz,stime,user,uid                 0.0  4268640   0:00.00 root                 0
+---------------------
+2020-03-04 13:54:42
+  PID COMM             ARGS                                                              %CPU      VSZ     STIME USER               UID
+    1 /sbin/launchd    /sbin/launchd                                                      0.0  4417876   8:50.29 root                 0
+   46 /usr/sbin/syslog /usr/sbin/syslogd                                                  0.0  4395956   0:02.41 root                 0
+   47 /usr/libexec/Use /usr/libexec/UserEventAgent (System)                               0.0  4425432   0:04.69 root                 0
+   50 /System/Library/ /System/Library/PrivateFrameworks/Uninstall.framework/Resources/   0.0  4354040   0:02.74 root                 0
+   51 /usr/libexec/kex /usr/libexec/kextd                                                 0.0  4431496   0:06.78 root                 0
+   52 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Versions/A/Fra   0.0  4540076   1:27.58 root                 0
+   54 /System/Library/ /System/Library/PrivateFrameworks/MediaRemote.framework/Support/   0.0  4424160   0:01.28 root                 0
+   58 /System/Library/ /System/Library/CoreServices/appleeventsd --server                 0.0  4424804   0:01.18 _appleevents        55
+   59 /usr/sbin/system /usr/sbin/systemstats --daemon                                     0.0  4451008   1:09.94 root                 0
+   61 /usr/libexec/con /usr/libexec/configd                                               0.0  4430456   0:10.07 root                 0
+   62 /Library/Applica /Library/Application Support/iStat Menus 6/iStatMenusDaemon        0.0  4424584   4:07.06 root                 0
+   63 /System/Library/ /System/Library/CoreServices/powerd.bundle/powerd                  0.0  4422364   0:50.72 root                 0
+   66 /usr/libexec/log /usr/libexec/logd                                                  0.0  4535736   0:46.52 root                 0
+   67 /usr/libexec/key /usr/libexec/keybagd -t 15                                         0.0  4334544   0:00.01 root                 0
+   68 /Library/Applica /Library/Application Support/QQMacMgr/QQMacMgrAgent loadBySystem   0.0  4437772   0:13.61 root                 0
+   71 /Library/Applica /Library/Application Support/iStat Menus 6/iStatMenusFans          0.0  4396500   0:04.93 root                 0
+   76 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4891200  22:21.42 root                 0
+   77 /System/Library/ /System/Library/CoreServices/iconservicesd                         0.0  4396436   0:00.03 _iconservices      240
+   78 /usr/libexec/dis /usr/libexec/diskarbitrationd                                      0.0  4421476   0:09.94 root                 0
+   82 /System/Library/ /System/Library/CoreServices/backupd.bundle/Contents/Resources/b   0.0  4422536   0:40.34 root                 0
+   83 /usr/libexec/cor /usr/libexec/coreduetd                                             0.0  4431092   0:01.19 root                 0
+   87 /usr/libexec/ope /usr/libexec/opendirectoryd                                        0.0  4458200   0:13.05 root                 0
+   88 /System/Library/ /System/Library/PrivateFrameworks/ApplePushService.framework/aps   0.0  4429236   0:02.42 root                 0
+   89 /System/Library/ /System/Library/PrivateFrameworks/Noticeboard.framework/Versions   0.0  4353636   0:00.01 root                 0
+   90 /System/Library/ /System/Library/CoreServices/launchservicesd                       0.0  4427088   0:21.21 root                 0
+   91 /usr/libexec/tim /usr/libexec/timed                                                 0.0  4421724   0:01.46 _timed             266
+   92 /usr/sbin/securi /usr/sbin/securityd -i                                             0.0  4425520   0:03.92 root                 0
+   93 /System/Library/ /System/Library/PrivateFrameworks/MobileDevice.framework/Version   0.0  4422300   0:00.21 _usbmuxd           213
+   95 /usr/libexec/loc /usr/libexec/locationd                                             0.0  4428832   0:06.49 _locationd         205
+   97 autofsd          autofsd                                                            0.0  4325740   0:00.01 root                 0
+   98 /usr/libexec/dis /usr/libexec/displaypolicyd -k 1                                   0.0  4398264   0:03.42 _displaypolicyd    244
+   99 /usr/libexec/das /usr/libexec/dasd                                                  0.0  4427552   0:03.50 root                 0
+  103 /System/Library/ /System/Library/CoreServices/loginwindow.app/Contents/MacOS/logi   0.0  5095332   0:08.70 qww                501
+  104 /System/Library/ /System/Library/CoreServices/logind                                0.0  4394928   0:00.09 root                 0
+  105 /System/Library/ /System/Library/PrivateFrameworks/GenerationalStorage.framework/   0.0  4429376   0:00.28 root                 0
+  106 /usr/sbin/Kernel /usr/sbin/KernelEventAgent                                         0.0  4336620   0:00.01 root                 0
+  108 /usr/sbin/blueto /usr/sbin/bluetoothd                                               0.0  4426416   0:04.37 root                 0
+  109 /usr/libexec/hid /usr/libexec/hidd                                                  0.0  4427532  12:03.19 _hidd              261
+  111 /usr/libexec/cor /usr/libexec/corebrightnessd --launchd                             0.0  4425664   0:14.03 root                 0
+  112 /usr/libexec/Air /usr/libexec/AirPlayXPCHelper                                      0.0  4423136   0:01.80 root                 0
+  113 /usr/sbin/notify /usr/sbin/notifyd                                                  0.0  4321812   0:20.75 root                 0
+  118 /usr/sbin/distno /usr/sbin/distnoted daemon                                         0.0  4396008   0:09.19 _distnote          241
+  119 /usr/libexec/amf /usr/libexec/amfid                                                 0.0  4429312   0:00.43 root                 0
+  127 /usr/libexec/sys /usr/libexec/syspolicyd                                            0.0  4430196   0:01.75 root                 0
+  128 /System/Library/ /System/Library/Frameworks/Security.framework/Versions/A/XPCServ   0.0  4425940   0:00.43 root                 0
+  129 /System/Library/ /System/Library/CoreServices/coreservicesd                         0.0  4471624   0:07.51 root                 0
+  130 /usr/sbin/cfpref /usr/sbin/cfprefsd daemon                                          0.0  4395860   0:05.77 root                 0
+  131 aslmanager       aslmanager                                                         0.0  4395632   0:00.11 root                 0
+  160 /System/Library/ /System/Library/PrivateFrameworks/SkyLight.framework/Resources/W   1.2 10293028  71:46.96 _windowserver       88
+  162 /System/Library/ /System/Library/PrivateFrameworks/CoreDuetContext.framework/Reso   0.0  4430644   0:11.97 root                 0
+  165 /usr/libexec/neh /usr/libexec/nehelper                                              0.0  4438792   0:00.77 root                 0
+  170 /System/Library/ /System/Library/Frameworks/PCSC.framework/Versions/A/XPCServices   0.0  4360508   0:00.01 root                 0
+  175 /usr/libexec/tru /usr/libexec/trustd                                                0.0  4440692   0:06.46 root                 0
+  178 /System/Library/ /System/Library/Frameworks/CryptoTokenKit.framework/ctkd -s        0.0  4343280   0:00.01 _ctkd              259
+  179 /usr/sbin/coreau /usr/sbin/coreaudiod                                               0.0  4440892   1:03.72 _coreaudiod        202
+  182 /usr/libexec/sym /usr/libexec/symptomsd                                             0.0  4443044   0:25.20 _networkd           24
+  187 /System/Library/ /System/Library/PrivateFrameworks/WirelessDiagnostics.framework/   0.0  4422672   0:00.53 root                 0
+  199 /System/Library/ /System/Library/Frameworks/CoreAudio.framework/Versions/A/XPCSer   0.0  4422172   0:00.18 _coreaudiod        202
+  200 /usr/sbin/mDNSRe /usr/sbin/mDNSResponder                                            0.0  4425356   0:09.50 _mdnsresponder      65
+  201 /usr/sbin/mDNSRe /usr/sbin/mDNSResponderHelper                                      0.0  4422528   0:03.43 root                 0
+  205 /System/Library/ /System/Library/PrivateFrameworks/CoreSymbolication.framework/co   0.0  4397504   0:00.39 root                 0
+  206 /usr/libexec/nsu /usr/libexec/nsurlsessiond --privileged                            0.0  4439684   0:02.05 _nsurlsessiond     242
+  207 /usr/libexec/mul /usr/libexec/multiversed                                           0.0  4315928   0:00.01 root                 0
+  208 /System/Library/ /System/Library/CryptoTokenKit/com.apple.ifdreader.slotd/Content   0.0  4362088   0:00.04 root                 0
+  209 /usr/libexec/apf /usr/libexec/apfsd                                                 0.0  4378428   0:00.12 root                 0
+  210 /usr/libexec/air /usr/libexec/airportd                                              0.0  4432804   0:19.98 root                 0
+  211 /usr/libexec/usb /usr/libexec/usbd                                                  0.0  4422592   0:00.35 root                 0
+  212 /System/Library/ /System/Library/Frameworks/CoreMediaIO.framework/Resources/VDC.p   0.0  4454500   0:00.29 _cmiodalassistants   262
+  216 /usr/libexec/App /usr/libexec/ApplicationFirewall/socketfilterfw                    0.0  4426460   0:03.89 root                 0
+  217 /System/Library/ /System/Library/PrivateFrameworks/BridgeOSSoftwareUpdate.framewo   0.0  4395420   0:00.33 _softwareupdate    200
+  218 /System/Library/ /System/Library/CoreServices/SubmitDiagInfo server-init            0.0  4422500   0:00.43 root                 0
+  219 /usr/libexec/rtc /usr/libexec/rtcreportingd                                         0.0  4424780   0:01.10 root                 0
+  221 /usr/libexec/lsd /usr/libexec/lsd runAsRoot                                         0.0  4439360   0:01.09 root                 0
+  222 /System/Library/ /System/Library/PrivateFrameworks/CoreAnalytics.framework/Suppor   0.0  4423984   0:02.81 _analyticsd        263
+  227 /usr/libexec/smd /usr/libexec/smd                                                   0.0  4332528   0:00.01 root                 0
+  228 /usr/libexec/wat /usr/libexec/watchdogd                                             0.0  4363660   0:03.05 root                 0
+  230 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/AudioComponent   0.0  4363976   0:00.05 root                 0
+  231 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/XPCServices/co   0.0  4304908   0:00.00 _coreaudiod        202
+  232 /usr/libexec/the /usr/libexec/thermald                                              0.0  4303676   0:00.37 root                 0
+  233 /System/Library/ /System/Library/PrivateFrameworks/TCC.framework/Resources/tccd s   0.0  4442616   0:12.86 root                 0
+  234 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  7934008   7:02.27 root                 0
+  236 /usr/libexec/sec /usr/libexec/secinitd                                              0.0  4423788   0:00.17 root                 0
+  237 /usr/libexec/Tou /usr/libexec/TouchBarServer                                        0.4  4535252   1:15.10 root                 0
+  238 /System/Library/ /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries   0.0  4421244   0:02.22 root                 0
+  239 /usr/libexec/col /usr/libexec/colorsync.displayservices                             0.0  4394856   0:00.23 root                 0
+  240 /usr/libexec/col /usr/libexec/colorsyncd                                            0.0  4395628   0:00.14 root                 0
+  248 /usr/libexec/sys /usr/libexec/sysmond                                               0.0  4394996   0:09.92 root                 0
+  249 /System/Library/ /System/Library/Frameworks/Security.framework/Versions/A/XPCServ   0.0  4399284   0:00.35 root                 0
+  251 /usr/sbin/system /usr/sbin/systemstats --logger-helper /private/var/db/systemstat   0.0  4423324   0:00.51 root                 0
+  253 /usr/libexec/cap /usr/libexec/captiveagent                                          0.0  4423640   0:00.19 _captiveagent      258
+  254 /usr/libexec/boo /usr/libexec/bootinstalld                                          0.0  4322984   0:00.01 root                 0
+  260 /System/Library/ /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/XPCS   0.0  4395360   0:00.05 root                 0
+  264 /System/Library/ /System/Library/CoreServices/sharedfilelistd                       0.0  4422980   0:00.20 root                 0
+  265 /System/Library/ /System/Library/PrivateFrameworks/PerformanceAnalysis.framework/   0.0  4400400   0:05.45 root                 0
+  266 /System/Library/ /System/Library/PrivateFrameworks/ViewBridge.framework/Versions/   0.0  4422584   0:10.38 root                 0
+  267 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0  4396008   0:03.25 root                 0
+  269 /System/Library/ /System/Library/Frameworks/LocalAuthentication.framework/Support   0.0  4422848   0:00.42 root                 0
+  270 /System/Library/ /System/Library/PrivateFrameworks/AccountPolicy.framework/XPCSer   0.0  4387100   0:00.05 root                 0
+  271 /usr/libexec/bio /usr/libexec/biometrickitd --launchd                               0.0  4422944   0:01.26 root                 0
+  272 /usr/libexec/bio /usr/libexec/biokitaggdd                                           0.0  4421876   0:00.13 root                 0
+  273 /System/Library/ /System/Library/Frameworks/CryptoTokenKit.framework/ctkahp.bundl   0.0  4396080   0:00.04 root                 0
+  278 /usr/sbin/system /usr/sbin/systemsoundserverd                                       0.0  4426948   0:00.71 root                 0
+  280 /System/Library/ /System/Library/PrivateFrameworks/AmbientDisplay.framework/Versi   0.0  4423264   0:07.90 root                 0
+  285 /usr/libexec/fin /usr/libexec/findmydeviced                                         0.0  4426196   0:01.53 root                 0
+  287 /usr/libexec/nfc /usr/libexec/nfcd                                                  0.0  4422716   0:00.20 _applepay          260
+  293 /System/Library/ /System/Library/PrivateFrameworks/AuthKit.framework/Versions/A/S   0.0  4426304   0:01.20 root                 0
+  295 /System/Library/ /System/Library/PrivateFrameworks/CoreADI.framework/adid           0.0  4399092   0:00.48 _fpsd              265
+  300 /System/Library/ /System/Library/Frameworks/GSS.framework/Helpers/GSSCred           0.0  4321864   0:00.02 root                 0
+  303 /System/Library/ /System/Library/Frameworks/LocalAuthentication.framework/Support   0.0  4421860   0:00.16 qww                501
+  304 /usr/sbin/cfpref /usr/sbin/cfprefsd agent                                           0.0  4396176   0:13.10 qww                501
+  305 /usr/libexec/sec /usr/libexec/securityd_service                                     0.0  4336052   0:00.01 root                 0
+  306 /usr/libexec/Use /usr/libexec/UserEventAgent (Aqua)                                 0.0  4424764   0:04.94 qww                501
+  308 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0  4396008   0:19.06 qww                501
+  310 /System/Library/ /System/Library/Frameworks/CoreTelephony.framework/Support/CommC   0.0  4436080   0:06.40 qww                501
+  311 /usr/libexec/lsd /usr/libexec/lsd                                                   0.0  4432188   0:01.64 qww                501
+  312 /usr/libexec/tru /usr/libexec/trustd --agent                                        0.0  4440796   0:06.90 qww                501
+  314 /System/Library/ /System/Library/CoreServices/sharedfilelistd                       0.0  4424268   0:00.45 qww                501
+  315 /Applications/Go /Applications/Google Chrome.app/Contents/MacOS/Google Chrome -ps   0.2  6700356  27:02.25 qww                501
+  317 /usr/libexec/sec /usr/libexec/secd                                                  0.0  4431192   0:01.30 qww                501
+  318 /System/Library/ /System/Library/CoreServices/backgroundtaskmanagementagent         0.0  4423548   0:00.20 qww                501
+  319 /usr/sbin/Wirele /usr/sbin/WirelessRadioManagerd                                    0.0  4422540   0:00.59 root                 0
+  320 /System/Library/ /System/Library/PrivateFrameworks/TelephonyUtilities.framework/c   0.0  4431604   0:00.81 qww                501
+  322 /System/Library/ /System/Library/Frameworks/Accounts.framework/Versions/A/Support   0.0  4480708   0:03.08 qww                501
+  323 /System/Library/ /System/Library/PrivateFrameworks/CloudKitDaemon.framework/Suppo   0.0  4448940   0:04.68 qww                501
+  324 /usr/libexec/rap /usr/libexec/rapportd                                              0.0  4423100   0:00.62 qww                501
+  325 /System/Library/ /System/Library/PrivateFrameworks/IDS.framework/identityservices   0.0  4432884   0:00.84 qww                501
+  326 /System/Library/ /System/Library/PrivateFrameworks/IMCore.framework/imagent.app/C   0.0  4423400   0:00.39 qww                501
+  327 /usr/libexec/rou /usr/libexec/routined LAUNCHED_BY_LAUNCHD                          0.0  4431468   0:02.56 qww                501
+  328 /usr/sbin/userno /usr/sbin/usernoted                                                0.0  4434988   0:01.10 qww                501
+  329 /usr/libexec/nsu /usr/libexec/nsurlsessiond                                         0.0  4446424   0:03.25 qww                501
+  330 /System/Library/ /System/Library/CoreServices/ControlStrip.app/Contents/MacOS/Con   0.0  4981696   0:08.64 qww                501
+  331 /usr/libexec/net /usr/libexec/networkserviceproxy                                   0.0  4423572   0:00.09 qww                501
+  332 /System/Library/ /System/Library/PrivateFrameworks/CalendarAgent.framework/Execut   0.0  4465848   0:04.39 qww                501
+  333 /System/Library/ /System/Library/PrivateFrameworks/TCC.framework/Resources/tccd     0.0  4432992   0:00.87 qww                501
+  334 /System/Library/ /System/Library/CoreServices/APFSUserAgent                         0.0  4395396   0:00.05 qww                501
+  335 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Framewo   0.0  4424788   0:06.18 qww                501
+  336 /usr/libexec/sec /usr/libexec/secinitd                                              0.0  4424832   0:00.65 qww                501
+  337 /System/Library/ /System/Library/CoreServices/WiFiAgent.app/Contents/MacOS/WiFiAg   0.0  4564704   0:07.00 qww                501
+  338 /System/Library/ /System/Library/PrivateFrameworks/IMDPersistence.framework/XPCSe   0.0  4422868   0:00.23 qww                501
+  339 /System/Library/ /System/Library/Frameworks/AddressBook.framework/Executables/Con   0.0  4394968   0:00.38 qww                501
+  340 /System/Library/ /System/Library/PrivateFrameworks/AssistantServices.framework/Ve   0.0  4466112   0:03.69 qww                501
+  342 /System/Library/ /System/Library/CoreServices/cloudphotosd.app/Contents/MacOS/clo   0.0  4481228   0:06.51 qww                501
+  344 /usr/libexec/adp /usr/libexec/adprivacyd                                            0.0  4435120   0:01.35 qww                501
+  345 /System/Library/ /System/Library/PrivateFrameworks/Tourist.framework/Versions/A/R   0.0  4433272   0:04.74 qww                501
+  346 /System/Library/ /System/Library/CoreServices/CrashReporterSupportHelper server-i   0.0  4386644   0:00.05 root                 0
+  347 /System/Library/ /System/Library/CoreServices/NotificationCenter.app/Contents/Mac   0.0  5302184   0:07.38 qww                501
+  348 /System/Library/ /System/Library/PrivateFrameworks/CalendarNotification.framework   0.0  4429660   0:01.35 qww                501
+  349 /usr/sbin/wirele /usr/sbin/wirelessproxd                                            0.0  4422892   0:00.35 root                 0
+  351 /System/Library/ /System/Library/PrivateFrameworks/CoreCDP.framework/Versions/A/R   0.0  4394812   0:00.08 qww                501
+  352 /System/Library/ /System/Library/PrivateFrameworks/ProtectedCloudStorage.framewor   0.0  4422308   0:00.17 qww                501
+  353 /System/Library/ /System/Library/Frameworks/Security.framework/Versions/A/Resourc   0.0  4395808   0:00.17 qww                501
+  354 /System/Library/ /System/Library/CoreServices/EscrowSecurityAlert.app/Contents/Ma   0.0  4394972   0:00.08 qww                501
+  355 /System/Library/ /System/Library/CoreServices/Keychain Circle Notification.app/Co   0.0  4450672   0:04.78 qww                501
+  356 /System/Library/ /System/Library/PrivateFrameworks/IMFoundation.framework/XPCServ   0.0  4422896   0:00.24 qww                501
+  357 /System/Library/ /System/Library/PrivateFrameworks/MessagesKit.framework/Resource   0.0  4428668   0:00.32 qww                501
+  358 /System/Library/ /System/Library/PrivateFrameworks/UserActivity.framework/Agents/   0.0  4424180   0:03.85 qww                501
+  359 /usr/libexec/nsu /usr/libexec/nsurlstoraged                                         0.0  4435316   0:01.77 qww                501
+  360 /usr/libexec/sha /usr/libexec/sharingd                                              0.0  4448200   0:10.09 qww                501
+  361 /System/Library/ /System/Library/PrivateFrameworks/MediaRemote.framework/Support/   0.0  4394816   0:00.15 qww                501
+  362 /System/Library/ /System/Library/PrivateFrameworks/FamilyCircle.framework/Version   0.0  4423132   0:00.11 qww                501
+  363 /usr/libexec/fmf /usr/libexec/fmfd                                                  0.0  4430108   0:01.40 qww                501
+  364 /System/Library/ /System/Library/PrivateFrameworks/IMFoundation.framework/XPCServ   0.0  4394776   0:00.06 qww                501
+  365 /System/Library/ /System/Library/PrivateFrameworks/IMFoundation.framework/XPCServ   0.0  4422896   0:00.23 qww                501
+  366 /System/Library/ /System/Library/CoreServices/talagent                              0.0  4485268   0:05.48 qww                501
+  367 /System/Library/ /System/Library/CoreServices/Dock.app/Contents/MacOS/Dock          0.0  5408148   0:35.82 qww                501
+  368 /System/Library/ /System/Library/CoreServices/SystemUIServer.app/Contents/MacOS/S   0.0  5071952   0:24.55 qww                501
+  369 /System/Library/ /System/Library/CoreServices/Finder.app/Contents/MacOS/Finder      0.0  5248052   1:38.83 qww                501
+  373 /System/Library/ /System/Library/PrivateFrameworks/CommerceKit.framework/Versions   0.0  4444420   0:01.75 qww                501
+  375 /System/Library/ /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/Vers   0.0  4424720   0:00.61 qww                501
+  376 /System/Library/ /System/Library/PrivateFrameworks/AuthKit.framework/Versions/A/S   0.0  4437992   0:01.75 qww                501
+  377 /System/Library/ /System/Library/PrivateFrameworks/IMFoundation.framework/XPCServ   0.0  4422896   0:00.24 qww                501
+  378 /System/Library/ /System/Library/PrivateFrameworks/CloudServices.framework/Versio   0.0  4434728   0:01.56 qww                501
+  379 /usr/sbin/fileco /usr/sbin/filecoordinationd                                        0.0  4395808   0:00.29 root                 0
+  380 /usr/libexec/mob /usr/libexec/mobileactivationd                                     0.0  4433144   0:01.40 root                 0
+  381 /usr/libexec/swc /usr/libexec/swcd                                                  0.0  4424156   0:00.20 qww                501
+  382 /usr/libexec/pbo /usr/libexec/pboard                                                0.0  4395896   0:07.07 qww                501
+  383 /System/Library/ /System/Library/PrivateFrameworks/CoreParsec.framework/parsecd     0.0  4435884   0:02.15 qww                501
+  385 /usr/libexec/pkd /usr/libexec/pkd                                                   0.0  4430244   0:01.53 qww                501
+  387 /System/Library/ /System/Library/CoreServices/SafariSupport.bundle/Contents/MacOS   0.0  4427568   0:14.51 qww                501
+  388 /System/Library/ /System/Library/PrivateFrameworks/ViewBridge.framework/Versions/   0.0  4423308   0:23.89 qww                501
+  389 /System/Library/ /System/Library/Frameworks/InputMethodKit.framework/Resources/im   0.0  4426180   0:03.64 qww                501
+  390 /System/Library/ /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/XPCS   0.0  4422040   0:00.10 qww                501
+  391 /System/Library/ /System/Library/PrivateFrameworks/SafariShared.framework/Version   0.0  4424268   0:00.17 qww                501
+  392 /usr/libexec/mob /usr/libexec/mobileassetd                                          0.0  4432656   0:00.84 root                 0
+  393 /System/Library/ /System/Library/CoreServices/Spotlight.app/Contents/MacOS/Spotli   0.0  5098484   0:08.10 qww                501
+  395 /System/Library/ /System/Library/CoreServices/CoreLocationAgent.app/Contents/MacO   0.0  4454976   0:04.99 qww                501
+  396 /System/Library/ /System/Library/Input Methods/SCIM.app/Contents/PlugIns/SCIM_Ext   0.0  5444196   1:41.65 qww                501
+  397 /System/Library/ /System/Library/PrivateFrameworks/CloudPhotoServices.framework/V   0.0  4451188   0:00.29 qww                501
+  398 /System/Library/ /System/Library/Input Methods/EmojiFunctionRowIM.app/Contents/Pl   0.0  5210664   0:14.98 qww                501
+  399 /System/Library/ /System/Library/Input Methods/PressAndHold.app/Contents/PlugIns/   0.0  4943096   0:06.82 qww                501
+  400 /usr/libexec/nsu /usr/libexec/nsurlstoraged --privileged                            0.0  4388268   0:00.06 _nsurlstoraged     243
+  403 /System/Library/ /System/Library/CoreServices/iconservicesagent                     0.0  4470172   0:08.02 qww                501
+  404 /System/Library/ /System/Library/PrivateFrameworks/GeoServices.framework/Versions   0.0  4449160   0:02.44 qww                501
+  407 /System/Library/ /System/Library/PrivateFrameworks/CoreWLANKit.framework/Versions   0.0  4421924   0:00.40 qww                501
+  408 /System/Library/ /System/Library/PrivateFrameworks/login.framework/Versions/A/XPC   0.0  4378868   0:00.01 qww                501
+  409 /System/Library/ /System/Library/PrivateFrameworks/CharacterPicker.framework/Vers   0.0  4386736   0:00.05 qww                501
+  410 /System/Library/ /System/Library/PrivateFrameworks/CommerceKit.framework/Versions   0.0  4396640   0:00.13 qww                501
+  411 /System/Library/ /System/Library/CoreServices/Dock.app/Contents/XPCServices/com.a   0.0  5041100   0:04.88 qww                501
+  413 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Version   0.0  4395380   0:00.66 qww                501
+  414 /System/Library/ /System/Library/CoreServices/pbs                                   0.0  4430420   0:00.30 qww                501
+  415 /System/Library/ /System/Library/PrivateFrameworks/CallHistory.framework/Support/   0.0  4422132   0:00.11 qww                501
+  416 /usr/libexec/vid /usr/libexec/videosubscriptionsd                                   0.0  4424196   0:00.12 qww                501
+  417 /System/Library/ /System/Library/Services/AppleSpell.service/Contents/MacOS/Apple   0.0  4826324   0:02.08 qww                501
+  418 /usr/libexec/key /usr/libexec/keyboardservicesd                                     0.0  4429540   0:01.31 qww                501
+  420 /System/Library/ /System/Library/PrivateFrameworks/CoreFollowUp.framework/Version   0.0  4395052   0:00.08 qww                501
+  421 /System/Library/ /System/Library/PrivateFrameworks/CoreSuggestions.framework/Vers   0.0  4697340   0:01.92 qww                501
+  422 /System/Library/ /System/Library/PrivateFrameworks/AssetCacheServices.framework/V   0.0  4430084   0:01.38 qww                501
+  423 /usr/libexec/Ass /usr/libexec/AssetCache/AssetCache                                 0.0  4425544   0:00.16 _assetcache        235
+  425 /System/Library/ /System/Library/PrivateFrameworks/AssistantServices.framework/Ve   0.0  4502060   0:00.18 qww                501
+  426 /usr/libexec/Saf /usr/libexec/SafariCloudHistoryPushAgent                           0.0  4422512   0:14.03 qww                501
+  428 /System/Library/ /System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/c   0.0  4482592   0:03.96 qww                501
+  430 /Library/Develop /Library/Developer/PrivateFrameworks/CoreSimulator.framework/Ver   0.0  4943276   0:04.91 qww                501
+  431 /Library/Develop /Library/Developer/PrivateFrameworks/CoreSimulator.framework/Ver   0.0  4941836   0:04.53 qww                501
+  432 /System/Library/ /System/Library/PrivateFrameworks/CommunicationsFilter.framework   0.0  4394860   0:00.10 qww                501
+  433 /System/Library/ /System/Library/Frameworks/iTunesLibrary.framework/Versions/A/XP   0.0  4424216   0:00.21 qww                501
+  435 SafeEjectGPUAgen SafeEjectGPUAgent                                                  0.0  4839728   0:00.00 qww                501
+  436 /System/Library/ /System/Library/CoreServices/Menu Extras/SafeEjectGPUExtra.menu/   0.0  4423392   0:00.09 qww                501
+  439 /System/Library/ /System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/   0.0  4428452   0:01.21 qww                501
+  440 /System/Library/ /System/Library/CoreServices/ScopedBookmarkAgent                   0.0  4424792   0:00.24 qww                501
+  441 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/AudioComponent   0.0  4423828   0:00.12 qww                501
+  443 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/XPCServices/co   0.0  4362512   0:00.01 qww                501
+  445 /usr/libexec/fin /usr/libexec/findmydevice-user-agent                               0.0  4396108   0:00.11 qww                501
+  446 /System/Library/ /System/Library/PrivateFrameworks/ContextKit.framework/Versions/   0.0  4484416   0:00.23 qww                501
+  447 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4806264   0:01.55 qww                501
+  448 /usr/libexec/dpr /usr/libexec/dprivacyd                                             0.0  4427844   0:00.18 root                 0
+  449 /System/Library/ /System/Library/PrivateFrameworks/AssistantServices.framework/Ve   0.0  4502976   0:05.04 qww                501
+  450 /System/Library/ /System/Library/PrivateFrameworks/CoreSpeech.framework/corespeec   0.0  4422520   0:01.11 qww                501
+  452 /System/Library/ /System/Library/CoreServices/SocialPushAgent.app/Contents/MacOS/   0.0  4421512   0:00.12 qww                501
+  455 /usr/libexec/dmd /usr/libexec/dmd                                                   0.0  4422872   0:00.25 qww                501
+  457 /System/Library/ /System/Library/Image Capture/Support/icdd                         0.0  4422868   0:00.22 qww                501
+  458 /usr/local/Cella /usr/local/Cellar/watchman/4.9.0/libexec/bin/watchman --foregrou   0.0  4385984   0:01.32 qww                501
+  459 /Library/Applica /Library/Application Support/iStat Menus 6/iStatMenusAgent.app/C   0.0  4460480   0:05.81 qww                501
+  461 /Library/Applica /Library/Application Support/Adobe/AdobeGCClient/AGMService -mod   0.0  4425388   0:00.53 qww                501
+  462 /System/Library/ /System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/A   0.0  4950328   0:05.37 qww                501
+  464 /usr/libexec/kno /usr/libexec/knowledge-agent                                       0.0  4436612   0:00.98 qww                501
+  465 /System/Library/ /System/Library/CoreServices/cloudpaird                            0.0  4423296   0:00.42 qww                501
+  468 /System/Library/ /System/Library/PrivateFrameworks/Noticeboard.framework/Versions   0.0  4454408   0:04.98 qww                501
+  469 /Library/Applica /Library/Application Support/iStat Menus 6/iStat Menus Status.ap   0.2  4590056   9:49.61 qww                501
+  470 /System/Library/ /System/Library/CoreServices/diagnostics_agent                     0.0  4427156   0:01.05 qww                501
+  473 /System/Library/ /System/Library/Frameworks/CryptoTokenKit.framework/ctkahp.bundl   0.0  4396200   0:00.07 qww                501
+  474 /usr/libexec/tas /usr/libexec/taskgated                                             0.0  4424312   0:06.42 root                 0
+  475 /System/Library/ /System/Library/CoreServices/Menu Extras/TextInput.menu/Contents   0.0  4544248   0:05.64 qww                501
+  476 /System/Library/ /System/Library/Frameworks/CryptoTokenKit.framework/ctkd -tw       0.0  4396636   0:00.06 qww                501
+  477 /Applications/QQ /Applications/QQMacMgr.app/Contents/Frameworks/QQMacMgrMonitor.a   0.0  5081740   1:09.72 qww                501
+  481 /usr/libexec/dmd /usr/libexec/dmd                                                   0.0  4422828   0:00.16 root                 0
+  482 /System/Library/ /System/Library/CoreServices/iconservicesagent runAsRoot           0.0  4439524   0:01.06 root                 0
+  486 /System/Library/ /System/Library/PrivateFrameworks/CacheDelete.framework/deleted    0.0  4425600   0:26.46 qww                501
+  490 /System/Library/ /System/Library/Frameworks/iTunesLibrary.framework/Versions/A/XP   0.0  4424216   0:00.20 qww                501
+  493 /usr/libexec/log /usr/libexec/loginitemregisterd                                    0.0  4395908   0:00.06 qww                501
+  539 /System/Library/ /System/Library/CoreServices/Software Update.app/Contents/Resour   0.0  4371508   0:00.07 qww                501
+  541 /System/Library/ /System/Library/CoreServices/Software Update.app/Contents/Resour   0.0  4428472   0:00.31 _softwareupdate    200
+  542 /System/Library/ /System/Library/CoreServices/Software Update.app/Contents/Resour   0.0  4362360   0:00.04 root                 0
+  543 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Framewo   0.0  4423628   0:00.10 _atsserver          97
+  547 /usr/libexec/sir /usr/libexec/siriknowledged                                        0.0  4422236   0:00.15 qww                501
+  548 /System/Library/ /System/Library/PrivateFrameworks/FMClient.framework/Versions/A/   0.0  4405656   0:00.12 qww                501
+  552 /usr/libexec/tru /usr/libexec/trustd --agent                                        0.0  4425912   0:00.16 _spotlight          89
+  560 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0  4396008   0:03.23 _spotlight          89
+  582 /usr/sbin/spindu /usr/sbin/spindump                                                 0.0  4465316   0:02.65 root                 0
+  583 /usr/libexec/spi /usr/libexec/spindump_agent                                        0.0  4396000   0:00.08 qww                501
+  606 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Framewo   0.0  4447912   0:00.32 qww                501
+  651 /System/Library/ /System/Library/CoreServices/ReportCrash agent                     0.0  4434104   0:01.59 qww                501
+  704 /System/Library/ /System/Library/Frameworks/LocalAuthentication.framework/Support   0.0  5032980   0:05.26 qww                501
+  705 /usr/libexec/USB /usr/libexec/USBAgent                                              0.0  4388256   0:00.05 qww                501
+  719 /System/Library/ /System/Library/CoreServices/PowerChime.app/Contents/MacOS/Power   0.0  4541160   0:05.76 qww                501
+  721 /System/Library/ /System/Library/CoreServices/ReportCrash daemon                    0.0  4353456   0:00.01 root                 0
+  738 /System/Library/ /System/Library/PrivateFrameworks/AppStoreDaemon.framework/Suppo   0.0  4438464   0:03.38 qww                501
+  739 /System/Library/ /System/Library/PrivateFrameworks/CommerceKit.framework/Versions   0.0  4432072   0:00.12 qww                501
+  740 /System/Library/ /System/Library/PrivateFrameworks/CommerceKit.framework/Versions   0.0  4432628   0:01.21 qww                501
+  741 /System/Library/ /System/Library/PrivateFrameworks/AssistantServices.framework/Ve   0.0  4406496   0:00.08 qww                501
+  746 /System/Library/ /System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versio   0.0  4421472   0:00.16 qww                501
+  752 /System/Library/ /System/Library/CoreServices/mapspushd                             0.0  4424372   0:00.32 qww                501
+  755 /System/Library/ /System/Library/PrivateFrameworks/UsageTracking.framework/Versio   0.0  4422640   0:00.12 qww                501
+  757 /usr/libexec/per /usr/libexec/periodic-wrapper daily                                0.0  4326608   0:00.01 root                 0
+  758 /System/Library/ /System/Library/PrivateFrameworks/QuickLookThumbnailing.framewor   0.0  4413500   0:00.07 qww                501
+  822 /usr/libexec/sil /usr/libexec/silhouette                                            0.0  4388284   0:00.10 qww                501
+  826 /System/Library/ /System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/   0.0  4451780   0:00.14 qww                501
+  828 /usr/bin/sysdiag /usr/bin/sysdiagnose                                               0.0  4423408   0:00.09 root                 0
+  833 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4423604   0:03.02 qww                501
+  978 /System/Library/ /System/Library/PrivateFrameworks/IMDPersistence.framework/IMAut   0.0  4422360   0:00.16 qww                501
+ 1400 /usr/libexec/gam /usr/libexec/gamecontrollerd                                       0.0  4395480   0:03.98 _gamecontrollerd   247
+ 1402 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  4381732   0:00.07 qww                501
+ 1405 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  6084832  18:47.84 qww                501
+ 1407 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  4693524   2:54.15 qww                501
+ 1409 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  4429764   0:00.09 qww                501
+ 1410 /System/Library/ /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPC   0.0  4432684   0:01.40 qww                501
+ 1415 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8934868   0:01.08 qww                501
+ 1422 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8937596   0:00.84 qww                501
+ 1423 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9101392   0:03.99 qww                501
+ 1424 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8935892   0:09.05 qww                501
+ 1425 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8939996   0:01.80 qww                501
+ 1426 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9066936   0:01.61 qww                501
+ 1427 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8931756   0:00.57 qww                501
+ 1465 /System/Library/ /System/Library/Frameworks/Metal.framework/Versions/A/XPCService   0.0  4861580   0:00.06 qww                501
+ 1466 /System/Library/ /System/Library/Frameworks/Metal.framework/Versions/A/XPCService   0.0  4822664   0:00.01 qww                501
+ 2165 /System/Library/ /System/Library/PreferencePanes/Displays.prefPane/Contents/Resou   0.0  4572416   0:04.45 qww                501
+ 2186 /usr/libexec/ass /usr/libexec/assertiond                                            0.0  4395120   0:00.23 qww                501
+ 2194 /System/Library/ /System/Library/CoreServices/OSDUIHelper.app/Contents/MacOS/OSDU   0.0  4969984   0:05.31 qww                501
+ 2253 /System/Library/ /System/Library/PrivateFrameworks/KerberosHelper/Helpers/DiskUnm   0.0  4326608   0:00.01 qww                501
+ 2265 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChat                     0.4  5945500   7:11.05 qww                501
+ 2271 /Applications/So /Applications/Sourcetree.app/Contents/MacOS/Sourcetree             0.0  7632280   0:56.04 qww                501
+ 2394 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2                      6.0  5920452   3:17.33 qww                501
+ 2698 /Applications/Di /Applications/DingTalk.app/Contents/MacOS/DingTalk                 0.0  5870516   4:13.07 qww                501
+ 2699 /Applications/Di /Applications/DingTalk.app/Contents/Frameworks/DingTalk Helper.a   0.0  4774176   0:03.59 qww                501
+ 2700 /System/Library/ /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPC   0.0  4423972   0:00.09 qww                501
+ 2706 /Applications/Di /Applications/DingTalk.app/Contents/Frameworks/DingTalk Helper.a   0.5  5144904   0:58.58 qww                501
+ 2707 /Applications/Di /Applications/DingTalk.app/Contents/Frameworks/DingTalk Helper.a   1.0  5096704   3:28.25 qww                501
+ 2710 /Applications/QQ /Applications/QQ.app/Contents/MacOS/QQ                             3.0  6573636  19:30.97 qww                501
+ 2713 /Applications/QQ /Applications/QQ.app/Contents/Library/LoginItems/QQ jietu plugin   0.0  4968392   0:32.14 qww                501
+ 2714 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/XPCServices/co   0.0  4322316   0:00.01 qww                501
+ 2788 /Applications/Vi /Applications/Visual Studio Code.app/Contents/MacOS/Electron       0.0  5805652  11:06.80 qww                501
+ 2789 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4422728   0:00.14 qww                501
+ 2790 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5430372   8:56.88 qww                501
+ 2791 /System/Library/ /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPC   0.0  4423972   0:00.09 qww                501
+ 2792 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5694348   1:30.70 qww                501
+ 2793 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6010512   4:40.35 qww                501
+ 2815 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Electro   0.0  4365320   0:00.05 qww                501
+ 2819 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4812072   2:48.08 qww                501
+ 2849 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5028744   0:39.22 qww                501
+ 3209 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Framewo   0.0  4467336   0:05.97 qww                501
+ 3303 /System/Library/ /System/Library/PrivateFrameworks/FileProvider.framework/Support   0.0  4395900   0:00.13 qww                501
+ 3306 /System/Library/ /System/Library/Frameworks/Metal.framework/Versions/A/XPCService   0.0  4851496   0:00.07 qww                501
+ 3307 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5732336   7:00.92 qww                501
+ 3335 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4799620   0:01.33 qww                501
+ 3337 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4810832   2:34.45 qww                501
+ 3939 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He  11.8  6252784   3:15.11 qww                501
+ 3940 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.7  5822300   8:41.52 qww                501
+ 3941 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4824220   3:39.06 qww                501
+ 6064 /System/Library/ /System/Library/Frameworks/MediaAccessibility.framework/Versions   0.0  4395372   0:00.06 qww                501
+ 6065 /System/Library/ /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPC   0.0  4463168   0:03.52 qww                501
+ 6164 /System/Library/ /System/Library/PrivateFrameworks/PackageKit.framework/Resources   0.0  4395420   0:00.06 root                 0
+ 6165 /System/Library/ /System/Library/PrivateFrameworks/PackageKit.framework/Resources   0.0  4421940   0:00.07 root                 0
+ 6171 /System/Library/ /System/Library/Frameworks/MediaLibrary.framework/Versions/A/XPC   0.0  4449488   0:00.44 qww                501
+ 6243 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4816256   0:02.41 qww                501
+ 6244 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4833492   0:01.23 qww                501
+ 6313 /System/Library/ /System/Library/PrivateFrameworks/PassKitCore.framework/passd      0.0  4433880   0:01.48 qww                501
+ 6314 /usr/libexec/sel /usr/libexec/seld                                                  0.0  4421604   0:00.11 _applepay          260
+ 6688 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8946008   0:03.56 qww                501
+ 6690 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8973944   0:03.16 qww                501
+ 6693 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9383604   0:13.30 qww                501
+ 6708 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4787620   0:06.04 qww                501
+ 6709 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5292728   5:18.96 qww                501
+ 6710 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4836436   1:31.64 qww                501
+ 6712 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4855540   0:04.38 qww                501
+ 7160 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9318128   0:14.83 qww                501
+ 7347 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9208060   0:22.27 qww                501
+ 7468 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8950808   0:10.18 qww                501
+ 7480 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8940104   0:11.41 qww                501
+ 7481 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8941060   0:12.23 qww                501
+ 7482 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9144016   0:11.35 qww                501
+ 7498 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  4641564   0:07.50 qww                501
+ 7499 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/XPCServices/co   0.0  4332556   0:00.01 qww                501
+10854 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9119684   0:10.22 qww                501
+11223 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9123296   0:10.91 qww                501
+12034 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9116676   0:10.60 qww                501
+12151 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9350392   0:10.54 qww                501
+12246 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9139108   0:14.39 qww                501
+12303 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5898712   0:00.62 qww                501
+12330 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5943884   0:00.77 qww                501
+12341 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5957080   0:01.21 qww                501
+12780 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9139888   0:23.76 qww                501
+13307 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9264788   0:09.12 qww                501
+14446 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6013816   0:01.20 qww                501
+14736 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4837088   0:01.10 qww                501
+15663 /System/Library/ /System/Library/CoreServices/ControlStrip.app/Contents/XPCServic   0.0  4394992   0:00.12 qww                501
+15665 /System/Library/ /System/Library/PrivateFrameworks/AssistantServices.framework/Ve   0.0  4406276   0:00.05 qww                501
+15902 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5881368   0:00.37 qww                501
+16261 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5948556   0:00.71 qww                501
+16305 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6071552   0:00.99 qww                501
+16583 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4782296   0:03.61 qww                501
+16584 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5037452   1:28.15 qww                501
+16587 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4810248   1:10.34 qww                501
+17014 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4789608   0:01.01 qww                501
+17188 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4791716   0:01.07 qww                501
+17360 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 13505996   0:13.35 qww                501
+18636 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6016216   0:01.88 qww                501
+18693 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6015984   0:01.82 qww                501
+19056 /Applications/QQ /Applications/QQLive.app/Contents/MacOS/QQLive                     0.0  7093584   9:23.80 qww                501
+19079 /System/Library/ /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServic   0.0  4448436   0:04.41 qww                501
+19854 /System/Library/ /System/Library/CoreServices/Siri.app/Contents/MacOS/Siri launch   0.0  4454748   0:11.85 qww                501
+19860 /System/Library/ /System/Library/CoreServices/Siri.app/Contents/XPCServices/SiriN   0.0  5091328   0:09.29 qww                501
+20239 /System/Library/ /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPC   0.0  4430964   0:00.19 qww                501
+20490 /usr/libexec/app /usr/libexec/applessdstatistics                                    0.0  4340692   0:00.01 root                 0
+21132 /Applications/Di /Applications/DingTalk.app/Contents/Frameworks/DingTalk Helper.a   0.0  5084328   0:01.12 qww                501
+21496 /Applications/Su /Applications/Sublime Text.app/Contents/MacOS/Sublime Text         0.0  5236348   0:11.80 qww                501
+21497 /Applications/Su /Applications/Sublime Text.app/Contents/MacOS/plugin_host 21496    0.0  5096044   0:01.15 qww                501
+21637 /usr/local/bin/n /usr/local/bin/node /Users/qww/Library/Application Support/Subli   0.0  4617212   0:00.04 qww                501
+21815 /Applications/La /Applications/Lantern.app/Contents/MacOS/lantern                  33.6  5033908  39:36.35 qww                501
+21816 /Applications/La /Applications/Lantern.app/Contents/MacOS/lantern                  28.9  4858812  37:14.94 qww                501
+21820 /Users/qww/Libra /Users/qww/Library/Application Support/byteexec/sysproxy-cmd wai   0.0  4277220   0:00.01 root                 0
+21948 /usr/libexec/stu /usr/libexec/studentd                                              0.0  4469344   0:03.00 qww                501
+23761 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9081512   0:06.10 qww                501
+23822 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9298864   0:11.98 qww                501
+23950 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9440248   0:21.80 qww                501
+25085 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6038108   0:01.32 qww                501
+26126 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9080800   0:54.97 qww                501
+26191 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 13556604   0:09.75 qww                501
+26216 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9246852   0:04.57 qww                501
+26409 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9086428   0:04.56 qww                501
+26437 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9096716   0:06.04 qww                501
+26679 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5905116   0:00.57 qww                501
+28451 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 13616212   0:07.83 qww                501
+30232 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9112364   0:04.09 qww                501
+30249 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9271664   0:06.07 qww                501
+30313 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9078948   0:03.80 qww                501
+32892 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9075556   0:03.69 qww                501
+33103 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9122324   0:04.52 qww                501
+33106 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9301184   0:04.53 qww                501
+35232 /System/Library/ /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServic   0.0 106675292   0:03.11 qww                501
+35347 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4418012   0:00.07 _spotlight          89
+36289 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6079640   0:01.34 qww                501
+38973 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5892460   0:00.44 qww                501
+40062 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5839316   0:00.18 qww                501
+40202 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  6051884   0:00.77 qww                501
+40344 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4437312   0:03.35 qww                501
+40345 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4437980   0:03.56 qww                501
+40593 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8930732   0:00.14 qww                501
+40940 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  4755164   0:00.28 qww                501
+43634 /usr/bin/ssh-age /usr/bin/ssh-agent -l                                              0.0  4292464   0:00.02 qww                501
+43689 /usr/libexec/san /usr/libexec/sandboxd                                              0.0  4424868   0:00.93 root                 0
+43769 /usr/sbin/netbio /usr/sbin/netbiosd                                                 0.0  4396944   0:00.20 _netbios           222
+46253 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5830644   0:00.21 qww                501
+46254 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5839924   0:00.22 qww                501
+46255 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5831908   0:00.17 qww                501
+47333 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0  5839224   0:00.12 qww                501
+48106 /usr/libexec/Per /usr/libexec/PerfPowerServices                                     0.0  4424912   0:01.24 root                 0
+48154 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9223292   0:01.40 qww                501
+49461 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9271520   0:01.32 qww                501
+49982 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9102020   0:01.47 qww                501
+50122 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8936748   0:00.93 qww                501
+50267 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9065688   0:00.79 qww                501
+51349 /System/Library/ /System/Library/CoreServices/CoreServicesUIAgent.app/Contents/Ma   0.0  4458724   0:00.35 qww                501
+52008 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4421076   0:00.47 qww                501
+52480 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.1  9080060   0:01.53 qww                501
+52847 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4417200   0:00.33 qww                501
+53386 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4386228   0:00.15 qww                501
+53944 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4354588   0:00.02 qww                501
+54269 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9085396   0:00.44 qww                501
+54271 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0  4416396   0:00.20 qww                501
+54294 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  9078020   0:00.49 qww                501
+54298 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0  8874756   0:00.02 qww                501
+54464 /System/Library/ /System/Library/CoreServices/backupd.bundle/Contents/Resources/b   0.0  4343600   0:00.01 root                 0
+28530 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4364420   0:00.03 qww                501
+28531 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4339504   0:00.01 root                 0
+28532 -zsh             -zsh                                                               0.0  4356680   0:00.21 qww                501
+28688 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4372612   0:00.03 qww                501
+28689 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4350768   0:00.01 root                 0
+28690 -zsh             -zsh                                                               0.0  4372040   0:00.12 qww                501
+ 2407 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4356228   0:00.03 qww                501
+ 2416 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4370224   0:00.01 root                 0
+ 2420 -zsh             -zsh                                                               0.0  4372040   0:00.09 qww                501
+ 2412 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4372612   0:00.02 qww                501
+ 2418 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4369200   0:00.01 root                 0
+ 2422 -zsh             -zsh                                                               0.0  4372040   0:00.18 qww                501
+24827 node             node /usr/local/bin/yarn start                                     0.0  4654060   0:01.75 qww                501
+24828 /usr/local/bin/n /usr/local/bin/node /Users/qww/Documents/eazytec/ecoder-web/ecod   0.0  4636048   0:00.10 qww                501
+24829 /usr/local/bin/n /usr/local/bin/node /Users/qww/Documents/eazytec/ecoder-web/ecod   0.0  5968196   0:06.87 qww                501
+ 2415 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4364420   0:00.02 qww                501
+ 2421 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4370224   0:00.01 root                 0
+ 2424 -zsh             -zsh                                                               0.0  4371016   0:00.85 qww                501
+33397 node             node /usr/local/bin/yarn run dev                                   0.0  4656160   0:01.26 qww                501
+33398 /usr/local/bin/n /usr/local/bin/node /Users/qww/Documents/eazytec/ecoder-web/ecod   0.0  4613992   0:00.09 qww                501
+33399 /usr/local/bin/n /usr/local/bin/node --require /Users/qww/Documents/eazytec/ecode   0.0  5793240   0:00.15 qww                501
+33401 /usr/local/bin/n /usr/local/bin/node --require /Users/qww/Documents/eazytec/ecode   0.0  5764012   0:01.09 qww                501
+33402 /usr/local/bin/n /usr/local/bin/node --require /Users/qww/Documents/eazytec/ecode   0.0  5805800   0:01.58 qww                501
+ 7082 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4397188   0:00.04 qww                501
+ 7083 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4340528   0:00.01 root                 0
+ 7084 -zsh             -zsh                                                               0.0  4322888   0:00.19 qww                501
+ 7193 node             node bin/iceworks.js                                               0.0  4673656   0:00.39 qww                501
+ 7194 node             node /Users/qww/.iceworks-server/node_modules/.bin/egg-scripts s   0.0  4606960   0:00.03 qww                501
+ 7195 node             node /Users/qww/.iceworks-server/node_modules/egg-scripts/lib/st   0.0  5667008   0:00.35 qww                501
+ 7196 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5745492   0:04.06 qww                501
+ 7197 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5756548   0:03.19 qww                501
+ 7198 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5751512   0:02.70 qww                501
+ 7199 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5751620   0:02.60 qww                501
+ 7200 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5751116   0:02.46 qww                501
+ 7201 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5751712   0:02.49 qww                501
+ 7202 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5752520   0:02.53 qww                501
+ 7203 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5751604   0:02.50 qww                501
+ 7204 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5752428   0:02.70 qww                501
+ 7205 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5751116   0:02.49 qww                501
+ 7206 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5750088   0:02.55 qww                501
+ 7207 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5750760   0:02.43 qww                501
+ 7208 /usr/local/bin/n /usr/local/bin/node /Users/qww/.iceworks-server/node_modules/egg   0.0  5753000   0:02.56 qww                501
+45606 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2 --server /usr/bin/   0.0  4347012   0:00.03 qww                501
+45607 /usr/bin/login   /usr/bin/login -fpl qww /Applications/iTerm.app/Contents/MacOS/i   0.0  4359984   0:00.01 root                 0
+45609 -zsh             -zsh                                                               0.1  4372104   0:02.67 qww                501
+54474 /bin/bash        /bin/bash ./file.sh                                                0.0  4270708   0:00.00 qww                501
+54478 ps               ps -e -o pid,comm,args,pcpu,vsz,stime,user,uid                     0.0  4268640   0:00.00 root                 0
+---------------------

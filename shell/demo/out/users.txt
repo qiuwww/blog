@@ -1,0 +1,9 @@
+qww      console  Mar  1 13:12 
+qww      ttys000  Mar  3 15:21 
+qww      ttys001  Mar  3 15:21 
+qww      ttys002  Mar  2 09:19 
+qww      ttys003  Mar  2 09:19 
+qww      ttys004  Mar  2 09:19 
+qww      ttys005  Mar  2 14:03 
+qww      ttys006  Mar  4 09:29 
+qiu
