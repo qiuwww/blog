@@ -1,0 +1,9 @@
+--查询明日图书表中所有图书信息
+SELECT ISBN,bookname,writer,price,intime FROM bookinfo ORDER BY ISBN;
+--把长日期格式数据转化为短日期格式数据
+SELECT ISBN,bookname, CONVERT(char(10),intime,120) AS 数据录入日期 
+FROM bookinfo ORDER BY ISBN;
+--将日期格式中的“-”转化为“/”
+SELECT ISBN,bookname, REPLACE(CONVERT(char(10),intime,120),'-','/') 
+AS 数据录入日期 
+FROM bookinfo ORDER BY ISBN;

@@ -1,0 +1,2 @@
+SELECT TOP 5 goods_name,market_price
+FROM goods; 

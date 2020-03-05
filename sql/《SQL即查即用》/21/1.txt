@@ -1,0 +1,2 @@
+DECLARE cur_goods CURSOR FOR
+SELECT * FROM goods

@@ -1,0 +1,4 @@
+SELECT * FROM tb_name;
+SELECT *
+FROM tb_name
+ORDER BY LEFT(name, 1) COLLATE Chinese_PRC_CS_AS_KS_WS DESC;

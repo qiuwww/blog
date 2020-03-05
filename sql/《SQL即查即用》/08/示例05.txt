@@ -1,0 +1,2 @@
+SELECT TOP 6 address_id,LTRIM(consignee) AS consignee 
+FROM user_address;

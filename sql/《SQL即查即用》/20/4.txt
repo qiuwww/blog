@@ -1,0 +1,7 @@
+ALTER PROCEDURE CRE_PRO
+AS
+SELECT name,cat_name,cat_id
+FROM brand
+WHERE cat_name='运动户外'
+
+EXEC CRE_PRO

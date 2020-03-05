@@ -1,0 +1,5 @@
+SELECT * FROM
+(SELECT "goods_id", "goods_name", "shop_price"
+FROM "goods" 
+ORDER BY "shop_price" DESC)
+WHERE rownum <= 3;

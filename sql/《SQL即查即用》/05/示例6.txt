@@ -1,0 +1,5 @@
+SELECT 书号,书名,
+CONVERT(char(10),出版日期,120) 出版日期,
+CONVERT(char(10),下一次出版日期,120) 下一次出版日期,
+DATEDIFF(day,出版日期,下一次出版日期) 两次出版相差的天数
+FROM bookpub;

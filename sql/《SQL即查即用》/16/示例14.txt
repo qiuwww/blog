@@ -1,0 +1,7 @@
+SELECT BookName,Writer,Price,pDate
+FROM bookinfo_zerobasis
+WHERE Price = 69.80
+UNION ALL
+SELECT BookName,Writer,Price,pDate
+FROM bookinfo_zerobasis
+WHERE pDate = '2017Äê9ÔÂ';

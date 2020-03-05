@@ -1,0 +1,3 @@
+SELECT TOP 6 id,name,cat_name
+FROM brand 
+WHERE name LIKE '[^A-Z]%';

@@ -1,0 +1,5 @@
+SELECT * 
+FROM tb_book
+WHERE book_sort NOT IN (
+    SELECT tb_author_department 
+    FROM tb_book_author);

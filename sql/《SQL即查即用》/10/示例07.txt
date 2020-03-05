@@ -1,0 +1,3 @@
+SELECT 编号,ISBN,BookName,Writer FROM (
+SELECT ROW_NUMBER() OVER(ORDER BY ISBN) 编号,ISBN,BookName,Writer
+FROM bookinfo_zerobasis) a WHERE a.编号 BETWEEN 3 AND 6;

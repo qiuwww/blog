@@ -1,0 +1,10 @@
+USE shop
+CREATE TABLE member  --创建会员信息表member
+(
+  会员编号 int,
+  会员名称 varchar(20),
+  /*为“会员性别”列指定了默认值,将默认值设置为“男”*/
+  会员性别 char(2) default '男',
+  会员年龄 int,
+  备注 text
+)

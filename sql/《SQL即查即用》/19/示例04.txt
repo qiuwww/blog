@@ -1,0 +1,7 @@
+CREATE VIEW ZeroBook
+AS
+SELECT ISBN,BookName,Writer,newbook
+FROM bookinfo_zerobasis 
+WHERE newbook IS NOT NULL;
+
+SELECT * FROM ZeroBook;

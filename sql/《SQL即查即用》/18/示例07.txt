@@ -1,0 +1,6 @@
+SELECT * INTO newgoods_type
+FROM goods_type;
+
+DELETE FROM newgoods_type;
+
+SELECT * FROM newgoods_type;

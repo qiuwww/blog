@@ -1,0 +1,6 @@
+CREATE VIEW GoodsPrice
+AS
+SELECT goods_id,goods_name,shop_price
+FROM goods;
+
+SELECT * FROM GoodsPrice;

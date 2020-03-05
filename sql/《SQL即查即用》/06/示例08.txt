@@ -1,0 +1,3 @@
+SELECT cat_id,goods_name,shop_price 
+FROM goods 
+WHERE (NOT cat_id = 191) AND (NOT cat_id = 123);

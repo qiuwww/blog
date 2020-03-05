@@ -1,0 +1,11 @@
+DECLARE add_cur CURSOR            /*声明游标*/
+  FOR
+  SELECT * FROM user_address      /*定义游标结果集*/ 
+OPEN add_cur                         /*打开游标*/
+FETCH NEXT FROM add_cur            /*执行取数操作*/
+  WHILE @@fetch_status = 0         /*判断是否可以继续取数*/
+BEGIN
+  FETCH NEXT FROM add_cur
+END
+CLOSE add_cur                      /*关闭游标*/
+DEALLOCATE add_cur                /*释放游标*/

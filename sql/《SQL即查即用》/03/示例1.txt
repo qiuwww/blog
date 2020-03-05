@@ -1,0 +1,1 @@
+select name + cat_name AS 'Æ·ÅÆÐÅÏ¢' from brand;

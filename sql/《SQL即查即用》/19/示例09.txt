@@ -1,0 +1,13 @@
+CREATE VIEW GoodsStore
+AS
+SELECT goods_id,goods_name,store_count
+FROM goods
+WHERE store_count < 1000
+WITH CHECK OPTION;
+
+SELECT * FROM GoodsStore;
+
+UPDATE GoodsStore
+SET store_count = store_count + 400;
+
+SELECT * FROM GoodsStore;

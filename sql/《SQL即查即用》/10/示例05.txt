@@ -1,0 +1,3 @@
+SELECT (SELECT COUNT(order_id) FROM orderform A
+WHERE A.order_id>=B.order_id) 编号,order_id,order_sn,total_amount
+FROM orderform B ORDER BY 1;

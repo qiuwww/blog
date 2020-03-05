@@ -1,0 +1,3 @@
+DECLARE mycursor CURSOR FOR     /*声明游标*/
+SELECT goods_id,goods_name,store_count FROM goods
+OPEN mycursor                      /*打开游标*/

@@ -1,0 +1,13 @@
+CREATE DATABASE mrkj
+ON 
+(name=mrdat,
+filename='E:\Program Files\MSSQL\Data\mrkj.mdf',
+size=10,
+maxsize=100,
+filegrowth=5)
+log on
+(name='mingrilog',
+filename='E:\Program Files\MSSQL\Data\mrkj.ldf',
+size=8MB,
+maxsize=50MB,
+filegrowth=8MB);

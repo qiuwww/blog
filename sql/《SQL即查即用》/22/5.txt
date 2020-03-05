@@ -1,0 +1,11 @@
+/*开始事务*/
+BEGIN TRANSACTION
+/*设置事务保存点*/
+SAVE TRANSACTION SavePoint
+INSERT INTO bookpub (书号,书名) VALUES(8,'零基础学Oracle');
+SELECT 书号,书名,作者 FROM bookpub;
+
+
+
+ROLLBACK TRANSACTION SavePoint
+SELECT 书号,书名,作者 FROM bookpub;

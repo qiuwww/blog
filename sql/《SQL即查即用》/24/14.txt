@@ -1,0 +1,2 @@
+--stu、teacher、shopping这三个数据表
+DROP TABLE stu,teacher,shopping

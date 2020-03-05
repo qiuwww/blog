@@ -1,0 +1,2 @@
+SELECT user_id,email,NULLIF(nickname,'Andy') AS nickname 
+FROM users;

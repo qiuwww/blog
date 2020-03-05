@@ -1,0 +1,5 @@
+SELECT cat_id, brand_id, MIN(shop_price) 最低售价,
+MAX(cost_price) 最高成本价 ,AVG(shop_price) 平均售价, COUNT(*) AS 个数
+FROM goods
+GROUP BY cat_id, brand_id
+ORDER BY MAX(cost_price) DESC;

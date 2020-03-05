@@ -1,0 +1,6 @@
+CREATE TABLE newbrand AS
+SELECT id,name,cat_name
+FROM brand WHERE cat_name='手机、数码、配件';
+
+SELECT id,name,cat_name 
+FROM newbrand;

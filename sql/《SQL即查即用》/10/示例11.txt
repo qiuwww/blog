@@ -1,0 +1,2 @@
+SELECT user_id,email,ISNULL(nickname) AS nickname 
+FROM users;

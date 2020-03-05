@@ -1,0 +1,15 @@
+SELECT cat_id,goods_name,shop_price
+FROM goods
+WHERE cat_id IN (123,131);
+
+SELECT cat_id,goods_name,shop_price
+FROM goods
+WHERE goods_name LIKE '%华为%';
+
+SELECT cat_id,goods_name,shop_price
+FROM goods
+WHERE cat_id IN (123,131)
+UNION
+SELECT cat_id,goods_name,shop_price
+FROM goods
+WHERE goods_name LIKE '%华为%';

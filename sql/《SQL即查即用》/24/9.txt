@@ -1,0 +1,2 @@
+--在学生信息表student中，将“学号”字段设置为主键
+ALTER TABLE student ADD PRIMARY KEY(学号)

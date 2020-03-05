@@ -1,0 +1,1 @@
+DROP DATABASE mr01,mrsoft

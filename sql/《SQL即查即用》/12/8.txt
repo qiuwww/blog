@@ -1,0 +1,3 @@
+SELECT user_id,email, CONVERT(char(10),birthday,120) birthday,total_amount
+FROM users WHERE (birthday BETWEEN '1985-01-01' AND '1990-12-31') 
+AND (total_amount > (SELECT AVG(total_amount) FROM users));

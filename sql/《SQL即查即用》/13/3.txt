@@ -1,0 +1,4 @@
+SELECT 收货地址, 联系方式
+FROM (SELECT '收货人：'+ consignee + ' 的地址为: ' + address  AS 收货地址, 
+      '联系电话为：' + mobile  AS 联系方式 FROM user_address) a
+GROUP BY 收货地址, 联系方式;

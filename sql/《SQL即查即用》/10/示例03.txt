@@ -1,0 +1,1 @@
+SELECT goods_id,cat_id,goods_name FROM goods ORDER BY RAND() LIMIT 1;

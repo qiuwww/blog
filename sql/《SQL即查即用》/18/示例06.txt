@@ -1,0 +1,5 @@
+DELETE FROM brand
+WHERE name IN ('台电/Teclast','酷开/Coocaa','海力/horion');
+
+SELECT * FROM brand 
+WHERE name IN ('台电/Teclast','酷开/Coocaa','海力/horion');

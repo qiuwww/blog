@@ -1,0 +1,3 @@
+SELECT AVG(shop_price) AS 平均售价
+FROM goods
+GROUP BY cat_id;

@@ -1,0 +1,4 @@
+SELECT cat_id, COUNT(cat_id) AS 商品个数
+FROM goods
+GROUP BY cat_id
+ORDER BY 商品个数 DESC;

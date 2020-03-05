@@ -1,0 +1,2 @@
+SELECT TOP 1 goods_id,cat_id,goods_name FROM goods order by NEWID();
+SELECT TOP 1 goods_id,cat_id,goods_name FROM goods order by NEWID();

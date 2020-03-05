@@ -1,0 +1,3 @@
+SELECT goods_name,market_price AS 市场价,cost_price AS 成本价,
+(market_price - cost_price) AS 商品盈利 
+FROM goods;

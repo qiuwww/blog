@@ -1,0 +1,11 @@
+INSERT INTO brand
+(id,name,logo,describe,url,sort,cat_name,parent_cat_id,cat_id,is_hot)
+VALUES
+(350,'海力/horion',
+'/Public/upload/brand/2016/04-01/351396632.jpg','',
+'',50,'手机、数码、配件',1,1,0),
+(351,'长虹/CHANGHONG',
+'/Public/upload/brand/2016/04-01/352366226.jpg','',
+'',50,'手机、数码、配件',1,1,0);
+
+SELECT * FROM brand; 

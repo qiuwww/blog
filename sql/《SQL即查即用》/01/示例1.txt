@@ -1,0 +1,3 @@
+/*使用select关键字查询商品表goods，
+并且使用order by关键字按照“商品编号”的降序排列该中的相关信息*/
+SELECT * FROM goods ORDER BY goods_id DESC; 

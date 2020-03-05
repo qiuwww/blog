@@ -1,0 +1,3 @@
+SELECT goods_id,goods_name,sales_sum 
+FROM goods 
+WHERE sales_sum >= 5;

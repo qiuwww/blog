@@ -1,0 +1,3 @@
+SELECT a.goods_id,a.goods_name,b.name brand,c.name type
+FROM goods a,brand b,goods_type c 
+WHERE a.brand_id=b.id AND a.goods_type=c.id;

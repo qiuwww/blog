@@ -1,0 +1,6 @@
+UPDATE brand 
+SET cat_name = '手机、数码、配件' 
+WHERE name = '台电/Teclast';
+
+SELECT * FROM brand 
+WHERE name = '台电/Teclast';

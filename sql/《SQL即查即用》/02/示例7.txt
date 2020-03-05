@@ -1,0 +1,2 @@
+SELECT MAX(market_price) AS "市场价最高",MIN(market_price) AS "市场价最低" 
+FROM goods; 

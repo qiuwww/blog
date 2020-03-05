@@ -1,0 +1,7 @@
+INSERT INTO brand
+(id,name,logo,describe,url,cat_name)
+VALUES(349,'酷开/Coocaa',
+'/Public/upload/brand/2016/04-01/350396326.jpg','酷开网络科技',
+'www.coocaa.com','手机、数码、配件');
+
+SELECT * FROM brand; 

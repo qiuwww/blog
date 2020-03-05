@@ -1,0 +1,3 @@
+SELECT goods_name,market_price,shop_price 
+FROM goods 
+WHERE 3899 IN (market_price,shop_price);

@@ -1,0 +1,3 @@
+SELECT goods_id AS 商品ID,goods_name AS 商品名称,
+(shop_price - cost_price) AS 销售利润 
+FROM goods;

@@ -1,0 +1,9 @@
+USE shop 
+CREATE  TABLE student        --创建学生信息表student
+(
+  学号  varchar(8) not null,--指定学号列不能为空
+  姓名  varchar(10) unique, -- 定义了具有唯一值（unique）的“姓名”列
+  -- 创建一个检验约束(check)检验“年龄”列的值是否在10~20之间
+  年龄  int check(年龄>=10 and 年龄<=20),
+  性别  char(2) not null    --指定性别列不能为空
+)

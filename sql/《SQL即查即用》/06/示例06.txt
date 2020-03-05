@@ -1,0 +1,7 @@
+SELECT cat_id,goods_name,shop_price 
+FROM goods 
+WHERE cat_id = 191 OR cat_id = 123 AND shop_price > 2000;
+
+SELECT cat_id,goods_name,shop_price 
+FROM goods 
+WHERE (cat_id = 191 OR cat_id = 123) AND shop_price > 2000;

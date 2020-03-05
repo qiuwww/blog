@@ -1,0 +1,6 @@
+INSERT INTO bookinfo
+(ISBN,BookName) VALUES('7-110-12151-1','Java从入门到精通');
+INSERT INTO bookinfo
+(ISBN,BookName) VALUES('7-110-12151-2','Oracle从入门到精通');
+INSERT INTO bookinfo
+(ISBN,BookName) VALUES('7-110-12151-2','Oracle从入门到精通');

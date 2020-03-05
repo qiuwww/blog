@@ -1,0 +1,14 @@
+（1）
+ALTER DATABASE mrkj --使用ALTER DATABASE 命令修改数据库
+  ADD  FILE(  
+       name=joy,
+       FILENAME='E:\Program Files\MSSQL\Data\joy.mdf',
+       size=30mb
+)
+
+（2）
+ALTER DATABASE mrkj
+MODIFY FILE(
+       name=joy,
+       size=40mb
+)

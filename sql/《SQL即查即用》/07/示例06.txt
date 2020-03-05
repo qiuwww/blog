@@ -1,0 +1,3 @@
+SELECT order_id,order_sn,total_amount
+FROM orderform 
+WHERE order_id NOT IN (SELECT TOP 8 order_id FROM orderform);

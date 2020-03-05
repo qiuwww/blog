@@ -1,0 +1,3 @@
+SELECT goods_id,goods_name,click_count
+FROM goods 
+WHERE click_count <= 20;

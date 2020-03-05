@@ -1,0 +1,6 @@
+SELECT CAST(AVG(shop_price) as real) AS 去掉最大值与最小值的平均值 FROM goods 
+WHERE goods_name LIKE '%液晶电视%'
+AND shop_price NOT IN(
+(SELECT MIN(shop_price) AS 最小值 FROM goods WHERE goods_name LIKE '%液晶电视%')
+UNION
+(SELECT max(shop_price) AS 最大值 FROM goods WHERE goods_name LIKE '%液晶电视%'));

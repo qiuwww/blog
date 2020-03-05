@@ -1,0 +1,12 @@
+CREATE OR REPLACE PROCEDURE pro_square
+  (num IN OUT number,         --计算它的平方或平方根，这是一个“IN OUT”参数
+  flag IN boolean) is         --计算平方或平方根的标识，这是一个“IN”参数
+  i int := 2; 	            --表示计算平方，这是一个内部变量
+BEGIN
+  IF flag THEN                 --若为true
+    num := power(num,i);      --计算平方
+  ELSE
+    num := sqrt(num);         --计算平方根
+  END IF;
+END;
+/

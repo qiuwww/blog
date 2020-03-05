@@ -1,0 +1,4 @@
+SELECT e.deptno, d.dname, SUM(e.sal) AS 工资总和
+FROM emp e,dept d
+WHERE e.deptno = d.deptno
+GROUP BY ROLLUP(e.deptno, d.dname);

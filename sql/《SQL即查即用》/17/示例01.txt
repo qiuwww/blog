@@ -1,0 +1,7 @@
+INSERT INTO brand 
+(id,name,logo,describe,url,sort,cat_name,parent_cat_id,cat_id,is_hot) 
+VALUES(347,'创维/Skyworth',
+'/Public/upload/brand/2016/04-01/347586936.jpg','凝聚健康科技',
+'www.Skyworth.com',50,'手机、数码、配件',1,1,0);
+
+SELECT * FROM brand; 

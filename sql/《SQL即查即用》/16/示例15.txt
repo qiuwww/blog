@@ -1,0 +1,8 @@
+SELECT cat_id,goods_name,shop_price
+FROM goods
+WHERE cat_id IN (123,131)
+UNION
+SELECT cat_id,goods_name,shop_price
+FROM goods
+WHERE goods_name LIKE '%»ªÎª%'
+ORDER BY shop_price;

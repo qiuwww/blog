@@ -1,0 +1,1 @@
+CREATE DATABASE mr01;	--使用CREATE DATABASE 命令创建一个名称是“mr01”的数据库

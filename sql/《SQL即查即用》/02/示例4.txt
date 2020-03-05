@@ -1,0 +1,5 @@
+SELECT goods_name AS"商品名称",
+market_price AS "市场价",
+shop_price AS "本店价",
+click_count 
+FROM goods;

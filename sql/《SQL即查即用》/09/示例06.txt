@@ -1,0 +1,3 @@
+SELECT user_id,email,CONVERT(VARCHAR(10),birthday,120) AS birthday
+FROM users 
+WHERE email LIKE '%/_%' ESCAPE '/';

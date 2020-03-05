@@ -1,0 +1,3 @@
+SELECT goods_id AS 商品ID,goods_name AS 商品名称,
+convert(char(2),sales_sum)+'个' AS 销售数量,
+convert(char(8),shop_price)+'元' AS 商场价格 FROM goods; 

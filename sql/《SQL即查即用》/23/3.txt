@@ -1,0 +1,22 @@
+CREATE DATABASE mr
+ON
+ primary(
+   name=mrdat,
+   filename='E:\Program Files\MSSQL\Data\mr.mdf',
+   size=5,
+   maxsize=80,
+   filegrowth=5),
+filegroup mrgroup
+(
+   name=mingri,
+   filename='E:\Program Files\MSSQL\Data\mr.ndf',
+   size=10,
+   maxsize=80,
+   filegrowth=5
+)
+log on
+(name='mrlog',
+filename='E:\Program Files\MSSQL\Data\lovingmr.ldf',
+size=6mb,
+maxsize=30mb,
+filegrowth=6mb )

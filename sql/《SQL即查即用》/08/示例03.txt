@@ -1,0 +1,4 @@
+SELECT "user_id","birthday" AS 出生日期,
+TO_CHAR("birthday",'YYYY-MM-DD') AS 格式化出生日期 
+FROM "users" 
+WHERE ROWNUM <= 6;

@@ -1,0 +1,10 @@
+（1）
+SELECT * FROM sysobjects 
+WHERE parent_obj IN(
+SELECT id FROM sysobjects 
+WHERE name='shopping'); 
+
+（2）
+--在购物信息表shopping中，删除商品编号上的约束
+ALTER TABLE shopping
+DROP CONSTRAINT PK__shopping__996B24E27849DB76

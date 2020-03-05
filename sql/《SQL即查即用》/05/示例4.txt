@@ -1,0 +1,3 @@
+SELECT goods_id,goods_name,market_price 
+FROM goods 
+WHERE market_price NOT BETWEEN 2000 AND 3000; 

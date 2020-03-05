@@ -1,0 +1,3 @@
+SELECT goods_name,market_price
+FROM shop.goods
+LIMIT 5; 

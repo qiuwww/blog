@@ -1,0 +1,7 @@
+SELECT * FROM bookinfo
+BEGIN TRANSACTION INSERT_DATA  --开始事务
+  INSERT INTO bookinfo(ISBN,BookName)
+  VALUES('7-111-15643-1','C语言程序开发范例宝典')
+COMMIT TRANSACTION INSERT_DATA --提交事务
+IF @@ERROR = 0 
+  PRINT '数据添加成功！'

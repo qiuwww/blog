@@ -1,0 +1,7 @@
+SELECT TOP 6 id,name,cat_name 
+FROM brand 
+WHERE name LIKE '[A-Z]%';
+
+select *
+FROM brand
+WHERE name LIKE REGEXP '^[A-Z]';

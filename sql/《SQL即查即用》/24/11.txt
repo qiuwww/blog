@@ -1,0 +1,2 @@
+--使用EXEC sp_rename关键字将student数据表名称改成stu
+EXEC sp_rename 'student','stu'

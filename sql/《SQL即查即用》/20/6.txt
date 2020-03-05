@@ -1,0 +1,17 @@
+set serveroutput on
+DECLARE
+  var_number number;         		--存储要进行运算的值和运算后的结果
+  var_temp number;	      		--存储要进行运算的值
+  boo_flag boolean;          		--平方或平方根的逻辑标记
+BEGIN
+  var_temp :=3;              		--变量赋值
+  var_number :=var_temp;
+  boo_flag := false;                --false表示计算平方根；true表示计算平方
+  pro_square(var_number,boo_flag);  --调用存储过程pro_square
+  IF boo_flag THEN
+    dbms_output.put_line(var_temp ||'的平方是：'||var_number);	    --输出计算结果
+  ELSE
+    dbms_output.put_line(var_temp ||'平方根是：'||var_number);
+  END IF;
+END;
+/

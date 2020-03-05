@@ -1,0 +1,12 @@
+CREATE VIEW GoodsType
+AS
+SELECT goods.goods_id,goods.goods_name,goods_type.id type_id,goods_type.name type
+FROM goods,goods_type
+WHERE goods.goods_type=goods_type.id;
+
+INSERT INTO GoodsType
+(goods_id,goods_name)
+VALUES(115,'海尔EB60Z2WD 洗衣机');
+INSERT INTO GoodsType
+(type_id,type)
+VALUES(30,'洗衣机');

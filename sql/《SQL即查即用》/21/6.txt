@@ -1,0 +1,25 @@
+set serveroutput on
+DECLARE
+  /*声明游标，查询员工信息*/
+  CURSOR cur_emp (var_job in varchar2:='SALESMAN')
+  IS select empno,ename,sal
+     from emp
+     where job=var_job;
+  type record_emp is record    --声明一个记录类型（RECORD类型）
+  (
+    /*定义当前记录的成员变量*/
+    var_empno emp.empno%type,
+    var_ename emp.ename%type,
+    var_sal emp.sal%type
+  );
+  emp_row record_emp;          --声明一个record_emp类型的变量
+BEGIN
+  OPEN cur_emp('MANAGER');     --打开游标
+  FETCH cur_emp INTO emp_row;  --先让指针指向结果集中的第一行，并将值保存到emp_row中
+  WHILE cur_emp%found LOOP
+    dbms_output.put_line(emp_row.var_ename||'的编号是'||emp_row.var_empno||',工资是'||emp_row.var_sal);
+    FETCH cur_emp INTO emp_row;	--让指针指向结果集中的下一行，并将值保存到emp_row中
+ END LOOP;
+  CLOSE cur_emp;                --关闭游标
+END;
+/

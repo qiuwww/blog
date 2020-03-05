@@ -1,0 +1,3 @@
+SELECT goods_id,goods_name,brand.name brand,goods_type.name type
+FROM (goods LEFT JOIN brand ON goods.brand_id=brand.id)
+LEFT JOIN goods_type ON goods.goods_type=goods_type.id;

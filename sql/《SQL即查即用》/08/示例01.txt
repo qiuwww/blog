@@ -1,0 +1,2 @@
+SELECT TOP 6 user_id,email,CONVERT(VARCHAR(10),reg_time,120) AS reg_time 
+FROM users;

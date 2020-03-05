@@ -1,0 +1,4 @@
+SELECT "cat_id", ROUND(AVG("shop_price")) AS 平均售价
+FROM "goods"
+GROUP BY "cat_id"
+ORDER BY AVG("shop_price");

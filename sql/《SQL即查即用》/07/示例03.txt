@@ -1,0 +1,3 @@
+SELECT goods_name,shop_price 
+FROM goods 
+WHERE shop_price IN (3799-100,3799,3799+100);

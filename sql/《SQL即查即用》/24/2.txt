@@ -1,0 +1,8 @@
+USE shop
+CREATE TABLE shopping
+(
+  商品编号 int primary key, --使用primary key将“商品编号”字段设置为主键列
+  商品类别 varchar(10),
+  商品数量 int,
+  商品备注 text 
+)  

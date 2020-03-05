@@ -1,0 +1,3 @@
+SELECT BookName,publisher,Writer 
+FROM bookinfo 
+WHERE (BookName LIKE '%PHP%' OR BookName LIKE '%JSP%') AND (NOT publisher = '机械工业出版社');

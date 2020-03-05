@@ -1,0 +1,3 @@
+SELECT goods_id AS 商品ID,goods_name AS 商品名称,
+cost_price + 50 AS 进价加
+FROM goods;

@@ -1,0 +1,2 @@
+SELECT TOP 6 user_id,email,CAST(total_amount AS int) AS total_amount 
+FROM users;

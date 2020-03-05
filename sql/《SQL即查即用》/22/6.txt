@@ -1,0 +1,8 @@
+/*开始事务*/
+BEGIN TRAN Update_data with mark
+UPDATE bookpub SET 书名='C#技术方案宝典'--修改操作
+WHERE 书号='5';
+SELECT 书号,书名,作者 FROM bookpub;
+/*回滚事务*/
+ROLLBACK TRAN Update_data
+SELECT 书号,书名,作者 FROM bookpub;

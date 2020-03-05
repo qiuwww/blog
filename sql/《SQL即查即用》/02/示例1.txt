@@ -1,0 +1,1 @@
+SELECT goods_name FROM goods;

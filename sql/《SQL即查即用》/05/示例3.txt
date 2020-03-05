@@ -1,0 +1,5 @@
+SELECT ISBN,BookName,INTime 数据录入时间 FROM bookinfo_zerobasis WHERE INTime 
+BETWEEN
+DATEADD(DAY,-1,GETDATE()) 
+AND
+GETDATE();

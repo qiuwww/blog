@@ -1,0 +1,2 @@
+SELECT COUNT(cat_id) AS 商品种类
+FROM goods;

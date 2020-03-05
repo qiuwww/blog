@@ -1,0 +1,4 @@
+SELECT NVL("Type",'没有分类') 丛书系列名称,
+COUNT(NVL("Type",'没有分类')) 系列中图书个数
+FROM "bookinfo"
+GROUP BY NVL("Type",'没有分类');

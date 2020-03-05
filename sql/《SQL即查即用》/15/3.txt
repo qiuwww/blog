@@ -1,0 +1,7 @@
+SELECT * 
+FROM tb_book
+WHERE EXISTS (
+    SELECT tb_author_department 
+    FROM tb_book_author
+    WHERE tb_book.book_sort=tb_book_author.tb_author_department)
+ORDER BY tb_book.book_price;

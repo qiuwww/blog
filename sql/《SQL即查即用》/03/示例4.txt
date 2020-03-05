@@ -1,0 +1,4 @@
+SELECT goods_id AS 商品ID,goods_name AS 商品名称,
+(sales_sum*shop_price - cost_price*sales_sum)/sales_sum AS 销售利润 
+FROM goods
+WHERE sales_sum <> 0;

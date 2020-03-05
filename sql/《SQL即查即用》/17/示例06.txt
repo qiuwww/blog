@@ -1,0 +1,6 @@
+SELECT BookName,Type,Writer
+INTO bookinfo_project
+FROM bookinfo WHERE Type = '项目入门系列';
+
+SELECT BookName,Type,Writer
+FROM bookinfo_project;

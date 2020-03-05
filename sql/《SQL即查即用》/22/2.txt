@@ -1,0 +1,7 @@
+BEGIN TRANSACTION UPDATE_DATA
+  UPDATE goods SET store_count = 900
+  WHERE goods_id = 106
+  DELETE goods WHERE goods_name = '索尼D7200单反相机'
+COMMIT TRANSACTION UPDATE_DATA
+--查询修改和删除数据后的数据表中的数据
+SELECT goods_id,goods_name,store_count FROM goods;

@@ -1,0 +1,3 @@
+SELECT oauth AS 第三方付款方式, COUNT(*)AS 个数
+FROM users
+GROUP BY oauth;

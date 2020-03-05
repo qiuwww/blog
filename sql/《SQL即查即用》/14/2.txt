@@ -1,0 +1,5 @@
+SELECT ename, job, sal 
+FROM emp
+WHERE sal in(SELECT MAX(sal) FROM emp GROUP BY job)
+AND
+job IN(SELECT  distinct job FROM emp);

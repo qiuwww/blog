@@ -1,0 +1,7 @@
+INSERT INTO brand
+(id,name,logo,describe,url,sort,parent_cat_id,cat_id,is_hot)   
+VALUES(348,'台电/Teclast',
+'/Public/upload/brand/2016/04-01/348396236.jpg','商科集团旗下品牌',
+'www.teclast.com',50,1,1,0);
+
+SELECT * FROM brand; 

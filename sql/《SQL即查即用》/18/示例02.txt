@@ -1,0 +1,6 @@
+UPDATE brand
+SET describe = '人工智能电视',cat_name = '大小家电、厨电、汽车',is_hot = 1
+WHERE name = '长虹/CHANGHONG';
+
+SELECT name,describe,cat_name,is_hot FROM brand
+WHERE name = '长虹/CHANGHONG';

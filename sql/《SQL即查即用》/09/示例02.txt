@@ -1,0 +1,3 @@
+SELECT address_id,LTRIM(consignee) AS consignee,address
+FROM user_address 
+WHERE LTRIM(consignee) LIKE '___';

@@ -1,0 +1,5 @@
+DECLARE
+  CURSOR cur_emp(var_job in varchar2:='SALESMAN')
+  IS SELECT empno,ename,sal
+    FROM emp
+    WHERE job=var_job;

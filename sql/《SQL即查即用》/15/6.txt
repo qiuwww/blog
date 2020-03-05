@@ -1,0 +1,6 @@
+SELECT cat_id,goods_name,shop_price
+FROM goods
+WHERE shop_price > ANY(
+    SELECT AVG(shop_price)
+    FROM goods
+    GROUP BY cat_id);

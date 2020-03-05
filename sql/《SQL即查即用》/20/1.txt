@@ -1,0 +1,2 @@
+CREATE PROCEDURE CRE_PRO AS
+SELECT * FROM brand WHERE cat_name='生鲜食品'

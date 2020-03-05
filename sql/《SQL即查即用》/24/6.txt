@@ -1,0 +1,2 @@
+/*通过使用系统存储过程sp_spaceused来查看会员信息表member中的行数及所用的存储空间*/
+EXEC sp_spaceused member

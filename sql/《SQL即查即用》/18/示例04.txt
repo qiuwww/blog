@@ -1,0 +1,7 @@
+UPDATE goods
+SET store_count = store_count + 1000 
+WHERE cat_id = (SELECT id FROM goods_category WHERE name = '平板电脑');
+
+SELECT goods_id,goods_name,store_count
+FROM goods
+WHERE cat_id = (SELECT id FROM goods_category WHERE name = '平板电脑'); 

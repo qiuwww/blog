@@ -1,0 +1,12 @@
+CREATE VIEW GoodsBrand
+AS
+SELECT goods.goods_id,goods.goods_name,brand.name brand
+FROM goods,brand
+WHERE goods.brand_id=brand.id;
+
+UPDATE GoodsBrand
+SET goods_name = '康佳R6000U 液晶电视'
+WHERE goods_id = 57;
+UPDATE GoodsBrand
+SET brand = '康佳/KONKA'
+WHERE goods_id = 57;

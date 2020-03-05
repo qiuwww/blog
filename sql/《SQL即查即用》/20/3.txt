@@ -1,0 +1,3 @@
+EXEC sp_helptext CRE_PRO
+EXEC sp_depends CRE_PRO
+EXEC sp_help CRE_PRO

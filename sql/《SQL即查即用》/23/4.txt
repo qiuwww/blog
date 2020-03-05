@@ -1,0 +1,8 @@
+ALTER DATABASE mrkj --使用ALTER DATABASE 命令修改数据库
+  ADD  FILE(          --添加文件“happy”
+       name=happy,
+       FILENAME='E:\Program Files\MSSQL\Data\happy.ndf',
+       size=2mb,
+       maxsize=30mb,
+       filegrowth=3mb
+)

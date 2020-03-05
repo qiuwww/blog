@@ -1,0 +1,2 @@
+SELECT goods_id,goods_name,is_new FROM goods WHERE is_new != 0;
+SELECT goods_id,goods_name,is_new FROM goods WHERE is_new <> 0;

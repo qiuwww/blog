@@ -1,0 +1,1 @@
+EXEC sp_help student  --通过系统存储过程sp_help来查看student表中的信息

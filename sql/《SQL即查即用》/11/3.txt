@@ -1,0 +1,3 @@
+SELECT goods_id 商品编号,goods_name 商品名称,sales_sum '商品  销量'
+FROM goods 
+ORDER BY '商品  销量' DESC;

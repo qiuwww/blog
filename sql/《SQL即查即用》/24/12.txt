@@ -1,0 +1,2 @@
+--使用ALTER TABLE命令从现有的学生信息表student中，删除“专业”列
+ALTER TABLE stu DROP COLUMN 专业

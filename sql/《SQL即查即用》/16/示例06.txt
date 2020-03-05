@@ -1,0 +1,3 @@
+SELECT goods_id,goods_name,name
+FROM goods LEFT JOIN goods_type
+ON goods.goods_type=goods_type.id ORDER BY goods_id DESC;

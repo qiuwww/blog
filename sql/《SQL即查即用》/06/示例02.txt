@@ -1,0 +1,3 @@
+SELECT goods_name,click_count,store_count,shop_price
+FROM goods 
+WHERE click_count > 20 AND store_count = 1000 AND shop_price > 2000;

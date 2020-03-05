@@ -1,0 +1,8 @@
+USE shop                   --使用shop数据库
+CREATE  TABLE teacher    --创建teacher信息表
+(
+  教师编号  int, 
+  教师姓名  varchar(10), 
+  教师年龄  int,
+ 所教课程  varchar(30) 
+)  

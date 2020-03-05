@@ -1,0 +1,11 @@
+DECLARE cursor_goods CURSOR FOR         	/*声明游标*/
+  SELECT goods_id,goods_name,store_count FROM goods
+  WHERE store_count BETWEEN 500 AND 999  	/*定义游标结果集*/
+OPEN cursor_goods                            /*打开游标*/ 
+FETCH NEXT FROM cursor_goods               /*执行取数操作*/
+WHILE @@fetch_status = 0                  /*判断是否还可以继续取数*/
+BEGIN
+  FETCH NEXT FROM cursor_goods
+END
+  CLOSE cursor_goods                        /*关闭游标*/
+  DEALLOCATE cursor_goods                  /*释放游标*/

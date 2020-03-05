@@ -1,0 +1,3 @@
+SELECT ISBN,BookName,Writer,Price
+FROM bookinfo_zerobasis
+WHERE BookName = '零基础学Java' OR BookName = '零基础学PHP';

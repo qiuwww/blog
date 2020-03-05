@@ -1,0 +1,7 @@
+SELECT goods_id,goods_name,store_count 
+FROM goods 
+WHERE NOT store_count = 1000;
+
+SELECT goods_id,goods_name,store_count 
+FROM goods 
+WHERE store_count != 1000;

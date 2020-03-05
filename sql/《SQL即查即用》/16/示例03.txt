@@ -1,0 +1,3 @@
+SELECT a.user_id,b.address,CONVERT(VARCHAR(10),last_login,120) AS last_login
+FROM users a,user_address b 
+WHERE a.user_id=b.user_id;

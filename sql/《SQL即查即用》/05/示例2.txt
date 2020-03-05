@@ -1,0 +1,3 @@
+SELECT ISBN,bookname,INTime AS 数据录入时间 FROM bookinfo_zerobasis 
+WHERE INTime
+BETWEEN '2017-12-1' AND '2018-12-1';

@@ -1,0 +1,5 @@
+DELETE FROM brand 
+WHERE name = '长虹/CHANGHONG';
+
+SELECT * FROM brand 
+WHERE name = '长虹/CHANGHONG'; 

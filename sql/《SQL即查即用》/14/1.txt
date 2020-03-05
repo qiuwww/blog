@@ -1,0 +1,5 @@
+SELECT tb_book_author,tb_author_department, 
+   (SELECT max(book_price)
+      FROM tb_book 
+      WHERE tb_book_author.tb_book_author=tb_book.tb_book_author) 
+FROM tb_book_author;

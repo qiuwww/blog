@@ -1,0 +1,18 @@
+CREATE TABLE brand_new(
+	    id int NOT NULL PRIMARY KEY,
+	    name varchar(60) NOT NULL DEFAULT '',
+	    logo varchar(80) NOT NULL DEFAULT '',
+	    describe text NOT NULL,
+	    url varchar(255) NOT NULL DEFAULT '',
+	    sort int NOT NULL DEFAULT 50,
+	    cat_name varchar(128) NULL DEFAULT '',
+	    parent_cat_id int NULL DEFAULT 0,
+	    cat_id int NULL DEFAULT 0,
+	    is_hot int NULL DEFAULT 0
+);
+
+INSERT INTO brand_new
+SELECT * FROM brand
+WHERE cat_name = '手机、数码、配件';
+
+SELECT id,name,cat_name FROM brand_new; 

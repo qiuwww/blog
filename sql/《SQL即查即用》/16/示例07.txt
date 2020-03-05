@@ -1,0 +1,3 @@
+SELECT goods_id,goods_name,name
+FROM goods RIGHT JOIN goods_type
+ON goods.goods_type=goods_type.id;

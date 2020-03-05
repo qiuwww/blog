@@ -1,0 +1,11 @@
+/*启动隐式事务模式*/
+SET IMPLICIT_TRANSACTIONS ON
+INSERT INTO goods_type VALUES(34,'雪地鞋')
+INSERT INTO goods_type VALUES(35,'护手霜')
+COMMIT TRANSACTION --提交事务
+/*下面的INSERT语句将开始第二个事务*/
+INSERT INTO goods_type VALUES(36,'薯片')
+SELECT * FROM goods_type
+COMMIT TRANSACTION --结束事务
+/*关闭隐式事务模式*/
+SET IMPLICIT_TRANSACTIONS OFF

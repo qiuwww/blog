@@ -1,0 +1,8 @@
+CREATE VIEW BookGroup(type,number,maxprice)
+AS
+SELECT Type,COUNT(*),MAX(Price)
+FROM bookinfo
+WHERE Type IS NOT NULL
+GROUP BY Type;
+
+SELECT * FROM BookGroup;

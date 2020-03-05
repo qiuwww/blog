@@ -1,0 +1,2 @@
+SELECT BookName,Writer,ISNULL(newbook,0) AS newbook
+FROM bookinfo_zerobasis;
