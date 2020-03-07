@@ -1,4 +1,6 @@
-# SSHkeys
+# ssh 和 https
+
+[参考文档](https://blog.csdn.net/sltylzx/article/details/89161181)
 
 ## clone 项目的两种方式的对比
 
@@ -13,15 +15,21 @@
 
 查看本地的 sshkeys: `ls -al ~/.ssh`
 
-创建一个SSH Key: `ssh-keygen -t rsa -C "你的email地址"`
+创建一个 SSH Key: `ssh-keygen -t rsa -C "你的email地址"`
 
-生成第一个key
+生成第一个 key
 ssh-keygen -t rsa -C "1014913222@qq.com"
 
-生成第二个key
+生成第二个 key
 
 ssh-keygen -t rsa -C "qiuww@eazytec.com" -b 4096
 
 .ssh/id_rsa_gitlab
 
 配置 sourcetree
+
+### 生成新 SSH 密钥并添加到 ssh-agent 需要如下的步骤：
+
+1. 生成密钥，`ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+2. 本地将 SSH 密钥添加到 ssh-agent，`ssh-add -K ~/.ssh/id_rsa`
+3. github 仓库`setting -> new ssh key`
