@@ -16,7 +16,9 @@
       "summary",
       "pre",
       "code",
-      "script"
+      "script",
+      "form",
+      "area"
     ]
   },
   "MD033": {
@@ -36,7 +38,9 @@
       "summary",
       "pre",
       "code",
-      "script"
+      "script",
+      "form",
+      "area"
     ]
   },
   "line_length": false

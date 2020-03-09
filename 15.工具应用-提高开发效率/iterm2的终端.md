@@ -26,3 +26,9 @@
 - command + ;: 查看历史命令
 - command + shift + h: 查看剪贴板历史
 - tab: 可以查看到下边的文件与补全名称
+
+## 在命令行内打开图片
+
+```bash
+imgcat /Users/qww/Documents/learn/blog/3.浏览器原理/渲染流程图.png
+```

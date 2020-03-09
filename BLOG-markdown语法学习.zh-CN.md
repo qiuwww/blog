@@ -360,6 +360,31 @@ comments: true
   </pre>
 </details>
 
+### 内容折叠实例
+
+<details>
+<summary>View contents</summary>
+
+- list1
+- list2
+
+> 这里是引用
+
+- [这里是一个提问](#这里是一个提问)
+
+</details>
+
+### 这里是一个提问
+
+<details>
+<summary>这里是答案</summary>
+
+We must have all ingredients of the recipe available, and in quantities that are more than or equal to the number of units required. If just one of the ingredients is not available or lower than needed, we cannot make a single batch.
+
+</details>
+
+<br>[⬆ Back to top](#目录)
+
 ## 目前到这里，有一点小问题，以后在学习别人怎么写，还要熟练运用
 
 changyangzhe-2016.7.22

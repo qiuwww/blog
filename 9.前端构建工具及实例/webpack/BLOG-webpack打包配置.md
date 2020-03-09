@@ -139,7 +139,7 @@ loader 用于对模块的源代码进行转换。loader 可以使你在 import �
 
 配置模块如何解析。例如，当在 ES2015 中调用 import "lodash"，resolve 选项能够对 webpack 查找 "lodash" 的方式去做修改。
 
-### 同时 webpack 也拆成了两部分，webpack 和 webpack-cli，都需要本地安装。
+### 同时 webpack 也拆成了两部分，webpack 和 webpack-cli，都需要本地安装
 
 ### 文件名 hash
 
