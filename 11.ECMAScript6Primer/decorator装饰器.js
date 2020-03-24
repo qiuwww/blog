@@ -1,6 +1,5 @@
-// npx babel-node decorator装饰器.js
 /**
- * @description @ 装饰器在业务中的应用，类修饰器（只有一个参数）
+ * @description @装饰器在业务中的应用，类修饰器（只有一个参数）
  * 用于修改类的行为，ES7的提案，需要babel编译。
  * 对于类的修改是在编译时发生的，而不是运行时。
  * 修饰器接受三个参数：目标函数target、属性名和该属性的描述对象，后两个可以省略。
@@ -11,7 +10,7 @@
 /**
  * 默认修改，无参数，给类的prototype添加静态属性isTestAble
  */
-
+// 修饰类的参数就是实例对象，相当于在构造函数外套了一层
 function addAttr(target) {
   // 这样添加的是静态方法，实例无法继承
   target.isTestAble = true;
@@ -25,7 +24,7 @@ const instantiate = new TargetClass();
 console.log('instantiate.isTestAble', instantiate.isTestAble); // undefined
 
 /**
- * @description 可以传递参数的装饰器
+ * @description 可以传递参数的装饰器，表示外层函数运行之后，内层作用于类上
  */
 function setName(setName) {
   return function(target) {

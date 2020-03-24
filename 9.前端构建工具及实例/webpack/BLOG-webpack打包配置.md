@@ -16,6 +16,15 @@ date: 2020-03-03
 - assets 的处理：静态资源处理
 - server 的启用：development 模式下启动服务器并实时刷新
 
+## 介绍 WebPack 是什么，有什么优势
+
+- WebPack 是一款[模块加载器]兼[打包工具]，用于把各种静态资源（js/css/image 等）作为模块来使用
+- WebPack 的优势：
+  - WebPack **同时支持 commonJS 和 AMD/CMD**，方便代码迁移
+  - 不仅仅能被模块化 JS ，还包括 CSS、Image 等，常见的资源都是可以处理的
+  - 能替代部分 grunt/gulp 的工作，如**打包、压缩混淆**、图片 base64
+  - 扩展性强，**插件机制完善**，特别是支持 React 热插拔的功能
+
 ## 可优化的地方
 
 - 生产环境去除调试信息；
@@ -268,6 +277,6 @@ Externals 使用主要三步：参照 jquery 引入。
    - react-runtime: react 的版本更新频次也较低
    - vendor: 常用的第三方模块打包在一起，如 lodash，classnames 基本上每个页面都会引用到，但是它们的更新频率会更高一些
 
-## 自定义loader
+## 自定义 loader
 
-参见srcipt/，同步和异步loader。
+参见 srcipt/，同步和异步 loader。

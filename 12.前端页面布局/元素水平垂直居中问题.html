@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>水平垂直居中问题</title>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <a href="http://howtocenterincss.com/#contentType=div&horizontal=center&vertical=middle&browser.IE=6" target="_blank">在线查询howtocenterincss</a>
+    <style type="text/css">
+      /*测试行内元素的属性是否有效*/
+      .testLine {
+        /* 行内元素无法设置宽高，可替换元素除外（input等） */
+        /* width: 200px; */
+        /* height: 100px; */
+        line-height: 50px;
+        /* padding与margin是可以的 */
+        margin: 50px;
+        padding: 20px;
+        border: 1px solid yellow;
+        background-color: green;
+      }
+
+      .testLine a {
+        margin: 30px;
+        padding: 10px;
+        border: 1px solid red;
+      }
+
+      /*第一种方法*/
+
+      .wrap_1 {
+        width: 200px;
+        height: 200px;
+        background: yellow;
+        position: relative;
+      }
+
+      .wrap_1 .center {
+        /* 需要知道子元素的宽高 */
+        width: 120px;
+        height: 60px;
+        background: green;
+        /*这里的原理就在于让元素自动计算margin，最终结果上下，左右都分别相等，所以可以居中*/
+        margin: auto;
+        position: absolute;
+        left: 0;
+        /*如果不设置长宽，元素就会平铺到父元素的空间上*/
+        right: 0;
+        top: 0;
+        bottom: 0;
+        /*border:1px solid red;*/
+      }
+
+      /*第二种方法，兼容性最好*/
+
+      .wrap_2 {
+        width: 200px;
+        height: 200px;
+        background: yellow;
+        display: table-cell;
+        vertical-align: middle;
+        /*这两个是必须的*/
+        text-align: center;
+      }
+
+      .wrap_2 .center {
+        display: inline-block;
+        /* 可以处理不知道宽高的元素 */
+        /* width: 60px; */
+        /* height: 120px; */
+        background: green;
+      }
+
+      /*第三种方法*/
+      /* 定位+transform */
+      .wrap_3 {
+        position: relative;
+        background: yellow;
+        width: 200px;
+        height: 300px;
+      }
+
+      .wrap_3 .center {
+        /*兼容webkit*/
+        /*这里的百分比是相对于元素自身的大小的*/
+        /* width: 100px; */
+        /* height: 60px; */
+        position: absolute;
+        background: green;
+        /*这里的原理与使用margin来进行修正的原理一样，但是这里不需要知道元素的大小*/
+        /* top相对于父元素的高度，left相对于宽度，所以不管父元素怎么变化，子元素的左上角一直会位于父元素的中心 */
+
+        /* 如下的margin是相对于父元素的宽度的调整，所以高度不能保证 */
+
+        /* 这里只能保证水平居中，垂直没法 */
+        /* 这里的margin是相对于父级元素的宽度 */
+        margin-left: 50%;
+        /* 同样相对于父元素的width，所以只能保证水平居中 */
+        margin-top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      /*第四种方法*/
+      .wrap_4 {
+        background: yellow;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        /*确实很强大
+        css3的弹性布局，设置子元素，这里设置子元素的占比，可以将父元素剩余部分进行按比重分块
+        */
+        align-items: center;
+        /*
+        align-items 属性定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式。
+        取值有：center:项目位于元素中心;|stretch:被拉伸以适应;|flex-start:位于开头;|flex-end:结尾;|baseline:容器的基线以上;|initial:默认;|inherit:继承;
+        测试地址：http://www.runoob.com/try/playit.php?f=playcss_align-items&preval=flex-end
+         */
+        justify-content: center;
+        /*
+        justify-content 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。
+        取值与上类似： flex-start|flex-end|center|space-between|space-around|initial|inherit;
+        测试地址：http://www.runoob.com/try/playit.php?f=playcss_justify-content&preval=space-between
+         */
+      }
+
+      .wrap_4 .center {
+        background: green;
+        width: 80px;
+        height: 100px;
+      }
+
+      /*第五种方法*/
+
+      .wrap_5 {
+        background: yellow;
+        width: 200px;
+        height: 200px;
+        display: flex;
+      }
+
+      .wrap_5 .center {
+        background: green;
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        /*调整边距以居中,这里不添加似乎也是可以的*/
+      }
+
+      /*sixth*/
+
+      .wrap_6 {
+        background: yellow;
+        width: 200px;
+        height: 200px;
+        position: relative;
+      }
+
+      /* 这种情况下并不一定都成立，这只是一种特例 */
+      .wrap_6 .center {
+        background: green;
+        position: absolute;
+        width: 80px;
+        height: 50px;
+        /* 这里的百分比，相当于父元素的宽高 */
+        left: 50%;
+        top: 50%;
+        /* 这里的百分比，相当于自身的宽度 */
+        transform: translate(-50%, -50%);
+      }
+
+      .wrap_7 {
+        background: yellow;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px; /* 文字竖直居中 */
+        /*这样只是控制内部的文本的居中*/
+      }
+
+      .wrap_7 .center {
+        background: green;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+      }
+    </style>
+    <!-- 测试行内元素的css属性是否有效 -->
+    <span class="testLine">
+      <a href="https://baidu.com">标签</a>
+      <!-- <br/> -->
+      <a href="https://baidu.com">标签</a>
+    </span>
+    <hr />
+    <!-- 第一种使用position加margin，依靠margin自动计算，对于行内元素是不可行的 -->
+    <div class="wrap_1">
+      <div class="center">1</div>
+    </div>
+    <hr />
+    <!-- 第二种方法，使用display,vertical-align,text-align属性来实现  -->
+    <div class="wrap_2">
+      <div class="center">2</div>
+    </div>
+    <hr />
+    <!-- 第三种方法，使用transform:translate(-50%,-50%);(这里的百分比是相对于自身的大小来说的)来实现 -->
+    <p>这里的</p>
+    <div class="wrap_3">
+      <div class="center">3</div>
+    </div>
+    <hr />
+    <!-- 第四种方法 -->
+    <div class="wrap_4">
+      <div class="center">4</div>
+    </div>
+    <hr />
+    <!-- 第五种方法 -->
+    <div class="wrap_5">
+      <div class="center">5</div>
+    </div>
+    <hr />
+    <!-- sixth -->
+    <div class="wrap_6">
+      <div class="center">6</div>
+    </div>
+    <hr />
+    <!-- 7 -->
+    <div class="wrap_7">
+      <div class="center">7</div>
+    </div>
+    <hr />
+
+    <input type="date" value="2018-01-01" />
+    <input type="date" value="2018-01" />
+    <input type="datetime-local" />
+  </body>
+</html>

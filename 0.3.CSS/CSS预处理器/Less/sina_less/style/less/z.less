@@ -421,10 +421,10 @@
 .rgba(@red, @green, @blue, @alpha:1){
         @filtercolor:`(_f = function(d){ var v = (parseInt(d)|0).toString(16);return v.length<2 ? "0"+v : v;},
                                         '#'+_f(@{alpha}*255) + _f(@{red}) + _f(@{green})+ _f(@{blue}))`;
-        
+
         background-color: ~'rgba(@{red},@{green},@{blue},@{alpha})';
         -ms-filter:~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{filtercolor}',endColorstr='@{filtercolor}')";
-        filter:~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{filtercolor}',endColorstr='@{filtercolor}')";        
+        filter:~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{filtercolor}',endColorstr='@{filtercolor}')";
 }
 
 .clearfix() {
@@ -553,7 +553,7 @@
 //栅格化
 
 .makeGrid(@colnum: 24, @colwidth: 30, @margin: 10px){
-  
+
   //列数
   @gridColumns:             @colnum;
   //每一列宽度
@@ -609,14 +609,14 @@
 }
 
 // =============================================
-// 创建Metro风格布局 
+// 创建Metro风格布局
 // 默认950宽 6列 每列150px 间距10px
 // html结构
 //<div class="vl-metro"> <div class="row"> <div class="span span2"> <div class="row"> <div class="span span2 line2"></div> <div class="span span2 line1"></div> </div> </div> <div class="span span2"> <div class="row"> <div class="span span1 line2"></div> <div class="span span1"> <div class="row"> <div class="span span1 line1"></div> <div class="span span1 line1"></div> </div> </div> </div> <div class="row"> <div class="span span2 line1"></div> </div> </div> <div class="span span2"> <div class="row"> <div class="span span2 line1"></div> <div class="span span2 line2"></div> </div> </div> </div> </div>
 // =============================================
 
 .makeMetro(@colnum: 6, @colwidth: 150px, @margin: 10px){
-  
+
   @gridColumns:             @colnum;
   @gridColumnWidth:         @colwidth;
   @gridGutterWidth:         @margin;

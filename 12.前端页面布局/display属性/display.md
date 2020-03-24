@@ -1,8 +1,8 @@
 # display
 
-https://developer.mozilla.org/zh-CN/docs/Web/CSS/display
+[display MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/display)
 
-『回』字有四种写法，但你知道 `display`有 `32`种写法。
+`display`有 `32`种写法。
 
 ## 取值，区分七大类
 
@@ -105,8 +105,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/display
 2. display: table-header-group;
 3. display: table-footer-group;
 4. display: table-row;
-5. display: table-cell;
-   这个属性完全可以单独应用。
+5. display: table-cell; 这个属性完全可以单独应用。
 6. display: table-column-group;
 7. display: table-column;
 8. display: table-caption;

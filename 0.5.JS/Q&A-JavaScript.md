@@ -30,21 +30,10 @@ function deepClone(obj) {
   - DOM（文档对象模型）：规定了访问 HTML 和 XML 的接口
   - BOM（浏览器对象模型）：提供了浏览器窗口之间进行交互的对象和方法
 
-**JS 的基本数据类型和引用数据类型**
-
-- 基本数据类型：undefined、null、boolean、number、string、symbol
-- 引用数据类型：object、array、function
-
 **检测浏览器版本版本有哪些方式？**
 
 - 根据 navigator.userAgent // UA.toLowerCase().indexOf('chrome')
 - 根据 window 对象的成员 // 'ActiveXObject' in window
-
-**介绍 JS 有哪些内置对象？**
-
-- 数据封装类对象：Object、Array、Boolean、Number、String
-- 其他对象：Function、Arguments、Math、Date、RegExp、Error
-- ES6 新增对象：Symbol、Map、Set、Promises、Proxy、Reflect
 
 **说几条写 JavaScript 的基本规范？**
 
@@ -541,16 +530,6 @@ parseInt('3', 2);  // NaN
 - 隐藏 input
 - ip 地址
 
-**介绍 js 的基本数据类型**
-
-- Undefined、Null、Boolean、Number、String
-
-**介绍 js 有哪些内置对象？**
-
-- Object 是 JavaScript 中所有对象的父对象
-- 数据封装类对象：Object、Array、Boolean、Number 和 String
-- 其他对象：Function、Arguments、Math、Date、RegExp、Error
-
 **说几条写 JavaScript 的基本规范？**
 
 - 不要在同一行声明多个变量
@@ -813,16 +792,6 @@ function Dog(){
 - 事件处理机制：IE 是事件冒泡、Firefox 同时支持两种事件模型，也就是：捕获型事件和冒泡型事件
 - ev.stopPropagation();（旧 ie 的方法 ev.cancelBubble = true;）
 
-**什么是闭包（closure），为什么要用它？**
-
-- 闭包是指有权访问另一个函数作用域中变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量,利用闭包可以突破作用链域
-
-- 闭包的特性：
-
-  - 函数内再嵌套函数
-  - 内部函数可以引用外层的参数和变量
-  - 参数和变量不会被垃圾回收机制回收
-
 **javascript 代码中的"use strict";是什么意思 ? 使用它区别是什么？**
 
 - use strict 是一种 ECMAscript 5 添加的（严格）运行模式,这种模式使得 Javascript 在更严格的条件下运行,使 JS 编码更加规范化的模式,消除 Javascript 语法的一些不合理、不严谨之处，减少一些怪异行为
@@ -969,18 +938,6 @@ var test1 = createObject('trigkit4',22,'programmer');//第一个实例var test2 
 - 直接将属性和方法赋值给 this 对象;
 
 - 没有 renturn 语句
-
-**说说你对闭包的理解**
-
-- 使用闭包主要是为了设计私有的方法和变量。闭包的优点是可以避免全局变量的污染，缺点是闭包会常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。在 js 中，函数即闭包，只有函数才会产生作用域的概念
-
-- 闭包有三个特性：
-
-  - 1.函数嵌套函数
-
-  - 2.函数内部可以引用外部的参数和变量
-
-  - 3.参数和变量不会被垃圾回收机制回收
 
 **请解释一下 JavaScript 的同源策略**
 
@@ -1217,8 +1174,6 @@ func.bind(that)(arg1, arg2);
 
 ### 变量声明提升的问题
 
-### 闭包的原理, 闭包的各种题, 基本都问
-
 ### DOM2 事件流, 冒泡和捕获问题
 
 ### this 指向问题, 一般都是在笔试题里, 拿着问你, 问的比较多
@@ -1355,10 +1310,6 @@ so on...
 
 ### 原型链与作用域
 
-### 闭包
-
-### 模块化（amd/cmd/umd/ES6 module）
-
 ### 跨域多种方式，如 jsonp
 
 ### JavaScript 中的 this 指向问题
@@ -1424,8 +1375,6 @@ so on...
 ### 编写分页器组件的时候，为了减少服务端查询次数，点击“下一页”怎样能确保还有数据可以加载（请求数据不会为空）？
 
 ### ES6 新增了哪些特性，使用过哪些，也有当场看代码说输出结果的
-
-### JS 模块化的实践
 
 ### require.js 的实现原理（如果使用过 webpack，进一步会问，两者打包的异同及优缺点）
 
@@ -1575,34 +1524,6 @@ https://mp.weixin.qq.com/s/SvtRJXtquh7dJxATCIwNgw
 - 现代浏览器中**多窗口通信**使用 HTML5 规范的 targetWindow.postMessage(data, origin);其中 data 是需要发送的对象，origin 是目标窗口的 origin。window.addEventListener('message', handler, false);handler 的 event.data 是 postMessage 发送来的数据，event.origin 是发送窗口的 origin，event.source 是发送消息的窗口引用
 - 内部服务器代理请求跨域 url，然后返回数据
 - 跨域请求数据，现代浏览器可使用 HTML5 规范的 CORS 功能，只要目标服务器返回 HTTP 头部**`Access-Control-Allow-Origin: *`**即可像普通 ajax 一样访问跨域资源
-
-### javascript 有哪几种数据类型
-
-六种基本数据类型
-
-- undefined
-- null
-- string
-- boolean
-- number
-- [symbol](https://developer.mozilla.org/en-US/docs/Glossary/Symbol)(ES6)
-
-一种引用类型
-
-- Object
-
-### 什么闭包,闭包有什么用
-
-**闭包是在某个作用域内定义的函数，它可以访问这个作用域内的所有变量**。闭包作用域链通常包括三个部分：
-
-1. 函数本身作用域。
-2. 闭包定义时的作用域。
-3. 全局作用域。
-
-闭包常见用途：
-
-1. 创建特权方法用于访问控制
-2. 事件处理程序及回调
 
 ### javascript 有哪几种方法定义函数
 
@@ -2855,11 +2776,6 @@ EventUtil.on(nav, 'click', function (event) {
 2. 函数的 this 拿到当前的执行上下文环境；
 3. 构造函数创建对象。
 
-13，JavaScript 中如何检测一个变量是一个 String 类型？请写出函数实现
-typeof str;
-str instanceof String; // 前边需要是一个对象， instanceof 对基本数据类型不起作用，因为基本数据类型没有原型链。
-toString;
-
 21，请编写一个 JavaScript 函数 parseQueryString，它的用途是把 URL 参数解析为一个对象，如：
 正则匹配
 function parseQueryString(argu){
@@ -3134,21 +3050,6 @@ typeof 的结果有: 'number', 'string', 'object', 'undefined', 'boolean', 'func
 
 ### 检测数组
 
-## 闭包问题
-
-```
-// 都输出10
-for (var i = 0; i < 10; ++i) {
-    setTimeout(function () {console.log(i)}, 0);
-}
-// 依次输出
-for (var i = 0; i < 10; ++i) {
-  (function(i) {
-    setTimeout(function () {console.log(i)}, 0);
-  })(i);
-}
-```
-
 ## 严格模式 'use strict
 
 ### 在 JavaScript 源文件的开头包含'use strict'的意义和有什么好处？
@@ -3183,28 +3084,6 @@ function areTheNumbersAlmostEqual(num1, num2) {
 }
 console.log(areTheNumbersAlmostEqual(0.1 + 0.2, 0.3));
 ```
-
-### 闭包
-
-**有权访问另一个函数作用域中变量的函数。**最常用创建方式，在一个函数内部创建并返回一个函数。
-
-#### 存在的意义：
-
-函数执行过程就需要在**作用域链**中查找变量，**查找过程不能向下，所以就需要闭包来读取函数内部的变量**。闭包会让外层函数的变量一直存在于内存中。直到都不调用为止。
-
-闭包通常用来创建内部变量，使得这些变量不能被外部随意修改，同时又可以通过指定的函数接口来操作。
-
-**应用场景：**
-
-1. 闭包的典型框架应该就是**jquery**了。
-2. 闭包是 javascript 语言的一大特点，主要应用闭包场合主要是为了：**设计私有的方法和变量（模块设计，自执行闭包）。**
-3. 这在做框架的时候体现更明显，**有些方法和属性只是运算逻辑过程中的使用的，不想让外部修改这些属性**，因此就可以设计一个闭包来只提供方法获取。
-
-### 说明
-
-1. 本质还是一个函数，只不过绑定了上下文环境（函数内部引用的所有变量）。
-2. 在函数式编程中，闭包的逻辑就是：【让程序运行环境来管理状态】，执行闭包的时候，逻辑和上下文是关联的。
-3. 闭包的特点很鲜明，闭包内，变量无法释放，无法被直接访问；臂包可以延迟执行。
 
 # Interview questions
 
@@ -3272,20 +3151,6 @@ JavaScript 中的继承**通过原型继承实现**：**一个对象直接从另
 3. 当使用 new 关键字来调用构造函数时，**执行上下文从全局对象（window）变成一个空的上下文，这个上下文代表了新生成的实例**。因此，this 关键字指向当前创建的实例。
 4. 默认情况下，如果你的构造函数中没有返回任何内容，就会返回 this——当前的上下文。
 
-### JS 作用域问题理解
-
-**作用域是创建的时候决定的，作用域链是在执行的时候关联起来的。**
-
-JS 有如下的作用域类型：
-
-- 全局作用域 window 或者 global；
-- 函数作用域（常用闭包来构造块作用域）；（**当代码在一个环境中执行时**，会创建**变量对象的一个作用域链**（scope chain）。），**函数作用域在函数创建的时候创建**，全局作用域就是在创建全局对象的时候创建。
-- let 声明的块作用域（ES6）。
-  可以使用**自执行语句**来模拟块级作用域。
-
-#### 作用域链
-
-**作用域链**的作用是：是**保证对执行环境有权访问的所有变量和函数的有序访问**。
 
 ### this
 
