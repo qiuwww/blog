@@ -1,71 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <style>
-        #anim {
-            position:relative;
-            left:0px;
-            width:150px;
-            height:150px;
-            background: orange;
-            font-size: larger;
-            color: white;
-            border-radius: 10px;
-            padding: 1em;
-        }
+      #anim {
+        position: relative;
+        left: 0px;
+        width: 150px;
+        height: 150px;
+        background: orange;
+        font-size: larger;
+        color: white;
+        border-radius: 10px;
+        padding: 1em;
+      }
     </style>
-    <div id="anim">点我！点我！点我！</div> 
-    <br>
+    <div id="anim">点我！点我！点我！</div>
+    <br />
     <button class="stopAnimation">停止动画，cancelAnimationFrame</button>
 
     <script>
- 
-        // shim layer with setTimeout fallback
-        window.requestAnimFrame = (function(){
-            return  window.requestAnimationFrame || 
-                    window.webkitRequestAnimationFrame || 
-                    window.mozRequestAnimationFrame || 
-                    window.oRequestAnimationFrame || 
-                    window.msRequestAnimationFrame || 
-                    function(/* function FrameRequestCallback */ callback, /* DOMElement Element */ element){
-                        window.setTimeout(callback, 1000 / 60);
-                    };
-            })();
+      // shim layer with setTimeout fallback
+      window.requestAnimFrame = (function() {
+        return (
+          window.requestAnimationFrame ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          window.oRequestAnimationFrame ||
+          window.msRequestAnimationFrame ||
+          // 都没有就使用setTimeout替代了
+          function(/* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
+            window.setTimeout(callback, 1000 / 60);
+          }
+        );
+      })();
 
+      var elem = document.getElementById('anim');
+      var startTime = undefined;
 
-            var elem = document.getElementById("anim");
-            var startTime = undefined;
-            
-            function render(time) {
-            
-            if (time === undefined)
-                time = Date.now();
-            if (startTime === undefined)
-                startTime = time;
-            
-            elem.style.left = ((time - startTime)/10 % 500) + "px";
+      function render(time) {
+        if (time === undefined) time = Date.now();
+        if (startTime === undefined) startTime = time;
+        elem.style.left = (((time - startTime) / 10) % 500) + 'px';
+      }
+
+      elem.onclick = function() {
+        function animloop() {
+          render();
+          window.requestID = requestAnimFrame(animloop, elem);
         }
-        
-        elem.onclick = function() {
-
-            function animloop(){
-                render();
-                window.requestID = requestAnimFrame(animloop, elem);
-            };
-
-            window.requestID = requestAnimationFrame(animloop);
-    };
-    document.querySelector('.stopAnimation').addEventListener('click', function(e) {
-        console.log("requestID:", requestID); // 这里标记的应该是运行的次数
-        cancelAnimationFrame(requestID);
-    }, false);
-</script>
-</body>
-
+        // 使用requestAnimationFrame调用刷新函数animloop
+        window.requestID = requestAnimationFrame(animloop);
+      };
+      document.querySelector('.stopAnimation').addEventListener(
+        'click',
+        function(e) {
+          console.log('requestID:', requestID); // 这里标记的应该是运行的次数
+          cancelAnimationFrame(requestID);
+        },
+        false,
+      );
+    </script>
+  </body>
 </html>

@@ -1,47 +1,93 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <style>
-        div {
-            width: 100px;
-            height: 100px;
-            background: red;
-            position: relative;
-            animation: mymove 5s infinite;
-            -webkit-animation: mymove 5s infinite;
-            /*Safari and Chrome*/
-        }
-        
-        @keyframes mymove {
-            from {
-                left: 0px;
-            }
-            to {
-                left: 200px;
-            }
-        }
-        
-        @-webkit-keyframes mymove
+      div#base {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: relative;
+        animation: mymove 5s infinite;
+        -webkit-animation: mymove 5s infinite;
         /*Safari and Chrome*/
-        
-        {
-            from {
-                left: 0px;
-            }
-            to {
-                left: 200px;
-            }
+      }
+
+      @keyframes mymove {
+        from {
+          left: 0px;
         }
+        to {
+          left: 200px;
+        }
+      }
+
+      @-webkit-keyframes mymove
+        /*Safari and Chrome*/ {
+        from {
+          left: 0px;
+        }
+        to {
+          left: 200px;
+        }
+      }
+
+      /* 实现动画环绕 */
+      #round {
+        margin-top: 100px;
+        height: 200px;
+        width: 200px;
+        background-color: aquamarine;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      #center,
+      #move {
+        height: 50px;
+        width: 50px;
+        background-color: blueviolet;
+      }
+      #move {
+        position: absolute;
+        background-color: blue;
+
+        animation: round 5s infinite;
+      }
+
+      @keyframes round {
+        0% {
+          left: 0px;
+          top: 0;
+        }
+        25% {
+          left: 150px;
+          top: 0;
+        }
+        50% {
+          left: 150px;
+          top: 150px;
+        }
+        75% {
+          left: 0;
+          top: 150px;
+        }
+        100% {
+          left: 0px;
+          top: 0;
+        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <p><strong>注释：</strong>Internet Explorer 9 以及更早的版本不支持 animation 属性。</p>
+    <div id="base"></div>
 
-    <div></div>
-
-</body>
-
+    <div id="round">
+      <div id="center"></div>
+      <div id="move"></div>
+    </div>
+  </body>
 </html>

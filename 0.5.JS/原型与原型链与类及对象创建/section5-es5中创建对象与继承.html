@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <script>
+      // es5里面的类
+
+      // 1. 最简单的类
+      function Person1() {
+        this.name = '张三';
+        this.age = 20;
+      }
+      var p1 = new Person1();
+      console.log('## 1 p1: ', p1);
+
+      // 2. 构造函数 和 原型链 里面增加方法
+
+      function Person2() {
+        this.name = '张三'; /*属性*/
+        this.age = 20;
+        this.run = function() {
+          console.log(this.name + '在运动');
+        };
+      }
+      // 原型链上面的属性会被多个实例共享 构造函数不会
+      Person2.prototype.sex = '男';
+      Person2.prototype.work = function() {
+        console.log(this.name + '在工作');
+      };
+      var p2 = new Person2();
+      console.log('## 2 p2: ', p2);
+      console.log(p2.name);
+      p2.run();
+      p2.work();
+
+      // 3. 类里面的静态方法
+
+      function Person3() {
+        this.name = '张三'; /*属性*/
+        this.age = 20;
+        this.run = function() {
+          /*实例方法*/
+          console.log(this.name + '在运动');
+        };
+      }
+
+      Person3.getInfo = function() {
+        console.log('我是静态方法');
+      };
+      // 原型链上面的属性会被多个实例共享   构造函数不会
+      Person3.prototype.sex = '男';
+      Person3.prototype.work = function() {
+        console.log(this.name + '在工作');
+      };
+
+      var p3 = new Person3();
+      console.log('## 3 p3: ', p3);
+      p3.work();
+
+      // 调用静态方法
+      Person3.getInfo();
+
+      // 4. es5里面的继承 对象冒充实现继承
+      function Person4() {
+        this.name = '张三'; /*属性*/
+        this.age = 20;
+        this.run = function() {
+          /*实例方法*/
+          console.log(this.name + '在运动');
+        };
+      }
+
+      Person4.prototype.sex = '男';
+      Person4.prototype.work = function() {
+        console.log(this.name + '在工作');
+      };
+
+      // Web类 继承Person类   原型链+对象冒充的组合继承模式
+
+      function Web4() {
+        // 这里只拿到了构造函数里边的属性和方法，原型链上的方法没发继承
+        Person4.call(this); /*对象冒充实现继承*/
+      }
+
+      var w4 = new Web4();
+      console.log('## 4 继承 w4: ', w4);
+
+      w4.run(); // 对象冒充可以继承构造函数里面的属性和方法
+      // w4.work();  // 对象冒充可以继承构造函数里面的属性和方法   但是没法继承原型链上面的属性和方法
+
+      // 5. es5里面的继承 原型链实现继承
+
+      function Person5() {
+        this.name = '张三'; /*属性*/
+        this.age = 20;
+        this.run = function() {
+          /*实例方法*/
+          console.log(this.name + '在运动');
+        };
+      }
+      Person5.prototype.sex = '男';
+      Person5.prototype.work = function() {
+        console.log(this.name + '在工作');
+      };
+
+      // Web类 继承Person类   原型链+对象冒充的组合继承模式
+      function Web5() {}
+
+      Web5.prototype = new Person5(); // 原型链实现继承， 子类的原型等于父类的实例
+      var w5 = new Web5();
+      console.log('## 5 w5: ', w5);
+
+      // 原型链实现继承: 可以继承构造函数里面的属性和方法 也可以继承原型链上面的属性和方法
+      w5.run();
+      w5.work();
+
+      // 6. 原型链实现继承的 问题
+      function Person6(name, age) {
+        this.name = name; /*属性*/
+        this.age = age;
+        this.run = function() {
+          /*实例方法*/
+          console.log(this.name + '在运动');
+        };
+      }
+      Person6.prototype.sex = '男';
+      Person6.prototype.work = function() {
+        console.log(this.name + '在工作');
+      };
+
+      var p6 = new Person6('李四', 20);
+      console.log('## 6 p6: ', p6);
+      p6.run();
+
+      function Web6(name, age) {
+        // 要实现这里的name被赋值，需要重写属性绑定
+        this.name = name;
+        // 这里的方法属性是没问题的。
+      }
+
+      Web6.prototype = new Person6();
+
+      var w6 = new Web6('赵四', 20); // 这里是出现的问题，实例化子类的时候没法给父类传参，构造函数不存在接口，这里如果要实现最好是重写属性赋值。
+      console.log('w6: ', w6);
+      // w6.run(); // 这里是没有这个方法的
+      w6.work();
+
+      // 7. 原型链+对象冒充的组合继承模式 问题的解决
+
+      function Person7(name, age) {
+        this.name = name; /*属性*/
+        this.age = age;
+        this.run = function() {
+          /*实例方法*/
+          console.log(this.name + '在运动');
+        };
+      }
+
+      Person7.prototype.sex = '男';
+      Person7.prototype.work = function() {
+        console.log(this.name + '在工作');
+      };
+
+      function Web7(name, age) {
+        Person7.call(this, name, age); // 对象冒充继承 实例化子类可以给父类传参
+      }
+
+      Web7.prototype = new Person7();
+
+      var w7 = new Web7('赵四', 20); // 实例化子类的时候没法给父类传参
+      console.log('## 7 w7: ', w7);
+      w7.run();
+      w7.work();
+
+      // 8. 原型链+对象冒充继承的另一种方式
+
+      function Person8(name, age) {
+        this.name = name; /*属性*/
+        this.age = age;
+        this.run = function() {
+          /*实例方法*/
+          console.log(this.name + '在运动');
+        };
+      }
+      Person8.prototype.sex = '男';
+      Person8.prototype.work = function() {
+        console.log(this.name + '在工作');
+      };
+
+      function Web8(name, age) {
+        Person8.call(this, name, age); //对象冒充继承  可以继承构造函数里面的属性和方法、实例化子类可以给父类传参
+      }
+
+      Web8.prototype = Person8.prototype;
+      var w8 = new Web8('赵四', 20); //实例化子类的时候没法给父类传参
+      console.log('## 8 w8: ', w8);
+      w8.run();
+      w8.work();
+    </script>
+  </body>
+</html>

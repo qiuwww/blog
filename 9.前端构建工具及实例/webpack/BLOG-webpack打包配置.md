@@ -1,9 +1,10 @@
 ---
 title: webpack 打包配置
 date: 2020-03-03
+tags:
+  - 构建工具
+  - webpack
 ---
-
-[TOC]
 
 [参考文章](https://mp.weixin.qq.com/s/ciyc9z8ZaVwSpriQoUCHHA)
 
@@ -40,7 +41,7 @@ date: 2020-03-03
 
 > 备注：当使用[webpack4](https://link.juejin.im/?target=https%3A%2F%2Ftwitter.com%2Fhashtag%2Fwebpack%3Fsrc%3Dhash%26ref_src%3Dtwsrc%255Etfw)时，确保使用 Node.js 的版本 >= 8.9.4。因为 webpack4 使用了很多 JS 新的语法，它们在新版本的 v8 里经过了优化。
 
-### webpack 需要设置 mode 属性，可以是 development 或 production。
+### webpack 需要设置 mode 属性，可以是 development 或 production
 
 **通过 mode, 你可以轻松设置打包环境。**如果你将 mode 设置成 development，你将获得最好的开发阶段体验。这得益于 webpack 针对开发模式提供的特性：
 
@@ -265,7 +266,7 @@ Externals 使用主要三步：参照 jquery 引入。
 
 1. 减小打包的整体体积
    - 代码压缩，MiniCssExtractPlugin，UglifyJsPlugin
-   - 移除不必要的模块，(仅仅引入而未在代码中使用，该模块仍然会被打包)
+   - **移除不必要的模块**，(仅仅引入而未在代码中使用，该模块仍然会被打包)
    - 按需引入模块，`import Button from 'antd/es/button';`
    - 选择可以替代的体积较小的模块，moment -> DateTime
 2. Code Splitting: 按需加载，优化页面首次加载体积。如根据路由按需加载，根据是否可见按需加载

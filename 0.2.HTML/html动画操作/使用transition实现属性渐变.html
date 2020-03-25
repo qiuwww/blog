@@ -1,35 +1,72 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <style>
-        div {
-            width: 100px;
-            height: 100px;
-            background: blue;
-            transition: width 2s;
-            -moz-transition: width 2s;
-            /* Firefox 4 */
-            -webkit-transition: width 2s;
-            /* Safari and Chrome */
-            -o-transition: width 2s;
-            /* Opera */
-        }
-        
-        div:hover {
-            width: 300px;
-        }
+      div#base {
+        width: 100px;
+        border-radius: 0;
+        height: 100px;
+        background: blue;
+        transition: width 2s;
+        -moz-transition: width 2s;
+        /* Firefox 4 */
+        -webkit-transition: width 2s;
+        /* Safari and Chrome */
+        -o-transition: width 2s;
+        /* Opera */
+
+        /* 如何渐变多个属性 */
+        /* 多个属性逗号隔开 */
+        transition: width 2s ease, border-radius 3s ease-out;
+      }
+
+      div#base:hover {
+        width: 300px;
+        border-radius: 30px;
+      }
+
+      /* 一个元素环绕另一个元素运动 */
+      /* 这里不能环绕，只能用动画 */
+      #round {
+        height: 200px;
+        width: 200px;
+        background-color: aquamarine;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      #center,
+      #move {
+        height: 50px;
+        width: 50px;
+        background-color: blueviolet;
+      }
+      #move {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: blue;
+      }
+      #round #move {
+        transition: left 2s ease, top 4s ease-in;
+      }
+      #round:hover #move {
+        top: 150px;
+        left: 150px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
-    <div></div>
-
+  <body>
+    <div id="base"></div>
     <p>请把鼠标指针移动到蓝色的 div 元素上，就可以看到过渡效果。</p>
-
     <p><b>注释：</b>本例在 Internet Explorer 中无效。</p>
 
-</body>
-
+    <div id="round">
+      <div id="center"></div>
+      <div id="move"></div>
+    </div>
+  </body>
 </html>

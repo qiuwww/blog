@@ -111,23 +111,6 @@ function deepClone(obj) {
   - 函数声明的优先级高于变量，如果变量名跟函数名相同且未赋值，则函数声明会覆盖变量声明
   - 如果函数有多个同名参数，那么最后一个参数（即使没有定义）会覆盖前面的同名参数
 
-**介绍 JavaScript 的原型，原型链？有什么特点？**
-
-- 原型：
-
-  - JavaScript 的所有对象中都包含了一个 [__proto__] 内部属性，这个属性所对应的就是该对象的原型
-  - JavaScript 的函数对象，除了原型 [__proto__] 之外，还预置了 prototype 属性
-  - 当函数对象作为构造函数创建实例时，该 prototype 属性值将被作为实例对象的原型 [__proto__]。
-
-- 原型链：
-
-  - 当一个对象调用的属性/方法自身不存在时，就会去自己 [__proto__] 关联的前辈 prototype 对象上去找
-  - 如果没找到，就会去该 prototype 原型 [__proto__] 关联的前辈 prototype 去找。依次类推，直到找到属性/方法或 undefined 为止。从而形成了所谓的“原型链”
-
-* 原型特点：
-
-  - JavaScript 对象是通过引用来传递的，当修改原型时，与之相关的对象也会继承这一改变
-
 **JavaScript 有几种类型的值？，你能画一下他们的内存图吗**
 
 - 原始数据类型（Undefined，Null，Boolean，Number、String）-- 栈
@@ -220,64 +203,6 @@ class Point {
 }
 
 var point = new Point(2, 3);
-```
-
-**Javascript 如何实现继承？**
-
-- 构造函数绑定：使用 call 或 apply 方法，将父对象的构造函数绑定在子对象上
-
-```javascript   　
-function Cat(name, color) {
-  Animal.apply(this, arguments);
-  this.name = name;
-  this.color = color;
-}
-```
-
-- 实例继承：将子对象的 prototype 指向父对象的一个实例
-
-```javascript
-Cat.prototype = new Animal();
-Cat.prototype.constructor = Cat;
-```
-
-- 拷贝继承：如果把父对象的所有属性和方法，拷贝进子对象
-
-```javascript         　　
-function extend(Child, Parent) {
-  var p = Parent.prototype;
-  var c = Child.prototype;
-  for (var i in p) {
-    c[i] = p[i];
-  }
-  c.uber = p;
-}
-```
-
-- 原型继承：将子对象的 prototype 指向父对象的 prototype
-
-```javascript
-function extend(Child, Parent) {
-  var F = function() {};
-  F.prototype = Parent.prototype;
-  Child.prototype = new F();
-  Child.prototype.constructor = Child;
-  Child.uber = Parent.prototype;
-}
-```
-
-- ES6 语法糖 extends：class ColorPoint extends Point {}
-
-```javascript
-class ColorPoint extends Point {
-  constructor(x, y, color) {
-    super(x, y); // 调用父类的constructor(x, y)
-    this.color = color;
-  }
-  toString() {
-    return this.color + ' ' + super.toString(); // 调用父类的toString()
-  }
-}
 ```
 
 **Javascript 作用链域?**
@@ -541,18 +466,6 @@ parseInt('3', 2);  // NaN
 - If 语句必须使用大括号
 - for-in 循环中的变量 应该使用 var 关键字明确限定作用域，从而避免作用域污
 
-**JavaScript 原型，原型链 ? 有什么特点？**
-
-- 每个对象都会在其内部初始化一个属性，就是 prototype(原型)，当我们访问一个对象的属性时
-- 如果这个对象内部不存在这个属性，那么他就会去 prototype 里找这个属性，这个 prototype 又会有自己的 prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念
-- 关系：`instance.constructor.prototype = instance.__proto__`
-- 特点：
-
-  - JavaScript 对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本。当我们修改原型时，与之相关的对象也会继承这一改变。
-
-- 当我们需要一个属性的时，Javascript 引擎会先看当前对象中是否有这个属性， 如果没有的
-- 就会查找他的 Prototype 对象是否有这个属性，如此递推下去，一直检索到 Object 内建对象
-
 **JavaScript 有几种类型的值？，你能画一下他们的内存图吗？**
 
 - 栈：原始数据类型（Undefined，Null，Boolean，Number、String）
@@ -565,30 +478,6 @@ parseInt('3', 2);  // NaN
 
 ![](https://camo.githubusercontent.com/d1947e624a0444d1032a85800013df487adc5550/687474703a2f2f7777772e77337363686f6f6c2e636f6d2e636e2f692f63745f6a735f76616c75652e676966)
 
-**Javascript 如何实现继承？**
-
-- 构造继承
-- 原型继承
-- 实例继承
-- 拷贝继承
-
-- 原型 prototype 机制或 apply 和 call 方法去实现较简单，建议使用构造函数与原型混合方式
-
-```
- function Parent(){
-        this.name = 'wang';
-    }
-
-    function Child(){
-        this.age = 28;
-    }
-    Child.prototype = new Parent();//继承了Parent，通过原型
-
-    var demo = new Child();
-    alert(demo.age);
-    alert(demo.name);//得到被继承的属性
-  }
-```
 
 **javascript 创建对象的几种方式？**
 
@@ -891,19 +780,6 @@ Base.call(obj);
 
 > 在低版本 IE 中经常会出现内存泄露，很多时候就是因为其采用引用计数方式进行垃圾回收。引用计数的策略是跟踪记录每个值被使用的次数，当声明了一个 变量并将一个引用类型赋值给该变量的时候这个值的引用次数就加 1，如果该变量的值变成了另外一个，则这个值得引用次数减 1，当这个值的引用次数变为 0 的时 候，说明没有变量在使用，这个值没法被访问了，因此可以将其占用的空间回收，这样垃圾回收器会在运行的时候清理掉引用次数为 0 的值占用的空间
 
-**js 继承方式及其优缺点**
-
-- 原型链继承的缺点
-
-  - 一是字面量重写原型会中断关系，使用引用类型的原型，并且子类型还无法给超类型传递参数。
-
-- 借用构造函数（类式继承）
-
-  - 借用构造函数虽然解决了刚才两种问题，但没有原型，则复用无从谈起。所以我们需要原型链+借用构造函数的模式，这种模式称为组合继承
-
-- 组合式继承
-  - 组合式继承是比较常用的一种继承方法，其背后的思路是使用原型链实现对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数复用，又保证每个实例都有它自己的属性。
-
 **defer 和 async**
 
 - defer 并行加载 js 文件，会按照页面上 script 标签的顺序执行 async 并行加载 js 文件，下载完成立即执行，不会按照页面上 script 标签的顺序执行
@@ -1182,8 +1058,6 @@ func.bind(that)(arg1, arg2);
 
 ### jQuery 获取复选框选中状态, 为什么要用 prop 方法
 
-### 面向对象编程中的继承问题, 原型链问题在笔试题里比较常见
-
 ### jQuery API , 各种操作 DOM 用法, 还有一些新的 API, 这种在不用 3 大框架的公司会问的
 
 详细###
@@ -1308,8 +1182,6 @@ so on...
 
 ### 对 css 预编译器有所了解吗？
 
-### 原型链与作用域
-
 ### 跨域多种方式，如 jsonp
 
 ### JavaScript 中的 this 指向问题
@@ -1365,8 +1237,6 @@ so on...
 ### jsonp 原理、postMessage 原理
 
 ### 实现拖拽功能，比如把 5 个兄弟节点中的最后一个节点拖拽到节点 1 和节点 2 之间
-
-### 动画：setTimeout 何时执行，requestAnimationFrame 的优点
 
 ### 手写 parseInt 的实现：要求简单一些，把字符串型的数字转化为真正的数字即可，但不能使用 JS 原
 
@@ -1735,69 +1605,6 @@ var EventUtil = {
 };
 ```
 
-### 评价一下三种方法实现继承的优缺点,并改进
-
-```
-function Shape() {}
-
-function Rect() {}
-
-// 方法1
-Rect.prototype = new Shape();
-
-// 方法2
-Rect.prototype = Shape.prototype;
-
-// 方法3
-Rect.prototype = Object.create(Shape.prototype);
-
-Rect.prototype.area = function () {
-  // do something
-};
-```
-
-方法 1：
-
-1. 优点：正确设置原型链实现继承
-2. 优点：父类实例属性得到继承，原型链查找效率提高，也能为一些属性提供合理的默认值
-3. 缺点：父类实例属性为引用类型时，不恰当地修改会导致所有子类被修改
-4. 缺点：创建父类实例作为子类原型时，可能无法确定构造函数需要的合理参数，这样提供的参数继承给子类没有实际意义，当子类需要这些参数时应该在构造函数中进行初始化和设置
-5. 总结：继承应该是继承方法而不是属性，为子类设置父类实例属性应该是通过在子类构造函数中调用父类构造函数进行初始化
-
-方法 2：
-
-1. 优点：正确设置原型链实现继承
-2. 缺点：父类构造函数原型与子类相同。修改子类原型添加方法会修改父类
-
-方法 3：
-
-1. 优点：正确设置原型链且避免方法 1.2 中的缺点
-2. 缺点：ES5 方法需要注意兼容性
-
-改进：
-
-1. 所有三种方法应该在子类构造函数中调用父类构造函数实现实例属性初始化
-
-```
-function Rect() {
-    Shape.call(this);
-}
-```
-
-2. 用新创建的对象替代子类默认原型，设置`Rect.prototype.constructor = Rect;`保证一致性
-3. 第三种方法的 polyfill：
-
-```
-function create(obj) {
-    if (Object.create) {
-        return Object.create(obj);
-    }
-
-    function f() {};
-    f.prototype = obj;
-    return new f();
-}
-```
 
 ## \$javascript 编程部分
 
@@ -2757,18 +2564,7 @@ EventUtil.on(nav, 'click', function (event) {
     console.log(input);
 ```
 
-6，javascript 面向对象中继承实现
 
-1. 我们创建的每个**函数**都有一个 prototype（原型）属性，**这个属性是一个指针，指向一个对象**，而这个对象的**用途**是包含可以由特定类型的所有实例共享的属性和方法。
-2. 创建一个类，让其 prototype 指向另一个实例，类继承，（extends）；
-3. 对象直接继承，创建 Object.create， Object.assign（所有**可枚举属性**的值从一个或多个源对象复制到目标对象），不可以扩展原型上的属性
-
-```
-   function P() {}
-   P.prototype.alert = function(){alert(this.name)}
-   var xm = new P();
-   Object.assign({}, xm)
-```
 
 10，写出 3 个使用 this 的典型应用
 
@@ -3126,43 +2922,6 @@ obj.constructor.__proto__.constructor
   这就是原型链的末尾，即 null
   ```
 
-#### 继承
-
-JavaScript 中的继承**通过原型继承实现**：**一个对象直接从另一对象继承**。**对象中包含其继承体系中祖先的引用**——对象的 prototype 属性，对应 Object.create(parentObj)。
-
-**继承是继承对象，原型继承就是原型指向要继承的对象。**
-
-### 调用一次 new 需要执行的事情
-
-参见 MDN：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new
-
-**new 运算符**创建一个**用户定义的对象类型的实例**或**具有构造函数的内置对象的实例**。
-
-**当代码 `new`_Foo_`(...)` 执行时，会发生以下事情：**
-
-1. 一个**继承**自 _Foo_`.prototype` 的**新对象被创建（**create**）**。
-2. **使用指定的参数调用构造函数** `Foo` ，**并将 `this` 绑定到新创建的对象**。`new *Foo*` 等同于 `new`_Foo_`()`，也就是没有指定参数列表，_Foo_ 不带任何参数调用的情况。
-3. **由构造函数返回的对象就是 `new` 表达式的结果**。**如果构造函数没有显式返回一个对象，则使用步骤 1 创建的对象。**（一般情况下，构造函数不返回值，但是用户可以选择主动返回对象，**来覆盖正常的对象创建步骤**）
-
-#### 使用 new 与不使用 new 调用一个函数的执行的异同
-
-1. 使用 new 方法**最终会返回当前创建的对象**，不使用 new 方法，**最终只会是一个函数调用**，返回结果依据构造函数内的返回说明。
-2. **使用 new 会创建一个对象（函数上下文执行环境在当前对象，this 指向当前对象）**，不使用 new 的时候，只是**创建了几个全局变量**（this 指向全局）。
-3. 当使用 new 关键字来调用构造函数时，**执行上下文从全局对象（window）变成一个空的上下文，这个上下文代表了新生成的实例**。因此，this 关键字指向当前创建的实例。
-4. 默认情况下，如果你的构造函数中没有返回任何内容，就会返回 this——当前的上下文。
-
-
-### this
-
-this 对象在运行时是基于**函数的执行环境绑定的**：
-
-- 在全局函数中，this 等于 window，
-- 当函数被当作某个对象的方法调用的时候，this 等于那个对象，
-- 非对象的函数调用，this 都会指向 window。
-- 也就相当于说，谁调用这个函数，this 就指向谁。
-- 匿名函数的执行环境具有全局性。这时候 this 对象指向 window。
-- 每当创建一个函数的时候，函数**在被调用的时候自动获取两个特殊的变量**，this 和 arguments。
-
 ### 手写深度赋值函数
 
 1. 借助 JSON 对象的方法，主要是复制了数据，对象上的引用类型无法复制
@@ -3235,13 +2994,10 @@ testObj.c === copyObj.c // true, 复制了指向
 
 ### 排版引擎与 JS 引擎
 
-### GPU 加速与动画性能
-
 ### DOM1，DOM2，DOM3 规范
 
 ### 浏览器缓存与应用缓存
 
-### 硬件加速与动画优化
 
 ## 以下是你应该熟悉的 JavaScript 知识点：
 

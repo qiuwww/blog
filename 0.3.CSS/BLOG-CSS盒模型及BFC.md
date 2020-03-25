@@ -13,8 +13,6 @@ categories:
 comments: true
 ---
 
-[TOC]
-
 ## 对 CSS 盒模型的认识
 
 `CSS` 盒模型主要是以下几个方面：
@@ -28,7 +26,7 @@ comments: true
 
 ### 标准盒模型和 IE 盒子模型
 
-标准盒子模型(content-box)：在标准盒模型中，width 和 height **指的是内容区域的宽度和高度**（content-box）。增加内边距、边框和外边距不会影响内容区域的尺寸，但是会增加元素框的总尺寸。**chrome 默认是标准的盒模型的，firefox**。width 和 height 指的是内容区域的宽度和高度。
+标准盒子模型chrome(content-box)：在标准盒模型中，width 和 height **指的是内容区域的宽度和高度**（content-box）。增加内边距、边框和外边距不会影响内容区域的尺寸，但是会增加元素框的总尺寸。**chrome 默认是标准的盒模型的，firefox**。width 和 height 指的是内容区域的宽度和高度。chrome默认的是标准模型，不过大多数的时候，修改了box-sizing。
 
 `IE`盒子模型(border-box)（**怪异盒模型**）：ie 盒子模型的 content 部分**包含了** border 和 pading，这个还是比较常用的，width 和 height 指的是内容区域+border+padding 的宽度和高度。；
 

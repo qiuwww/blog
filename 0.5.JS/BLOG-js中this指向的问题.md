@@ -11,12 +11,13 @@ tags:
 
 ## 普通函数中的 this
 
-在调用的时候，确认 this 的指向。
+在普通函数调用的时候，确认 this 的指向，即 this 对象在运行时是基于**函数的执行环境绑定的**：
 
 1. this 总是代表**它的直接调用者**, 例如 obj.func ,那么 func 中的 this 就是 obj;
-2. 在默认情况(非严格模式下,未使用 'use strict')，没找到直接调用者,则 this 指的是 window;
-3. 在严格模式下,没有直接调用者的函数中的 this 是 undefined;
-4. 使用 call,apply,bind(ES5 新增)绑定的,this 指的是绑定的对象;
+2. 在默认情况(非严格模式下,未使用 'use strict')，**没找到直接调用者（匿名函数）**,则 this 指的是 window，非对象的函数调用，this 都会指向 window；
+3. 在严格模式下,没有直接调用者的函数中的 this 是 undefined
+4. 使用 call,apply,bind(ES5 新增)绑定的，this 指的是绑定的对象;
+5. 在全局函数中，this 等于 window；
 
 ## 箭头函数中的 this，指向定义的时候所处的对象
 
