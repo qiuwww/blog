@@ -1,12 +1,16 @@
 ---
 title: git常用操作
-date: 2020-03-05
+date: 2020-3-5
+tags:
+  - git
 ---
 
 回滚 -> revert
 重置、撤销、丢弃 -> reset
 
 [官方网站](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE)
+
+## 常用命令
 
 ## 创建仓库
 
@@ -71,7 +75,7 @@ date: 2020-03-05
 - git show master^或 git show master~  查看 master 分支最新一次提交的父提交的完整信息
 - git show master^2 查看 master 分支最新一次提交的第二个父提交（也就是父提交的父提交）的完整信息
 
-### git-log 查看完整的历史提交（commit）信息
+### git-log，查看完整的历史提交（commit）信息
 
 - git log，可以按键盘空格/字母 b 键将信息向下/向上翻页，也可以按键盘向上/向下箭头向上/向下按行滚动
 - git log –p 输出每一个 commit 之间的差异信息
@@ -192,7 +196,7 @@ git push
 
 ## git [撤销](http://www.ruanyifeng.com/blog/2019/12/git-undo.html)
 
-### git reset，丢弃提交，也就是重置
+### git reset，丢弃提交，也就是重置，删除commit及add
 
 --mixed
 
@@ -207,7 +211,7 @@ git push
 
 **删除工作空间改动代码，撤销 commit，撤销 git add .**
 
-### git revert HEAD，撤销提交
+### git revert HEAD，撤销提交，撤销push
 
 一种常见的场景是，提交代码以后，你突然意识到这个提交有问题，应该撤销掉，这时执行下面的命令就可以了。
 
@@ -287,8 +291,8 @@ revert，提交一次修改，让代码回滚到前一次的提交。但是之�
 
 ### git revert 和 git reset 的区别
 
-- git revert 是用一次新的 commit 来回滚之前的 commit，此次提交之前的 commit 都会被保留；
-- git reset 是**回到某次提交（代码到修改，未 add）**，提交及之前的 commit 都会被保留，但是**此 commit id 之后的修改都会被删除**。
+- `git revert` 是用一次新的 commit 来回滚之前的 commit，此次提交之前的 commit 都会被保留；
+- `git reset` 是**回到某次提交（代码到修改，未 add）**，提交及之前的 commit 都会被保留，但是**此 commit id 之后的修改都会被删除**。
 
 ## 打标签 [git tag](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE)
 
@@ -331,7 +335,7 @@ stash 命令可用于临时保存和回复修改，可跨分支。
 
 git rebase 能够将分叉的分支重新合并。
 
-将当前的变更变基到当前所在的分支：`git rebase`。
+将当前的变更**变基到当前所在的分支**：`git rebase`。
 
 ### 使用场景
 
@@ -368,7 +372,7 @@ git push
 
 通常会使用，合并修改的分支到主分支，在其下就有变基到当前分支（将当前变更，变基到\*\*分支）。
 
-在 **master 分支上执行**: `git rebase 变更的分支，需要合并到master的`
+在 **master 分支上执行**: `git rebase 变更的分支，需要合并到master`
 
 这句命令的意识是：**以 master 为基础，将 feature 分支上的修改增加到 master 分支上，并生成新的版本。**
 

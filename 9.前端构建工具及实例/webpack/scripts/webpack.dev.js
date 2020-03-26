@@ -12,6 +12,9 @@ const devConfig = merge(base, {
   plugins: [
     new BundleAnalyzerPlugin(),
     // 变量会被注入到window对象上边，使用process.env.ENV访问
+    // DefinePlugin 插件可以从打包运行的 node 环境 给 代码注入变量
+    // [使用参考文档](https://www.jianshu.com/p/887f0454ef96)
+
     new webpack.DefinePlugin({
       'process.env.ENV': '"dev"',
       __DEV__: '"hahaha"',

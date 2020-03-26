@@ -218,7 +218,7 @@ import 的加载是加载的模块的引用。而 import()加载的是模块的�
 
 ## 添加 react 文件的打包支持
 
-## webpack 优化策略，提高 dev 及 build 的速度
+## webpack 优化策略，<提高 dev 及 build 的速度>
 
 [参考文章](https://juejin.im/post/5d614dc96fb9a06ae3726b3e)
 
@@ -240,7 +240,11 @@ happypack，多核开启，提高编译速度，MiniCssExtractPlugin 必须置�
 
 #### 抽离
 
-常见的方案有两种，一种是使用 **webpack-dll-plugin** 的方式，在首次构建时候就将这些静态依赖单独打包，后续只需要引用这个早就被打好的静态依赖包即可，有点类似“预编译”的概念；另一种，也是**业内常见的 [Externals](https://webpack.docschina.org/configuration/externals/) 的方式**，我们将这些不需要打包的静态资源从构建逻辑中剔除出去，而使用 CDN 的方式，去引用它们。
+常见的方案有两种:
+
+一种是使用 **webpack-dll-plugin** 的方式，在首次构建时候就将这些静态依赖单独打包，后续只需要引用这个早就被打好的静态依赖包即可，有点类似“预编译”的概念；
+
+另一种，也是**业内常见的 [Externals](https://webpack.docschina.org/configuration/externals/) 的方式**，我们将这些不需要打包的静态资源从构建逻辑中剔除出去，而使用 CDN 的方式，去引用它们。
 
 Externals 使用主要三步：参照 jquery 引入。
 
@@ -248,19 +252,15 @@ Externals 使用主要三步：参照 jquery 引入。
 2. externals 声明；
 3. 文件内导入。
 
-#### 以及拆分
+#### 以及拆分，前端微服务
 
-因为如今团队在实践前端微服务，因此每一个子模块都被拆分成了一个单独的 repo，因此我们的项目与生俱来就继承了集群编译的基因，但是如果把这些子项目以 entry 的形式打在一个 repo 中，也是一个很常见的情况，这时候，就需要进行拆分，集群编译便能发挥它的优势。
+对于多页面应用。
 
-### 提升体验
+webpack 会将一个 entry 视为一个 chunk，**并在最后生成文件时，将 chunk 单独生成一个文件**。
 
-#### 展示进度条，progress-bar-webpack-plugin
+因为如今团队在实践**前端微服务**，因此**每一个子模块都被拆分成了一个单独的 repo**，因此我们的项目与生俱来就继承了集群编译的基因，但是如果把这些子项目以 entry 的形式打在一个 repo 中，也是一个很常见的情况，这时候，就需要进行拆分，集群编译便能发挥它的优势。
 
-#### 完成提醒，webpack-build-notifier
-
-#### dashboard 输出，webpack-dashboard
-
-## 如何更好地优化打包资源，减小体积
+## 如何更好地优化打包资源，<压缩体积，分包>
 
 [参考文章](https://mp.weixin.qq.com/s/H-w4LtY3qVNAQLiyGFsEaA)
 
@@ -270,13 +270,22 @@ Externals 使用主要三步：参照 jquery 引入。
    - 按需引入模块，`import Button from 'antd/es/button';`
    - 选择可以替代的体积较小的模块，moment -> DateTime
 2. Code Splitting: 按需加载，优化页面首次加载体积。如根据路由按需加载，根据是否可见按需加载
-   - 使用 import() 动态加载模块
    - 使用 **React.lazy() 动态加载组件**
-   - 使用 lodable-component 动态加载路由，组件或者模块
-3. Bundle Splitting：分包，根据模块更改频率分层次打包，充分利用缓存
+   - 使用 lodable-component **动态加载路由**，组件或者模块
+3. Bundle Splitting：**分包**，根据模块更改频率分层次打包，充分利用缓存
    - webpack-runtime: 应用中的 webpack 的版本比较稳定，分离出来，保证长久的永久缓存
    - react-runtime: react 的版本更新频次也较低
-   - vendor: 常用的第三方模块打包在一起，如 lodash，classnames 基本上每个页面都会引用到，但是它们的更新频率会更高一些
+   - vendor: **常用的第三方模块打包在一起**，如 lodash，classnames 基本上每个页面都会引用到，但是它们的更新频率会更高一些
+
+## 提升体验
+
+### 编译的时候给出更多的提示，termainl 界面更方便展示
+
+#### 展示进度条，progress-bar-webpack-plugin
+
+#### 完成提醒，webpack-build-notifier
+
+#### dashboard 输出，webpack-dashboard
 
 ## 自定义 loader
 
