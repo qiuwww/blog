@@ -4,25 +4,6 @@
 
 ## 工具函数
 
-### JS 中的深拷贝/浅拷贝
-
-```js
-function deepClone(obj) {
-  let result = typeof obj.splice === 'function' ? [] : {};
-  if (obj && typeof obj === 'object') {
-    for (let key in obj) {
-      if (obj[key] && typeof obj[key] === 'object') {
-        result[key] = deepClone(obj[key]); //如果对象的属性值为object的时候，递归调用deepClone,即在吧某个值对象复制一份到新的对象的对应值中。
-      } else {
-        result[key] = obj[key]; //如果对象的属性值不为object的时候，直接复制参数对象的每一个键值到新的对象对应的键值对中。
-      }
-    }
-    return result;
-  }
-  return obj;
-}
-```
-
 **JavaScript 的组成**
 
 - JavaScript 由以下三部分组成：
@@ -590,7 +571,7 @@ function Dog(){
 
 **写一个通用的事件侦听器函数**
 
-```
+```js
  // event(事件)工具集，来源：github.com/markyun
     markyun.Event = {
         // 页面加载完成后
@@ -1078,7 +1059,6 @@ func.bind(that)(arg1, arg2);
 
 ### 栈和队列结构, 有的会问
 
-### 跨域问题: 同源策略, 解决方案, 解决原理(比如 jsonp 的原理), 这里都是高发区
 
 ### 操作 DOM 的成本很高，不要轻易去操作 DOM ？vue，react 等框架，相对于操作 dom 在这方面的优势在哪里？
 
@@ -1168,7 +1148,6 @@ so on...
 
 ### 解释一下变量声明提升
 
-### 如何跨域访问
 
 ### js 如何判断一个数组
 
@@ -1182,7 +1161,6 @@ so on...
 
 ### 对 css 预编译器有所了解吗？
 
-### 跨域多种方式，如 jsonp
 
 ### JavaScript 中的 this 指向问题
 
@@ -1191,8 +1169,6 @@ so on...
 ### AJAX 的几种状态，ajax 与 fetch，hijax
 
 ### iframe 与 onload 阻塞主页面
-
-### 前端安全与 CSRF，XSS，SQL 注入，DDOS
 
 ### JS 异步加载
 
@@ -1232,7 +1208,6 @@ so on...
 
 ### 实现 extend 函数
 
-### 为什么会有跨域的问题以及解决方式
 
 ### jsonp 原理、postMessage 原理
 
@@ -1379,22 +1354,6 @@ https://mp.weixin.qq.com/s/SvtRJXtquh7dJxATCIwNgw
 7. cookie 有 secure 属性要求 HTTPS 传输
 8. 浏览器不能保存超过 300 个 cookie，单个服务器不能超过 20 个，每个 cookie 不能超过 4k。web storage 大小支持能达到 5M
 
-### javascript 跨域通信
-
-同源：两个文档同源需满足
-
-1. 协议相同
-2. 域名相同
-3. 端口相同
-
-跨域通信：js 进行 DOM 操作、通信时如果目标与当前窗口不满足同源条件，浏览器为了安全会阻止跨域操作。跨域通信通常有以下方法
-
-- 如果是 log 之类的简单**单项通信**，新建`<img>`,`<script>`,`<link>`,`<iframe>`元素，通过 src，href 属性设置为目标 url。实现跨域请求
-- 如果请求**json 数据**，使用`<script>`进行 jsonp 请求
-- 现代浏览器中**多窗口通信**使用 HTML5 规范的 targetWindow.postMessage(data, origin);其中 data 是需要发送的对象，origin 是目标窗口的 origin。window.addEventListener('message', handler, false);handler 的 event.data 是 postMessage 发送来的数据，event.origin 是发送窗口的 origin，event.source 是发送消息的窗口引用
-- 内部服务器代理请求跨域 url，然后返回数据
-- 跨域请求数据，现代浏览器可使用 HTML5 规范的 CORS 功能，只要目标服务器返回 HTTP 头部**`Access-Control-Allow-Origin: *`**即可像普通 ajax 一样访问跨域资源
-
 ### javascript 有哪几种方法定义函数
 
 1. [函数声明表达式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
@@ -1538,7 +1497,7 @@ document.cookie = 'name=aaa; path=/; domain=domain; secure';
 - 老版本 IE 事件监听 elem.attachEvent('on'+type, handler)/elem.detachEvent('on'+type, handler)：handler 不接收 event 作为参数，事件信息保存在 window.event 中，触发事件的对象为 event.srcElement，handler 执行上下文 this 为 window 使用闭包中调用 handler.call(elem, event)可模仿标准模型，然后返回闭包，保证了监听器的移除。event.returnValue 为 false 时取消事件默认行为，event.cancleBubble 为 true 时取消时间传播
 - 通常利用事件冒泡机制托管事件处理程序提高程序性能。
 
-```
+```js
 /**
  * 跨浏览器事件处理工具。只支持冒泡。不支持捕获
  * @author  (qiu_deqing@126.com)

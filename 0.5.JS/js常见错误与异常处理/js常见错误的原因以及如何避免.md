@@ -2,21 +2,13 @@
 
 ![js常见错误](js常见错误.png)
 
-
-
 ### 1.Uncaught TypeError: Cannot Read Property
 
 当你**读取一个属性或调用一个未定义对象的方法**时，Chrome 中就会报出这样的错误。常见的一种情况是在渲染 UI 组件时，不正确地初始化状态。
 
-
-
 **避免方法:**
 
 合适位置的初始化操作以及初始化的值。
-
-
-
-
 
 ### 2. (unknown): Script Error
 
@@ -28,7 +20,7 @@
 
 **Access-Control-Allow-Origin**
 
-将 Access-Control-Allow-Origin 设置为 *， 表示可以从任何域正确访问资源。* 如有必要，也可以用自己的域名进行替换，例如：
+将 Access-Control-Allow-Origin 设置为  *，  表示可以从任何域正确访问资源。*  如有必要，也可以用自己的域名进行替换，例如：
 
 Access-Control-Allow-Origin: www.example.com。
 
@@ -36,17 +28,6 @@ Access-Control-Allow-Origin: www.example.com。
 
 这是在很多种情况，Chrome 中发生的错误，一种情况是当你调用一个不会终止的递归函数时。
 
+## summary：
 
-
-
-
-
-
-## summary： 
-
-事实证明很多这些 null 或 undefined 的错误是普遍存在的。 一个类似于 Typescript 这样的好的静态类型检查系统，当设置为严格的编译选项时，能够帮助开发者避免这些错误。
-
-
-
-
-
+事实证明很多这些 null 或 undefined 的错误是普遍存在的。  一个类似于 Typescript 这样的好的静态类型检查系统，当设置为严格的编译选项时，能够帮助开发者避免这些错误。

@@ -290,3 +290,9 @@ webpack 会将一个 entry 视为一个 chunk，**并在最后生成文件时，
 ## 自定义 loader
 
 参见 srcipt/，同步和异步 loader。
+
+## 抽取公共文件是怎么配置的
+
+- CommonsChunkPlugin
+- DllReferencePlugin
+- entry: {vender:[]}

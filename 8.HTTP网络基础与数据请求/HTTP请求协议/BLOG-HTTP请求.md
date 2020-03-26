@@ -1,0 +1,415 @@
+---
+title: http请求
+date: 2017-3-6
+tags:
+  - http
+  - ajax
+  - fetch
+  - file
+---
+
+前端与后端主要通过 http 请求进行数据，文件的交换，http 请求是无状态的，建立在 tcp 的链接之上，通常可能遇到的 http 请求主要由如下的：
+
+- html/js/css/img 等的资源请求
+- ajax/fetch 的数据请求
+- form 表单提交
+
+## http 请求的请求头主要由哪些
+
+[http 请求与响应](./imgs/http请求与响应.png)
+
+主要有：
+
+```js
+:authority: user-gold-cdn.xitu.io
+:method: GET
+:path: /2020/3/25/171110dedff44374?imageView2/1/w/120/h/120/q/85/format/webp/interlace/1
+:scheme: https
+
+accept: image/webp,image/apng,image/*,*/*;q=0.8
+accept-encoding: gzip, deflate, br
+accept-language: zh-CN,zh;q=0.9
+referer: https://juejin.im/post/5b94d8965188255c5a0cdc02
+sec-fetch-dest: image
+sec-fetch-mode: no-cors
+sec-fetch-site: cross-site
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36
+```
+
+## http 状态码有那些？分别代表是什么意思
+
+请求返回的状态码: `Status Code`
+
+简单版
+
+```js
+    [
+        100  Continue   继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息
+
+        200  OK         正常返回信息
+        201  Created    请求成功并且服务器创建了新的资源
+        202  Accepted   服务器已接受请求，但尚未处理
+
+        301  Moved Permanently  请求的网页已永久移动到新位置，永久重定向。
+        302  Found       临时性重定向。
+        303  See Other   临时性重定向，且总是使用 GET 请求新的 URI。
+        304  Not Modified 自从上次请求后，请求的网页未修改过。
+
+        400  Bad Request  服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求。
+        401  Unauthorized 请求未授权。
+        403  Forbidden   禁止访问。
+        404  Not Found   找不到如何与 URI 相匹配的资源。
+
+        500  Internal Server Error  最常见的服务器端错误。
+        503  Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。
+    ]
+```
+
+### HTTP 状态码及其含义，详细
+
+参考[RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
+
+- 1XX：信息状态码
+  - **100 Continue**：客户端应当继续发送请求。这个临时相应是用来通知客户端它的部分请求已经被服务器接收，且仍未被拒绝。客户端应当继续发送请求的剩余部分，或者如果请求已经完成，忽略这个响应。服务器必须在请求万仇向客户端发送一个最终响应
+  - **101 Switching Protocols**：服务器已经理解力客户端的请求，并将通过 Upgrade 消息头通知客户端采用不同的协议来完成这个请求。在发送完这个响应最后的空行后，服务器将会切换到 Upgrade 消息头中定义的那些协议。
+- 2XX：成功状态码
+  - **200 OK**：请求成功，请求所希望的响应头或数据体将随此响应返回
+  - **201 Created**：
+  - **202 Accepted**：
+  - **203 Non-Authoritative Information**：
+  - **204 No Content**：
+  - **205 Reset Content**：
+  - **206 Partial Content**：
+- 3XX：重定向
+  - **300 Multiple Choices**：
+  - **301 Moved Permanently**：
+  - **302 Found**：
+  - **303 See Other**：
+  - **304 Not Modified**：
+  - **305 Use Proxy**：
+  - **306 （unused）**：
+  - **307 Temporary Redirect**：
+- 4XX：客户端错误
+  - **400 Bad Request**:
+  - **401 Unauthorized**:
+  - **402 Payment Required**:
+  - **403 Forbidden**:
+  - **404 Not Found**:
+  - **405 Method Not Allowed**:
+  - **406 Not Acceptable**:
+  - **407 Proxy Authentication Required**:
+  - **408 Request Timeout**:
+  - **409 Conflict**:
+  - **410 Gone**:
+  - **411 Length Required**:
+  - **412 Precondition Failed**:
+  - **413 Request Entity Too Large**:
+  - **414 Request-URI Too Long**:
+  - **415 Unsupported Media Type**:
+  - **416 Requested Range Not Satisfiable**:
+  - **417 Expectation Failed**:
+- 5XX: 服务器错误
+  - **500 Internal Server Error**:
+  - **501 Not Implemented**:
+  - **502 Bad Gateway**:
+  - **503 Service Unavailable**:
+  - **504 Gateway Timeout**:
+  - **505 HTTP Version Not Supported**:
+
+## HTTP 和 HTTPS
+
+- HTTP 协议通常承载于 TCP 协议之上，在 HTTP 和 TCP 之间添加一个安全协议层（SSL 或 TSL），这个时候，就成了我们常说的 HTTPS
+- 默认 HTTP 的端口号为 80，HTTPS 的端口号为 443
+
+### 为什么 HTTPS 安全
+
+- 因为网络请求需要中间有很多的服务器路由器的转发。中间的节点都可能篡改信息，而如果使用 HTTPS，密钥在你和终点站才有。https 之所以比 http 安全，是因为他利用 ssl/tls 协议传输。它包含证书，卸载，流量转发，负载均衡，页面适配，浏览器适配，refer 传递等。保障了传输过程的安全性
+
+### 关于 Http 2.0 你知道多少
+
+- HTTP/2 引入了“服务端推（server push）”的概念，它允许服务端在客户端需要数据之前就主动地将数据发送到客户端缓存中，从而提高性能。
+
+- HTTP/2 提供更多的加密支持
+
+- HTTP/2 使用多路技术，允许多个消息在一个连接上同时交差。
+
+- 它增加了头压缩（header compression），因此即使非常小的请求，其请求和响应的 header 都只会占用很小比例的带宽
+
+
+## GET 和 POST 的区别，何时使用 POST
+
+- GET：一般用于信息获取，使用 URL 传递参数，对所发送信息的数量也有限制，一般在 2000 个字符
+- POST：一般用于修改服务器上的资源，对所发送的信息没有限制。
+- GET 方式需要使用 Request.QueryString 来取得变量的值，而 POST 方式通过 Request.Form 来获取变量的值，也就是说 Get 是通过地址栏来传值，而 Post 是通过提交表单来传值。
+- 然而，在以下情况中，请使用 POST 请求：
+
+  - 无法使用缓存文件（更新服务器上的文件或数据库）
+
+  - 向服务器发送大量数据（POST 没有数据量限制）
+
+  - 发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠
+
+**讲讲 304 缓存的原理**
+
+- 服务器首先产生 ETag，服务器可在稍后使用它来判断页面是否已经被修改。本质上，客户端通过将该记号传回服务器要求服务器验证其（客户端）缓存
+- 304 是 HTTP 状态码，服务器用来标识这个文件没修改，不返回内容，浏览器在接收到个状态码后，会使用浏览器已缓存的文件
+- 客户端请求一个页面（A）。 服务器返回页面 A，并在给 A 加上一个 ETag。 客户端展现该页面，并将页面连同 ETag 一起缓存。 客户再次请求页面 A，并将上次请求时服务器返回的 ETag 一起传递给服务器。 服务器检查该 ETag，并判断出该页面自上次客户端请求之后还未被修改，直接返回响应 304（未修改——Not Modified）和一个空的响应体
+
+**HTTP/2 与 HTTP/1.x 的关键区别**
+
+- 二进制协议代替文本协议，更加简洁高效
+- 针对每个域只使用一个多路复用的连接
+- 压缩头部信息减小开销
+- 允许服务器主动推送应答到客户端的缓存中
+
+**一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？**
+
+- 01.浏览器查找域名对应的 IP 地址(DNS 查询：浏览器缓存->系统缓存->路由器缓存->ISP DNS 缓存->根域名服务器)
+- 02.浏览器向 Web 服务器发送一个 HTTP 请求（TCP 三次握手）
+- 03.服务器 301 重定向（从 http://example.com 重定向到 http://www.example.com）
+- 04.浏览器跟踪重定向地址，请求另一个带 www 的网址
+- 05.服务器处理请求（通过路由读取资源）
+- 06.服务器返回一个 HTTP 响应（报头中把 Content-type 设置为 'text/html'）
+- 07.浏览器进 DOM 树构建
+- 08.浏览器发送请求获取嵌在 HTML 中的资源（如图片、音频、视频、CSS、JS 等）
+- 09.浏览器显示完成页面
+- 10.浏览器发送异步请求
+
+[前后端均适用的网络知识点大全](https://mp.weixin.qq.com/s/uF3bJrjGbGCAzCuCWk18BA)
+
+### HTTP request 报文结构是怎样的
+
+[rfc2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)中进行了定义：
+
+1. 首行是**Request-Line**包括：**请求方法**，**请求 URI**，**协议版本**，**CRLF**
+2. 首行之后是若干行**请求头**，包括**general-header**，**request-header**或者**entity-header**，每个一行以 CRLF 结束
+3. 请求头和消息实体之间有一个**CRLF 分隔**
+4. 根据实际请求需要可能包含一个**消息实体**
+   一个请求报文例子如下：
+
+```
+GET /Protocols/rfc2616/rfc2616-sec5.html HTTP/1.1
+Host: www.w3.org
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36
+Referer: https://www.google.com.hk/
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: zh-CN,zh;q=0.8,en;q=0.6
+Cookie: authorstyle=yes
+If-None-Match: "2cc8-3e3073913b100"
+If-Modified-Since: Wed, 01 Sep 2004 13:24:52 GMT
+
+name=qiu&age=25
+```
+
+### HTTP response 报文结构是怎样的
+
+[rfc2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html)中进行了定义：
+
+1. 首行是状态行包括：**HTTP 版本，状态码，状态描述**，后面跟一个 CRLF
+2. 首行之后是**若干行响应头**，包括：**通用头部，响应头部，实体头部**
+3. 响应头部和响应实体之间用**一个 CRLF 空行**分隔
+4. 最后是一个可能的**消息实体**
+   响应报文例子如下：
+
+```
+HTTP/1.1 200 OK
+Date: Tue, 08 Jul 2014 05:28:43 GMT
+Server: Apache/2
+Last-Modified: Wed, 01 Sep 2004 13:24:52 GMT
+ETag: "40d7-3e3073913b100"
+Accept-Ranges: bytes
+Content-Length: 16599
+Cache-Control: max-age=21600
+Expires: Tue, 08 Jul 2014 11:28:43 GMT
+P3P: policyref="http://www.w3.org/2001/05/P3P/p3p.xml"
+Content-Type: text/html; charset=iso-8859-1
+
+{"name": "qiu", "age": 25}
+```
+
+一面中，如果有笔试，考 HTTP 协议的可能性较大。
+
+## 1. 前言
+
+一面要讲的内容：
+
+- `HTTP`协议的主要特点
+- `HTTP`报文的组成部分
+- `HTTP`方法
+- `get` 和 `post`的区别
+- `HTTP`状态码
+- 什么是持久连接
+- 什么是管线化
+
+二面要讲的内容；
+
+- 缓存
+- `CSRF`攻击
+
+## 2. HTTP 协议的主要特点
+
+- 简单快速
+- 灵活
+- **无连接**
+- **无状态**
+
+> 通常我们要答出以上四个内容。如果实在记不住，一定要记得后面的两个：**无连接、无状态**。
+
+我们分别来解释一下。
+
+### 2.1 简单快速
+
+> **简单**：每个资源（比如图片、页面）都通过 url 来定位。这都是固定的，在`http`协议中，处理起来也比较简单，想访问什么资源，直接输入 url 即可。
+
+### 2.2 灵活
+
+> `http`协议的头部有一个`数据类型`，通过`http`协议，就可以完成不同数据类型的传输。
+
+### 2.3 无连接
+
+> 连接一次，就会断开，不会继续保持连接。
+
+### 2.4 无状态
+
+> 客户端和服务器端是两种身份。第一次请求结束后，就断开了，第二次请求时，**服务器端并没有记住之前的状态**，也就是说，服务器端无法区分客户端是否为同一个人、同一个身份。
+
+> 有的时候，我们访问网站时，网站能记住我们的账号，这个是通过其他的手段（比如 `session`）做到的，并不是`http`协议能做到的。
+
+## 3 HTTP 报文的组成部分
+
+![](http://img.smyhvae.com/20180306_1400.png)
+
+> 在回答此问题时，我们要按照顺序回答：
+
+- 先回答的是，`http`报文包括：**请求报文**和**响应报文**。
+- 再回答的是，每个报文包含什么部分。
+- 最后回答，每个部分的内容是什么
+
+### 3.1 请求报文包括：
+
+![](http://img.smyhvae.com/20180228_1505.jpg)
+
+- 请求行：包括请求方法、请求的`url`、`http`协议及版本。
+- 请求头：一大堆的键值对。
+- **空行**指的是：当服务器在解析请求头的时候，如果遇到了空行，则表明，后面的内容是请求体
+- 请求体：数据部分。
+
+### 3.2 响应报文包括：
+
+![](http://img.smyhvae.com/20180228_1510.jpg)
+
+- 状态行：`http`协议及版本、状态码及状态描述。
+- 响应头
+- 空行
+- 响应体
+
+## 4 HTTP 方法
+
+包括：
+
+- `GET`：获取资源
+- `POST`：传输资源
+- `put`：更新资源
+- `DELETE`：删除资源
+- `HEAD`：获得报文首部
+
+> `HTTP`方法有很多，但是上面这五个方法，要求在面试时全部说出来，不要漏掉。
+
+- `get` `和`post` 比较常见。
+- `put` 和 `delete` 在实际应用中用的很少。况且，业务中，一般不删除服务器端的资源。
+- `head` 可能偶尔用的到。
+
+## 5 get 和 post 的区别
+
+![](http://img.smyhvae.com/20180306_1415.png)
+
+- 区别有很多，如果记不住，面试时，至少要任意答出其中的三四条。
+- 有一点要强调，**get 是相对不隐私的，而 post 是相对隐私的**。
+
+> 我们大概要记住以下几点：
+
+1. 浏览器在回退时，`get` **不会重新请求**，但是`post`会重新请求。【重要】
+2. `get`请求会被浏览器**主动缓存**，而`post`不会。【重要】
+3. `get`请求的参数，会报**保留**在浏览器的**历史记录**里，而`post`不会。做业务时要注意。为了防止`CSRF`攻击，很多公司把`get`统一改成了`post`。
+4. `get`请求在`url`中`传递的参数有大小限制，基本是`2kb`，不同的浏览器略有不同。而 post 没有注意。
+5. `get`的参数是直接暴露在`url`上的，相对不安全。而`post`是放在请求体中的。
+
+## 6 http 状态码
+
+> `http`状态码分类：
+
+![](http://img.smyhvae.com/20180306_1430.png)
+
+> 常见的`http`状态码：
+
+![](http://img.smyhvae.com/20180306_1431.png)
+
+**部分解释**：
+
+- `206`的应用：`range`指的是请求的范围，客户端只请求某个大文件里的一部分内容。比如说，如果播放视频地址或音频地址的前面一部分，可以用到`206`。
+- `301`：重定向（永久）。
+- `302`：重定向（临时）。
+- `304`：我这个服务器告诉客户端，你已经有缓存了，不需要从我这里取了。
+
+![](http://img.smyhvae.com/20180306_1440.png)
+
+- `400`和`401`用的不多,未授权。`403`指的是请求被拒绝。`404`指的是资源不存在。
+
+## 7 持久链接/http 长连接
+
+> 如果你能答出持久链接，这是面试官很想知道的一个点。
+
+- **轮询**：`http1.0`中，客户端每隔很短的时间，都会对服务器发出请求，查看是否有新的消息，只要轮询速度足够快，例如`1`秒，就能给人造成交互是实时进行的印象。这种做法是无奈之举，实际上对服务器、客户端双方都造成了大量的性能浪费。
+- **长连接**：`HTTP1.1`中，通过使用`Connection:keep-alive`进行长连接，。客户端只请求一次，但是服务器会将继续保持连接，当再次请求时，避免了重新建立连接。
+
+> 注意，`HTTP 1.1`默认进行持久连接。在一次 `TCP` 连接中可以完成多个 `HTTP` 请求，但是对**每个请求仍然要单独发 header**，`Keep-Alive`不会永久保持连接，它有一个保持时间，可以在不同的服务器软件（如`Apache`）中设定这个时间。
+
+## 8 长连接中的管线化
+
+> 如果能答出**管线化**，则属于加分项。
+
+### 8.1 管线化的原理
+
+> 长连接时，**默认**的请求这样的：
+
+```
+	请求1 --> 响应1 -->请求2 --> 响应2 --> 请求3 --> 响应3
+```
+
+> 管线化就是，我把现在的请求打包，一次性发过去，你也给我一次响应回来。
+
+### 8.2 管线化的注意事项
+
+> 面试时，不会深究管线化。如果真要问你，就回答：“我没怎么研究过，准备回去看看~”
+
+### url 解析过程.
+
+### 缓存的原理.
+
+### TCP 3 次握手.
+
+### HTTP 协议.
+
+### 看过哪些技术书籍? 可能直接问你书里的东西, 个人觉得至少 2 本以上储备量吧.
+
+## 综合
+
+HTTP 请求——GET 和 POST 以及相关标头，如 Cache-Control、ETag、Status Codes 和 Transfer-Encoding；
+
+REST 与 RPC；
+
+安全性——何时使用 JSONP、COR 和 iFrame。
+
+### HTTP method
+
+1. 一台服务器要与 HTTP1.1 兼容，只要为资源实现**GET**和**HEAD**方法即可
+2. **GET**是最常用的方法，通常用于**请求服务器发送某个资源**。
+3. **HEAD**与 GET 类似，但**服务器在响应中值返回首部，不返回实体的主体部分**
+4. **PUT**让服务器**用请求的主体部分来创建一个由所请求的 URL 命名的新文档，或者，如果那个 URL 已经存在的话，就用干这个主体替代它**
+5. **POST**起初是用来向服务器输入数据的。实际上，通常会用它来支持 HTML 的表单。表单中填好的数据通常会被送给服务器，然后由服务器将其发送到要去的地方。
+6. **TRACE**会在目的服务器端发起一个环回诊断，最后一站的服务器会弹回一个 TRACE 响应并在响应主体中携带它收到的原始请求报文。TRACE 方法主要用于诊断，用于验证请求是否如愿穿过了请求/响应链。
+7. **OPTIONS**方法请求 web 服务器告知其支持的各种功能。可以查询服务器支持哪些方法或者对某些特殊资源支持哪些方法。
+8. **DELETE**请求服务器删除请求 URL 指定的资源
