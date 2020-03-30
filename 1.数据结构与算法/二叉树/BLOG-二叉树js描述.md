@@ -1,6 +1,16 @@
-# 二叉树
+---
+title: 二叉树（二叉搜索树）js描述
+date: 2018-6-6
+tags:
+  - js
+  - 二叉树
+---
 
-二叉树是一种非线性的数据结构，**以分层的方式存储数据**，树被用来存储具有层级关系的数据，其中的一种特殊的树：二叉树。树以边连接的节点组成。公司的组织结构就是一个树的例子。二叉树子节点不能超过两个。
+二叉搜索树。
+
+二叉树是一种非线性的数据结构，**以分层的方式存储数据**，**树被用来存储具有层级关系的数据**，其中的一种特殊的树：二叉树。树以边连接的节点组成。公司的组织结构就是一个树的例子。二叉树子节点不能超过两个。
+
+## js描述
 
 ```js
 function Node(data, left, right) {
@@ -61,7 +71,7 @@ function inOrder(node) {
   // 中序遍历
   if (!(node == null)) {
     inOrder(node.left);
-    console.log(node.show() + " ");
+    console.log(node.show() + ' ');
     inOrder(node.right);
   }
 }
@@ -69,7 +79,7 @@ function inOrder(node) {
 function preOrder(node) {
   // 前序遍历
   if (!(node == null)) {
-    console.log(node.show() + " ");
+    console.log(node.show() + ' ');
     preOrder(node.left);
     preOrder(node.right);
   }
@@ -80,14 +90,14 @@ function postOrder(node) {
   if (!(node == null)) {
     postOrder(node.left);
     postOrder(node.right);
-    console.log(node.show() + " ");
+    console.log(node.show() + ' ');
   }
 }
 
 function getmin() {
   // 求最小
   var current = this.root;
-  console.log("debug: " + current.data);
+  console.log('debug: ' + current.data);
   while (!(current.left == null)) {
     current = current.left;
   }
@@ -177,3 +187,5 @@ inOrder(nums.root);
 ```
 
 二叉查找树的特点：较小的保存在左节点中，较大的保存早右节点中。二分法查找。
+
+## 介绍二叉搜索树的特点

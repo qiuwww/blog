@@ -61,8 +61,6 @@ class Point {
 
 - .babelrc 文件
 
-# 常用语法
-
 #### const/let
 
 - 函数作用域、全局作用域、块作用域({})；
@@ -298,3 +296,52 @@ class IncreasingCounter {
 #### 编程风格
 
 - ESLint 的使用，eslint-config-airbnb
+
+## Map 类型
+
+### ES6 中的 map 和原生的对象有什么区别
+
+object 和 Map 存储的都是**键值对组合**。但是：object 的键的类型是 字符串；**map 的键的类型是 可以是任意类型**；所以 Map 是一种更完善的 Hash 结构实现。
+
+object 获取键值使用 Object.keys（返回数组）；**Map 获取键值使用 map 变量.keys()** (返回迭代器)。
+
+操作方法也有很多不同。
+
+```js
+let myMap = new Map();
+
+let keyObj = {};
+let keyFunc = function() {};
+let keyString = 'a string';
+
+// 添加键
+myMap.set(keyString, "和键'a string'关联的值");
+myMap.set(keyObj, '和键keyObj关联的值');
+myMap.set(keyFunc, '和键keyFunc关联的值');
+
+myMap.size; // 3
+
+// 读取值
+myMap.get(keyString); // "和键'a string'关联的值"
+myMap.get(keyObj); // "和键keyObj关联的值"
+myMap.get(keyFunc); // "和键keyFunc关联的值"
+
+myMap.get('a string'); // "和键'a string'关联的值"
+// 因为keyString === 'a string'
+myMap.get({}); // undefined, 因为keyObj !== {}
+myMap.get(function() {}); // undefined, 因为keyFunc !== function () {}
+
+myMap.has('bla'); // true
+myMap.delete('bla'); // true
+console.log(myMap); // Map { 'bla2' => 'blaa2' }
+
+// 迭代
+for (let [key, value] of myMap) {
+  console.log(key + ' = ' + value);
+}
+
+// myMap.keys();返回一个迭代器，需要let...of迭代
+for (let key of myMap.keys()) {
+  console.log(key);
+}
+```

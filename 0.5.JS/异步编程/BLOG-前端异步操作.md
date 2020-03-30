@@ -97,12 +97,17 @@ promise 的 pending 状态可以转为 fulfill（成功状态）和 reject（拒
 
 这个时候如果继续返回拿到的 res 对象，就可以继续处理 pending，也就是 then 是可以连续操作，同样 catch 的时候，拿到的是 reject 的返回，**如果继续返回 e，就可以继续 catch 操作**，与 then 操作一致，不过 then 方法不能再处理。
 
-### promise 与 generator
+### generator
+
+ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同。
 
 一个状态机，封装了很多状态。
-generator函数会返回一个遍历器对象，可以依次遍历函数内部的每个状态。
+
+generator 函数会**返回一个遍历器对象（代表 Generator 函数的内部指针）**，可以依次遍历函数内部的每个状态。
 
 生成器对象是由一个 generator function 返回的,并且它符合可迭代协议和迭代器协议。
+
+generator 函数是**分段执行**的，yield 语句是**暂停执行**的标记，而 next 方法可以**恢复执行**。
 
 ```js
 function* idMaker() {
@@ -111,7 +116,7 @@ function* idMaker() {
 }
 
 let gen = idMaker(); // "Generator { }"
-
+// 通过调用遍历器的next方法使得指针移向下一个状态。
 console.log(gen.next().value);
 // 0
 console.log(gen.next().value);
@@ -123,12 +128,22 @@ console.log(gen.next().value);
 
 ### Async/Await
 
+async 函数就是 generator 函数的语法糖。
+
 async/await 函数的实现，就是将 Generator 函数和自动执行器，包装在一个函数里。
+
+async 函数，就是将 generator 函数的\*换成 async，将 yield 替换成 await。
 
 - async/await 是写异步代码的新方式，以前的方法有回调函数和 Promise。
 - async/await 是**基于 Promise 实现**的，它不能用于普通的回调函数。
 - async/await 与 Promise 一样，是**非阻塞**的。
 - async/await **使得异步代码看起来像同步代码**，这正是它的魔力所在。
+
+async 函数对 generator 的改进：
+
+1. 内置执行器，不需要使用 next()手动执行。
+2. await 命令后面**可以是 Promise 对象或原始类型的值**，yield 命令后面只能是 Thunk 函数或 Promise 对象。
+3. **返回值是 Promise**。返回非 Promise 时，async 函数会把它包装成 Promise 返回。(Promise.resolve(value))
 
 #### await 原理
 

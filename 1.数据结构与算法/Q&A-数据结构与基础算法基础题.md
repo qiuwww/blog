@@ -229,35 +229,6 @@ var last = obj.toJSONString();
 var last = JSON.stringify(obj);
 ```
 
-### 函数求和，参数不固定
-
-```js
-function sum(...args) {
-  //这里的三个点...是扩展运算符，该运算符将一个数组，变为参数序列。
-  if (args.length == 1) {
-    //判断参数个数的形式是否为1个，即第二种形式
-    var cache = [...args][0]; //将第一个参数的值暂存在cache中
-
-    var add = function(y) {
-      //创建一个方法用于实现第二个条件，最后并返回这个方法
-      cache += y;
-      console.log(cache);
-      return add;
-    };
-    return add;
-  } else {
-    //这里就是参数的第一种形式
-    var res = 0; //这里最好先声明要输出的变量，并给其赋值，不然值定义而不赋值会输出NaN，因为js将undefined+number两个数据类型相加结果为NaN
-    for (var i = 0; i < [...args].length; i++) {
-      res += [...args][i]; //参数累加
-    }
-    console.log(res); //输出最后的累加结果
-  }
-}
-sum(2, 3, 4); // 9
-sum(2)(3)(4)(5); //5//9//14
-```
-
 3，判断一个字符串中出现次数最多的字符，统计这个次数
 分隔组成一个对象，找到最大的值
 

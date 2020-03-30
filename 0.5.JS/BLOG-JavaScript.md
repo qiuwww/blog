@@ -1628,7 +1628,7 @@ console.log('今天是星期' + days[date.getDay()]);
 
 ### 下面这段代码想要循环延时输出结果 0 1 2 3 4,请问输出结果是否正确,如果不正确,请说明为什么,并修改循环内的代码使其输出正确结果
 
-```
+```js
 for (var i = 0; i < 5; ++i) {
   setTimeout(function () {
     console.log(i + ' ');
@@ -1639,7 +1639,7 @@ for (var i = 0; i < 5; ++i) {
 不能输出正确结果，因为循环中 setTimeout 接受的参数函数通过闭包访问变量 i。javascript 运行环境为单线程，setTimeout 注册的函数需要等待线程空闲才能执行，此时 for 循环已经结束，i 值为 5.五个定时输出都是 5
 修改方法：将 setTimeout 放在函数立即调用表达式中，将 i 值作为参数传递给包裹函数，创建新闭包
 
-```
+```js
 for (var i = 0; i < 5; ++i) {
   (function (i) {
     setTimeout(function () {

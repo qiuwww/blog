@@ -1,12 +1,11 @@
-
 // 生成器函数
 // Generator函数是分段执行的，yield语句是暂停执行的标记，而next方法可以恢复执行。
 
 var fs = require('fs');
 
 // 首先通过promise对其进行封装，实现数据成功的监听
-var readFile = function (fileName) {
-  return new Promise(function (resolve, reject) {
+var readFile = function(fileName) {
+  return new Promise(function(resolve, reject) {
     fs.readFile(fileName, function(error, data) {
       if (error) reject(error);
       resolve(data);
@@ -14,16 +13,16 @@ var readFile = function (fileName) {
   });
 };
 
-var gen = function* () {
-  try{
+var gen = function*() {
+  try {
     var f1 = yield readFile('./async...await/movies/千与千寻.jpg');
     // 这里拿不到f1的结果，只能得到函数当前的执行状态，这里最开始的时候我的控制流程写错了
-    console.log(1)
-    console.log("f1.toString()", f1.toString().length);
+    console.log(1);
+    console.log('f1.toString()', f1.toString().length);
     var f2 = yield readFile('./async...await/movies/盗梦空间.jpg');
-    console.log(2)
-    console.log("f2.toString()", f2.toString().length);
-  }catch(e){
+    console.log(2);
+    console.log('f2.toString()', f2.toString().length);
+  } catch (e) {
     console.log('外部捕获：', e);
   }
 };
@@ -31,8 +30,8 @@ var gen = function* () {
 // 那么我们如何控制代码的执行流程呢, 这个函数的控制流程也很麻烦啊，回调嵌套
 var g = gen();
 
-g.next().value.then(function(data){
-  g.next(data).value.then(function(data){
+g.next().value.then(function(data) {
+  g.next(data).value.then(function(data) {
     g.next(data);
   });
 });
@@ -47,16 +46,16 @@ g.next().value.then(function(data){
 
 // 写成async函数，就是下面这样。
 
-var asyncReadFile = async function () {
+var asyncReadFile = async function() {
   var f1 = await readFile('./async...await/movies/千与千寻.jpg');
   var f2 = await readFile('./async...await/movies/盗梦空间.jpg');
-  console.log("async-f1:", f1.toString().length);
-  console.log("async-f2:", f2.toString().length);
+  console.log('async-f1:', f1.toString().length);
+  console.log('async-f2:', f2.toString().length);
 };
 
-setTimeout(function(){
+setTimeout(function() {
   asyncReadFile();
-}, 5000)
+}, 5000);
 
 // async函数就是将 Generator 函数的星号（*）替换成async，将yield替换成await，仅此而已。
 
@@ -78,7 +77,7 @@ setTimeout(function(){
 // 你可以用then方法指定下一步的操作。
 
 // generator函数的调用
-function* helloWorldGenerator () {
+function* helloWorldGenerator() {
   yield console.log('hello');
   yield console.log('world');
   return 'ending';
