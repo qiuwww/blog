@@ -73,8 +73,8 @@ Global(window)在 ES 中在某种意义上作为一个终极的“兜底儿对�
 - isFinite()
 - parseInt()
 - parseFloat()
-- encodeURI()，主要用于对整个 URI 编码，不会对属于 URI 的非标字符编码，如冒号和斜杠；
-- encodeURIComponent()，主要用于对 URI 的部分进行编码，对任何非标准字符进行编码；
+- encodeURI()，**主要用于对整个 URI 编码**，不会对属于 URI 的非标字符编码，如冒号和斜杠；
+- encodeURI**Component**()，组件部分编码，主要用于对 **URI 的部分进行编码**，对任何非标准字符进行编码；
 - eval()，eval 就像是 ES 的一个完整的解析器，接受一个参数，即需要执行的 ES**字符串**。
 
 属性：

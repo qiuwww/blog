@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>header-content-footer</title>
+  </head>
+  <body>
+    <!-- 使用 css 完成 header-content-footer 的经典布局，要求 footer 有 sticky 效果 -->
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      .header-content-footer {
+        height: 200%;
+        width: 100%;
+        border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+      .header-content-footer > div {
+        width: 100%;
+      }
+      .header {
+        background-color: aqua;
+        height: 200px;
+      }
+      .content {
+        background-color: blueviolet;
+        flex: 1;
+        border: 10px solid darkcyan;
+      }
+      .footer {
+        background-color: chartreuse;
+        height: 100px;
+        position: sticky;
+        bottom: 0;
+        left: 0;
+      }
+    </style>
+    <div class="header-content-footer">
+      <div class="header">header</div>
+      <div class="content">content</div>
+      <div class="footer">footer</div>
+    </div>
+  </body>
+</html>

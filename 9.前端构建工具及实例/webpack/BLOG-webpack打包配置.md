@@ -296,3 +296,34 @@ webpack 会将一个 entry 视为一个 chunk，**并在最后生成文件时，
 - CommonsChunkPlugin
 - DllReferencePlugin
 - entry: {vender:[]}
+
+## webpack 整个生命周期，loader 和 plugin 有什么区别
+
+[webpack 的 loader 和 plugin 的区别](https://blog.csdn.net/qq_42375089/article/details/88072681)
+
+### 【Loader】，用于对模块源码的转换
+
+loader 描述了 webpack **如何处理非 javascript 模块，并且在 buld 中引入这些依赖**。loader 可以将文件从不同的语言（如 TypeScript）转换为 JavaScript，或者将内联图像转换为 data URL。比如说：CSS-Loader，Style-Loader 等。
+
+参考 scripts/txt-loader.js 这个 txtlaoder，把一个模板转为了一个 esm。
+
+loader 是运行在 NodeJS 中，**可以用 options 对象进行配置**（也就是在使用的时候添加 option 配置）。plugin 可以为 loader 带来更多特性。
+
+loader 可以进行**压缩，打包，语言翻译**等等。
+
+### 【Plugin】：目的在于解决 loader 无法实现的其他事
+
+- 从打包优化和压缩，
+- 到重新定义环境变量，功能强大到可以用来处理各种各样的任务。
+
+webpack 提供了**很多开箱即用的插件**：CommonChunkPlugin 主要用于提取第三方库和公共模块，避免首屏加载的 bundle 文件，或者按需加载的 bundle 文件体积过大，导致加载时间过长，是一把优化的利器。而在多页面应用中，更是能够为每个页面间的应用程序共享代码创建 bundle。
+
+**resolve 模块**，resolver 是个库，帮助 webpack 找到 bundle 需要引入的模块代码，打包时，webpack 使用 enhanced-resolve 来解析路径。
+
+Manifest 管理所有模块之间的交互。runtime 将能够查询模块标识符，检索出背后对应的模块。
+
+### 区别
+
+从处理的文件上看，loader只是处理一个类型的文件，特定类型经过特定的loader。
+
+plugin是可以处理所有的文件的，可以针对特定的文件进行处理，也可以全部都进行处理，事件钩子的回调函数里能拿到编译后的 compilation 对象

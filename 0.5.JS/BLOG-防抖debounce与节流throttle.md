@@ -1,5 +1,5 @@
 ---
-title: 防抖 debounce 与 节流 throttle 
+title: 防抖 debounce 与 节流 throttle
 ---
 
 [TOC]
@@ -8,7 +8,7 @@ title: 防抖 debounce 与 节流 throttle
 
 如下展示原理，开发过程中一般还是使用 lodash。
 
-## 函数去抖 debounce，延迟执行，避免频繁执行
+## 函数去抖 debounce，延迟执行，避免频繁执行，后来触发，取消前面的触发
 
 用途：
 
@@ -17,9 +17,9 @@ title: 防抖 debounce 与 节流 throttle
 
 函数去抖，如果在短时间内**连续抖动**，就会只执行最后一次
 
-强制一个函数在一段时间内只被调用一次。
+如“一个函数 100 毫秒内只执行一次”。也许一个函数在很集中的时间内被调用 1000 次，**超过 3 秒，然后停止调用**。
 
-如“一个函数 100 毫秒内只执行一次”。也许一个函数在很集中的时间内被调用 1000 次，**超过 3 秒，然后停止调用**。如果我们在 100 毫秒内将其去抖动，该函数将**仅启动一次 3.1 秒**。函数去抖就是对于一定时间段的连续的函数调用，只让其**执行一次**。
+如果我们在 100 毫秒内将其去抖动，该函数将**仅启动一次 3.1 秒**。函数去抖就是对于一定时间段的连续的函数调用，只让其**执行一次**。
 
 一定时间内有新的触发请求，就取**消前一次**的，知道这一次的时间间隔内没有新的请求。
 
@@ -27,10 +27,10 @@ title: 防抖 debounce 与 节流 throttle
 // func是用户传入需要防抖的函数
 // wait是等待时间
 // 简介版
+// 可以认为是请求了就重置
 const debounce = (func, wait = 50) => {
   // 缓存一个定时器id
   let timer = 0;
-  // 这里返回的函数是每次用户实际调用的防抖函数
   // 如果已经设定过定时器了就清空上一次的定时器
   // 开始一个新的定时器，延迟执行用户传入的方法
   return function(...args) {
@@ -60,14 +60,14 @@ _.debounce = function(func, wait, immediate) {
 };
 ```
 
-## 函数节流 throttle，按一定频率执行代码，间隔执行
+## 函数节流 throttle，按一定频率执行代码，间隔执行，一定时间内可保证执行一次
 
 用途：
 
 - 接口请求
-- 多用于输入框
+- 用户输入框的一些事件，如 keyup/input
 
-函数节流，节约使用，一定时间内只能用一次
+函数节流，节约使用，一定时间内能用一次。
 
 调节强制执行一段时间内可以调用函数的最大次数。
 
@@ -76,13 +76,16 @@ _.debounce = function(func, wait, immediate) {
 在一定时间内只允许触发一次，但是在一定的时间内，一定会触发一次。
 
 ```js
-// 延时执行
+// 简洁版
+// 内部设置定时器，定时时间到重置，期间不接受新的触发请求
+// 连续触发，间隔一段时间必然执行一次，可以认为，节流就是多次请求只给一次
 function throttle(method, delay) {
   var timer = null;
   var canRun = true;
   return function() {
     var context = this,
       args = arguments;
+    // 执行时间内，不允许重新触发
     if (!canRun) {
       return;
     }
@@ -90,6 +93,7 @@ function throttle(method, delay) {
     // 定时时间到了就执行一次
     timer = setTimeout(function() {
       method.apply(context, args);
+      // 定时时间到才能重置
       canRun = true;
     }, delay);
   };
@@ -106,8 +110,6 @@ function throttle(fn,wait){
      prev = new Date();
   }
 }
-
-
 
 _.throttle = function(func, wait) {
   var context, args, timeout, result;
@@ -137,4 +139,4 @@ _.throttle = function(func, wait) {
 
 ## 二者根本差别
 
-二者的根本的区别在于 throttle 保证了在每个 delta T 内至少执行一次，而 debounce 没有这样的保证。
+二者的根本的**区别在于 throttle 保证了在每个 delta T 内至少执行一次**，而 debounce 没有这样的保证。

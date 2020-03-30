@@ -45,41 +45,41 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _classCallCheck2 = __webpack_require__(1);
-	
+
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
+
 	var _createClass2 = __webpack_require__(2);
-	
+
 	var _createClass3 = _interopRequireDefault(_createClass2);
-	
+
 	var _regenerator = __webpack_require__(22);
-	
+
 	var _regenerator2 = _interopRequireDefault(_regenerator);
-	
+
 	var _asyncToGenerator2 = __webpack_require__(25);
-	
+
 	var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
-	
+
 	var _promise = __webpack_require__(26);
-	
+
 	var _promise2 = _interopRequireDefault(_promise);
-	
+
 	var _common = __webpack_require__(21);
-	
+
 	var _confirm = __webpack_require__(76);
-	
+
 	var _confirm2 = _interopRequireDefault(_confirm);
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
 	(0, _common.log)('test', '123123123');
-	
+
 	// 测试async.await
 	// index.js
-	
-	
+
+
 	// 测试import与moudle
 	var sleep = function sleep(time) {
 	    return new _promise2.default(function (resolve, reject) {
@@ -88,7 +88,7 @@
 	        }, time);
 	    });
 	};
-	
+
 	var start = function () {
 	    var _ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
 	        return _regenerator2.default.wrap(function _callee$(_context) {
@@ -98,10 +98,10 @@
 	                        console.log('start');
 	                        _context.next = 3;
 	                        return sleep(2000);
-	
+
 	                    case 3:
 	                        console.log('end');
-	
+
 	                    case 4:
 	                    case 'end':
 	                        return _context.stop();
@@ -109,24 +109,24 @@
 	            }
 	        }, _callee, this);
 	    }));
-	
+
 	    return function start() {
 	        return _ref.apply(this, arguments);
 	    };
 	}();
-	
+
 	start();
-	
+
 	// 测试class
-	
+
 	var Person = function () {
 	    function Person(name, age) {
 	        (0, _classCallCheck3.default)(this, Person);
-	
+
 	        this.name = name;
 	        this.age = age;
 	    }
-	
+
 	    (0, _createClass3.default)(Person, [{
 	        key: 'sayName',
 	        value: function sayName() {
@@ -136,27 +136,27 @@
 	    }]);
 	    return Person;
 	}();
-	
+
 	var lilei = new Person('li0lei', '20000');
-	
+
 	lilei.sayName();
-	
+
 	// 单词拼错，loader和文件名
-	
-	
+
+
 	var html = (0, _confirm2.default)({ ejs_template_out: 'ejs-template-out' });
-	
+
 	console.log(html);
-	
+
 	var node = document.createElement("div");
 	node.innerHTML = html;
-	
+
 	document.querySelector('body').appendChild(node);
-	
+
 	var div = document.createElement("div");
-	
+
 	div.innerHTML = "数据";
-	
+
 	document.querySelector('body').appendChild(div);
 
 /***/ }),
@@ -164,9 +164,9 @@
 /***/ (function(module, exports) {
 
 	"use strict";
-	
+
 	exports.__esModule = true;
-	
+
 	exports.default = function (instance, Constructor) {
 	  if (!(instance instanceof Constructor)) {
 	    throw new TypeError("Cannot call a class as a function");
@@ -178,15 +178,15 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	exports.__esModule = true;
-	
+
 	var _defineProperty = __webpack_require__(3);
-	
+
 	var _defineProperty2 = _interopRequireDefault(_defineProperty);
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
 	exports.default = function () {
 	  function defineProperties(target, props) {
 	    for (var i = 0; i < props.length; i++) {
@@ -197,7 +197,7 @@
 	      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
 	    }
 	  }
-	
+
 	  return function (Constructor, protoProps, staticProps) {
 	    if (protoProps) defineProperties(Constructor.prototype, protoProps);
 	    if (staticProps) defineProperties(Constructor, staticProps);
@@ -238,7 +238,7 @@
 	  , ctx       = __webpack_require__(9)
 	  , hide      = __webpack_require__(11)
 	  , PROTOTYPE = 'prototype';
-	
+
 	var $export = function(type, name, source){
 	  var IS_FORCED = type & $export.F
 	    , IS_GLOBAL = type & $export.G
@@ -292,7 +292,7 @@
 	$export.B = 16;  // bind
 	$export.W = 32;  // wrap
 	$export.U = 64;  // safe
-	$export.R = 128; // real proto method for `library` 
+	$export.R = 128; // real proto method for `library`
 	module.exports = $export;
 
 /***/ }),
@@ -366,7 +366,7 @@
 	  , IE8_DOM_DEFINE = __webpack_require__(15)
 	  , toPrimitive    = __webpack_require__(19)
 	  , dP             = Object.defineProperty;
-	
+
 	exports.f = __webpack_require__(16) ? Object.defineProperty : function defineProperty(O, P, Attributes){
 	  anObject(O);
 	  P = toPrimitive(P, true);
@@ -473,9 +473,9 @@
 /***/ (function(module, exports) {
 
 	"use strict";
-	
+
 	// common.js
-	
+
 	module.exports.log = function (name, value) {
 		console.log(name + ": " + value);
 	};
@@ -497,20 +497,20 @@
 	  typeof global === "object" ? global :
 	  typeof window === "object" ? window :
 	  typeof self === "object" ? self : this;
-	
+
 	// Use `getOwnPropertyNames` because not all browsers support calling
 	// `hasOwnProperty` on the global `self` object in a worker. See #183.
 	var hadRuntime = g.regeneratorRuntime &&
 	  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
-	
+
 	// Save the old regeneratorRuntime in case it needs to be restored later.
 	var oldRuntime = hadRuntime && g.regeneratorRuntime;
-	
+
 	// Force reevalutation of runtime.js.
 	g.regeneratorRuntime = undefined;
-	
+
 	module.exports = __webpack_require__(24);
-	
+
 	if (hadRuntime) {
 	  // Restore the original runtime.
 	  g.regeneratorRuntime = oldRuntime;
@@ -522,7 +522,7 @@
 	    g.regeneratorRuntime = undefined;
 	  }
 	}
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
@@ -538,10 +538,10 @@
 	 * additional grant of patent rights can be found in the PATENTS file in
 	 * the same directory.
 	 */
-	
+
 	!(function(global) {
 	  "use strict";
-	
+
 	  var Op = Object.prototype;
 	  var hasOwn = Op.hasOwnProperty;
 	  var undefined; // More compressible than void 0.
@@ -549,7 +549,7 @@
 	  var iteratorSymbol = $Symbol.iterator || "@@iterator";
 	  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
 	  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-	
+
 	  var inModule = typeof module === "object";
 	  var runtime = global.regeneratorRuntime;
 	  if (runtime) {
@@ -562,25 +562,25 @@
 	    // already defined globally.
 	    return;
 	  }
-	
+
 	  // Define the runtime globally (as expected by generated code) as either
 	  // module.exports (if we're in a module) or a new, empty object.
 	  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
-	
+
 	  function wrap(innerFn, outerFn, self, tryLocsList) {
 	    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
 	    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
 	    var generator = Object.create(protoGenerator.prototype);
 	    var context = new Context(tryLocsList || []);
-	
+
 	    // The ._invoke method unifies the implementations of the .next,
 	    // .throw, and .return methods.
 	    generator._invoke = makeInvokeMethod(innerFn, self, context);
-	
+
 	    return generator;
 	  }
 	  runtime.wrap = wrap;
-	
+
 	  // Try/catch helper to minimize deoptimizations. Returns a completion
 	  // record like context.tryEntries[i].completion. This interface could
 	  // have been (and was previously) designed to take a closure to be
@@ -598,16 +598,16 @@
 	      return { type: "throw", arg: err };
 	    }
 	  }
-	
+
 	  var GenStateSuspendedStart = "suspendedStart";
 	  var GenStateSuspendedYield = "suspendedYield";
 	  var GenStateExecuting = "executing";
 	  var GenStateCompleted = "completed";
-	
+
 	  // Returning this object from the innerFn has the same effect as
 	  // breaking out of the dispatch switch statement.
 	  var ContinueSentinel = {};
-	
+
 	  // Dummy constructor functions that we use as the .constructor and
 	  // .constructor.prototype properties for functions that return Generator
 	  // objects. For full spec compliance, you may wish to configure your
@@ -615,14 +615,14 @@
 	  function Generator() {}
 	  function GeneratorFunction() {}
 	  function GeneratorFunctionPrototype() {}
-	
+
 	  // This is a polyfill for %IteratorPrototype% for environments that
 	  // don't natively support it.
 	  var IteratorPrototype = {};
 	  IteratorPrototype[iteratorSymbol] = function () {
 	    return this;
 	  };
-	
+
 	  var getProto = Object.getPrototypeOf;
 	  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
 	  if (NativeIteratorPrototype &&
@@ -632,14 +632,14 @@
 	    // of the polyfill.
 	    IteratorPrototype = NativeIteratorPrototype;
 	  }
-	
+
 	  var Gp = GeneratorFunctionPrototype.prototype =
 	    Generator.prototype = Object.create(IteratorPrototype);
 	  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
 	  GeneratorFunctionPrototype.constructor = GeneratorFunction;
 	  GeneratorFunctionPrototype[toStringTagSymbol] =
 	    GeneratorFunction.displayName = "GeneratorFunction";
-	
+
 	  // Helper for defining the .next, .throw, and .return methods of the
 	  // Iterator interface in terms of a single ._invoke method.
 	  function defineIteratorMethods(prototype) {
@@ -649,7 +649,7 @@
 	      };
 	    });
 	  }
-	
+
 	  runtime.isGeneratorFunction = function(genFun) {
 	    var ctor = typeof genFun === "function" && genFun.constructor;
 	    return ctor
@@ -659,7 +659,7 @@
 	        (ctor.displayName || ctor.name) === "GeneratorFunction"
 	      : false;
 	  };
-	
+
 	  runtime.mark = function(genFun) {
 	    if (Object.setPrototypeOf) {
 	      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
@@ -672,7 +672,7 @@
 	    genFun.prototype = Object.create(Gp);
 	    return genFun;
 	  };
-	
+
 	  // Within the body of any async function, `await x` is transformed to
 	  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
 	  // `hasOwn.call(value, "__await")` to determine if the yielded value is
@@ -680,7 +680,7 @@
 	  runtime.awrap = function(arg) {
 	    return { __await: arg };
 	  };
-	
+
 	  function AsyncIterator(generator) {
 	    function invoke(method, arg, resolve, reject) {
 	      var record = tryCatch(generator[method], generator, arg);
@@ -698,7 +698,7 @@
 	            invoke("throw", err, resolve, reject);
 	          });
 	        }
-	
+
 	        return Promise.resolve(value).then(function(unwrapped) {
 	          // When a yielded Promise is resolved, its final value becomes
 	          // the .value of the Promise<{value,done}> result for the
@@ -720,20 +720,20 @@
 	        }, reject);
 	      }
 	    }
-	
+
 	    if (typeof global.process === "object" && global.process.domain) {
 	      invoke = global.process.domain.bind(invoke);
 	    }
-	
+
 	    var previousPromise;
-	
+
 	    function enqueue(method, arg) {
 	      function callInvokeWithMethodAndArg() {
 	        return new Promise(function(resolve, reject) {
 	          invoke(method, arg, resolve, reject);
 	        });
 	      }
-	
+
 	      return previousPromise =
 	        // If enqueue has been called before, then we want to wait until
 	        // all previous Promises have been resolved before calling invoke,
@@ -754,18 +754,18 @@
 	          callInvokeWithMethodAndArg
 	        ) : callInvokeWithMethodAndArg();
 	    }
-	
+
 	    // Define the unified helper method that is used to implement .next,
 	    // .throw, and .return (see defineIteratorMethods).
 	    this._invoke = enqueue;
 	  }
-	
+
 	  defineIteratorMethods(AsyncIterator.prototype);
 	  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
 	    return this;
 	  };
 	  runtime.AsyncIterator = AsyncIterator;
-	
+
 	  // Note that simple async functions are implemented on top of
 	  // AsyncIterator objects; they just return a Promise for the value of
 	  // the final result produced by the iterator.
@@ -773,35 +773,35 @@
 	    var iter = new AsyncIterator(
 	      wrap(innerFn, outerFn, self, tryLocsList)
 	    );
-	
+
 	    return runtime.isGeneratorFunction(outerFn)
 	      ? iter // If outerFn is a generator, return the full iterator.
 	      : iter.next().then(function(result) {
 	          return result.done ? result.value : iter.next();
 	        });
 	  };
-	
+
 	  function makeInvokeMethod(innerFn, self, context) {
 	    var state = GenStateSuspendedStart;
-	
+
 	    return function invoke(method, arg) {
 	      if (state === GenStateExecuting) {
 	        throw new Error("Generator is already running");
 	      }
-	
+
 	      if (state === GenStateCompleted) {
 	        if (method === "throw") {
 	          throw arg;
 	        }
-	
+
 	        // Be forgiving, per 25.3.3.3.3 of the spec:
 	        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
 	        return doneResult();
 	      }
-	
+
 	      context.method = method;
 	      context.arg = arg;
-	
+
 	      while (true) {
 	        var delegate = context.delegate;
 	        if (delegate) {
@@ -811,26 +811,26 @@
 	            return delegateResult;
 	          }
 	        }
-	
+
 	        if (context.method === "next") {
 	          // Setting context._sent for legacy support of Babel's
 	          // function.sent implementation.
 	          context.sent = context._sent = context.arg;
-	
+
 	        } else if (context.method === "throw") {
 	          if (state === GenStateSuspendedStart) {
 	            state = GenStateCompleted;
 	            throw context.arg;
 	          }
-	
+
 	          context.dispatchException(context.arg);
-	
+
 	        } else if (context.method === "return") {
 	          context.abrupt("return", context.arg);
 	        }
-	
+
 	        state = GenStateExecuting;
-	
+
 	        var record = tryCatch(innerFn, self, context);
 	        if (record.type === "normal") {
 	          // If an exception is thrown from innerFn, we leave state ===
@@ -838,16 +838,16 @@
 	          state = context.done
 	            ? GenStateCompleted
 	            : GenStateSuspendedYield;
-	
+
 	          if (record.arg === ContinueSentinel) {
 	            continue;
 	          }
-	
+
 	          return {
 	            value: record.arg,
 	            done: context.done
 	          };
-	
+
 	        } else if (record.type === "throw") {
 	          state = GenStateCompleted;
 	          // Dispatch the exception by looping back around to the
@@ -858,7 +858,7 @@
 	      }
 	    };
 	  }
-	
+
 	  // Call delegate.iterator[context.method](context.arg) and handle the
 	  // result, either by returning a { value, done } result from the
 	  // delegate iterator, or by modifying context.method and context.arg,
@@ -869,7 +869,7 @@
 	      // A .throw or .return when the delegate iterator has no .throw
 	      // method always terminates the yield* loop.
 	      context.delegate = null;
-	
+
 	      if (context.method === "throw") {
 	        if (delegate.iterator.return) {
 	          // If the delegate iterator has a return method, give it a
@@ -877,48 +877,48 @@
 	          context.method = "return";
 	          context.arg = undefined;
 	          maybeInvokeDelegate(delegate, context);
-	
+
 	          if (context.method === "throw") {
 	            // If maybeInvokeDelegate(context) changed context.method from
 	            // "return" to "throw", let that override the TypeError below.
 	            return ContinueSentinel;
 	          }
 	        }
-	
+
 	        context.method = "throw";
 	        context.arg = new TypeError(
 	          "The iterator does not provide a 'throw' method");
 	      }
-	
+
 	      return ContinueSentinel;
 	    }
-	
+
 	    var record = tryCatch(method, delegate.iterator, context.arg);
-	
+
 	    if (record.type === "throw") {
 	      context.method = "throw";
 	      context.arg = record.arg;
 	      context.delegate = null;
 	      return ContinueSentinel;
 	    }
-	
+
 	    var info = record.arg;
-	
+
 	    if (! info) {
 	      context.method = "throw";
 	      context.arg = new TypeError("iterator result is not an object");
 	      context.delegate = null;
 	      return ContinueSentinel;
 	    }
-	
+
 	    if (info.done) {
 	      // Assign the result of the finished delegate to the temporary
 	      // variable specified by delegate.resultName (see delegateYield).
 	      context[delegate.resultName] = info.value;
-	
+
 	      // Resume execution at the desired location (see delegateYield).
 	      context.next = delegate.nextLoc;
-	
+
 	      // If context.method was "throw" but the delegate handled the
 	      // exception, let the outer generator proceed normally. If
 	      // context.method was "next", forget context.arg since it has been
@@ -929,24 +929,24 @@
 	        context.method = "next";
 	        context.arg = undefined;
 	      }
-	
+
 	    } else {
 	      // Re-yield the result returned by the delegate method.
 	      return info;
 	    }
-	
+
 	    // The delegate iterator is finished, so forget it and continue with
 	    // the outer generator.
 	    context.delegate = null;
 	    return ContinueSentinel;
 	  }
-	
+
 	  // Define Generator.prototype.{next,throw,return} in terms of the
 	  // unified ._invoke helper method.
 	  defineIteratorMethods(Gp);
-	
+
 	  Gp[toStringTagSymbol] = "Generator";
-	
+
 	  // A Generator should always return itself as the iterator object when the
 	  // @@iterator function is called on it. Some browsers' implementations of the
 	  // iterator prototype chain incorrectly implement this, causing the Generator
@@ -955,33 +955,33 @@
 	  Gp[iteratorSymbol] = function() {
 	    return this;
 	  };
-	
+
 	  Gp.toString = function() {
 	    return "[object Generator]";
 	  };
-	
+
 	  function pushTryEntry(locs) {
 	    var entry = { tryLoc: locs[0] };
-	
+
 	    if (1 in locs) {
 	      entry.catchLoc = locs[1];
 	    }
-	
+
 	    if (2 in locs) {
 	      entry.finallyLoc = locs[2];
 	      entry.afterLoc = locs[3];
 	    }
-	
+
 	    this.tryEntries.push(entry);
 	  }
-	
+
 	  function resetTryEntry(entry) {
 	    var record = entry.completion || {};
 	    record.type = "normal";
 	    delete record.arg;
 	    entry.completion = record;
 	  }
-	
+
 	  function Context(tryLocsList) {
 	    // The root entry object (effectively a try statement without a catch
 	    // or a finally block) gives us a place to store values thrown from
@@ -990,14 +990,14 @@
 	    tryLocsList.forEach(pushTryEntry, this);
 	    this.reset(true);
 	  }
-	
+
 	  runtime.keys = function(object) {
 	    var keys = [];
 	    for (var key in object) {
 	      keys.push(key);
 	    }
 	    keys.reverse();
-	
+
 	    // Rather than returning an object with a next method, we keep
 	    // things simple and return the next function itself.
 	    return function next() {
@@ -1009,7 +1009,7 @@
 	          return next;
 	        }
 	      }
-	
+
 	      // To avoid creating an additional object, we just hang the .value
 	      // and .done properties off the next function object itself. This
 	      // also ensures that the minifier will not anonymize the function.
@@ -1017,18 +1017,18 @@
 	      return next;
 	    };
 	  };
-	
+
 	  function values(iterable) {
 	    if (iterable) {
 	      var iteratorMethod = iterable[iteratorSymbol];
 	      if (iteratorMethod) {
 	        return iteratorMethod.call(iterable);
 	      }
-	
+
 	      if (typeof iterable.next === "function") {
 	        return iterable;
 	      }
-	
+
 	      if (!isNaN(iterable.length)) {
 	        var i = -1, next = function next() {
 	          while (++i < iterable.length) {
@@ -1038,29 +1038,29 @@
 	              return next;
 	            }
 	          }
-	
+
 	          next.value = undefined;
 	          next.done = true;
-	
+
 	          return next;
 	        };
-	
+
 	        return next.next = next;
 	      }
 	    }
-	
+
 	    // Return an iterator with no values.
 	    return { next: doneResult };
 	  }
 	  runtime.values = values;
-	
+
 	  function doneResult() {
 	    return { value: undefined, done: true };
 	  }
-	
+
 	  Context.prototype = {
 	    constructor: Context,
-	
+
 	    reset: function(skipTempReset) {
 	      this.prev = 0;
 	      this.next = 0;
@@ -1069,12 +1069,12 @@
 	      this.sent = this._sent = undefined;
 	      this.done = false;
 	      this.delegate = null;
-	
+
 	      this.method = "next";
 	      this.arg = undefined;
-	
+
 	      this.tryEntries.forEach(resetTryEntry);
-	
+
 	      if (!skipTempReset) {
 	        for (var name in this) {
 	          // Not sure about the optimal order of these conditions:
@@ -1086,79 +1086,79 @@
 	        }
 	      }
 	    },
-	
+
 	    stop: function() {
 	      this.done = true;
-	
+
 	      var rootEntry = this.tryEntries[0];
 	      var rootRecord = rootEntry.completion;
 	      if (rootRecord.type === "throw") {
 	        throw rootRecord.arg;
 	      }
-	
+
 	      return this.rval;
 	    },
-	
+
 	    dispatchException: function(exception) {
 	      if (this.done) {
 	        throw exception;
 	      }
-	
+
 	      var context = this;
 	      function handle(loc, caught) {
 	        record.type = "throw";
 	        record.arg = exception;
 	        context.next = loc;
-	
+
 	        if (caught) {
 	          // If the dispatched exception was caught by a catch block,
 	          // then let that catch block handle the exception normally.
 	          context.method = "next";
 	          context.arg = undefined;
 	        }
-	
+
 	        return !! caught;
 	      }
-	
+
 	      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
 	        var entry = this.tryEntries[i];
 	        var record = entry.completion;
-	
+
 	        if (entry.tryLoc === "root") {
 	          // Exception thrown outside of any try block that could handle
 	          // it, so set the completion value of the entire function to
 	          // throw the exception.
 	          return handle("end");
 	        }
-	
+
 	        if (entry.tryLoc <= this.prev) {
 	          var hasCatch = hasOwn.call(entry, "catchLoc");
 	          var hasFinally = hasOwn.call(entry, "finallyLoc");
-	
+
 	          if (hasCatch && hasFinally) {
 	            if (this.prev < entry.catchLoc) {
 	              return handle(entry.catchLoc, true);
 	            } else if (this.prev < entry.finallyLoc) {
 	              return handle(entry.finallyLoc);
 	            }
-	
+
 	          } else if (hasCatch) {
 	            if (this.prev < entry.catchLoc) {
 	              return handle(entry.catchLoc, true);
 	            }
-	
+
 	          } else if (hasFinally) {
 	            if (this.prev < entry.finallyLoc) {
 	              return handle(entry.finallyLoc);
 	            }
-	
+
 	          } else {
 	            throw new Error("try statement without catch or finally");
 	          }
 	        }
 	      }
 	    },
-	
+
 	    abrupt: function(type, arg) {
 	      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
 	        var entry = this.tryEntries[i];
@@ -1169,7 +1169,7 @@
 	          break;
 	        }
 	      }
-	
+
 	      if (finallyEntry &&
 	          (type === "break" ||
 	           type === "continue") &&
@@ -1179,25 +1179,25 @@
 	        // location outside the try/catch block.
 	        finallyEntry = null;
 	      }
-	
+
 	      var record = finallyEntry ? finallyEntry.completion : {};
 	      record.type = type;
 	      record.arg = arg;
-	
+
 	      if (finallyEntry) {
 	        this.method = "next";
 	        this.next = finallyEntry.finallyLoc;
 	        return ContinueSentinel;
 	      }
-	
+
 	      return this.complete(record);
 	    },
-	
+
 	    complete: function(record, afterLoc) {
 	      if (record.type === "throw") {
 	        throw record.arg;
 	      }
-	
+
 	      if (record.type === "break" ||
 	          record.type === "continue") {
 	        this.next = record.arg;
@@ -1208,10 +1208,10 @@
 	      } else if (record.type === "normal" && afterLoc) {
 	        this.next = afterLoc;
 	      }
-	
+
 	      return ContinueSentinel;
 	    },
-	
+
 	    finish: function(finallyLoc) {
 	      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
 	        var entry = this.tryEntries[i];
@@ -1222,7 +1222,7 @@
 	        }
 	      }
 	    },
-	
+
 	    "catch": function(tryLoc) {
 	      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
 	        var entry = this.tryEntries[i];
@@ -1235,25 +1235,25 @@
 	          return thrown;
 	        }
 	      }
-	
+
 	      // The context.catch method must only be called with a location
 	      // argument that corresponds to a known catch block.
 	      throw new Error("illegal catch attempt");
 	    },
-	
+
 	    delegateYield: function(iterable, resultName, nextLoc) {
 	      this.delegate = {
 	        iterator: values(iterable),
 	        resultName: resultName,
 	        nextLoc: nextLoc
 	      };
-	
+
 	      if (this.method === "next") {
 	        // Deliberately forget the last sent value so that we don't
 	        // accidentally pass it on to the delegate.
 	        this.arg = undefined;
 	      }
-	
+
 	      return ContinueSentinel;
 	    }
 	  };
@@ -1265,7 +1265,7 @@
 	  typeof window === "object" ? window :
 	  typeof self === "object" ? self : this
 	);
-	
+
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
@@ -1273,15 +1273,15 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	exports.__esModule = true;
-	
+
 	var _promise = __webpack_require__(26);
-	
+
 	var _promise2 = _interopRequireDefault(_promise);
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
 	exports.default = function (fn) {
 	  return function () {
 	    var gen = fn.apply(this, arguments);
@@ -1294,7 +1294,7 @@
 	          reject(error);
 	          return;
 	        }
-	
+
 	        if (info.done) {
 	          resolve(value);
 	        } else {
@@ -1305,7 +1305,7 @@
 	          });
 	        }
 	      }
-	
+
 	      return step("next");
 	    });
 	  };
@@ -1339,7 +1339,7 @@
 
 	'use strict';
 	var $at  = __webpack_require__(30)(true);
-	
+
 	// 21.1.3.27 String.prototype[@@iterator]()
 	__webpack_require__(33)(String, 'String', function(iterated){
 	  this._t = String(iterated); // target
@@ -1417,9 +1417,9 @@
 	  , FF_ITERATOR    = '@@iterator'
 	  , KEYS           = 'keys'
 	  , VALUES         = 'values';
-	
+
 	var returnThis = function(){ return this; };
-	
+
 	module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED){
 	  $iterCreate(Constructor, NAME, next);
 	  var getMethod = function(kind){
@@ -1509,10 +1509,10 @@
 	  , descriptor     = __webpack_require__(20)
 	  , setToStringTag = __webpack_require__(54)
 	  , IteratorPrototype = {};
-	
+
 	// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
 	__webpack_require__(11)(IteratorPrototype, __webpack_require__(55)('iterator'), function(){ return this; });
-	
+
 	module.exports = function(Constructor, NAME, next){
 	  Constructor.prototype = create(IteratorPrototype, {next: descriptor(1, next)});
 	  setToStringTag(Constructor, NAME + ' Iterator');
@@ -1529,7 +1529,7 @@
 	  , IE_PROTO    = __webpack_require__(49)('IE_PROTO')
 	  , Empty       = function(){ /* empty */ }
 	  , PROTOTYPE   = 'prototype';
-	
+
 	// Create object with fake `null` prototype: use iframe Object with cleared prototype
 	var createDict = function(){
 	  // Thrash, waste and sodomy: IE GC bug
@@ -1551,7 +1551,7 @@
 	  while(i--)delete createDict[PROTOTYPE][enumBugKeys[i]];
 	  return createDict();
 	};
-	
+
 	module.exports = Object.create || function create(O, Properties){
 	  var result;
 	  if(O !== null){
@@ -1572,7 +1572,7 @@
 	var dP       = __webpack_require__(12)
 	  , anObject = __webpack_require__(13)
 	  , getKeys  = __webpack_require__(41);
-	
+
 	module.exports = __webpack_require__(16) ? Object.defineProperties : function defineProperties(O, Properties){
 	  anObject(O);
 	  var keys   = getKeys(Properties)
@@ -1590,7 +1590,7 @@
 	// 19.1.2.14 / 15.2.3.14 Object.keys(O)
 	var $keys       = __webpack_require__(42)
 	  , enumBugKeys = __webpack_require__(52);
-	
+
 	module.exports = Object.keys || function keys(O){
 	  return $keys(O, enumBugKeys);
 	};
@@ -1603,7 +1603,7 @@
 	  , toIObject    = __webpack_require__(43)
 	  , arrayIndexOf = __webpack_require__(46)(false)
 	  , IE_PROTO     = __webpack_require__(49)('IE_PROTO');
-	
+
 	module.exports = function(object, names){
 	  var O      = toIObject(object)
 	    , i      = 0
@@ -1643,7 +1643,7 @@
 /***/ (function(module, exports) {
 
 	var toString = {}.toString;
-	
+
 	module.exports = function(it){
 	  return toString.call(it).slice(8, -1);
 	};
@@ -1750,7 +1750,7 @@
 	var def = __webpack_require__(12).f
 	  , has = __webpack_require__(36)
 	  , TAG = __webpack_require__(55)('toStringTag');
-	
+
 	module.exports = function(it, tag, stat){
 	  if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
 	};
@@ -1763,12 +1763,12 @@
 	  , uid        = __webpack_require__(51)
 	  , Symbol     = __webpack_require__(7).Symbol
 	  , USE_SYMBOL = typeof Symbol == 'function';
-	
+
 	var $exports = module.exports = function(name){
 	  return store[name] || (store[name] =
 	    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
 	};
-	
+
 	$exports.store = store;
 
 /***/ }),
@@ -1780,7 +1780,7 @@
 	  , toObject    = __webpack_require__(57)
 	  , IE_PROTO    = __webpack_require__(49)('IE_PROTO')
 	  , ObjectProto = Object.prototype;
-	
+
 	module.exports = Object.getPrototypeOf || function(O){
 	  O = toObject(O);
 	  if(has(O, IE_PROTO))return O[IE_PROTO];
@@ -1808,7 +1808,7 @@
 	  , hide          = __webpack_require__(11)
 	  , Iterators     = __webpack_require__(37)
 	  , TO_STRING_TAG = __webpack_require__(55)('toStringTag');
-	
+
 	for(var collections = ['NodeList', 'DOMTokenList', 'MediaList', 'StyleSheetList', 'CSSRuleList'], i = 0; i < 5; i++){
 	  var NAME       = collections[i]
 	    , Collection = global[NAME]
@@ -1826,7 +1826,7 @@
 	  , step             = __webpack_require__(61)
 	  , Iterators        = __webpack_require__(37)
 	  , toIObject        = __webpack_require__(43);
-	
+
 	// 22.1.3.4 Array.prototype.entries()
 	// 22.1.3.13 Array.prototype.keys()
 	// 22.1.3.29 Array.prototype.values()
@@ -1848,10 +1848,10 @@
 	  if(kind == 'values')return step(0, O[index]);
 	  return step(0, [index, O[index]]);
 	}, 'values');
-	
+
 	// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
 	Iterators.Arguments = Iterators.Array;
-	
+
 	addToUnscopables('keys');
 	addToUnscopables('values');
 	addToUnscopables('entries');
@@ -1895,7 +1895,7 @@
 	  , isNode             = classof(process) == 'process'
 	  , empty              = function(){ /* empty */ }
 	  , Internal, GenericPromiseCapability, Wrapper;
-	
+
 	var USE_NATIVE = !!function(){
 	  try {
 	    // correct subclassing with @@species support
@@ -1905,7 +1905,7 @@
 	    return (isNode || typeof PromiseRejectionEvent == 'function') && promise.then(empty) instanceof FakePromise;
 	  } catch(e){ /* empty */ }
 	}();
-	
+
 	// helpers
 	var sameConstructor = function(a, b){
 	  // with library wrapper special case
@@ -2055,7 +2055,7 @@
 	    $reject.call({_w: promise, _d: false}, e); // wrap
 	  }
 	};
-	
+
 	// constructor polyfill
 	if(!USE_NATIVE){
 	  // 25.4.3.1 Promise(executor)
@@ -2102,12 +2102,12 @@
 	    this.reject  = ctx($reject, promise, 1);
 	  };
 	}
-	
+
 	$export($export.G + $export.W + $export.F * !USE_NATIVE, {Promise: $Promise});
 	__webpack_require__(54)($Promise, PROMISE);
 	__webpack_require__(74)(PROMISE);
 	Wrapper = __webpack_require__(8)[PROMISE];
-	
+
 	// statics
 	$export($export.S + $export.F * !USE_NATIVE, PROMISE, {
 	  // 25.4.4.5 Promise.reject(r)
@@ -2183,14 +2183,14 @@
 	  , TAG = __webpack_require__(55)('toStringTag')
 	  // ES3 wrong here
 	  , ARG = cof(function(){ return arguments; }()) == 'Arguments';
-	
+
 	// fallback for IE11 Script Access Denied error
 	var tryGet = function(it, key){
 	  try {
 	    return it[key];
 	  } catch(e){ /* empty */ }
 	};
-	
+
 	module.exports = function(it){
 	  var O, T, B;
 	  return it === undefined ? 'Undefined' : it === null ? 'Null'
@@ -2267,7 +2267,7 @@
 	var Iterators  = __webpack_require__(37)
 	  , ITERATOR   = __webpack_require__(55)('iterator')
 	  , ArrayProto = Array.prototype;
-	
+
 	module.exports = function(it){
 	  return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
 	};
@@ -2409,10 +2409,10 @@
 	  , process   = global.process
 	  , Promise   = global.Promise
 	  , isNode    = __webpack_require__(45)(process) == 'process';
-	
+
 	module.exports = function(){
 	  var head, last, notify;
-	
+
 	  var flush = function(){
 	    var parent, fn;
 	    if(isNode && (parent = process.domain))parent.exit();
@@ -2429,7 +2429,7 @@
 	    } last = undefined;
 	    if(parent)parent.enter();
 	  };
-	
+
 	  // Node.js
 	  if(isNode){
 	    notify = function(){
@@ -2461,7 +2461,7 @@
 	      macrotask.call(global, flush);
 	    };
 	  }
-	
+
 	  return function(fn){
 	    var task = {fn: fn, next: undefined};
 	    if(last)last.next = task;
@@ -2494,7 +2494,7 @@
 	  , dP          = __webpack_require__(12)
 	  , DESCRIPTORS = __webpack_require__(16)
 	  , SPECIES     = __webpack_require__(55)('species');
-	
+
 	module.exports = function(KEY){
 	  var C = typeof core[KEY] == 'function' ? core[KEY] : global[KEY];
 	  if(DESCRIPTORS && C && !C[SPECIES])dP.f(C, SPECIES, {
@@ -2509,13 +2509,13 @@
 
 	var ITERATOR     = __webpack_require__(55)('iterator')
 	  , SAFE_CLOSING = false;
-	
+
 	try {
 	  var riter = [7][ITERATOR]();
 	  riter['return'] = function(){ SAFE_CLOSING = true; };
 	  Array.from(riter, function(){ throw 2; });
 	} catch(e){ /* empty */ }
-	
+
 	module.exports = function(exec, skipClosing){
 	  if(!skipClosing && !SAFE_CLOSING)return false;
 	  var safe = false;

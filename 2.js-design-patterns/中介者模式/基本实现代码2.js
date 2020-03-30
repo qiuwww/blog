@@ -2,47 +2,56 @@
  * 同事
  * @param mediator
  * @constructor
+ * @description 同事可以是一种类型也可以是多种类型的，这里按照单个类型处理，有两个方法，发消息和收消息
  */
-function Colleague(mediator) {
-    this.mediator = mediator;
 
+function Colleague(mediator, name) {
+  this.mediator = mediator;
+  this.name = name;
+}
+Colleague.prototype.send = function(msg, receiver) {
+  // 1
+  this.mediator.send(msg, this.name, receiver);
 };
-
-Colleague.prototype.getMediator = function () {
-    return this.mediator;
-};
-
-Colleague.prototype.doOperation = function () {
-    this.getMediator().change(this);
+Colleague.prototype.receiveMsg = function(msg, sender) {
+  // b 3
+  console.log(this.name, '####', sender + ' say: ' + msg);
 };
 
 /**
  * 中介者（可以处理多个同事）
- * @param colleague1
- * @param colleague2
  * @constructor
  */
-function Mediator(colleague1, colleague2) {
-    this.colleague1 = colleague1;
-    this.colleague2 = colleague2;
+function Mediator() {}
+
+Mediator.prototype.addColleague = function(colleague) {
+  // 需要将同事的引用保存到中心节点上
+  this[colleague.name] = colleague;
+  return this;
 };
 
-/*
-当一个同事的状态发生改变的时候，由中介者获取到同事，并对该同事的状态进行改变
-不需要和其他同事进行交互
+/**
+ * @param sender 发送的人
+ * @param receiver 接受的人
  */
-Mediator.prototype.change = function (colleague) {
-    colleague.doOperation();
+// @ts-ignore
+Mediator.prototype.send = function(msg, sender, receiver) {
+  // 2
+  try {
+    this[receiver].receiveMsg(msg, sender);
+  } catch (err) {
+    console.log('receiver ' + receiver + ' is not exsit');
+    this[sender].receiveMsg('receiver ' + receiver + ' is not exsit', 'mediator');
+  }
 };
 
-Mediator.prototype.setColleague1 = function (colleague1) {
-    this.colleague1 = colleague1;
-    this.change(this.colleague2);
-};
+// 测试中介者模式，通过a发消息给b
+var _mediator = new Mediator();
+var a = new Colleague(_mediator, 'a');
+var b = new Colleague(_mediator, 'b');
+console.log(_mediator, a, b);
 
-Mediator.prototype.setColleague2 = function (colleague2) {
-    this.colleague2 = colleague2;
-    this.change(this.colleague1);
-};
+_mediator.addColleague(a).addColleague(b);
 
-// 这里function实现的是抽象对象，prototype后面实现的是具体对象；
+a.send('hello i am a', 'b');
+b.send('hello i am b', 'a');

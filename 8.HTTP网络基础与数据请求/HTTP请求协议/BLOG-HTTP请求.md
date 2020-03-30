@@ -135,7 +135,6 @@ user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (
 
 - 它增加了头压缩（header compression），因此即使非常小的请求，其请求和响应的 header 都只会占用很小比例的带宽
 
-
 ## GET 和 POST 的区别，何时使用 POST
 
 - GET：一般用于信息获取，使用 URL 传递参数，对所发送信息的数量也有限制，一般在 2000 个字符
@@ -229,6 +228,16 @@ Content-Type: text/html; charset=iso-8859-1
 
 {"name": "qiu", "age": 25}
 ```
+
+#### Http 报文的请求会有几个部分
+
+- Server
+- Last-Modified
+- Content-Length
+- Cache-Control
+- Expires
+- Content-Type
+- Date
 
 一面中，如果有笔试，考 HTTP 协议的可能性较大。
 
@@ -358,14 +367,24 @@ Content-Type: text/html; charset=iso-8859-1
 
 - `400`和`401`用的不多,未授权。`403`指的是请求被拒绝。`404`指的是资源不存在。
 
-## 7 持久链接/http 长连接
+## 7 持久链接/http1.1 长连接
 
-> 如果你能答出持久链接，这是面试官很想知道的一个点。
+如果你能答出持久链接，这是面试官很想知道的一个点。
 
 - **轮询**：`http1.0`中，客户端每隔很短的时间，都会对服务器发出请求，查看是否有新的消息，只要轮询速度足够快，例如`1`秒，就能给人造成交互是实时进行的印象。这种做法是无奈之举，实际上对服务器、客户端双方都造成了大量的性能浪费。
-- **长连接**：`HTTP1.1`中，通过使用`Connection:keep-alive`进行长连接，。客户端只请求一次，但是服务器会将继续保持连接，当再次请求时，避免了重新建立连接。
+- **长连接**：`HTTP1.1`中，通过使用`Connection:keep-alive`进行长连接，。客户端只请求一次，但是服务器会将继续保持连接，**当再次请求时，避免了重新建立连接(复用 tcp 连接)**。
 
-> 注意，`HTTP 1.1`默认进行持久连接。在一次 `TCP` 连接中可以完成多个 `HTTP` 请求，但是对**每个请求仍然要单独发 header**，`Keep-Alive`不会永久保持连接，它有一个保持时间，可以在不同的服务器软件（如`Apache`）中设定这个时间。
+注意，`HTTP 1.1`默认进行持久连接。在一次 `TCP` 连接中可以完成多个 `HTTP` 请求，但是对**每个请求仍然要单独发 header**，`Keep-Alive`不会永久保持连接，它有一个保持时间，可以在不同的服务器软件（如`Apache`）中设定这个时间。
+
+### Keep-Alive
+
+在下载某些站点的时候，看到返回的 http 头中，有明确的对长连接的 timeout 限制。
+
+`Keep-Alive: timeout=1, max=100`
+
+timeout：过期时间 1 秒（对应 httpd.conf 里的参数是：KeepAliveTimeout），max 是最多一百次请求。这两个限制条件，只要满足一个就会强制断掉连接。
+
+就是在 timeout 时间内又有新的请求过来，同时 max 会自动减 1，直到为 0，强制断掉。
 
 ## 8 长连接中的管线化
 
