@@ -21,7 +21,7 @@ form {
 }
 
 body {
-  font: 12px/1.5 "Microsoft YaHei";
+  font: 12px/1.5 'Microsoft YaHei';
 }
 
 img {
@@ -59,11 +59,11 @@ td {
 
 /*清浮动*/
 .clearfix:after {
-  content: ".";
+  content: '.';
   display: block;
   height: 0;
   clear: both;
-  visibility: hidden
+  visibility: hidden;
 }
 
 .clearfix {
@@ -81,8 +81,6 @@ table {
   margin: 0 auto;
 }
 
-;
-
 /*html5 css*/
 article,
 aside,
@@ -94,7 +92,7 @@ footer,
 nav,
 figure,
 menu {
-  display: block
+  display: block;
 }
 
 /*search.css*/

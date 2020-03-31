@@ -35,6 +35,18 @@
     <dialog open>
       这里是一个对话框
     </dialog>
+    <dialog id="sweet-modal">
+      <h3 class="modal-header">sweet dialog</h3>
+      <div class="modal-body">
+        <p>This is a sweet dialog, which is much better.</p>
+      </div>
+      <footer class="modal-footer">
+        <button id="get-it" type="button">Get</button>
+      </footer>
+    </dialog>
+    <script type="text/javascript">
+      document.querySelector('#sweet-modal').show();
+    </script>
     <h3>datalist标签</h3>
     <p>标签定义选项列表。请与 input 元素配合使用该元素，来定义 input 可能的值。datalist 及其选项不会被显示出来，它仅仅是合法的输入值列表。请使用 input 元素的 list 属性来绑定 datalist。</p>
     <input id="myCar" list="cars" />

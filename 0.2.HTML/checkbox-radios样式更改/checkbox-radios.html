@@ -1,78 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>checkbox-radio</title>
     <style type="text/css">
-        #check {
-            margin: 20px auto;
-        }
+      #check {
+        margin: 20px auto;
+      }
 
-        #check div {
-            position: relative;
-            border: 1px solid skyblue;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            width: 200px;
-        }
+      #check div {
+        position: relative;
+        border: 1px solid skyblue;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        width: 200px;
+      }
 
-        #check .input_check {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            /*只是隐藏不是删除*/
-            visibility: hidden;
-            background-color: #E92333;
-            margin: 0;
-        }
+      #check .input_check {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        /*只是隐藏不是删除*/
+        visibility: hidden;
+        background-color: #e92333;
+        margin: 0;
+      }
 
-        /*选中label*/
+      /*选中label*/
 
-        #check .input_check+label {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            text-indent: 30px;
-            background-image: url('./imgs/noselected.png');
-            background-size: 20px 20px;
-            background-repeat: no-repeat;
-            outline: 1px solid skyblue;
-            user-select: none;
-        }
+      #check .input_check + label {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        text-indent: 30px;
+        background-image: url('./imgs/noselected.png');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        outline: 1px solid skyblue;
+        user-select: none;
+      }
 
-        #check .input_check:checked+label {
-            background-image: url('./imgs/selected.png');
-        }
+      #check .input_check:checked + label {
+        background-image: url('./imgs/selected.png');
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <p>这部分的原理就是，利用label与input通过id的关联性，设置input的默认选择框隐藏（定位隐藏，其实根本不需要占用位置显示出来），然后给label设置一个背景图片，点击label的时候，input跟随触发选中，通过+（选区其后的符合要求的元素）设置选中selected的input来根据selected的状态来切换背景图片</p>
+  <body>
+    <p>
+      这部分的原理就是，利用label与input通过id的关联性，设置input的默认选择框隐藏（定位隐藏，其实根本不需要占用位置显示出来），然后给label设置一个背景图片，点击label的时候，input跟随触发选中，通过+（选区其后的符合要求的元素）设置选中selected的input来根据selected的状态来切换背景图片
+    </p>
     <div id="check">
-        <h2>checkbox</h2>
-        <div>
-            <input type="checkbox" class="input_check" id="check1">
-            <label for="check1">check1</label>
-        </div>
-        <div>
-            <input type="checkbox" class="input_check" id="check2">
-            <label for="check2">check2</label>
-        </div>
-        <hr>
-        <h2>radio</h2>
-        <div>
-            <!--这里的单选框的name要一直，要表示同一个事情-->
-            <form>
-                <input type="radio" class="input_check" id="check3" value="3" name="sex" />
-                <label for="check3">check3</label>
-                <br>
-                <input type="radio" class="input_check" id="check4" value="4" name="sex" />
-                <label for="check4">check4</label>
-            </form>
-        </div>
+      <h2>checkbox</h2>
+      <div>
+        <input type="checkbox" class="input_check" id="check1" />
+        <label for="check1">check1</label>
+      </div>
+      <div>
+        <input type="checkbox" class="input_check" id="check2" />
+        <label for="check2">check2</label>
+      </div>
+      <hr />
+      <h2>radio</h2>
+      <div>
+        <!--这里的单选框的name要一直，要表示同一个事情-->
+        <form>
+          <input type="radio" class="input_check" id="check3" value="3" name="sex" />
+          <label for="check3">check3</label>
+          <br />
+          <input type="radio" class="input_check" id="check4" value="4" name="sex" />
+          <label for="check4">check4</label>
+        </form>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

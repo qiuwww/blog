@@ -13,7 +13,7 @@ categories:
 comments: true
 ---
 
-> 动画是指由许多帧静止的画面，以一定的速度（如每秒 16 张）连续播放时，肉眼因视觉残象产生错觉，而误以为画面活动的作品。-- 维基百科
+动画是指由许多帧静止的画面，以一定的速度（如每秒 16 张）连续播放时，肉眼因视觉残象产生错觉，而误以为画面活动的作品。-- 维基百科
 
 ## 基本概念
 
@@ -46,7 +46,7 @@ comments: true
 
 CSS 中的 transition 属性**允许块级元素中的属性在指定的时间内平滑的改变** ，渐变控制接口。
 
-> transition: property duration timing-function delay;
+transition: property duration timing-function delay;
 
 ### Animation，动画
 
@@ -54,7 +54,7 @@ CSS 中的 transition 属性**允许块级元素中的属性在指定的时间�
 
 [css3 animation](https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation)
 
-> animation: name duration timing-function delay iteration-count direction;
+animation: name duration timing-function delay iteration-count direction;
 
 ### canvas
 

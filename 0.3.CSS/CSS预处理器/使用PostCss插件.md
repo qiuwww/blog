@@ -1,4 +1,4 @@
-# PostCss插件
+# PostCss 插件
 
 CSS 规范在浏览器兼容性方面一直存在各种各样的问题。不同浏览器在 CSS 规范的实现方面的进度也存在很大差异。
 
@@ -15,28 +15,30 @@ PostCSS 的主要功能只有两个：
 
 ### 在 Webpack 中使用 PostCSS 插件
 
-``` js
+```js
 var path = require('path');
 module.exports = {
-    context: path.join(__dirname, 'app'),
-    entry: './app',
-    output: {
-      path: path.join(__dirname, 'dist'),
-      filename: 'bundle.js'
-    },
-    module: {
-      loaders: [{
-        test:   /\.css$/,
+  context: path.join(__dirname, 'app'),
+  entry: './app',
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.css$/,
         // 如果使用了ExtractTextPlugin就需要使用
         // loader:  ExtractTextPlugin.extract('style', 'css!postcss')
         // 否则
-        loader: "style-loader!css-loader!postcss-loader"
-      }]
-    },
-    postcss: function () {
-      return [require('autoprefixer')];
-    }
-}
+        loader: 'style-loader!css-loader!postcss-loader',
+      },
+    ],
+  },
+  postcss: function() {
+    return [require('autoprefixer')];
+  },
+};
 ```
 
 ### 常用插件
@@ -45,12 +47,12 @@ module.exports = {
 
 - Autoprefixer 是一个流行的 **PostCSS 插件**，其作用是为 CSS 中的属性**添加浏览器特定的前缀**。为了兼容不同浏览器的不同版本，在编写 CSS 样式规则声明时通常需要添加额外的带前缀的属性。这是一项**繁琐而无趣的工作**。Autoprefixer 可以自动的完成这项工作。Autoprefixer 可以根据需要指定支持的浏览器类型和版本，自动添加所需的带前缀的属性声明。开发人员在编写 CSS 时只需要使用 CSS 规范中的标准属性名即可。**Autoprefixer 可以配置需要支持的浏览器。**
 
-``` js
+```js
 require('autoprefixer')({
-  browsers: ['last 2 versions']
+  browsers: ['last 2 versions'],
   // 这里推荐使用browserslist来设置要兼容的浏览器版本，具体参考这里
   // https://github.com/ai/browserslist#queries
-})
+});
 ```
 
 - Autoprefixer 除了添加所需要的属性名称前缀之外，还可以**移除 CSS 代码中冗余的属性名称前缀**。遗留 CSS 代码中可能包含由开发人员手动添加的旧版本的浏览器所支持的带前缀的属性名称。Autoprefixer 默认情况下会移除这些冗余的前缀。可以通过配置对象中的 **remove 属性**来配置该行为。
@@ -63,7 +65,7 @@ cssnext 插件允许开发人员在当前的项目中使用 **CSS 将来版本�
 
 - CSS 的层叠变量的自定义属性规范（CSS Custom Properties for **Cascading Variables**）允许在 CSS 中定义属性并在样式规则中作为变量来使用它们。**自定义属性的名称以“--”开头。当声明了自定义属性之后，可以在样式规则中使用“var()”函数来引用**。
 
-``` css
+```css
 :root {
   --text-color: black;
 }

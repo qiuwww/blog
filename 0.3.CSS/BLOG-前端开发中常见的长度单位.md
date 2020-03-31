@@ -122,8 +122,7 @@ rem 不仅可以适用于字体，同样可以用于 width、height、margin 这
 还是常用的这种方法比较合适：利用 javascript 来动态设置根据我们之前算出的基准值，我们可以利用 js 动态算出当前屏幕所适配的 font-size 即：
 
 ```js
-document.getElementsByTagName("html")[0].style.fontSize =
-  window.innerWidth / 10 + "px";
+document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
 ```
 
 5、rem 适配进阶
@@ -134,14 +133,14 @@ document.getElementsByTagName("html")[0].style.fontSize =
 
 ```js
 meta.setAttribute(
-  "content",
-  "initial-scale=" +
+  'content',
+  'initial-scale=' +
     1 / dpr +
-    ", maximum-scale=" +
+    ', maximum-scale=' +
     1 / dpr +
-    ", minimum-scale=" +
+    ', minimum-scale=' +
     1 / dpr +
-    ", user-scalable=no"
+    ', user-scalable=no',
 );
 ```
 
@@ -150,3 +149,26 @@ meta.setAttribute(
 相对于**视口的高度**。视口被均分为 100 单位的 vh
 
 vh，是指 CSS 中相对长度单位，表示相对视口高度（Viewport Height），1vh = 1% \* 视口高度。
+
+## 样式文件的编写感悟
+
+### 对于在一个设置中一直不会变的样式
+
+> 既然不会改变，呢就给定一个有特殊意义的 class 命名空间，将这一块的样式写死。
+
+### 对于大体相同，但是局部不一样的样式
+
+- 使用特殊的 class 命名空间配合预编译器的函数来实现对一些变量的控制。
+- 如 table，可设置长宽，设置是否可以滚动，设置列数(以便计算每列的宽度和最小宽度)，设置是否可以滚动(以及滚动的方向)，thead 的高度(行高)，tbody 的行高。然后多特殊的样式，再单独控制。
+
+### 对于常用的比较长的属性的编写
+
+使用函数，如 background-color: #fff;之类的。设置背景图片等
+
+### 对于常用的代码块的编写
+
+使用代码块，每次用到引用，如单行超出省略
+
+### 常用的颜色值等变量
+
+使用变量来表示，以防止多次改变

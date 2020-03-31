@@ -809,3 +809,15 @@ css在下载完成之后，才会执行js，进而才会去执行下载js文件�
     将它放置于 CSS 之后。
 - 仅加载 DOM 依赖的 CSS：
   - 这将提高初次渲染的速度使**让页面逐步渲染**。
+
+## 常用属性
+
+### position 的取值
+
+- absolute
+- fixed
+- relative
+- inherit
+- initial
+- static
+- sticky: 粘性定位，该定位基于用户滚动的位置。一般情况下它的行为就像 position:relative; 而当页面滚动超出目标区域时，它的表现就像 position:fixed;，它会固定在目标位置。
