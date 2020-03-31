@@ -17,6 +17,20 @@ tags:
 - assets 的处理：静态资源处理
 - server 的启用：development 模式下启动服务器并实时刷新
 
+## 常用插件
+
+- ProgressPlugin（webpack 自带）：用于统计打包进度
+- CleanWebpackPlugin：清理指定目录的文件
+- DllPlugin（webpack 自带）：预打包文件
+- DllReferencePlugin（webpack 自带）：项目打包引用预打包生成的文件
+- HappyPack：运用多核加速打包
+- ExtractTextPlugin：将打包中的 css 单独抽离出来
+- DefinePlugin（webpack 自带）：在 webpack 层面定义项目中可以使用的全局变量 与 EnvironmentPlugin 的形式不同而已
+- CopyWebpackPlugin：将指定目录的文件赋值到指定目录下
+- CommonsChunkPlugin（webpack 自带 optimize）将部分包单独打包为一个文件，高效利用缓存
+- HtmlWebpackPlugin：webpack 打包后自动生成 html 页面
+- ParallelUglifyPlugin：加速压缩，并行
+
 ## 介绍 WebPack 是什么，有什么优势
 
 - WebPack 是一款[模块加载器]兼[打包工具]，用于把各种静态资源（js/css/image 等）作为模块来使用
@@ -324,6 +338,53 @@ Manifest 管理所有模块之间的交互。runtime 将能够查询模块标识
 
 ### 区别
 
-从处理的文件上看，loader只是处理一个类型的文件，特定类型经过特定的loader。
+从处理的文件上看，loader 只是处理一个类型的文件，特定类型经过特定的 loader。
 
-plugin是可以处理所有的文件的，可以针对特定的文件进行处理，也可以全部都进行处理，事件钩子的回调函数里能拿到编译后的 compilation 对象
+plugin 是可以处理所有的文件的，可以针对特定的文件进行处理，也可以全部都进行处理，事件钩子的回调函数里能拿到编译后的 compilation 对象
+
+## webpack 生命周期
+
+可以安装 [lifecycle-webpack-plugin](https://www.npmjs.com/package/lifecycle-webpack-plugin) 插件来查看生命周期信息。
+
+![webpack的生命周期](../imgs/webpack的生命周期.jpg)
+
+## webpack 如何配 sass，需要配哪些 loader
+
+loader 支持链式传递。能够对资源使用流水线(pipeline)。一组链式的 loader 将按照相反的顺序执行。**loader 链中的第一个 loader 返回值给下一个 loader。在最后一个 loader，返回 webpack 所预期的 JavaScript**。
+
+- style-loader，将生成 style 标签，将 css 内容插入 HTML
+- css-loader，将内容引入 @import 所在的 css 文件内
+- sass-loader，先处理 sass 语法
+
+```js
+[
+  {
+    test: /\.s[ac]ss$/i,
+    use: [
+      // Creates `style` nodes from JS strings
+      'style-loader',
+      // Translates CSS into CommonJS
+      'css-loader',
+      // Compiles Sass to CSS
+      'sass-loader',
+    ],
+  },
+];
+```
+
+## 如何配置把 js、css、html 单独打包成一个文件
+
+也就是需要 css 和 js 内联到 html 文件内部。
+
+[html-webpack-inline-source-plugin](https://www.npmjs.com/package/html-webpack-inline-source-plugin)
+
+这样，不需要提取 css 文件了。
+
+```js
+plugins: [
+  new HtmlWebpackPlugin({
+    inlineSource: '.(js|css)$', // embed all javascript and css inline
+  }),
+  new HtmlWebpackInlineSourcePlugin(),
+];
+```

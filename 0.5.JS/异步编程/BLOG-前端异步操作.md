@@ -16,7 +16,7 @@ tags:
 
 常见场景：
 
-- html 中 js 加载
+- html 中 js 加载，script 标签 defer 与 async，使用 js 来生成标签来加载资源
 - js 中，setTimeout/setInterval/事件回调/http 请求/requestAnimationFrame/读写文件，Node.js 中
 
 处理方式：

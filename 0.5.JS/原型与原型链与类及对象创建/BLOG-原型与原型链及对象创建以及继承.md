@@ -34,7 +34,14 @@ console.log(x.getDimensions()); // { length: 3, breadth: 4 }
 console.log(y.getDimensions()); // { length: 4, breadth: 3 }
 ```
 
-## 原型链
+### 使用原型最大的好处
+
+将方法定义到**构造方法的 prototype 上**，这样的好处是，通过该构造函数生成的实例所拥有的方法都是**指向一个函数的索引**，这样可以**节省内存**。
+
+- 原型的作用一：数据共享，节省空间
+- 原型的作用二：继承
+
+## 原型链｜介绍原型链
 
 **原型链的基本原理**：任何一个**实例**，通过**原型链**，找到它上面的**原型**，该原型对象中的方法和属性，**可以被所有的原型实例共享**。
 
@@ -60,7 +67,7 @@ var obj11 = {name: 'smyh'};
 var obj12 = new Object(name: `smyh`); //内置对象（内置的构造函数）
 ```
 
-> 上面的两种写法，效果是一样的。因为，第一种写法，`obj11`会指向`Object`。
+上面的两种写法，效果是一样的。因为，第一种写法，`obj11`会指向`Object`。
 
 - 第一种写法是：字面量的方式。
 - 第二种写法是：内置的构造函数。
@@ -81,7 +88,7 @@ var p = { name: 'smyhvae' };
 var obj3 = Object.create(p); // 此方法创建的对象，是用原型链连接的，继承于p
 ```
 
-> 第三种方法，很少有人能说出来。这种方式里，`obj3`是实例，p 是 obj3 的原型（name 是 p 原型里的属性），构造函数是`Objecet` 。
+第三种方法，很少有人能说出来。这种方式里，`obj3`是实例，p 是 obj3 的原型（name 是 p 原型里的属性），构造函数是`Objecet` 。
 
 ![img](http://img.smyhvae.com/20180306_1633.png)
 
@@ -89,7 +96,7 @@ var obj3 = Object.create(p); // 此方法创建的对象，是用原型链连接
 
 ![原型关系图](./imgs/原型关系图.png)
 
-> PS：任何一个函数，如果在前面加了`new`，那就是**构造函数的作用**。
+PS：任何一个函数，如果在前面加了`new`，那就是**构造函数的作用**。
 
 ### 原型、构造函数、实例，三者之间的关系
 
@@ -99,7 +106,7 @@ var obj3 = Object.create(p); // 此方法创建的对象，是用原型链连接
 2. 构造函数也是函数，构造函数的`prototype`指向原型。（所有的函数有`prototype`属性，但实例没有 `prototype`属性）。
 3. 原型对象中有 `constructor`，指向该原型的构造函数。
 
-> 上面的三行，代码演示：
+上面的三行，代码演示：
 
 ```js
 var Foo = function(name) {
@@ -108,11 +115,11 @@ var Foo = function(name) {
 var fn = new Foo('smyhvae');
 ```
 
-> 上面的代码中，`Foo.prototype.constructor === Foo`的结果是`true`：
+上面的代码中，`Foo.prototype.constructor === Foo`的结果是`true`：
 
 4. 实例的`__proto__`指向原型。也就是说，`Foo.__proto__ === M.prototype`。
 
-> 声明：所有的**引用类型**（数组、对象、函数）都有`__proto__`这个属性。
+声明：所有的**引用类型**（数组、对象、函数）都有`__proto__`这个属性。
 
 `Foo.__proto__ === Function.prototype`的结果为 true，说明`Foo`这个普通的函数，是`Function`构造函数的一个实例。
 
@@ -123,33 +130,33 @@ var fn = new Foo('smyhvae');
 - `instanceof`的**作用**：用于判断**实例**属于哪个**构造函数**。
 - `instanceof`的**原理**：判断实例对象的`__proto__`属性，和构造函数的`prototype`属性，是否为同一个引用（是否指向同一个地址）。
 
-> - **注意 1**：虽然说，实例是由构造函数 new 出来的，但是实例的`__proto__`属性引用的是构造函数的`prototype`。也就是说，实例的`__proto__`属性与构造函数本身无关。
-> - **注意 2**：在原型链上，原型的上面可能还会有原型，以此类推往上走，继续找`__proto__`属性。这条链上如果能找到， instanceof 的返回结果也是 true。
+- **注意 1**：虽然说，实例是由构造函数 new 出来的，但是实例的`__proto__`属性引用的是构造函数的`prototype`。也就是说，实例的`__proto__`属性与构造函数本身无关。
+- **注意 2**：在原型链上，原型的上面可能还会有原型，以此类推往上走，继续找`__proto__`属性。这条链上如果能找到， instanceof 的返回结果也是 true。
 
 比如说：
 
 - `foo instance of Foo`的结果为 true，因为`foo.__proto__ === M.prototype`为`true`。
 - **`foo instance of Objecet`的结果也为 true**，为`Foo.prototype.__proto__ === Object.prototype`为`true`。
 
-> 但我们不能轻易的说：`foo` 一定是 由`Object`创建的实例`。这句话是错误的。我们来看下一个问题就明白了。
+但我们不能轻易的说：`foo` 一定是 由`Object`创建的实例`。这句话是错误的。我们来看下一个问题就明白了。
 
 ### 分析一个问题
 
 **问题：**已知 A 继承了 B，B 继承了 C。怎么判断 a 是由 A**直接生成**的实例，还是 B 直接生成的实例呢？还是 C 直接生成的实例呢？
 
-> 分析：这就要用到原型的`constructor`属性了。
+分析：这就要用到原型的`constructor`属性了。
 
 - `foo.__proto__.constructor === M`的结果为`true`，但是 `foo.__proto__.constructor === Object`的结果为`false`。
 - 所以，用 `consturctor`判断就比用 `instanceof`判断，更为严谨。
 
-## new 运算符
+## new 运算符|new 操作符，new 的时候都发生了什么
 
-> 当`new Foo()`时发生了什么：
+当`new Foo()`时发生了什么：
 
 - 创建一个**新的空对象实例**。`new Object()`
-- 将此空对象的**隐式原型**指向其构造函数的显式原型。
+- 将此空对象的**隐式原型**指向**其构造函数的显式原型**。
 - 执行构造函数（**传入相应的参数**，如果没有参数就不用传），同时 `this` 指向这个**新实例**。
-- 如果返回值是一个新对象，那么直接返回该对象；如果无返回值或者返回一个非对象值，那么就将步骤（1）创建的对象返回。
+- 如果**返回值是一个新对象**，那么直接返回该对象；如果无返回值或者返回一个非对象值，那么就将步骤（1）创建的对象返回。
 
 ### 使用 new 与不使用 new 实例化对象的区别
 
@@ -245,7 +252,7 @@ function Cat(name, color) {
 
 #### 实例继承的优缺点
 
-#### 组合继承，构造函数+原型
+#### 组合继承，组合式继承 = 原型继承 + 借用构造函数继承，重要
 
 ```js
 function Cat(name, color) {
@@ -270,7 +277,7 @@ Cat.prototype.constructor = Cat;
 
 #### 寄生式继承
 
-#### 寄生组合式继承
+#### 寄生组合式继承，重要，最理想的继承方式
 
 JS 的继承方式有很多种，**最理想的继承方式是寄生组合式继承**。
 
@@ -283,9 +290,9 @@ JS 的继承方式有很多种，**最理想的继承方式是寄生组合式继
 function Person(name) {
   this.name = name;
 }
-Person.prototype.sayName=function(){
-  console.log(this.name+' '+this.gender+' '+this.age);
-}
+Person.prototype.sayName = function() {
+  console.log(this.name + ' ' + this.gender + ' ' + this.age);
+};
 
 // 子类
 function Female(name, gender, age) {
@@ -389,3 +396,10 @@ function create(obj) {
   return new f();
 }
 ```
+
+## prototype 和**proto**的区别
+
+prototype 和**proto**都指向原型对象，
+
+- 任意一个**函数（包括构造函数**）都有一个 prototype 属性，指向该函数的原型对象，
+- 同样任意一个**构造函数实例化的对象**，都有一个**proto**属性（**proto**并非标准属性，ECMA-262 第 5 版将该属性或指针称为[[Prototype]]，可通过 Object.getPrototypeOf()标准方法访问该属性）

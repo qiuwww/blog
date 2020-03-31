@@ -418,3 +418,13 @@ console.log('end');
 // node: start, end, 2, promise, 3, promise then
 // 目前版本的11.15执行顺序与浏览器一致
 ```
+
+## JS 为什么要区分微任务和宏任务
+
+promise是v8自带，直接调用底层。
+
+setTimeout是浏览器/node环境或者j2v8等环境自己封装的api，性能上不如promise。
+
+**区分优先级**。16ms的执行限制。
+
+机场也有vip通道，任务分优先级是很正常的，要不然紧急任务怎么插队。

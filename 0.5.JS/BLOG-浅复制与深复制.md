@@ -121,6 +121,8 @@ function copy(obj, deep) {
 ## JS 中的深拷贝，简化版本
 
 ```js
+// 判断属性的类型，如果是object，就再次深复制
+// 这里应该区分function类型的呀
 function deepClone(obj) {
   let result = typeof obj.splice === 'function' ? [] : {};
   if (obj && typeof obj === 'object') {
@@ -134,5 +136,136 @@ function deepClone(obj) {
     return result;
   }
   return obj;
+}
+```
+
+## loadsh 深拷贝实现原理
+
+**位掩码技术，**是一种很棒的思想，可以写出更为简洁的代码，运行得也更快。对象的判断，需要特别注意 null，它的 typeof 值 也是 object。正则的 exec() 方法会返回一个结果数组或 null，其中就会有 index 和 input 属性。
+
+cloneDeep 中囊括了各种类型的深拷贝方法，比如 node 中的 buffer，类型数组等。用了栈的思想，解决循环引用的问题。Map 和 Set 的添加元素方法比较类似，分别为 set 和 add。NaN 是不等于自身的。
+
+```js
+/** Used to compose bitmasks for cloning. */
+const CLONE_DEEP_FLAG = 1;
+const CLONE_SYMBOLS_FLAG = 4;
+
+function cloneDeep(value) {
+  return baseClone(value, CLONE_DEEP_FLAG | CLONE_SYMBOLS_FLAG);
+}
+
+const PERMISSION_A = 1; // 0001
+const PERMISSION_B = 2; // 0010
+const PERMISSION_C = 4; // 0100
+const PERMISSION_D = 8; // 1000
+
+// 当一个用户同时拥有 权限A 和 权限C 时，就产生了一个新的权限
+const mask = PERMISSION_A | PERMISSION_C; // 0101，十进制为 5
+
+// 判断该用户是否有 权限C，可以取出 权限C 的位掩码
+if (mask & PERMISSION_C) {
+    ...
+}
+
+// 该用户没有 权限A，也没有 权限C
+const mask2 = ~(PERMISSION_A | PERMISSION_C); // ~0101 => 1010
+
+// 取出 与权限A 不同的部分
+const mask3 = mask ^ PERMISSION_A; // 0101 ^ 0001 => 0100
+
+function baseClone(value, bitmask, customizer, key, object, stack) {
+  let result;
+  // 根据位掩码，切分判断入口
+  const isDeep = bitmask & CLONE_DEEP_FLAG;
+  const isFlat = bitmask & CLONE_FLAT_FLAG;
+  const isFull = bitmask & CLONE_SYMBOLS_FLAG;
+
+  // 自定义 clone 方法，用于 _.cloneWith
+  if (customizer) {
+    result = object ? customizer(value, key, object, stack) : customizer(value);
+  }
+  if (result !== undefined) {
+    return result;
+  }
+
+  // 过滤出原始类型，直接返回
+  if (!isObject(value)) {
+    return value;
+  }
+
+  const isArr = Array.isArray(value);
+  const tag = getTag(value);
+  if (isArr) {
+    // 处理数组
+    result = initCloneArray(value);
+    if (!isDeep) {
+      // 浅拷贝数组
+      return copyArray(value, result);
+    }
+  } else {
+    // 处理对象
+    const isFunc = typeof value == 'function';
+
+    if (isBuffer(value)) {
+      return cloneBuffer(value, isDeep);
+    }
+    if (tag == objectTag || tag == argsTag || (isFunc && !object)) {
+      result = isFlat || isFunc ? {} : initCloneObject(value);
+      if (!isDeep) {
+        return isFlat
+          ? copySymbolsIn(value, copyObject(value, keysIn(value), result))
+          : copySymbols(value, Object.assign(result, value));
+      }
+    } else {
+      if (isFunc || !cloneableTags[tag]) {
+        return object ? value : {};
+      }
+      result = initCloneByTag(value, tag, isDeep);
+    }
+  }
+  // 用 “栈” 处理循环引用
+  stack || (stack = new Stack());
+  const stacked = stack.get(value);
+  if (stacked) {
+    return stacked;
+  }
+  stack.set(value, result);
+
+  // 处理 Map
+  if (tag == mapTag) {
+    value.forEach((subValue, key) => {
+      result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack));
+    });
+    return result;
+  }
+
+  // 处理 Set
+  if (tag == setTag) {
+    value.forEach(subValue => {
+      result.add(baseClone(subValue, bitmask, customizer, subValue, value, stack));
+    });
+    return result;
+  }
+
+  // 处理 typedArray
+  if (isTypedArray(value)) {
+    return result;
+  }
+
+  const keysFunc = isFull ? (isFlat ? getAllKeysIn : getAllKeys) : isFlat ? keysIn : keys;
+
+  const props = isArr ? undefined : keysFunc(value);
+
+  // 遍历赋值
+  arrayEach(props || value, (subValue, key) => {
+    if (props) {
+      key = subValue;
+      subValue = value[key];
+    }
+    // Recursively populate clone (susceptible to call stack limits).
+    assignValue(result, key, baseClone(subValue, bitmask, customizer, key, value, stack));
+  });
+
+  return result;
 }
 ```

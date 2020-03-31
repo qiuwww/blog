@@ -162,6 +162,10 @@ new MyPromise(resolve => {
 
 如果参数中 promise 有一个失败（rejected），此实例回调失败（reject），失败原因的是第一个失败 promise 的结果。
 
+### Promise.all 实现原理
+
+有失败，立马返回，否则全部执行完成后返回。
+
 ```js
 function isPromise(obj) {
   return (

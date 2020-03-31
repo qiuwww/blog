@@ -55,7 +55,7 @@ Number(2).toString(); // "2"
 
 ECMA-262，`内置对象的定义`：“由 ECMAScript 实现提供的、不依赖于宿主环境的对象，这些对象在 ECMAScript 程序执行之前就已经存在了”。
 
-- 数据封装类对象：Object、Array、Boolean、Number、String
+- 数据**封装类对象**：Object、Array、Boolean、Number、String
 - 其他对象：Function、Arguments、Date、RegExp、Error
 - ES6 新增对象：Symbol、Map、Set、Promises、Proxy、Reflect
 

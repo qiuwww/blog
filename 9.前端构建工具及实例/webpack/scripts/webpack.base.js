@@ -22,6 +22,9 @@ var WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 // Import the plugin:
 var DashboardPlugin = require('webpack-dashboard/plugin');
 
+// 展示webpack的生命周期
+const { LifeCycleWebpackPlugin } = require('lifecycle-webpack-plugin');
+
 module.exports = {
   target: 'web', // <=== 默认是 'web'，可省略
   // 多入口文件
@@ -205,6 +208,12 @@ module.exports = {
     // Adds a banner to the top of each generated chunk.
     new webpack.BannerPlugin({
       banner: '******hello world******',
+    }),
+    // 展示webpack的生命周期
+    new LifeCycleWebpackPlugin({
+      done: compiler => {
+        console.log('\n done \n', new Date());
+      },
     }),
   ],
 };
