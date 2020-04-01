@@ -35,8 +35,8 @@ let target = 9;
 let twoSum = (nums, target) => {
   let hashMap = new Map();
   let res = [];
-  if (!Array.isArray(nums) || typeof +target !== "number") {
-    alert("参数不正确");
+  if (!Array.isArray(nums) || typeof +target !== 'number') {
+    alert('参数不正确');
     return;
   }
   let hasRes = nums.some(item => {
@@ -67,11 +67,11 @@ twoSum(nums, 220);
 双指针来实现
 
 ```js
-let str = "aaabbbccccdfghh";
+let str = 'aaabbbccccdfghh';
 
 let lengthOfLongestSubstring = s => {
-  if (typeof s !== "string" && s.length > 0) {
-    console.log("参数应该是字符串");
+  if (typeof s !== 'string' && s.length > 0) {
+    console.log('参数应该是字符串');
     return;
   }
   const len = s.length;
@@ -130,7 +130,7 @@ var maxArea = function(height) {
     }
   }
   return {
-    max
+    max,
   };
 };
 console.log(maxArea([1, 3, 6, 4, 6, 8, 9, 4, 6, 7, 5]));
@@ -185,8 +185,6 @@ alert(quickSort([32, 45, 37, 16, 2, 87])); //弹出“2,16,32,37,45,87”
 
 ### 几种排序算法
 
-### 回文字符
-
 ### 递归(很重要)
 
 ### 其他常见的前端算法
@@ -217,7 +215,7 @@ alert(quickSort([32, 45, 37, 16, 2, 87])); //弹出“2,16,32,37,45,87”
 - JSON 字符串转换为 JSON 对象:
 
 ```js
-var obj = eval("(" + str + ")");
+var obj = eval('(' + str + ')');
 var obj = str.parseJSON();
 var obj = JSON.parse(str);
 ```
@@ -233,9 +231,9 @@ var last = JSON.stringify(obj);
 分隔组成一个对象，找到最大的值
 
 ```js
-var str = "abcdabcdefgdddddd";
+var str = 'abcdabcdefgdddddd';
 var resObj = {};
-str.split("").forEach(item => {
+str.split('').forEach(item => {
   if (resObj[item]) {
     resObj[item] += 1;
   } else {

@@ -17,7 +17,7 @@ js 的`基本数据类型`：
 - String
 - [Symbol](https://developer.mozilla.org/en-US/docs/Glossary/Symbol)(ES6)
 
-js 的`复杂数据类型`：Object，包括大部分的引用类型（除了 Global 和 Math）。
+- Object，js 的`复杂数据类型`：Object，包括大部分的引用类型（除了 Global 和 Math）。
 
 ### 基本类型和引用类型之间最大的区别
 
@@ -26,28 +26,30 @@ js 的`复杂数据类型`：Object，包括大部分的引用类型（除了 Gl
 
 ### js 的引用类型
 
-引用类型描述的是一类对象所具有的属性和方法。
+**引用类型描述的是一类对象所具有的属性和方法**。
 
 引用类型的**值**是一个**引用类型**的实例。
 
-大多数的引用类型的值都是 Object 类型的实例。
+大多数的引用类型的值**都是 Object 类型的实例**。
 
 #### 基本包装类型
 
 三个`特殊的引用类型`，Number、String、Boolean。
 
-与一般的引用类型相似，但同时具有与各自基本类型相应的特殊行为。每当读取一个基本类型的时候，后台就会对应的创建一个基本包装类型的对象，从而调用一些方法来操作这些数据。
+与一般的引用类型相似，但同时具有与各自基本类型相应的特殊行为。
+
+每当读取一个基本类型的时候，后台就会对应的创建一个基本包装类型的对象，**从而调用一些方法来操作这些数据**。
 
 ```js
 2.toString(); // Uncaught SyntaxError: Invalid or unexpected token
 Number(2).toString(); // "2"
 ```
 
-#### 对象分类
+#### js引用类型的分类
 
-1. 内置对象
-2. 宿主对象：
-   1. 由 JS 的运行环境提供的对象，目前来讲主要指由浏览器提供的对象。
+1. 内置对象，global、object、...
+2. 宿主对象：console、document
+   1. 由 JS 的运行环境提供的对象，目前来讲主要指由**浏览器提供的对象**。
    2. 比如 BOM DOM。比如`console`、`document`。
 3. 自定义对象：由开发人员自己创建的对象
 
@@ -147,7 +149,7 @@ typeof null 的返回结果是"object"。
 
 把 null 作为尚**未创建的对象**，也许更好理解。在 APIs 中，null 常在返回类型是对象，但没关联值的地方使用。
 
-**null 不可以添加属性值，取值和调用方法将报错**
+**null 不可以添加属性值，取值和调用方法将报错**。
 
 ### {}
 
@@ -183,54 +185,4 @@ var a = ''; // 声明一个字符串，但是很明显可以再变成一个别�
 ```js
 var o = Object.create(null); // {}，但是原型并不指向object，显示没有任何属性和方法
 // Object.create()方法创建一个新对象，使用现有的对象来提供新创建的对象的**proto**。也就是新对象继承于给出的对象。
-```
-
-## 常用数据类型说明
-
-### 字符型：String
-
-#### 将其他数值转换为字符串有三种方式
-
-- 拼串 +
-- toString()
-- String()
-
-### 数值型：Number
-
-#### 数值范围
-
-由于内存的限制，ECMAScript 并不能保存世界上所有的数值。
-
-- 最大值：`Number.MAX_VALUE`，这个值为： 1.7976931348623157e+308
-- 最小值：`Number.MIN_VALUE`，这个值为： 5e-324
-
-如果使用 Number 表示的变量超过了最大值，则会返回 Infinity。
-
-- 无穷大（正无穷）：Infinity
-- 无穷小（负无穷）：-Infinity
-
-注意：`typeof Infinity`的返回结果是 number。
-
-#### NaN 和 isNaN()函数
-
-（1）NaN：是一个特殊的数字，表示 Not a Number，非数值。比如：
-
-```javascript
-console.log('abc' / 20); // 结果是NaN
-console.log('abc' * 'abcd'); // 按理说，字符串相乘是没有结果的，但如果你非要让JS去算，它就一定会给你一个结果。结果是NaN
-```
-
-注意：`typeof NaN`的返回结果是 number。
-
-Undefined 和任何数值计算的结果为 NaN。NaN 与任何值都不相等，包括 NaN 本身。
-
-（2）isNaN() :任何不能被转换为数值的值，都会让这个函数返回 true。
-
-```js
-Number.isNaN === isNaN; // false
-window.isNaN === isNaN; // true
-
-isNaN(NaN); // true
-isNaN('blue'); // true
-isNaN(123); // false
 ```

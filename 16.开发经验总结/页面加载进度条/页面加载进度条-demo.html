@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>页面加载进度条-demo</title>
+  </head>
+  <body>
+    <style>
+      @-ms-viewport {
+        width: device-width;
+      }
+
+      @media only screen and (min-device-width: 800px) {
+        html {
+          overflow: hidden;
+        }
+      }
+
+      html {
+        height: 100%;
+      }
+
+      body {
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #000000;
+      }
+
+      #content {
+        margin: 120px auto;
+        width: 80%;
+      }
+
+      .loadBar {
+        width: 50%;
+        height: 0.3%;
+        border: 3px solid #212121;
+        border-radius: 20px;
+        position: fixed;
+        top: 48%;
+        left: 25%;
+      }
+
+      .loadBar div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .loadBar div span,
+      .loadBar div i {
+        box-shadow: inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+        width: 0%;
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 20px;
+      }
+
+      .loadBar div i {
+        width: 100%;
+        -webkit-animation: move 0.8s linear infinite;
+        /* background: -webkit-linear-gradient(left top, #7ed047 0%, #7ed047 25%, #4ea018 25%, #4ea018 50%, #7ed047 50%, #7ed047 75%, #4ea018 75%, #4ea018 100%); */
+        background: -webkit-linear-gradient(left top, #00bfff 20%, #00bfff 100%);
+        background-size: 40px 40px;
+      }
+
+      .loadBar .percentNum {
+        position: absolute;
+        top: 100%;
+        right: 10%;
+        padding: 1px 15px;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+        border: 1px solid #222;
+        background-color: #222;
+        color: #fff;
+      }
+    </style>
+    <div
+      class="out"
+      style="background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585734595079&di=506d0d53c8054b6b37e59969960db48a&imgtype=0&src=http%3A%2F%2Ft-1.tuzhan.com%2Fc44fd526f80c%2Fc-2%2Fl%2F2013%2F03%2F07%2F12%2Fd4ea95dcd6cb4f26a291b5d417dbc7e8.jpg); z-index: 999; position: fixed; width: 100%; height: 100%;"
+    >
+      <div id="loadBar01" class="loadBar">
+        <div>
+          <span class="percent">
+            <i></i>
+          </span>
+        </div>
+        <span class="percentNum">0%</span>
+      </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+    <script>
+      function LoadingBar(id) {
+        this.loadbar = $('#' + id);
+        this.percentEle = $('.percent', this.loadbar);
+        this.percentNumEle = $('.percentNum', this.loadbar);
+        this.max = 100;
+        this.currentProgress = 0;
+      }
+      LoadingBar.prototype = {
+        constructor: LoadingBar,
+        setMax: function(maxVal) {
+          this.max = maxVal;
+        },
+        setProgress: function(val) {
+          if (val >= this.max) {
+            val = this.max;
+          }
+          this.currentProgress = parseInt((val / this.max) * 100) + '%';
+          this.percentEle.width(this.currentProgress);
+          this.percentNumEle.text(this.currentProgress);
+        },
+      };
+
+      $(function() {
+        var loadbar = new LoadingBar('loadBar01');
+        var max = 1400; //如果想让 进度条加载久一点 修改这里数值越大加载越久
+        loadbar.setMax(max);
+        var i = 0;
+        var time = setInterval(function() {
+          loadbar.setProgress(i);
+          if (i == max) {
+            clearInterval(time);
+            return;
+          }
+          i += 10;
+        }, 40);
+      });
+    </script>
+  </body>
+</html>
