@@ -1,0 +1,12 @@
+{
+  "name": "hexo-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "copy": "node ./help-scripts/copy-blog.js",
+    "build": "yarn run copy && cd ./hexo-website && yarn build",
+    "server": "yarn run copy && cd ./hexo-website && yarn server",
+    "oss-upload": "ls"
+  }
+}

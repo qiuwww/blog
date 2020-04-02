@@ -1,4 +1,13 @@
-# typora 语法学习
+---
+title: typora 语法学习
+date: 2017-2-2
+tags:
+  - markdown
+  - 语法学习
+categories:
+  - markdown
+  - [Tools, PHP]
+---
 
 ## 目录
 
@@ -321,7 +330,9 @@ Text prior to footnote reference.[^2]
   <a href="https://github.com/moonbreezee/blog"><img src="https://avatars0.githubusercontent.com/u/9795348?s=400&u=9f4942de719b15791c2154fd0323ab74505f0876&v=4" alt="blog" style="width:100px;height:100px;">blog</a>
 </p>
 
-## hero 生成文章的配置头部
+## hexo 生成文章的配置头部
+
+hexo 的文章的头部信息，需要的基本信息：title、date、tags、categories、comments
 
 ```yaml
 ---
