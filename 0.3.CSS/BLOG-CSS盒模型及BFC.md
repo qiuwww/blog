@@ -1,7 +1,7 @@
 ---
-layout: post
+# layout: post
 title: CSS盒模型及BFC
-date: 2019-02-13
+date: 2019-2-13
 # updated:
 # photos:
 tags:
@@ -9,7 +9,8 @@ tags:
   - BFC
   - 盒模型
 categories:
-  - CSS
+  - [CSS, BFC]
+  - [CSS, 盒模型]
 comments: true
 ---
 

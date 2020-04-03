@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>qrcode</title>
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<title>document</title>
-</head>
-
-<body>
-	<div id="qrcode"></div>
-	<script src="qrcode.min.js"></script>
-	<script type="text/javascript">
-		var text = 'https://github.com/moonbreezee/blog';
-		var qrcode = new QRCode(document.getElementById("qrcode"), {
-			text: text,
-			width: 380,
-			height: 380
-		});
-	</script>
-</body>
-
+  <body>
+    <a href="https://www.runoob.com/w3cnote/javascript-qrcodejs-library.html"
+      >QRCode.js：使用 JavaScript 生成二维码</a
+    >
+    <div id="qrcode"></div>
+    <script src="qrcode.min.js"></script>
+    <script type="text/javascript">
+      var text = '人类命运共同体';
+      var qrcode = new QRCode(document.getElementById('qrcode'), {
+        text: text,
+        width: 200,
+        height: 200,
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+    </script>
+  </body>
 </html>

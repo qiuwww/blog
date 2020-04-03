@@ -459,7 +459,6 @@ parseInt('3', 2);  // NaN
 
 ![](https://camo.githubusercontent.com/d1947e624a0444d1032a85800013df487adc5550/687474703a2f2f7777772e77337363686f6f6c2e636f6d2e636e2f692f63745f6a735f76616c75652e676966)
 
-
 **javascript 创建对象的几种方式？**
 
 > javascript 创建对象简单的说,无非就是使用内置对象或各种自定义对象，当然还可以用 JSON；但写法有很多种，也能混合使用
@@ -572,83 +571,83 @@ function Dog(){
 **写一个通用的事件侦听器函数**
 
 ```js
- // event(事件)工具集，来源：github.com/markyun
-    markyun.Event = {
-        // 页面加载完成后
-        readyEvent : function(fn) {
-            if (fn==null) {
-                fn=document;
-            }
-            var oldonload = window.onload;
-            if (typeof window.onload != 'function') {
-                window.onload = fn;
-            } else {
-                window.onload = function() {
-                    oldonload();
-                    fn();
-                };
-            }
-        },
-        // 视能力分别使用dom0||dom2||IE方式 来绑定事件
-        // 参数： 操作的元素,事件名称 ,事件处理程序
-        addEvent : function(element, type, handler) {
-            if (element.addEventListener) {
-                //事件类型、需要执行的函数、是否捕捉
-                element.addEventListener(type, handler, false);
-            } else if (element.attachEvent) {
-                element.attachEvent('on' + type, function() {
-                    handler.call(element);
-                });
-            } else {
-                element['on' + type] = handler;
-            }
-        },
-        // 移除事件
-        removeEvent : function(element, type, handler) {
-            if (element.removeEventListener) {
-                element.removeEventListener(type, handler, false);
-            } else if (element.datachEvent) {
-                element.detachEvent('on' + type, handler);
-            } else {
-                element['on' + type] = null;
-            }
-        },
-        // 阻止事件 (主要是事件冒泡，因为IE不支持事件捕获)
-        stopPropagation : function(ev) {
-            if (ev.stopPropagation) {
-                ev.stopPropagation();
-            } else {
-                ev.cancelBubble = true;
-            }
-        },
-        // 取消事件的默认行为
-        preventDefault : function(event) {
-            if (event.preventDefault) {
-                event.preventDefault();
-            } else {
-                event.returnValue = false;
-            }
-        },
-        // 获取事件目标
-        getTarget : function(event) {
-            return event.target || event.srcElement;
-        },
-        // 获取event对象的引用，取到事件的所有信息，确保随时能使用event；
-        getEvent : function(e) {
-            var ev = e || window.event;
-            if (!ev) {
-                var c = this.getEvent.caller;
-                while (c) {
-                    ev = c.arguments[0];
-                    if (ev && Event == ev.constructor) {
-                        break;
-                    }
-                    c = c.caller;
-                }
-            }
-            return ev;
+// event(事件)工具集，来源：github.com/markyun
+markyun.Event = {
+  // 页面加载完成后
+  readyEvent: function(fn) {
+    if (fn == null) {
+      fn = document;
+    }
+    var oldonload = window.onload;
+    if (typeof window.onload != 'function') {
+      window.onload = fn;
+    } else {
+      window.onload = function() {
+        oldonload();
+        fn();
+      };
+    }
+  },
+  // 视能力分别使用dom0||dom2||IE方式 来绑定事件
+  // 参数： 操作的元素,事件名称 ,事件处理程序
+  addEvent: function(element, type, handler) {
+    if (element.addEventListener) {
+      //事件类型、需要执行的函数、是否捕捉
+      element.addEventListener(type, handler, false);
+    } else if (element.attachEvent) {
+      element.attachEvent('on' + type, function() {
+        handler.call(element);
+      });
+    } else {
+      element['on' + type] = handler;
+    }
+  },
+  // 移除事件
+  removeEvent: function(element, type, handler) {
+    if (element.removeEventListener) {
+      element.removeEventListener(type, handler, false);
+    } else if (element.datachEvent) {
+      element.detachEvent('on' + type, handler);
+    } else {
+      element['on' + type] = null;
+    }
+  },
+  // 阻止事件 (主要是事件冒泡，因为IE不支持事件捕获)
+  stopPropagation: function(ev) {
+    if (ev.stopPropagation) {
+      ev.stopPropagation();
+    } else {
+      ev.cancelBubble = true;
+    }
+  },
+  // 取消事件的默认行为
+  preventDefault: function(event) {
+    if (event.preventDefault) {
+      event.preventDefault();
+    } else {
+      event.returnValue = false;
+    }
+  },
+  // 获取事件目标
+  getTarget: function(event) {
+    return event.target || event.srcElement;
+  },
+  // 获取event对象的引用，取到事件的所有信息，确保随时能使用event；
+  getEvent: function(e) {
+    var ev = e || window.event;
+    if (!ev) {
+      var c = this.getEvent.caller;
+      while (c) {
+        ev = c.arguments[0];
+        if (ev && Event == ev.constructor) {
+          break;
         }
-    };
+        c = c.caller;
+      }
+    }
+    return ev;
+  },
+};
 ```
 
 **["1", "2", "3"].map(parseInt) 答案是多少？**
@@ -1059,7 +1058,6 @@ func.bind(that)(arg1, arg2);
 
 ### 栈和队列结构, 有的会问
 
-
 ### 操作 DOM 的成本很高，不要轻易去操作 DOM ？vue，react 等框架，相对于操作 dom 在这方面的优势在哪里？
 
 [参考文章 1:DOM 操作成本到底高在哪儿？](https://mp.weixin.qq.com/s/pa9mmQah-DNb9fNAYe2AvA)
@@ -1148,7 +1146,6 @@ so on...
 
 ### 解释一下变量声明提升
 
-
 ### js 如何判断一个数组
 
 ### 阐述一下 js 严格模式
@@ -1160,7 +1157,6 @@ so on...
 ### webpack 了解吗？用过哪些功能
 
 ### 对 css 预编译器有所了解吗？
-
 
 ### JavaScript 中的 this 指向问题
 
@@ -1207,7 +1203,6 @@ so on...
 ### 事件委托
 
 ### 实现 extend 函数
-
 
 ### jsonp 原理、postMessage 原理
 
@@ -1504,66 +1499,63 @@ document.cookie = 'name=aaa; path=/; domain=domain; secure';
  */
 
 var EventUtil = {
-    getEvent: function (event) {
-        return event || window.event;
-    },
-    getTarget: function (event) {
-        return event.target || event.srcElement;
-    },
-    // 返回注册成功的监听器，IE中需要使用返回值来移除监听器
-    on: function (elem, type, handler) {
-        if (elem.addEventListener) {
-            elem.addEventListener(type, handler, false);
-            return handler;
-        } else if (elem.attachEvent) {
-            var wrapper = function () {
-              var event = window.event;
-              event.target = event.srcElement;
-              handler.call(elem, event);
-            };
-            elem.attachEvent('on' + type, wrapper);
-            return wrapper;
-        }
-    },
-    off: function (elem, type, handler) {
-        if (elem.removeEventListener) {
-            elem.removeEventListener(type, handler, false);
-        } else if (elem.detachEvent) {
-            elem.detachEvent('on' + type, handler);
-        }
-    },
-    preventDefault: function (event) {
-        if (event.preventDefault) {
-            event.preventDefault();
-        } else if ('returnValue' in event) {
-            event.returnValue = false;
-        }
-    },
-    stopPropagation: function (event) {
-        if (event.stopPropagation) {
-            event.stopPropagation();
-        } else if ('cancelBubble' in event) {
-            event.cancelBubble = true;
-        }
-    },
-    /**
-     * keypress事件跨浏览器获取输入字符
-     * 某些浏览器在一些特殊键上也触发keypress，此时返回null
-     **/
-     getChar: function (event) {
-        if (event.which == null) {
-            return String.fromCharCode(event.keyCode);  // IE
-        }
-        else if (event.which != 0 && event.charCode != 0) {
-            return String.fromCharCode(event.which);    // the rest
-        }
-        else {
-            return null;    // special key
-        }
-     }
+  getEvent: function(event) {
+    return event || window.event;
+  },
+  getTarget: function(event) {
+    return event.target || event.srcElement;
+  },
+  // 返回注册成功的监听器，IE中需要使用返回值来移除监听器
+  on: function(elem, type, handler) {
+    if (elem.addEventListener) {
+      elem.addEventListener(type, handler, false);
+      return handler;
+    } else if (elem.attachEvent) {
+      var wrapper = function() {
+        var event = window.event;
+        event.target = event.srcElement;
+        handler.call(elem, event);
+      };
+      elem.attachEvent('on' + type, wrapper);
+      return wrapper;
+    }
+  },
+  off: function(elem, type, handler) {
+    if (elem.removeEventListener) {
+      elem.removeEventListener(type, handler, false);
+    } else if (elem.detachEvent) {
+      elem.detachEvent('on' + type, handler);
+    }
+  },
+  preventDefault: function(event) {
+    if (event.preventDefault) {
+      event.preventDefault();
+    } else if ('returnValue' in event) {
+      event.returnValue = false;
+    }
+  },
+  stopPropagation: function(event) {
+    if (event.stopPropagation) {
+      event.stopPropagation();
+    } else if ('cancelBubble' in event) {
+      event.cancelBubble = true;
+    }
+  },
+  /**
+   * keypress事件跨浏览器获取输入字符
+   * 某些浏览器在一些特殊键上也触发keypress，此时返回null
+   **/
+  getChar: function(event) {
+    if (event.which == null) {
+      return String.fromCharCode(event.keyCode); // IE
+    } else if (event.which != 0 && event.charCode != 0) {
+      return String.fromCharCode(event.which); // the rest
+    } else {
+      return null; // special key
+    }
+  },
 };
 ```
-
 
 ## \$javascript 编程部分
 
@@ -1630,7 +1622,7 @@ console.log('今天是星期' + days[date.getDay()]);
 
 ```js
 for (var i = 0; i < 5; ++i) {
-  setTimeout(function () {
+  setTimeout(function() {
     console.log(i + ' ');
   }, 100);
 }
@@ -1641,11 +1633,11 @@ for (var i = 0; i < 5; ++i) {
 
 ```js
 for (var i = 0; i < 5; ++i) {
-  (function (i) {
-    setTimeout(function () {
+  (function(i) {
+    setTimeout(function() {
       console.log(i + ' ');
     }, 100);
-  }(i));
+  })(i);
 }
 ```
 
@@ -2523,8 +2515,6 @@ EventUtil.on(nav, 'click', function (event) {
     console.log(input);
 ```
 
-
-
 10，写出 3 个使用 this 的典型应用
 
 1. 事件引用当前的元素；
@@ -2957,7 +2947,6 @@ testObj.c === copyObj.c // true, 复制了指向
 
 ### 浏览器缓存与应用缓存
 
-
 ## 以下是你应该熟悉的 JavaScript 知识点：
 
 你需要了解 JavaScript，而且是彻底地了解。你面试的职位越高，对语言知识的要求就越高。
@@ -2986,8 +2975,38 @@ var obj = {
 };
 ```
 
-### options 头是在什么时候会进行发送。
+### options 头是在什么时候会进行发送
 
 检测服务器所支持的请求方法
 
 CORS 中的预检请求
+
+## WebAssembly
+
+WebAssembly 是一种新的编码方式，可以在现代的网络浏览器中运行 － 它是一种**低级的类汇编语言**，具有紧凑的二进制格式，可以接近原生的性能运行，并为诸如 C / C ++等语言提供一个编译目标，以便它们可以在 Web 上运行。它也被设计为可以与 JavaScript 共存，允许两者一起工作。
+
+对于网络平台而言，WebAssembly 具有巨大的意义——它提供了一条途径，**以使得以各种语言编写的代码都可以以接近原生的速度在 Web 中运行**。在这种情况下，以前无法以此方式运行的客户端软件都将可以运行在 Web 中。
+
+WebAssembly 被设计为可以和 JavaScript 一起协同工作——通过使用 WebAssembly 的 JavaScript API，你可以把 WebAssembly 模块加载到一个 JavaScript 应用中并且在两者之间共享功能。这允许你在同一个应用中利用 WebAssembly 的性能和威力以及 JavaScript 的表达力和灵活性，即使你可能并不知道如何编写 WebAssembly 代码。
+
+## 纯函数
+
+一个函数的返回结果**只依赖于它的参数**，并且在执行过程里面**没有副作用**，我们就把这个函数叫做纯函数。这么说肯定比较抽象，我们把它掰开来看：
+
+- 函数的返回结果**只依赖于它的参数**。
+- 函数执行过程里面没有副作用。
+
+## js 阻止文本双击选中
+
+```js
+// 添加事件
+onselectstart = 'return false;';
+```
+
+可能被多次点击的地方需要做节流处理。
+
+## 使用 css 属性控制
+
+```css
+user-select: none;
+```

@@ -1,0 +1,103 @@
+<!-- input上的事件顺序操作.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <input type="text" id="input" />
+    <p>
+      input事件说明<br />
+      <ul>
+        <li>1. keydown事件发生时，输入值并没有发生变化，所以keydown可用于阻止某些输入字符的显示。</li>
+        <li>2.input事件发生时，无法获取到keyCode值，并且紧随在keydown事件之后。</li>
+        <li>3.keyup事件最后发生，一次键盘敲入事件彻底完成。</li>
+        <li>4.change事件只会发生在输入完成后，也就是输入框失去焦点之前。</li>
+      </ul>
+    </p>
+    <h3>从鼠标移入，输入，到离开经过的事件
+      mousedown
+      、focus
+      、mouseup
+      、click
+      、keydown
+      、input
+      、keyup
+      、change
+      、blur</h3>
+  </body>
+  <script>
+    document.getElementById('input').addEventListener(
+      'focus',
+      function() {
+        console.log('focus');
+      },
+      false,
+    );
+
+    document.getElementById('input').addEventListener(
+      'mousedown',
+      function() {
+        console.log('mousedown');
+      },
+      false,
+    );
+
+    document.getElementById('input').addEventListener(
+      'mouseup',
+      function() {
+        console.log('mouseup');
+      },
+      false,
+    );
+
+    document.getElementById('input').addEventListener(
+      'input',
+      function() {
+        console.log('input');
+      },
+      false,
+    );
+
+    document.getElementById('input').addEventListener(
+      'change',
+      function() {
+        console.log('change');
+      },
+      false,
+    );
+
+    document.getElementById('input').addEventListener(
+      'blur',
+      function() {
+        console.log('blur');
+      },
+      false,
+    );
+
+    document.getElementById('input').addEventListener(
+      'click',
+      function() {
+        console.log('click');
+      },
+      false,
+    );
+
+    document.getElementById('input').addEventListener(
+      'keydown',
+      function() {
+        console.log('keydown');
+      },
+      false,
+    );
+
+    document.getElementById('input').addEventListener(
+      'keyup',
+      function() {
+        console.log('keyup');
+      },
+      false,
+    );
+  </script>
+</html>

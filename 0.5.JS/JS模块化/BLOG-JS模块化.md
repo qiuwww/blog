@@ -4,6 +4,9 @@ date: 2019-06-06
 tag:
   - js
   - 模块化
+categories:
+  - [JS]
+  - [模块化]
 ---
 
 模块化的演变，amd/cmd/umd/commonjs/ES6 module

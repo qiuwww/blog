@@ -1,15 +1,14 @@
 ---
-layout: post
+# layout: post
 title: 开发中常见的长度单位
-date: 2019-2-13 15:46:25
+date: 2019-2-13
 # updated: 2013-7-13 20:46:29
 # photos:
 tags:
   - CSS
-# categories:
-# - 编程
+  - rem,em,px,dpi
 categories:
-  - CSS
+  - [CSS, 长度单位]
 comments: true
 ---
 

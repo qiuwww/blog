@@ -1,13 +1,12 @@
 ---
 layout: post
-title: html页面meta标签
-date: 2019-01-28 19:32:36
-# updated:
+title: HTML页面meta标签
+date: 2019-1-28
 tags:
   - HTML
-  - meta
+  - meta标签
 categories:
-  - HTML
+  - [HTML, meta标签]
 comments: true
 ---
 

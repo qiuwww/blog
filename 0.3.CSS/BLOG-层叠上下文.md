@@ -1,6 +1,15 @@
-# 堆叠上下文
+---
+title: 堆叠上下文
+date: 2017-3-3
+tags:
+  - CSS
+  - 堆叠上下文
+categories:
+  - [CSS, 堆叠上下文]
+comments: true
+---
 
-## 从position: fiexed;失效开始谈起
+## 从 position: fiexed;失效开始谈起
 
 当元素祖先的 transform 属性非 none 时，**定位容器由视口改为该祖先**(切实感受过被支配的恐惧)。
 
@@ -24,29 +33,29 @@
 4. opacity 属性值小于 1 的元素（参考 the specification for opacity），
 5. transform 属性值不为 "none"的元素，
 6. mix-blend-mode 属性值不为 "normal"的元素，
-7. filter值不为“none”的元素，
-8. perspective值不为“none”的元素，
+7. filter 值不为“none”的元素，
+8. perspective 值不为“none”的元素，
 9. isolation 属性被设置为 "isolate"的元素，
 10. position: fixed
 11. 在 will-change 中指定了任意 CSS 属性，即便你没有直接指定这些属性的值
 12. -webkit-overflow-scrolling 属性被设置 "touch"的元素
 
-## 参照层叠上下文.png
+## 参照层叠上下文
 
-![参照层叠上下文](参照层叠上下文.png)
+![经典的7阶层叠水平](./imgs/经典的7阶层叠水平.png)
 
-- 也就是background-color永远在最底一层；
-- 标准文档流在负的z-index之上，这个容易理解；
-- 浮动元素会漂到标准文档流上一层，仅仅一点点，可能是0.00001；
-- 也就是说标准文档流处在一个 0-，小于0，但是大于一切负数；
-- inline/inline-block，在浮动元素之上，设置了非负的z-index之下；
-- z-index为正，在最上层；
+- 也就是 background-color 永远在最底一层；
+- 标准文档流在负的 z-index 之上，这个容易理解；
+- 浮动元素会漂到标准文档流上一层，仅仅一点点，可能是 0.00001；
+- 也就是说标准文档流处在一个 0-，小于 0，但是大于一切负数；
+- inline/inline-block，在浮动元素之上，设置了非负的 z-index 之下；
+- z-index 为正，在最上层；
 
-## 缺失的关键信息包括：
+## 缺失的关键信息包括
 
-- 位于最低水平的border/background指的是层叠上下文元素的边框和背景色。每一个层叠顺序规则适用于一个完整的层叠上下文元素。
-- 原图没有呈现inline-block的层叠顺序，实际上，inline-block和inline水平元素是同等level级别。
-- z-index:0实际上和z-index:auto单纯从层叠水平上看，是可以看成是一样的。注意这里的措辞——“单纯从层叠水平上看”，实际上，两者在层叠上下文领域有着根本性的差异。
+- 位于最低水平的 border/background 指的是层叠上下文元素的边框和背景色。每一个层叠顺序规则适用于一个完整的层叠上下文元素。
+- 原图没有呈现 inline-block 的层叠顺序，实际上，inline-block 和 inline 水平元素是同等 level 级别。
+- z-index:0 实际上和 z-index:auto 单纯从层叠水平上看，是可以看成是一样的。注意这里的措辞——“单纯从层叠水平上看”，实际上，两者在层叠上下文领域有着根本性的差异。
 
 ## 深层次的理解
 

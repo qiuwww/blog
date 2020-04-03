@@ -1,195 +1,210 @@
 <!-- contenteditable操作页面.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style type="text/css">
-		body{
-			font-family: "Times New Roman","KaiTi"; 
-			/*font-family: "KaiTi";*/
-			/*font-family: "Times New Roman";*/
-		}
-		.operate{
-			width: 100%;
-			height: 50px;
-			display: inline-block;
-			display: flex;
-			flex-flow: row;
-		}
-		.operate button,
-		.operate select{
-			width: 100px;
-			height: 30px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin-left: 20px;
-			font-size: 14px;
-			background-color: green;
-			cursor: pointer;
-			outline: none;
-			border: none;
-		}
-		.text{
-			border: 1px solid blue;
-			padding: 10px;
-		}
-	</style>
-</head>
-<body>
-	<div class="operate">
-	<!-- button是比较好的选择的标签 -->
-		<button class="bold">bold</button>
-		<button class="italic">italic</button>
-		<button class="underline">underline</button>
-			<select name="" id="" class="font-name">
-				<option value="KaiTi">KaiTi</option>
-				<option value="Microsoft YaHei">Microsoft YaHei</option>
-				<option value="Times New Roman">Times New Roman</option>
-				<option value="LiSu">LiSu</option>
-				<option value="SimSun">SimSun</option>
-				<option value="SimHei">SimHei</option>
-			</select>
-		<select class="font-size">
-			<!-- 字号‘六号’对应磅值7.5 
-			字号‘小五’对应磅值9 
-			字号‘五号’对应磅值10.5 
-			字号‘小四’对应磅值12 
-			字号‘四号’对应磅值14 
-			字号‘小三’对应磅值15 
+  <head>
+    <meta charset="UTF-8" />
+    <title>contenteditable操作页面</title>
+    <style type="text/css">
+      body {
+        font-family: 'Times New Roman', 'KaiTi';
+        /*font-family: "KaiTi";*/
+        /*font-family: "Times New Roman";*/
+      }
+      .operate {
+        width: 100%;
+        height: 50px;
+        display: inline-block;
+        display: flex;
+        flex-flow: row;
+      }
+      .operate button,
+      .operate select {
+        width: 100px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 20px;
+        font-size: 14px;
+        background-color: green;
+        cursor: pointer;
+        outline: none;
+        border: none;
+      }
+      .text {
+        border: 1px solid blue;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="operate">
+      <!-- button是比较好的选择的标签 -->
+      <button class="bold">bold</button>
+      <button class="italic">italic</button>
+      <button class="underline">underline</button>
+      <select name="" id="" class="font-name">
+        <option value="KaiTi">KaiTi</option>
+        <option value="Microsoft YaHei">Microsoft YaHei</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="LiSu">LiSu</option>
+        <option value="SimSun">SimSun</option>
+        <option value="SimHei">SimHei</option>
+      </select>
+      <select class="font-size">
+        <!-- 字号‘六号’对应磅值7.5
+			字号‘小五’对应磅值9
+			字号‘五号’对应磅值10.5
+			字号‘小四’对应磅值12
+			字号‘四号’对应磅值14
+			字号‘小三’对应磅值15
 			字号‘三号’对应磅值16  -->
-			<option value="9pt">小五</option>
-			<option value="14pt">四号</option>
-			<option value="16pt">三号</option>
-		</select>
-		<button class="strike-through">Strike-through</button>
-		<button class="formatblock">formatblock</button>
-		<button class="formatblock-h1">h1</button>
-		<button class="insertImage">insertImage</button>
-		<button class="insertOrderedList">insertOrderedList</button>
-		<button class="createLink">createLink</button>
+        <option value="9pt">小五</option>
+        <option value="14pt">四号</option>
+        <option value="16pt">三号</option>
+      </select>
+      <button class="strike-through">Strike-through</button>
+      <button class="formatblock">formatblock</button>
+      <button class="formatblock-h1">h1</button>
+      <button class="insertImage">insertImage</button>
+      <button class="insertOrderedList">insertOrderedList</button>
+      <button class="createLink">createLink</button>
+    </div>
+    <div id="text" class="text" contenteditable="true">
+      <p>
+        中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益;中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益;<b
+          >产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益;</b
+        >
+      </p>
+      <p>
+        The Chinese Communist Party al ways represents the requirements for the development of
+        China's advanced productive forces, the way forward for China's advanced culture and the
+        fundamental interests of the overwhelming majority of the Chinese people.
+      </p>
+    </div>
 
-	</div>
-	<div id="text" class="text" contenteditable="true">
-		<p>中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益;中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益;<b>产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益;</b>
-		</p>
-		<p>The Chinese Communist Party al   ways represents the requirements for the development of China's advanced productive forces, the way forward for China's advanced culture and the fundamental interests of the overwhelming majority of the Chinese people.</p>
-	</div>
+    <script src="./jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        // 右键事件
+        $('#text').on('contextmenu', function(e) {
+          e.stopPropagation();
+          e.preventDefault();
+          console.log('选中的文本的父元素', $(this));
+          // 1. window.getSelection().toString(); 得到选中的文本
+          // 2. window.getSelection().removeAllRanges(); 取消选中的文本
+          console.log('选中的片段', window.getSelection().toString());
+          document.execCommand('formatBlock', false, '<span>');
+          // document.execCommand('fontname', false, "Microsoft");
+          // document.execCommand('fontsize', false, 5);
+          // 这里的formatblock与formatBlock大小写无差别
+          // document.execCommand('formatblock', false, "<h1>");
+          // 不能设置属性，在editable的最外层添加一个包裹标签
+        });
+        $('#text').on('click', function(e) {
+          console.log(e.which);
+          // 阻止tab按键
+          if (e.which === 9) e.preventDefault();
+        });
 
-<script src="./jquery-1.9.1.js"></script>
-<script type="text/javascript">
-	
-$(function() {
-	// 右键事件
-	$('#text').on('contextmenu', function(e){
-		e.stopPropagation();
-		e.preventDefault();
-		console.log("选中的文本的父元素", $(this));	
-		// 1. window.getSelection().toString(); 得到选中的文本
-		// 2. window.getSelection().removeAllRanges(); 取消选中的文本
-		console.log('选中的片段', window.getSelection().toString());
-		document.execCommand('formatBlock', false, '<span>'); 
-		// document.execCommand('fontname', false, "Microsoft");	
-		// document.execCommand('fontsize', false, 5);
-		// 这里的formatblock与formatBlock大小写无差别
-		// document.execCommand('formatblock', false, "<h1>"); 
-		// 不能设置属性，在editable的最外层添加一个包裹标签 
-	});
-	$('#text').on('click', function(e){
-		console.log(e.which);
-		// 阻止tab按键
-		if (e.which === 9) e.preventDefault();
-	});
+        // 第三个参数对于某一些命令是需要的
+        // 如下的命令是预设的命令
+        $('.operate')
+          .on('click', '.bold', function(e) {
+            document.execCommand('bold', false, null); // 默认对于选中的区块，加粗，添加b标签
+          })
+          .on('click', '.italic', function(e) {
+            document.execCommand('italic', false, null);
+          })
+          .on('click', '.underline', function(e) {
+            document.execCommand('underline', false, null);
+          })
+          .on('change', '.font-name', function(e) {
+            // document.execCommand('fontname', false, 'KaiTi');
+            // document.execCommand('fontname', false, 'Microsoft YaHei');
+            // document.execCommand('fontname', false, 'Times New Roman');
+            // document.execCommand('fontname', false, 'SimSun');
+            // document.execCommand('fontname', false, 'LiSu');
+            // document.execCommand('fontname', false, 'SimHei');
+            // http://www.jianshu.com/p/ba54a113c3e1?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
+            // KaiTi
+            // Times New Roman
+            // Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
+            // SimSun
+            // LiSu
+            // SimHei
+            var fontname = $(this).val();
+            document.execCommand('fontname', false, fontname);
+          })
+          .on('click', '.formatblock', function(e) {
+            // 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中
+            // 用于生成各种标签，但是要怎么调出来
+            document.execCommand('formatBlock', false, '<div>');
+            document.execCommand('formatBlock', false, '<BLOCKQUOTE>');
+            document.execCommand('formatBlock', false, '<PRE>');
+          })
+          .on('click', '.strike-through', function(e) {
+            // 删除线
+            document.execCommand('strikeThrough', false, null);
+          })
+          .on('click', '.formatblock-h1', function(e) {
+            // 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中
+            document.execCommand('formatBlock', false, '<h1>');
+          })
+          .on('click', '.insertImage', function(e) {
+            // 光标定位到一个地方，然后插入图片，可以给一个对话框，填入图片的地址
+            // 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中
+            document.execCommand(
+              'insertImage',
+              false,
+              'https://cdn.mdn.mozilla.net/static/img/web-docs-sprite.22a6a085cf14.svg',
+            );
+          })
+          .on('click', '.insertOrderedList', function(e) {
+            // 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中
+            document.execCommand('insertOrderedList', false, null);
+          })
+          .on('click', '.createLink', function(e) {
+            // 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中
+            // 编辑状态下不可点击，去掉	contenteditable 属性就可以了
+            document.execCommand(
+              'createLink',
+              false,
+              'https://developer.mozilla.org/zh-CN/docs/Web/API/Range/extractContents',
+            );
+          })
 
-	// 第三个参数对于某一些命令是需要的
-	// 如下的命令是预设的命令
-	$('.operate').on('click', '.bold', function(e){
-		document.execCommand('bold', false, null); // 默认对于选中的区块，加粗，添加b标签
-	})
-	.on('click', '.italic', function(e){
-		document.execCommand('italic', false, null);
-	})
-	.on('click', '.underline', function(e){
-		document.execCommand('underline', false, null);
-	})
-	.on('change', '.font-name', function(e){
-		// document.execCommand('fontname', false, 'KaiTi');
-		// document.execCommand('fontname', false, 'Microsoft YaHei');
-		// document.execCommand('fontname', false, 'Times New Roman');
-		// document.execCommand('fontname', false, 'SimSun');
-		// document.execCommand('fontname', false, 'LiSu');
-		// document.execCommand('fontname', false, 'SimHei');
-		// http://www.jianshu.com/p/ba54a113c3e1?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
-		// KaiTi
-		// Times New Roman
-		// Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
-		// SimSun
-		// LiSu
-		// SimHei
-		var fontname = $(this).val();
-		document.execCommand('fontname', false, fontname);
-	})
-	.on('click', '.formatblock', function(e){
-		// 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中
-		// 用于生成各种标签，但是要怎么调出来	
-		document.execCommand('formatBlock', false, '<div>'); 
-		document.execCommand('formatBlock', false, '<BLOCKQUOTE>'); 
-		document.execCommand('formatBlock', false, '<PRE>'); 
-
-	})
-	.on('click', '.strike-through', function(e){
-		// 删除线
-		document.execCommand('strikeThrough', false, null); 
-	})
-	.on('click', '.formatblock-h1', function(e){
-		// 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中	
-		document.execCommand('formatBlock', false, '<h1>'); 
-	})
-	.on('click', '.insertImage', function(e){
-		// 光标定位到一个地方，然后插入图片，可以给一个对话框，填入图片的地址
-		// 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中	
-		document.execCommand('insertImage', false, 'https://cdn.mdn.mozilla.net/static/img/web-docs-sprite.22a6a085cf14.svg'); 
-	})
-	.on('click', '.insertOrderedList', function(e){
-		// 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中	
-		document.execCommand('insertOrderedList', false, null); 
-	})
-	.on('click', '.createLink', function(e){
-		// 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中
-		// 编辑状态下不可点击，去掉	contenteditable 属性就可以了
-		document.execCommand('createLink', false, 'https://developer.mozilla.org/zh-CN/docs/Web/API/Range/extractContents'); 
-	})
-
-	// 这里由于能设置的字体只有1~7， 所以需要使用富文本选区操作节点来实现字体的设置，
-	// 上边的预设命令都可以通过如下添加标签，添加标签样式的方式来实现
-	.on('change', '.font-size', function(e){
-		var fs = $(this).val();
-		console.log('选中的片段', window.getSelection());
-		// 这里的操作不能重复选择
-		// 可以的，如果需要设置字体为特殊字体还需要定义字体名称		
-		// document.execCommand('fontsize', false, null); 
-		var selection = window.getSelection();
-		// var selectedText =  window.getSelection().toString();
-		// var range = selection.getRangeAt(0);
-		// // document.execCommand('delete', false, null); 
-		// // document.execCommand('insertparagraph', false, null); 
-		// var span = window.document.createElement("span");
-		// span.style.backgroundColor = "yellow";
-		// span.style.fontSize = '20pt';
-		// range.surroundContents(span);
-	    var range = window.getSelection().getRangeAt(0);
-	    var span = document.createElement('span');
-	    span.style.fontSize = fs;
-	    // 删除操作
-	    span.appendChild(range.extractContents());
-	    // 这个时候span拿到的就是需要插入页面的标签，这个时候可以充值内部的样式 ok的
-		$(span).find('span').each(function(index, item){
-			$(this).css('font-size', 'inherit');
-		});
-	    range.insertNode(span);
-	})
-});
-</script>
-</body>
+          // 这里由于能设置的字体只有1~7， 所以需要使用富文本选区操作节点来实现字体的设置，
+          // 上边的预设命令都可以通过如下添加标签，添加标签样式的方式来实现
+          .on('change', '.font-size', function(e) {
+            var fs = $(this).val();
+            console.log('选中的片段', window.getSelection());
+            // 这里的操作不能重复选择
+            // 可以的，如果需要设置字体为特殊字体还需要定义字体名称
+            // document.execCommand('fontsize', false, null);
+            var selection = window.getSelection();
+            // var selectedText =  window.getSelection().toString();
+            // var range = selection.getRangeAt(0);
+            // // document.execCommand('delete', false, null);
+            // // document.execCommand('insertparagraph', false, null);
+            // var span = window.document.createElement("span");
+            // span.style.backgroundColor = "yellow";
+            // span.style.fontSize = '20pt';
+            // range.surroundContents(span);
+            var range = window.getSelection().getRangeAt(0);
+            var span = document.createElement('span');
+            span.style.fontSize = fs;
+            // 删除操作
+            span.appendChild(range.extractContents());
+            // 这个时候span拿到的就是需要插入页面的标签，这个时候可以充值内部的样式 ok的
+            $(span)
+              .find('span')
+              .each(function(index, item) {
+                $(this).css('font-size', 'inherit');
+              });
+            range.insertNode(span);
+          });
+      });
+    </script>
+  </body>
 </html>

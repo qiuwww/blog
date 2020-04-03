@@ -1,13 +1,11 @@
 ---
-layout: post
-title: html页面meta标签
-date: 2019-01-29 19:32:36
-# updated:
+title: HTML
+date: 2019-1-29
 tags:
   - HTML
-  - Q&A
+  - HTML基础概念
 categories:
-  - HTML
+  - [HTML, HTML基础概念]
 comments: true
 ---
 

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document1</title>
+	<style>
+		#mycanvas {
+			height: 320px;
+			width: 320px;
+			border: 1px solid #000;
+			background: #1d222a;
+			/*transform: scale(2);
+			transform-origin:0 0;*/
+		}
+
+		svg {
+			height: 320px;
+			width: 320px;
+			border: 1px solid #000;
+			background: #1d222a;
+			/*transform: scale(2);
+			transform-origin:0 0;
+			margin-left:320px;*/
+		}
+
+		#test {
+			animation: asd 10s linear both infinite;
+		}
+
+		path {
+			animation: stroke 6s linear both infinite;
+		}
+
+		@keyframes stroke {
+			100% {
+				stroke-dashoffset: 0;
+				/*stroke-dasharray: 80 160;*/
+			}
+		}
+
+		@keyframes asd {
+			0% {
+				stroke-dashoffset: 1805.4178466796875*2
+			}
+			100% {
+				stroke-dashoffset: -1805.4178466796875;
+				/*1805.4178466796875*/
+				/*stroke-dasharray: 80 160;*/
+			}
+		}
+	</style>
+</head>
+
+<body>
+  <p>canvas</p>
+	<canvas id="mycanvas" width="320" height="320"></canvas>
+  <!-- viewBox="0 0 1000 800" -->
+  <p>svg</p>
+	<svg x="0px" y="0px" width="320" height="320">
+		<defs>
+			<linearGradient id="MyGradient">
+				<stop offset="0%" stop-color="#3d9fe8" />
+				<stop offset="50%" stop-color="#a9c867" />
+				<stop offset="100%" stop-color="#ffe800" />
+			</linearGradient>
+			<!-- <image xlink:href="../images/2.jpg"/> -->
+		</defs>
+		<path d="M50,150 L100,175 L200,100 L250,125" stroke="url(#MyGradient)" style="stroke-width:5;fill:none;stroke-dasharray:50,20;stroke-dashoffset:480;"></path>
+		<path d="M0,320 C260,260,60,80,320,0" stroke="url(#MyGradient)" style="stroke-width:2;fill:none;stroke-dasharray:480,480;stroke-dashoffset:480"></path>
+
+		<path id="mpath" d="M0,320 C60,80,260,260,320,0" stroke="url(#MyGradient)" style="stroke-width:2;fill:none;stroke-dasharray:480,480;stroke-dashoffset:480"></path>
+		<circle cx="0" cy="0" r="5" style="fill:url(#MyGradient);stroke:#000000;stroke-width:0">
+			<animateMotion begin="0s" dur="6s" rotate="auto" repeatCount="indefinite">
+				<mpath xlink:href="#mpath"></mpath>
+			</animateMotion>
+		</circle>
+		<path d="M-10,-10 L10,0 L-10,10 L0,0 L-10,-10 Z" style="fill:url(#MyGradient);stroke:#000000;stroke-width:0">
+			<animateMotion path="M0,320
+				C260,260,60,80,320,0" begin="0s" dur="6s" rotate="auto" repeatCount="indefinite">
+			</animateMotion>
+		</path>
+		<!-- <path id="test" d="M0,10 L310,10 L10,40 L310,40 L10,70 L310,70 L10,100 L310,100 L10,130 L310,130" stroke="#fff" style="stroke-width:2;fill:none;stroke-dasharray:0,2715,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20;"></path>
+		<path d="M-10,-10 L10,0 L-10,10 L0,0 L-10,-10 Z" style="fill:url(#MyGradient);stroke:#000000;stroke-width:0">
+			    <animateMotion path="M0,10 L310,10 L10,40 L310,40 L10,70 L310,70 L10,100 L310,100 L10,130 L310,130" begin="0s" dur="10s" rotate="auto"  repeatCount="indefinite">
+				</animateMotion>
+			  </path> -->
+		<!-- <path id="test" class="tortuous" d="M886 302.5 C886 302.5 886 302.5 886 302.5 C875  318 863 323 851.5 317.5C846  323 840 328 833 333C833  337 833 340 832.5 343.5C831  339 829 335 826.5 330C819  332 812 334 804 335.5C823  354 832 372 831 390C825  418 819 445 812 472C811  504 810 535 808 566C798  510 787 504 776 488C731  437 685 466 639 455C667  412 685 368 692 324C742  531 472 527 362 523C473  502 473 401 468 400 C450  400 432 400 414 414C386  362 358 310 329 258C313  237 296 216 279 195C256  243 233 151 209 128" stroke="#fff" style="stroke-width:2;fill:none;stroke-dasharray:0,1805.4178466796875,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20;"></path>
+		<path d="M-10,-10 L10,0 L-10,10 L0,0 L-10,-10 Z" style="fill:url(#MyGradient);stroke:#000000;stroke-width:0">
+			    <animateMotion path="M886 302.5 C886 302.5 886 302.5 886 302.5 C875  318 863 323 851.5 317.5C846  323 840 328 833 333C833  337 833 340 832.5 343.5C831  339 829 335 826.5 330C819  332 812 334 804 335.5C823  354 832 372 831 390C825  418 819 445 812 472C811  504 810 535 808 566C798  510 787 504 776 488C731  437 685 466 639 455C667  412 685 368 692 324C742  531 472 527 362 523C473  502 473 401 468 400 C450  400 432 400 414 414C386  362 358 310 329 258C313  237 296 216 279 195C256  243 233 151 209 128" begin="0s" dur="10s" rotate="auto"  repeatCount="indefinite">
+				</animateMotion>
+	  	</path> -->
+	</svg>
+	<script>
+		window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
+		const canvas = document.getElementById("mycanvas");
+		const ctx = canvas.getContext('2d');
+		var offset = 480;
+		function draw(offset) {
+			// ctx.globalCompositeOperation = 'source-over';
+			// ctx.restore();
+			// ctx.globalAlpha = 0.2; //尾巴
+			// ctx.fillStyle = "rgba(29,34,42,0.8)";
+			// ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+			// ctx.save();
+			// ctx.globalCompositeOperation = 'lighter';
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+			var grad = ctx.createLinearGradient(50, 150, 250, 125);
+			grad.addColorStop(0, "#3d9fe8");
+			grad.addColorStop(0.5, "#a9c867");
+			grad.addColorStop(1, "#ffe800");
+			ctx.strokeStyle = grad;
+			// ctx.strokeStyle = "#F0E68C";
+			ctx.setLineDash([50, 20]);
+			ctx.globalAlpha = 0.8;
+			ctx.lineWidth = 5;
+			ctx.lineDashOffset = -offset;
+			ctx.lineJoin = 'round';
+			ctx.shadowColor = 'yellow';
+			ctx.shadowBlur = 10;
+			ctx.shadowOffsetX = 0;
+			ctx.shadowOffsetY = 0;
+
+			ctx.beginPath();
+			ctx.moveTo(50, 150);
+			ctx.lineTo(100, 175);
+			ctx.lineTo(200, 100);
+			ctx.lineTo(250, 125);
+			ctx.stroke();
+			grad = ctx.createLinearGradient(150, 75, 250, 125);
+			grad.addColorStop(0, "#3d9fe8");
+			grad.addColorStop(0.5, "#a9c867");
+			grad.addColorStop(1, "#ffe800");
+			ctx.strokeStyle = grad;
+			ctx.beginPath();
+			ctx.moveTo(150, 75);
+			ctx.lineTo(250, 125);
+			ctx.stroke();
+
+			ctx.setLineDash([480, 480]);
+			ctx.lineWidth = 2;
+			ctx.beginPath();
+			ctx.moveTo(0, 320);
+			ctx.bezierCurveTo(60, 80, 260, 260, 320, 0);
+			// ctx.bezierCurveTo(260,260,60,80,0,320);
+			ctx.moveTo(0, 320);
+			ctx.bezierCurveTo(260, 260, 60, 80, 320, 0);
+			ctx.stroke();
+			ctx.setLineDash([1, 480]);
+			ctx.lineWidth = 10;
+			ctx.lineCap = "round";
+			ctx.beginPath();
+			ctx.moveTo(0, 320);
+			ctx.bezierCurveTo(60, 80, 260, 260, 320, 0);
+			ctx.moveTo(0, 320);
+			ctx.bezierCurveTo(260, 260, 60, 80, 320, 0);
+			ctx.stroke();
+
+		}
+		function march() {
+			offset += 2
+			draw(offset);
+			if (offset >= 960 + 0) {
+				offset = 480;
+			}
+			setTimeout(march, 20);
+
+			// setTimeout(function(){
+			// 	requestAnimationFrame(march)
+			// }, 20);
+		}
+		march();
+		//$('svg').pauseAnimations();
+		//$('svg').unpauseAnimations()();
+	</script>
+</body>
+
+</html>

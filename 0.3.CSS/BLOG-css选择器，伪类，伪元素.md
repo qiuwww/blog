@@ -1,8 +1,12 @@
 ---
 title: css选择器，伪类，伪元素
-date: 2017-03-03
+date: 2017-3-03
 tags:
-  - css
+  - CSS
+  - CSS选择器
+categories:
+  - [CSS, CSS选择器]
+comments: true
 ---
 
 ## CSS 选择器有哪些

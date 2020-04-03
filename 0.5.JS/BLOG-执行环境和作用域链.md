@@ -74,3 +74,38 @@ console.log(a); // error a is not defined
 
 ## 调用堆栈
 
+## 变量提升
+
+声明变量的主要方式有： `var let const function`。
+
+- 所有的声明都会提升到作用域的最顶上去。
+- let 不存在变量提升
+- 同一个变量只会声明一次，其他的会被忽略掉或者覆盖掉。
+- 函数声明的优先级高于变量申明的优先级，并且函数声明和函数定义的部分一起被提升（函数整体提升）。
+
+```js
+console.log('1:', a);
+console.log('2:', a());
+// 声明提升，赋值不提升
+var a = function() {
+  console.log('3:', 'a');
+};
+// 函数整体提升到最顶端，包括声明和赋值
+function a() {
+  console.log('4:', 'function');
+}
+console.log('5:', a);
+console.log('6:', a());
+
+// 执行结果
+// 1: ƒ a() {
+//   console.log('4:', 'function');
+// }
+// 4: function
+// 2: undefined
+// 5: ƒ () {
+//   console.log('3:', 'a');
+// }
+// 3: a
+// 6: undefined
+```
