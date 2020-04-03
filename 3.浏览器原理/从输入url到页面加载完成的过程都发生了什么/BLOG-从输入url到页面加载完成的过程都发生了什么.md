@@ -2,8 +2,10 @@
 title: 从输入 url 到页面加载完成的过程都发生了什么｜HTML 页面的加载和解析流程
 date: 2020-2-27
 tags:
-  - 浏览器
+  - 浏览器原理
   - 页面解析
+categories:
+  - [浏览器原理, 页面解析]
 ---
 
 [参考文章 1：从输入 URL 到页面加载的过程](http://www.dailichun.com/2018/03/12/whenyouenteraurl.html)
@@ -220,5 +222,4 @@ repaint 重绘：**某个元素的背景颜色，文字颜色等，不影响元�
     5. 所有**defer**脚本会**按照在文档出现的顺序执行**，延迟脚本**能访问完整文档树**，禁止使用 document.write()
     6. 浏览器**在 Document 对象上触发 DOMContentLoaded 事件**
     7. 此时文档完全解析完成，浏览器可能还在等待如图片等内容加载，等这些**内容完成载入并且所有异步脚本完成载入和执行**，document.readState 变为 complete,window 触发 load 事件
-23. **layout布局页面，显示页面**（HTML 解析过程中会逐步显示页面）
-
+23. **layout 布局页面，显示页面**（HTML 解析过程中会逐步显示页面）

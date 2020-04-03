@@ -2,9 +2,12 @@
 title: 时间分片（Time Slicing）
 date:
 tags:
-  - js
+  - JS
   - 时间分片
-  - 页面渲染
+  - 浏览器原理
+categories:
+  - [浏览器原理, 时间分片]
+  - [JS]
 ---
 
 [时间分片（Time Slicing）](https://blog.csdn.net/liuyifeng0000/article/details/104785042/)

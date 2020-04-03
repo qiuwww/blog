@@ -13,10 +13,13 @@ const computation = () => {
   return sum;
 };
 
+// @ts-ignore
 process.on('message', msg => {
+  // @ts-ignore
   console.log(msg, 'process.pid', process.pid); // 子进程id
   const sum = computation();
 
   // 如果Node.js进程是通过进程间通信产生的，那么，process.send()方法可以用来给父进程发送消息
+  // @ts-ignore
   process.send(sum);
 });

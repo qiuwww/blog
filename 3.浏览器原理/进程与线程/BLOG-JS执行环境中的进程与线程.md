@@ -4,8 +4,11 @@ date: 2020-3-30
 tags:
   - 进程
   - 线程
-  - 浏览器
+  - 浏览器原理
   - node
+categories:
+  - [浏览器原理]
+  - [node]
 ---
 
 [从进程和线程了解浏览器的工作原理](https://www.jianshu.com/p/8ff15d3a1dfd)

@@ -1,6 +1,11 @@
 ---
 title: pr(pull-request)
-date: 2020-03-07
+date: 2020-3-7
+tags:
+  - pr
+  - git
+categories:
+  - [git, pr]
 ---
 
 `pull request`是一种为了开发人员通知 team member 他们已经完成了一个 feature 的机制。

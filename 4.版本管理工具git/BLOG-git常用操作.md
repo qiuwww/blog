@@ -3,6 +3,8 @@ title: git常用操作
 date: 2020-3-5
 tags:
   - git
+categories:
+  - [git]
 ---
 
 回滚 -> revert

@@ -1,6 +1,10 @@
 ---
 title: Gitflow工作流
-date: 2020-03-07
+date: 2020-3-7
+tags:
+  - gitflow
+categories:
+  - [git, gitflow]
 ---
 
 Gitflow 工作流定义了一个围绕项目发布的严格分支模型。虽然比功能分支工作流复杂几分，但提供了用于一个健壮的用于管理大型项目的框架。

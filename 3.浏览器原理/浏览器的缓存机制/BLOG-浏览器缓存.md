@@ -2,7 +2,10 @@
 title: 浏览器缓存
 date: 2020-2-25
 tags:
-  - 浏览器
+  - 浏览器原理
+  - 浏览器缓存
+categories:
+  - [浏览器原理, 浏览器缓存]
 ---
 
 [参考文章 1: 一文读懂前端缓存](https://github.com/easonyq/easonyq.github.io/blob/master/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/others/cache.md)
