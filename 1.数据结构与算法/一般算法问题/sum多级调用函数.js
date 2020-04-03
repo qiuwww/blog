@@ -1,4 +1,6 @@
-// 函数求和，参数不固定
+/**
+ * 函数求和，参数不固定
+ */
 function sum(...args) {
   console.log('args', args);
   // 这里的三个点...是扩展运算符，该运算符将一个数组，变为参数序列。
@@ -19,7 +21,9 @@ function sum(...args) {
       res += [...args][i]; //参数累加
     }
     console.log(res); // 输出最后的累加结果
+    return res;
   }
 }
-sum(2, 3, 4); // 9
-sum(2)(3)(4)(5); //5//9//14
+console.log('sum(2, 3, 4)##:', sum(2, 3, 4)); // 9
+// @ts-ignore
+console.log('sum(2)(3)(4)(5)##:', sum(2)(3)(4)(5)); // 5//9//14

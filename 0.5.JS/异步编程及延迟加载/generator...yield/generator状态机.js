@@ -1,4 +1,4 @@
-// 状态机.js
+// generator状态机
 // 运行一次状态改变一次
 
 // 两种状态
@@ -6,9 +6,9 @@
 var ticking = true;
 var clock = function() {
   if (ticking) {
-    console.log("tick!");
+    console.log('tick!');
   } else {
-    console.log("tock!");
+    console.log('tock!');
   }
   ticking = !ticking;
 };
@@ -21,18 +21,18 @@ clock();
 // 使用generator来实现
 // 很容易实现多次状态的反转
 
-var clock = function*(_) {
+var clock2 = function*(_) {
   while (true) {
     yield _;
-    console.log("tick!");
+    console.log('tick!');
     yield _;
-    console.log("tock!");
+    console.log('tock!');
     yield _;
-    console.log("three");
+    console.log('three');
   }
 };
 
-var generatorClock = clock();
+var generatorClock = clock2();
 // 必须多一次运行
 generatorClock.next();
 generatorClock.next();
