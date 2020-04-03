@@ -2,8 +2,11 @@
 title: 如何解决跨域问题
 date: 2017-2-6
 tags:
-  - http请求
+  - HTTP请求
   - 跨域
+categories:
+  - [HTTP请求, 跨域]
+  - [HTTP网络基础与数据请求]
 ---
 
 [参考资料：九种跨域方式实现原理](https://mp.weixin.qq.com/s/y8yCb36Z8wmszOqo4FEAmg)

@@ -1,7 +1,14 @@
 ---
 title: babel
-website: https://babeljs.io/docs/en/babel-preset-env
+date: 2019-6-6
+tags:
+  - babel
+  - 前端构建工具
+categories:
+  - [前端构建工具, babel]
 ---
+
+[babel](https://babeljs.io/docs/en/babel-preset-env)
 
 ## 预设
 

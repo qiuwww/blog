@@ -1,9 +1,11 @@
 ---
 title: webpack 打包配置
-date: 2020-03-03
+date: 2020-3-3
 tags:
   - 构建工具
   - webpack
+categories:
+  - [构建工具, webpack]
 ---
 
 [参考文章](https://mp.weixin.qq.com/s/ciyc9z8ZaVwSpriQoUCHHA)

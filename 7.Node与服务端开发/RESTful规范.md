@@ -69,7 +69,7 @@ API 不需要 1xx 状态码。
 - 英文 `Representational state transfer` **表述性状态转移** 其实就是对 资源 的表述性状态转移。
 - RESTful 的核心思想就是，客户端发出的数据操作指令都是"**动词 + 宾语**"的结构。
 
-### 动词通常就是五种 HTTP 方法，对应 CRUD 操作。
+### 动词通常就是五种 HTTP 方法，对应 CRUD 操作
 
 - GET：读取（Read）
 - POST：新建（Create）
