@@ -3,7 +3,7 @@
 ## 编辑文件，并保存
 
 1. 打开 filename 文件；
-   \$ vim filename
+   `$ vim filename`
 2. 进入编辑模式；
    输入 i，进入 insert 模式
 3. 编辑结束，保存文件内容；

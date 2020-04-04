@@ -1,9 +1,11 @@
 ---
-title: BLOG-前端代码测试
+title: 前端代码测试
 date: 2017-6-6
 tags:
   - 代码测试
   - 单元测试
+categories:
+  - [代码测试, 单元测试]
 ---
 
 ## 如何测试前端代码么? 知道 BDD, TDD, Unit Test 么

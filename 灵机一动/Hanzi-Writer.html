@@ -15,24 +15,24 @@
     <button id="animate-button">Start</button>
     <script>
       window.onload = function() {
-        var writer = HanziWriter.create("character-target-div", "草", {
+        var writer = HanziWriter.create('character-target-div', '草', {
           width: 150,
           height: 150,
           padding: 5,
-          radicalColor: "#168F16" // green
+          radicalColor: '#168F16', // green
         });
 
-        var char1 = HanziWriter.create("character-target-1", "很", {
+        var char1 = HanziWriter.create('character-target-1', '哈', {
           width: 100,
           height: 100,
           padding: 5,
-          showCharacter: false
+          showCharacter: false,
         });
-        var char2 = HanziWriter.create("character-target-2", "爽", {
+        var char2 = HanziWriter.create('character-target-2', '邋', {
           width: 100,
           height: 100,
           padding: 5,
-          showCharacter: false
+          showCharacter: false,
         });
 
         function chainAnimations() {
@@ -45,13 +45,11 @@
               setTimeout(function() {
                 char2.animateCharacter();
               }, delayBetweenAnimations);
-            }
+            },
           });
         }
 
-        document
-          .getElementById("animate-button")
-          .addEventListener("click", chainAnimations);
+        document.getElementById('animate-button').addEventListener('click', chainAnimations);
       };
     </script>
   </body>

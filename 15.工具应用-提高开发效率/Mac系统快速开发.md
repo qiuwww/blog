@@ -1,6 +1,6 @@
 # Mac 系统快速开发
 
-## mac 系统常用快捷键.md
+## Mac 系统常用快捷键.md
 
 option+⬆️ : 当前行与前面的行交换位置；
 
@@ -38,7 +38,7 @@ command+shift+n： 新建文件夹；
 
 command+option+d： **显示与隐藏程序坞；**
 
-command+数字键：在chrome中表示切换tab页面；
+command+数字键：在 chrome 中表示切换 tab 页面；
 
 ## 自带截图功能
 
@@ -72,8 +72,8 @@ command+数字键：在chrome中表示切换tab页面；
 ## 功能查找 Spotlight
 
 - 右上角的搜索
-- Command + Space进入，这个似乎不管用，我的是被中英文切换占用了，修改为`command+⬆️`
+- Command + Space 进入，这个似乎不管用，我的是被中英文切换占用了，修改为`command+⬆️`
 
 ## 启动任务管理器
 
-Command + Option + Escape关闭任务，强制关闭任务。
+Command + Option + Escape 关闭任务，强制关闭任务。
