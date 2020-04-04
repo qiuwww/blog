@@ -1,9 +1,12 @@
 ---
 title: float布局
-date: 2017-06-06
+date: 2017-6-6
 tag:
-  - css
+  - CSS
   - 前端布局
+  - float
+categories:
+  - [CSS, float]
 ---
 
 ## 浮动与清除浮动，float

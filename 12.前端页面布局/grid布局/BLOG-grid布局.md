@@ -1,9 +1,12 @@
 ---
-title: 网格布局 grid
-date: 2018-06-06
+title: 网格布局grid
+date: 2018-6-6
 tag:
-  - css
+  - CSS
   - 布局
+  - grid
+categories:
+  - [CSS, grid]
 ---
 
 **CSS 网格布局**用于将页面分割成数个主要区域，或者用来定义组件内部元素间大小、位置和图层之间的关系。

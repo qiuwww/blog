@@ -288,7 +288,7 @@ CACHE MANIFEST
 
 ### 置换元素与非置换元素
 
-#### a) 置换元素：
+#### a) 置换元素
 
 浏览器根据元素的**标签和属性**，来决定元素的具体显示内容。
 
@@ -300,13 +300,13 @@ CACHE MANIFEST
 
 置换元素在其显示中生成了**框**，**这也就是有的内联元素能够设置宽高的原因**。
 
-#### b) 不可替换元素：
+#### b) 不可替换元素
 
 (x)html 的大多数元素是**不可替换元素，即其内容直接表现给用户端（如浏览器）**。
 
 例如： `<label>`label 中的内容`</label>` 标签`<label>`是一个非置换元素，文字 label 中的内容”将全被显示。
 
-## 不常用标签
+## 常用标签
 
 ### [base 标签](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/base)
 
@@ -321,3 +321,10 @@ CACHE MANIFEST
 ```
 
 ### [dialog 标签](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog)
+
+### iframe 有那些缺点
+
+1. iframe 会阻塞主页面的 Onload 事件；
+2. 搜索引擎的检索程序无法解读这种页面，**不利于 SEO**;
+3. **iframe 和主页面共享连接池，而浏览器对相同域的连接有限制**，所以会影响页面的并行加载。
+4. 使用 iframe 之前需要考虑这两个缺点。如果需要使用 iframe，最好是通过 javascript 动态给 iframe 添加 src 属性值，这样可以绕开以上两个问题。

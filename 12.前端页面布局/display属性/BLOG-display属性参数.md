@@ -1,4 +1,12 @@
-# display
+---
+title: display属性参数
+date: 2017-3-6
+tags:
+  - CSS
+  - display
+categories:
+  - [CSS, display]
+---
 
 [display MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/display)
 

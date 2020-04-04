@@ -1,9 +1,11 @@
 ---
-title: table 布局
-date: 2017-06-06
+title: table布局
+date: 2017-6-6
 tags:
-  - css
-  - 布局
+  - CSS
+  - table布局
+categories:
+  - [CSS, table布局]
 ---
 
 ## HTML Table 是指使用原生的`<table>`标签，而 CSS Table 是指用 CSS 属性模仿 HTML 表格的模型

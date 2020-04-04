@@ -1,15 +1,18 @@
 ---
-title: flex 布局
+title: flex布局
 date: 2017-3-6
 tags:
-  - css布局
+  - CSS
   - flex
+categories:
+  - [CSS, flex]
 ---
 
 [在线测试属性](https://flexboxfroggy.com/)
+
 [MDN flex](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex)
 
-##　display:flex
+## display:flex
 
 1. 当我们使用 flexbox 布局时候，需要先给父容器的 display 值定位 flex（块级）或者 inline-flex（行内级）。
 2. 当使用了这个值以后，伸缩容器会为内容建立新的**伸缩格式化上下文（FFC）**，它的上下文展示效果和 BFC 根元素相同（**BFC 特性：浮动不会闯入伸缩容器，且伸缩容器的边界不会与其内容边界叠加(margin 叠加的处理原理)**）。
@@ -38,7 +41,7 @@ tags:
 
 属性为**flex-direction（主轴方向）**和**flex-wrap（侧轴方向）**的缩写，两个属性决定了伸缩容器的主轴与侧轴。
 
-> flex-flow:[flex-direction][flex-wrap];默认值为 row nowrap；
+flex-flow:[flex-direction][flex-wrap];默认值为 row nowrap；
 
 ## justify-content，主轴方向的伸缩方式，主轴是可变的
 
@@ -64,7 +67,7 @@ tags:
 
 [align-content]属性可以用来**调准伸缩行在伸缩容器里的对齐方式**，这与调准伸缩项目在主轴上对齐方式的[justify-content]属性类似。只不过这里元素是以一行为单位。**请注意本属性在只有一行的伸缩容器上没有效果。当使用 flex-wrap:wrap 时候多行效果就出来了。**
 
-> align-content: flex-start || flex-end || center || space-between || space-around || stretch;
+align-content: flex-start || flex-end || center || space-between || space-around || stretch;
 
 - align-content: stretch;默认值,各行将会伸展以占用剩余的空间。
 - 其他可以参考[justify-content]用法。
@@ -81,8 +84,8 @@ tags:
 
 [flex]属性可以用来指定可伸缩长度的部件，是 flex-grow（扩展比例）,flow-shrink（收缩比例）,flex-basis（伸缩基准值）这个三个属性的缩写写法，建议大家采用缩写的方式而不是单独来使用这 3 个属性。
 
-> flex:none | [ <'flex-grow'> ?<'flew-shrink'> || <'flow-basis'>]
-> // flex-grow 是必须得 flex-shrink 和 flow-basis 是可选的
+flex:none | [ <'flex-grow'> ?<'flew-shrink'|| <'flow-basis'>]
+// flex-grow 是必须得 flex-shrink 和 flow-basis 是可选的
 
 - flex-grow:;其中 number 作为**扩展比例**，没有单位，初始值是 0，**主要用来决定伸缩容器剩余空间按比例应扩展多少空间。**
 - flex-shrink:;其中 number 作为收缩比例，没有单位，初始值是 1，**也就是剩余空间是负值的时候此伸缩项目相对于伸缩容器里其他伸缩项目能收缩的空间比例，**在收缩的时候收缩比率会以[flex-basis]伸缩基准值加权。
