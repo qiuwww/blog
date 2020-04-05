@@ -8,7 +8,7 @@ const targetPath = resolve(__dirname, '../hexo-website/source/_posts');
 console.log('path', learnPath, targetPath);
 
 // 排除的文件夹，不检索
-const excludesList = ['AndroidAppProject', 'hexo-website', 'node_modules'];
+const excludesList = ['AndroidAppProject', 'hexo-website', 'node_modules', 'gitbook'];
 
 const files = [], // 检索出来的所有BLOG-文件
   types = []; // 分类
