@@ -27,10 +27,10 @@ override: false
 # For example, you put your favicons into `hexo-site/source/images` directory.
 # Then need to rename & redefine they on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.
 favicon:
-  small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
-  apple_touch_icon: /images/apple-touch-icon-next.png
-  safari_pinned_tab: /images/logo.svg
+  small: /images/favicon-32x32.ico
+  medium: /images/favicon-48x48.ico
+  apple_touch_icon: /images/favicon-48x48.ico
+  safari_pinned_tab: /images/favicon-48x48.ico
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
@@ -54,11 +54,11 @@ footer:
   copyright:
   # -------------------------------------------------------------
   # Hexo link (Powered by Hexo).
-  powered: true
+  powered: false
 
   theme:
     # Theme & scheme info link (Theme - NexT.scheme).
-    enable: true
+    enable: false
     # Version info of NexT after scheme info (vX.X.X).
     version: true
   # -------------------------------------------------------------
@@ -91,44 +91,36 @@ index_with_subtitle: false
 # Value before `||` delimeter is the target link.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 
-# menu:
-#   home: / || home
-#   #about: /about/ || user
-#   #tags: /tags/ || tags
-#   #categories: /categories/ || th
-#   archives: /archives/ || archive
-#   #schedule: /schedule/ || calendar
-#   #sitemap: /sitemap.xml || sitemap
-#   #commonweal: /404/ || heartbeat
-
 menu:
-  home: /
-  archives: /archives
-  #about: /about
-  categories: /categories
-  tags: /tags/ || tags
-  #commonweal: /404.html
+  home: /||home
+  #about: /about/ || user
+  tags: /tags/||tags
+  categories: /categories/||th
+  # archives: /archives/||archive
+  #schedule: /schedule/ || calendar
+  #sitemap: /sitemap.xml || sitemap
+  #commonweal: /404/ || heartbeat
 
 # Enable/Disable menu icons.
 menu_icons:
   enable: true
-  # Icon Mapping.
-  home: home
-  about: user
-  categories: th
-  tags: tags
-  archives: archive
-  commonweal: heartbeat
+#   # Icon Mapping.
+#   home: home
+#   about: user
+#   categories: th
+#   tags: tags
+  # archives: archive
+#   commonweal: heartbeat
 
 # ---------------------------------------------------------------
 # Scheme Settings
 # ---------------------------------------------------------------
 
 # Schemes
-# scheme: Muse
+scheme: Muse
 # scheme: Mist
 # scheme: Pisces
-scheme: Gemini
+# scheme: Gemini
 
 # ---------------------------------------------------------------
 # Sidebar Settings
@@ -140,8 +132,8 @@ scheme: Gemini
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 #social:
-GitHub: https://github.com/yourname || github
-E-Mail: mailto:yourname@gmail.com || envelope
+GitHub: https://github.com/moonbreezee || github
+E-Mail: mailto:1014913222@qq.com || envelope
 #Google: https://plus.google.com/yourname || google
 #Twitter: https://twitter.com/yourname || twitter
 #FB Page: https://www.facebook.com/yourname || facebook
@@ -167,7 +159,7 @@ links_layout: block
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-#avatar: /images/avatar.gif
+avatar: /images/avatar.ico
 
 # Table Of Contents in the Sidebar
 toc:
@@ -210,7 +202,7 @@ sidebar:
   scrollpercent: false
 
   # Enable sidebar on narrow view (only for Muse | Mist).
-  onmobile: false
+  onmobile: true
 
 # ---------------------------------------------------------------
 # Post Settings
@@ -242,9 +234,9 @@ post_meta:
 # Dependencies: https://github.com/willin/hexo-wordcount
 post_wordcount:
   item_text: true
-  wordcount: false
-  min2read: false
-  totalcount: false
+  wordcount: true # 单篇文章字数
+  min2read: true # 单篇阅读时长
+  totalcount: true # 站点总字数
   separated_meta: true
 
 # Wechat Subscriber
@@ -261,7 +253,7 @@ post_wordcount:
 
 # Declare license on posts
 post_copyright:
-  enable: false
+  enable: true
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
@@ -382,20 +374,6 @@ changyan:
   appid:
   appkey:
 
-# Valine.
-# You can get your appid and appkey from https://leancloud.cn
-# more info please open https://valine.js.org
-valine:
-  enable: false
-  appid: # your leancloud application appid
-  appkey: # your leancloud application appkey
-  notify: false # mail notifier , https://github.com/xCss/Valine/wiki
-  verify: false # Verification code
-  placeholder: Just go go # comment box placeholder
-  avatar: mm # gravatar style
-  guest_info: nick,mail,link # custom comment header
-  pageSize: 10 # pagination size
-
 # Support for youyan comments system.
 # You can get your uid from http://www.uyan.cc
 #youyan_uid: your uid
@@ -451,20 +429,20 @@ gitment:
 #           Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,
 #           Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru
 needmoreshare2:
-  enable: false
+  enable: true
   postbottom:
-    enable: false
+    enable: true
     options:
-      iconStyle: box
+      iconStyle: default
       boxForm: horizontal
       position: bottomCenter
       networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
   float:
-    enable: false
+    enable: true
     options:
-      iconStyle: box
-      boxForm: horizontal
-      position: middleRight
+      iconStyle: default
+      boxForm: vertical
+      position: topRight
       networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
 
 # Google Webmaster tools verification setting
@@ -554,6 +532,7 @@ firestore:
 
 # Show PV/UV of the website/page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
+# 不蒜子统计，用于在页脚显示总访客数和总浏览量，将 false 改为 true 就能直接使用
 busuanzi_count:
   # count values only if the other configs are false
   enable: false
@@ -566,8 +545,11 @@ busuanzi_count:
   site_pv_header: <i class="fa fa-eye"></i>
   site_pv_footer:
   # custom pv span for one page only
-  page_pv: true
-  page_pv_header: <i class="fa fa-file-o"></i>
+  # 页面浏览量，不建议开启，建议用上面的 leancloud_visitors
+  # 首先 leancloud 更稳定，其次 leancloud 便于管理
+  # 最后，可以利用 leancloud 的 api 建立 TopX 页面
+  page_pv: false
+  page_pv_header: <i class="fa fa-eye"></i>
   page_pv_footer:
 
 # Tencent analytics ID
@@ -609,7 +591,7 @@ algolia_search:
 # Local search
 # Dependencies: https://github.com/flashlab/hexo-generator-search
 local_search:
-  enable: false
+  enable: true
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto
@@ -813,3 +795,24 @@ images: images
 
 # Theme version
 version: 5.1.4
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+# 评论系统
+# Valine.
+# You can get your appid and appkey from https://leancloud.cn
+# more info please open https://valine.js.org
+valine:
+  enable: true
+  appid: TJXPiPWsvihBpzVxvDiEa1j6-gzGzoHsz
+  appkey: cS207tCtlCNMDzMwBs3N2O6U
+  notify: false # mail notifier , https://github.com/xCss/Valine/wiki
+  verify: false # Verification code
+  placeholder: Just go go # comment box placeholder
+  avatar: mm # gravatar style
+  guest_info: nick,mail,link # custom comment header
+  pageSize: 10 # pagination size

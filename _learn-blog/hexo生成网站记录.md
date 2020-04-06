@@ -2,7 +2,10 @@
 
 使用 hexo 生成静态的网站，并部署到 oss 上。
 
-参考原部署的 moonbreezee.github.io。
+在 Hexo 中有两份主要的配置文件，其名称都是 \_config.yml。
+
+- 其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；
+- 另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。
 
 ## 初始化
 
@@ -131,8 +134,8 @@ comments: true
 
 创建 Hexo 主题非常容易，您只要在 themes 文件夹内，新增一个任意名称的文件夹，并修改 \_config.yml 内的 theme 设定，即可切换主题。
 
-[next配置](https://blog.csdn.net/u012294515/article/details/83094693)
+[next 配置](https://blog.csdn.net/u012294515/article/details/83094693)
 
-[next主题](http://theme-next.iissnan.com/getting-started.html)
+[next 主题](http://theme-next.iissnan.com/getting-started.html)
 
 ## 添加评论功能

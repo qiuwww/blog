@@ -5,6 +5,13 @@
   max-width: $site-author-image-width;
   height: $site-author-image-height;
   border: $site-author-image-border-width solid $site-author-image-border-color;
+  //设置圆形
+  border-radius: 50%;
+  transition: 2s all;
+}
+//旋转
+.site-author-image:hover{
+   transform: rotate(360deg);
 }
 
 .site-author-name {
