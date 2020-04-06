@@ -84,15 +84,15 @@ esprima、estraverse 和 escodegen 模块是 babel 操作 AST 的三个重要模
 
 ### 常用插件及其作用，Toolings
 
-- @babel/parser 将源代码解析成 AST。
-- @babel/generator 将 AST 解码生 js 代码。
+- **@babel/parser** 将源代码解析成 AST。
+- **@babel/generator** 将 AST 解码生 js 代码。
 - @babel/core 包括了整个 babel 工作流，也就是说在@babel/core 里面我们会使用到@babel/parser、transformer[s]、以及@babel/generator。
 - @babel/code-frame **用于生成错误信息**并且打印出错误原因和错误行数。（其实就是个 console 工具类）
 - @babel/helpers 也是工具类，提供了一些内置的函数实现，主要用于 babel 插件的开发。
 - @babel/runtime 也是工具类，但是是为了 babel 编译时提供一些基础工具库。作用于 transformer[s]阶段，当然这是一个工具库，如果要使用这个工具库，还需要引入@babel/plugin-transform-runtime，它才是 transformer[s]阶段里面的主角。
 - @babel/template 也是工具类，主要用途是**为 parser 提供模板引擎**，更加快速的转化成 AST
-- @babel/traverse 也是工具类，主要用途是来**遍历 AST 树**，也就是在@babel/generator 过程中生效。
-- @babel/types 也是工具类，主要用途是在创建 AST 的过程中**判断各种语法的类型。**
+- **@babel/traverse** 也是工具类，主要用途是来**遍历 AST 树**，也就是在@babel/generator 过程中生效。
+- **@babel/types** 也是工具类，主要用途是在创建 AST 的过程中**判断各种语法的类型。**
 
 #### eui-server 中用到的 babel 模块
 
