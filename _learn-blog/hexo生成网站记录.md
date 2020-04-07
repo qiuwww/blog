@@ -139,3 +139,15 @@ comments: true
 [next 主题](http://theme-next.iissnan.com/getting-started.html)
 
 ## 添加评论功能
+
+## 处理引用的图片不能显示的问题
+
+图片引用地址转换：
+
+![debounce_throttle](./imgs/debounce_throttle.png)
+->
+![debounce_throttle](/imgs/blog-debounce_throttle-1.png)，这样就可以把 imgs 放在统计目录了。
+
+在复制 md 文件的时候，过滤`](./imgs`，修改这里的地址，然后复制图片到`source/imgs`下边。
+
+生成的时候，`source/imgs`，会被复制到发布目录下边，直接上传就好了。

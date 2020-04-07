@@ -13,13 +13,7 @@
     "TS.NOTE.md",
     "TS.NOTE"
   ],
-  [
-    "/Users/qiuww/code/learn/blog/0.2.HTML/BLOG-HTML.md",
-    "blog",
-    "/0.2.HTML",
-    "HTML.md",
-    "HTML"
-  ],
+  ["/Users/qiuww/code/learn/blog/0.2.HTML/BLOG-HTML.md", "blog", "/0.2.HTML", "HTML.md", "HTML"],
   [
     "/Users/qiuww/code/learn/blog/0.2.HTML/BLOG-html页面meta标签.md",
     "blog",
@@ -48,13 +42,7 @@
     "前端动画操作.md",
     "前端动画操作"
   ],
-  [
-    "/Users/qiuww/code/learn/blog/0.3.CSS/BLOG-CSS.md",
-    "blog",
-    "/0.3.CSS",
-    "CSS.md",
-    "CSS"
-  ],
+  ["/Users/qiuww/code/learn/blog/0.3.CSS/BLOG-CSS.md", "blog", "/0.3.CSS", "CSS.md", "CSS"],
   [
     "/Users/qiuww/code/learn/blog/0.3.CSS/BLOG-CSS盒模型及BFC.md",
     "blog",
@@ -195,13 +183,7 @@
     "浅复制与深复制.md",
     "浅复制与深复制"
   ],
-  [
-    "/Users/qiuww/code/learn/blog/0.5.JS/BLOG-闭包.md",
-    "blog",
-    "/0.5.JS",
-    "闭包.md",
-    "闭包"
-  ],
+  ["/Users/qiuww/code/learn/blog/0.5.JS/BLOG-闭包.md", "blog", "/0.5.JS", "闭包.md", "闭包"],
   [
     "/Users/qiuww/code/learn/blog/0.5.JS/BLOG-防抖debounce与节流throttle.md",
     "blog",
@@ -545,20 +527,8 @@
     "markdown语法学习.zh-CN.md",
     "markdown语法学习.zh-CN"
   ],
-  [
-    "/Users/qiuww/code/learn/blog/shell/BLOG-shell.md",
-    "blog",
-    "/shell",
-    "shell.md",
-    "shell"
-  ],
-  [
-    "/Users/qiuww/code/learn/blog/sql/BLOG-sql.md",
-    "blog",
-    "/sql",
-    "sql.md",
-    "sql"
-  ],
+  ["/Users/qiuww/code/learn/blog/shell/BLOG-shell.md", "blog", "/shell", "shell.md", "shell"],
+  ["/Users/qiuww/code/learn/blog/sql/BLOG-sql.md", "blog", "/sql", "sql.md", "sql"],
   [
     "/Users/qiuww/code/learn/blog/sql/MySQL数据库/BLOG-MySql.NOTE.md",
     "blog",

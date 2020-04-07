@@ -2,13 +2,18 @@
 title: 防抖 debounce 与 节流 throttle
 date: 2017-2-2
 tags:
-  - js
-  - 执行流程
+  - JS
+  - 防抖 debounce
+  - 节流 throttle
+categories:
+  - [JS, 防抖 debounce]
+  - [JS, 节流 throttle]
+top: 1
 ---
 
 [TOC]
 
-![图片展示](./imgs/debounce_throttle.png)
+![debounce_throttle](./imgs/debounce_throttle.png)
 
 如下展示原理，开发过程中一般还是使用 lodash。
 
@@ -37,7 +42,7 @@ const debounce = (func, wait = 50) => {
   let timer = 0;
   // 如果已经设定过定时器了就清空上一次的定时器
   // 开始一个新的定时器，延迟执行用户传入的方法
-  return function(...args) {
+  return function (...args) {
     // 重新开始等待wait之后再执行
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
@@ -46,12 +51,12 @@ const debounce = (func, wait = 50) => {
   };
 };
 // immediate，是否立即执行
-_.debounce = function(func, wait, immediate) {
+_.debounce = function (func, wait, immediate) {
   var timeout, result;
-  return function() {
+  return function () {
     var context = this,
       args = arguments;
-    var later = function() {
+    var later = function () {
       timeout = null;
       if (!immediate) result = func.apply(context, args);
     };

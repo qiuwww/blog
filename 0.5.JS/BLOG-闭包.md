@@ -1,9 +1,11 @@
 ---
 title: 闭包(closure)
-date: 2019-06-06
+date: 2019-6-6
 tag:
-  - js
-  - 概念
+  - JS
+  - 闭包(closure)
+categories:
+  - [JS, 闭包(closure)]
 ---
 
 ## 闭包定义
@@ -71,10 +73,10 @@ result(); // 输出3
 ```js
 function Product() {
   var name;
-  this.setName = function(value) {
+  this.setName = function (value) {
     name = value;
   };
-  this.getName = function() {
+  this.getName = function () {
     return name;
   };
 }
@@ -105,14 +107,14 @@ f = null; // 让内部函数成为垃圾对象 -->回收闭包
 ```js
 // 都输出10
 for (var i = 0; i < 10; ++i) {
-  setTimeout(function() {
+  setTimeout(function () {
     console.log(i);
   }, 0);
 }
 // 依次输出
 for (var i = 0; i < 10; ++i) {
-  (function(i) {
-    setTimeout(function() {
+  (function (i) {
+    setTimeout(function () {
       console.log(i);
     }, 0);
   })(i);

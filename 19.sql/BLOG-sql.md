@@ -1,6 +1,6 @@
 ---
 title: sql
-date: 20200304
+date: 2020-3-4
 tags:
   - SQL
   - MySql

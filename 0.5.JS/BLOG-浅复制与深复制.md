@@ -2,7 +2,11 @@
 title: 浅复制与深复制
 date: 2019-7-13
 tags:
-  - JavaScript
+  - JS
+  - 浅复制与深复制
+categories:
+  - [JS, 浅复制与深复制]
+top: 2
 ---
 
 [TOC]
@@ -57,7 +61,7 @@ console.log(y.b.f === x.b.f); // true
 ## 真正意义上的深拷贝
 
 ```js
-var $ = (function() {
+var $ = (function () {
   'use strict';
   var types = 'Array Object String Date RegExp Function Boolean Number Null Undefined'.split(' ');
 
@@ -66,8 +70,8 @@ var $ = (function() {
   }
 
   for (var i = types.length; i--; ) {
-    $['is' + types[i]] = (function(self) {
-      return function(elem) {
+    $['is' + types[i]] = (function (self) {
+      return function (elem) {
         return type.call(elem) === self;
       };
     })(types[i]);
