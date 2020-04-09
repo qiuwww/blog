@@ -17,6 +17,13 @@ top: 1
 
 如下展示原理，开发过程中一般还是使用 lodash。
 
+注意保存当前的上下文环境和参数值：
+
+```js
+var context = this,
+  args = arguments;
+```
+
 ## 函数去抖 debounce，延迟执行，避免频繁执行，后来触发，取消前面的触发
 
 用途：
@@ -33,20 +40,22 @@ top: 1
 一定时间内有新的触发请求，就取**消前一次**的，知道这一次的时间间隔内没有新的请求。
 
 ```js
+// 简介版
 // func是用户传入需要防抖的函数
 // wait是等待时间
-// 简介版
 // 可以认为是请求了就重置
 const debounce = (func, wait = 50) => {
   // 缓存一个定时器id
-  let timer = 0;
+  let timer = null;
   // 如果已经设定过定时器了就清空上一次的定时器
   // 开始一个新的定时器，延迟执行用户传入的方法
-  return function (...args) {
+  return function (args) {
+    var context = this,
+      args = arguments;
     // 重新开始等待wait之后再执行
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
-      func.apply(this, args);
+      func.apply(context, args);
     }, wait);
   };
 };
@@ -56,6 +65,7 @@ _.debounce = function (func, wait, immediate) {
   return function () {
     var context = this,
       args = arguments;
+
     var later = function () {
       timeout = null;
       if (!immediate) result = func.apply(context, args);
@@ -94,6 +104,7 @@ function throttle(method, delay) {
   return function() {
     var context = this,
       args = arguments;
+
     // 执行时间内，不允许重新触发
     if (!canRun) {
       return;

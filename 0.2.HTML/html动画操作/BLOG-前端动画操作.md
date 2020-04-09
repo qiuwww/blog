@@ -24,9 +24,9 @@ comments: true
 
 ## 动画实现方式
 
-- JavaScript：通过定时器（ `setTimeout` 和 `setInterval` ）来间隔来改变元素样式，或者使用 `requestAnimationFrame`；
-- CSS3：`transition` 和 `animation`；
-- HTML5：使用 HTML5 提供的绘图方式（canvas、svg、webgl）；
+1. JavaScript：通过定时器（ `setTimeout` 和 `setInterval` ）来间隔来改变元素样式，或者使用 `requestAnimationFrame`；
+2. CSS3：`transition` 和 `animation`；
+3. HTML5：使用 HTML5 提供的绘图方式（`canvas、svg、webgl`）；
 
 ### requestAnimationFrame，js 刷新帧操作接口
 

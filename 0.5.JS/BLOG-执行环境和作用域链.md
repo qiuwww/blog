@@ -1,9 +1,14 @@
 ---
 title: 执行环境和作用域链(scope chain)
-date: 2019-06-06
+date: 2017-6-6
 tag:
-  - js
-  - 概念
+  - JS
+  - 执行环境
+  - 作用域链
+categories:
+  - [JS, 执行环境]
+  - [JS, 作用域链]
+top: 3
 ---
 
 ## 执行环境
@@ -87,7 +92,7 @@ console.log(a); // error a is not defined
 console.log('1:', a);
 console.log('2:', a());
 // 声明提升，赋值不提升
-var a = function() {
+var a = function () {
   console.log('3:', 'a');
 };
 // 函数整体提升到最顶端，包括声明和赋值
@@ -108,4 +113,61 @@ console.log('6:', a());
 // }
 // 3: a
 // 6: undefined
+```
+
+## 代码作用域与调用分析
+
+### 代码分析 1，var 与 const 声明的全局变量
+
+var 声明全局作用域及函数作用域的变量；
+const let 声明**块级作用域的变量**，永远不会默认绑定到 window 上；
+
+```js
+var a = 1;
+if (a) {
+  let b = 1;
+}
+var obj = {
+  // 这里会报错，obj未定义
+  a: 2,
+  A: function () {
+    console.log(this.a);
+  },
+};
+
+console.log('a', a); // 1
+// console.log('b', b); // 未定义报错
+const A = obj.A;
+console.log('A()', A()); // 1
+console.log('obj.A()', obj.A()); // 2
+```
+
+```js
+const a = 1; // 这个时候a不会绑定到window上，所以是undefined
+if (a) {
+  let b = 1;
+}
+var obj = {
+  // 这里会报错，obj未定义
+  a: 2,
+  A: function () {
+    console.log(this.a);
+  },
+};
+
+console.log('a', a); // 1
+// console.log('b', b); // 未定义报错
+const A = obj.A; // 这里主要考察变量的作用域，谁调用this就指向谁
+console.log('A()', A()); // undefined，这个时候a并没有绑定到window上
+console.log('obj.A()', obj.A()); // 2
+```
+
+直观的测试：
+
+```js
+var a = 1;
+window.a; // 1
+
+const b = 2; // 直观的解释就是，const创建块级作用域，不会将声明的变量绑定到window上，也就是根本就不是一个全局变量
+window.b; // undefined
 ```

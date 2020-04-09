@@ -35,15 +35,15 @@ categories:
 var timeIdLabel,
   flag = true;
 
-label.addEventListener('click', function(e) {
+label.addEventListener('click', function (e) {
   flag = true;
-  timeIdLabel = setTimeout(function() {
+  timeIdLabel = setTimeout(function () {
     if (flag) {
       console.log('单击触发事件：' + item.city);
     }
   }, 200);
 });
-label.addEventListener('dblclick', function(e) {
+label.addEventListener('dblclick', function (e) {
   clearTimeout(timeIdLabel);
   flag = false;
   // 还要调整中心位置和缩放等级
@@ -71,7 +71,7 @@ if (
   window.onhashchange = hashChange; // TODO，对应新的hash执行的操作函数
 } else {
   // 不支持则用定时器检测的办法
-  setInterval(function() {
+  setInterval(function () {
     // 检测hash值或其中某一段是否更改的函数， 在低版本的iE浏览器中通过window.location.hash取出的指和其它的浏览器不同，要注意
     var ischanged = isHashChanged();
     if (ischanged) {
@@ -100,16 +100,16 @@ so，就可以用 hashchange 来解决这件事情：
 但是 HTML5 还提供了 pushState 和 replaceState 新接口，**不仅可以实现替换 URL，还可以输出新的标题**，这样才完美的形成一个应用。
 
 ```js
-$('.a').on('click', function() {
+$('.a').on('click', function () {
   // 创建新history实体
   history.pushState({ a: 'aa' }, '', location.href + '?' + Math.random());
 });
-$('.b').on('click', function() {
+$('.b').on('click', function () {
   // 修改新history实体(虽然浏览记录确实生成了2条，但是实际你只能找到被修改后的{a:'bb'})
   history.replaceState({ a: 'bb' }, '', location.href + '?' + Math.random() + '------');
 });
 // 每当活动的历史记录项发生变化时， popstate 事件都会被传递给window对象。
-window.addEventListener('popstate', function() {
+window.addEventListener('popstate', function () {
   // 前进后退触发
   console.log(history);
   console.log(history.state); // 这里是你设置的{a:'aa'}
@@ -125,7 +125,7 @@ window.addEventListener('popstate', function() {
 function addScrollEvent() {
   var that = this;
   var $target = this.target;
-  that.target.scroll(function() {
+  that.target.scroll(function () {
     var height = $target.height(); // 显示外框的高度，一般不改变
     var scrollTop = $target.scrollTop(); // 滚动了的距离
     var scrollHeight = $target[0].scrollHeight; // 内容的实际高度
@@ -139,8 +139,8 @@ function addScrollEvent() {
 ## 想要阻止事件的连续多次触发，防止误操作
 
 1. 添加 loading 状态，**强制不可用**，或者按钮置灰之类的操作，确实可以防止多次请求，但是对用户不友好；
-2. **延迟执行且中断上一次的请求**，去抖动 debounce，也就是保证只有一个请求的结果是有用的 abort 中断 promise。
-3. 使用节流函数 throttle，一段时间内，只会触发一次。
+2. **延迟执行且中断上一次的请求**，**去抖动 debounce**，也就是保证只有一个请求的结果是有用的 abort 中断 promise。
+3. 使用**节流函数 throttle**，一段时间内，只会触发一次。
 
 ## 输入的时候，输入汉字，会出现的问题
 

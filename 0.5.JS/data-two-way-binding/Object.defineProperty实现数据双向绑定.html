@@ -20,17 +20,17 @@
     </button>
 
     <script>
-      window.onload = function() {
+      window.onload = function () {
         // 在对象中添加一个属性与存取描述符的示例
         // 保证inputValue可以取到任何值，中间值
         var middleValue;
         // 定义变量
         // 在window上添加
         Object.defineProperty(window, 'inputValue', {
-          get: function() {
+          get: function () {
             return middleValue;
           },
-          set: function(newValue) {
+          set: function (newValue) {
             middleValue = newValue;
             // 检测b变量改变，做出相应的改变
             // 副作用
@@ -43,7 +43,7 @@
 
         document.querySelector('.input-area').addEventListener(
           'keyup',
-          function(e) {
+          function (e) {
             var value = e.target.value;
             inputValue = value;
           },
@@ -52,11 +52,8 @@
 
         document.querySelector('.change-area').addEventListener(
           'click',
-          function(e) {
-            inputValue = inputValue
-              .split('')
-              .reverse()
-              .join('');
+          function (e) {
+            inputValue = inputValue.split('').reverse().join('');
           },
           false,
         );

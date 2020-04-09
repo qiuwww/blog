@@ -8,7 +8,7 @@ categories:
   - [浏览器原理, 浏览器缓存]
 ---
 
-[参考文章 1: 一文读懂前端缓存](https://github.com/easonyq/easonyq.github.io/blob/master/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/others/cache.md)
+[一文读懂前端缓存](https://github.com/easonyq/easonyq.github.io/blob/master/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/others/cache.md)
 
 前端的缓存主要在“请求”和“响应”中进行。
 
@@ -173,8 +173,8 @@ Cache-control 的优先级高于 Expires，为了兼容 HTTP/1.0 和 HTTP/1.1，
 
 但是他还是有一定缺陷的：
 
-- 如果资源更新的速度是秒以下单位，那么该缓存是不能被使用的，因为它的时间单位最低是秒。
-- **如果文件是通过服务器动态生成的，那么该方法的更新时间永远是生成的时间**，尽管文件可能没有变化，所以起不到缓存的作用。
+1. 如果资源更新的速度是秒以下单位，那么该缓存是不能被使用的，因为它的时间单位最低是秒。
+2. **如果文件是通过服务器动态生成的，那么该方法的更新时间永远是生成的时间**，尽管文件可能没有变化，所以起不到缓存的作用。
 
 #### Etag(HTTP 响应头是资源的特定版本的标识符) & If-None-Match(随请求发送到服务端)
 

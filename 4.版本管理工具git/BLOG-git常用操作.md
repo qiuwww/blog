@@ -198,7 +198,7 @@ git push
 
 ## git [撤销](http://www.ruanyifeng.com/blog/2019/12/git-undo.html)
 
-### git reset，丢弃提交，也就是重置，删除commit及add
+### git reset，丢弃提交，也就是重置，删除 commit 及 add
 
 --mixed
 
@@ -213,7 +213,7 @@ git push
 
 **删除工作空间改动代码，撤销 commit，撤销 git add .**
 
-### git revert HEAD，撤销提交，撤销push
+### git revert HEAD，撤销提交，撤销 push
 
 一种常见的场景是，提交代码以后，你突然意识到这个提交有问题，应该撤销掉，这时执行下面的命令就可以了。
 
@@ -417,3 +417,15 @@ vim # 编辑保存
 ## git cherry-pick
 
 `git cherry-pick <commit ID>` // 拣选一次提交应用于当前 HEAD
+
+## git 的一次标准发布流程
+
+1. 测试完成，从 develop 拉取 release 分支；
+2. 发布完成合并到 master 和 develop；
+3. hotfix：从 master 上进行拉取合并；
+
+## git tag 的作用
+
+Git 中的 tag 指向一次 commit 的 id，通常用来给开发分支做一个标记，如标记一个版本号。
+
+Git 可以给仓库历史中的某一个提交打上标签，以示重要。 比较有代表性的是人们会使用这个功能来标记发布结点（ v1.0 、 v2.0 等等）。
