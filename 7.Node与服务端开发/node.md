@@ -34,3 +34,5 @@ PM2 其实利用的是 Node.js Cluster 模块来实现的，这个模块的出�
 ### master 挂了的话 pm2 怎么处理
 
 ### 如何和 MySQL 进行通信
+
+## 对Node或V8有深入理解

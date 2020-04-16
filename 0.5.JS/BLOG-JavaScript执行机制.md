@@ -23,21 +23,21 @@ descript: 单线程&事件循环Event Loop
 
 ### 主要名词
 
-- synchronous：同步任务
-- asynchronous：异步任务
+1. synchronous：同步任务
+2. asynchronous：异步任务
 
-- task queue/callback queue：**任务队列**，保存当前**运行时**需要执行的消息，等待执行
-- execution context stack：**执行栈**
+3. task queue/callback queue：**任务队列**，保存当前**运行时**需要执行的消息，等待执行
+4. execution context stack：**执行栈**
 
-- heap：堆，对象被分配在一个堆中，即用以**表示一大块非结构化的内存区域**。
-- stack：栈，代码执行顺序栈
+5. heap：堆，对象被分配在一个堆中，即用以**表示一大块非结构化的内存区域**。
+6. stack：栈，代码执行顺序栈
 
-- macro-task：宏任务
-- micro-task：微任务
+7. macro-task：宏任务
+8. micro-task：微任务
 
 JavaScript 的**并发模型基于“事件循环”**。
 
-调用一个函数总是会为其创造一个新的栈帧。
+**调用一个函数总是会为其创造一个新的栈帧**。
 
 JavaScript 永不阻塞。
 
@@ -69,8 +69,8 @@ process1 删除了该 dom，而 process2 编辑了该 dom，同时下达 2 个�
 
 JS 任务分类：
 
-- 同步任务
-- 异步任务
+1. 同步任务
+2. 异步任务
 
 当我们打开网站时，**网页的渲染过程就是一大堆同步任务**，比如页面骨架和页面元素的渲染。
 
@@ -78,24 +78,26 @@ JS 任务分类：
 
 ### 异步任务有哪些
 
-- 事件处理
-- ajax 请求
-- .then 函数里面是异步任务
-- 图片加载 onload
-- script 脚本下载
+1. 事件处理
+2. ajax 请求
+3. .then 函数里面是异步任务
+4. 图片加载 onload
+5. script 脚本下载
 
 ### JS 任务的执行顺序，事件循环 Event Loop
 
-- 主线程执行当下
-- event loop，保存需要执行的，主线程为空就取一个在主线程执行
+1. 主线程执行当下；
+2. event loop，保存需要执行的，主线程为空就取一个在主线程执行
+
+具体过程：
 
 1. 同步和异步任务分别进入不同的执行"场所"，**同步的进入主线程，异步的进入 Event Table 并注册回调函数**，当指定的注册事情完成时，**Event Table 会将这个函数移入 Event Queue**；
 2. 执行同步代码，这属于**宏任务**；
-3. **执行栈为空，查询是否有微任务需要执行**；
+3. **执行栈为空，查询是否有微任务(当前宏任务衍生的微任务)需要执行**；
 4. 执行所有微任务；
 5. **此时本轮循环结束**，**开始执行 UI render**。
 6. UI render 完毕之后接着下一轮循环，**也就是说 UI render 在本次 event loop 中最后执行**；
-7. 然后开始下一轮 `Event loop`，执行宏任务中的异步代码
+7. 然后开始下一轮 `Event loop`，从 task queue 取出一个衍生的宏任务开始执行；
 8. **主线程内的任务执行完毕为空，会去 Event Queue 读取对应的函数，进入主线程执行**，上述过程会不断重复，也就是常说的 Event Loop(事件循环)。。
 
 只要主线程空了，就会去读取"任务队列"，这就是 JavaScript 的运行机制。
@@ -118,20 +120,20 @@ while (queue.waitForMessage()) {
 
 - macro-task(宏任务)
 
-  - 包括**整体代码 script**，同步代码
-  - setTimeout
-  - setInterval
-  - setImmediate，该方法用来把一些需要长时间运行的操作放在一个回调函数里，在浏览器完成后面的其他语句后，就立刻执行这个回调函数。等于 setTimeout(func, 0)。
-  - I/O
+  1. 包括**整体代码 script**，同步代码
+  2. setTimeout
+  3. setInterval
+  4. setImmediate，该方法用来把一些需要长时间运行的操作放在一个回调函数里，在浏览器完成后面的其他语句后，就立刻执行这个回调函数。等于 setTimeout(func, 0)。
+  5. I/O
 
 - micro-task(微任务)
 
-  - 原生 Promise(有些实现的 promise 将 then 方法放到了宏任务中)（定义函数是同步代码，then 的回掉函数是微任务代码）
-  - process.nextTick
-  - Object.observe(已废弃)
-  - MutationObserver 记住就行了
+  1. 原生 Promise(有些实现的 promise 将 then 方法放到了宏任务中)（定义函数是同步代码，**then 的回掉函数是微任务代码**）
+  2. process.nextTick
+  3. Object.observe(已废弃)
+  4. MutationObserver 记住就行了
 
-- **UI rendering**，需要在微任务之后执行。requestAnimationFrame 也属于这里，**也就是 requestAnimationFrame 需要在微任务之后执行**。
+- **UI rendering**，需要在微任务之后执行。requestAnimationFrame 也属于这里，**也就是 requestAnimationFrame（重绘之前） 需要在微任务之后执行**。
 
 ### 实例，request，异步请求数据
 
@@ -177,13 +179,14 @@ sleep(10000000); // 耗时较长的同步任务
 
 ### process.nextTick
 
-process.nextTick(callback)类似 node.js 版的"setTimeout"，在事件循环的下一次循环中调用 callback 回调函数。但是，这里是微任务，而setTimeout是宏任务。
+process.nextTick(callback)类似 node.js 版的"setTimeout"，在事件循环的下一次循环中调用 callback 回调函数。但是，这里是微任务，而 setTimeout 是宏任务。
 
 ### requestAnimationFrame
 
-在 Web 应用中，**实现动画效果**的方法比较多，JavaScript 中可以通过定时器 setTimeout 来实现，css3 可以使用 transition 和 animation 来实现，html5 中的 canvas 也可以实现。除此之外，html5 还提供一个专门用于**请求动画的 API**，即 **requestAnimationFrame（rAF）**，顾名思义就是 “**请求动画帧**”。
-
-> window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，**并且要求浏览器在下次重绘之前调用指定的回调函数更新动画**。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器**下一次重绘（UI Render）之前执行**。
+1. 在下次重绘之前执行一次。
+2. 隐藏 tab 的时候，会暂停执行。
+3. 在 Web 应用中，**实现动画效果**的方法比较多，JavaScript 中可以通过定时器 setTimeout 来实现，css3 可以使用 transition 和 animation 来实现，html5 中的 canvas 也可以实现。除此之外，html5 还提供一个专门用于**请求动画的 API**，即 **requestAnimationFrame（rAF）**，顾名思义就是 “**请求动画帧**”。
+4. window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，**并且要求浏览器在下次重绘之前调用指定的回调函数更新动画**。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器**下一次重绘（UI Render）之前执行**。
 
 ```js
 var progress = 0;
@@ -202,12 +205,10 @@ window.requestAnimationFrame(render);
 
 #### rAF 的优势
 
-- **CPU 节能**：
-
-  - 使用 setTimeout 实现的动画，**当页面被隐藏或最小化时，setTimeout 仍然在后台执行动画任务**，由于此时页面处于不可见或不可用状态，刷新动画是没有意义的，而且还浪费 CPU 资源。
-  - 而 rAF 则完全不同，**当页面处理未激活的状态下，该页面的屏幕绘制任务也会被系统暂停**，因此跟着系统步伐走的 rAF 也会停止渲染，**当页面被激活时，动画就从上次停留的地方继续执行**，有效节省了 CPU 开销。
-
-- **函数节流**：在**高频率事件**(resize,scroll 等)中，为了防止在一个刷新间隔内发生多次函数执行，使用 rAF 可保证每个绘制间隔内，函数只被执行一次，这样既能保证流畅性，也能更好的节省函数执行的开销。一个绘制间隔内函数执行多次时没有意义的，因为显示器每 16.7ms 绘制一次，多次绘制并不会在屏幕上体现出来。
+1. **CPU 节能**：
+   1. 使用 setTimeout 实现的动画，**当页面被隐藏或最小化时，setTimeout 仍然在后台执行动画任务**，由于此时页面处于不可见或不可用状态，刷新动画是没有意义的，而且还浪费 CPU 资源。
+   2. 而 rAF 则完全不同，**当页面处理未激活的状态下，该页面的屏幕绘制任务也会被系统暂停**，因此跟着系统步伐走的 rAF 也会停止渲染，**当页面被激活时，动画就从上次停留的地方继续执行**，有效节省了 CPU 开销。
+2. **函数节流**：在**高频率事件**(resize,scroll 等)中，为了**防止在一个刷新间隔内发生多次函数执行**，使用 rAF 可**保证每个绘制间隔内，函数只被执行一次**，这样既能保证流畅性，也能更好的节省函数执行的开销。一个绘制间隔内函数执行多次时没有意义的，因为显示器每 16.7ms 绘制一次，多次绘制并不会在屏幕上体现出来。
 
 ### 宏任务与微任务的执行顺序
 
@@ -223,13 +224,13 @@ window.requestAnimationFrame(render);
 #### 宏任务与微任务执行过程分析 1
 
 ```js
-setTimeout(function() {
+setTimeout(function () {
   console.log('setTimeout');
 });
 
-new Promise(function(resolve) {
+new Promise(function (resolve) {
   console.log('promise');
-}).then(function() {
+}).then(function () {
   console.log('then');
 });
 
@@ -253,44 +254,44 @@ console.log('console');
 // 这段代码记做宏任务1
 console.log('1');
 
-setTimeout(function() {
+setTimeout(function () {
   // 执行宏任务1中产生的宏任务setTimeout1，需要处理完成，再处理别的地方
   console.log('2');
-  process.nextTick(function() {
+  process.nextTick(function () {
     console.log('3');
   });
-  new Promise(function(resolve) {
+  new Promise(function (resolve) {
     console.log('4');
     resolve();
-  }).then(function() {
+  }).then(function () {
     console.log('5');
   });
 }, 0);
 
-process.nextTick(function() {
+process.nextTick(function () {
   // 执行宏任务1中产生的微任务
   console.log('6');
 });
 
-new Promise(function(resolve) {
+new Promise(function (resolve) {
   // 同步执行
   console.log('7');
   resolve();
-}).then(function() {
+}).then(function () {
   // 回掉函数是执行宏任务1中产生的微任务
   console.log('8');
 });
 
-setTimeout(function() {
+setTimeout(function () {
   // 执行宏任务1中产生的宏任务setTimeout2
   console.log('9');
-  process.nextTick(function() {
+  process.nextTick(function () {
     console.log('10');
   });
-  new Promise(function(resolve) {
+  new Promise(function (resolve) {
     console.log('11');
     resolve();
-  }).then(function() {
+  }).then(function () {
     console.log('12');
   });
 }, 0);
@@ -302,6 +303,7 @@ setTimeout(function() {
 // 宏任务1中衍生的微任务的执行结果
 // 6
 // 8
+
 // 宏任务setTimeout1直接执行结果
 // 2
 // 4
@@ -362,18 +364,18 @@ setTimeout(() => {
   // 7. 首次 eventloop 结束，从 tasks 中取出 setTimeout callback，执行。
   console.log('timer');
   // 8. 加入 microtask 中
-  Promise.resolve().then(function() {
+  Promise.resolve().then(function () {
     console.log('promise1');
   });
   // 9. task 执行完，清空 micro 队列，输出 'promise1'
 }, 0);
 
 // 2. then回掉函数，加入 microtask 队列
-Promise.resolve().then(function() {
+Promise.resolve().then(function () {
   // 5. 第一个 microtask 任务
   console.log('promise2');
   // 6. 把 promise3 加入 micro 队列，发现队列不为空，执行输出 'promise3'
-  Promise.resolve().then(function() {
+  Promise.resolve().then(function () {
     console.log('promise3');
   });
 });
@@ -399,9 +401,9 @@ Node 环境下异步执行顺序与浏览器下 js 执行顺序不完全一致�
 
 ```js
 console.log('start');
-setTimeout(function() {
+setTimeout(function () {
   console.log(2);
-  new Promise(resolve => {
+  new Promise((resolve) => {
     console.log('promise');
     resolve();
   }).then(() => {
@@ -421,10 +423,10 @@ console.log('end');
 
 ## JS 为什么要区分微任务和宏任务
 
-promise是v8自带，直接调用底层。
+promise 是 v8 自带，直接调用底层。
 
-setTimeout是浏览器/node环境或者j2v8等环境自己封装的api，性能上不如promise。
+setTimeout 是浏览器/node 环境或者 j2v8 等环境自己封装的 api，性能上不如 promise。
 
-**区分优先级**。16ms的执行限制。
+**区分优先级**。16ms 的执行限制。
 
-机场也有vip通道，任务分优先级是很正常的，要不然紧急任务怎么插队。
+机场也有 vip 通道，任务分优先级是很正常的，要不然紧急任务怎么插队。

@@ -10,7 +10,7 @@ categories:
   - [JS]
 ---
 
-[时间分片（Time Slicing）](https://blog.csdn.net/liuyifeng0000/article/details/104785042/)
+[时间分片（Time Slicing）](https://zhuanlan.zhihu.com/p/111263128)
 
 ## 时间分片核心思想
 
