@@ -15,6 +15,13 @@ top: 1
 
 ![debounce_throttle](./imgs/debounce_throttle.png)
 
+[查看效果](https://wall-wxk.github.io/blogDemo/2017/02/15/throttleAndDebounce.html)
+
+1. 执行次数更多的是节流，节流并不等于不执行，需要间隔一定时间相应一下。
+2. 抖动可能是一直的，所以只用最后执行一次就行了。
+
+所以高级程序设计上的是不太对的，throttle 是节流，节流函数是间隔执行的，不是最后执行的。
+
 如下展示原理，开发过程中一般还是使用 lodash。
 
 注意保存当前的上下文环境和参数值：
@@ -49,7 +56,7 @@ const debounce = (func, wait = 50) => {
   let timer = null;
   // 如果已经设定过定时器了就清空上一次的定时器
   // 开始一个新的定时器，延迟执行用户传入的方法
-  return function (args) {
+  return function () {
     var context = this,
       args = arguments;
     // 重新开始等待wait之后再执行
@@ -79,14 +86,14 @@ _.debounce = function (func, wait, immediate) {
 };
 ```
 
-## 函数节流 throttle，按一定频率执行代码，间隔执行，一定时间内可保证至少执行一次
+## 函数节流 throttle，按一定频率执行代码，间隔执行，一定时间内可保证至少执行一次，相对于防抖，执行的次数更多一些
 
 用途：
 
 - 接口请求
 - 用户输入框的一些事件，如 keyup/input
 
-函数节流，节约使用，一定时间内能用一次。
+函数节流，节约使用，**一定时间内能用一次**。
 
 调节强制执行一段时间内可以调用函数的最大次数。
 

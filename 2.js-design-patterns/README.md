@@ -1,6 +1,6 @@
 # js-design-patterns
 
-## 设计模式：什么是 singleton, factory, strategy, decorator？
+## 设计模式：什么是 singleton, factory, strategy, decorator
 
 - Singleton(单例) 一个类**只有唯一实例**，这个实例在整个程序中有一个全局的访问点
 - Factory (工厂) 解决实列化对象产生重复的问题

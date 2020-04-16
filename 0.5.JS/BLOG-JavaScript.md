@@ -1202,8 +1202,6 @@ so on...
 
 ### 事件委托
 
-### 实现 extend 函数
-
 ### jsonp 原理、postMessage 原理
 
 ### 实现拖拽功能，比如把 5 个兄弟节点中的最后一个节点拖拽到节点 1 和节点 2 之间
@@ -2638,65 +2636,6 @@ function commonParentNode(oNode1, oNode2) {
    }
    ```
 
-### 5. 斐波那契数列的实现
-
-1. 使用深层遍历生成
-
-   ```
-   //用 JavaScript 实现斐波那契数列函数,返回第n个斐波那契数。 f(1) = 1, f(2) = 1 等
-   function fibonacci(n) {
-       if(n<0){
-           return -1;
-       }else if(n < 2){
-           return n;
-       }else{
-          return arguments.callee(n-1) + arguments.callee(n-2);
-       }
-   }
-   //如下打印出这个数组，不过迭代太深，浏览器可能不执行
-   function resArr(len){
-       var arr = [];
-       for(var i=1;i<len+1;i++){
-           arr.push(fibonacci(i));
-       }
-       return arr;
-   }
-
-   resArr(10);
-   ```
-
-2. 将结果保存起来，以备后用，降低空间复杂度
-
-   ```
-   // 缓存上一步的计算结果，闭包函数也就是自带一部分变量的函数
-   var fibonacci = (function () {
-       var memory = {};
-       return function(n) {
-       	console.log("memory:", memory);
-           if(n==0 || n == 1) {
-               return n
-           }
-           if(memory[n-2] === undefined) {
-               memory[n-2] = fibonacci(n-2)
-           }
-           if(memory[n-1] === undefined) {
-               memory[n-1] = fibonacci(n-1)
-           }
-           return memory[n] = memory[n-1] + memory[n-2]
-       }
-   })()
-   //如下打印出这个数组，不过迭代太深，浏览器可能不执行
-   function resArr(len){
-       var arr = [];
-       for(var i=1;i<len+1;i++){
-           arr.push(fibonacci(i));
-       }
-       return arr;
-   }
-   console.log(resArr(10));
-   ```
-
-   ​
 
 ### 6. 格式化时间
 

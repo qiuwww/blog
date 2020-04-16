@@ -82,7 +82,7 @@ myjsonp({
    * @param  {[type]} charset [description]
    * @return {[type]}         [description]
    */
-  util.createScript = function(url, charset) {
+  util.createScript = function (url, charset) {
     var script = document.createElement('script');
     script.setAttribute('type', 'text/javascript');
     charset && script.setAttribute('charset', charset);
@@ -99,16 +99,16 @@ myjsonp({
    * @param  {[type]} charset  [description]
    * @return {[type]}          [description]
    */
-  util.jsonp = function(url, onsuccess, onerror, charset) {
+  util.jsonp = function (url, onsuccess, onerror, charset) {
     var callbackName = util.getName('tt_player'); //事先约定好的 函数名
-    window[callbackName] = function() {
+    window[callbackName] = function () {
       //根据回调名称注册一个全局的函数
       if (onsuccess && util.isFunction(onsuccess)) {
         onsuccess(arguments[0]);
       }
     };
     var script = util.createScript(url + '&callback=' + callbackName, charset); //动态创建一个script标签
-    script.onload = script.onreadystatechange = function() {
+    script.onload = script.onreadystatechange = function () {
       //监听加载成功的事件，获取数据
       if (!script.readyState || /loaded|complete/.test(script.readyState)) {
         script.onload = script.onreadystatechange = null;
@@ -120,7 +120,7 @@ myjsonp({
         window[callbackName] = null; //最后不要忘了删除
       }
     };
-    script.onerror = function() {
+    script.onerror = function () {
       if (onerror && util.isFunction(onerror)) {
         onerror();
       }
@@ -140,19 +140,19 @@ socket 通信，不同页面之间可以相互发送消息，只要知道对方�
 var ws = new WebSocket('wss://echo.websocket.org'); //创建WebSocket的对象。参数可以是 ws 或 wss，后者表示加密。
 
 //把请求发出去
-ws.onopen = function(evt) {
+ws.onopen = function (evt) {
   console.log('Connection open ...');
   ws.send('Hello WebSockets!');
 };
 
 //对方发消息过来时，我接收
-ws.onmessage = function(evt) {
+ws.onmessage = function (evt) {
   console.log('Received Message: ', evt.data);
   ws.close();
 };
 
 //关闭连接
-ws.onclose = function(evt) {
+ws.onclose = function (evt) {
   console.log('Connection closed.');
 };
 ```
@@ -190,7 +190,7 @@ Bwindow.postMessage('data', 'http://B.com'); //这里强调的是B窗口里的wi
 // 在窗口B中监听 message 事件
 Awindow.addEventListener(
   'message',
-  function(event) {
+  function (event) {
     //这里强调的是A窗口里的window对象
     console.log(event.origin); //获取 ：url。这里指：http://A.com
     console.log(event.source); //获取：A window对象
@@ -199,6 +199,10 @@ Awindow.addEventListener(
   false,
 );
 ```
+
+### 6. 后端转发请求，按道理算是后端不受跨域限制，也算是一种吧
+
+当直接访问别的域下的接口的时候，会遇到这个问题，这个时候需要后端转发一下请求，这样就不会有跨域的问题了。
 
 ## 预检请求
 

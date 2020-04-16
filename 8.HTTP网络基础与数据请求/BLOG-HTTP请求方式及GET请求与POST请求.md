@@ -8,20 +8,21 @@ categories:
   - [HTTP, 请求方式]
 ---
 
-## HTTP 的几种请求方法的用途
+## HTTP 的几种请求方法的用途：Request Method
 
-- GET 方法：发送一个请求来**取得**服务器上的某一资源
-- POST 方法：向 URL 指定的资源**提交**数据或附加新的数据
-- PUT 方法：跟 POST 方法很像，也是想服务器提交数据。但是，它们之间有不同。**PUT 指定了资源在服务器上的位置**，而 POST 没有
-- HEAD 方法：**只请求页面的首部**
-- DELETE 方法：删除服务器上的某资源
-- OPTIONS 方法：**它用于获取当前 URL 所支持的方法。**如果请求成功，会有一个 **Allow 的头包含类似“GET,POST”这样的信息**，在 get|post 前，都会有一个 options 请求
-- TRACE 方法：TRACE 方法被用于激发一个远程的，应用层的请求消息回路
-- CONNECT 方法：把请求连接转换到透明的 TCP/IP 通道
+1. GET 方法：发送一个请求来**取得**服务器上的某一资源
+2. POST 方法：向 URL 指定的资源**提交**数据或附加新的数据
+3. PUT 方法：跟 POST 方法很像，也是想服务器提交数据。但是，它们之间有不同。**PUT 指定了资源在服务器上的位置**，而 POST 没有
+4. HEAD 方法：**只请求页面的首部**
+5. DELETE 方法：删除服务器上的某资源
+6. OPTIONS 方法：**它用于获取当前 URL 所支持的方法。**如果请求成功，会有一个 **Allow 的头包含类似“GET,POST”这样的信息**，在 get|post 前，都会有一个 options 请求
+
+7. TRACE 方法：TRACE 方法被用于激发一个远程的，应用层的请求消息回路
+8. CONNECT 方法：把请求连接转换到透明的 TCP/IP 通道
 
 ## GET 请求与 POST 请求的区别
 
-HTTP 的底层是 TCP/IP。所以 GET 和 POST 的底层也是 TCP/IP，也就是说，GET/POST 都是 TCP 链接的特定封装。
+HTTP 的底层是 TCP/IP。所以 GET 和 POST 的底层也是 TCP/IP，也就是说，GET/POST 都是 TCP 链接的**特定封装**。
 
 GET 和 POST 能做的事情是一样一样的。
 
