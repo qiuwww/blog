@@ -1,0 +1,9 @@
+{
+  "name": "_markmap",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "markmap-lib": "^0.5.1"
+  }
+}

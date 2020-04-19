@@ -10,8 +10,6 @@ categories:
 
 ## koa2 常见问题
 
-### node 中 cluster 是怎样开启多进程的，并且一个端口可以被多个进程监听吗
-
 ### 使用过的 koa2 中间件
 
 ### koa-body 原理

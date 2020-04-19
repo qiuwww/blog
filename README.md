@@ -39,3 +39,10 @@ npm server
 ## imgs 文件夹
 
 用来存放相关的截图及 md 文件插图。
+
+## 使用markmap生成md文档的思维导图
+
+输出的是一个html文件。
+
+`markmap BLOG-markdown语法学习.zh-CN.md --no-open -o ./_markmap/markdown语法学习.html`
+`markmap README.md --no-open -o ./_markmap/README.html`

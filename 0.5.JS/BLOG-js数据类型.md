@@ -215,8 +215,8 @@ typeofnew Date(); // object 无效
 typeofnew RegExp(); // object 无效
 ```
 
-2. instanceof：instanceof 是用来判断 A 是否为 B 的实例
-3. constructor：通过构造函数字段来判断
+2. instanceof：instanceof 是用来判断 A 是否为 B 的实例；
+3. constructor：通过构造函数字段来判断，name 等；
 4. toString 返回：默认返回当前对象的 [[Class]] 。这是一个内部属性，**其格式为 [object Xxx]** ，其中 Xxx 就是对象的类型。
    1. 对于 Object 对象，直接调用 toString() 就能返回 [object Object] 。
    2. 而对于其他对象，则需要通过 call / apply 来调用才能返回正确的类型信息。
@@ -239,7 +239,7 @@ Object.prototype.toString.call(window); //[object global] window 是全局对象
 
 这里的原因是，各种类型都会重写 toString 方法，所以会得到不同的结果，这里只能将 Object 的 toString 方法来调用，才会展示出来`[object xxx]`，这样也就是说可以在 Object 的原型上添加一个方法来读取这个值。
 
-5. 自定义读取构造函数的 name
+5. 自定义读取构造函数的 name，还是借用的 constructor 属性，与 3 一致；
 
 ```js
 Object.prototype.logType = function () {
@@ -255,8 +255,8 @@ Object.prototype.logType = function () {
 ```
 
 6. 特殊方法：
-   1. isNaN，
-   2. Array.isArray，
+   1. isNaN；
+   2. Array.isArray；
    3. null === null // true
 
 ### 类型判断函数

@@ -4,8 +4,9 @@ date: 2018-6-6
 tags:
   - JS
   - 链表
+  - 数据结构
 categories:
-  - [JS, 链表]
+  - [数据结构, 链表]
 ---
 
 ## 链表
@@ -20,13 +21,13 @@ categories:
 
 ```js
 function Node(element) {
-  //用来保存相互之间的关系
+  // 用来保存相互之间的关系
   this.element = element;
   this.next = null;
 }
 
 function LList() {
-  //定义一个链表，并定义他们的方法
+  // 定义一个链表，并定义他们的方法
   this.head = new Node('head');
   this.find = find;
   this.insert = insert;
@@ -92,7 +93,7 @@ cities.display();
 
 ## 如何判断链表是否有环
 
-**使用追赶的方法**，设定两个指针 show，fast,从头节点开始，每次分别前进 1 步，2 步，**如存在环则两者必然会相遇**，如不存在环，则 fast 遇到 null 退出，并且碰撞点到头节点的距离为环中节点数 n。
+**使用追赶的方法**，设定两个指针 slow，fast,从头节点开始，每次分别前进 1 步，2 步，**如存在环则两者必然会相遇**，**如不存在环，则 fast 遇到 null 退出**，并且碰撞点到头节点的距离为环中节点数 n。存在环就会一直循环下去，**总会相遇**。
 
 ### 区别于 js 数组
 

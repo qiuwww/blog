@@ -62,6 +62,24 @@ var nums = [1, 2, 5, 6, 8, -3, -2];
 console.log(getSumNum(nums, 7));
 ```
 
+如果这里需要返回索引，就没法排序使用双指针了，需要建立字典。
+
+```js
+var twoSum = function (nums, target) {
+  let n,
+    m = {};
+  for (let i = 0, l = nums.length; i < l; i++) {
+    if ((n = target - nums[i]) in m) {
+      return [m[n], i];
+    }
+    m[nums[i]] = i;
+  }
+};
+var nums = [1, 2, 5, 6, 8, -3, -2];
+console.log(twoSum(nums, 7));
+console.log(twoSum(nums, 14));
+```
+
 ## 三数之和代码实现
 
 ```js

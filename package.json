@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Ideas Technical-points 2017-2-22",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node node_modules/anywhere/bin/anywhere"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

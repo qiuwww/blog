@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/d3@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.5.1/dist/view.min.js"></script>
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script>markmap.markmap('svg#mindmap', {"t":"heading","d":1,"v":[{"t":"text","v":"blog","p":{"style":{}}}],"c":[{"t":"heading","d":2,"v":[{"t":"text","v":"运行命令得到当前文件目录的访问","p":{"style":{}}}]},{"t":"heading","d":2,"v":[{"t":"text","v":"内部页面的预览","p":{"style":{}}}]},{"t":"heading","d":2,"v":[{"t":"text","v":"description","p":{"style":{}}}],"c":[{"t":"bullet_list","d":3,"v":[],"c":[{"t":"list_item","d":4,"v":[{"t":"text","v":"总结的笔记","p":{"style":{}}}]},{"t":"list_item","d":4,"v":[{"t":"text","v":"可复用的代码","p":{"style":{}}}]},{"t":"list_item","d":4,"v":[{"t":"text","v":"demo 测试","p":{"style":{}}}]}]},{"t":"heading","d":3,"v":[{"t":"text","v":"测试 emoji","p":{"style":{}}}]}]},{"t":"heading","d":2,"v":[{"t":"text","v":"查看&&A","p":{"style":{}}}]},{"t":"heading","d":2,"v":[{"t":"text","v":"imgs 文件夹","p":{"style":{}}}]},{"t":"heading","d":2,"v":[{"t":"text","v":"使用markmap生成md文档的思维导图","p":{"style":{}}}]}]}).fit()</script>
+</body>
+</html>

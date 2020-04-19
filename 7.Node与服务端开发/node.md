@@ -1,15 +1,13 @@
 ---
-title: node
+title: Node
 date: 2016-3-6
 tags:
-  - node
+  - Node
 categories:
-  - node
+  - Node
 ---
 
 ## node 常见问题
-
-### node 中 cluster 是怎样开启多进程的，并且一个端口可以被多个进程监听吗
 
 ### node 接口转发有无做什么优化
 

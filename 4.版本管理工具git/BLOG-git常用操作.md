@@ -418,14 +418,28 @@ vim # 编辑保存
 
 `git cherry-pick <commit ID>` // 拣选一次提交应用于当前 HEAD
 
-## git 的一次标准发布流程
-
-1. 测试完成，从 develop 拉取 release 分支；
-2. 发布完成合并到 master 和 develop；
-3. hotfix：从 master 上进行拉取合并；
-
 ## git tag 的作用
 
 Git 中的 tag 指向一次 commit 的 id，通常用来给开发分支做一个标记，如标记一个版本号。
 
 Git 可以给仓库历史中的某一个提交打上标签，以示重要。 比较有代表性的是人们会使用这个功能来标记发布结点（ v1.0 、 v2.0 等等）。
+
+## 标准操作
+
+## 1.git 的一次标准 功能开发 流程
+
+1. 从 develop 拉取 feature 分支；
+2. 开发功能，测试 bug，没问题了，就可以合并到 develop 上；
+3. 完成功能开发，gitflow 会把这个分支删除；
+
+## 2.git 的一次标准 线上发布 流程
+
+1. 从 develop 拉取 release 分支；
+2. 测试代码（代码测试是在这个阶段），测试完成准备发布；
+3. 发布完成合并到 master 和 develop；
+
+## 3.git 的一次标准线上 bug 修复流程
+
+1. hotfix：从 master 上进行拉取；
+2. 修改 bug，测试完成，发布完成；
+3. 合并 hotfix 到 master 和 develop；
