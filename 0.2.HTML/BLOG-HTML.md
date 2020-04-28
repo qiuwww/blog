@@ -224,7 +224,7 @@ CACHE MANIFEST
 <label for="mobile">Number:</label>
 <input type="text" id="mobile" />
 <!-- 使用方法2： -->
-<label>Date:<input type="text"/></label>
+<label>Date:<input type="text" /></label>
 ```
 
 ### 如何实现浏览器内多个标签页之间的通信
@@ -328,3 +328,5 @@ CACHE MANIFEST
 2. 搜索引擎的检索程序无法解读这种页面，**不利于 SEO**;
 3. **iframe 和主页面共享连接池，而浏览器对相同域的连接有限制**，所以会影响页面的并行加载。
 4. 使用 iframe 之前需要考虑这两个缺点。如果需要使用 iframe，最好是通过 javascript 动态给 iframe 添加 src 属性值，这样可以绕开以上两个问题。
+
+## HTML 4.01 规定了三种文档类型：Strict、Transitional 以及 Frameset

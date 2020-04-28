@@ -1,6 +1,6 @@
 ---
 title: 前端异步操作
-date: 2019-1-30
+date: 2018-1-30
 tags:
   - JS
   - HTML
@@ -9,35 +9,37 @@ tags:
   - async/await
   - callback
 categories:
-  - [JS]
-  - [HTML]
-  - [异步操作]
+  - [JS, 异步操作]
 ---
 
 [TOC]
 
-## 是什么
+## 异步操作是什么，有哪些
 
 常见场景：
 
-- html 中 js 加载，script 标签 defer 与 async，使用 js 来生成标签来加载资源
-- js 中，setTimeout/setInterval/事件回调/http 请求/requestAnimationFrame/读写文件，Node.js 中
+1. html 中 js 加载，**script 标签 defer 与 async**，使用 js 来生成标签来加载资源；
+2. js 中，setTimeout/setInterval/事件回调/http 请求/requestAnimationFrame/读写文件，Node.js 中。
 
 处理方式：
 
-- 回调函数，callback/promise/\*-yield/async-await
-- 发布/订阅( Pub/Sub )
+1. 回调函数，具体有如下的处理方式：
+   1. callback
+   2. promise
+   3. \*-yield
+   4. async-await
+2. 发布/订阅( emit/listen )
 
 ## 为什么需要异步
 
-- JavaScript 是**单线程执行**，**避免引起同时渲染又修改 html** 之类的问题；
-- 排队，前面一个任务完成，再执行后面一个任务；
-- **死循环**，耗时较长的任务，常见的浏览器无响应（假死）。
+1. JavaScript 是**单线程执行**，**避免引起同时渲染又修改 html** 之类的问题；
+2. 排队，前面一个任务完成，再执行后面一个任务；
+3. **死循环**，耗时较长的任务，常见的浏览器无响应（假死）。
 
 所以 js 将任务的执行模式分为两种：同步和异步。
 
-- 同步就是顺序执行，连续的执行
-- 异步永远排在同步任务后边，不连续的执行
+1. 同步就是顺序执行，连续的执行；
+2. 异步永远排在同步任务后边，不连续的执行。
 
 [JS 的事件循环机制](./BLOG-JavaScript执行机制.md)
 
@@ -47,36 +49,36 @@ categories:
 
 [浏览器渲染过程|从输入 url 到页面加载完成的过程都发生了什么](./3.浏览器原理/从输入url到页面加载完成的过程都发生了什么/BLOG-从输入url到页面加载完成的过程都发生了什么.md)
 
-html 下载文件的操作：
+html 下载 js 文件的操作：
 
-- defer 与 async，`<script>`标签的属性
-  - defer 延迟脚本。`<script type="text/javascript" defer="defer" src="..."></script>`，设置给 javascript 标签，**立即下载，延时执行**。
-  - 异步脚本 async，onload 之前执行，**告诉浏览器不需要等待脚本的下载和执行**，不保证执行顺序。
-- 文件加载与页面解析，同时加载 6 个资源，chrome
-- **js 延时加载文件，懒加载，使用 js 来生成标签来加载资源**
-- [worker，子线程的概念](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API)
+1. defer 与 async，`<script>`标签的属性
+   1. defer 延迟脚本。`<script type="text/javascript" defer="defer" src="..."></script>`，设置给 javascript 标签，**立即下载，延时执行**。
+   2. async 异步脚本，onload 之前执行，**告诉浏览器不需要等待脚本的下载和执行**，不保证执行顺序。
+2. 文件加载与页面解析，同时加载 6 个资源，chrome
+3. **js 延时加载文件，懒加载，使用 js 来生成标签来加载资源**
+4. [worker，子线程的概念](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API)
 
 ## js 异步操作有哪些
 
-### setTimeout 与 setInterval
+### 1.setTimeout 与 setInterval
 
 [setTimeout](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout)
 [setInterval](https://developer.mozilla.org/fr/docs/Web/API/WindowTimers/setInterval)
 
-### 事件
+### 2.事件
 
 [事件](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Events)
 
-### http 请求，ajax/fetch
+### 3.http 请求，ajax/fetch
 
 [ajax](https://developer.mozilla.org/zh-CN/docs/Web/Guide/AJAX/Getting_Started)
 [fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch)
 
-### requestAnimationFrame，下次重绘之前调用指定的回调函数更新动画
+### 4.requestAnimationFrame，下次重绘之前调用指定的回调函数更新动画
 
 [requestAnimationFrame](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame)
 
-### 读写文件，Node.js 中，如 dir.read(callback)
+### 5.读写文件，Node.js 中，如 dir.read(callback)
 
 [fs 模块](http://nodejs.cn/api/fs.html)
 
@@ -103,9 +105,9 @@ promise 的 pending 状态可以转为 fulfill（成功状态）和 reject（拒
 
 ### generator
 
-ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同。
+ES6 提供的一种异步编程解决方案，**语法行为与传统函数完全不同**。
 
-一个状态机，封装了很多状态。
+一个**状态机**，封装了很多状态。
 
 generator 函数会**返回一个遍历器对象（代表 Generator 函数的内部指针）**，可以依次遍历函数内部的每个状态。
 
@@ -132,7 +134,7 @@ console.log(gen.next().value);
 
 ### Async/Await
 
-async 函数就是 generator 函数的语法糖。
+**async 函数就是 generator 函数的语法糖**。
 
 async/await 函数的实现，就是将 Generator 函数和自动执行器，包装在一个函数里。
 

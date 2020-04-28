@@ -9,6 +9,40 @@ categories:
   - [JS, new操作符]
 ---
 
+## 创建对象有几种方法
+
+### 方式一：字面量
+
+```js
+var obj11 = {name: 'smyh'};
+var obj12 = new Object(name: `smyh`); //内置对象（内置的构造函数）
+```
+
+上面的两种写法，效果是一样的。因为，第一种写法，`obj11`会指向`Object`。
+
+- 第一种写法是：字面量的方式。
+- 第二种写法是：内置的构造函数。
+
+### 方式二：通过构造函数+new 操作符
+
+```javascript
+var M = function (name) {
+  this.name = name;
+};
+var obj3 = new M('smyhvae');
+```
+
+### 方法三：Object.create
+
+```javascript
+var p = { name: 'smyhvae' };
+var obj3 = Object.create(p); // 此方法创建的对象，是用原型链连接的，继承于p
+```
+
+第三种方法，很少有人能说出来。这种方式里，`obj3`是实例，p 是 obj3 的原型（name 是 p 原型里的属性），构造函数是`Objecet` 。
+
+![img](http://img.smyhvae.com/20180306_1633.png)
+
 ## new 操作符具体干了什么
 
 new 共经历了四个过程。
@@ -19,7 +53,7 @@ new 共经历了四个过程。
 4. 返回这个新对象。
 
 ```js
-var fn = function() {
+var fn = function () {
   this.a = 123;
   return this;
 };
@@ -45,7 +79,7 @@ if (typeof result == 'object') {
 }
 ```
 
-## 使用 new 与不使用 new 实例化对象的区别
+### 使用 new 与不使用 new 实例化对象的区别
 
 使用 new 是创建一个新的对象，不使用 new，就是调用一般的函数。
 
@@ -56,7 +90,7 @@ function Person(name, sex) {
   this.sex = sex;
   console.log(this);
 }
-Person.prototype.say = function() {
+Person.prototype.say = function () {
   console.log(`my name is ${this.name}!`);
 };
 

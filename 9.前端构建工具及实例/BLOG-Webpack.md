@@ -159,9 +159,9 @@ webpack 插件是一个具有 apply 属性的 **JavaScript 对象**。apply 属�
 
 会将 process.env.NODE_ENV 的值设为 production。启用 FlagDependencyUsagePlugin, FlagIncludedChunksPlugin, ModuleConcatenationPlugin, NoEmitOnErrorsPlugin, OccurrenceOrderPlugin, SideEffectsFlagPlugin 和 UglifyJsPlugin.
 
-### loader
+### loader -> task
 
-loader 用于对模块的源代码进行转换。loader 可以使你在 import 或"加载"模块时预处理文件。因此，loader **类似于其他构建工具中“任务(task)”**，并提供了处理前端构建步骤的强大方法。
+loader **用于对模块的源代码进行转换**。loader 可以使你在 import 或"加载"模块时预处理文件。因此，loader **类似于其他构建工具中“任务(task)”**，并提供了处理前端构建步骤的强大方法。
 
 ### 解析(resolve)
 
@@ -236,90 +236,24 @@ import 的加载是加载的模块的引用。而 import()加载的是模块的�
 
 ## 添加 react 文件的打包支持
 
-## webpack 优化策略，<提高 dev 及 build 的速度>
+## 自定义 loader ｜ 是否写过 Loader？简单描述一下编写 loader 的思路
 
-[参考文章](https://juejin.im/post/5d614dc96fb9a06ae3726b3e)
+参见 webpack/srcipt/，同步和异步 loader。
 
-### 1. 使用工具分析各部分执行时常
+1. Loader 支持**链式调用**，所以开发上需要严格遵循“单一职责”，每个 Loader 只负责自己需要负责的事情。
 
-[Speed Measure Plugin(for webpack)](https://www.npmjs.com/package/speed-measure-webpack-plugin)
+## 是否写过 Plugin？简单描述一下编写 Plugin 的思路
 
-参考代码 scripts。
+参见 webpack/srcipt/MyPlugin.js。
 
-### 2. 具体优化策略
+1. webpack 在**运行的生命周期中会广播出许多事件**，
+2. Plugin 可以监听这些事件，**在特定的阶段钩入想要添加的自定义功能**。
+3. Webpack 的 **Tapable 事件流机制**保证了插件的**有序性**，使得整个系统扩展性良好。
 
-#### 1.缓存，cache-loader
+### Compiler 和 Compliation
 
-cache-loader，插件开启，缓存及并行。
-
-#### 2.多核，happypack
-
-它把**任务分解给多个子进程去并发的执行**，子进程处理完后再把结果发送给主进程。
-
-happypack，多核开启，提高编译速度，MiniCssExtractPlugin 必须置于 cache-loader 执行之后，否则无法生效。
-
-**thread-loader** 和 Happypack 我对比了一下，构建时间基本没什么差别。不过 thread-loader 配置起来为简单。
-
-#### 3.抽离，Externals ｜｜ dll
-
-常见的方案有两种:
-
-一种是使用 **webpack-dll-plugin** 的方式，在首次构建时候就将这些静态依赖单独打包，后续只需要引用这个早就被打好的静态依赖包即可，有点类似“预编译”的概念；
-
-另一种，也是**业内常见的 [Externals](https://webpack.docschina.org/configuration/externals/) 的方式**，我们将这些不需要打包的静态资源从构建逻辑中剔除出去，而使用 CDN 的方式，去引用它们。
-
-Externals 使用主要三步：参照 jquery 引入。
-
-1. html 引入；
-2. externals 声明；
-3. 文件内导入。
-
-#### 4.以及拆分，前端微服务，optimization.splitChunks
-
-抽离公共代码是对于多页应用来说的，如果多个页面引入了一些公共模块，那么可以把这些公共的模块抽离出来，单独打包。公共代码只需要下载一次就缓存起来了，避免了重复下载。
-
-对于多页面应用。
-
-webpack 会将一个 entry 视为一个 chunk，**并在最后生成文件时，将 chunk 单独生成一个文件**。
-
-因为如今团队在实践**前端微服务**，因此**每一个子模块都被拆分成了一个单独的 repo**，因此我们的项目与生俱来就继承了集群编译的基因，但是如果把这些子项目以 entry 的形式打在一个 repo 中，也是一个很常见的情况，这时候，就需要进行拆分，集群编译便能发挥它的优势。
-
-## 如何更好地优化打包资源，<压缩体积，分包>
-
-[参考文章](https://mp.weixin.qq.com/s/H-w4LtY3qVNAQLiyGFsEaA)
-
-1. 减小打包的整体体积
-   - 代码压缩，MiniCssExtractPlugin，UglifyJsPlugin
-   - **移除不必要的模块**，(仅仅引入而未在代码中使用，该模块仍然会被打包)
-   - 按需引入模块，`import Button from 'antd/es/button';`
-   - 选择可以替代的体积较小的模块，moment -> DateTime
-2. Code Splitting: 按需加载，优化页面首次加载体积。如根据路由按需加载，根据是否可见按需加载
-   - 使用 **React.lazy() 动态加载组件**
-   - 使用 lodable-component **动态加载路由**，组件或者模块
-3. Bundle Splitting：**分包**，根据模块更改频率分层次打包，充分利用缓存
-   - webpack-runtime: 应用中的 webpack 的版本比较稳定，分离出来，保证长久的永久缓存
-   - react-runtime: react 的版本更新频次也较低
-   - vendor: **常用的第三方模块打包在一起**，如 lodash，classnames 基本上每个页面都会引用到，但是它们的更新频率会更高一些
-
-## 提升体验
-
-### 编译的时候给出更多的提示，termainl 界面更方便展示
-
-#### 展示进度条，progress-bar-webpack-plugin
-
-#### 完成提醒，webpack-build-notifier
-
-#### dashboard 输出，webpack-dashboard
-
-## 自定义 loader
-
-参见 srcipt/，同步和异步 loader。
-
-## 抽取公共文件是怎么配置的
-
-- CommonsChunkPlugin
-- DllReferencePlugin
-- entry: {vender:[]}
+1. **compiler** 对象**代表了完整的 webpack 环境配置**。这个对象在启动 webpack 时被一次性建立，并配置好所有可操作的设置，包括 options，loader 和 plugin。当在 webpack 环境中应用一个插件时，插件将收到此 compiler 对象的引用。可以使用它来访问 webpack 的主环境。
+2. **compilation 对象代表了一次资源版本构建**。当运行 webpack 开发环境中间件时，每当检测到一个文件变化，就会创建一个新的 compilation，从而生成一组新的编译资源。**一个 compilation 对象表现了当前的模块资源、编译生成资源、变化的文件、以及被跟踪依赖的状态信息。**compilation 对象也提供了很多关键时机的回调，以供插件做自定义处理时选择使用。
 
 ## webpack 整个生命周期，loader 和 plugin 有什么区别
 
@@ -337,8 +271,8 @@ loader 可以进行**压缩，打包，语言翻译**等等。
 
 ### 【Plugin】：目的在于解决 loader 无法实现的其他事
 
-- 从打包优化和压缩，
-- 到重新定义环境变量，功能强大到可以用来处理各种各样的任务。
+1. 从打包优化和压缩，
+2. 到重新定义环境变量，功能强大到可以用来处理各种各样的任务。
 
 webpack 提供了**很多开箱即用的插件**：CommonChunkPlugin 主要用于提取第三方库和公共模块，避免首屏加载的 bundle 文件，或者按需加载的 bundle 文件体积过大，导致加载时间过长，是一把优化的利器。而在多页面应用中，更是能够为每个页面间的应用程序共享代码创建 bundle。
 
@@ -382,19 +316,14 @@ loader 支持链式传递。能够对资源使用流水线(pipeline)。一组链
 ];
 ```
 
-## 如何配置把 js、css、html 单独打包成一个文件
+## webpack 的 Tabable 事件流机制
 
-也就是需要 css 和 js 内联到 html 文件内部。
+webpack 打包是一种事件流的机制，**它的原理是将各个插件串联起来，那么实现这一切的核心就是我们要讲解的 tapable**。 并且在 webpack 中负责编译的 Compiler 和负责创建 bundles 的 Compilation 都是 tapable 构造函数的实列。
 
-[html-webpack-inline-source-plugin](https://www.npmjs.com/package/html-webpack-inline-source-plugin)
+[webpack4 核心模块 tapable 源码解析](https://www.cnblogs.com/tugenhua0707/p/11317557.html)
 
-这样，不需要提取 css 文件了。
+## 构建脚手架工具对比
 
-```js
-plugins: [
-  new HtmlWebpackPlugin({
-    inlineSource: '.(js|css)$', // embed all javascript and css inline
-  }),
-  new HtmlWebpackInlineSourcePlugin(),
-];
-```
+1. grunt
+2. gulp
+3. webpack

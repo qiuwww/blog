@@ -3,20 +3,22 @@ title: git常用操作
 date: 2020-3-5
 tags:
   - git
+  - git常用操作
 categories:
-  - [git]
+  - [git, git常用操作]
 ---
 
-回滚 -> revert
-重置、撤销、丢弃 -> reset
+回滚 -> revert: Git Revert**原理**：**根据你要回退的提交所做的改动做方向相反的改动**，然后重新提交代码，使代码达到没有这些旧提交所能达到的状态。
+
+重置、撤销、丢弃 -> reset: 使用**git reset 是不影响远程分支的**，一切都在本地发生。如果回退需要很快影响远程分支的，应该使用 git revert。
 
 [官方网站](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE)
 
-## 常用命令
+[Git 恢复之前版本的两种方法 reset、revert（图文详解）](https://blog.csdn.net/yxlshk/article/details/79944535)
 
 ## 创建仓库
 
-### 初始化一个仓库 [git-init](https://git-scm.com/docs/git-init)
+### 1.初始化一个仓库 [git-init](https://git-scm.com/docs/git-init)
 
 创建目录 -> 进入目录，然后初始化[git init] -> 完成一次提交
 
@@ -26,7 +28,7 @@ categories:
 
 `touch READMD.md && git add * && git commit -m "init"`
 
-### 克隆单个仓库 [git-clone](https://git-scm.com/docs/git-clone)
+### 2.克隆单个仓库 [git-clone](https://git-scm.com/docs/git-clone)
 
 `git clone [远程地址] [本地目录]`
 
@@ -50,34 +52,48 @@ categories:
 
 工作目录下面的所有文件都不外乎这两种状态：
 
-- 已跟踪、
-- 未跟踪（untracked）。
+1. 已跟踪、
+2. 未跟踪（untracked）。
 
 **已跟踪**的文件是指已经被纳入版本控制管理的文件，目前它们的状态可能是:
 
-- 未更新（unmodified，查看文件状态时默认是不显示出来的），
-- 已修改（modified）
-- 或者已放入暂存区（staged）。
+1. 未更新（unmodified，查看文件状态时默认是不显示出来的），
+2. 已修改（**modified**）
+3. 或者已放入**暂存区（staged）**。
 
 未跟踪文件（untracked）**一般是新建的**，它们并没有出现在前面的版本中，也不在当前的暂存区域。初次克隆某个仓库时，工作目录中的所有文件都属于已跟踪文件，且状态为未修改。
 
 ![git-status](./imgs/git-status.png)
 
-## 提交修改，放入暂存区 [git add](https://git-scm.com/docs/git-add)
+## fetch，更新分支列表信息
+
+`git fetch -p`
+
+## add 提交修改，放入暂存区 [git add](https://git-scm.com/docs/git-add)
 
 `git add filename | filepath | .`
+
+## commit 提交更新 [git commit](https://git-scm.com/docs/git-commit)
+
+`git commit -m '这里写该版本的说明'`
+
+## push，推送，git push origin 新分支名
+
+`git push origin local_branch:remote_branch`
 
 ## git 查看与对比历史提交记录（git show; git log; git diff）
 
 ### git-show，查看历史提交信息
 
-- git show [commit_id]       查看某次历史提交信息的完整信息
+- git show [commit_id]  查看某次历史提交信息的完整信息
 - git show HEAD 查看 HEAD 标签当前指向的提交的完整信息
 - git show master  查看 master 分支最新一次提交的完整信息
 - git show master^或 git show master~  查看 master 分支最新一次提交的父提交的完整信息
 - git show master^2 查看 master 分支最新一次提交的第二个父提交（也就是父提交的父提交）的完整信息
 
 ### git-log，查看完整的历史提交（commit）信息
+
+查看提交记录 [git log](https://git-scm.com/docs/git-log)
 
 - git log，可以按键盘空格/字母 b 键将信息向下/向上翻页，也可以按键盘向上/向下箭头向上/向下按行滚动
 - git log –p 输出每一个 commit 之间的差异信息
@@ -111,33 +127,15 @@ git diff 用来比较文件之间的不同。
 3. git ditt --cached | git diff --staged
 4. git diff branch1 branch2 --stat
 
-## 提交更新 [git commit](https://git-scm.com/docs/git-commit)
-
-`git commit -m '这里写该版本的说明'`
-
 ## 删除文件 [git rm](https://git-scm.com/docs/git-commit)
 
 `git rm -f filename`，强制删除 filename。
 
-## 查看提交记录 [git log](https://git-scm.com/docs/git-log)
-
-## 一次基本的提交
-
-```bash
-git branch 新分支名，切换到需要修改的分支
-git pull，保证当前分支代码最新，然后再开始修改
-git status
-git add ...
-git commit ...
-git fetch -> git pull，可能别人也进行了修改，需要合并，或者解决冲突
-git push
-```
-
-需要**先检查是否线上有更新**，如果有冲突，还需要解决冲突。
-
 ## branch
 
-### 查看分支
+分支主要区分，远端与本地，master/develop/feature 等。
+
+### 查看分支 git branch
 
 查看本地分支列表：`git branch`
 查看远端分支列表：`git branch -r`
@@ -161,11 +159,11 @@ git push
 
 `git checkout -b feature/ft_qww_20190920_windows origin/feature/ft_qww_20190920_windows`
 
-### 切换分支
+### 切换分支 git checkout
 
 `git checkout 分支名`，切换到某个分支。
 
-### 合并分支
+### 合并分支 git merge
 
 `git merge 需要合并的分支名 -m "合并的原因，也要说明"`，将需要合并的分支，合并到当前分支。
 
@@ -176,17 +174,9 @@ git push
 
 从远程仓库获取信息并同步至本地仓库，并且自动执行合并（merge）操作，即 pull=fetch+merge。
 
-### 删除本地分支
+### 删除本地分支 -d
 
 `git branch 分支名称 -d`
-
-## fetch，更新分支列表信息
-
-`git fetch -p`
-
-## push，推送，git push origin 新分支名
-
-`git push origin local_branch:remote_branch`
 
 ### 向远程提交本地新开的分支
 
@@ -196,9 +186,18 @@ git push
 
 `git push origin :远程分支名`
 
-## git [撤销](http://www.ruanyifeng.com/blog/2019/12/git-undo.html)
+## git reset[撤销](http://www.ruanyifeng.com/blog/2019/12/git-undo.html)
 
-### git reset，丢弃提交，也就是重置，删除 commit 及 add
+使用 git reset **是不影响远程分支的**，一切都在本地发生。如果回退需要很快影响远程分支的，应该使用 git revert。
+
+reset 可以取消：
+
+1. add，添加到暂存区的代码；
+2. commit，已经 commit 的代码；
+3. merge，已经本地合并了的代码；
+4. push，reset 之后，强制提交；
+
+### reset 的模式，git reset，丢弃提交，也就是重置，删除 commit 及 add
 
 --mixed
 
@@ -213,23 +212,13 @@ git push
 
 **删除工作空间改动代码，撤销 commit，撤销 git add .**
 
-### git revert HEAD，撤销提交，撤销 push
-
-一种常见的场景是，提交代码以后，你突然意识到这个提交有问题，应该撤销掉，这时执行下面的命令就可以了。
-
-`$ git revert HEAD`
-
-上面命令的原理是，在当前提交后面，新增一次提交，**抵消掉上一次提交导致的所有变化**。**它不会改变过去的历史，所以是首选方式，没有任何丢失代码的风险**。
-
-git revert 命令只能抵消上一个提交，如果想抵消多个提交，必须在命令行依次指定这些提交。
-
-### git commit 命令的--amend 参数，替换上一次提交
+### git commit 命令的 --amend 参数，替换上一次提交
 
 `$ git commit --amend -m "Fixes bug #42"`
 
-提交以后，发现提交信息写错了，这时可以使用 git commit 命令的--amend 参数，可以修改上一次的提交信息。
+提交以后，发现提交信息写错了，这时可以使用 git commit 命令的 --amend 参数，**可以修改上一次的提交信息**。
 
-它的原理是产生一个新的提交对象，替换掉上一次提交产生的提交对象。
+它的**原理是产生一个新的提交对象，替换掉上一次提交产生的提交对象**。
 
 ### git 撤销 add
 
@@ -255,7 +244,7 @@ git log 的输出如下,之一这里可以看到第一行就是 **commitid**。
 `git reset --soft HEAD^`，这样退回到前面的暂存区，这样就可以执行撤销 add 的操作了。
 `git reset HEAD filepathname`
 
-## git 撤销 merge，git merge 撤销 同时清除 merge 的本地文件
+### git 撤销 merge，git merge 撤销 同时清除 merge 的本地文件
 
 Git 如何撤销 merge 操作。当 merge 以后还有别的操作和改动时，用 **git revert(回滚)：该命令就是为撤销某次提交而存在的；**
 
@@ -268,11 +257,11 @@ git reset --hard merge前的版本号
 
 或者这样，`git reset --merge merge前的任何一次提交的hash串`
 
-### 使用 sourceTree 来操作撤销 merge
+#### 使用 sourceTree 来操作撤销 merge
 
 选中合并前的那次提交，然后选择**将(分支名)重置到这次提交**，然后选择**强行合并**。
 
-### git 撤销 push，与 merge 是一致的
+#### git 撤销 push，与 merge 是一致的
 
 push 代码：`git push [remote-name] [branch-name]`
 
@@ -284,12 +273,31 @@ push 代码：`git push [remote-name] [branch-name]`
 
 ^的个数表示回退几个版本。
 
+### git 撤销，并丢弃线上的提交，清除提交记录
+
+1. `git reset -soft 7ba29d7`;
+2. `git push -f`
+
 ## resevrt 回滚，通过 git revert 是用一次新的 commit 来回滚之前的 commit
 
-- git log # 得到你需要回退一次提交的 commit id
-- git revert <commit_id> # **撤销指定的版本，撤销也会作为一次提交进行保存**
+步骤：
+
+1. git log # 得到你需要回退一次提交的 commit id
+2. git revert <commit_id> # **撤销指定的版本，撤销也会作为一次提交进行保存**
 
 revert，提交一次修改，让代码回滚到前一次的提交。但是之前的记录也是会保存的。
+
+撤销需要填写，撤销的提交信息，输入 `:wq` 结束。
+
+### git revert HEAD，回滚代码
+
+一种常见的场景是，提交代码以后，你突然意识到这个提交有问题，应该撤销掉，这时执行下面的命令就可以了。
+
+`$ git revert HEAD`
+
+上面命令的原理是，在当前提交后面，新增一次提交，**抵消掉上一次提交导致的所有变化**。**它不会改变过去的历史，所以是首选方式，没有任何丢失代码的风险**。
+
+git revert 命令**只能抵消上一个提交**，**如果想抵消多个提交，必须在命令行依次指定这些提交**。
 
 ### git revert 和 git reset 的区别
 
@@ -298,7 +306,7 @@ revert，提交一次修改，让代码回滚到前一次的提交。但是之�
 
 ## 打标签 [git tag](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE)
 
-作为一个版本的标记。
+作为一个**版本的标记**。
 
 `git tag` 列出 tag
 `git tag v1.0` 添加 tag
@@ -306,15 +314,21 @@ revert，提交一次修改，让代码回滚到前一次的提交。但是之�
 `git tag -d v0.1.2` 删除 tag
 `git push origin v1.0` 提交 tag，到远端
 
+### git tag 的作用
+
+Git 中的 tag 指向一次 commit 的 id，**通常用来给开发分支做一个标记**，如标记一个版本号。
+
+Git 可以给仓库历史中的**某一个提交打上标签**，以示重要。 比较有代表性的是人们会使用这个功能来标记发布结点（ v1.0 、 v2.0 等等）。
+
 ### tag 名称规则
 
 版本处在里程碑节点的测试阶段。如功能测试、性能测试，会打 tag。
 
 tag 名称规则为：`预发布版本号*test|prod*构建的日期和时间`
 
-## 暂存，保存工作现场 [git stash](https://git-scm.com/docs/git-stash)
+## 暂存 stash，保存工作现场 [git stash](https://git-scm.com/docs/git-stash)
 
-stash 命令可用于临时保存和回复修改，可跨分支。
+stash 命令可用于临时保存和回复修改，**可跨分支**。
 
 `git stash save [save message]`保存，save 为可选项，message 为本次保存的注释。
 `git stash list`所有保存的记录列表。
@@ -335,7 +349,7 @@ stash 命令可用于临时保存和回复修改，可跨分支。
 
 ## 变基 [git rebase](https://www.jianshu.com/p/f7ed3dd0d2d8)
 
-git rebase 能够将分叉的分支重新合并。
+git rebase 能够**将分叉的分支重新合并**。
 
 将当前的变更**变基到当前所在的分支**：`git rebase`。
 
@@ -345,7 +359,7 @@ git rebase 能够将分叉的分支重新合并。
 
 典型样式：在一个分支上，**同时需要 pull 和 push 的时候**，一上一下。
 
-在同一个分支上，多个人都提交，这个时候，提交先后顺序不好控制，就可能出现本地修改后，提交的时候，发现线上版本已更新，这个时候就会产生一个 merge 节点，为了避免分叉。就可以使用 rebase 替代 merge。
+在同一个分支上，多个人都提交，这个时候，提交先后顺序不好控制，就可能出现本地修改后，提交的时候，发现线上版本已更新，这个时候就会产生一个 merge 节点，**为了避免分叉。就可以使用 rebase 替代 merge**。
 
 操作方式 1:
 
@@ -382,7 +396,7 @@ git push
 
 ## HEAD 是什么
 
-HEAD 也是一个引用或者指针，不同于分支，HEAD 代表的是当前工作区，它的存在形式是文件.git/HEAD。
+HEAD 也是一个**引用或者指针**，不同于分支，**HEAD 代表的是当前工作区**，它的存在形式是文件.git/HEAD。
 
 ```bash
 cat .git/HEAD # 查看HEAD的指向
@@ -418,28 +432,49 @@ vim # 编辑保存
 
 `git cherry-pick <commit ID>` // 拣选一次提交应用于当前 HEAD
 
-## git tag 的作用
-
-Git 中的 tag 指向一次 commit 的 id，通常用来给开发分支做一个标记，如标记一个版本号。
-
-Git 可以给仓库历史中的某一个提交打上标签，以示重要。 比较有代表性的是人们会使用这个功能来标记发布结点（ v1.0 、 v2.0 等等）。
-
 ## 标准操作
 
-## 1.git 的一次标准 功能开发 流程
+### 0.一次基本的提交
+
+```bash
+git branch 新分支名，切换到需要修改的分支
+git pull，保证当前分支代码最新，然后再开始修改
+git status
+git add ...
+git commit ...
+git fetch -> git pull，可能别人也进行了修改，需要合并，或者解决冲突
+git push
+```
+
+需要**先检查是否线上有更新**，如果有冲突，还需要解决冲突。
+
+### 1.git 的一次标准 功能开发 流程
 
 1. 从 develop 拉取 feature 分支；
 2. 开发功能，测试 bug，没问题了，就可以合并到 develop 上；
 3. 完成功能开发，gitflow 会把这个分支删除；
 
-## 2.git 的一次标准 线上发布 流程
+### 2.git 的一次标准 线上发布 流程
 
 1. 从 develop 拉取 release 分支；
 2. 测试代码（代码测试是在这个阶段），测试完成准备发布；
 3. 发布完成合并到 master 和 develop；
 
-## 3.git 的一次标准线上 bug 修复流程
+### 3.git 的一次标准线上 bug 修复流程（有时间修改 bug 的过程）
 
 1. hotfix：从 master 上进行拉取；
 2. 修改 bug，测试完成，发布完成；
 3. 合并 hotfix 到 master 和 develop；
+
+### 4. 线上代码出错，回滚步骤（紧急替换之前的版本）
+
+线上代码已上线，突然发现了一些问题，一时半会也解决不了，就需要回滚代码到之前的提交，临时替换，等到 bug 修复之后再发布一次。
+
+```bash
+git revert '20a3725c'
+git push
+```
+
+1. 找到指定的提交，右键，回滚到当前节点：代码 push 上去了，已经覆盖了**线上的代码**，就需要先用本地：`git revert + 版本号` 或者 HEAD(回到上一个 push 的版本)，将线上的代码回滚；
+2. **这个时候是本地回滚，线上代码需要提交 push**：用`git push -u origin master:master`(可以不写，默认与分支相同) -f 强制提交。如果没有-f gitlab 会拒绝你的操作。
+3. **从错误的发布位置拉出来一个分支**，然后修改，修改之后，重新合并提交。

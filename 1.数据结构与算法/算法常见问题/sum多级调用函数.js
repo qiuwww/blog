@@ -1,29 +1,31 @@
 /**
  * 函数求和，参数不固定
  */
-function sum(...args) {
-  console.log('args', args);
-  // 这里的三个点...是扩展运算符，该运算符将一个数组，变为参数序列。
-  if (args.length == 1) {
-    // 判断参数个数的形式是否为1个，即第二种形式
-    var cache = [...args][0]; // 将第一个参数的值暂存在cache中
-    var add = function(y) {
-      console.log('y', y);
-      // 创建一个方法用于实现第二个条件，最后并返回这个方法
-      cache += y;
-      return add;
-    };
-    return add;
-  } else {
-    // 这里就是参数的第一种形式
-    var res = 0; // 这里最好先声明要输出的变量，并给其赋值，不然值定义而不赋值会输出NaN，因为js将undefined+number两个数据类型相加结果为NaN
-    for (var i = 0; i < [...args].length; i++) {
-      res += [...args][i]; //参数累加
-    }
-    console.log(res); // 输出最后的累加结果
-    return res;
-  }
+function add() {
+  // console.log('进入add');
+  // 第一次循环的结果
+  var args1 = Array.prototype.slice.call(arguments); // 获取参数
+  // 迭代函数
+  var fn = function () {
+    // 后续的参数
+    var args2 = Array.prototype.slice.call(arguments); // 获取参数
+    // console.log('调用fn');
+    // 这里是累加参数，最终计算的时候 args1 => [1, 2, 3, 4,...]
+    return add.apply(null, args1.concat(args2)); // 合并参数
+  };
+
+  // 最后不调用函数了，就认为是结束了，返回真实值
+  // 这里没有使用到闭包，中间状态都存在了args1上
+  fn.toString = function () {
+    // console.log('调用valueOf');
+    return args1.reduce(function (a, b) {
+      // 参数求和
+      return a + b;
+    }, 0);
+  };
+  return fn;
 }
-console.log('sum(2, 3, 4)##:', sum(2, 3, 4)); // 9
+
+console.log('sum(2, 3, 4)##:', add(2, 3, 4)); // 9
 // @ts-ignore
-console.log('sum(2)(3)(4)(5)##:', sum(2)(3)(4)(5)); // 5//9//14
+console.log('sum(2)(3)(4)(5)##:', add(2)(3)(4)(5)); // 5//9//14

@@ -14,7 +14,7 @@ categories:
 1. String.prototype.**[matchAll](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll)**，matchAll() 方法返回一个**包含所有匹配正则表达式的结果及分组捕获组的迭代器**。
 2. import()
 3. [BigInt](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
-4. Promise.allSettled
+4. **Promise.allSettled**
 5. [globalThis](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/globalThis)
 6. for-in，它最常用的地方应该是用于调试，可以更方便的去检查对象属性
 7. [Optional chaining](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/%E5%8F%AF%E9%80%89%E9%93%BE)，可选链，非常实用

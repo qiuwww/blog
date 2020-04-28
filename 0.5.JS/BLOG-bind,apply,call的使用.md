@@ -8,6 +8,9 @@ tags:
   - call
 ---
 
+bind 与 call 的参数类型是一样的，都是散列值。
+apply 是使用数组作为参数。
+
 ## apply，改变函数的作用域，使用数组传递参数
 
 `fun.apply(thisArg, [argsArray])`
@@ -57,13 +60,13 @@ Math.max.call(null, ...arr);
 
 `function.bind(thisArg[, arg1[, arg2[, ...]]])`
 
-bind()方法**创建一个新的函数**，在调用时设置 this 关键字为提供的值。并在调用新函数时，将给定参数列表作为原函数的参数序列的前若干项。
+[bind](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)()方法**创建一个新的函数**，在调用时设置 this 关键字为提供的值。并在调用新函数时，将给定参数列表作为原函数的参数序列的前若干项。
 
 ```js
 // function.bind(thisArg[, arg1[, arg2[, ...]]])
 var module = {
   x: 42,
-  getX: function() {
+  getX: function () {
     return this.x;
   },
 };
@@ -77,56 +80,80 @@ console.log(boundGetX());
 // expected output: 42
 ```
 
-### bind 函数的实现原理
+### bind 函数的实现原理，使用 apply 实现 bind
 
-通过 apply 实现。
-
-```js
-Function.prototype.bind = function(context) {
-  // 调用Array的方法来切割伪数组对象arguments
-  // 由此获此bing()方法传进来的第二个及以后的参数
-  var args = Array.prototype.slice.call(arguments, 1);
-  return function() {
-    return this.apply(context, args.concat(Array.prototype.slice.call(arguments)));
-  };
-};
-```
-
-### 手写 Function.bind 函数
+通过 apply 实现，完整实现。
 
 ```js
-if (!Function.prototype.bind) {
-  Function.prototype.bind = function(oThis) {
-    if (typeof this !== 'function') {
-      throw new TypeError("'this' is not function");
-    }
-    // bind's default arguments, array without first element
-    // first part arguments for the function
-    var aBindArgs = Array.prototype.slice.call(arguments, 1);
-    var fToBind = this; // the function will be binding
-    var fNOP = function() {};
-    var fBound = function() {
-      // target this will be binding
-      var oThis = this instanceof fNOP ? this : oThis || this;
-      // last part arguments for the function
-      var aCallArgs = Array.prototype.slice.call(arguments);
-      // complete arguments for the function
-      var aFuncArgs = aBindArgs.concat(aCallArgs);
-      return fToBind.apply(oThis, aFuncArgs);
+// 添加原型链方法
+// 官方 Polyfill
+// Does not work with `new funcA.bind(thisArg, args)`
+if (!Function.prototype.bind)
+  (function () {
+    var slice = Array.prototype.slice;
+    Function.prototype.bind = function () {
+      // 这里拿到bind方法传入的参数，一般第一个参数是绑定到的上下文
+      // this指向当前调用的函数
+      var thatFunc = this,
+        thatArg = arguments[0];
+      // 这里是绑定的时候传递的参数
+      var args = slice.call(arguments, 1);
+      // 类型判断处理
+      if (typeof thatFunc !== 'function') {
+        // closest thing possible to the ECMAScript 5
+        // internal IsCallable function
+        throw new TypeError(
+          'Function.prototype.bind - ' + 'what is trying to be bound is not callable',
+        );
+      }
+      return function () {
+        // 这里是调用生成的bind方法的参数arguments
+        // 合并了参数列表
+        var funcArgs = args.concat(slice.call(arguments));
+        return thatFunc.apply(thatArg, funcArgs);
+      };
     };
-    // fBound extends fToBind
-    fNOP.prototype = this.prototype;
-    fBound.prototype = new fNOP();
+  })();
 
-    return fBound;
-  };
-}
-// 调用
-var add = function(a, b, c) {
+// 调用1
+var func = function () {
+  console.log(this);
+  console.log(arguments);
+};
+var context = { a: 1 };
+var newFunc = func.bind(context, 123);
+newFunc(345);
+
+// 调用2
+var add = function (a, b, c) {
   return a + b + c;
 };
 var newAdd = add.bind(null, 1, 2);
 var result = newAdd(3);
+```
+
+简单实现：
+
+```js
+// 2. 自定义函数实现，简单实现
+// 绑定函数到对象上
+Function.prototype.bind2 = function () {
+  console.log('arguments1', arguments);
+  var self = this;
+  var context = arguments[0];
+  // 这里是绑定的时候传递的参数
+  return function () {
+    console.log(context, arguments);
+    // 这里的arguments，指向当前函数的调用
+    return self.apply(context, arguments);
+  };
+};
+var add = function (args) {
+  console.log('arguments, this:', arguments, this);
+  return this.a;
+};
+var newAdd = add.bind2({ a: 1 });
+newAdd(3);
 ```
 
 ## call、apply、bind 的区别
@@ -145,7 +172,7 @@ bind() 方法**创建一个新的函数**，在 bind() 被调用时，这个**�
 this.x = 9; // 在浏览器中，this 指向全局的 "window" 对象
 var module = {
   x: 81,
-  getX: function() {
+  getX: function () {
     return this.x;
   },
 };

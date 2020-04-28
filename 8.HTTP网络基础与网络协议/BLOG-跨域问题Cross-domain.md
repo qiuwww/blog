@@ -6,7 +6,7 @@ tags:
   - 跨域
 categories:
   - [HTTP请求, 跨域]
-  - [HTTP网络基础与数据请求]
+  - [HTTP网络基础与网络协议]
 ---
 
 [参考资料：九种跨域方式实现原理](https://mp.weixin.qq.com/s/y8yCb36Z8wmszOqo4FEAmg)
@@ -169,9 +169,11 @@ ws.onclose = function (evt) {
 
 hashchange，取检测 hash 变化，和 hash 带过来的参数。
 
-### 5 postMessage()方法
+### 5 [postMessage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage)()方法
 
-不同域页面间可以相互发送消息。
+window.postMessage() 方法可以安全地实现跨源通信。通常，对于两个不同页面的脚本，只有当执行它们的页面位于**具有相同的协议**（通常为 https），**端口号**（443 为 https 的默认值），**以及主机 (两个页面的模数 Document.domain 设置为相同的值) 时**，这两个脚本才能相互通信。window.postMessage() 方法提供了一种受控机制来规避此限制，只要正确的使用，这种方法就很安全。
+
+**不同域页面间可以相互发送消息**，页面进程间通信。
 
 `H5`中新增的`postMessage()``方法，可以用来做跨域通信。既然是 H5 中新增的，那就一定要提到。
 

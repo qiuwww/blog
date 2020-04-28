@@ -164,7 +164,7 @@ export function on(ele, ev, handler) {
   if (ele.addEventListener) {
     ele.addEventListener(ev, handler, false);
   } else {
-    ele.attachEvent('on' + ev, function() {
+    ele.attachEvent('on' + ev, function () {
       fn.call(handler);
     });
   }
@@ -174,7 +174,7 @@ export function off(ele, ev, handler) {
   if (ele.removeEventListener) {
     ele.removeEventListener(ev, handler, false);
   } else {
-    ele.detachEvent('on' + ev, function() {
+    ele.detachEvent('on' + ev, function () {
       fn.call(handler);
     });
   }
@@ -247,3 +247,26 @@ Mutation Observer（变动观察器）是**监视 DOM 变动**的接口。
 MutationObserver 给开发者们提供了一种能在某个范围内的 DOM 树发生变化时作出适当反应的能力.该 API 设计用来替换掉在 DOM3 事件规范中引入的 Mutation 事件.
 
 好像都不能用了。
+
+## window.open
+
+[window.open](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/open) 是 javaScript 打开新窗口的方法，在前面加上 javascript: 是用于 a 标签的超链接调用 js 方法。
+
+window.open 基本语法：`window.open(pageURL,name,parameters);`
+
+具体示例: `window.open('page.html', 'newwindow', 'height=100, width=400, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no')`
+
+相关参数说明:
+
+1. window.open 弹出新窗口的命令；
+2. 'page.html' 弹出窗口的文件名；
+3. 'newwindow' 弹出**窗口的名字**（不是文件名），非必须，可用空''代替；
+4. height=100 窗口高度；
+5. width=400 窗口宽度；
+6. top=0 窗口距离屏幕上方的象素值；
+7. left=0 窗口距离屏幕左侧的象素值；
+8. toolbar=no **是否显示工具栏**，yes 为显示；
+9. menubar，scrollbars 表示菜单栏和滚动栏。
+10. resizable=no **是否允许改变窗口大小**，yes 为允许；
+11. location=no 是否显示地址栏，yes 为允许；
+12. status=no 是否显示状态栏内的信息（通常是文件已经打开），yes 为允许；

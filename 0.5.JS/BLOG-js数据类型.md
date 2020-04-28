@@ -22,6 +22,8 @@ js 的`基本数据类型`：
 - String
 - [Symbol](https://developer.mozilla.org/en-US/docs/Glossary/Symbol)(ES6)
 
+  - Symbol 的用途: 用来创建第一无二的 key，`Symbol(1) 与 Symbol(1)`是不相等的。
+
 - Object，js 的`复杂数据类型（引用类型）`：Object，包括大部分的引用类型（除了 Global 和 Math）。
 
 ## 基本类型和引用类型之间的区别

@@ -24,6 +24,7 @@ tags:
 定义的时候，已经确认了 this 的指向。
 
 1. 默认指向在**定义**它时，**它所处的对象**,而不是执行时的对象，因为**没法更改执行上下文环境**。直观感受，就是查看当前箭头函数的外层函数依附的对象。
+2. 通过 :: 语法是可以修改指向的。
 
 ### 举例
 
@@ -54,7 +55,7 @@ function outer() {
 }
 
 var obj = {
-  say: function() {
+  say: function () {
     setTimeout(() => {
       console.log(this);
     });
@@ -63,8 +64,8 @@ var obj = {
 obj.say(); // obj,处在当前obj对象之下
 
 var obj = {
-  say: function() {
-    setTimeout(function() {
+  say: function () {
+    setTimeout(function () {
       console.log(this);
     });
   },
@@ -75,7 +76,7 @@ obj.say(); // window对象，因为匿名函数执行在全局
 
 // 多层箭头函数嵌套，指向所处的对象，强调定义的位置
 var obj = {
-  say: function() {
+  say: function () {
     var f1 = () => {
       console.log(this); // obj
       setTimeout(() => {
@@ -89,8 +90,8 @@ obj.say();
 
 // 非连续多层嵌套函数
 var obj = {
-  say: function() {
-    var f1 = function() {
+  say: function () {
+    var f1 = function () {
       console.log(this); // window, f1调用时,没有宿主对象,默认是window
       setTimeout(() => {
         console.log(this); // window
@@ -104,7 +105,7 @@ obj.say();
 // 多个this的形式
 var obj = {
   name: 'outer',
-  say: function() {
+  say: function () {
     var f1 = () => {
       // 定义的时候，所处的对象是obj，所以这个this就指向obj
       console.log('f1: ', this); // f1:  Object {name: "outer", objInner: Object}
@@ -118,7 +119,7 @@ var obj = {
 
   objInner: {
     name: 'inner',
-    sayThis: function() {
+    sayThis: function () {
       var f2 = () => {
         console.log('f2: ', this); // f2:  Object {name: "inner"}
         setTimeout(() => {

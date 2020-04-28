@@ -47,8 +47,8 @@ XSS 有几种不同的分类办法：
 
 ## 如何解决相关的问题
 
-1. xss 的话主要使用转义。
+1. xss 的话主要使用**转义**。
 
 2. csrf 的话项目中主要使用的是 **jwt(javascript web token)**。在进行一些改变系统数据的重要操作中（比如提交订单，修改密码，删除..等操作），加入一个**供校验的 action token**。这个 action token 是由**应用先前生成的**（如绘制表单时），作为表单的一个 hidden 字段。
 
-### 前端安全与 CSRF，XSS，SQL 注入，DDOS
+## 前端安全与 CSRF，XSS，SQL 注入，DDOS

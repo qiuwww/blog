@@ -13,7 +13,7 @@ comments: true
 
 大的分类：
 
-- !important 最高
+- !important 最高 1000000000000
 - 行内样式 1000
 - id 100
 - class 类、伪类 10

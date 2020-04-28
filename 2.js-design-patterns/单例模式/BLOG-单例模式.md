@@ -26,6 +26,11 @@ class Singleton {
     return this.instance;
   }
 }
+
+// 并不是通过new新获取的对象
+var instance1 = Singleton.getInstance('A');
+var instance2 = Singleton.getInstance('B');
+instance1 === instance2; // true
 ```
 
 ## 用途

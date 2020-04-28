@@ -5,7 +5,7 @@ tags:
   - GET
   - POST
 categories:
-  - [HTTP, 请求方式]
+  - [HTTP网络基础与网络协议, HTTP请求方式及GET请求与POST请求]
 ---
 
 ## HTTP 的几种请求方法的用途：Request Method

@@ -5,7 +5,7 @@ tags:
   - HTTP
   - 状态码
 categories:
-  - [HTTP, 状态码]
+  - [HTTP网络基础与网络协议, 状态码]
 ---
 
 ## 一些常见的状态码为

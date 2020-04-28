@@ -6,7 +6,7 @@ tags:
   - Ajax
   - fetch
 categories:
-  - [HTTP网络基础与数据请求]
+  - [HTTP网络基础与网络协议]
 ---
 
 ## Ajax

@@ -3,14 +3,9 @@
  * @param {string} str 字符串
  */
 function isPalindrome(str) {
-  str = str.replace(/W/g, '').toLowerCase();
-  return (
-    str ===
-    str
-      .split('')
-      .reverse()
-      .join('')
-  );
+  // 去掉非数字和字母
+  str = str.replace(/[DW]/g, '').toLowerCase();
+  return str === str.split('').reverse().join('');
 }
 
 console.log(isPalindrome('level')); // logs 'true'

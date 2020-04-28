@@ -1,33 +1,28 @@
-var addTwoNumbers = (l1, l2) => {
-  function parseList(list) {
-    var arr = [];
-    while (list.next) {
-      arr.push(list.val);
-      list = list.next;
+/**
+ * @param {string} s
+ * @param {string[]} wordDict
+ * @return {boolean}
+ */
+var wordBreak = function (s, wordDict) {
+  var newStr;
+  function loop(s) {
+    if (new Array(s.length).fill('-').join('') === s) {
+      return true;
     }
-    return arr;
+    return wordDict.some((item) => {
+      console.log(s, item);
+      if (s.indexOf(item) > -1) {
+        newStr = s.replace(item, '-');
+        return loop(newStr);
+      } else {
+        return false;
+      }
+    });
   }
-
-  return (~~parseList(l1).reverse().join('') + ~~parseList(l2).reverse().join(''))
-    .toString()
-    .split('')
-    .reverse()
-    .map((item) => ~~item);
+  return loop(s);
 };
 
-let node = new ListNode('head');
-let temp = node,
-  sum,
-  n = 0;
-while (l1 || l2) {
-  const n1 = l1 ? l1.val : 0;
-  const n2 = l2 ? l2.val : 0;
-  sum = n1 + n2 + n;
-  temp.next = new ListNode(sum % 10);
-  temp = temp.next;
-  n = parseInt(sum / 10);
-  if (l1) l1 = l1.next;
-  if (l2) l2 = l2.next;
-}
-if (n > 0) temp.next = new ListNode(n);
-return node.next;
+console.log(wordBreak('leetcode', ['leet', 'code']));
+console.log(wordBreak('applepenapple', ['apple', 'pen']));
+console.log(wordBreak('catsandog', ['cats', 'dog', 'sand', 'and', 'cat']));
+console.log(wordBreak('aaaaaaa', ['aaaa', 'aaa']));
