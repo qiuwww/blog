@@ -95,7 +95,7 @@
         /*这里的原理与使用margin来进行修正的原理一样，但是这里不需要知道元素的大小*/
         /* top相对于父元素的高度，left相对于宽度，所以不管父元素怎么变化，子元素的左上角一直会位于父元素的中心 */
 
-        /* 如下的margin是相对于父元素的宽度的调整，所以高度不能保证 */
+        /* 如下的margin(left和top)都是相对于父元素的宽度的调整，所以高度不能保证 */
 
         /* 这里只能保证水平居中，垂直没法 */
         /* 这里的margin是相对于父级元素的宽度 */
@@ -105,7 +105,7 @@
         transform: translate(-50%, -50%);
       }
 
-      /*第四种方法*/
+      /*第四种方法 flex布局*/
       .wrap_4 {
         background: yellow;
         width: 200px;
@@ -151,8 +151,7 @@
         /*调整边距以居中,这里不添加似乎也是可以的*/
       }
 
-      /*sixth*/
-
+      /*sixth， 绝对定位加转换*/
       .wrap_6 {
         background: yellow;
         width: 200px;
@@ -160,7 +159,6 @@
         position: relative;
       }
 
-      /* 这种情况下并不一定都成立，这只是一种特例 */
       .wrap_6 .center {
         background: green;
         position: absolute;
@@ -173,6 +171,8 @@
         transform: translate(-50%, -50%);
       }
 
+
+      /* 这里只能控制文本居中 */
       .wrap_7 {
         background: yellow;
         width: 200px;

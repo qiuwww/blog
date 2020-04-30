@@ -14,7 +14,7 @@ categories:
 comments: true
 ---
 
-## 对 CSS 盒模型的认识 ｜ 标准盒模型和 IE 盒子模型
+## 对 CSS 盒模型的认识 ｜ chrome 标准盒模型和 IE 盒子模型
 
 1. **盒子模型**: 描述与相邻元素及自身的位置与大小关系的方法。主要包括：margin、border、padding、width/height。
 2. 盒子模型通常有两种：
@@ -38,7 +38,7 @@ document.body.style;
 
 这种方式有局限性，但应该了解。
 
-#### 方式二（通用型）
+#### 方式二（通用型），getComputedStyle
 
 ```js
 window.getComputedStyle(element).width / height;
@@ -46,7 +46,7 @@ window.getComputedStyle(element).width / height;
 
 方式二能兼容 `Chrome`、火狐。是通用型方式。
 
-#### 方式三（IE 独有的）
+#### 方式三（IE 独有的），currentStyle
 
 ```js
 element.currentStyle.width / height;
@@ -76,8 +76,8 @@ element.getBoundingClientRect().width / height;
    2. 绝对定位元素；
    3. **非块级盒子的块级容器**（例如 inline-blocks, table-cells, 和 table-captions）；
    4. 以及**overflow 值不为“visiable”的块级盒子**，所以设置为 hidden，就可以实现生成块级格式化上下文。
-2. 在同一个**块级格式化上下文里**，BFC 内部的渲染规则如下:
-   1. BFC 在页面中是**独立的容器**，外面的元素不会影响里面的元素，反之亦然。
+2. 在同一个**块级格式化上下文里**，BFC **内部的渲染规则如下**:
+   1. BFC 在页面中是**独立的容器**，**外面的元素不会影响里面的元素**，反之亦然。
    2. 盒子从包含块的顶端开始**垂直**地一个接一个地排列，
    3. 两个盒子之间的**垂直的间隙是由他们的 margin 值**所决定的。
    4. 在同一个块级格式化上下文里，两个相邻的**块级盒子**的垂直外边距会发生叠加（这里是 BFC 的规则）。

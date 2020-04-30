@@ -7,20 +7,26 @@ tags:
   - html
   - canvas
   - svg
+  - transition
+  - animation
   - 动画
 categories:
-  - 动画
+  - [JS, requestAnimationFrame]
+  - [动画]
+  - [CSS, animation]
+  - [CSS, transition]
+  - [HTML, canvas]
 comments: true
 ---
 
-动画是指由许多帧静止的画面，以一定的速度（如每秒 16 张）连续播放时，肉眼因视觉残象产生错觉，而误以为画面活动的作品。-- 维基百科
+动画是指由许多帧静止的画面，以一定的速度（如**每秒 16 张**）连续播放时，肉眼因视觉残象产生错觉，而误以为画面活动的作品。-- 维基百科
 
-## 基本概念
+## 动画的基本概念
 
 - 帧：在动画过程中，每一幅静止画面即为一“帧”；
 - 帧率：即**每秒钟播放的静止画面的数量**，单位是 fps(Frame per second)或赫兹(Hz)；
 - 帧时长：即**每一幅静止画面的停留时间**，单位一般是 ms(毫秒)；
-- 丢帧：在帧率固定的动画中，**某一帧的时长远高于平均帧时长**，导致其后续数帧被挤压而丢失的现象；
+- 丢帧：在帧率固定的动画中，**某一帧的时长远高于平均帧时长**，导致**其后续数帧被挤压而丢失**的现象；
 
 ## 动画实现方式
 
@@ -42,31 +48,31 @@ comments: true
 
 [查看实例](./0.2.HTML/html动画操作/requestAnimationFrame动画实现.html)
 
-### Transition，渐变
+### css的Transition，渐变
 
 CSS 中的 transition 属性**允许块级元素中的属性在指定的时间内平滑的改变** ，渐变控制接口。
 
-transition: property duration timing-function delay;
+`transition: property duration timing-function delay;`
 
-### Animation，动画
+### css，Animation，动画
 
 类似的 CSS 还提供了一个`Animation`属性，不过区别于`Transition`，`Animation`**作用于元素本身而不是样式属性**，可以使用**关键帧的概念**，应该说可以实现**更自由的动画效果**。
 
 [css3 animation](https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation)
 
-animation: name duration timing-function delay iteration-count direction;
+`animation: name duration timing-function delay iteration-count direction;`
 
-### canvas
+### html的canvas标签
 
-- 依赖分辨率，基于位图；
-- 不支持**事件处理器**；
-- 弱的文本渲染能力；
-- 能够以 .png 或 .jpg 格式保存结果图像；
-- 最适合图像密集型的游戏，其中的许多对象会被频繁重绘；
+1. 依赖分辨率，基于位图；
+2. 不支持**事件处理器**；
+3. 弱的文本渲染能力；
+4. 能够以 .png 或 .jpg 格式保存结果图像；
+5. 最适合图像密集型的游戏，其中的许多对象会被频繁重绘；
 
 大多数 Canvas 绘图 API 都没有定义在 `<canvas>` 元素本身上，而是定义在通过画布的`getContext()`方法获得的一个“绘图环境”对象上。Canvas API 也使用了路径的表示法。
 
-### SVG
+### SVG图
 
 SVG 是英文`Scalable Vector Graphics`的缩写，意为可缩放矢量图形，用来定义用于网络的基于矢量的图形，其使用 XML 格式定义图像。
 
@@ -97,9 +103,9 @@ WebGL 使得网页在支持 HTML `<canvas>`标签的浏览器中，不需要安�
 
 ### JS 动画
 
-缺点：JavaScript 在浏览器的主线程中运行，而其中还有很多其他需要运行的 JavaScript、样式计算、布局、绘制等对其干扰。这也就**导致了线程可能出现阻塞，从而造成丢帧的情况**。
+缺点：JavaScript 在浏览器的**主线程中运行**，而其中还有很多其他需要运行的 JavaScript、样式计算、布局、绘制等对其干扰。这也就**导致了线程可能出现阻塞，从而造成丢帧的情况**。
 
-优点：JavaScript 的动画与 CSS 预先定义好的动画不同，可以在其动画过程中对其进行控制：开始、暂停、回放、中止、取消都是可以做到的。**而且一些动画效果，比如视差滚动效果，只有 JavaScript 能够完成**。
+优点：JavaScript 的动画与 CSS 预先定义好的动画不同，**可以在其动画过程中对其进行控制**：开始、暂停、回放、中止、取消都是可以做到的。**而且一些动画效果，比如视差滚动效果，只有 JavaScript 能够完成**。
 
 ### CSS 动画
 
@@ -109,11 +115,11 @@ WebGL 使得网页在支持 HTML `<canvas>`标签的浏览器中，不需要安�
 
 ## html 动画性能优化
 
-### GPU 加速与动画性能
+### 1.GPU 加速与动画性能
 
 动画给予了页面丰富的视觉体验。**我们应该尽力避免使用会触发重布局和重绘的属性**，以免失帧。
 
-除了优化我们的代码，我们还可以让 GPU 来代替 CPU 渲染页面。
+除了优化我们的代码，我们还可以**让 GPU 来代替 CPU 渲染页面**。
 
 通过设置`transform: translate3d(0,0)`或者`tanslateZ(0)`属性就可以做到，
 原因是，通过设置该属性，**浏览器会创建独立图层**，图层中有动画的话用 GPU 进行硬件加速。

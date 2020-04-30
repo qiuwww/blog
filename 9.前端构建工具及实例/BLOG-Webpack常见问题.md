@@ -175,17 +175,23 @@ Externals 使用主要三步：参照 jquery 引入。
 
 ## 如何更好地优化打包资源，<压缩体积，分包>
 
+### 1.分析文件打包大小
+
+使用插件分析：webpack-bundle-analyzer。
+
+### 2.具体优化策略
+
 [参考文章](https://mp.weixin.qq.com/s/H-w4LtY3qVNAQLiyGFsEaA)
 
-1. 减小打包的整体体积
+1. 减小打包的**整体体积**；
    - 代码压缩，MiniCssExtractPlugin，UglifyJsPlugin
    - **移除不必要的模块**，(仅仅引入而未在代码中使用，该模块仍然会被打包)
    - 按需引入模块，`import Button from 'antd/es/button';`
    - 选择可以替代的体积较小的模块，moment -> DateTime
-2. Code Splitting: 按需加载，优化页面首次加载体积。如根据路由按需加载，根据是否可见按需加载
+2. Code Splitting: **按需加载**，优化页面首次加载体积。如根据路由按需加载，根据是否可见按需加载
    - 使用 **React.lazy() 动态加载组件**
    - 使用 lodable-component **动态加载路由**，组件或者模块
-3. Bundle Splitting：**分包**，根据模块更改频率分层次打包，充分利用缓存
+3. Bundle Splitting：**分包**，**根据模块更改频率分层次打包，充分利用缓存**
    - webpack-runtime: 应用中的 webpack 的版本比较稳定，分离出来，保证长久的永久缓存
    - react-runtime: react 的版本更新频次也较低
    - vendor: **常用的第三方模块打包在一起**，如 lodash，classnames 基本上每个页面都会引用到，但是它们的更新频率会更高一些
