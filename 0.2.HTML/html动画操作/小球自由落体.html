@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .wrap {
+        height: 400px;
+        width: 400px;
+        border: 1px solid green;
+        position: relative;
+      }
+      .ball {
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        background-color: aqua;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        animation: ease-in mymove 3s infinite;
+      }
+
+      /* 假如现在加速度是10，1px = 1m */
+      /* 掉落后弹起高度为原来的1/2半 */
+      /* 时间的差别 1/2 g t^2 = h */
+
+      @keyframes mymove {
+        0% {
+          bottom: 300px;
+          left: 60%;
+        }
+        38% {
+          bottom: 0px;
+          left: 65%;
+        }
+        57% {
+          bottom: 150px;
+          left: 70%;
+        }
+        76% {
+          bottom: 0px;
+          left: 75%;
+        }
+
+        88% {
+          bottom: 75px;
+          left: 80%;
+        }
+
+        93% {
+          bottom: 0px;
+          left: 85%;
+        }
+
+        98% {
+          bottom: 75px;
+          left: 90%;
+        }
+
+        100% {
+          bottom: 0px;
+          left: 95%;
+        }
+      }
+    </style>
+
+    <div class="wrap">
+      <div class="ball"></div>
+    </div>
+  </body>
+</html>

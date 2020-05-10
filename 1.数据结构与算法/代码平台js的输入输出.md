@@ -13,11 +13,19 @@
 JavaScript(V8)
 
 ```js
+// 单行
 while ((line = readline())) {
   var lines = line.split(' ');
   var a = parseInt(lines[0]);
   var b = parseInt(lines[1]);
   print(a + b);
+}
+// 多行
+
+var inputArr = [];
+var line = '';
+while ((line = readline())) {
+  inputArr.push(line.split(' '));
 }
 ```
 

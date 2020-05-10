@@ -53,7 +53,7 @@ class Subject {
     this.observers.push(observer);
   }
   notifyAllObservers() {
-    this.observers.forEach(observer => {
+    this.observers.forEach((observer) => {
       observer.update();
     });
   }
@@ -126,7 +126,7 @@ class EventEmitter {
     }
     const fns = this.events[name];
     //执行该事件对应的函数数组, 并传入参数
-    fns.forEach(fn => fn.call(this, ...args));
+    fns.forEach((fn) => fn.call(this, ...args));
     return this;
   }
   // 解绑事件
@@ -159,19 +159,19 @@ class EventEmitter {
 
 const event = new EventEmitter();
 // 绑定一个事件
-event.on('some_event', function() {
+event.on('some_event', function () {
   console.log('some_event 事件触发1');
 });
 
-event.on('some_event', function() {
+event.on('some_event', function () {
   console.log('some_event 事件触发2');
 });
 
-event.on('666', function() {
+event.on('666', function () {
   console.log('666 事件触发');
 });
 
-event.on('once', function() {
+event.on('once', function () {
   console.log('once 事件触发');
 });
 
@@ -190,11 +190,11 @@ event.emit('666');
 var EventEmitter = require('events').EventEmitter;
 var event = new EventEmitter();
 
-event.on('some_event', function() {
+event.on('some_event', function () {
   console.log('some_event 事件触发');
 });
 
-setTimeout(function() {
+setTimeout(function () {
   event.emit('some_event');
 }, 1000);
 ```
@@ -207,11 +207,11 @@ setTimeout(function() {
 
 观察者模式和发布订阅模式最大的区别就是**发布订阅模式有个事件调度中心**。
 
-观察者模式中观察者和目标直接进行交互，而**发布订阅模式中统一由调度中心进行处理**，订阅者和发布者互不干扰。这样一方面实现了解耦，还有就是可以实现更细粒度的一些控制。
+**观察者模式中观察者和目标直接进行交互**，而**发布订阅模式中统一由调度中心进行处理**，订阅者和发布者互不干扰。这样一方面实现了解耦，还有就是可以实现更细粒度的一些控制。
 
 比如**发布者发布了很多消息，但是不想所有的订阅者都接收到**，就可以在调度中心做一些处理，类似于权限控制之类的。还可以做一些节流操作。
 
-总的来说，发布-订阅模式适合更复杂的场景。
+总的来说，**发布-订阅模式适合更复杂的场景**。
 
 ### 观察者模式的应用场景
 

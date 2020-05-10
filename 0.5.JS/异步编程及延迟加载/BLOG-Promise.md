@@ -91,7 +91,7 @@ class MyPromise {
     if (f && that.state == that.states.PENDING) {
       that.state = that.states.RESOLVED;
       that.value = value;
-      that.resolvedCallBacks.map(cb => (that.value = cb(that.value)));
+      that.resolvedCallBacks.map((cb) => (that.value = cb(that.value)));
     }
     // MyPromise类访问resolve
     if (!f) {
@@ -110,7 +110,7 @@ class MyPromise {
     if (f && that.state == that.states.PENDING) {
       that.state = that.states.REJECTED;
       that.value = value;
-      that.rejectedCallBacks.map(cb => (that.value = cb(that.value)));
+      that.rejectedCallBacks.map((cb) => (that.value = cb(that.value)));
     }
     if (!f) {
       const obj = new MyPromise();
@@ -123,11 +123,11 @@ class MyPromise {
   // 定义在MyPromise原型上的then方法
   then(onFulfilled, onRejected) {
     const { PENDING, RESOLVED, REJECTED } = this.states;
-    const f = typeof onFulfilled == 'function' ? onFulfilled : c => c;
+    const f = typeof onFulfilled == 'function' ? onFulfilled : (c) => c;
     const r =
       typeof onRejected == 'function'
         ? onRejected
-        : c => {
+        : (c) => {
             throw c;
           };
 
@@ -154,24 +154,24 @@ class MyPromise {
 }
 
 MyPromise.resolve('success')
-  .then(e => {
+  .then((e) => {
     console.log(e);
     return e + 1;
   })
-  .then(res => {
+  .then((res) => {
     console.log(res);
   });
 
-new MyPromise(resolve => {
+new MyPromise((resolve) => {
   setTimeout(() => {
     resolve(1);
   }, 2000);
 })
-  .then(res1 => {
+  .then((res1) => {
     console.log(res1);
     return 2;
   })
-  .then(res2 => console.log(res2));
+  .then((res2) => console.log(res2));
 ```
 
 ## 如何设计 Promise.all()
@@ -193,14 +193,14 @@ function isPromise(obj) {
   );
 }
 
-const myPromiseAll = arr => {
+const myPromiseAll = (arr) => {
   let result = [];
   return new Promise((resolve, reject) => {
     for (let i = 0; i < arr.length; i++) {
       // 不是promise对象，就直接返回
       if (isPromise(arr[i])) {
         // 如果正确就把结果存到数组中，失败直接返回
-        arr[i].then(data => {
+        arr[i].then((data) => {
           // 成功的情况
           result[i] = data;
           if (result.length === arr.length) {
@@ -241,10 +241,10 @@ let p5 = new Promise((resolve, reject) => {
 });
 
 myPromiseAll([p1, p2, p3, p4, p5]).then(
-  values => {
+  (values) => {
     console.log(values);
   },
-  reason => {
+  (reason) => {
     console.log(reason); // reject
   },
 );

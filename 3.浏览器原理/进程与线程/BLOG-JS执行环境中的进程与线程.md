@@ -115,7 +115,3 @@ Browser 进程接收到结果，**并将结果绘制出来**。
 Webkit 将 render tree 中的元素称为 **render object （或 renderer）**，每一个 render object 都代表一个的矩形区域，通常对应于相关节点的 CSS 框，这些矩形的排列顺序就是它们在屏幕上显示的顺序。
 
 Render object 和 DOM 节点是相对应的，但并非一一对应。**非可视化的 DOM 元素不会插入 render tree 中**，例如“head”元素 和 一些 display: none 的节点就没必要放在 render tree 中了。
-
-## node 的模型｜ node 中的进程与线程
-
-查`blog/7.Node与服务端开发/node进程间通信/BLOG-node多进程及进程间通信.md`

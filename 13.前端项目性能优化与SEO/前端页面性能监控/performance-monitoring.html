@@ -1,0 +1,29 @@
+<!-- Performance monitoring -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Performance monitoring</title>
+  </head>
+  <body>
+    <script>
+      window.onload = () => {
+        console.log('performance: ', performance);
+        let timing = performance.timing;
+        let propsArr = [];
+        for (let key in timing) {
+          propsArr.push({ key: key, value: timing[key] });
+        }
+        propsArr.sort((a, b) => a.value - b.value);
+        console.log(
+          '这里打印当前timing对象的属性，如果为0，则使用的是缓存，或者未经过这个过程：',
+          timing,
+        );
+        propsArr.forEach((item) => {
+          console.log('##: ', item.key, '---', item.value);
+        });
+      };
+    </script>
+  </body>
+</html>

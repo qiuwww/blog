@@ -7,6 +7,13 @@
     <title>响应式图像</title>
   </head>
   <body>
+    <h2>
+      使用srcset并不是一个很好的方法，可以尝试使用<a
+        href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/picture"
+        >picture标签</a
+      >
+      。
+    </h2>
     <h3>一半的图片引入</h3>
     <img src="./imgs/1.jpg" />
 
@@ -14,20 +21,12 @@
       像素密度的选择：srcset属性，srcset属性用来指定多张图像，适应不同像素密度的屏幕。它的值是一个逗号分隔的字符串，每个部分都是一张图像的
       URL，后面接一个空格，然后是像素密度的描述符。
     </h3>
-    <img
-      srcset="./imgs/1.jpg, ./imgs/2.jpg 1.5x, ./imgs/3.jpg 2x"
-      src="./imgs/1.jpg"
-    />
+    <img srcset="./imgs/1.jpg, ./imgs/2.jpg 1.5x, ./imgs/3.jpg 2x" src="./imgs/1.jpg" />
 
     <h3>搭配sizes属性实现，自适应宽度</h3>
 
     <img
-      srcset="
-        ./imgs/1.jpg  160w,
-        ./imgs/2.jpg  320w,
-        ./imgs/3.jpg  640w,
-        ./imgs/4.gif 1280w
-      "
+      srcset="./imgs/1.jpg 160w, ./imgs/2.jpg 320w, ./imgs/3.jpg 640w, ./imgs/4.gif 1280w"
       sizes="(max-width: 440px) 100vw,
             (max-width: 900px) 33vw,
             254px"

@@ -4,6 +4,9 @@
 
 `chsh -s /bin/zsh`
 
+切换 bash（需要 sudo）`chsh -s /bin/bash`
+切换 zsh（不需要 sudo）`chsh -s /bin/zsh`
+
 ## 快捷键
 
 - 选中即复制，不需要再`command+c`了；

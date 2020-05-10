@@ -15,7 +15,7 @@ apply 是使用数组作为参数。
 
 `fun.apply(thisArg, [argsArray])`
 
-apply() **方法调用一个具有给定 this 值的函数**，以及作为一个数组（或类似数组对象）提供的参数。
+apply() **方法调用一个具有给定 this 值的函数**，以及作为一个**数组（或类似数组对象）**提供的参数。
 
 ```js
 // func.apply(thisArg, [argsArray])
@@ -29,7 +29,7 @@ console.log(min);
 // expected output: 2
 ```
 
-## call，与 apply 的调用方式略有差异，相当于执行了 bind
+## call，与 apply 的调用参数略有差异
 
 `fun.call(thisArg, [, arg1[, arg2[, ...]]])`
 
@@ -56,7 +56,7 @@ var arr = [5, 6, 2, 3, 7];
 Math.max.call(null, ...arr);
 ```
 
-## bind，返回一个函数，函数的上下文是给定的参数，参数是一个数组
+## bind，返回一个函数，函数的上下文是给定的参数，参数是一个散列值，参数与 call 一致
 
 `function.bind(thisArg[, arg1[, arg2[, ...]]])`
 
@@ -78,6 +78,9 @@ console.log(unboundGetX()); // The function gets invoked at the global scope
 var boundGetX = unboundGetX.bind(module);
 console.log(boundGetX());
 // expected output: 42
+
+// 创建一个函数，它拥有预设的第一个参数
+var addThirtySeven = addArguments.bind(null, 37);
 ```
 
 ### bind 函数的实现原理，使用 apply 实现 bind

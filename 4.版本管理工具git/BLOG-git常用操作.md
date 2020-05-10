@@ -98,7 +98,7 @@ categories:
 - git log，可以按键盘空格/字母 b 键将信息向下/向上翻页，也可以按键盘向上/向下箭头向上/向下按行滚动
 - git log –p 输出每一个 commit 之间的差异信息
 - git log --stat 输出每一个 commit 之间的差异统计信息
-- git log--oneline 输出历史 commit 的简短信息
+- git log --oneline 输出历史 commit 的简短信息
 
 ### 查看文件变动，在拉取文件之后，或者本地修改 [git-diff](https://git-scm.com/docs/git-diff)
 
@@ -431,6 +431,14 @@ vim # 编辑保存
 ## git cherry-pick
 
 `git cherry-pick <commit ID>` // 拣选一次提交应用于当前 HEAD
+
+### [git 将某分支的某次提交合并到另一分支](https://blog.csdn.net/I_recluse/article/details/93619400)
+
+这就需要用到 git cherry-pick 命令。
+
+1. 首先，切换到 develop 分支，敲 git log 命令，**查找需要合并的 commit 记录**，比如 commitID：7fcb3defff；
+2. 然后，**切换到 master 分支，使用 git cherry-pick 7fcb3defff 命令**，就把该条 commit 记录合并到了 master 分支，这只是在本地合并到了 master 分支；
+3. 最后，**git push 提交到 master 远程**，至此，就把 develop 分支的这条 commit 所涉及的更改合并到了 master 分支。
 
 ## 标准操作
 
