@@ -1050,8 +1050,6 @@ func.bind(that)(arg1, arg2);
 
 ### 字符串的方法 - 拼接, 截取, 带些正
 
-### 数组去重问的挺多的(解法很多, ES6 有很多简短写法
-
 ### ES6 的 Promise , 很多都会问. 如果公司用框架或者你写了, 还会问你 Class
 
 ### var, let, const 区别, 问的多
@@ -2463,55 +2461,6 @@ EventUtil.on(nav, 'click', function (event) {
 });
 ```
 
-### 有一个大数组,var a = ['1', '2', '3', ...];a 的长度是 100,内容填充随机整数的字符串.请先构造此数组 a,然后设计一个算法将其内容去重
-
-```
-    /**
-    * 数组去重
-    **/
-    function normalize(arr) {
-        if (arr && Array.isArray(arr)) {
-            var i, len, map = {};
-            for (i = arr.length; i >= 0; --i) {
-                if (arr[i] in map) {
-                    arr.splice(i, 1);
-                } else {
-                    map[arr[i]] = true;
-                }
-            }
-        }
-        return arr;
-    }
-
-    /**
-    * 用100个随机整数对应的字符串填充数组。
-    **/
-    function fillArray(arr, start, end) {
-        start = start == undefined ? 1 : start;
-        end = end == undefined ?  100 : end;
-
-        if (end <= start) {
-            end = start + 100;
-        }
-
-        var width = end - start;
-        var i;
-        for (i = 100; i >= 1; --i) {
-            arr.push('' + (Math.floor(Math.random() * width) + start));
-        }
-        return arr;
-    }
-
-    var input = [];
-    fillArray(input, 1, 100);
-    input.sort(function (a, b) {
-        return a - b;
-    });
-    console.log(input);
-
-    normalize(input);
-    console.log(input);
-```
 
 10，写出 3 个使用 this 的典型应用
 

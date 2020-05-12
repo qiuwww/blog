@@ -1,0 +1,14 @@
+{
+  "name": "TypeScript-learn",
+  "version": "1.0.0",
+  "description": "ts learn",
+  "main": "index.js",
+  "repository": "https://github.com/moonbreezee/TypeScript-learn.git",
+  "author": "qiuweiwei <qiuww@eazytec.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "^8.5.4",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.7.2"
+  }
+}

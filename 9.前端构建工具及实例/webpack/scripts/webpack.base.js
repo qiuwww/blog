@@ -30,6 +30,7 @@ module.exports = {
   // 多入口文件
   entry: {
     index: path.resolve(SRC, 'javascripts/index.js'),
+    es6: path.resolve(SRC, 'javascripts/es6.js'),
     main: path.resolve(SRC, 'javascripts/main.js'),
     test: path.resolve(SRC, 'javascripts/test.ts'),
     vendor: ['babel-polyfill'],

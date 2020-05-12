@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "cross-env year=2019 webpack-dev-server --config scripts/webpack.dev.js",
     "build": "webpack --config scripts/webpack.prod.js",
-    "dev0": "webpack-dev-server --mode development ./src/utils/utils.js --output ./dist/js/main.js --module-bind js=babel-loader",
-    "build0": "webpack --mode production ./src/utils/utils.js --output ./dist/js/main.js --module-bind js=babel-loader"
+    "dev0": "webpack-dev-server --mode development ./src/utils/utils.js --output ./dist/js/utils.js --module-bind js=babel-loader",
+    "build0": "webpack --mode production ./src/utils/utils.js --output ./dist/js/utils.js --module-bind js=babel-loader"
   },
   "keywords": [],
   "author": "",

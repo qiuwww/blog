@@ -12,37 +12,38 @@ const prodConfig = merge(base, {
   mode: 'production',
   optimization: {
     // 压缩js，打包的时候去掉console.log 与 debugger
-    minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: {
-          // 缓存，并行，提高打包速度
-          cache: true,
-          parallel: true,
-          warnings: false,
-          ie8: false,
-          compress: true,
-          output: {
-            comments: false,
-          },
-        }
-      })
-    ]
+    // minimizer: [
+    //   new UglifyJsPlugin({
+    //     uglifyOptions: {
+    //       // 缓存，并行，提高打包速度
+    //       cache: true,
+    //       parallel: true,
+    //       warnings: false,
+    //       ie8: false,
+    //       compress: true,
+    //       output: {
+    //         comments: false,
+    //       },
+    //     }
+    //   })
+    // ]
   },
   plugins: [
     // 打包前清理源目录文件
-    new CleanWebpackPlugin(
-      'dist', {
-        root: path.resolve(__dirname, '../'),
-        verbose: true,
-        dry: false
-      }),
+    new CleanWebpackPlugin('dist', {
+      root: path.resolve(__dirname, '../'),
+      verbose: true,
+      dry: false,
+    }),
     // src下其他的文件直接复制到dist目录下
-    new CopyWebpackPlugin([{
-      from: 'src/assets/favicon.ico',
-      to: 'favicon.ico'
-    }]),
-    new OptimizeCssAssetsPlugin()
-  ]
+    new CopyWebpackPlugin([
+      {
+        from: 'src/assets/favicon.ico',
+        to: 'favicon.ico',
+      },
+    ]),
+    new OptimizeCssAssetsPlugin(),
+  ],
 });
-console.log("prodConfig:", prodConfig);
+console.log('prodConfig:', prodConfig);
 module.exports = prodConfig;

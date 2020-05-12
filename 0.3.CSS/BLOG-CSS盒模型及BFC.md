@@ -16,7 +16,7 @@ comments: true
 
 ## 对 CSS 盒模型的认识 ｜ chrome 标准盒模型和 IE 盒子模型
 
-1. **盒子模型**: 描述与相邻元素及自身的位置与大小关系的方法。主要包括：margin、border、padding、width/height。
+1. **盒子模型**: **描述与相邻元素及自身的位置与大小关系的方法**。主要包括：margin、border、padding、width/height。
 2. 盒子模型通常有两种：
    1. **标准盒子模型**，如 chrome 的(content-box)：在标准盒模型中，width 和 height **指的是内容区域的宽度和高度**（content-box）。增加内边距、边框和外边距不会影响内容区域的尺寸，但是会增加元素框的总尺寸。
    2. **怪异盒模型**，如`IE`盒子模型(border-box)：ie 盒子模型的 content 部分**包含了** border 和 pading，这个还是比较常用的，width 和 height 指的是**内容区域**+border+padding 的宽度和高度。

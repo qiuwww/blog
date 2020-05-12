@@ -111,12 +111,31 @@ for (var i = 0; i < 10; ++i) {
     console.log(i);
   }, 0);
 }
-// 依次输出
+// 方案1. 使用自执行函数，保存当前的i
 for (var i = 0; i < 10; ++i) {
   (function (i) {
     setTimeout(function () {
       console.log(i);
     }, 0);
   })(i);
+}
+// 方案2. 使用let，形成闭包，这样i变量只能在for循环内使用
+for (let i = 0; i < 6; i++) {
+  setTimeout(function () {
+    console.log(i);
+  }, 1000 * i);
+}
+
+// 方案3. 受用setTimeout的更多参数
+// setTimeout(code, milliseconds, param1, param2, ...)
+// setTimeout(function, milliseconds, param1, param2, ...)
+for (var i = 0; i < 6; i++) {
+  setTimeout(
+    function (i) {
+      console.log(i); //位置1
+    },
+    1000 * i,
+    i,
+  );
 }
 ```

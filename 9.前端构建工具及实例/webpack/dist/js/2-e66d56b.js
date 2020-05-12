@@ -1,0 +1,2 @@
+/*! ******hello world****** */
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2,8],{104:function(n,o,e){},109:function(n,o,e){"use strict";Object.defineProperty(o,"__esModule",{value:!0}),e(104);var t=function(){function n(n){this.age=20,this.name=n}return n.prototype.run=function(){console.log(this.name+"在运动")},n.prototype.work=function(){console.log(this.name+"在工作")},n.print=function(){console.log("print方法"+n.sex)},n.sex="男",n}(),i=new t("张三");console.log("p611: ",i),i.run(),t.print(),console.log(t.sex)}}]);

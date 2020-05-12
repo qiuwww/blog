@@ -46,13 +46,13 @@
         height: 60px;
         background: green;
         /*这里的原理就在于让元素自动计算margin，最终结果上下，左右都分别相等，所以可以居中*/
-        margin: auto;
         position: absolute;
         left: 0;
         /*如果不设置长宽，元素就会平铺到父元素的空间上*/
         right: 0;
         top: 0;
         bottom: 0;
+        margin: auto;
         /*border:1px solid red;*/
       }
 
@@ -77,7 +77,7 @@
       }
 
       /*第三种方法*/
-      /* 定位+transform */
+      /*通过margin+transform，并不能实现居中，因为margin以父元素的宽作为基准的 */
       .wrap_3 {
         position: relative;
         background: yellow;
@@ -135,7 +135,6 @@
       }
 
       /*第五种方法*/
-
       .wrap_5 {
         background: yellow;
         width: 200px;
@@ -161,6 +160,7 @@
 
       .wrap_6 .center {
         background: green;
+
         position: absolute;
         width: 80px;
         height: 50px;

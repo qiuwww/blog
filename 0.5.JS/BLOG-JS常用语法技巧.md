@@ -8,14 +8,6 @@ categories:
   - [JS, 常用语法技巧]
 ---
 
-## 数组去重
-
-```js
-const array = [1, 1, 2, 3, 5, 5, 1];
-const uniqueArray = [...new Set(array)];
-console.log(uniqueArray); // Result: [1, 2, 3, 5]
-```
-
 ## 短路求值
 
 ### &&
