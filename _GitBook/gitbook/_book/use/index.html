@@ -1,0 +1,342 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>使用 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="qiu">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../deploy/" />
+    
+    
+    <link rel="prev" href="../introduction/文件功能介绍.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/moonbreezee/gitbook" target="_blank" class="custom-link">项目地址</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">一、基本使用(章节)</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../install/">
+            
+                <a href="../install/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/文件功能介绍.html">
+            
+                <a href="../introduction/文件功能介绍.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    子章节
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../deploy/">
+            
+                <a href="../deploy/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    发布
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">扩展</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../expand/">
+            
+                <a href="../expand/">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    book.json文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >使用</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4F7F;&#x7528;">&#x4F7F;&#x7528;</h1>
+<h2 id="gitbook-init">gitbook init</h2>
+<p>&#x8BE5;&#x547D;&#x4EE4;&#x4F1A;&#x751F;&#x6210;READM.md&#x548C;SUMMARY.md&#x4E24;&#x4E2A;&#x6587;&#x4EF6;</p>
+<pre><code class="lang-markdown">READM.md    &#x4E66;&#x7C4D;&#x7684;&#x4ECB;&#x7ECD;
+SUMMARY.md  &#x4E66;&#x7C4D;&#x6982;&#x8981;&#x6587;&#x4EF6; &#x5F62;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;
+  * [<span class="hljs-string">&#x524D;&#x8A00;</span>](<span class="hljs-link">README.md</span>)
+  * [<span class="hljs-string">&#x5B89;&#x88C5;</span>](<span class="hljs-link">install/README.md</span>)
+  * [<span class="hljs-string">&#x4F7F;&#x7528;</span>](<span class="hljs-link">use/README.md</span>)
+  * [<span class="hljs-string">&#x53D1;&#x5E03;</span>](<span class="hljs-link">deploy/README.md</span>) 
+  * [<span class="hljs-string">book.json&#x6587;&#x4EF6;</span>](<span class="hljs-link">expand/README.md</span>)
+</code></pre>
+<p>&#x5982;&#x679C;SUMMARY.md&#x5DF2;&#x7F16;&#x8F91;&#x597D;&#xFF0C;&#x6267;&#x884C; <code>gitbook init</code> &#x4F1A;&#x751F;&#x6210;&#x5BF9;&#x5E94;&#x6587;&#x4EF6;&#x5939;&#x548C;.md&#x6587;&#x4EF6;
+&#x6CE8;&#xFF1A;&#x8BE5;&#x65B9;&#x6CD5;&#x53EA;&#x652F;&#x6301;&#x5230;&#x4E8C;&#x7EA7;&#xFF0C;&#x5982;&#x591A;&#x7EA7;&#xFF0C;&#x9700;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x5939;</p>
+<h2 id="gitbook-build">gitbook build</h2>
+<p>&#x8BE5;&#x547D;&#x4EE4;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;_book&#x6587;&#x4EF6;&#x5939;,&#x91CC;&#x9762;&#x662F;&#x7F16;&#x8BD1;&#x597D;html&#x6587;&#x4EF6;&#xFF0C;&#x4E00;&#x822C;github pages&#x6258;&#x7BA1;&#x8FD9;&#x91CC;&#x9762;&#x6587;&#x4EF6;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x9759;&#x6001;&#x535A;&#x5BA2;&#x4E86;</p>
+<h2 id="gitbook-serve">gitbook serve</h2>
+<p>&#x8BE5;&#x547D;&#x4EE4;&#x4F1A;&#x542F;&#x52A8;&#x670D;&#x52A1;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;localhost:4000&#x5373;&#x53EF;&#x67E5;&#x770B;</p>
+<h2 id="&#x66F4;&#x65B0;">&#x66F4;&#x65B0;</h2>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../introduction/文件功能介绍.html" class="navigation navigation-prev " aria-label="Previous page: 子章节">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../deploy/" class="navigation navigation-next " aria-label="Next page: 发布">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"使用","level":"1.3","depth":1,"next":{"title":"发布","level":"1.4","depth":1,"path":"deploy/README.md","ref":"deploy/README.md","articles":[]},"previous":{"title":"子章节","level":"1.2.1","depth":2,"path":"introduction/文件功能介绍.md","ref":"introduction/文件功能介绍.md","articles":[]},"dir":"ltr"},"config":{"_comment":"所有的配置都以JSON格式存储在名为 book.json 的文件中。","plugins":["livereload"],"styles":{"website":"website.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"qiu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GitBook","links":{"sidebar":{"项目地址":"https://github.com/moonbreezee/gitbook"}},"gitbook":"3.2.3","description":"记录 GitBook 的配置和一些插件的使用"},"file":{"path":"use/README.md","mtime":"2019-01-21T07:01:59.693Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-21T07:04:07.146Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

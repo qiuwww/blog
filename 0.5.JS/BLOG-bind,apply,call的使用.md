@@ -8,8 +8,10 @@ tags:
   - call
 ---
 
-bind 与 call 的参数类型是一样的，都是散列值。
-apply 是使用数组作为参数。
+[TOC]
+
+1. bind 与 call 的参数类型是一样的，都是**散列值(...arr)**。
+2. apply 是**使用数组([args])**作为参数。
 
 ## apply，改变函数的作用域，使用数组传递参数
 
@@ -20,38 +22,54 @@ apply() **方法调用一个具有给定 this 值的函数**，以及作为一�
 ```js
 // func.apply(thisArg, [argsArray])
 // thisArg: 在 fun 函数运行时指定的 this 值。
-var numbers = [5, 6, 2, 3, 7];
-var max = Math.max.apply(null, numbers);
-console.log(max);
-// expected output: 7
-var min = Math.min.apply(null, numbers);
-console.log(min);
-// expected output: 2
-```
-
-## call，与 apply 的调用参数略有差异
-
-`fun.call(thisArg, [, arg1[, arg2[, ...]]])`
-
-call() 方法使用一个指定的 this 值和**单独给出的一个或多个参数来调用一个函数**。
-
-该方法的语法和作用与 apply() 方法类似，只有一个区别，就是 **call() 方法接受的是一个参数列表**，而 **apply() 方法接受的是一个包含多个参数的数组**。
-
-```js
-// fun.call(thisArg, arg1, arg2, ...);
-// thisArg: 在 fun 函数运行时指定的 this 值。
+// 1. 同时修改参数和上下文
 function Product(name, price) {
   this.name = name;
   this.price = price;
 }
 
 function Food(name, price) {
+  // 同时修改参数和上下文
+  Product.apply(this, [name, price]);
+  this.category = 'food';
+}
+
+console.log(new Food('cheese', 5).name);
+// expected output: "cheese"
+
+// 2. 只修改参数
+var arr = [5, 6, 2, 3, 7];
+Math.max.apply(null, arr);
+// expected output: 7
+```
+
+## call，与 apply 的调用参数略有差异
+
+`fun.call(thisArg, [, arg1[, arg2[, ...]]])`
+
+`call()` 方法使用一个指定的 this 值和**单独给出的一个或多个参数来调用一个函数**。
+
+该方法的语法和作用与 apply() 方法类似，只有一个区别，就是 **call() 方法接受的是一个参数列表**，而 **apply() 方法接受的是一个包含多个参数的数组**。
+
+```js
+// fun.call(thisArg, arg1, arg2, ...);
+// thisArg: 在 fun 函数运行时指定的 this 值。
+// 1. 同时修改参数和上下文
+function Product(name, price) {
+  this.name = name;
+  this.price = price;
+}
+
+function Food(name, price) {
+  // 同时修改参数和上下文
   Product.call(this, name, price);
   this.category = 'food';
 }
 
 console.log(new Food('cheese', 5).name);
 // expected output: "cheese"
+
+// 2. 只修改参数
 var arr = [5, 6, 2, 3, 7];
 Math.max.call(null, ...arr);
 ```
@@ -62,25 +80,83 @@ Math.max.call(null, ...arr);
 
 [bind](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)()方法**创建一个新的函数**，在调用时设置 this 关键字为提供的值。并在调用新函数时，将给定参数列表作为原函数的参数序列的前若干项。
 
+应用一般有如下几种形式：
+
+1. 函数柯里化--给函数添加预设参数，这个时候，context 一般是 null，不会去调用 this；
+2. 修改上下文环境，也就是修改 bind 的 this 指向；
+3. 同时修改 this 和参数列表；
+
 ```js
 // function.bind(thisArg[, arg1[, arg2[, ...]]])
-var module = {
-  x: 42,
+// 1. 函数柯里化
+function add(a, b) {
+  return a + b;
+}
+
+var addThirtySeven = add.bind(null, 37);
+var addThirtySix = add.bind(null, 36);
+
+console.log('addThirtySeven: ', addThirtySeven(10), addThirtySeven(100));
+console.log('addThirtySix: ', addThirtySix(10), addThirtySix(100));
+```
+
+```js
+// function.bind(thisArg[, arg1[, arg2[, ...]]])
+// 2. 修改上下文环境
+this.x = 1; // 在浏览器中，this 指向全局的 "window" 对象
+
+var context = {
+  x: 2,
   getX: function () {
     return this.x;
   },
 };
 
-var unboundGetX = module.getX;
-console.log(unboundGetX()); // The function gets invoked at the global scope
-// expected output: undefined
+var context2 = {
+  x: 3,
+};
 
-var boundGetX = unboundGetX.bind(module);
-console.log(boundGetX());
-// expected output: 42
+// 1、当前对象直接调用
+console.log('##context.getX(): ', context.getX());
+// 返回 2
 
-// 创建一个函数，它拥有预设的第一个参数
-var addThirtySeven = addArguments.bind(null, 37);
+// 2、切换调用者
+var retrieveX = context.getX;
+// 这个时候，函数调用者是window，所以返回1
+console.log('##etrieveX(): ', retrieveX());
+// 返回 1 - 因为函数是在全局作用域中调用的
+
+// 3、绑定到一个新的对象上，但是通过this获取，所以不需要第二个参数
+var changeContext2 = context.getX.bind(context2);
+console.log('##changeContext2(): ', changeContext2());
+// 返回 3 修改了上下文
+
+// 4、如果要函数的执行环境不因函数所处的上下文改变，可以把当前函数绑定到当前对象
+// 创建一个新函数，把 'this' 绑定到 context 对象
+// 新手可能会将全局变量 x 与 context 的属性 x 混淆
+var boundGetX = retrieveX.bind(context);
+console.log('##boundGetX(): ', boundGetX());
+// 返回 2
+```
+
+```js
+// function.bind(thisArg[, arg1[, arg2[, ...]]])
+// 3. 同时修改this和参数列表
+function add(a, b) {
+  return a + b + this.c || 0;
+}
+
+var context = {
+  c: 2,
+};
+var context2 = {
+  c: 20,
+};
+var addThirtySeven = add.bind(context, 37);
+var addThirtySix = add.bind(context2, 36);
+
+console.log('addThirtySeven: ', addThirtySeven(10), addThirtySeven(100));
+console.log('addThirtySix: ', addThirtySix(10), addThirtySix(100));
 ```
 
 ### bind 函数的实现原理，使用 apply 实现 bind
@@ -141,21 +217,28 @@ var result = newAdd(3);
 // 2. 自定义函数实现，简单实现
 // 绑定函数到对象上
 Function.prototype.bind2 = function () {
-  console.log('arguments1', arguments);
+  // 这里bind的参数有三部分
+  // 1. 当前的函数this
+  // 2. 上下文arguments[0]
+  // 3. 后续的参数，bind的参数是一个散列值
   var self = this;
   var context = arguments[0];
+  var args1 = [].slice.call(arguments, 1);
   // 这里是绑定的时候传递的参数
   return function () {
-    console.log(context, arguments);
-    // 这里的arguments，指向当前函数的调用
-    return self.apply(context, arguments);
+    var args2 = [].slice.call(arguments);
+    return self.apply(context, args1.concat(args2));
   };
 };
-var add = function (args) {
+var add = function () {
   console.log('arguments, this:', arguments, this);
   return this.a;
 };
-var newAdd = add.bind2({ a: 1 });
+// add -> self
+// { a: 1 } -> context
+// 2 -> args1
+var newAdd = add.bind2({ a: 1 }, 2);
+// 3 -> args2
 newAdd(3);
 ```
 
@@ -170,30 +253,3 @@ apply、call，这里只是改变了函数执行的上下文环境，参数的�
 apply 和 call 的区别是 call 方法接受的是**若干个参数列表**，而 apply **接收的是一个包含多个参数的数组**。
 
 bind() 方法**创建一个新的函数**，在 bind() 被调用时，这个**新函数的 this 被指定为 bind() 的第一个参数**，而其余参数将作为新函数的参数，供调用时使用。
-
-```js
-this.x = 9; // 在浏览器中，this 指向全局的 "window" 对象
-var module = {
-  x: 81,
-  getX: function () {
-    return this.x;
-  },
-};
-
-module.getX(); // 81
-
-var retrieveX = module.getX;
-retrieveX();
-// 返回 9 - 因为函数是在全局作用域中调用的
-
-// 创建一个新函数，把 'this' 绑定到 module 对象
-// 新手可能会将全局变量 x 与 module 的属性 x 混淆
-var boundGetX = retrieveX.bind(module);
-boundGetX(); // 81
-
-function list() {
-  return Array.prototype.slice.call(arguments);
-}
-// 创建一个函数，它拥有预设参数列表。
-var leadingThirtysevenList = list.bind(null, 37);
-```

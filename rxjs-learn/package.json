@@ -1,0 +1,25 @@
+{
+  "name": "rxjs-learn",
+  "version": "1.0.0",
+  "description": "rxjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moonbreezee/rxjs-learn.git"
+  },
+  "keywords": [
+    "rxjs"
+  ],
+  "author": "qiu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moonbreezee/rxjs-learn/issues"
+  },
+  "homepage": "https://github.com/moonbreezee/rxjs-learn#readme",
+  "dependencies": {
+    "rxjs": "^6.3.3"
+  }
+}

@@ -7,7 +7,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 console.log(process.env.year);
 
 const devConfig = merge(base, {
-  mode: 'development',
+  // mode: 'development',
   devtool: 'inline-source-map',
   plugins: [
     new BundleAnalyzerPlugin(),

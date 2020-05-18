@@ -4,6 +4,9 @@ layout: post
 date: 2019-12-2
 tags:
   - JavaScript
+  - 宏任务
+  - 微任务
+  - 事件循环
 comments: true
 descript: 单线程&事件循环Event Loop
 ---
@@ -134,6 +137,14 @@ while (queue.waitForMessage()) {
   4. MutationObserver 记住就行了
 
 - **UI rendering**，需要在微任务之后执行。requestAnimationFrame 也属于这里，**也就是 requestAnimationFrame（重绘之前） 需要在微任务之后执行**。
+
+### 各部分的执行顺序
+
+1. 同步代码；
+2. 当前同步代码延伸出的微任务；
+3. requestAnimationFrame()；
+4. render()；
+5. 下一次事件循环 -> 宏任务队列拿出一个，开始执行下一次循环；
 
 ### 实例，request，异步请求数据
 

@@ -19,7 +19,7 @@ const readFolder = (folderPath, excludes = excludesList) => {
   // 读取文件夹中的文件夹或者文件
   const paths = readdirSync(folderPath);
   // console.log('paths', folderPath, paths);
-  paths.forEach(function(path) {
+  paths.forEach(function (path) {
     if (excludes.includes(path)) {
       return;
     }

@@ -142,49 +142,64 @@ console.log(obj);
 
 这里有个规律，如果只改写 valueOf() 或是 toString() 其中一个，**会优先调用被改写了的方法**，而如果两个同时改写，则会像 Number 类型转换规则一样，优先查询 valueOf() 方法，在 valueOf() 方法返回的是非原始类型的情况下再查询 toString() 方法。
 
-1.简化版，只能传递一个参数的形式：
+这里要实现两个类型的计算:
+
+1. `add(1)(2)(3)`，单个参数多级；
+2. `add(1, 2)(2, 4)(3)`，多参数
+
+具体实现：
+
+1. **函数柯里化应用**，对于有**多个参数的函数**，减少为只有单个参数的函数，本质上是一个闭包
 
 ```js
-// add(1)传入参数 返回 tmp 函数 重写 toString 方法进行计算返回.
-// add(1)(2) 2 的参数传递给 y 进行 1+2 的计算 然后重新返回 tmp 函数
-// 以此类推 最后结果为 10
-function add(x) {
+function add(...arg1) {
   // 中间变量，保存返回结果
-  var sum = x;
-  // 迭代函数
-  var tmp = function (y) {
-    sum = sum + y;
+  console.log('outer', arg1);
+  let sum = func(0, arg1);
+  // 中间过程一直返回这个参数，通过闭包缓存当前的运算结果sum
+  let tmp = function (...arg2) {
+    console.log('inner', arg2);
+    sum = func(sum, arg2);
     return tmp;
   };
   // 这里是将一个函数类型的toString改写，所以返回的结果会表明是function
   tmp.toString = function () {
     return sum;
   };
+  // 用于累加数组参数
+  function func(init, args) {
+    return args.reduce((pre, cur) => pre + cur, init);
+  }
+
   return tmp;
 }
-add(1)(2)(3)(4);
+console.log(add(1)(2)(3)(4));
+console.log(add(1, 2)(3)(4, 6));
 ```
 
-2.完整版本：
+2. **修改函数的执行上下文**，apply 与 bind 的使用，合并参数，最后计算一次
 
 ```js
+// 这里每次仍旧返回一个add的绑定当前函数的结果
+// args1就是前面结果的参数
+// args2是当次传入的参数
 function add() {
-  // console.log('进入add');
   // 第一次循环的结果
-  var args1 = Array.prototype.slice.call(arguments); // 获取参数
-  // 迭代函数
-  var fn = function () {
+  const args1 = [].slice.call(arguments); // 获取参数
+  console.log('args1，累加的参数:', args1);
+  // fn只做一个中间函数，继续调用就使用add继续处理
+  // 使用值的话，就调用toString返回所有的参数结果
+  const fn = function () {
     // 后续的参数
-    var args2 = Array.prototype.slice.call(arguments); // 获取参数
-    // console.log('调用fn');
-    // 这里是累加参数，最终计算的时候 args1 => [1, 2, 3, 4,...]
+    const args2 = [].slice.call(arguments); // 获取参数
+    console.log('args2:', args2);
+    // 这里还是返回add绑定当前的值，开始新一次的循环
     return add.apply(null, args1.concat(args2)); // 合并参数
   };
-
   // 最后不调用函数了，就认为是结束了，返回真实值
   // 这里没有使用到闭包，中间状态都存在了args1上
   fn.toString = function () {
-    // console.log('调用valueOf');
+    console.log('调用toString');
     return args1.reduce(function (a, b) {
       // 参数求和
       return a + b;
@@ -192,23 +207,10 @@ function add() {
   };
   return fn;
 }
-// 并没有调用呀？
-// 这里需要操作返回的结果，比如使用console.log输出
-console.log(add(1)(2)); // 3
-console.log(add(1, 2, 3)(10)); // 16
-console.log(+add(1)(2)(3)(4)(5)); // 15
+console.log(add(1)(2)(3));
+console.log(add(1, 2, 3)(10)(4, 5, 6)(4, 2)); // 37
 
-console.log(+add(1)(2)(3));
-// 输出如下：
-// 进入add
-// 调用fn
-// 进入add
-// 调用fn
-// 进入add
-// 调用valueOf
-// 6
-
-// 只有最后一次调用才真正调用到 valueOf，而之前的操作都是合并参数，递归调用本身，由于最后一次调用返回的是一个 fn 函数，所以最终调用了函数的 fn.valueOf，并且利用了 reduce 方法对所有参数求和。
+// 只有最后一次调用才真正调用到 toString，而之前的操作都是合并参数，递归调用本身，由于最后一次调用返回的是一个 fn 函数，所以最终调用了函数的 fn.valueOf，并且利用了 reduce 方法对所有参数求和。
 ```
 
 ### 2.隐式类型转换

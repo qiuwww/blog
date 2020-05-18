@@ -9,8 +9,9 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 // src下其他的文件直接复制到dist目录下
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const prodConfig = merge(base, {
-  mode: 'production',
-  optimization: {
+  // mode: 'production',
+  devtool: 'eval-source-map',
+  // optimization: {
     // 压缩js，打包的时候去掉console.log 与 debugger
     // minimizer: [
     //   new UglifyJsPlugin({
@@ -27,7 +28,7 @@ const prodConfig = merge(base, {
     //     }
     //   })
     // ]
-  },
+  // },
   plugins: [
     // 打包前清理源目录文件
     new CleanWebpackPlugin('dist', {
@@ -42,7 +43,7 @@ const prodConfig = merge(base, {
         to: 'favicon.ico',
       },
     ]),
-    new OptimizeCssAssetsPlugin(),
+    // new OptimizeCssAssetsPlugin(),
   ],
 });
 console.log('prodConfig:', prodConfig);
