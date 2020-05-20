@@ -1,9 +1,6 @@
 ---
-# layout: post
 title: CSS盒模型及BFC
 date: 2015-2-13
-# updated:
-# photos:
 tags:
   - CSS
   - 盒模型
@@ -11,7 +8,10 @@ tags:
 categories:
   - [CSS, 盒模型]
   - [CSS, BFC]
+top: 5
 ---
+
+[TOC]
 
 ## 对 CSS 盒模型的认识 ｜ chrome 标准盒模型和 IE 盒子模型
 

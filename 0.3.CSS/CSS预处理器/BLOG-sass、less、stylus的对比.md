@@ -1,8 +1,18 @@
-# sass/less/stylus 的对比.md
+---
+title: sass/less/stylus 的对比
+tags:
+  - 预处理器
+  - sass
+  - less
+  - stylus
+  - CSS
+categories:
+  - [CSS, 预处理器]
+---
 
-[CSS 预处理器的对比](https://cloud.tencent.com/developer/article/1092653)
+[TOC]
 
-## 各自的特点
+## 预处理器各自的特点
 
 ### stylus
 
@@ -93,3 +103,7 @@ desaturate(color, 10%); /* 返回的颜色在'color'基础上饱和度降低10% 
 8、个人还是倾向于 Stylus，如果你以前使用了 Less 或 Sass 会很快的迁移到 Stylus 上来,教程比较少，推荐一个：[stylus 文档](http://www.zhangxinxu.com/jq/stylus/)
 9、Bootstrap4.0 已结弃用了 less 改用 Sass 了。
 最后，你自己使用哪一种，不应该根据国内对哪一种使用的人多来做出发参考，而是哪种更适合自己的团队。
+
+## 参考文献
+
+1. [CSS 预处理器的对比](https://cloud.tencent.com/developer/article/1092653)

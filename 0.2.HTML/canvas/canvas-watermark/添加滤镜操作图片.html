@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
+    <title>添加滤镜操作图片</title>
   </head>
 
   <body>
@@ -29,24 +29,24 @@ Your browser does not support the HTML5 canvas tag.
       // }
     </script>
 
-    <div style="margin: 20px auto; width:1700px;">
+    <div style="margin: 20px auto; width: 1700px;">
       <canvas
         id="canvasa"
         width="800"
         height="560"
-        style="display:block;float:left;border:1px solid #aaa;"
+        style="display: block; float: left; border: 1px solid #aaa;"
       >
       </canvas>
       <canvas
         id="canvasb"
         width="800"
         height="560"
-        style="display:block;float:right;border:1px solid #aaa;"
+        style="display: block; float: right; border: 1px solid #aaa;"
       >
       </canvas>
     </div>
-    <div style="clear: both"></div>
-    <div style="text-align: center; margin-top:50px;font-size:20px;">
+    <div style="clear: both;"></div>
+    <div style="text-align: center; margin-top: 50px; font-size: 20px;">
       <a href="javascript:greyEffect()">Grey Effect</a>
       <a href="javascript:blackEffect()">Black and White Effect</a>
       <a href="javascript:reverseEffect()">Reverse Effect</a>
@@ -76,7 +76,7 @@ Your browser does not support the HTML5 canvas tag.
           }
           var reader = new FileReader();
           reader.readAsDataURL(file);
-          reader.onload = function(e) {
+          reader.onload = function (e) {
             //确保加载完成
             console.log(this);
             document.getElementById('base64').setAttribute('src', this.result);
@@ -86,7 +86,7 @@ Your browser does not support the HTML5 canvas tag.
             // 给图片对象添加src的值
             // image.src = document.getElementById("base64").getAttribute("src");
             image.src = this.result;
-            image.onload = function() {
+            image.onload = function () {
               //图片生成之后执行函数，在canvas画布上绘制图片
               contexta.drawImage(image, 0, 0, canvasa.width, canvasa.height);
             };

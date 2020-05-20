@@ -1,16 +1,11 @@
 ---
-# layout: post
 title: CSS
 date: 2019-2-13
-# updated: 2013-7-13 20:46:29
-# photos:
 tags:
   - CSS
   - CSS基础概念
-# categories:
-# - 编程
 categories:
-  - [CSS, CSS基础]
+  - [CSS]
 ---
 
 [TOC]
@@ -452,10 +447,10 @@ border-collapse。
 
   var target = document.getElementById('target');
   if (target.attachEvent) {
-    target.attachEvent('onmouseenter', function() {
+    target.attachEvent('onmouseenter', function () {
       addClass(target, 'hover');
     });
-    target.attachEvent('onmouseleave', function() {
+    target.attachEvent('onmouseleave', function () {
       removeClass(target, 'hover');
     });
   }

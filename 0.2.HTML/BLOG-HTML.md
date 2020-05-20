@@ -3,9 +3,8 @@ title: HTML
 date: 2019-1-29
 tags:
   - HTML
-  - HTML基础概念
 categories:
-  - [HTML, HTML基础概念]
+  - [HTML]
 ---
 
 [TOC]
@@ -43,7 +42,7 @@ categories:
 6. **XHTML 1.0 Frameset**:允许使用表现性、废弃元素以及 frameset，文档必须是结构良好的 XML 文档。声明：`<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">`
 7. **HTML 5**: `<!doctype html>`
 
-### 行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
+### 行内元素有哪些？块级元素有哪些？ 空(void)元素有那些
 
 - 行内元素有：`a b span img input select strong`（强调的语气）
 - 块级元素有：`div ul ol li dl dt dd h1 h2 h3 h4…p`
@@ -71,7 +70,7 @@ link 属于 html 标签，随着 html 页面解析，会直接去下载解析。
 - `Presto`内核：`Opera7`及以上。[`Opera`内核原为：Presto，现为：`Blink`;]
 - `Webkit`内核：`Safari,Chrome`等。[ `Chrome`的`Blink`（`WebKit`的分支）]
 
-### html5 有哪些新特性、移除了那些元素？如何处理 HTML5 新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？
+### html5 有哪些新特性、移除了那些元素？如何处理 HTML5 新标签的浏览器兼容问题？如何区分 HTML 和 HTML5
 
 - HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加
   - 绘画 canvas
@@ -100,7 +99,7 @@ link 属于 html 标签，随着 html 页面解析，会直接去下载解析。
 
 - 如何区分 HTML5： DOCTYPE 声明\新增的结构元素\功能元素
 
-### HTML5 的离线储存怎么使用，工作原理能不能解释一下？
+### HTML5 的离线储存怎么使用，工作原理能不能解释一下
 
 - 在用户没有与因特网连接时，可以**正常访问站点或应用**，在用户与因特网连接时，更新用户机器上的缓存文件。
 - **原理**：HTML5 的离线存储是基于一个新建的.appcache 文件的**缓存机制**(不是存储技术)，通过这个文件上的解析清单离线存储资源，这些资源就会像 cookie 一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
+    <title>canvas做动图</title>
   </head>
 
   <body>
@@ -25,7 +25,7 @@
         _y,
         _t = 1 / 100; //控制摆动速度
 
-      var anim = function() {
+      var anim = function () {
         $.globalCompositeOperation = 'source-over'; //默认，在目标图像上显示源图像
         $.fillStyle = 'hsla(0, 0%, 0%, .75)'; //填充颜色
         $.fillRect(0, 0, w, h); //绘制“已填色”的矩形
@@ -62,7 +62,7 @@
       //监听，当浏览器宽度和高度改变时，改变 Canvas 的宽度和高度
       window.addEventListener(
         'resize',
-        function() {
+        function () {
           c.width = w = window.innerWidth;
           c.height = h = window.innerHeight;
         },

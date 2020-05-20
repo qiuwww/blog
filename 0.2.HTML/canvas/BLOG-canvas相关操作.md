@@ -1,10 +1,16 @@
 ---
 title: canvas相关操作
-date: 2019-12-02
+date: 2019-12-2
 tags:
-  - JavaScript
+  - JS
+  - HTML
   - canvas
+categories:
+  - [JS, canvas]
+  - [HTML, canvas]
 ---
+
+[TOC]
 
 ## 使用 canvas 对图片进行像素级处理
 

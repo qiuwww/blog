@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
+    <title>计算canvas文本宽度方法measureText</title>
   </head>
 
   <body>
@@ -25,10 +25,10 @@
       var ctx = c.getContext('2d');
       ctx.font = '30px Arial';
       var txt = 'Hello World, hello World';
-      window.onload = function() {
+      window.onload = function () {
         document.querySelector('#select').addEventListener(
           'change',
-          function(e) {
+          function (e) {
             let target = e.currentTarget;
             let value = target.value;
             let canvasWidth = document.querySelector('#myCanvas').clientWidth;

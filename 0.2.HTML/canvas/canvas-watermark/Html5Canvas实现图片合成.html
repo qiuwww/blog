@@ -23,16 +23,15 @@
       type="button"
       value="一键合成"
       onClick="draw()"
-      style="display:block;width: 60px; margin: 0 auto;"
+      style="display: block; width: 60px; margin: 0 auto;"
     />
+    需要图片可以转base64，需要起服务
     <div id="imgBox" align="center"></div>
     <script>
       function draw(fn) {
         var data1 = new Array();
         for (var i = 0; i < $('.img_photo img').length; i++) {
-          data1[i] = $('.img_photo img')
-            .eq(i)
-            .attr('src');
+          data1[i] = $('.img_photo img').eq(i).attr('src');
         }
         var c = document.createElement('canvas'),
           ctx = c.getContext('2d'),
@@ -47,7 +46,7 @@
             var img = new Image();
             img.crossOrigin = 'Anonymous'; //解决跨域
             img.src = data1[n];
-            img.onload = function() {
+            img.onload = function () {
               ctx.drawImage(img, n * 100, 0, 490, 490);
               drawing(n + 1); //递归
             };

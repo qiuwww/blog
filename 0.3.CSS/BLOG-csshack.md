@@ -1,15 +1,14 @@
 ---
-# layout: post
-title: CSS hack
+title: csshack
 date: 2019-2-13
-# updated: 2013-7-13 20:46:29
-# photos:
 tags:
   - CSS
-  - CSS hack
+  - csshack
 categories:
-  - [CSS, CSS hack]
+  - [CSS, csshack]
 ---
+
+[TOC]
 
 ## CSS hack 原理
 
@@ -17,7 +16,11 @@ categories:
 
 ## CSS hack 分类
 
-CSS Hack 大致有 3 种表现形式，CSS**属性前缀法**、**选择器前缀法**以及**IE 条件注释法**（即 HTML 头部引用 if IE）Hack，实际项目中 CSS Hack 大部分是针对 IE 浏览器不同版本之间的表现差异而引入的。
+CSS Hack 大致有 3 种表现形式，
+
+1. CSS**属性前缀法**、
+2. **选择器前缀法**以及
+3. **IE 条件注释法**（即 HTML **头部引用 if IE**）Hack，实际项目中 CSS Hack 大部分是针对 IE 浏览器不同版本之间的表现差异而引入的。
 
 ### 属性前缀法(即类内部 Hack)
 
@@ -25,7 +28,7 @@ CSS Hack 大致有 3 种表现形式，CSS**属性前缀法**、**选择器前�
 IE7 能识别星号" * "，但不能识别下划线"_"，
 IE6~IE10 都认识"\9"，但 firefox 前述三个都不能认识。
 
-### 选择器前缀法(即选择器 Hack)：
+### 选择器前缀法(即选择器 Hack)
 
 例如 IE6 能识别*html .class{}，
 IE7 能识别*+html .class{}或者\*:first-child+html .class{}。
@@ -82,8 +85,8 @@ CSS hack 书写顺序，一般是将适用范围广、**被识别能力强的 CS
 
 目前最常见的是：
 
-- *html *前缀只对 IE6 生效
-- _+html _+前缀只对 IE7 生效
+- `*html*`前缀只对 IE6 生效
+- `_+html _+`前缀只对 IE7 生效
 - @media screen\9{...}只对 IE6/7 生效
 - @media \0screen {body { background: red; }}只对 IE8 有效
 - @media \0screen\,screen\9{body { background: blue; }}只对 IE6/7/8 有效
@@ -100,14 +103,14 @@ JavaScript 代码:
 
 ```js
 var htmlObj = document.documentElement;
-htmlObj.setAttribute("data-useragent", navigator.userAgent);
-htmlObj.setAttribute("data-platform", navigator.platform);
+htmlObj.setAttribute('data-useragent', navigator.userAgent);
+htmlObj.setAttribute('data-platform', navigator.platform);
 ```
 
 CSS3 匹配代码：
 
 ```css
-html[data-useragent*="MSIE 10.0"] #id {
+html[data-useragent*='MSIE 10.0'] #id {
   color: #f00;
 }
 ```
@@ -156,7 +159,11 @@ html:first-child > b\ody Selector {
 解决方案如下：
 
 ```css
-a,button,input{-webkit-tap-highlight-color:rgba(255,0,0,0);}
+a,
+button,
+input {
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
 /* 1.去除 android a/button/input 标签被点击时产生的边框
 2.去除 ios a 标签被点击时产生的半透明灰色背景 */
 
@@ -164,8 +171,10 @@ a,button,input{-webkit-tap-highlight-color:rgba(255,0,0,0);}
 
 /* 在 CSS3 的兼容中，相信大家对使用 media 的兼容并不陌生，我之前也提到过很多次，那么今天使用的 hack 也是跟它离不开的，代码如下： */
 
-@media all and (-webkit-transform-3d){
+@media all and (-webkit-transform-3d) {
   /* /_ Android4.0 下不识别该-webkit-transform-3d，使用它可做 Android4.0 下版本兼容 _/ */
-  .css{...}
+  .css {
+    ...;
+  }
 }
 ```

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: HTML页面meta标签
 date: 2019-1-28
 tags:
@@ -62,7 +61,7 @@ categories:
 
 如果你想统一 iOS 和 Android 平台定义 Web app 名称的方式，可以使用 title 标签来定义。
 
-### 电话号码识别自动识别。
+### 电话号码识别自动识别
 
 关闭的方法：`<meta name="format-detection" content="telephone=no" />`
 

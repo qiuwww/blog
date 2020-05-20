@@ -1,147 +1,145 @@
 <!DOCTYPE html>
 <html lang="en" style="font-size: 16px;">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <style lang="text/css">
-    body>div {
-      border: 1px solid blueviolet;
-      margin-bottom: 20px;
-    }
-
-    /* 定义动画帧 */
-    @keyframes bouncing-loader {
-
-      /* 0% */
-      from {
-        opacity: 1;
-        transform: translateY(0);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>30-Seconds-of-CSS</title>
+    <style lang="text/css">
+      body>div {
+        border: 1px solid blueviolet;
+        margin-bottom: 20px;
       }
 
-      40% {
-        opacity: 0.1;
-        transform: translateY(3rem);
+      /* 定义动画帧 */
+      @keyframes bouncing-loader {
+
+        /* 0% */
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        40% {
+          opacity: 0.1;
+          transform: translateY(3rem);
+        }
+
+        60% {
+          opacity: 0.9;
+          transform: translateY(-3rem);
+        }
+
+        /* 100% */
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
-      60% {
-        opacity: 0.9;
-        transform: translateY(-3rem);
+      .bouncing-loader {
+        display: flex;
+        justify-content: center;
       }
 
-      /* 100% */
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      .bouncing-loader>div {
+        width: 1rem;
+        height: 1rem;
+        margin: 3rem 0.2rem;
+        background: #8385aa;
+        border-radius: 50%;
+        /* animation: name duration timing-function(规定动画的速度曲线。) delay iteration-count(动画执行的次数 n|| infinite) direction(属性定义是否应该轮流反向播放动画。); */
+        animation: bouncing-loader 2s infinite alternate;
       }
-    }
 
-    .bouncing-loader {
-      display: flex;
-      justify-content: center;
-    }
+      .bouncing-loader>div:nth-child(2) {
+        animation-delay: 0.5s;
+      }
 
-    .bouncing-loader>div {
-      width: 1rem;
-      height: 1rem;
-      margin: 3rem 0.2rem;
-      background: #8385aa;
-      border-radius: 50%;
-      /* animation: name duration timing-function(规定动画的速度曲线。) delay iteration-count(动画执行的次数 n|| infinite) direction(属性定义是否应该轮流反向播放动画。); */
-      animation: bouncing-loader 2s infinite alternate;
-    }
+      .bouncing-loader>div:nth-child(3) {
+        animation-delay: 1s;
+      }
 
-    .bouncing-loader>div:nth-child(2) {
-      animation-delay: 0.5s;
-    }
+      .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
 
-    .bouncing-loader>div:nth-child(3) {
-      animation-delay: 1s;
-    }
+      .floated {
+        float: left;
+      }
 
-    .clearfix::after {
-      content: '';
-      display: block;
-      clear: both;
-    }
+      /* 使用css来添加标号 */
+      ul.counter {
+        counter-reset: counter;
+      }
 
-    .floated {
-      float: left;
-    }
+      ul.counter li::before {
+        counter-increment: counter;
+        content: counters(counter, '#') ' ';
+      }
 
-    /* 使用css来添加标号 */
-    ul.counter {
-      counter-reset: counter;
-    }
+      a:after {
+        content: " ("attr(href) ")";
+      }
 
-    ul.counter li::before {
-      counter-increment: counter;
-      content: counters(counter, '#') ' ';
-    }
+      :root {
+        /* Place variables within here to use the variables globally. */
+        background-color: aquamarine;
+      }
+      /* css变量 */
+      /* 直接引用的变量 */
+      .custom-variables {
+        --some-color: #da7800;
+        --some-keyword: italic;
+        --some-size: 1.25em;
+        --some-complex-value: 1px 1px 2px whitesmoke, 0 0 1em slategray, 0 0 0.2em slategray;
+        color: var(--some-color);
+        font-size: var(--some-size);
+        font-style: var(--some-keyword);
+        text-shadow: var(--some-complex-value);
+      }
+    </style>
+  </head>
 
-    a:after {
-      content: " ("attr(href) ")";
-    }
+  <body>
+    <div class="bouncing-loader">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="clearfix">
+      <div class="floated">float a</div>
+      <div class="floated">float b</div>
+      <div class="floated">float c</div>
+    </div>
+    <ul class="counter">
+      <li>List item</li>
+      <li>List item</li>
+      <li>
+        List item
+        <ul>
+          <li>List item</li>
+          <li>List item</li>
+          <li>List item</li>
+        </ul>
+      </li>
+      <li>List item</li>
+      <li>
+        List item
+        <ul>
+          <li>List item</li>
+          <li>List item</li>
+          <li>List item</li>
+        </ul>
+      </li>
+    </ul>
+    <a href="http://www.runoob.com">菜鸟教程</a>
 
-    :root {
-      /* Place variables within here to use the variables globally. */
-      background-color: aquamarine;
-    }
-    /* css变量 */
-    /* 直接引用的变量 */
-    .custom-variables {
-      --some-color: #da7800;
-      --some-keyword: italic;
-      --some-size: 1.25em;
-      --some-complex-value: 1px 1px 2px whitesmoke, 0 0 1em slategray, 0 0 0.2em slategray;
-      color: var(--some-color);
-      font-size: var(--some-size);
-      font-style: var(--some-keyword);
-      text-shadow: var(--some-complex-value);
-    }
-
-  </style>
-</head>
-
-<body>
-  <div class="bouncing-loader">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <div class="clearfix">
-    <div class="floated">float a</div>
-    <div class="floated">float b</div>
-    <div class="floated">float c</div>
-  </div>
-  <ul class="counter">
-    <li>List item</li>
-    <li>List item</li>
-    <li>
-      List item
-      <ul>
-        <li>List item</li>
-        <li>List item</li>
-        <li>List item</li>
-      </ul>
-    </li>
-    <li>List item</li>
-    <li>
-      List item
-      <ul>
-        <li>List item</li>
-        <li>List item</li>
-        <li>List item</li>
-      </ul>
-    </li>
-  </ul>
-  <a href="http://www.runoob.com">菜鸟教程</a>
-
-  <p class="custom-variables">CSS is awesome!
-    <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_variables">CSS变量</a>
-  </p>
-</body>
-
+    <p class="custom-variables">
+      CSS is awesome!
+      <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_variables">CSS变量</a>
+    </p>
+  </body>
 </html>

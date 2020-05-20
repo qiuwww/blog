@@ -1,17 +1,20 @@
 ---
-# layout: post
 title: 开发中常见的长度单位
 date: 2019-2-13
-# updated: 2013-7-13 20:46:29
-# photos:
 tags:
   - CSS
-  - rem,em,px,dpi
+  - rem
+  - em
+  - px
+  - dpi
+  - 长度单位
 categories:
   - [CSS, 长度单位]
 ---
 
 [TOC]
+
+## 开发中常见的长度单位
 
 - Px，ppi
 - dot，dpi
@@ -20,7 +23,7 @@ categories:
 
 ## px：像素（pixel）
 
-1. 像素实际上是一个**颜色点**，所以又称**像素点**。大量不同颜色点组成一张图像，因此图像的基本单位是像素 px（没有比像素更精细的单位了）。
+1. 像素实际上是一个**颜色点**，所以又称**像素点**。大量不同颜色点组成一张图像，因此图像的**基本单位是像素 px**（没有比像素更精细的单位了）。
 2. 像素主要用来**表示图像大小和显示器分辨率**（如`1920*1080px`）。**像素本身的物理尺寸不固定**，所以它的物理尺寸没有意义，有意义的是它的数量。
 3. 为什么像素的物理尺寸不固定？
    像素本身不是物理世界的单位，是一个**相对单位**，尺寸可大可小。**在高密度的屏幕上像素会变小，显示效果更清晰。因为“像素量 px = 像素密度 ppi x 屏幕尺寸 in”，**同样是 1 英寸的屏幕，密度越大，像素越多，则单个像素的物理尺寸越小。
@@ -37,7 +40,7 @@ categories:
 
 ## dot：墨点
 
-印刷品的最小单位，表示一个印刷颜色点，类似 px，只有相对大小，用在印刷行业。
+**印刷品的最小单位**，表示一个印刷颜色点，类似 px，只有相对大小，用在印刷行业。
 
 ## dpi：打印分辨率 (dot per inch)
 
@@ -87,7 +90,7 @@ iOS 系统开发单位，是独立像素的意思，长度固定，不随屏幕�
 
 遇到问题多思考一会，或许就会有更好的解决方案。
 
-1、rem 是（font size of the root element），官方解释：
+1、rem 是（**font size of the root element**），官方解释：
 
 > rem unit
 > Equal to the computed value of "font-size" on the root element. When specified > on the "font-size" property of the root element.the "rem" unites refer to the > property's inital value.
@@ -152,7 +155,7 @@ vh，是指 CSS 中相对长度单位，表示相对视口高度（Viewport Heig
 
 ### 对于在一个设置中一直不会变的样式
 
-> 既然不会改变，呢就给定一个有特殊意义的 class 命名空间，将这一块的样式写死。
+既然不会改变，呢就给定一个有特殊意义的 class 命名空间，将这一块的样式写死。
 
 ### 对于大体相同，但是局部不一样的样式
 

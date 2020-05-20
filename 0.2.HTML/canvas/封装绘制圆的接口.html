@@ -8,10 +8,10 @@
   <body>
     <canvas id="myCanvas" width="600" height="600"></canvas>
     <script type="text/javascript">
-      window.onload = function() {
+      window.onload = function () {
         var canvasTools = {
           ctx: null,
-          init: function(canvas) {
+          init: function (canvas) {
             if (canvas.getContext) {
               this.ctx = canvas.getContext('2d');
             } else {
@@ -19,7 +19,7 @@
             }
             return this;
           },
-          addShape: function(type, attrs = {}) {
+          addShape: function (type, attrs = {}) {
             const {
               x,
               y,
@@ -31,13 +31,13 @@
             } = attrs;
             const ctx = this.ctx;
             if (type === 'circle') {
-              //开始一个新的绘制路径
+              // 开始一个新的绘制路径
               ctx.beginPath();
-              //设置弧线的颜色为蓝色
+              // 设置弧线的颜色为蓝色
               ctx.strokeStyle = strokeStyle;
               // context.arc(x,y,r,sAngle,eAngle,counterclockwise);
               ctx.arc(x, y, r, sAngle, eAngle);
-              //按照指定的路径绘制弧线
+              // 按照指定的路径绘制弧线
               ctx.stroke();
             }
           },

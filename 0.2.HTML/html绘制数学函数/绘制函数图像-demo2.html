@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>tanx</title>
+  </head>
+
+  <body>
+    <canvas id="canvas" width="1000" height="1000"></canvas>
+    <script>
+      function Graph(element, option) {
+        var self = this;
+        this.element = typeof element == 'string' ? document.getElementById(element) : element;
+        if (this.element.tagName.toLowerCase() !== 'canvas') {
+          throw new TypeError('element isn`t canvas');
+        }
+        if (!option || typeof option !== 'object') {
+          option = {};
+        }
+        this.context = this.element.getContext('2d');
+        this.style = {
+          width: self.element.width,
+          height: self.element.height,
+        };
+        this.style.centerX = parseInt(self.style.width) / 2;
+        this.style.centerY = parseInt(self.style.height) / 2;
+        this.style.centerX = !option.center
+          ? this.style.centerX
+          : option.center[0] == 'auto'
+          ? this.style.centerX
+          : option.center[0];
+        this.style.centerY = !option.center
+          ? this.style.centerY
+          : option.center[1]
+          ? option.center[1] == 'auto'
+            ? this.style.centerY
+            : option.center[1]
+          : this.style.centerY; // 图像拓展尺寸
+        this.ratioX = option.ratioX || 20;
+        this.ratioY = option.ratioY || 100; // 轴到画布边框的距离
+        this.marginX = option.marginX || 30;
+        this.marginY = option.marginY || 30;
+        this.axisStyle = option.axisStyle;
+        this.drawStyle = option.drawStyle || 'red';
+        this.startX = -10;
+        this.endX = 10;
+        this.acce = Math.PI / 60;
+        this.axis();
+      }
+      Graph.prototype = {
+        axis: function () {
+          var ct = this.context,
+            style = this.style;
+
+          ct.beginPath();
+          ct.moveTo(30, style.centerY);
+          ct.lineTo(style.width - 30, style.centerY);
+          ct.moveTo(style.centerX, 30);
+          ct.lineTo(style.centerX, style.height - 30);
+          ct.stroke();
+          ct.save();
+        },
+        /**
+         * 绘制函数图像
+         * @param {Object} easing
+         */
+        draw: function (easing) {
+          var y = this.ratioY,
+            ratioX = this.ratioX,
+            x = this.startX,
+            s = this.acce,
+            end = this.endX,
+            ct = this.context,
+            style = this.style,
+            axisX = style.centerX,
+            axisY = style.centerY,
+            val = null,
+            strokeStyle = ct.strokeStyle;
+
+          ct.strokeStyle = this.drawStyle;
+          ct.beginPath();
+
+          for (var i = x; i < end; i += s) {
+            if (x == i - s) {
+              ct.moveTo(axisX + ratioX * i, axisY + Math.floor(y * val));
+              continue;
+            }
+            val = -easing(i);
+            ct.lineTo(axisX + ratioX * i, axisY + Math.floor(y * val));
+          }
+          ct.stroke();
+          ct.strokeStyle = strokeStyle;
+        },
+      };
+      // 然后这么调用:
+      var grap = new Graph('canvas', {}); // 传入一个函数,这个函数可以接收一个参数 x 是 x 的值,返回 y的值
+
+      // 定义函数
+      function func(x) {
+        return 1 / x;
+      }
+      function func2(x) {
+        return 10 * Math.pow(Math.E, -1 / x) * Math.sin(2 * x);
+      }
+      function func3(x) {
+        return Math.sin(Math.tan(x));
+      }
+      function func4(x) {
+        return x;
+      }
+      grap.draw(Math.tan);
+    </script>
+  </body>
+</html>

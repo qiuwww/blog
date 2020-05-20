@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>html2canvas example</title>
+    <title>html2canvas导出图片并合并图层</title>
     <script type="text/javascript" src="js/html2canvas.js"></script>
   </head>
 
@@ -35,7 +35,7 @@
 
     function download() {
       html2canvas(document.getElementById('view'), {
-        onrendered: function(canvas) {
+        onrendered: function (canvas) {
           // document.body.appendChild(canvas);
           var dataUrl = canvas.toDataURL();
           // console.log(dataUrl)
@@ -43,7 +43,7 @@
           newImg.src = dataUrl;
           // document.body.appendChild(newImg);
 
-          newImg.onload = function() {
+          newImg.onload = function () {
             draw2img(newImg);
           };
         },
@@ -57,7 +57,7 @@
      * @param  {String} data     要保存到本地的图片数据
      * @param  {String} filename 文件名
      */
-    var saveFile = function(data, filename) {
+    var saveFile = function (data, filename) {
       var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
       save_link.href = data;
       save_link.download = filename;
@@ -85,13 +85,16 @@
   </script>
 
   <body>
-    <div id="view" style=" width: 1000px; height: 300px; border:1px solid blue; position:relative;">
+    <div
+      id="view"
+      style="width: 1000px; height: 300px; border: 1px solid blue; position: relative;"
+    >
       <!-- chrome 需要在服务器端才能截出来图片 -->
       <p>
         “三个代表”
         <img
           src="imgs/4.jpg"
-          style="height:10%;width:10%; position:absoute;"
+          style="height: 10%; width: 10%; position: absoute;"
         />重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。
         中国共产党要始终代表中国先进生产力的发展要求 中国共产党要始终代表中国先进文化的前进方向
         中国共产党要始终代表中国最广大人民的根本利益[1]
@@ -99,17 +102,17 @@
       </p>
       <div
         id="online"
-        style="width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
+        style="width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
       >
         中国共产党要始终代表中国先进生产力的发展要求
       </div>
     </div>
 
-    <input type="button" value="下载" onclick="download()" />
+    <input type="button" value="合成显示" onclick="download()" />
   </body>
 
   <script type="text/javascript">
-    $(function() {
+    $(function () {
       var $div = $('#online');
       var html = $div.html();
       html = html.length > 5 ? html.substring(0, 5) + '...' : html;
