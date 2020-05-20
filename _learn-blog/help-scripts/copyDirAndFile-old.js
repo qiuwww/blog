@@ -78,13 +78,3 @@ function filterFileAndCopy(_dist, _src) {
 }
 
 copyDirAndFile('../../blog', './source/_posts', () => {});
-
-// 复制整个blog下的.md文件，然后修改文件名，分类，之后进行gd发布。
-
-// 这里应该还要允许添加自定义的文件路径
-// 单独写一个方法，复制这个文件
-
-// 文件的时间命名
-
-
-// 这里应该还需要执行删除文件的指令

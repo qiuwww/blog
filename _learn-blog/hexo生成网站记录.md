@@ -159,7 +159,7 @@ comments: true
 
 ![debounce_throttle](./imgs/debounce_throttle.png)
 ->
-![debounce_throttle](/imgs/blog-debounce_throttle-1.png)，这样就可以把 imgs 放在统计目录了。
+![debounce_throttle](/imgs/blog_js-debounce_throttle-1.png)，这样就可以把 imgs 放在统计目录了。
 
 在复制 md 文件的时候，过滤`](./imgs`，修改这里的地址，然后复制图片到`source/imgs`下边。
 
