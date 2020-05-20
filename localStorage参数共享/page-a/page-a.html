@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>page-a</title>
+  </head>
+  <body>
+    <h2>Status</h2>
+    <p></p>
+    <a href="http://localhost:3002/index.html">去index_b查看结果</a>
+    <script>
+      window.onload = function () {
+        //在页面加载完成后主页面向iframe发送请求
+        // window.frames[0].postMessage('jogging, reading and writing', 'http://www.test2.com');
+        localStorage.setItem('page-a', 'id');
+
+        // 主页面监听message事件,
+        // window.addEventListener(
+        //   'message',
+        //   function (e) {
+        //     var data = e.data;
+        //     document.querySelector('p').innerHTML = data;
+        //   },
+        //   false,
+        // );
+      };
+    </script>
+    <script src="http://localhost:3010/inner.js"></script>
+  </body>
+</html>

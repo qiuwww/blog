@@ -9,7 +9,6 @@ tags:
   - rem,em,px,dpi
 categories:
   - [CSS, 长度单位]
-comments: true
 ---
 
 [TOC]

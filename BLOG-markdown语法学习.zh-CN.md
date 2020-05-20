@@ -1,12 +1,11 @@
 ---
-title: typora 语法学习
+title: markdown 语法学习
 date: 2017-2-2
 tags:
   - markdown
   - 语法学习
 categories:
   - markdown
-  - [Tools, PHP]
 ---
 
 ## 目录
@@ -349,6 +348,7 @@ tags:
 categories:
   - [Linux, Hexo]
   - [Tools, PHP]
+# 默认为true
 comments: true
 # 参数越大，越靠前
 top: 1

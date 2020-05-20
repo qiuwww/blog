@@ -6,7 +6,6 @@ tags:
   - 堆叠上下文
 categories:
   - [CSS, 堆叠上下文]
-comments: true
 ---
 
 ## 从 position: fiexed;失效开始谈起

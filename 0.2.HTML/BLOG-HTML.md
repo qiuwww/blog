@@ -6,7 +6,6 @@ tags:
   - HTML基础概念
 categories:
   - [HTML, HTML基础概念]
-comments: true
 ---
 
 [TOC]

@@ -24,7 +24,7 @@ categories:
 ### Promise 的特点
 
 1. 状态改变**只受异步操作的结果影响**，不受外界影响；
-2. **状态一旦改变就不能再变**，要么 Fullfilled，要么 Rejected，这里只能关注到当前一步，then 方法会返回一个**新的 promise 对象**；
+2. **状态一旦改变就不能再变**，要么 Fullfilled，要么 Rejected，这里只能关注到当前一步，then 方法会返回一个**新的 promise 对象，从新开始从 pending 到凝聚状态**；
 3. 缺点：
    1. 不能中断 promise，无法取消；
    2. 如果不设置回调，内部错误不能反应到外部；
@@ -113,6 +113,11 @@ console.log('promise5: ', promise5);
 6. `resolve`: 将状态更改为`resolved`，**并触发绑定的所有成功的回调函数**；
 7. `reject`: 将状态更改为`rejected`，并触发绑定的所有失败的回调函数；
 8. `when`: 参数是多个异步或者延迟函数，返回值是一个 Promise 兑现，当所有函数都执行成功的时候执行该对象的`resolve`方法，反之执行该对象的`reject`方法
+
+如下的模拟是很有问题的：
+
+1. 这里只是模拟了函数的执行接口，对于 promise.then 定义的微任务，执行的顺序不对；
+2. 对于 promise 的每一个 then 定义的回调处理也是不太对的，原本 then 应该重新从 pending 转到凝聚态；
 
 ```js
 // 极简版Promise 满足的使用方式
@@ -337,3 +342,43 @@ myPromiseAll([p1, p2, p3, p4, p5]).then(
   },
 );
 ```
+
+## Promise 不是简单的事件订阅与发布
+
+```js
+const EventEmitter = require('events');
+console.log(1);
+
+const myEmitter = new EventEmitter();
+myEmitter.on('event', () => {
+  console.log('触发事件');
+});
+
+var p1 = new Promise((res, rej) => {
+  console.log('promise 1');
+  res(1);
+  console.log('promise 2');
+});
+
+console.log(2);
+myEmitter.emit('event');
+
+p1.then((res) => {
+  console.log('promise 3');
+});
+myEmitter.emit('event');
+
+console.log(3);
+```
+
+### 这里就要问了 promise 的微任务到底是什么
+
+1. 微任务主要包括：
+   1. **Promise.then**
+   2. Object.observe
+   3. MutaionObserver
+   4. **process.nextTick**(Node.js 环境)
+2. promise 是 v8 自带，直接调用底层。
+3. setTimeout 是浏览器/node 环境或者 j2v8 等环境自己封装的 api，性能上不如 promise。
+4. 机场也有 vip 通道，任务分优先级是很正常的。
+5. microtask,**可以理解是在当前 task 执行结束后立即执行的任务**。也就是说，在当前 task 任务后，下一个 task 之前，在渲染之前。

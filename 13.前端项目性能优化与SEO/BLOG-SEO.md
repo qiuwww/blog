@@ -5,7 +5,6 @@ tags:
   - SEO
 categories:
   - [SEO]
-comments: true
 ---
 
 ## 前端需要注意哪些 SEO

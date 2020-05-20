@@ -7,8 +7,8 @@ tags:
   - 宏任务
   - 微任务
   - 事件循环
-comments: true
-descript: 单线程&事件循环Event Loop
+categoties:
+  - [JavaScript, 事件循环]
 ---
 
 [TOC]

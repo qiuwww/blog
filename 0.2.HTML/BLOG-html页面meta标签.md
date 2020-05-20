@@ -7,7 +7,6 @@ tags:
   - meta标签
 categories:
   - [HTML, meta标签]
-comments: true
 ---
 
 [TOC]

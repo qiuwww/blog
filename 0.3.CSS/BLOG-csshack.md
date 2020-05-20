@@ -9,7 +9,6 @@ tags:
   - CSS hack
 categories:
   - [CSS, CSS hack]
-comments: true
 ---
 
 ## CSS hack 原理

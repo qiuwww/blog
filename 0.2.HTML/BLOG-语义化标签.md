@@ -8,7 +8,6 @@ tags:
   - 语义化标签
 categories:
   - [HTML, 语义化标签]
-comments: true
 ---
 
 - HTML 标签的语义化是指：通过使用包含语义的标签（如 h1-h6）**恰当地表示文档结构**

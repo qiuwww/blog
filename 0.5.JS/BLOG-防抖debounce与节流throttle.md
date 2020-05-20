@@ -13,7 +13,7 @@ top: 1
 
 [TOC]
 
-![debounce_throttle](./imgs/debounce_throttle.png)
+![debounce_throttle](./imgs/防抖debounce_节流throttle.png)
 
 [查看效果](https://wall-wxk.github.io/blogDemo/2017/02/15/throttleAndDebounce.html)
 

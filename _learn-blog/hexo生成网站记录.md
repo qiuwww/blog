@@ -7,7 +7,9 @@
 - 其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；
 - 另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。
 
-## 初始化
+## hexo 操作
+
+### 初始化
 
 ```bash
 hexo init hexo-website
@@ -22,7 +24,7 @@ hexo build
 ## 搬运源文件，并且打包
 
 ```bash
-cd /Users/qiuww/code/learn/blog/hexo-blog
+cd /Users/qiuww/code/learn/blog/_learn-blog
 
 # 检索learn目录下的BLOG-项目，并且移动到source/_posts下，分类
 node ./help-scripts/copy-blog.js
@@ -52,6 +54,15 @@ cd ./hexo-website && yarn build
 |   └── _posts // 需要发布的文章
 └── themes // 主题 文件夹。Hexo 会根据主题来生成静态页面。
 ```
+
+### 项目目录介绍
+
+1. help-scripts：操作脚本；
+2. hexo-website：网站生成目录：
+   1. learn-blog：生成的网站目录，直接上传 oss；
+   2. learn-blog/imgs：是复制的项目中用到的 img 图片；
+   3. source：源文件；
+   4. `source/_posts`：复制过来的源代码；
 
 ### [\_config.yml](https://hexo.io/zh-cn/docs/configuration)
 
@@ -84,12 +95,12 @@ draft source/\_drafts
 ## 原始访问地址
 
 ```js
-http://moonbreezee.github.io/ -> https://blog.qiuww.site/
+http://moonbreezee.github.io/ -> https://learn-blog.qiuww.site/
 ```
 
 ## 如何让解决重复发的时候的文件覆盖问题，以及评论功能
 
-每次**不要 clean**，覆盖发布
+每次**不要 clean**，覆盖发布。
 
 ## hexo 的文档配置选项
 
@@ -101,7 +112,7 @@ http://moonbreezee.github.io/ -> https://blog.qiuww.site/
 # title  标题  文章的文件名
 # date  建立日期  文件建立日期
 # updated  更新日期  文件更新日期
-# comments  开启文章的评论功能  true
+# comments  开启文章的评论功能  默认为true
 # tags  标签（不适用于分页）
 # categories  分类（不适用于分页）
 # permalink  覆盖文章网址
@@ -139,6 +150,8 @@ comments: true
 [next 主题](http://theme-next.iissnan.com/getting-started.html)
 
 ## 添加评论功能
+
+已添加。
 
 ## 处理引用的图片不能显示的问题
 

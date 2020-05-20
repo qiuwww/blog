@@ -9,6 +9,8 @@ categories:
   - [JS, toString]
 ---
 
+[TOC]
+
 ## Object.prototype.valueOf()，返回对象的原始值
 
 1. 用 MDN 的话来说，[valueOf](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf)() 方法返回指定对象的**原始值**。
@@ -241,18 +243,18 @@ if (a == 1 && a == 2 && a == 3) {
 // Hello World!
 ```
 
-### 4.![]==[] // true，引用类型肯定不相等啊
+### 4.![]==[]; 返回 true，引用类型肯定不相等啊
 
 1. 引用类型，在堆内从中指向的位置不一样就不相同；
 2. 计算步骤，先计算![]，结果为 false；（对象[]默认转换为 true，取反就是 false）
    []对象需要默认转换，调用 toString 方法得到的是“”结果就是 false == “”，结果为真
 3. ![] === [] // 返回的结果是 false
 
-### 5.['x','y'] == 'x,y' // true，默认调用了 toString 方法
+### 5.['x','y'] == 'x,y'；返回 true，默认调用了 toString 方法
 
 默认调用 toString 方法（对象先调用 toString），返回“x,y”;
 如果**调用 valueOf 方法，返回原始值** ["x", "y"]
 
-### 6.alert({name:'mofei'}) // "[object Object]"
+### 6.alert({name:'mofei'})； 返回 "[object Object]"
 
 默认调用 toString 方法。

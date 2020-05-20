@@ -11,7 +11,6 @@ tags:
 categories:
   - [CSS, 盒模型]
   - [CSS, BFC]
-comments: true
 ---
 
 ## 对 CSS 盒模型的认识 ｜ chrome 标准盒模型和 IE 盒子模型

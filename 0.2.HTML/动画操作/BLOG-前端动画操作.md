@@ -16,7 +16,6 @@ categories:
   - [CSS, animation]
   - [CSS, transition]
   - [HTML, canvas]
-comments: true
 ---
 
 [TOC]

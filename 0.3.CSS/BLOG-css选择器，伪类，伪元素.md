@@ -6,7 +6,6 @@ tags:
   - CSS选择器
 categories:
   - [CSS, CSS选择器]
-comments: true
 ---
 
 ## CSS 选择器有哪些

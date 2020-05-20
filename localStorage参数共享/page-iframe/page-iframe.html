@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body style="border: 1px solid red;">
+    <h2>这里是iframe的内容</h2>
+    <div>点击获取任务</div>
+    <p></p>
+    <script>
+      window.onload = () => {
+        if (localStorage.getItem('iframe')) {
+          console.log('iframe获取到了iframe域下的参数: ', localStorage.getItem('iframe'));
+        } else {
+          localStorage.setItem('iframe', 'id');
+        }
+      };
+      document.querySelector('div').addEventListener(
+        'click',
+        function () {
+          document.querySelector('p').innerHTML = localStorage.getItem('task');
+        },
+        false,
+      );
+    </script>
+  </body>
+</html>
