@@ -9,10 +9,12 @@ categories:
   - [类与继承]
 ---
 
-javascript 面向对象中继承实现：
+[TOC]
+
+## JS 面向对象中继承实现
 
 1. 我们创建的每个**函数**都有一个 prototype（原型）属性，**这个属性是一个指针，指向一个对象**，而这个对象的**用途**是包含可以由**特定类型**的所有实例共享的属性和方法。
-2. **类继承**，（extends），创建一个类，让其 prototype 指向另一个类的**实例**；
+2. **类继承**，extends，创建一个类，让其 prototype 指向另一个类的**实例**；
 3. **对象直接继承**，创建 Object.create（通过原型链）， Object.assign（所有**可枚举属性**的值从一个或多个源对象**复制到目标对象**），不可以扩展原型上的属性。
 
 ```js
@@ -28,7 +30,7 @@ Object.assign({}, xm);
 
 [查看](./section5-es5中创建对象与继承.html)。
 
-## Javascript 如何实现继承的方式
+## Javascript 实现继承的方式
 
 ```js
 // 父类，有一个自身属性和方法，还有一个原型对象方法
@@ -76,7 +78,7 @@ Cat.prototype.constructor = Cat;
 
 组合式继承是比较常用的一种继承方法，其背后的思路是：
 
-1. 使用原型链实现对原型属性和方法的继承；
+1. 使用**原型链**实现对原型属性和方法的继承；
 2. 而通过**借用构造函数来实现对实例属性的继承**；
 3. 这样，既通过在原型上定义方法实现了函数复用，又保证每个实例都有它自己的属性。
 
@@ -92,7 +94,7 @@ JS 的继承方式有很多种，**最理想的继承方式是寄生组合式继
 
 1. 借助**构造函数来继承属性**，
 2. 通过**原型链的混成形式来继承方法**。
-3. 不必为了指定子类的原型而调用超类的构造函数。
+3. **不必为了指定子类的原型而调用超类的构造函数**。
 4. **ES6 实现类的底层原理，需要实现静态方法与变量**。
 
 ```js
@@ -118,7 +120,7 @@ function Female(name, gender, age) {
   var protoType = Object.create(Person.prototype);
   protoType.constructor = Female;
   Female.prototype = protoType;
-})(Female, Person)
+})(Female, Person);
 // 取代
 // Female.prototype = new Person();
 // Female.prototype.constrcutor=Female

@@ -4,19 +4,20 @@ date: 2020-4-19
 tags:
   - ES2020
   - JS
-  - ES6+
 categories:
-  - [JS, ES6+]
+  - [JS, ES2020]
 ---
+
+[TOC]
 
 ## ECMAScript 2020 新特性
 
 1. String.prototype.**[matchAll](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll)**，matchAll() 方法返回一个**包含所有匹配正则表达式的结果及分组捕获组的迭代器**。
-2. import()
+2. `import()`
 3. [BigInt](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
 4. **Promise.allSettled**
 5. [globalThis](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/globalThis)
-6. for-in，它最常用的地方应该是用于调试，可以更方便的去检查对象属性
+6. `for-in`，它最常用的地方应该是用于调试，可以更方便的去检查对象属性
 7. [Optional chaining](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/%E5%8F%AF%E9%80%89%E9%93%BE)，可选链，非常实用
 8. [Nullish coalescing Operator](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
 9. [import.meta](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import.meta)，import.meta 是一个给 JavaScript 模块暴露特定上下文的**元数据属性的对象**。它包含了这个模块的信息，比如说这个模块的 URL。
@@ -42,7 +43,7 @@ console.log(array[1]);
 
 ### 动态 import
 
-在您希望按照一定的条件或者按需加载模块的时候，动态 import() 是非常有用的。
+在您希望按照一定的条件或者按需加载模块的时候，**动态 import()** 是非常有用的。
 
 这样就可以按需加载了，可以进行判断然后加载模块。
 
@@ -60,7 +61,7 @@ if (b) {
 3. arr?.[index]
 4. func?.(args)
 
-可选链操作符?.能够去读取一个被连接对象的深层次的属性的值而无需明确校验链条上每一个引用的有效性。
+可选链操作符`?.`能够去读取一个被连接对象的深层次的属性的值而**无需明确校验链条上每一个引用的有效性**。
 
 ```js
 const adventurer = {
@@ -80,7 +81,7 @@ console.log(adventurer.someNonExistentMethod?.());
 
 ### Nullish coalescing Operator，空值合并运算符（??）
 
-空值合并运算符（??）是一个**逻辑运算符**。**当左侧操作数为 null 或 undefined 时，其返回右侧的操作数**。否则返回左侧的操作数。
+空值合并运算符（`??`）是一个**逻辑运算符**。**当左侧操作数为 null 或 undefined 时，其返回右侧的操作数**。否则返回左侧的操作数。
 
 与逻辑或（`||`）操作符不同，逻辑或会在左操作数为 假值 时返回右侧操作数。也就是说，如果你使用 `||` 来为某些变量设置默认的值时，你可能会遇到意料之外的行为。比如为**假值（例如，'' 或 0）**时。
 

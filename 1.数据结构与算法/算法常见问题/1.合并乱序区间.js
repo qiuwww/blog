@@ -16,6 +16,7 @@ function merge(intervals) {
   if (!intervals || !intervals.length) return [];
   intervals.sort((a, b) => a[0] - b[0]); // 按照区间第一位进行排序
   console.log('intervals', intervals);
+
   let result = [intervals[0]]; // 排序之后第一个是最小的
   // [[1,3]]
   for (let i = 1; i < intervals.length; i++) {

@@ -3,6 +3,8 @@ title: 重写 valueOf 和 toString 方法
 date: 2018-4-6
 tags:
   - JS
+  - valueOf
+  - toString
   - 重写 valueOf 和 toString 方法
 categories:
   - [JS, valueOf]

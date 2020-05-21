@@ -6,13 +6,14 @@ tags:
   - Error
   - 错误处理
 categories:
-  - [JS, Error]
-  - [错误处理]
+  - [JS, 错误处理Error]
 ---
 
-[JS 常见错误](../imgs/JS常见错误.png)
+[TOC]
 
 ## 异常处理
+
+[JS 常见错误](./imgs/JS常见错误.png)
 
 1. 自定义异常抛出
 
@@ -24,7 +25,7 @@ function UserException(message) {
 }
 
 //重写toString方法，在抛出异常时能直接获取有用信息
-UserException.prototype.toString = function() {
+UserException.prototype.toString = function () {
   return this.name + ': "' + this.message + '"';
 };
 

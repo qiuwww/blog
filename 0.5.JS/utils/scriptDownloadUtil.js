@@ -1,7 +1,7 @@
 // 前端文件下载
 // 脚本下载
-fetch('https://scarletsky.github.io/2016/07/03/download-file-using-javascript/').then(res =>
-  res.blob().then(blob => {
+fetch('https://scarletsky.github.io/2016/07/03/download-file-using-javascript/').then((res) =>
+  res.blob().then((blob) => {
     var a = document.createElement('a');
     var url = window.URL.createObjectURL(blob);
     var filename = 'myfile.doc';

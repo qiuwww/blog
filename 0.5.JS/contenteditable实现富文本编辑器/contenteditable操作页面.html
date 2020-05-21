@@ -85,9 +85,9 @@
 
     <script src="./jquery-1.9.1.js"></script>
     <script type="text/javascript">
-      $(function() {
+      $(function () {
         // 右键事件
-        $('#text').on('contextmenu', function(e) {
+        $('#text').on('contextmenu', function (e) {
           e.stopPropagation();
           e.preventDefault();
           console.log('选中的文本的父元素', $(this));
@@ -101,7 +101,7 @@
           // document.execCommand('formatblock', false, "<h1>");
           // 不能设置属性，在editable的最外层添加一个包裹标签
         });
-        $('#text').on('click', function(e) {
+        $('#text').on('click', function (e) {
           console.log(e.which);
           // 阻止tab按键
           if (e.which === 9) e.preventDefault();
@@ -110,16 +110,16 @@
         // 第三个参数对于某一些命令是需要的
         // 如下的命令是预设的命令
         $('.operate')
-          .on('click', '.bold', function(e) {
+          .on('click', '.bold', function (e) {
             document.execCommand('bold', false, null); // 默认对于选中的区块，加粗，添加b标签
           })
-          .on('click', '.italic', function(e) {
+          .on('click', '.italic', function (e) {
             document.execCommand('italic', false, null);
           })
-          .on('click', '.underline', function(e) {
+          .on('click', '.underline', function (e) {
             document.execCommand('underline', false, null);
           })
-          .on('change', '.font-name', function(e) {
+          .on('change', '.font-name', function (e) {
             // document.execCommand('fontname', false, 'KaiTi');
             // document.execCommand('fontname', false, 'Microsoft YaHei');
             // document.execCommand('fontname', false, 'Times New Roman');
@@ -136,22 +136,22 @@
             var fontname = $(this).val();
             document.execCommand('fontname', false, fontname);
           })
-          .on('click', '.formatblock', function(e) {
+          .on('click', '.formatblock', function (e) {
             // 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中
             // 用于生成各种标签，但是要怎么调出来
             document.execCommand('formatBlock', false, '<div>');
             document.execCommand('formatBlock', false, '<BLOCKQUOTE>');
             document.execCommand('formatBlock', false, '<PRE>');
           })
-          .on('click', '.strike-through', function(e) {
+          .on('click', '.strike-through', function (e) {
             // 删除线
             document.execCommand('strikeThrough', false, null);
           })
-          .on('click', '.formatblock-h1', function(e) {
+          .on('click', '.formatblock-h1', function (e) {
             // 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中
             document.execCommand('formatBlock', false, '<h1>');
           })
-          .on('click', '.insertImage', function(e) {
+          .on('click', '.insertImage', function (e) {
             // 光标定位到一个地方，然后插入图片，可以给一个对话框，填入图片的地址
             // 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中
             document.execCommand(
@@ -160,11 +160,11 @@
               'https://cdn.mdn.mozilla.net/static/img/web-docs-sprite.22a6a085cf14.svg',
             );
           })
-          .on('click', '.insertOrderedList', function(e) {
+          .on('click', '.insertOrderedList', function (e) {
             // 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中
             document.execCommand('insertOrderedList', false, null);
           })
-          .on('click', '.createLink', function(e) {
+          .on('click', '.createLink', function (e) {
             // 这里的选中的元素所在的行需要吴包裹层，在设置了contenteditable的元素中
             // 编辑状态下不可点击，去掉	contenteditable 属性就可以了
             document.execCommand(
@@ -176,7 +176,7 @@
 
           // 这里由于能设置的字体只有1~7， 所以需要使用富文本选区操作节点来实现字体的设置，
           // 上边的预设命令都可以通过如下添加标签，添加标签样式的方式来实现
-          .on('change', '.font-size', function(e) {
+          .on('change', '.font-size', function (e) {
             var fs = $(this).val();
             console.log('选中的片段', window.getSelection());
             // 这里的操作不能重复选择
@@ -199,7 +199,7 @@
             // 这个时候span拿到的就是需要插入页面的标签，这个时候可以充值内部的样式 ok的
             $(span)
               .find('span')
-              .each(function(index, item) {
+              .each(function (index, item) {
                 $(this).css('font-size', 'inherit');
               });
             range.insertNode(span);

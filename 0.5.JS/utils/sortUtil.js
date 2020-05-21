@@ -1,8 +1,8 @@
 // 实现对象按照键值排序
 
-var sortBy = function(filed, rev, primer) {
+var sortBy = function (filed, rev, primer) {
   rev = rev ? -1 : 1;
-  return function(a, b) {
+  return function (a, b) {
     a = a[filed];
     b = b[filed];
     if (typeof primer != 'undefined') {
@@ -28,8 +28,8 @@ console.log(obj);
 
 // 单个对象按照键值排序
 var dic = { x: 2, z: 1, y: 3 }; // 输出   {z:1，x:2，y:3}
-var sortdic = dic =>
-  Object.keys(dic).sort(function(a, b) {
+var sortdic = (dic) =>
+  Object.keys(dic).sort(function (a, b) {
     return dic[a] - dic[b];
   });
 sortdic(dic);

@@ -6,28 +6,27 @@ tags:
   - Promise
   - 异步编程
 categories:
-  - [JS]
-  - [异步编程, Promise异步编程]
+  - [JS, 异步编程]
 ---
 
 [TOC]
 
 ## Promise 是什么
 
-1. 所谓的 promise 简单来说**就是一个容器**，里面保存着**某些未来才结束的事件**（通常是一个异步操作）的结果。
+1. 所谓的 promise 简单来说**就是一个容器（有执行优先级的队列，在宏任务之前）**，里面保存着**某些未来才结束的事件**（通常是一个异步操作）的结果。
 2. Promise 可以认为是一个用来**传递异步消息**的对象。
-3. 可以理解为发布订阅模式：
+3. **可以简单理解为发布订阅模式**（但是内部的机制肯定不是这么简单的）：
    1. `then/catch/finally -> on`，使用 then/catch 来订阅；
-   2. resolvedCallBacks/rejectedCallBacks 存储事件；
-   3. 调用 resolve/reject 来执行发布。
+   2. `resolvedCallBacks/rejectedCallBacks` 存储事件；
+   3. 调用 `resolve/reject` 来执行发布。
 
 ### Promise 的特点
 
 1. 状态改变**只受异步操作的结果影响**，不受外界影响；
 2. **状态一旦改变就不能再变**，要么 Fullfilled，要么 Rejected，这里只能关注到当前一步，then 方法会返回一个**新的 promise 对象，从新开始从 pending 到凝聚状态**；
 3. 缺点：
-   1. 不能中断 promise，无法取消；
-   2. 如果不设置回调，内部错误不能反应到外部；
+   1. **不能中断** promise，无法取消；
+   2. **如果不设置回调，内部错误不能反应到外部**；
 
 ```js
 // 每一步都会得到不同的promise对象，也就是一个then的执行过程中，会引起一个新的pending凝聚到指定的方向
@@ -75,7 +74,7 @@ console.log('promise5: ', promise5);
    1. 在 **pending** 状态，promise 可以转换（坍缩）到 fulfilled 或 rejected。
    2. 在 **fulfilled** 状态，**不能迁移到其它状态**，必须有个不可变的 value。
    3. 在 **rejected** 状态，**不能迁移到其它状态**，必须有个不可变的 reason。
-2. 静态方法：静态方法接受到的参数，**如果不是 Promise 实例，就转为 Promise 实例**；
+2. **静态方法**：静态方法接受到的参数，**如果不是 Promise 实例，就转为 Promise 实例**；
 
    1. Promise.resolve()；**用来将对象转为 Promise 对象**，参考下边自定义的 resolve 方法；`Promise.resolve('foo') -> new Promise(resolve => resolve('foo'))`
    2. Promise.reject()；
@@ -94,14 +93,15 @@ console.log('promise5: ', promise5);
 
 ### then/catch 方法
 
-1. 每次 then 都会返回一个新的 promise 对象，不是原来的 promise 对象，因此可以采用链式调用；
-2. 所以 then 之后的**状态还要重新确认**，**重新回到 pending**，等待当前回调的执行结果（确认是 Fullfilled 还是 Rejected），**结果通过 return 传递**到后边的管道；
-3. `catch -> then(null, rejection)`，发生错误时候的回调。
-4. promise 对象的错误，具有“冒泡”的特性，会一直向后传递，知道被捕获为止。
+1. **每次 then 都会返回一个新的 promise 对象**，不是原来的 promise 对象；
+2. 每次返回this，状态变为一个新的promise的pending，因此可以**采用链式调用**；
+3. 所以 then 之后的**状态还要重新确认**，**重新回到 pending**，等待当前回调的执行结果（确认是 Fullfilled 还是 Rejected），**结果通过 return 传递**到后边的管道；
+4. `catch -> then(null, rejection)`，发生错误时候的回调。
+5. promise 对象的错误，具有“冒泡”的特性，会一直向后传递，知道被捕获为止。
 
 ## 代码实现 Promise 对象
 
-手动模拟实现 Promise 对象的方法
+手动模拟实现 Promise 对象的方法。
 
 思路大致是这样的，用 2 个数组(doneList 和 failList)**分别存储成功时的回调函数队列和失败时的回调队列**。
 
@@ -114,10 +114,10 @@ console.log('promise5: ', promise5);
 7. `reject`: 将状态更改为`rejected`，并触发绑定的所有失败的回调函数；
 8. `when`: 参数是多个异步或者延迟函数，返回值是一个 Promise 兑现，当所有函数都执行成功的时候执行该对象的`resolve`方法，反之执行该对象的`reject`方法
 
-如下的模拟是很有问题的：
+**如下的模拟是很有问题的**：
 
-1. 这里只是模拟了函数的执行接口，对于 promise.then 定义的微任务，执行的顺序不对；
-2. 对于 promise 的每一个 then 定义的回调处理也是不太对的，原本 then 应该重新从 pending 转到凝聚态；
+1. 这里只是模拟了函数的执行接口，对于 promise.then 定义的**微任务**，执行的顺序不对；
+2. 对于 promise 的每一个 then 定义的回调处理也是不太对的，**原本 then 应该重新从 pending 转到凝聚态**；
 
 ```js
 // 极简版Promise 满足的使用方式
@@ -378,7 +378,7 @@ console.log(3);
    2. Object.observe
    3. MutaionObserver
    4. **process.nextTick**(Node.js 环境)
-2. promise 是 v8 自带，直接调用底层。
+2. **promise 是 v8 自带，直接调用底层**。
 3. setTimeout 是浏览器/node 环境或者 j2v8 等环境自己封装的 api，性能上不如 promise。
-4. 机场也有 vip 通道，任务分优先级是很正常的。
+4. 机场也有 vip 通道，**任务分优先级**是很正常的。
 5. microtask,**可以理解是在当前 task 执行结束后立即执行的任务**。也就是说，在当前 task 任务后，下一个 task 之前，在渲染之前。

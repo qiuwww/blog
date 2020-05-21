@@ -14,10 +14,10 @@ Object.defineProperty(o, 'a', {
 // 在对象中添加一个属性与存取描述符的示例
 var bValue;
 Object.defineProperty(o, 'b', {
-  get: function() {
+  get: function () {
     return bValue;
   },
-  set: function(newValue) {
+  set: function (newValue) {
     bValue = newValue;
     // 检测b变量改变，做出相应的改变
     console.log(123);
@@ -35,10 +35,10 @@ o.b = 38;
 var cValue;
 
 Object.defineProperty(window, 'c', {
-  get: function() {
+  get: function () {
     return cValue;
   },
-  set: function(newValue) {
+  set: function (newValue) {
     cValue = newValue;
     console.log('key变量改变了');
   },

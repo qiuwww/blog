@@ -38,17 +38,17 @@ class Circle extends Shape {
  */
 
 // 使用构造函数与原型混合的方法，似乎更方便一些
-var Shape2 = function(id, x, y) {
+var Shape2 = function (id, x, y) {
   this.id = id;
   this.move(x, y);
   // 默认retrun this
 };
-Shape2.prototype.move = function(x, y) {
+Shape2.prototype.move = function (x, y) {
   this.x = x;
   this.y = y;
 };
 
-var Rectangle2 = function(id, x, y, width, height) {
+var Rectangle2 = function (id, x, y, width, height) {
   Shape.call(this, id, x, y);
   this.width = width;
   this.height = height;
@@ -56,7 +56,7 @@ var Rectangle2 = function(id, x, y, width, height) {
 Rectangle2.prototype = Object.create(Shape2.prototype);
 Rectangle2.prototype.constructor = Rectangle2;
 
-var Circle2 = function(id, x, y, radius) {
+var Circle2 = function (id, x, y, radius) {
   Shape.call(this, id, x, y);
   this.radius = radius;
 };

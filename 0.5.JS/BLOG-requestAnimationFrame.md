@@ -6,8 +6,11 @@ tags:
   - requestAnimationFrame
 categories:
   - [JS, requestAnimationFrame]
-  - [动画]
 ---
+
+[TOC]
+
+## requestAnimationFrame
 
 **window.requestAnimationFrame()**，方法告诉浏览器您希望执行动画并请求浏览器在下一次重绘之前调用指定的函数来更新动画。该方法使用一个回调函数作为参数，这个回调函数会在**浏览器重绘之前调用**。
 

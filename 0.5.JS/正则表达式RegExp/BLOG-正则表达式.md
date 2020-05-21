@@ -9,6 +9,10 @@ categories:
   - [正则表达式]
 ---
 
+[TOC]
+
+## 正则表达式类
+
 [正则表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
 
 正则表达式是用于匹配字符串中字符组合的模式。在 JavaScript 中，正则表达式也是对象。
@@ -16,7 +20,7 @@ categories:
 这些模式被用于 RegExp 的
 
 1. exec 和
-2. test 方法,
+2. test 方法(RegExp 只有这两个)
 
 以及 String 的
 
@@ -28,7 +32,7 @@ categories:
 
 ## regexp 正则表达式方法
 
-### exec 对应 string 的 match 方法
+### regexp 的 exec 对应 string 的 match 方法
 
 ```js
 /ll/.exec('hello, word');
@@ -69,7 +73,7 @@ categories:
 // 返回第一次匹配到的索引1;
 ```
 
-### replace，按正则替换文本，只有replace有回调
+### replace，按正则替换文本，只有 replace 有回调
 
 ```js
 'cat, dog'.replace(/cat/, 'mouse');
@@ -92,7 +96,23 @@ categories:
 ### 解析 query 字符串
 
 ```js
+const testURL =
+  'https://www.youzan.com?name=coder&age=20&callback=https%3A%2F%2Fyouzan.com%3Fname%3Dtest';
+function getQueryObject(url) {
+  var query = url.includes('?') ? url.split('?')[1] : url;
+  var obj = {};
+  var reg = /([^?&=]+)=([^?&=]*)/g;
+  query.replace(reg, function (rs, $1, $2) {
+    var name = decodeURIComponent($1);
+    var val = decodeURIComponent($2);
+    val = String(val);
+    obj[name] = val;
+    return rs;
+  });
+  return obj;
+}
 
+getQueryObject(testURL);
 ```
 
 ### 千分位数值

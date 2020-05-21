@@ -7,16 +7,22 @@ tags:
   - continue
   - break
   - for...in/for...of
+  - 循环中断
 categories:
-  - [JS, 循环]
+  - [JS, 循环中断]
 ---
 
-break 语句“跳出”循环。
-break 语句，如果没有标签引用，只能用于跳出一个循环或一个 switch。
-如果有标签引用，则 break 语句可用于**跳出任意代码块**。
+[TOC]
 
-continue 语句“跳过”循环中的一个迭代。
-continue 语句（不论有无标签引用）只能用于跳过一个迭代。
+## break 与 continue
+
+1. break 语句“跳出”循环。
+
+   1. break 语句，如果没有标签引用，只能用于跳出一个循环或一个 switch。
+   2. 如果有标签引用，则 break 语句可用于**跳出任意代码块**。
+
+2. continue 语句“跳过”循环中的一个迭代。
+   1. continue 语句（不论有无标签引用）只能用于跳过一个迭代。
 
 ```js
 // break跳出任意代码块
@@ -60,6 +66,8 @@ switch (new Date().getDay()) {
     console.log('计算错误');
 }
 ```
+
+这里更好的似乎就是策略模式。
 
 ## for 循环中
 
@@ -137,7 +145,7 @@ break 与 continue 的使用基本与 for 循环一致。
 ### 二者的区别
 
 for...in 语句以**任意顺序**迭代对象的**可枚举属性**。
-for...of 语句**遍历**可迭代对象定义**要迭代的数据**。
+for...of 语句**遍历**可迭代对象定义**要迭代的数据（Itertor）**。
 
 ```js
 const array = ['a', 'b', 'c', 'd', 'e', 'f'];
@@ -172,7 +180,7 @@ for (const key in obj) {
 }
 ```
 
-## while
+## while循环
 
 ```js
 let i = 0;

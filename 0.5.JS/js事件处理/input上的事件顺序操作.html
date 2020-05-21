@@ -16,19 +16,64 @@
         <li>4.change事件只会发生在输入完成后，也就是输入框失去焦点之前。</li>
       </ul>
     </p>
-    <h3>从鼠标移入，输入，到离开经过的事件
-      mousedown
-      、focus
-      、mouseup
-      、click
-      、keydown
-      、input
-      、keyup
-      、change
-      、blur</h3>
+    <!-- click：单击抄
+    dblclick：双击
+    mousedown：鼠zhidao标上的按钮被按下触发的事件
+    mouseup：鼠标按下后，松开时触发的事件
+    mouseover：鼠标悬浮
+    mouseout：鼠标离开
+    mousemove：鼠标移动
+    mouseenter：鼠标进入
+    mouseleave：鼠标离开 -->
+    <h3>从鼠标移入，输入，到离开经过的事件<br>
+      -> mouseover<br>
+      -> mouseenter<br>
+      -> mousedown<br>
+      -> focus<br>
+      -> mouseup<br>
+      -> click<br>
+      -> keydown<br>
+      -> input<br>
+      -> keyup<br>
+      -> mouseout<br>
+      -> mouseleave<br>
+      -> change<br>
+      -> blur<br>
+    </h3>
   </body>
   <script>
-    document.getElementById('input').addEventListener(
+    var dom = document.getElementById('input');
+
+    dom.addEventListener(
+      'mouseenter',
+      function() {
+        console.log('mouseenter');
+      },
+      false,
+    );
+    dom.addEventListener(
+      'mouseover',
+      function() {
+        console.log('mouseover');
+      },
+      false,
+    );
+
+    dom.addEventListener(
+      'mouseout',
+      function() {
+        console.log('mouseout');
+      },
+      false,
+    );
+    dom.addEventListener(
+      'mouseleave',
+      function() {
+        console.log('mouseleave');
+      },
+      false,
+    );
+    dom.addEventListener(
       'focus',
       function() {
         console.log('focus');
@@ -36,7 +81,7 @@
       false,
     );
 
-    document.getElementById('input').addEventListener(
+    dom.addEventListener(
       'mousedown',
       function() {
         console.log('mousedown');
@@ -44,7 +89,7 @@
       false,
     );
 
-    document.getElementById('input').addEventListener(
+    dom.addEventListener(
       'mouseup',
       function() {
         console.log('mouseup');
@@ -52,7 +97,7 @@
       false,
     );
 
-    document.getElementById('input').addEventListener(
+    dom.addEventListener(
       'input',
       function() {
         console.log('input');
@@ -60,7 +105,7 @@
       false,
     );
 
-    document.getElementById('input').addEventListener(
+    dom.addEventListener(
       'change',
       function() {
         console.log('change');
@@ -68,7 +113,7 @@
       false,
     );
 
-    document.getElementById('input').addEventListener(
+    dom.addEventListener(
       'blur',
       function() {
         console.log('blur');
@@ -76,7 +121,7 @@
       false,
     );
 
-    document.getElementById('input').addEventListener(
+    dom.addEventListener(
       'click',
       function() {
         console.log('click');
@@ -84,7 +129,7 @@
       false,
     );
 
-    document.getElementById('input').addEventListener(
+    dom.addEventListener(
       'keydown',
       function() {
         console.log('keydown');
@@ -92,7 +137,7 @@
       false,
     );
 
-    document.getElementById('input').addEventListener(
+    dom.addEventListener(
       'keyup',
       function() {
         console.log('keyup');

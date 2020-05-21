@@ -8,17 +8,19 @@ tags:
 categories:
   - [JS, 防抖 debounce]
   - [JS, 节流 throttle]
-top: 1
+top: 5
 ---
 
 [TOC]
+
+## 防抖与节流
 
 ![debounce_throttle](./imgs/防抖debounce_节流throttle.png)
 
 [查看效果](https://wall-wxk.github.io/blogDemo/2017/02/15/throttleAndDebounce.html)
 
-1. 执行次数更多的是节流，节流并不等于不执行，需要间隔一定时间相应一下。
-2. 抖动可能是一直的，所以只用最后执行一次就行了。
+1. 执行次数**更多的是节流，节流并不等于不执行**，需要间隔一定时间相应一下。
+2. 抖动可能是一直的，所以只用不触发之后定时时间到执行一次就行了。
 
 所以高级程序设计上的是不太对的，throttle 是节流，节流函数是间隔执行的，不是最后执行的。
 
@@ -31,12 +33,12 @@ var context = this,
   args = arguments;
 ```
 
-## 函数去抖 debounce，延迟执行，避免频繁执行，后来触发，取消前面的触发
+## 函数防抖 debounce，延迟执行，避免频繁执行，后来触发，取消前面的触发
 
 用途：
 
-- ondrag 改变浏览器大小
-- 触发 onresize 函数
+1. ondrag 改变浏览器大小；
+2. 触发 onresize 函数。
 
 函数去抖，如果在短时间内**连续抖动**，就会只执行最后一次。
 
@@ -90,8 +92,8 @@ _.debounce = function (func, wait, immediate) {
 
 用途：
 
-- 接口请求
-- 用户输入框的一些事件，如 keyup/input
+1. 接口请求；
+2. 用户**输入**框的一些事件，如 keyup/input。
 
 函数节流，节约使用，**一定时间内能用一次**。
 
@@ -177,5 +179,5 @@ _.throttle = function(func, wait) {
 
 节流 throttle，函数节流 throttle，按一定频率执行代码，间隔执行，一定时间内可保证至少执行一次。常用在
 
-1. 接口请求
-2. 用户**输入框的一些事件**，如 keyup/input
+1. 接口请求；
+2. 用户**输入框的一些事件**，如 keyup/input。

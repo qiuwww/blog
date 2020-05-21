@@ -6,11 +6,11 @@ tags:
   - js代码执行原理
 ---
 
+## AST 是什么
+
 [astexplorer](https://astexplorer.net/)
 
 AST（Abstract Syntax Tree）抽象语法树。
-
-## AST 是什么
 
 在计算机科学中，抽象语法树(AST)，或简称**语法树**，是用编程语言编写的**源代码的抽象语法结构的树表示**。
 
@@ -23,14 +23,13 @@ while b ≠ 0
   else
     b := b − a
 return a
-
 ```
 
-![欧几里得表达式](./欧几里得表达式.png)
+![欧几里得表达式](./imgs/欧几里得表达式.png)
 
 ### AST 语法分析可能用到的名词
 
-- `type: Identifier`，基础 Identifier（标志）对象
+`type: Identifier`，基础 Identifier（标志）对象
 
 ### recast，语法树分析工具
 
@@ -60,9 +59,12 @@ babel 是一个**转译器**，感觉相对于**编译器 compiler**，叫转译
 
 以 ES6 代码转译为 ES5 代码为例，babel 转译的具体过程如下：
 
-ES6 代码输入 ==》 babylon 进行解析 ==》 得到 AST
-==》 plugin 用 babel-traverse 对 AST 树进行遍历转译 ==》 得到新的 AST 树
-==》 用 babel-generator 通过 AST 树生成 ES5 代码
+1. ES6 代码输入 ==》
+2. babylon 进行解析**babel-parse** ==》
+3. 得到 AST ==》
+4. plugin 用 **babel-traverse** 对 AST 树进行遍历转译 ==》
+5. 得到新的 AST 树==》
+6. 用 **babel-generator** 通过 AST 树生成 ES5 代码。
 
 [babel 语法树解析](./babel语法树解析.png)
 

@@ -6,9 +6,17 @@ tags:
   - bind
   - apply
   - call
+  - JS
+categories:
+  - [JS, bind]
+  - [JS, apply]
+  - [JS, call]
+  - [JS, 函数式编程]
 ---
 
 [TOC]
+
+## 概述
 
 1. bind 与 call 的参数类型是一样的，都是**散列值(...arr)**。
 2. apply 是**使用数组([args])**作为参数。

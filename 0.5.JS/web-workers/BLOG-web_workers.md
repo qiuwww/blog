@@ -5,16 +5,19 @@ tags:
   - 浏览器原理
   - web workers
 categories:
-  - [浏览器原理, web workers]
+  - [JS, web workers]
+  - [浏览器原理]
 ---
+
+[TOC]
+
+## 是什么
 
 [使用 Web Workers](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers)
 
 [菜鸟教程](https://www.runoob.com/html/html5-webworkers.html)
 
 web worker 是运行在后台的 JavaScript，不会影响页面的性能。
-
-## 是什么
 
 当在 HTML 页面中执行脚本时，页面的状态是不可响应的，**直到脚本已完成**。
 

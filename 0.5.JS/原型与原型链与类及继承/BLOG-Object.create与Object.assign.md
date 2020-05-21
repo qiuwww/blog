@@ -12,20 +12,22 @@ categories:
   - [JS, create]
 ---
 
+[TOC]
+
 ## Object.create
 
 [Object.create()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
 
 `Object.create(proto[, propertiesObject])`
 
-1. proto：新创建的对象的属性和方法通过原型链来引用 proto 上的属性和方法，不可 delete；
-2. propertiesObject：新增的自身的属性和方法，可 delete；
+1. proto：新创建的对象的**属性和方法通过原型链来引用 proto 上的属性和方法**，不可 delete；
+2. propertiesObject：**新增的自身的属性和方法**，可 delete；
 
 ## Object.assign，属性拷贝
 
 [Object.assign](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) 是在 ES2015 引入的，且可用 polyfilled。要支持旧浏览器的话，可用使用 jQuery.extend() 或者 \_.assign()。
 
-Object.assign() 方法用于将**所有可枚举属性的值从一个或多个源对象复制到目标对象**。它将返回目标对象。这里的拷贝对于引用类型还是保存的引用。也就是创建之后，新旧两个对象是没有更多关系了。
+Object.assign() 方法用于将**所有可枚举属性的值从一个或多个源对象复制到目标对象**。它将返回目标对象。**这里的拷贝对于引用类型还是保存的引用**。也就是创建之后，新旧两个对象是没有更多关系了。
 
 `Object.assign(target, ...sources)`
 

@@ -5,20 +5,22 @@ tags:
   - JS
   - this指向
 categories:
-  - [JS]
+  - [JS, this指向]
 ---
 
 [TOC]
 
+## this 指向
+
 1. this 是一个一般函数的一个属性；
-2. this 指向一个对象；
+2. this 运行时指向一个对象；
    1. 调用函数的对象；
    2. 匿名函数是 global；
-3. 箭头函数没有this和arguments
-   1. 箭头函数内调用this，会查找**外层函数所处的对象**；
-   2. 如果没有找到，this就指向window；
-   3. 使用::来修改this，函数绑定到对象上。
-4. 可以通过apply、call、bind来修改函数的this指向；
+3. 箭头函数没有 this 和 arguments
+   1. 箭头函数内调用 this，会查找**外层函数所处的对象**；
+   2. 如果没有找到，this 就指向 window；
+   3. 使用::来修改 this，函数绑定到对象上。
+4. 可以通过 apply、call、bind 来修改函数的 this 指向；
 
 ## 普通函数中的 this
 

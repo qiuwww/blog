@@ -5,8 +5,10 @@ tags:
   - ES6+标准
   - JS
 categories:
-  - [JS, ES6+]
+  - [JS, ES6+标准]
 ---
+
+[TOC]
 
 ## 常用语法
 
@@ -35,13 +37,13 @@ categories:
    4. includes
    5. values/keys/entries
 7. 函数扩展
-   1. rest参数
+   1. rest 参数
    2. 默认值
    3. 箭头函数
    4. ::函数绑定
 8. 对象扩展
 9. Symble
-10. Proxy和Refect
+10. Proxy 和 Refect
 11. ArrayBuffer
 12. Set/Map
 13. for...of

@@ -1,32 +1,36 @@
 ---
 title: JS 模块化
-date: 2019-06-06
+date: 2019-6-6
 tag:
-  - js
+  - JS
   - 模块化
 categories:
   - [JS]
   - [模块化]
 ---
 
-模块化的演变，amd/cmd/umd/commonjs/ES6 module
+[TOC]
+
+## 模块化的演变
+
+amd/cmd/umd/commonjs/ES6 module。
 
 JavaScript 在设计时定位原因，**没有提供类似的功能**，开发者需要模拟出类似的功能，**来隔离、组织复杂的 JavaScript 代码，我们称为模块化**。
 
-模块就是实现特定功能的一组方法。
+模块就是**实现特定功能的一组方法**。
 
 ## what，什么是模块化
 
-- 将一个复杂的程序依据一定的规则(规范)封装成几个块(文件), 并进行组合在一起。
-- **块的内部数据与实现是私有的**, 只是向外部暴露一些接口(方法)与外部其它模块通信。
+1. 将一个复杂的程序依据一定的规则(规范)封装成几个块(文件), 并进行组合在一起。
+2. **块的内部数据与实现是私有的**, 只是向外部暴露一些接口(方法)与外部其它模块通信。
 
 ## why，为什么需要模块化
 
-- 避免**命名冲突**(减少命名空间污染)
-- 更好的**分离**, 按需加载
-- 更高**复用**性
-- 高**可维护**性
-- 浏览器端，加载 JavaScript 最佳、最容易的方式是在 document 中插入 script  标签。**但脚本标签天生异步**，传统 CommonJS 模块在浏览器环境中无法正常加载，需要对模块代码作静态分析，将模块与它的依赖列表一起返回给浏览器端。
+1. 避免**命名冲突**(减少命名空间污染)
+2. 更好的**分离**, 按需加载
+3. 更高**复用**性
+4. 高**可维护**性
+5. 浏览器端，加载 JavaScript 最佳、最容易的方式是在 document 中插入 script  标签。**但脚本标签天生异步**，传统 CommonJS 模块在浏览器环境中无法正常加载，需要对模块代码作静态分析，将模块与它的依赖列表一起返回给浏览器端。
 
 ## how，模块化的进程
 
@@ -58,10 +62,10 @@ function m2() {
 ```js
 var module1 = new Object({
   _count: 0,
-  m1: function() {
+  m1: function () {
     //...
   },
-  m2: function() {
+  m2: function () {
     //...
   },
 });
@@ -74,12 +78,12 @@ var module1 = new Object({
 使用”立即执行函数”（Immediately-Invoked Function Expression，IIFE），可以达到**不暴露私有成员的目的**。
 
 ```js
-var module = (function() {
+var module = (function () {
   var _count = 0;
-  var m1 = function() {
+  var m1 = function () {
     alert(_count);
   };
-  var m2 = function() {
+  var m2 = function () {
     alert(_count + 1);
   };
 
@@ -108,15 +112,15 @@ node 的 module 遵循 CommonJS 规范，requirejs 遵循 AMD，seajs 遵循 CMD
 
 // -------- node -----------
 module.exports = {
-  a: function() {},
+  a: function () {},
   b: 'xxx',
 };
 
 // ----------- AMD or CMD ----------------
 // 这里的mudule是函数给定的参数，并不像node是一个全局的变量
-define(function(require, exports, module) {
+define(function (require, exports, module) {
   module.exports = {
-    a: function() {},
+    a: function () {},
     b: 'xxx',
   };
 });
@@ -132,7 +136,7 @@ var m = require('./a');
 m.a();
 
 // ------------ AMD or CMD -------------
-define(function(require, exports, module) {
+define(function (require, exports, module) {
   var m = require('./a');
   m.a();
 });
@@ -177,7 +181,7 @@ CMD (Common Module Definition), 是 seajs 推崇的规范，CMD 则是**依赖�
 
 ```js
 // 模块定义
-define(function(require, exports, module) {
+define(function (require, exports, module) {
   // 这里用到了再require，更清晰一些
   var clock = require('clock');
   clock.start();
@@ -235,7 +239,7 @@ ES6 发布的 module 并没有直接采用 CommonJS，甚至连 require 都没�
 
 ```js
 // a.js
-export default function() {}
+export default function () {}
 export function a() {}
 
 var b = 'xxx';
@@ -288,7 +292,7 @@ import { default as alias, a as a_a, b, c } from './a';
 
 ```js
 // a.js
-var a = function() {};
+var a = function () {};
 export { a as fun };
 
 // b.js
@@ -300,7 +304,7 @@ a();
 
 ```js
 // d.js
-export default function() {}
+export default function () {}
 
 // 等效于：
 function a() {}
@@ -341,32 +345,36 @@ require(process.cwd() + '/a');
 
 ### require 的特点
 
-- **第一次加载解析模块，后续使用的是第一次加载的缓存**，基本类型是值，引用类型是引用地址，也是改变的。
-- **基础类型 num 是复制，object 的值是引用**，都可修改，但是不会重新读取。
-- 限制比较少
-- 第一次 require 的时候会缓存结果，后续都是调用的缓存结果，也就是文件修改了，这里的缓存不变，比如动态修改 package.json
-- 可以在代码的**任意位置**
-- 可以把它当做一个 node 内置的全局函数
-- 地址可以是一个变量
+1. **第一次加载解析模块，后续使用的是第一次加载的缓存**，
+   1. 基本类型是值，
+   2. 引用类型是引用地址，也是可以改变的，也就是在读取的文件中自动修改。
+2. **基础类型 num 是复制，object 的值是引用**，**都可修改，但是不会重新读取**。
+3. 限制比较少，
+   1. 不需要放在头部，
+   2. require()，参数也可以是一个变量；
+4. 第一次 require 的时候**会缓存结果**，后续都是调用的缓存结果，也就是文件修改了，这里的缓存不变，比如动态修改 package.json；
+5. require 是运行时的；
+6. 可以在代码的**任意位置**；
+7. 可以把它当做一个 **node 内置的全局函数**；
+8. 地址可以是一个变量。
 
 ### import 的特点
 
-- **加载的是一个引用**
-- 基本类型加载后当作常量，不可修改，引用类型是可以修改的。
-- import 则不同，它是**编译时的（require 是运行时的）**
-- 它必须放在文件开头
-- 而且使用格式也是确定的，不容置疑，**from 之后的内容必须是一个常量，不能是变量**。
-- 它不会将整个模块运行后赋值给某个变量，而是**只选择 import 的接口进行编译**，这样在性能上比 require 好很多。
+1. **加载的是一个引用**
+2. **基本类型加载后当作常量，不可修改**，引用类型是可以修改的。
+3. import 则不同，它是**编译时的（require 是运行时的）**
+4. 它**必须放在文件开头**;
+5. 而且使用格式也是确定的，不容置疑，**from 之后的内容必须是一个常量，不能是变量**。
+6. 它**不会**将整个模块运行后赋值给某个变量，而是**只选择 import 的接口进行编译**，这样在性能上比 require 好很多。
 
 ### 差异
 
-- require 是**赋值过程**，**import 是解构过程**
-- import 在遇到 default 时，和 require 则完全不同
-- 目前通过 babel 转换之后，import 会被转码为 require 去执行。
-
-- CommonJS 还是 ES6 Module 输出都可以看成是一个**具备多个属性或者方法的对象**；
-- default 是 ES6 Module 所独有的关键字，export default fs 输出默认的接口对象，import fs from 'fs' 可直接导入这个对象；
-- ES6 Module 中导入模块的属性或者方法是**强绑定**的，包括基础类型；而 CommonJS 则是**普通的值传递或者引用传递**。
+1. require 是**赋值过程**，**import 是解构过程**
+2. import 在遇到 default 时，和 require 则完全不同；
+   1. 目前通过 babel 转换之后，import 会被转码为 require 去执行。
+3. CommonJS 还是 ES6 Module 输出都可以看成是一个**具备多个属性或者方法的对象**；
+4. default 是 ES6 Module 所独有的关键字，export default fs 输出默认的接口对象，import fs from 'fs' 可直接导入这个对象；
+5. ES6 Module 中导入模块的属性或者方法是**强绑定**的，包括基础类型；而 CommonJS 则是**普通的值传递或者引用传递**。
 
 ## 代码测试
 

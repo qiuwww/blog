@@ -8,7 +8,12 @@ tags:
   - 对象属性
 categories:
   - [JS, 对象属性]
+  - [JS, 函数式编程]
 ---
+
+[TOC]
+
+## 访问器属性的定义
 
 js 中一共有两种属性，一种**数据属性**，一种**访问器属性**。
 
@@ -20,8 +25,6 @@ js 中一共有两种属性，一种**数据属性**，一种**访问器属性**
 `{get prop() { ... } }`
 `{get [expression]() { ... } }`
 
-## 访问器属性的定义
-
 ### Object.defineProperty()来定义
 
 ```js
@@ -31,9 +34,7 @@ js 中一共有两种属性，一种**数据属性**，一种**访问器属性**
 // descriptor 将被定义或修改的属性描述符。
 
 var variable = 0;
-
 var obj = {};
-
 Object.defineProperty(obj, 'a', {
   get: function () {
     console.log('调用get获取参数');

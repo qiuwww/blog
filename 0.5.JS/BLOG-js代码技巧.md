@@ -1,8 +1,11 @@
 ---
-title: js代码技巧
+title: JS代码技巧
 date: 2019-06
 tags:
-  - js
+  - JS
+  - JS代码技巧
+categories:
+  - [JS, JS代码技巧]
 ---
 
 ## 三元操作符替代 if...else，如果条件多余三个，就使用 switch
@@ -86,7 +89,7 @@ function findDog(name) {
   }
 }
 // 简写：
-pet = pets.find(pet => pet.type === 'Dog' && pet.name === 'Tommy');
+pet = pets.find((pet) => pet.type === 'Dog' && pet.name === 'Tommy');
 console.log(pet); // { type: 'Dog', name: 'Tommy' }
 ```
 
@@ -129,7 +132,7 @@ const obj_1 = { ...obj1, ...obj2 };
 所以，如果想在浏览器控制台外使用上面这段代码，可以将\$\$('_')替换为 document.querySelectorAll('_')。
 
 ```js
-[].forEach.call(document.querySelectorAll('*'), function(ele) {
+[].forEach.call(document.querySelectorAll('*'), function (ele) {
   ele.style.border = '1px solid #' + (~~(Math.random() * (1 << 24))).toString(16);
   ele.style.transform = 'skew(1deg, 1deg)';
 });
@@ -144,15 +147,13 @@ const obj_1 = { ...obj1, ...obj2 };
 ## 创建过去七天的数组
 
 ```js
-[...Array(7).keys()].map(days => new Date(Date.now() - 86400000 * days));
+[...Array(7).keys()].map((days) => new Date(Date.now() - 86400000 * days));
 ```
 
 ## 生成长度为 11 的随机字母数字字符串
 
 ```js
-Math.random()
-  .toString(36)
-  .substring(2);
+Math.random().toString(36).substring(2);
 // hg7znok52x
 ```
 
@@ -174,7 +175,7 @@ console.log('query', q);
 
 ```js
 // 随机更改数组元素顺序，混淆数组
-let a = arr => arr.slice().sort(() => Math.random() - 0.5);
+let a = (arr) => arr.slice().sort(() => Math.random() - 0.5);
 let b = a([1, 2, 3, 4, 5]);
 console.log(b);
 ```
@@ -192,9 +193,9 @@ console.log(b);
 
 ```js
 // 这是一个很难看懂的简洁代码，但是运行后你会惊呆的，他竟然返回一个图形键盘
-(_ =>
+((_) =>
   [..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(
-    x =>
+    (x) =>
       ((o += `/${(b = '_'.repeat(
         (w = x < y ? 2 : ' 667699'[((x = ['BS', 'TAB', 'CAPS', 'ENTER'][p++] || 'SHIFT'), p)]),
       ))}\\|`),
@@ -256,7 +257,7 @@ saveCityZipCode(city, zipCode);
 // 如果你严格遵守本条规则，你将会领先于许多开发者。
 // Bad:
 function emailClients(clients) {
-  clients.forEach(client => {
+  clients.forEach((client) => {
     const clientRecord = database.lookup(client);
     if (clientRecord.isActive()) {
       email(client);

@@ -8,6 +8,10 @@ categories:
   - [JS, url编码]
 ---
 
+[TOC]
+
+## url 编码方式
+
 - escape()
 - encodeURI()
 - encodeURIComponent()
@@ -47,7 +51,7 @@ encodeURI 自身无法产生能适用于 HTTP GET 或 POST 请求的 URI，
 ### 使用正则匹配查询参数
 
 ```js
-var parseQuery = function(query) {
+var parseQuery = function (query) {
   var reg = /([^=&\s]+)[=\s]*([^=&\s]*)/g;
   var obj = {};
   while (reg.exec(query)) {

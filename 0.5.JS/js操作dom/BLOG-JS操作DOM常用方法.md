@@ -9,6 +9,8 @@ categories:
   - [浏览器, DOM]
 ---
 
+[TOC]
+
 ## 对比 document 的 query 方法和 getElementByTagName 之类的方法
 
 - 得到的元素结果不一样，query 得到的是 NodeList，get\*方法得到的是 HTMLCollection。
@@ -20,9 +22,9 @@ categories:
 1、创建新节点
 
 ```js
-createDocumentFragment(); //创建一个DOM片段
-createElement(); //创建一个具体的元素
-createTextNode(); //创建一个文本节点
+createDocumentFragment(); // 创建一个DOM片段
+createElement(); // 创建一个具体的元素
+createTextNode(); // 创建一个文本节点
 ```
 
 2、添加、移除、替换、插入
@@ -31,18 +33,18 @@ createTextNode(); //创建一个文本节点
 appendChild();
 removeChild();
 replaceChild();
-insertBefore(); //在已有的子节点前插入一个新的子节点
+insertBefore(); // 在已有的子节点前插入一个新的子节点
 ```
 
 3、查找
 
 ```js
-getElementsByTagName(); //通过标签名称
-getElementsByName(); //通过元素的 Name 属性的值(IE 容错能力较强，会得到一个数组，其中包括 id 等于 name 值的)
-getElementById(); //通过元素 Id，唯一性
+getElementsByTagName(); // 通过标签名称
+getElementsByName(); // 通过元素的 Name 属性的值(IE 容错能力较强，会得到一个数组，其中包括 id 等于 name 值的)
+getElementById(); // 通过元素 Id，唯一性
 ```
 
-## class 操作使用 classLis
+## class 操作使用 classList
 
 - Element.classList 是一个**只读属性**，返回一个元素的类属性的实时 DOMTokenList 集合。
 - 使用 classList 是一个方便的替代方法，通过 element.className 作为空格分隔的字符串访问元素的类列表。
@@ -270,3 +272,54 @@ window.open 基本语法：`window.open(pageURL,name,parameters);`
 10. resizable=no **是否允许改变窗口大小**，yes 为允许；
 11. location=no 是否显示地址栏，yes 为允许；
 12. status=no 是否显示状态栏内的信息（通常是文件已经打开），yes 为允许；
+
+## 统计页面的 dom 节点信息
+
+```js
+// DOM 的体积过大会影响页面性能，假如你想在用户关闭页面时统计
+
+//（计算并反馈给服务器）当前页面中元素节点的数量总和、元素节点
+// 的最大嵌套深度以及最大子元素个数，请用 JS 配合原生 DOM API
+
+// 实现该需求（不用考虑陈旧浏览器以及在现代浏览器中的兼容性，
+
+// 可以使用任意浏览器的最新特性；不用考虑 shadow DOM。比如在如下页面中运行后
+// document.getElementsByTagName("*").length
+
+function calculateDOMNodes() {
+  // your implementation code here:
+  let result = {
+    totalElementsCount: 0,
+    maxDOMTreeDepth: 1,
+    maxChildrenCount: 0,
+  };
+  let newDepth, childrenLength;
+  function findElement(parentNode, depth) {
+    [...parentNode.children].forEach((item) => {
+      result.totalElementsCount += 1;
+
+      childrenLength = item.children.length;
+
+      result.maxChildrenCount =
+        result.maxChildrenCount > childrenLength ? result.maxChildrenCount : childrenLength;
+
+      if (item.ELEMENT_NODE !== 1) {
+        console.log(item.ELEMENT_NODE);
+        return;
+      }
+      if (childrenLength) {
+        newDepth = depth + 1;
+        result.maxDOMTreeDepth =
+          result.maxDOMTreeDepth < newDepth ? newDepth : result.maxDOMTreeDepth;
+        findElement(item, newDepth);
+      }
+    });
+  }
+  findElement(document, 1);
+  return result;
+}
+
+calculateDOMNodes();
+
+// window.addEventListener('close', calculateDOMNodes);
+```

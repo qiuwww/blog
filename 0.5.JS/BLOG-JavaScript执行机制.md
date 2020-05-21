@@ -188,9 +188,11 @@ sleep(10000000); // 耗时较长的同步任务
 
 对于 `setInterval(fn,ms)`来说，我们已经知道**不是每过 ms 秒会执行一次 fn，而是每过 ms 秒，会有 fn 进入 Event Queue**。一旦 setInterval 的回调函数 fn 执行时间超过了延迟时间 ms，那么就完全看不出来有时间间隔了。
 
-### process.nextTick
+### [process.nextTick](http://nodejs.cn/api/process.html#process_process_nexttick_callback_args)
 
-process.nextTick(callback)类似 node.js 版的"setTimeout"，在事件循环的下一次循环中调用 callback 回调函数。但是，这里是微任务，而 setTimeout 是宏任务。
+1. process.nextTick(callback)类似 node.js 版的"setTimeout"，在事件循环的下一次循环中调用 callback 回调函数。但是，这里是微任务，而 setTimeout 是宏任务。
+
+2. process.nextTick() 方法将 callback 添加到下一个时间点的队列。 在 JavaScript 堆栈上的当前操作运行完成之后以及允许事件循环继续之前，此队列会被完全耗尽。 如果要递归地调用 process.nextTick()，则可以创建无限的循环。
 
 ### requestAnimationFrame
 
