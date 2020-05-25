@@ -16,7 +16,7 @@ title: JS常用接口源码分析
 
 ```js
 console.time('init');
-var arr = Array.from({ length: 1 << 24 });
+var arr = Array.from({ length: 1 << 23 });
 console.log('###length', arr.length);
 console.timeEnd('init');
 
@@ -43,10 +43,36 @@ for (var i = 0, len = arr.length; i < len; i++) {
 }
 console.timeEnd('for2');
 
-// ###length 16777216
-// init: 2114.401ms
-// for1: 18.421ms
-// forin: 11848.458ms
-// for2: 17.481ms
+length = 0;
+console.time('while');
+var i = 0,
+  len = arr.length;
+while (i < len) {
+  length++;
+  i++;
+}
+console.timeEnd('while');
 
+length = 0;
+console.time('forEach');
+arr.forEach((item) => {
+  length++;
+});
+console.timeEnd('forEach');
+
+length = 0;
+console.time('map');
+// 为啥与forEach差别这么大
+arr.map((item) => {
+  length++;
+});
+console.timeEnd('map');
+
+// init: 1064.593ms
+// for1: 25.479ms
+// forin: 4038.878ms
+// for2: 24.405ms
+// while: 23.723ms
+// forEach: 110.855ms
+// map: 1283.296ms
 ```

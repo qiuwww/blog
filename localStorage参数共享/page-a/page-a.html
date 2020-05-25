@@ -8,12 +8,12 @@
     <h2>Status</h2>
     <p></p>
     <a href="http://localhost:3002/index.html">去index_b查看结果</a>
+    <a href="https://www.baidu.com/">去https://www.baidu.com/查看结果</a>
     <script>
       window.onload = function () {
         //在页面加载完成后主页面向iframe发送请求
         // window.frames[0].postMessage('jogging, reading and writing', 'http://www.test2.com');
         localStorage.setItem('page-a', 'id');
-
         // 主页面监听message事件,
         // window.addEventListener(
         //   'message',
@@ -23,6 +23,20 @@
         //   },
         //   false,
         // );
+      };
+      // 监控当前鼠标所处的元素
+      var el; //声明一个变量，默认值为body
+      var timeStart, timeEnd;
+      document.body.onmouseover = function (event) {
+        el = event.target; //鼠标每经过一个元素，就把该元素赋值给变量el
+        console.log('当前鼠标在', el, '元素上'); //在控制台中打印该变量
+        timeStart = new Date();
+      };
+      document.body.onmouseleave = function (event) {
+        el = event.target; // 鼠标每经过一个元素，就把该元素赋值给变量el
+        console.log('%c当前鼠标离开', 'color: red;', el, '元素'); //在控制台中打印该变量
+        timeEnd = new Date();
+        console.log('timeEnd - timeStart', timeEnd.getTime() - timeStart.getTime());
       };
     </script>
     <script src="http://localhost:3010/inner.js"></script>

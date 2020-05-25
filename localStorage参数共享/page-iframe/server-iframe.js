@@ -12,7 +12,10 @@ const server = http.createServer(function (request, response) {
   if ('/inner.js' == request.url) {
     response.setHeader('Content-Type', 'text/javascript');
     response.end(fs.readFileSync(path.resolve(__dirname, `inner.js`)));
-  } else if ('/' == request.url) {
+  } else if ('/sw.js' == request.url) {
+    response.setHeader('Content-Type', 'text/javascript');
+    response.end(fs.readFileSync(path.resolve(__dirname, `sw.js`)));
+  } else if ('/index.html' == request.url || '/' == request.url) {
     response.setHeader('Content-Type', 'text/html');
     response.end(fs.readFileSync(path.resolve(__dirname, `page-iframe.html`)));
   } else {

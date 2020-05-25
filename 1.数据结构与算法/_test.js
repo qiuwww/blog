@@ -1,33 +1,28 @@
-console.time('init');
-var arr = Array.from({ length: 1 << 24 });
-console.log('###length', arr.length);
-console.timeEnd('init');
+function getExpirationDate(year, month, day) {
+  let flag = isLeapYear(year),
+    nextMonthDay,
+    days = [31, flag ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-var length = 0;
-console.time('for1');
-for (var i = 0; i < arr.length; i++) {
-  length++;
+  month = (month | 0) + 1;
+  if (month > 12) {
+    year += 1;
+    month = 1;
+  }
+
+  nextMonthDay = days[month - 1];
+
+  day = day > nextMonthDay ? nextMonthDay : day;
+  return [year, month, day];
 }
-console.timeEnd('for1');
 
-// 这里最慢
-length = 0;
-console.time('forin');
-for (var j in arr) {
-  length++;
+function isLeapYear(year) {
+  year = year | 0;
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }
-console.timeEnd('forin');
 
-// 如下最快
-length = 0;
-console.time('for2');
-for (var i = 0, len = arr.length; i < len; i++) {
-  length++;
-}
-console.timeEnd('for2');
 
-// ###length 16777216
-// init: 2114.401ms
-// for1: 18.421ms
-// forin: 11848.458ms
-// for2: 17.481ms
+getExpirationDate(2016, 12, 12);
+getExpirationDate(2018, 11, 10);
+getExpirationDate(2018, 12, 10);
+getExpirationDate(2019, 1, 30);
+getExpirationDate(2020, 5, 23);
