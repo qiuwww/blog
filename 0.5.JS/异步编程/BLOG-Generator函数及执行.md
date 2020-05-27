@@ -120,8 +120,8 @@ dva 的调用方式。
 4. async 函数，就是将 generator 函数的\*换成 async，将 yield 替换成 await。
 5. 更广的适用性，**await 后边参数**可以是
    1. **Promise 对象**；
-   2. **原始类型的值**（这个时候相当于同步操作）；
-   3. 会**阻塞**后边的代码执行；
+   2. **原始类型的值**（这个时候相当于**同步操作**），但是还会阻塞后续代码的执行，；
+   3. 会**阻塞**后边的代码执行，后边的代码放到了微任务里边；
 6. 返回值是 promise，要比 Generator 的 Iterator 对象方便操作。
    1. async 函数完全可以看作是一个**由多个异步操**作包装成的 Promise 对象，**await 命令就是内部的 then 命令的语法糖**，所以 await 之后的都是微任务了（异步）。
 7. async 函数的错误处理，这里的 await 也可能是 rejected，所以需要处理错误的时候，做好还是使用`try()catch{}`方法包裹。
@@ -141,18 +141,20 @@ async function fn() {
   console.log(5);
 }
 console.log(1);
+setTimeout(() => {
+  console.log('setTimeout');
+}, 0);
 fn();
 console.log(6);
 
 // 1
 // 2
 // 3
-
 // 6
-
 // promise
 // 4
 // 5
+// setTimeout
 ```
 
 ### await 的实现原理

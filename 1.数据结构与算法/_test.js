@@ -1,28 +1,18 @@
-function getExpirationDate(year, month, day) {
-  let flag = isLeapYear(year),
-    nextMonthDay,
-    days = [31, flag ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+var p = Promise.resolve().then((res) => {
+  console.log('promise');
+});
 
-  month = (month | 0) + 1;
-  if (month > 12) {
-    year += 1;
-    month = 1;
-  }
-
-  nextMonthDay = days[month - 1];
-
-  day = day > nextMonthDay ? nextMonthDay : day;
-  return [year, month, day];
+async function fn() {
+  console.log(2);
+  var res1 = await console.log(3);
+  // 这里的4，仍旧作为异步进行处理了，res1，返回了一个微任务，这里相当于是then回调的内容
+  console.log(4);
+  var res2 = await p;
+  console.log(5);
 }
-
-function isLeapYear(year) {
-  year = year | 0;
-  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-}
-
-
-getExpirationDate(2016, 12, 12);
-getExpirationDate(2018, 11, 10);
-getExpirationDate(2018, 12, 10);
-getExpirationDate(2019, 1, 30);
-getExpirationDate(2020, 5, 23);
+console.log(1);
+setTimeout(() => {
+  console.log('setTimeout');
+}, 0);
+fn();
+console.log(6);
