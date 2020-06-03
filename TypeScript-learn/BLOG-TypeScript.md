@@ -32,7 +32,7 @@ categories:
 
 ### 相同点
 
-1. 都可以描述一个对象或者函数
+1. 都可以**描述一个对象或者函数**；
 
 ```ts
 interface User {
@@ -52,7 +52,7 @@ type User = {
 type SetUser = (name: string, age: number): void;
 ```
 
-2. 都允许拓展（extends）
+2. 都**允许拓展**（extends）；
 
 ```ts
 interface Name {
@@ -70,8 +70,38 @@ type User = Name & { age: number };
 
 ### 不同点
 
-1. type 可以而 interface 不行
-   1. type 可以声明**基本类型别名**，联合类型，元组等类型
-   2. type 语句中还可以**使用 typeof 获取实例的** 类型进行赋值
-2. interface 可以而 type 不行
-   1. interface 能够**声明合并**
+1. type 可以而 interface 不行：
+   1. type 可以声明**基本类型别名**，联合类型，元组等类型；
+   2. type 语句中还可以**使用 `typeof` 获取实例** 的类型进行赋值；
+2. interface 可以而 type 不行：
+   1. interface 能够**声明合并**；
+
+```ts
+// 两个相同的接口会进行合并
+interface Box {
+  height: number;
+  width: number;
+}
+interface Box {
+  scale: number;
+}
+// 默认合并了
+let box: Box = { height: 5, width: 6, scale: 10 };
+console.log(box);
+```
+
+## 声明 window 上不存在的属性
+
+解决: s 根目录新建文件:类型定义文件(.d.ts\*) .d.ts
+
+```ts
+interface Window {
+  ga: (
+    command: 'send',
+    hitType: 'event' | 'pageview',
+    fieldsObject: GAFieldsObject | string,
+  ) => void;
+  reloadAuthorized: () => void;
+  wx: string;
+}
+```
