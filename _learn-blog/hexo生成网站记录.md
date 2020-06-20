@@ -95,7 +95,7 @@ draft source/\_drafts
 ## 原始访问地址
 
 ```js
-http://moonbreezee.github.io/ -> https://learn-blog.qiuww.site/
+http://qiuwww.github.io/ -> https://learn-blog.qiuww.site/
 ```
 
 ## 如何让解决重复发的时候的文件覆盖问题，以及评论功能
@@ -122,7 +122,7 @@ layout: post
 title: title
 date: 2013/7/13 20:46:25
 updated: 2013/7/13 20:46:29
-photos: https://github.com/moonbreezee/treasure-pictures/blob/master/%E4%BA%8C%E5%8D%81%E5%9B%9B%E8%8A%82%E6%B0%94%E4%B8%8E%E4%BC%A0%E7%BB%9F%E8%8A%82%E6%97%A5/2019%E5%B9%B41%E6%9C%885%E6%97%A5-%E5%B0%8F%E5%AF%92.jpeg
+photos: https://github.com/qiuwww/treasure-pictures/blob/master/%E4%BA%8C%E5%8D%81%E5%9B%9B%E8%8A%82%E6%B0%94%E4%B8%8E%E4%BC%A0%E7%BB%9F%E8%8A%82%E6%97%A5/2019%E5%B9%B41%E6%9C%885%E6%97%A5-%E5%B0%8F%E5%AF%92.jpeg
 tags:
   - JavaScript
   - React

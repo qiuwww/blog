@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moonbreezee/rxjs-learn.git"
+    "url": "git+https://github.com/qiuwww/rxjs-learn.git"
   },
   "keywords": [
     "rxjs"
@@ -16,9 +16,9 @@
   "author": "qiu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/moonbreezee/rxjs-learn/issues"
+    "url": "https://github.com/qiuwww/rxjs-learn/issues"
   },
-  "homepage": "https://github.com/moonbreezee/rxjs-learn#readme",
+  "homepage": "https://github.com/qiuwww/rxjs-learn#readme",
   "dependencies": {
     "rxjs": "^6.3.3"
   }

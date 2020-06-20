@@ -8,9 +8,9 @@ categories:
   - markdown
 ---
 
-## 目录
-
 [TOC]
+
+## 目录
 
 ### 自己生成目录
 
@@ -174,7 +174,7 @@ npm install module@latest
 
 度娘一下，你就知道： <http://www.baidu.com>
 
-[typora 语法学习](https://github.com/moonbreezee/blog/blob/master/typora%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0.md)
+[typora 语法学习](https://github.com/qiuwww/blog/blob/master/BLOG-markdown%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0.zh-CN.md)
 
 ### 页面内导航
 
@@ -326,7 +326,7 @@ Text prior to footnote reference.[^2]
 ## 插入 html 标签
 
 <p>
-  <a href="https://github.com/moonbreezee/blog"><img src="https://avatars0.githubusercontent.com/u/9795348?s=400&u=9f4942de719b15791c2154fd0323ab74505f0876&v=4" alt="blog" style="width:100px;height:100px;">blog</a>
+  <a href="https://github.com/qiuwww/blog"><img src="https://avatars0.githubusercontent.com/u/9795348?s=400&u=9f4942de719b15791c2154fd0323ab74505f0876&v=4" alt="blog" style="width:100px;height:100px;">blog</a>
 </p>
 
 ## hexo 生成文章的配置头部
@@ -339,7 +339,7 @@ layout: post
 title: title
 date: 2013-7-13 20:46:25
 updated: 2013-7-13 20:46:29
-photos: https://github.com/moonbreezee/treasure-pictures/blob/master/%E4%BA%8C%E5%8D%81%E5%9B%9B%E8%8A%82%E6%B0%94%E4%B8%8E%E4%BC%A0%E7%BB%9F%E8%8A%82%E6%97%A5/2019%E5%B9%B41%E6%9C%885%E6%97%A5-%E5%B0%8F%E5%AF%92.jpeg
+photos: https://github.com/qiuwww/treasure-pictures/blob/master/%E4%BA%8C%E5%8D%81%E5%9B%9B%E8%8A%82%E6%B0%94%E4%B8%8E%E4%BC%A0%E7%BB%9F%E8%8A%82%E6%97%A5/2019%E5%B9%B41%E6%9C%885%E6%97%A5-%E5%B0%8F%E5%AF%92.jpeg
 tags:
   - JavaScript
   - React
@@ -401,4 +401,5 @@ We must have all ingredients of the recipe available, and in quantities that are
 ## 目前到这里，有一点小问题，以后在学习别人怎么写，还要熟练运用
 
 changyangzhe-2016.7.22
-moonbreezee-2018.9.14
+qiuwww-2018.9.14
+qiuwww-2020.6.20

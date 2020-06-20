@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 属性样式 -->
+  <style>
+    .headTitle{
+      text-align: center;
+      color: cornflowerblue;
+    }
+
+    .search_div{
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    .search_input{
+      border:solid;
+      padding-left: 10px;
+      border-radius:5px;
+      outline-color:#3333CC;
+      width: 50%;
+      height: 40px;
+    }
+
+    .search_btn {
+      border-radius:5px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+
+      width: 10%;
+      height: 50px;
+    }
+    .search_btn:hover {
+      background-color: #3333CC;
+    }
+  </style>
+
+   <script>
+      function test() {
+        var url = "http://test1.ygsong.com/cmobile/index.php?app=goods&mod=goods_list&order=&order_key=&price_from=&price_to=&keyword=%e5%9f%83%e5%8f%8a"
+        fetch(url, {
+            method: 'GET',
+            mode: 'cors', // no-cors, cors, *same-origin
+            }).then((response) => {
+              return response.json()
+            }).then((res) =>{
+              console.log("res = " + res)
+            }).catch((err) =>{
+              console.log(err)
+            })
+      }
+   </script>
+
+  <title>搜索</title>
+</head>
+<body>
+
+  <div >
+    <h2 class="headTitle">请输入搜索的内容</h2>
+  </div>
+
+  <div class="search_div">
+    <input class="search_input" id="searchKey" type="text" name="keyword" >
+    <button class="search_btn" id="searchBtn" name="searchBtn" onclick="test()" type="submit">搜索</button>
+
+  </div>
+
+
+</body>
+</html>

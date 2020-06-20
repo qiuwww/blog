@@ -2,8 +2,8 @@
   "name": "package-2",
   "version": "1.0.1-alpha.0",
   "description": "demo-2",
-  "author": "moonbreezee <1014913222@qq.com>",
-  "homepage": "https://github.com/moonbreezee/blog#readme",
+  "author": "qiuwww <1014913222@qq.com>",
+  "homepage": "https://github.com/qiuwww/blog#readme",
   "license": "ISC",
   "main": "lib/package-2.js",
   "directories": {
@@ -18,13 +18,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moonbreezee/blog.git"
+    "url": "git+https://github.com/qiuwww/blog.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
-    "url": "https://github.com/moonbreezee/blog/issues"
+    "url": "https://github.com/qiuwww/blog/issues"
   },
   "gitHead": "335b3e4d7dff54a137da77aff85c618a1c01d455"
 }

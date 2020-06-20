@@ -7,13 +7,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moonbreezee/blog.git"
+    "url": "git+https://github.com/qiuwww/blog.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/moonbreezee/blog/issues"
+    "url": "https://github.com/qiuwww/blog/issues"
   },
-  "homepage": "https://github.com/moonbreezee/blog#readme"
+  "homepage": "https://github.com/qiuwww/blog#readme"
 }

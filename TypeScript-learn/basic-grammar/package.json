@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "ts learn",
   "main": "index.js",
-  "repository": "https://github.com/moonbreezee/TypeScript-learn.git",
+  "repository": "https://github.com/qiuwww/TypeScript-learn.git",
   "author": "qiuweiwei <qiuww@eazytec.com>",
   "license": "MIT",
   "devDependencies": {
