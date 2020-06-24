@@ -6,6 +6,7 @@ tags:
   - Array
 categories:
   - [JS, Array]
+  - [post, 数组结构Array]
 ---
 
 [TOC]
@@ -209,3 +210,7 @@ console.log(
 
 1. `Array.isArray()`
    1. 如果值是 Array，则为 true; 否则为 false。
+
+## concact
+
+[github 源文件地址](https://github.com/qiuwww/blog/blob/master/0.5.JS/BLOG-%E6%95%B0%E7%BB%84%E7%BB%93%E6%9E%84Array.md)

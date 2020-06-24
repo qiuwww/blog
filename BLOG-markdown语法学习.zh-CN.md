@@ -6,19 +6,57 @@ tags:
   - 语法学习
 categories:
   - markdown
+  - [post, markdown 语法学习]
 ---
+
+上边是 yaml 描述的文档信息。
 
 [TOC]
 
+`[TOC]`，是 Typora 所支持的目录，可自动生成目录，方便查看。
+
+## 介绍，为什么要使用 markdown
+
+1. 纯文本格式，方便编辑和使用，Markdown 是一种**轻量级标记语言**，它允许人们使用易读易写的纯文本格式编写文档。
+2. Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档，这里使用 Typora 可方便导出。
+3. 方便共享，大部分的社区、在线文档都是支持 markdown 格式编写的，共享方便。完全可以用于开发过程中做一些笔记等。
+4. 可以直接使用 html 标签来设置样式，非常的方便。
+
+## 标题
+
+使用 `=` 和`-` 标记一级和二级标题，更常用的是使用`#`来标记。
+
+```md
+# 一级标题
+
+## 二级标题
+
+### 三级标题
+
+#### 四级标题
+
+##### 五级标题
+
+###### 六级标题
+```
+
 ## 目录
 
-### 自己生成目录
+也就是页面内的钩子，类似于 html 的 id。通过`#id`，来进行绑定元素与目录。
 
+```md
 - [目录 1](#1)
 - [目录 2](#2)
 
 <h2 id="1">目录1</h2>
 <h2 id="2">目录2</h2>
+```
+
+- [目录 1](#1)
+- [目录 2](#2)
+
+<h2 id="1">目录1，点击目录 1跳转到此处</h2>
+<h2 id="2">目录2，点击目录 2跳转到此处</h2>
 
 ## 项目结构
 
@@ -37,11 +75,33 @@ Blog
       └── 原型与原型链与原型链与类
   ├── 1.数据结构与算法              -- 数据结构与算法
   ├── 2.js-design-patterns        -- js设计模式
-  ├── 3.浏览器原理                  -- 浏览器原理
-  └── BLOG-markdown语法学习.zh-CN   -- markdown规范示例
+  ├── 3.浏览器原理                 -- 浏览器原理
+  └── BLOG-markdown语法学习.zh-CN  -- markdown规范示例
 ```
 
 ## 引用
+
+引用使用`>`来标记，可以是一块，或者是一行，内部还可以嵌套 md 格式语法。
+
+```md
+> 这是一个块引用，
+>
+> 应该可以写很长，很长
+>
+> ### 引用的标题
+>
+> balabalabala
+>
+> > 这是第二级引用。
+> > return shell_exec(`echo $input | $markdown_script`);
+
+> github 有以下主要功能:
+>
+> 1. 代码托管平台
+> 2. 在线运行环境
+> 3. 代码质量监控
+> 4. 项目管理平台
+```
 
 > 这是一个块引用，
 >
@@ -54,9 +114,17 @@ Blog
 > > 这是第二级引用。
 > > return shell_exec(`echo $input | $markdown_script`);
 
+> github 有以下主要功能:
+>
+> 1. 代码托管平台
+> 2. 在线运行环境
+> 3. 代码质量监控
+> 4. 项目管理平台
+
 ## 常用的简单标记
 
-这是`<u>`下划线`</u>`，但是这里为什么一直有一个提示错误
+```md
+这是<u>下划线</u>，这里本质借助了 html 的标签来设置样式的。
 
 ---
 
@@ -64,17 +132,26 @@ Blog
 
 ---
 
-~这是删除线，但是不起作用，好像^与~都不可用~
+~~这是删除线~~
 
-`代码样式显示，需要看的时候点到这里，也可以看别人的文档来学习这种语法`
+表示**强调**
 
-```html
-代码块是这样的， 对，就是这样的。
+当然这样也表示**强调**，一般用在行内
+
+表示*斜体*，比强调少了一个说明符
+
+当然这也是*斜体*
 ```
 
-```html
-当然也可以这样， 就是这样啊。
-```
+这是<u>下划线</u>，这里本质借助了 html 的标签来设置样式的。
+
+---
+
+分割线
+
+---
+
+~~这是删除线~~
 
 表示**强调**
 
@@ -86,7 +163,15 @@ Blog
 
 ## 列表
 
+列表，一般分为有序列表和无序列表，一般使用有序列表，更清晰，方便记忆。
+
 ### 任务列表
+
+```md
+- [x] 吃饭
+- [x] 看电影，已完成
+- [ ] 看书，还没完成的
+```
 
 - [x] 吃饭
 - [x] 看电影，已完成
@@ -94,42 +179,39 @@ Blog
 
 ### 无序的列表
 
-> 使用星号、加号或是减号作为列表标记
+使用星号`*`、加号`+`或是减号`-`作为列表标记。
 
-#### 无序的列表 1，当然官方是推荐`-`的
+```md
+- html
+- css
+- javascript
+```
 
 - html
 - css
 - javascript
 
-#### 无序的列表 2
-
-- vue
-- angularjs
-- react
-
-#### 无序的列表 3
-
-- vue
-- angularjs
-- react
-
 ### 有序的列表
+
+```md
+1. nodejs
+2. angularjs
+3. react
+```
 
 1. nodejs
 2. angularjs
 3. react
 
-### 嵌套块引用的列表
-
-github 有以下主要功能:
-
-> 代码托管平台
-> 在线运行环境
-> 代码质量监控
-> 项目管理平台
-
 ## 代码块
+
+单行代码注视使用``来标记，多行代码快使用```来标记。
+
+`代码样式显示，需要看的时候点到这里，也可以看别人的文档来学习这种语法`
+
+```html
+<p>代码块是这样的， 对，就是这样的。</p>
+```
 
 ```js
 /**
@@ -150,9 +232,13 @@ npm install module@latest
 
 ## 链接
 
-[内嵌式链接](https://www.google.com)
+1. 类似与 html 的 a 标签，可以设置相对路径的连接，也可以设置绝对路径的连接。
+2. 一般在 vsc 中，可以复制连接，然后选中元素，直接粘贴就可以生成。
 
-[带标题的内嵌式链接](https://www.google.com '谷歌的主页')
+```md
+[内嵌式链接](http://www.google.com)
+
+[带标题的内嵌式链接](http://www.google.com '谷歌的主页')
 
 [引用式链接][arbitrary case-insensitive reference text]
 
@@ -164,21 +250,56 @@ npm install module@latest
 
 用来说明引用链接的文字可以放在后面。
 
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
+[arbitrary case-insensitive reference text]: http://www.mozilla.org
+[1]: http://slashdot.org
+[link text itself]: http://www.reddit.com
+```
+
+[内嵌式链接](http://www.google.com)
+
+[带标题的内嵌式链接](http://www.google.com '谷歌的主页')
+
+[引用式链接][arbitrary case-insensitive reference text]
+
+[相对引用一个库文件](../blob/master/LICENSE)
+
+[你可以在引用式链接定义中使用数字][1]
+
+或者空着什么都不写 [link text itself]
+
+用来说明引用链接的文字可以放在后面。
+
+[arbitrary case-insensitive reference text]: http://www.mozilla.org
 [1]: http://slashdot.org
 [link text itself]: http://www.reddit.com
 
 ### 自动链接
 
+md 可以自动识别一些地址为 url，展示的时候，会直接展示为连接。
+
+```md
 当然标准的 url 直接填入就是了。eg：www.baidu.com
 
 度娘一下，你就知道： <http://www.baidu.com>
 
-[typora 语法学习](https://github.com/qiuwww/blog/blob/master/BLOG-markdown%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0.zh-CN.md)
+[typora 语法学习](http://github.com/qiuwww/blog/blob/master/BLOG-markdown%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0.zh-CN.md)
+```
+
+当然标准的 url 直接填入就是了。eg：www.baidu.com
+
+度娘一下，你就知道： <http://www.baidu.com>
+
+[typora 语法学习](http://github.com/qiuwww/blog/blob/master/BLOG-markdown%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0.zh-CN.md)
 
 ### 页面内导航
 
-这里应该是转为 html 的时候会生成锚点
+这里是转为 html 的时候会生成锚点。
+
+```md
+[插入图片](#插入图片)
+
+**[:arrow_up: 返回目录](#目录)**
+```
 
 [插入图片](#插入图片)
 
@@ -186,39 +307,39 @@ npm install module@latest
 
 ## 表格
 
-| 姓名 | 性别 |   毕业学校   | 工资 |
-| :--- | :--: | :----------: | ---: |
-| 杨洋 |  男  | 重庆交通大学 | 3200 |
-| 峰哥 |  男  |   贵州大学   | 5000 |
-| 坑货 |  女  |   北京大学   | 2000 |
+可以使用 md 来生成表格，可以控制对齐方式。
+
+```md
+| 左对齐 | 右对齐 | 居中对齐 |
+| :----- | -----: | :------: |
+| 单元格 | 单元格 |  单元格  |
+| 单元格 | 单元格 |  单元格  |
+```
+
+| 左对齐 | 右对齐 | 居中对齐 |
+| :----- | -----: | :------: |
+| 单元格 | 单元格 |  单元格  |
+| 单元格 | 单元格 |  单元格  |
 
 其中代码的第二行指定对齐的方式，第一个是左对齐，第二个和第三个是居中，最后一个是右对齐。
 
 ## 插入图片
 
-本地图片直接拖过来就行了：![gitflow工作流](./4.版本管理工具/imgs/git-workflow-release-cycle-4maintenance.png)，这里最好自己写与当前文档相对地址，不然上传在别的地方就访问不到了。
+语法使用`![展示的名称](图片的相对或者绝对地址)`。
+
+本地图片直接拖过来就行了，这里最好自己写绝对地址，不然上传在别的地方就访问不到了。
 
 ### 网络图片，so easy，（当然标题前后需要空一格）
 
-![img](http://upload-images.jianshu.io/upload_images/1182605-1cbd9bb6f1ed0be4.gif?imageMogr2/auto-orient/strip)
-
-## 这是两种分割线
-
-分割内容 1
-
----
-
-分割内容 2
-
----
-
-分割内容 3， 当然官方是推荐的`******`，六个
-
-## 删除线
-
-~~要划除的行内内容~~
+![防抖debounce_节流throttle](https://user-gold-cdn.xitu.io/2020/6/22/172dca291804db9b?w=2878&h=746&f=png&s=62811)
 
 ## 标注
+
+```md
+某些人用过了才知道[^注释]
+
+[^注释]: 真的可以啊，但是这里为什么还在呢
+```
 
 某些人用过了才知道[^注释]
 
@@ -227,6 +348,8 @@ npm install module@latest
 ## 流程图
 
 Markdown 编辑器已支持绘制流程图、时序图和甘特图。通过 mermaid 实现图形的插入，点击查看 更多语法详情。
+
+这里不同的编辑器查看到的效果不一样。
 
 ### 流程图 1
 
@@ -253,35 +376,74 @@ Bob-->Alice: I am good thanks!
 
 ## markdown 内部可以嵌入直接的 html 代码
 
-```html
-<h1 align="center">
-  <br />
-  <a href="https://github.com/stephentian/33-js-concepts"
-    ><img
-      src="https://github.com/stephentian/33-js-concepts"
-      alt="每位 JS 开发应该懂的 33 个概念"
-      width="200"
-  /></a>
-  <br />
-  <br />
-  JavaScript开发者应懂的33个概念
-  <br />
-</h1>
+这里的 html 可以随便写，还可以加内联样式。
+
+<h1 align="center">使用img插入图片</h1>
+<img src="https://user-gold-cdn.xitu.io/2020/6/22/172dca291804db9b?w=2878&h=746&f=png&s=62811"
+ alt="防抖debounce_节流throttle" width="200"/>
+
+内容折叠，details 和 summary，常用于 qa。
+
+```md
+<details>
+  <summary>展开查看</summary>
+  <pre>
+    <code>
+      System.out.println("Hello to see U!");
+    </code>
+  </pre>
+</details>
 ```
+
+<details>
+  <summary>展开查看</summary>
+  <pre>
+    <code>
+      System.out.println("Hello to see U!");
+    </code>
+  </pre>
+</details>
+
+### 内容折叠实例
+
+<details>
+<summary>View contents</summary>
+
+- list1
+- list2
+
+> 这里是引用
+
+- [这里是一个提问](#这里是一个提问)
+
+</details>
+
+### 这里是一个提问
+
+<details>
+<summary>这里是答案</summary>
+
+We must have all ingredients of the recipe available, and in quantities that are more than or equal to the number of units required. If just one of the ingredients is not available or lower than needed, we cannot make a single batch.
+
+</details>
 
 ## 插入数学公式
 
-[公式编辑](https://www.codecogs.com/latex/eqneditor.php)
+这里的兼容性不太好。
+
+[公式编辑](http://www.codecogs.com/latex/eqneditor.php)
 
 ### 使用使用 Google Chart 的服务器
 
-<img src="http://chart.googleapis.com/chart?cht=tx&chl=$$\sum_{k=1}^{n}w_k l_k$$" style="border:none;">
+这里直接加载是加载不出来。
 
-<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" style="border:none;">
+<!-- <img src="http://chart.googleapis.com/chart?cht=tx&chl=$$\sum_{k=1}^{n}w_k l_k$$" style="border:none;">
+
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" style="border:none;"> -->
 
 ### 使用 MathJax 引擎，在 vscode 内预览是可以的
 
-[举例参考](https://juejin.im/post/5a6721bd518825733201c4a2)
+[举例参考](http://juejin.im/post/5a6721bd518825733201c4a2)
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
@@ -323,12 +485,6 @@ $$\begin{Bmatrix}1 & 2\\\\3 &4\end{Bmatrix}$$
 Text prior to footnote reference.[^2]
 [^2]: Comment to include in footnote.
 
-## 插入 html 标签
-
-<p>
-  <a href="https://github.com/qiuwww/blog"><img src="https://avatars0.githubusercontent.com/u/9795348?s=400&u=9f4942de719b15791c2154fd0323ab74505f0876&v=4" alt="blog" style="width:100px;height:100px;">blog</a>
-</p>
-
 ## hexo 生成文章的配置头部
 
 hexo 的文章的头部信息，需要的基本信息：title、date、tags、categories、comments
@@ -339,7 +495,7 @@ layout: post
 title: title
 date: 2013-7-13 20:46:25
 updated: 2013-7-13 20:46:29
-photos: https://github.com/qiuwww/treasure-pictures/blob/master/%E4%BA%8C%E5%8D%81%E5%9B%9B%E8%8A%82%E6%B0%94%E4%B8%8E%E4%BC%A0%E7%BB%9F%E8%8A%82%E6%97%A5/2019%E5%B9%B41%E6%9C%885%E6%97%A5-%E5%B0%8F%E5%AF%92.jpeg
+photos: https://user-gold-cdn.xitu.io/2020/6/22/172dca291804db9b?w=2878&h=746&f=png&s=62811
 tags:
   - JavaScript
   - React
@@ -356,50 +512,22 @@ top: 1
 
 ```
 
-## 锚点
+上边是 yaml 描述的文档信息，方便解析。
 
-[点击跳转到目标位置，通过 id 实现](#jump)
+## 语法警告提示
 
-<span id="jump">这里是要跳转到的位置，通过 id 标记</span>
+> no-inline-html: Inline HTML
 
-## 内容折叠
+常见提示语法的问题，可以配置`.markdownlint.json`文件来解决 warning 的问题。
 
-<details>
-  <summary>展开查看</summary>
-  <pre>
-    <code>
-      System.out.println("Hello to see U!");
-    </code>
-  </pre>
-</details>
+[⬆ Back to top](#目录)
 
-### 内容折叠实例
-
-<details>
-<summary>View contents</summary>
-
-- list1
-- list2
-
-> 这里是引用
-
-- [这里是一个提问](#这里是一个提问)
-
-</details>
-
-### 这里是一个提问
-
-<details>
-<summary>这里是答案</summary>
-
-We must have all ingredients of the recipe available, and in quantities that are more than or equal to the number of units required. If just one of the ingredients is not available or lower than needed, we cannot make a single batch.
-
-</details>
-
-<br>[⬆ Back to top](#目录)
-
-## 目前到这里，有一点小问题，以后在学习别人怎么写，还要熟练运用
+## 目前到这里，还要熟练运用
 
 changyangzhe-2016.7.22
 qiuwww-2018.9.14
 qiuwww-2020.6.20
+
+## contact
+
+[github 源文件地址](https://github.com/qiuwww/blog/blob/master/BLOG-markdown%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0.zh-CN.md)

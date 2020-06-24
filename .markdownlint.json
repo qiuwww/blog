@@ -19,7 +19,8 @@
       "script",
       "form",
       "area",
-      "br"
+      "br",
+      "u"
     ]
   },
   "MD033": {
@@ -42,7 +43,8 @@
       "script",
       "form",
       "area",
-      "br"
+      "br",
+      "u"
     ]
   },
   "line_length": false
