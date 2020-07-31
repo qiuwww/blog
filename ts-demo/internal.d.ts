@@ -1,0 +1,18 @@
+import tracker from './decoratiors/tracker';
+import actionTracker from './core/actionTracker';
+import timeTracker from './core/pageTimeTracker';
+import { getConfig, setConfig } from './core/config';
+import { sendAsync, send, sendSync } from './core/send';
+import { after, before } from './decoratiors/tools';
+import vTrackView from './directives/trackView';
+import vTrackEvent from './directives/trackEvent';
+import vTrackPage from './directives/trackPage';
+import install from './core/bindEvent';
+import { login, logout } from './core/user';
+declare const trackDom: (dom: HTMLLinkElement | HTMLInputElement, info?: import("./core/actionTracker").ITrackerEventParam) => void;
+declare const trackPage: (info?: import("./core/actionTracker").ITrackerPageParam) => void;
+declare const trackEvent: (info?: import("./core/actionTracker").ITrackerEventParam) => void;
+declare const trackView: (dom: HTMLElement, info: import("./core/actionTracker").ITrackerViewParam, visSenseConfig?: import("./types").VisSenseConfig) => void;
+declare const trackLink: (linkDom: HTMLLinkElement, info?: import("./core/actionTracker").ITrackerEventParam) => void;
+declare const track: (info: import("./core/actionTracker").ITrackerParam) => void;
+export { before, after, tracker, vTrackView, vTrackEvent, vTrackPage, install, actionTracker, timeTracker, trackDom, trackPage, trackEvent, trackView, trackLink, track, setConfig, getConfig, sendAsync, send, sendSync, login, logout };

@@ -6,6 +6,8 @@
 
 ```bash
 # 初始化包
+# 这个时候就为独立模式(Independent mode)。
+# 独立模式允许每一个包有一个独立的版本号，在使用lerna publish命令时，可以为每个包单独制定具体的操作，同时可以只更新某一个包的版本号。
 $ lerna init --independent
 # 创建包
 $ lerna create <package-name>
@@ -29,3 +31,4 @@ $ lerna publish
 4. 将所有更新过的包中的依赖更新
 5. 为新版本创建一个 git commit 或 tag
 6. 将包 publish 到 npm 上
+

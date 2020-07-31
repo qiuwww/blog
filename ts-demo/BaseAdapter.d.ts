@@ -1,0 +1,58 @@
+import qs from 'qs';
+import Config from './utils/config';
+import { IUserInfo, IShareData, ISailerCoordinates, IIMParams, ISailerColor } from './Adapter';
+import { IPostSpiderFileuploadUpload } from './API';
+export interface IGetCompositeUserUserInfo {
+    userId: number;
+    username: string;
+    nickname: string;
+    name: string;
+    mobile: string;
+    email: string;
+    sex: number;
+    avatar: string;
+    code: string;
+    qrcode: string;
+    memberLevel: number;
+    memberType: number;
+}
+export default abstract class BaseAdapter {
+    config: Config;
+    axios: import("./utils/http").Axios;
+    qs: typeof qs;
+    axiosOld: import("./utils/httpLegacy").AxiosLegacy;
+    userInfo: IUserInfo;
+    uploadInput: HTMLInputElement;
+    setTitle(title: string): void;
+    hideNavBar(): void;
+    hideAllNonBaseMenuItem(): void;
+    showAllNonBaseMenuItem(): void;
+    hideOptionMenu(): void;
+    showOptionMenu(): void;
+    isLogin(): boolean;
+    abstract reLogin(redirectUrl?: string): Promise<void>;
+    onLogin(cb: () => void, once?: boolean): void;
+    login(redirectUrl?: string): void;
+    getUserInfo: () => Promise<IUserInfo>;
+    getLoginUserInfo(cb?: (param: IUserInfo) => void): Promise<IUserInfo>;
+    abstract setShareConfig(shareData: IShareData, successFn?: () => void, failFn?: () => void): Promise<void>;
+    openShare(shareData?: IShareData): Promise<void>;
+    goIM(param: IIMParams): void;
+    abstract closeWebview(): void;
+    abstract getLocation(type?: 'wgs84' | 'gcj02'): Promise<ISailerCoordinates>;
+    redirect(url: string): void;
+    abstract open(url: string): void;
+    replace(url: string): void;
+    goBack(redirectUrl?: string): void;
+    forceGoBack(): void;
+    setStatusBarStyle(style: 'light' | 'dark'): void;
+    doNothing(): void;
+    creatUpload(): void;
+    startUpload(): Promise<File[]>;
+    upload(): Promise<IPostSpiderFileuploadUpload>;
+    setHeaderColor(backgroundColor: ISailerColor, foregroundColor: ISailerColor): void;
+    onPageShow(cb: () => void, once?: boolean): void;
+    openCamera(): Promise<string>;
+    chooseSingleImage(): Promise<string>;
+    getPaddingTop(): number;
+}

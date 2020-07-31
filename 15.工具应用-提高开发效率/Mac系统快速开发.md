@@ -77,3 +77,7 @@ command+数字键：在 chrome 中表示切换 tab 页面；
 ## 启动任务管理器
 
 Command + Option + Escape 关闭任务，强制关闭任务。
+
+## 复制文件路径
+
+Command + Option + c

@@ -22,25 +22,28 @@
       .painting-wrap {
         display: flex;
         flex-wrap: wrap;
+        flex-direction: row;
         margin: 20px;
+        justify-content: flex-start;
+        /* align-items: flex-start; */
       }
 
       /* input本身的 */
-      input[type="color"] {
+      input[type='color'] {
         outline: none;
         padding: 0;
         margin: 0;
         border: 0;
       }
       /* 这个是外面的容器 */
-      input[type="color"]::-webkit-color-swatch-wrapper {
+      input[type='color']::-webkit-color-swatch-wrapper {
         background-color: transparent;
         padding: 0;
         margin: 0;
         border: 0;
       }
       /* 这个是内部的颜色按钮，改变颜色后会改变 */
-      input[type="color"]::-webkit-color-swatch {
+      input[type='color']::-webkit-color-swatch {
         border: 0;
         padding: 0;
         margin: 0;
@@ -52,52 +55,72 @@
     <div class="painting-wrap"></div>
     <script>
       var page = {
-        whTotal: 1000,
-        lineNum: 60,
-        init: function() {
+        whTotal: 500,
+        lineNum: 20,
+        colors: ['#ff0000', '#00ff00', '#0000ff'],
+        wrapDom: document.querySelector('.painting-wrap'),
+        init: function () {
+          this.wh = this.whTotal / this.lineNum;
+          this.size = this.lineNum;
+          this.wrapDom.setAttribute('style', `width: ${this.whTotal}px`);
           this.renderPage();
         },
-        randomColor: function() {
-          return "#" + (~~(Math.random() * (1 << 24))).toString(16);
+        randomColor: function () {
+          var len = this.colors.length;
+          return this.colors[~~(Math.random() * len)];
         },
-        initColorArr: function(len) {
-          var arr = new Array(len).fill(" ");
-          return arr.map(item => this.randomColor());
+
+        renderPage: function () {
+          this.insertDom(this.lineNum * this.lineNum, 0);
         },
-        renderPage: function() {
+
+        // 生成一个标签
+        createDom: function (index) {
+          var color = this.randomColor();
+          var wh = this.wh;
+          var input = document.createElement('input');
+          input.setAttribute('type', 'color');
+          input.setAttribute('value', color);
+          input.setAttribute('style', `width: ${wh}px; height: ${wh}px;`);
+          return input;
+        },
+
+        insertDom: function (total, index) {
           var self = this;
-          var whTotal = this.whTotal;
-          var colorArr = this.initColorArr(this.lineNum * this.lineNum);
-          var wh = whTotal / Math.sqrt(colorArr.length);
-          var color;
-          var items = colorArr.map((item, index) => {
-            color = self.randomColor();
-            return `<input type="color" value="${color}" style="width: ${wh}px; height: ${wh}px;" data-id=${index} />`;
+          if (total <= 0) {
+            return;
+          }
+          var curPage = Math.min(total, this.size);
+          window.requestAnimationFrame(() => {
+            let fragment = document.createDocumentFragment();
+            for (let i = 0; i < curPage; ++i) {
+              let item = self.createDom(i);
+              fragment.appendChild(item);
+            }
+            this.wrapDom.appendChild(fragment);
+            this.insertDom(total - curPage, index + curPage);
           });
-          document.querySelector(".painting-wrap").style.width = whTotal + "px";
-          document.querySelector(".painting-wrap").style.height =
-            whTotal + "px";
-          document.querySelector(".painting-wrap").innerHTML = items.join("");
-        }
+        },
       };
+
       var arr = [];
-      Object.defineProperty(page, "colorArr", {
-        get: function() {
+      Object.defineProperty(page, 'colorArr', {
+        get: function () {
           return arr || [];
         },
-        set: function(arr) {
+        set: function (arr) {
           var self = this;
           arr = arr;
           // debugger
-          setTimeout(function() {
+          setTimeout(function () {
             self.renderPage();
           }, 0);
         },
         enumerable: true,
-        configurable: true
+        configurable: true,
       });
 
-      window.onload = function() {
+      window.onload = function () {
         page.init();
       };
     </script>
