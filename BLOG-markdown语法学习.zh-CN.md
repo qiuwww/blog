@@ -522,6 +522,59 @@ top: 1
 
 [⬆ Back to top](#目录)
 
+## 项目解构说明
+
+```lua
+ECoder
+  ├── block-components -- 基础组件，在页面编辑的时候会用到里边的区块
+  ├── config -- 一些项目的基础配置，umi的默认路由的替代(router.config.js)等
+  ├── ework-pages -- block的UI定制部分的代码
+  ├── pageTemplate // 拉取的线上模板文件
+  └── src // 项目文件
+      ├── assets // 静态资源文件吧
+      ├── components // 公用组件文件夹
+      ├── constants // 常量定义的文件夹
+      ├── layouts // 包括基础的layout，以及页面头部信息，处理用户的gitlab关联的登录逻辑
+      ├── locales // 国际化的东西
+      ├── models // 主要存放全局的model的文件，对于具体页面的model，认为放在相应的文件夹内为妥
+      ├── utils // 存放全局的工具函数
+      ├── services // 接口服务
+      ├── app.js // 运行时配置文件
+      ├── global.css // 约定的全局样式文件，自动引入，也可以用 global.less
+      ├── pages
+          ├── .umi/ // dev 临时目录，需添加到 .gitignore
+          ├── NewHome // 项目标签下的内容
+              ├── models/ // 使用到的model
+              ├── components/ // 当前页面的分块组件
+                  ├── CreateBox // 创建项目模块
+                  ├── GitlabModal // gitlab相关操作模块
+                  ├── PageEdit // 页面编辑模块
+                  ├── ProjectCreate // 工程目录添加操作
+                  ├── ProjectList // 项目展示列表，附带相关操作
+                  ├── TerminalWindow // terminal命令执行窗口组件
+                  ├── UploadDist // 代码上传操作弹框
+              ├── utils/ // 主要是execute函数，`node-pty`区别于`child_process`模块，可以输出执行的详细信息
+          ├── blocks.js // 区块
+          ├── index.js // 首页
+          ├── setting.js // 设置页面
+          ├── template.js // 模板页面
+  ├── main // Electron的入口文件，这里加载启动的服务页面
+  ├── package.json // 项目的基本信息及相关的配置
+  ├── webpack.config.js // 在umi配置的基础上的webpack的自定义部分
+  ├── .eslintrc // eslint的基础设置
+  ├── .umirc.js // umi 配置，同 config/config.js，二选一
+  ├── .env                           // 环境变量
+```
+
+## 显示 diff 效果
+
+```diff
+function addTwoNumbers (num1, num2) {
+-  return 1 + 2
++  return num1 + num2
+}
+```
+
 ## 目前到这里，还要熟练运用
 
 changyangzhe-2016.7.22
