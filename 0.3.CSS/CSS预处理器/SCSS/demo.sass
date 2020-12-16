@@ -1,0 +1,61 @@
+// 未编译样式
+
+// 1. 变量
+
+$highlight-color: #f90
+$width: 10px
+
+body
+  $width: 20px
+
+  // 中划线或下划线，两种用法相互兼容。
+  background-color: $highlight_color
+  padding: $width
+
+// 2. 嵌套CSS 规则
+
+body
+  .wrap
+    background-color: aquamarine
+
+// 属性嵌套
+.tips1
+  border:
+    style: solid
+    width: 1px
+    color: #ccc
+
+.tips2
+  border: 1px solid #ccc
+    left: 0px
+    right: 0px
+
+// 3. 文件导入
+@import ./base.scss
+
+// 4. 混合器 | 对于@mixin的使用 @include
+
+=rounded-corners($radius: 5px)
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  border-radius: $radius
+
+.tips3
+  +lamp-clamp(3)
+
+.img
+  width: 300px
+
+  +rounded-corners(20px)
+
+// 5. 使用选择器继承来精简CSS
+
+//通过选择器继承继承样式
+.error
+  border: 1px solid red
+  background-color: #fdd
+
+.tips3
+  @extend .error
+
+  border-width: 3px

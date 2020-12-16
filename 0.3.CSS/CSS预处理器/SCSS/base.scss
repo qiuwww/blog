@@ -1,0 +1,116 @@
+.flex {
+  display: flex;
+}
+
+.flex,
+.inline-flex {
+  &.column {
+    flex-direction: column;
+  }
+
+  &.align-center,
+  &.center {
+    align-items: center;
+  }
+
+  &.align-start {
+    align-items: flex-start;
+  }
+
+  &.space-between {
+    justify-content: space-between;
+  }
+
+  &.justify-center,
+  &.center {
+    justify-content: center;
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  .align-self-end {
+    align-self: flex-end;
+  }
+
+  &.no-shrink {
+    flex-shrink: 0;
+  }
+
+  &.justify-end {
+    justify-content: flex-end;
+  }
+}
+
+// 4. 混入的样式 mixin
+$counter: 32;
+
+@while $counter > 0 {
+  .p#{$counter} {
+    padding: (1px * $counter);
+  }
+  .pt#{$counter} {
+    padding-top: (1px * $counter);
+  }
+  .pr#{$counter} {
+    padding-right: (1px * $counter);
+  }
+  .pb#{$counter} {
+    padding-bottom: (1px * $counter);
+  }
+  .pl#{$counter} {
+    padding-left: (1px * $counter);
+  }
+  .m#{$counter} {
+    margin: (1px * $counter);
+  }
+  .mt#{$counter} {
+    margin-top: (1px * $counter);
+  }
+  .mr#{$counter} {
+    margin-right: (1px * $counter);
+  }
+  .mb#{$counter} {
+    margin-bottom: (1px * $counter);
+  }
+  .ml#{$counter} {
+    margin-left: (1px * $counter);
+  }
+  .fz#{$counter} {
+    font-size: (1px * $counter);
+  }
+  $counter: $counter - 4;
+}
+
+@mixin text-ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin lamp-clamp($line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
+
+// 添加省略展示的样式类型 .ell2
+
+$counter2: 5;
+
+@mixin ell-base {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@while $counter2 > 0 {
+  .ell#{$counter2} {
+    @include ell-base;
+    -webkit-line-clamp: ($counter2);
+  }
+  $counter2: $counter2 - 1;
+}

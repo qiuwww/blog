@@ -1,0 +1,280 @@
+// 声明编码格式
+@charset "utf-8";
+
+// 5. 测试引入
+@import './border.less';
+@import './less函数.less';
+
+@base: #f938ab;
+
+// 如下两种不同的调用结果，依据不同的参数
+.box-shadow(@style, @c) when (iscolor(@c)) {
+  -webkit-box-shadow: @style @c;
+  box-shadow: @style @c;
+}
+.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+.box {
+  color: saturate(@base, 5%);
+  border-color: lighten(@base, 30%);
+  div {
+    .box-shadow(0 0 5px, 30%);
+  }
+}
+
+/* 这里测试less的基本语法 */
+
+// 1. 测试变量的使用
+
+@base-font-size: 14px;
+@base-color: @base;
+@border-color: @base;
+
+// 2. 测试嵌套 ｜ Nested Rules
+
+body {
+  .tips1 {
+    font-size: @base-font-size * 1.2;
+    color: @base-color;
+    .border-top;
+    .border-bottom(blue);
+    .p20;
+  }
+  background-color: #ffe;
+  .reset(); // => body * {**}
+}
+
+// 2.1 @media的嵌套有些不一样
+.screen-color {
+  @media screen {
+    color: green;
+    @media (min-width: 768px) {
+      color: red;
+    }
+  }
+  @media tv {
+    color: black;
+  }
+}
+//  =>
+// @media screen {
+//   .screen-color {
+//     color: green;
+//   }
+// }
+// @media screen and (min-width: 768px) {
+//   .screen-color {
+//     color: red;
+//   }
+// }
+// @media tv {
+//   .screen-color {
+//     color: black;
+//   }
+// }
+// 3. 测试函数
+
+// 这里的@color是形参，@border-color是默认值
+.border-bottom(@color: @border-color) {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: @color;
+    transform-origin: 100% 100%;
+    @media (-webkit-min-device-pixel-ratio: 1.5) {
+      transform: scaleY(0.6666);
+    }
+    @media (-webkit-min-device-pixel-ratio: 2) {
+      transform: scaleY(0.5);
+    }
+    @media (-webkit-min-device-pixel-ratio: 3) {
+      transform: scaleY(0.3333);
+    }
+  }
+}
+
+.fl(@fl:left) {
+  float: @fl;
+  display: inline;
+}
+.fr(@fr:right) {
+  float: @fr;
+  display: inline;
+}
+
+// 4. 函数遍历，元素上添加类测试
+
+.loop(@counter) when (@counter > 0) {
+  .p@{counter} {
+    padding: (1px * @counter);
+  }
+  .pt@{counter} {
+    padding-top: (1px * @counter);
+  }
+  .pr@{counter} {
+    padding-right: (1px * @counter);
+  }
+  .pb@{counter} {
+    padding-bottom: (1px * @counter);
+  }
+  .pl@{counter} {
+    padding-left: (1px * @counter);
+  }
+  .m@{counter} {
+    margin: (1px * @counter);
+  }
+  .mt@{counter} {
+    margin-top: (1px * @counter);
+  }
+  .mr@{counter} {
+    margin-right: (1px * @counter);
+  }
+  .mb@{counter} {
+    margin-bottom: (1px * @counter);
+  }
+  .ml@{counter} {
+    margin-left: (1px * @counter);
+  }
+  .fz@{counter} {
+    font-size: (1px * @counter);
+  }
+  .loop((@counter - 2));
+}
+
+.loop(32);
+
+// 6. 定义一组样式
+
+.reset() {
+  box-sizing: border-box;
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
+  img {
+    border: none;
+  }
+  input,
+  select,
+  textarea {
+    outline: none;
+    border: none;
+    background: none;
+  }
+  textarea {
+    resize: none;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+// 7. 混入样式 ｜ Mixins
+
+.ell-base {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ell-loop(@counter) when (@counter > 0) {
+  .ell@{counter} {
+    .ell-base;
+    -webkit-line-clamp: (@counter);
+  }
+  .ell-loop((@counter - 1));
+}
+
+.ell-loop(10);
+
+// 8. 颜色计算
+
+@nice-blue: #5b83ad;
+@light-blue: @nice-blue + #111;
+
+.tips2 {
+  color: @light-blue;
+  // Mixins
+  .ell4;
+}
+
+// 9. 内置函数
+
+// 函数的用法非常简单。下面这个例子将介绍如何利用 percentage 函数将 0.5 转换为 50%，将颜色饱和度增加 5%，以及颜色亮度降低 25% 并且色相值增加 8 等用法：
+
+@base-color: #f04615;
+@width: 0.5;
+
+.tips3 {
+  width: percentage(@width * 1.2); // returns `50%`
+  color: saturate(@base-color, 5%);
+  background-color: spin(lighten(@base-color, 25%), 8);
+}
+
+// 10. 命名空间 ｜ Namespaces
+// 可以选择局部的样式来使用
+#bundle {
+  .btn {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    &:hover {
+      background-color: white;
+    }
+  }
+  .tab {
+  }
+  .citation {
+  }
+}
+
+.tips3 {
+  // 这里是选中了#bundle命名空间内的btn样式
+  #bundle > .btn;
+}
+
+// 11. 作用域 ｜ Scope
+
+@var: red;
+
+.tips4 {
+  @var: blue;
+  span {
+    color: @var; // blue
+  }
+}
+
+// 12. 使用内置函数
+
+.img {
+  // 这个函数必须编译的时候，才能获取具体的值，开发的时候不能用
+  width: image-height('./img.jpg');
+  // Multiply two colors. Corresponding RGB channels from each of the two colors are multiplied together then divided by 255. The result is a darker color.
+  background-color: multiply(#fff500, #005fff);
+  color: darken(hsl(90, 80%, 50%), 20%);
+  opacity: percentage(0.5);
+  .triangle(top, 200px);
+  .calc;
+}
+
+// 13. 测试带参数的函数调用
+.triangle (top,@w:5px,@color:#ccc) {
+  border-style: solid dashed dashed dashed;
+  border-color: @color transparent transparent transparent;
+  border-width: @w;
+}
+
+// 14. 避免编译
+
+.calc {
+  width: ~'calc(100% - 30px)';
+}

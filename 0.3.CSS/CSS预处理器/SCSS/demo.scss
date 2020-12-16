@@ -1,0 +1,133 @@
+// 未编译样式
+
+// 1. 变量
+
+$highlight-color: #f90;
+$width: 10px;
+
+body {
+  $width: 20px;
+  // 中划线或下划线，两种用法相互兼容。
+  background-color: $highlight_color;
+  padding: $width;
+}
+
+// 2. 嵌套CSS 规则
+
+body {
+  .wrap {
+    background-color: aquamarine;
+  }
+}
+
+// 属性嵌套，666
+.tips1 {
+  border: {
+    style: solid;
+    width: 1px;
+    color: #ccc;
+  }
+}
+.tips2 {
+  border: 1px solid #ccc {
+    left: 0px;
+    right: 0px;
+  }
+}
+
+// 3. 文件导入
+@import './base.scss';
+
+// 4. 混合器 | 对于@mixin的使用 @include
+
+@mixin rounded-corners($radius: 5px) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.tips3 {
+  @include lamp-clamp(3);
+}
+
+.img {
+  width: 300px;
+  @include rounded-corners(20px);
+}
+
+// 5. 使用选择器继承来精简CSS | @extend
+
+//通过选择器继承继承样式
+.error {
+  border: 1px solid red;
+  background-color: #fdd;
+}
+.tips3 {
+  @extend .error;
+  border-width: 3px;
+  cursor: e + -resize;
+}
+
+// 6. 函数
+
+.tips4 {
+  color: hsl(0, 100%, 50%);
+}
+
+// 7. 插值语句
+
+$name: tips4;
+$attr: border;
+
+p.#{$name} {
+  #{$attr}-color: blue;
+}
+
+// 8. 控制指令 (Control Directives)
+$type: monster;
+
+p.tips1 {
+  @if $type == ocean {
+    color: blue;
+  } @else if $type == matador {
+    color: red;
+  } @else if $type == monster {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+
+// 这个比for循环好用吧
+@for $i from 1 through 3 {
+  .tips#{$i} {
+    height: 10em * $i;
+  }
+}
+
+@each $animal in puma, sea-slug, egret, salamander {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}
+
+$i: 6;
+@while $i > 0 {
+  .item-#{$i} {
+    width: 2em * $i;
+  }
+  $i: $i - 2;
+}
+
+// 9. 函数指令
+
+$grid-width: 40px;
+$gutter-width: 10px;
+
+@function grid-width($n) {
+  @return $n * $grid-width + ($n - 1) * $gutter-width;
+}
+
+#sidebar {
+  width: grid-width(5);
+}

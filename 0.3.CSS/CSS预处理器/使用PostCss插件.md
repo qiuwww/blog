@@ -35,7 +35,7 @@ module.exports = {
       },
     ],
   },
-  postcss: function() {
+  postcss: function () {
     return [require('autoprefixer')];
   },
 };

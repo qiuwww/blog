@@ -11,22 +11,26 @@
     <iframe
       src="https://caniuse.com/#search=Viewport%20units"
       frameborder="0"
-      style="width: 100vw;height: 50vh;"
+      style="width: 100vw; height: 50vh"
     ></iframe>
-    <p style="height: 30vh;width: 30vw;background-color: aqua;">
+    <p style="height: 30vh; width: 30vw; background-color: aqua">
       做一个响应式布局的页面，我们第一时间会想到通过rem单位来实现适配，但是往往还需要内嵌一段脚本去动态计算跟元素大小，有点不方便。
     </p>
-    <p style="height: 30vh;width: 50vw;background-color:bisque;">
+    <p style="height: 30vh; width: 50vw; background-color: bisque">
       <span>我们需要一个单位，但不需要JS和CSS耦合在一？那么就是vw／vh。</span>
       <span>vw=view width（视口宽度）</span>
       <span>vh=view height（视口高度）</span>
     </p>
-    <p style="height: 50vh;width: 30vw;background-color: goldenrod;">
+    <p style="height: 50vh; width: 30vw; background-color: goldenrod">
       <span>单位解释</span>
       <span>vw：1vw = 视口宽度的1%</span>
       <span>vh：1vh = 视口高度的1%</span>
       <span>vmin 选取vw和vh中最小的那个</span>
       <span>vmax 选取vw和vh中最大的那个</span>
     </p>
+
+    <div style="width: 20vw; height: 20vw; background-color: goldenrod; margin: 20vw">
+      使用css实现一个正方形
+    </div>
   </body>
 </html>

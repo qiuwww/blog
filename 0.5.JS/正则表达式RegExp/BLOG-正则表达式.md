@@ -238,3 +238,7 @@ function isCardID(sId) {
   return true; //aCity[parseInt(sId.substr(0,2))]+","+sBirthday+","+(sId.substr(16,1)%2?"男":"女")
 }
 ```
+
+### 随机汉字
+
+随机汉字：regexp, `[\u4e00-\u9fa5]{1,20} | [\u4e00-\u9fa5]{2,5}`；
