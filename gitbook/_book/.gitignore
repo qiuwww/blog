@@ -1,0 +1,3 @@
+# 忽略文件夹 "bin" 中的所有内容
+bin/*
+node_modules

@@ -31,4 +31,3 @@ $ lerna publish
 4. 将所有更新过的包中的依赖更新
 5. 为新版本创建一个 git commit 或 tag
 6. 将包 publish 到 npm 上
-

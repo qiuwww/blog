@@ -13,6 +13,9 @@ categories:
 [TOC]
 
 [stylus](https://stylus.bootcss.com/)
+
+[CSS 预处理器的对比 — sass、less 和 stylus](https://cloud.tencent.com/developer/article/1092653)
+
 ## 预处理器各自的特点
 
 ### stylus

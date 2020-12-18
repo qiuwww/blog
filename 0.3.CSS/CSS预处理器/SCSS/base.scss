@@ -114,3 +114,16 @@ $counter2: 5;
   }
   $counter2: $counter2 - 1;
 }
+
+// @mixin ell-base {
+//   display: -webkit-box;
+//   -webkit-box-orient: vertical;
+//   overflow: hidden;
+// }
+
+// @for $i from 1 through 5 {
+//   .ell#{$i} {
+//     @include ell-base;
+//     -webkit-line-clamp: ($i);
+//   }
+// }

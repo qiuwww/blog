@@ -1,0 +1,21 @@
+{
+    "name": "demo",
+    "manifest_version": 2,
+    "version": "1.0.1",
+    "description": "demo",
+    "browser_action": {
+        "default_icon": "icon.ico",
+        "default_title": "chrome-extensions-demo",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "contextMenus", 
+        "tabs", 
+        "notifications", 
+        "webRequest", 
+        "webRequestBlocking",
+        "storage", 
+        "http://*/*", 
+        "https://*/*" 
+    ]
+}

@@ -11,6 +11,8 @@ categories:
 
 上边是 yaml 描述的文档信息。
 
+[md 文档当作 ppt](https://github.com/ksky521/nodeppt)
+
 [TOC]
 
 `[TOC]`，是 Typora 所支持的目录，可自动生成目录，方便查看。
