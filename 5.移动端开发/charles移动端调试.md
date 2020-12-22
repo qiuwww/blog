@@ -6,7 +6,7 @@
 
 ## 基础配置，移动端的手机
 
-1. 打开 Charles，Help->SSL Proxying->Install Charles Root Certificate
+1. 打开 Charles，Help->SSL Proxying->Install Charles Root Certificate，这里安装证书，小米手机使用uc浏览器是可以的。
 2. 手机上安装证书。打开 Charles，Help->SSL Proxying->Install Charles Root Certificate on a Mobile Device or Remote Browser
 3. 配置当前的 wifi，手动代理，在同一个 wifi 下。
 
