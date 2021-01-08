@@ -1,0 +1,17 @@
+body {
+  font-family: monospace;
+  font-size: 10pt;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+div {
+  padding: 8px;
+  flex: 1 100%;
+}
+
+#output-panel,
+#input-panel {
+  flex: 1 0;
+}
+

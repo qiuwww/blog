@@ -1,57 +1,69 @@
-<style type="text/css">
-    * {
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style type="text/css">
+      * {
         margin: 0;
         padding: 0;
-    }
+      }
 
-    body {
+      body {
         color: #333;
         overflow: hidden;
         margin: 0px;
         padding: 5px;
         background: white;
         font-size: 12px;
-    }
+      }
 
-    #box {
-        width: 170px;
-        height: 100px;
-        border: 1px solid red;
-    }
+      #box {
+        /* width: 170px; */
+        /* height: 100px; */
+        /* border: 1px solid red; */
+        padding: 10px;
+      }
 
-    img {
+      img {
         margin: 0 4px;
-    }
+      }
 
-    #addItemDiv {
+      #addItemDiv {
         color: #ccc;
-    }
+      }
 
-    .hide {
+      .hide {
         display: none;
-    }
+      }
 
-    .show {
+      .show {
         display: block;
-    }
+      }
 
-    .taskItem {
+      .taskItem {
         cursor: pointer;
-    }
+      }
 
-    input {
+      input {
         width: 100%;
-    }
-</style>
-<div id="box">
-    <div id="newItem" class="gray">add</div>
-    <div id="addDiv" class="hide"><input type="text" id="txtTitle" /></div>
-    <div id="taskItemList">
-        <div class="taskItem">
-            <span class="taskTitle">new task</span>
-        </div>
-        <div class="taskItem">
-            <span class="taskTitle">completed task</span>
-        </div>
+      }
+      .btn {
+        background-color: aqua;
+        padding: 5px 20px;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 10px;
+        box-shadow: 10px 10px 10px blueviolet;
+        border-radius: 5px;
+      }
+    </style>
+    <div id="box">
+        <a href="./index2.html" class="btn">regulex</a>
+      </div>
     </div>
-</div>
+  </body>
+</html>

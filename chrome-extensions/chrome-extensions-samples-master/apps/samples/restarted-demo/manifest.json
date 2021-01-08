@@ -1,0 +1,15 @@
+{
+  "name": "Restarted Event Sample",
+  "version": "2",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": [
+        "background.js"
+      ]
+    }
+  },
+  "permissions": [
+    "storage"
+  ]
+}
