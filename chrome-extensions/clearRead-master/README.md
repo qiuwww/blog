@@ -1,2 +1,0 @@
-# clearRead
-chrome extensions

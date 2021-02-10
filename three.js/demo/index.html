@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My first three.js app</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="./three.js"></script>
+    <script>
+      // Our Javascript will go here.
+      var scene = new THREE.Scene();
+      // PerspectiveCamera（透视摄像机）
+      var camera = new THREE.PerspectiveCamera(
+        75, // 视野角度（FOV）
+        window.innerWidth / window.innerHeight, // 长宽比（aspect ratio）
+        0.1, // 近截面（near）
+        1000, // 和远截面（far）
+      );
+
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      // 最后一步很重要，我们将renderer（渲染器）的dom元素（renderer.domElement）添加到我们的HTML文档中。这就是渲染器用来显示场景给我们看的<canvas>元素。
+      document.body.appendChild(renderer.domElement);
+
+      // 添加立方体
+      // 我们需要一个BoxGeometry（立方体）对象
+      var geometry = new THREE.BoxGeometry(1, 1, 1);
+      // 这里所做的事情，和在CSS或者Photoshop中使用十六进制(hex colors)颜色格式来设置颜色的方式一致。
+      var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+      // Mesh（网格）
+      var cube = new THREE.Mesh(geometry, material);
+      scene.add(cube);
+      camera.position.z = 3;
+
+      // “渲染循环”（render loop）或者“动画循环”（animate loop）的东西。
+      function animate() {
+        console.log('绘制图形，重复绘制，才能看到动态效果');
+        requestAnimationFrame(animate);
+
+        // 动作
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+
+        renderer.render(scene, camera);
+      }
+      animate();
+    </script>
+  </body>
+</html>

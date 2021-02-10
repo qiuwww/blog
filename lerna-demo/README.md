@@ -5,6 +5,8 @@
 ## 常用命令
 
 ```bash
+# 创建目标文件夹
+$ mkdir projectFolder
 # 初始化包
 # 这个时候就为独立模式(Independent mode)。
 # 独立模式允许每一个包有一个独立的版本号，在使用lerna publish命令时，可以为每个包单独制定具体的操作，同时可以只更新某一个包的版本号。

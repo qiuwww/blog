@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/qiuwww/blog/issues"
   },
-  "homepage": "https://github.com/qiuwww/blog#readme"
+  "homepage": "https://github.com/qiuwww/blog#readme",
+  "dependencies": {
+    "umi": "^3.3.7"
+  }
 }

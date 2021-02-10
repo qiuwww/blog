@@ -21,10 +21,18 @@
 表示服务端没有启动成功
 
 2. 如何启动和关闭 redis 服务
-   1. /usr/local/bin/redis-server
+   1. `/usr/local/bin/redis-server`
    2. /usr/local/bin/redis-cli，连接 redis
    3. /usr/local/bin/redis-cli shutdown，结束
 
 ## 常用命令
 
 [参考](https://segmentfault.com/a/1190000010999677)
+
+## 使用 brew 来操作 redis
+
+$ brew install redis # 安装 redis
+$ brew services list # 查看包状态
+$ brew services start redis # 开启 redis
+$ brew services stop redis # 停止 redis
+$ brew services restart # 重启 redis

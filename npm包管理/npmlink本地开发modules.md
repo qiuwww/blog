@@ -20,4 +20,10 @@ npm unlink @zyf2e/adapt
 npm install @zyf2e/adapt
 ```
 
-link会安装本地，install还是会安装线上包。
+link 会安装本地，install 还是会安装线上包。
+
+## 本地的未发布的包，在调试的过程中，每次总是会去检查安装？
+
+如果是本地 link，就不要在 package.json 中声明。
+
+如果是线上的需要正式发布的时候调用 unlink。

@@ -1,0 +1,113 @@
+// 1. 这里的地址都不需要添加./
+{
+  // 清单文件的版本，这个必须写，而且必须是2
+  "manifest_version": 2,
+  // 插件的名称
+  "name": "demo",
+  // 插件的版本
+  "version": "1.0.0",
+  // 插件描述
+  "description": "简单的Chrome扩展demo",
+  // 图标，一般偷懒全部用一个尺寸的也没问题
+  "icons": {
+    "16": "img/icon.png",
+    "48": "img/icon.png",
+    "128": "img/icon.png"
+  },
+  // 后台
+  // 会一直常驻的后台JS或后台页面，是所有页面的后台
+  // 是一个常驻的页面，它的生命周期是插件中所有类型页面中最长的，它随着浏览器的打开而打开，随着浏览器的关闭而关闭，所以通常把需要一直运行的、启动就运行的、全局的代码放在background里面。
+  // background的权限非常高，几乎可以调用所有的Chrome扩展API（除了devtools），而且它可以无限制跨域，也就是可以跨域访问任何网站而无需要求对方设置CORS。
+  "background": {
+    // 2种指定方式，如果指定JS，那么会自动生成一个背景页
+    "page": "background.html",
+    //"scripts": ["js/background.js"]
+    // 官方强烈建议这里为false，乖乖写就行了
+    "persistent": false
+  },
+  // 浏览器右上角图标设置，browser_action、page_action、app必须三选一
+  "browser_action": {
+    "default_icon": "img/icon.png",
+    // 图标悬停时的标题，可选
+    "default_title": "这是一个示例Chrome插件",
+    "default_popup": "popup.html"
+  },
+  // 当某些特定页面打开才显示的图标，在background.js内进行判断
+  /*"page_action":
+	{
+		"default_icon": "img/icon.png",
+		"default_title": "我是pageAction",
+		"default_popup": "popup.html"
+  },*/
+
+  // 需要直接注入页面的JS，注入到浏览器打开的所有页面
+  // 最常见的比如：广告屏蔽、页面CSS定制，等等。
+  // content-scripts和原始页面共享DOM，但是不共享JS，如要访问页面JS（例如某个JS变量），只能通过injected js来实现。content-scripts不能访问绝大部分chrome.xxx.api
+  // 这些API绝大部分时候都够用了，非要调用其它API的话，你还可以通过通信来实现让background来帮你调用。
+  // 这是因为content-script有一个很大的“缺陷”，也就是无法访问页面中的JS，虽然它可以操作DOM，但是DOM却不能调用它
+  "content_scripts": [
+    {
+      //"matches": ["http://*/*", "https://*/*"],
+      // "<all_urls>" 表示匹配所有地址
+      "matches": ["<all_urls>"],
+      // 多个JS按顺序注入
+      "js": ["js/jquery-1.8.3.js", "js/content-script.js"],
+      // JS的注入可以随便一点，但是CSS的注意就要千万小心了，因为一不小心就可能影响全局样式
+      "css": ["css/custom.css"],
+      // 代码注入的时间，可选值： "document_start", "document_end", or "document_idle"，最后一个表示页面空闲时，默认document_idle
+      "run_at": "document_start"
+    },
+    // 这里仅仅是为了演示content-script可以配置多个规则
+    {
+      "matches": ["*://*/*.png", "*://*/*.jpg", "*://*/*.gif", "*://*/*.bmp"],
+      "js": ["js/show-image-content-size.js"]
+    }
+  ],
+  // 权限申请
+  "permissions": [
+    "contextMenus", // 右键菜单
+    "tabs", // 标签
+    "notifications", // 通知
+    "webRequest", // web请求
+    "webRequestBlocking",
+    "storage", // 插件本地存储
+    "http://*/*", // 可以通过executeScript或者insertCSS访问的网站
+    "https://*/*" // 可以通过executeScript或者insertCSS访问的网站
+  ],
+  // 普通页面能够直接访问的插件资源列表，如果不设置是无法直接访问的
+  // 这里的作用似乎不是很清楚
+  // injected-script
+  // 意思就是你想要在web中直接访问插件中的资源的话必须显示声明才行
+  // https://crxdoc-zh.appspot.com/extensions/manifest/web_accessible_resources
+  // 这里加进去了，但是仍旧不可以
+  // 如果向目标页面插入js，需要在这里声明下才能获得执行的权限
+  "web_accessible_resources": ["js/inject.js"],
+  // 插件主页，这个很重要，不要浪费了这个免费广告位
+  // 入口页面，右键打开第一个
+  "homepage_url": "https://www.baidu.com",
+  // 覆盖浏览器默认页面
+  // 一个插件只能替代一个默认页
+  "chrome_url_overrides": {
+    // 覆盖浏览器默认的新标签页 chrome://newtab
+    "newtab": "newtab.html"
+    // 历史 chrome://history
+    // "history": "history.html",
+    // 书签页面 chrome://bookmarks
+    // "bookmarks": "bookmarks.html"
+  },
+  // Chrome40以前的插件配置页写法
+  "options_page": "options.html",
+  // Chrome40以后的插件配置页写法，如果2个都写，新版Chrome只认后面这一个
+  "options_ui": {
+    "page": "options.html",
+    // 添加一些默认的样式，推荐使用
+    "chrome_style": true
+  },
+  // 向地址栏注册一个关键字以提供搜索建议，只能设置一个关键字
+  // go -> tab -> 美女
+  "omnibox": { "keyword": "go" },
+  // 默认语言
+  "default_locale": "zh_CN",
+  // devtools页面入口，注意只能指向一个HTML文件，不能是JS文件
+  "devtools_page": "devtools.html"
+}

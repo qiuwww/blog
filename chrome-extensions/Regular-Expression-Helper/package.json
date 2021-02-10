@@ -1,8 +1,0 @@
-{
-  "name": "Regular-Expression-Helper",
-  "version": "1.0.0",
-  "description": "正则表达式工具",
-  "main": "index.js",
-  "author": "qiu",
-  "license": "MIT"
-}
