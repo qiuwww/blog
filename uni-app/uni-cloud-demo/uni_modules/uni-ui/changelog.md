@@ -1,0 +1,110 @@
+## 1.3.1（2021-05-14）
+- uni-badge 新增 uni-badge 的 absolute 属性，支持定位
+- uni-badge 新增 uni-badge 的 offset 属性，支持定位偏移
+- uni-badge 新增 uni-badge 的 is-dot 属性，支持仅显示有一个小点
+- uni-badge 新增 uni-badge 的 max-num 属性，支持自定义封顶的数字值，超过 99 显示99+
+- uni-badge 优化 uni-badge 属性 custom-style， 支持以对象形式自定义样式
+- uni-badge 修复 uni-badge 在 App 端，数字小于10时不是圆形的bug
+- uni-badge 修复 uni-badge 在父元素不是 flex 布局时，宽度缩小的bug
+- uni-badge 新增 uni-badge 属性 custom-style， 支持自定义样式
+- uni-datetime-picker 修复 ios 下不识别 '-' 日期格式的 bug
+- uni-datetime-picker 优化 pc 下弹出层添加边框和阴影
+- uni-datetime-picker 修复 在 admin 中获取弹出层定位错误的bug
+- uni-datetime-picker 修复 type 属性向下兼容，默认值从 date 变更为 datetime
+- uni-datetime-picker 支持日历形式的日期+时间的范围选择
+- uni-steps 修复 uni-steps 横向布局时，多行文字高度不合理的 bug
+- uni-countdown 修复 uni-countdown 不能控制倒计时的 bug
+- uni-tag 修复 royal 类型无效的bug
+- uni-tag 修复 uni-tag 宽度不自适应的bug
+- uni-tag 新增 uni-tag 支持属性 custom-style 自定义样式
+- uni-link 新增 href 属性支持 tel:|mailto:
+- uni-popup 修复 组件内放置 input 、textarea 组件，无法聚焦的问题
+- uni-popup 新增 type 属性的 left\right 值，支持左右弹出
+- uni-popup 新增 open(String:type) 方法参数 ，可以省略 type 属性 ，直接传入类型打开指定弹窗
+- uni-popup 新增 backgroundColor 属性，可定义主窗口背景色,默认不显示背景色
+- uni-popup 新增 safeArea 属性，是否适配底部安全区
+- uni-popup 修复 App\h5\微信小程序底部安全区占位不对的Bug
+- uni-popup 修复 App 端弹出等待的Bug
+- uni-popup 优化 提升低配设备性能，优化动画卡顿问题
+- uni-popup 优化 更简单的组件自定义方式
+- uni-table 修复 示例项目缺少组件的Bug
+- uni-forms 修复 自定义检验器失效的问题
+- uni-title 修复 示例项目缺少组件的Bug
+- uni-transition 修复 示例项目缺少组件的Bug
+- uni-swiper-dot 修复 示例项目缺少组件的Bug
+- uni-ui 新增 组件示例地址
+## 1.3.0（2021-04-23）
+- uni-combox 优化 添加依赖 uni-icons, 导入后自动下载依赖
+- uni-data-picker 修复 非树形数据有 where 属性查询报错的问题
+- uni-fav 优化 添加依赖 uni-icons, 导入后自动下载依赖
+- uni-goods-nav 优化 添加依赖 uni-icons, 导入后自动下载依赖
+- uni-nav-bar 优化 添加依赖 uni-icons, 导入后自动下载依赖
+- uni-notice-bar 优化 添加依赖 uni-icons, 导入后自动下载依赖
+- uni-number-box 修复 uni-number-box 浮点数运算不精确的 bug
+- uni-number-box 修复 uni-number-box change 事件触发不正确的 bug
+- uni-number-box 新增 uni-number-box v-model 双向绑定
+- uni-rate 修复 布局变化后 uni-rate  星星计算不准确的 bug
+- uni-rate 优化 添加依赖 uni-icons, 导入 uni-rate 自动下载依赖
+- uni-search-bar 优化 添加依赖 uni-icons, 导入后自动下载依赖
+- uni-steps 优化 添加依赖 uni-icons, 导入后自动下载依赖
+- uni-transition 新增 通过方法自定义动画
+- uni-transition 新增 custom-class 非 NVUE 平台支持自定义 class 定制样式
+- uni-transition 优化 动画触发逻辑，使动画更流畅
+- uni-transition 优化 支持单独的动画类型
+- uni-transition 优化 文档示例
+## 1.2.13（2021-04-16）
+- uni-ui 新增 uni-data-picker 支持云端非树形表结构数据
+- uni-ui 修复 uni-data-checkbox nvue 下无法选中的问题
+- uni-ui 修复 uni-data-picker 根节点 parent_field 字段等于null时选择界面错乱问题
+- uni-ui 修复 uni-file-picker 选择的文件非 file-extname 字段指定的扩展名报错的Bug
+- uni-ui 修复 uni-swipe-action 报错 nv_navigator is not defined 的bug
+- uni-ui 修复 uni-load-more 在首页使用时，h5 平台报 'uni is not defined' 的 bug
+- uni-ui 优化 uni-file-picker file-extname 字段支持字符串写法，多个扩展名需要用逗号分隔
+- uni-ui 优化 uni-pagination PC 和 移动端适配不同的 ui
+- uni-ui 更新 uni-file-picker 组件示例
+- uni-ui 修复 uni-nav-bar 当 fixed 属性为 true 时铺不满屏幕的 bug
+- uni-ui 新增 uni-search-bar 的 focus 事件
+- uni-ui 修复 uni-rate 属性 margin 值为 string 组件失效的 bug
+- uni-data-picker 修复 本地数据概率无法回显时问题
+- uni-table 新增 sortable 属性，是否开启单列排序
+- uni-table 优化 表格多选逻辑
+## 1.2.12（2021-03-23）
+- uni-ui 新增 uni-datetime-picker 的 hide-second 属性、border 属性; 
+- uni-ui 修复 uni-datetime-picker 选择跟显示的日期不一样的 bug， 
+- uni-ui 修复 uni-datetime-picker change事件触发2次的 bug
+- uni-ui 修复 uni-datetime-picker 分、秒 end 范围错误的 bug
+- uni-ui 新增 uni-tr selectable 属性，用于 type=selection 时，设置某行是否可由全选按钮控制
+- uni-ui 新增 uni-data-checkbox 新增 disabled属性，支持nvue
+- uni-ui 优化 uni-data-checkbox  无选项时提示“暂无数据”
+- uni-ui 优化 uni-data-checkbox  默认颜色显示
+- uni-ui 新增 uni-link href 属性支持 tel:|mailto:
+- uni-ui 新增 uni-table 示例demo
+- uni-ui 修复 uni-data-picker 微信小程序某些情况下无法选择的问题，事件无法触发的问题
+- uni-ui 修复 uni-nav-bar easycom 下，找不到 uni-status-bar 的bug
+- uni-ui 修复 uni-easyinput 示例在 qq 小程序上的bug
+- uni-ui 修复 uni-forms 动态显示uni-forms-item的情况下，submit 方法获取值错误的Bug
+- uni-ui 调整 cli 项目 建议使用 easycom 方式引用组件，如使用按需引用，需手动维护组件内部引用
+
+## 1.2.11（2021-02-24）
+- 调整为uni_modules目录规范
+- uni-data-picker 新增  数据驱动的picker选择器
+- uni-file-picker 新增  文件选择上传
+- uni-row 新增 栅格系统
+- uni-data-checkbox 优化 支持 nvue
+- uni-forms 修复 偶发性获取表单值错误的Bug
+- uni-forms 修复 校验 uni-data-picker value 为 0 时，返回值错误的Bug
+- uni-forms 修复 uni-forms-item 组件隐藏时依然触发校验的bug
+- uni-forms 优化 实时校验
+- uni-forms 优化 兼容nvue页面
+- uni-easyinput 优化 兼容nvue页面
+- uni-group 优化 兼容nvue页面
+- uni-popup 优化 组件适配 PC
+- uni-fab 优化 适配 PC
+- uni-swiper-dot 优化 适配 PC
+- uni-rate 优化 适配 PC
+- uni-notice-bar 优化 适配 PC
+- uni-indexed-list 优化 适配 PC
+- uni-combox 优化 适配 PC
+- uni-transition 优化 适配 PC
+- uni-nav-bar 优化 适配 PC
+- uni-swipe-action 优化 适配 PC
