@@ -141,6 +141,18 @@ aside 的内容应该与 article 的内容相关。
 
 与 `<legend>` 一起使用，来制作 detail 的标题。该标题对用户是可见的，当在其上点击时可打开或关闭 detail。
 
+```html
+<details>
+  <summary>Click me to see more details</summary>
+
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum perferendis eius. Adipisci velit
+    et similique earum quas illo odio rerum optio, quis, expedita assumenda enim dicta aliquam porro
+    maxime minima sed a ullam, aspernatur corporis.
+  </p>
+</details>
+```
+
 ### `<footer>` 标签定义 section 或 document 的页脚
 
 典型地，它会包含创作者的姓名、文档的创作日期以及/或者联系信息。
@@ -156,3 +168,69 @@ aside 的内容应该与 article 的内容相关。
 ### `<figure>` 标签用于对元素进行组合，图文组合
 
 使用 `<figcaption>` 元素为元素组添加标题。
+
+### `<a>`标签，不仅仅可以挑战链接，还可以跳转电话，email 等
+
+```html
+<a href="mailto:{email}?subject={subject}&body={content}"> Send us an email </a>
+
+<a href="tel:{phone}"> Call us </a>
+
+<a href="sms:{phone}?body={content}"> Send us a message </a>
+```
+
+### Ordered lists `start` attribute
+
+```html
+<ol start="12">
+  <li>html</li>
+  <li>js</li>
+  <li>css</li>
+</ol>
+```
+
+### `<meter>`
+
+```html
+<label for="value1">Low</label>
+<meter id="value1" min="0" max="100" low="30" high="75" optimum="80" value="25"></meter>
+
+<label for="value2">Medium</label>
+<meter id="value2" min="0" max="100" low="30" high="75" optimum="80" value="50"></meter>
+
+<label for="value3">High</label>
+<meter id="value3" min="0" max="100" low="30" high="75" optimum="80" value="80"></meter>
+```
+
+### `<fieldset>`
+
+```html
+<fieldset>
+  <legend>Choose your favorite language</legend>
+
+  <input type="radio" id="javascript" name="language" />
+  <label for="javascript">JavaScript</label><br />
+
+  <input type="radio" id="python" name="language" />
+  <label for="python">Python</label><br />
+
+  <input type="radio" id="java" name="language" />
+  <label for="java">Java</label>
+</fieldset>
+```
+
+### `mark` tag
+
+```html
+<p>You can use the <mark> tag to highlight text.</p>
+```
+
+### `<input type="search" />`
+
+```html
+
+```
+
+## 参考文章
+
+[HTML Tips](https://markodenic.com/html-tips/)

@@ -125,6 +125,85 @@
           <input name="Fruit" type="radio" value="" />其它 </label>
       </form>
     </section>
+
+
+    <section>
+      <h3>ol li，start by 12</h3>
+      <ol start="12">
+        <li>html</li>
+        <li>js</li>
+        <li>css</li>
+      </ol>
+    </section>
+
+    <section>
+      <h3>meter</h3>
+      <label for="value1">Low</label>
+      <meter id="value1" min="0" max="100" low="30" high="75" optimum="80" value="25"></meter>
+
+      <label for="value2">Medium</label>
+      <meter id="value2" min="0" max="100" low="30" high="75" optimum="80" value="50"></meter>
+
+      <label for="value3">High</label>
+      <meter id="value3" min="0" max="100" low="30" high="75" optimum="80" value="80"></meter>
+    </section>
+
+    <section>
+      <h3>Native HTML Search</h3>
+      <input list="items">
+      <datalist id="items">
+        <option value="Marko Denic">
+        <option value="FreeCodeCamp">
+        <option value="FreeCodeTools">
+        <option value="Web Development">
+        <option value="Web Developer">
+      </datalist>
+    </section>
+
+    <section>
+      <h3>Fieldset Element</h3>
+      <fieldset>
+        <legend>Choose your favorite language</legend>
+
+        <input type="radio" id="javascript" name="language" />
+        <label for="javascript">JavaScript</label><br />
+
+        <input type="radio" id="python" name="language" />
+        <label for="python">Python</label><br />
+
+        <input type="radio" id="java" name="language" />
+        <label for="java">Java</label>
+      </fieldset>
+    </section>
+
+    <section>
+      <h3>HTML Accordion</h3>
+      <details>
+        <summary>
+          Click me to see more details
+        </summary>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum perferendis eius. Adipisci velit et similique earum quas illo odio rerum optio, quis, expedita assumenda enim dicta aliquam porro maxime minima sed a ullam, aspernatur corporis.
+        </p>
+      </details>
+    </section>
+
+    <section>
+      <h3>`mark` tag</h3>
+      <p>You can use the <mark> tag </mark> to highlight text.</p>
+    </section>
+
+    <section>
+      <h3>input type="search"</h3>
+      <form action="">
+        <label for="text">input type text</label>
+        <input type="text" id="text"/>
+        <label for="search">input type search</label>
+        <input type="search" id="search"/>
+      </form>
+    </section>
+
     <script type="text/javascript">
       function geoFindMe() {
         var output = document.getElementById("out");
