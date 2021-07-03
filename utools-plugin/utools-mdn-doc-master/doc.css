@@ -1,0 +1,241 @@
+body {
+    margin: 0;
+    line-height: 1.6;
+    font-family: Arial,x-locale-body,sans-serif;
+    letter-spacing: -.00278rem;
+    -webkit-font-smoothing: antialiased;
+    color: #333;
+    padding: 0 15px;
+}
+table {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    border: solid #e0e0dc;
+    border-width: 1px 0 0 1px;
+}
+td, th {
+    text-align: left;
+    border: solid #e0e0dc;
+    border-width: 0 1px 1px 0;
+    padding: 6px 8px;
+}
+table.fullwidth-table {
+    background: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #eaeef2;
+    border-color: rgba(212,221,228,.5);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+table.fullwidth-table td.header, table.fullwidth-table th {
+    background: #eaeef2;
+    background: rgba(212,221,228,.5);
+    border: 1px solid #d4dde4;
+    padding: 5px;
+}
+table.fullwidth-table td {
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 5px;
+    vertical-align: top;
+}
+
+pre {
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+
+:not(pre)>code {
+    background-color: rgba(220,220,220,.5);
+    border-radius: 2px;
+    box-decoration-break: clone;
+    font-family: consolas,"Liberation Mono",courier,monospace;
+    padding: 0 2px;
+    word-wrap: break-word;
+}
+a {
+    color: #3d7e9a;
+    text-decoration: none;
+}
+dt {
+    font-weight: 700;
+}
+img {
+  max-width: 100%;
+  height: auto!important;
+}
+
+.icon-only-inline i.icon-beaker, .icon-only-inline i.icon-trash, .icon-only-inline i.icon-warning-sign, .icon-only-inline i.icon-thumbs-down-alt {
+    display: inline-block;
+    content: '';
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+}
+.icon-only-inline i.icon-beaker {
+    background: center/18px no-repeat url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAZlBMVEUAAAAQk9sSldwRltsSltsRltsSltsSltsRltwRltsSltwSltsSltwSltsSltsRl90SmNoRltsSl9gSmNUaoeUSldsSltwRl9sSltsRl9sRltsSltsRltoRl9sRl9oTl9wSktsSltsXcxnkAAAAIXRSTlMAQJ/69upGx0zu2bl9b1VJNy0jFQnv4tzWv7GqpYVnYA454P2/AAAAqUlEQVQ4y82Rxw7DIBAF1wbjuNf0+v7/JyOj4BIWk0MOngMgzWiFgP5KhQ+uACVpwtAV7IY1WAmUXleCYCsBuQNhJmS8V9BbOTQsMjenc8r5B2gEHXeDJ42EsP09or5V9fQt3+AiACCSWhXWiKvWOolPVbxHvvQdZkTpEQmWASzEbe5rMMwDzst48gVY+jHgfXIwvoEDE2S+QPmCF3gkGRoB30O0gQX9yBuCCibGMvRjAAAAAABJRU5ErkJggg==);
+}
+.icon-only-inline i.icon-trash {
+    background: center/18px no-repeat url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAASFBMVEUAAADYHQXXHATXHgbZHgbYHgbZHgbZHQXYHgbYHwXXHQXbHgbYHgbXHQbTHQfYHgbYHgbXHwXZHgbaHgfYHwbVHAXbGADYHgbt+WpCAAAAF3RSTlMAv0CA08ihloliYCrdriPv445/bVs3FQyOotcAAACMSURBVDjL7ZJLDsMgDETBhkAgSf+d+9+0VhQVqxabiu76FpZhnmBhu4FsK96sm81rgCJUI8zAjQ7uwGwExtIOCayijC55FyZ0mY7XGWDhyhoPbv8AziCCGyywJ+nSRQp5toJceIkA2tu/8L2QUaSLUUpB+sE0n0YIWljA9EE5qdXv7O3DNfhs4ljdGF70nBZj1u1RvgAAAABJRU5ErkJggg==);
+}
+.icon-only-inline i.icon-warning-sign {
+    background: center/18px no-repeat url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAgCAMAAACijUGCAAAAh1BMVEUAAADyzQDzzgDzzgDzzwDzzgDzzwDzzgDzzgD0zwDzywD0zwDw0ADzzgDzzgD0zgD0zwDzzwD0zwDzzgD0zwDzzwDyzgDzzwD0zwDwzAD0zgDzzgDzzgDzzgDzzgDzzgDzzgDzzgDzzQD00QD/0QD/xwDmswDzzADzzgD2zgD40gD1zgDzzgCuUB29AAAALHRSTlMAgMGr1GfslltFQDIQ8Nmkn5mPh25rYEwtHPblz8i3sXdVKSELCQVVPjkiGmmfbiIAAAEOSURBVDjLhdPXtoIwEEDRUFXsXex61dvO/3+fCSQ4gsB+Gtc6UgZQZbfFWrX68mHcWh3R5i1RF2N4ba4OZDqN0RLrtyEajLCabsADguVqDKzrtxCDZ4YhHGurGZC4Y3Zroj7axUwd4FBTTdCWZgrQFh+jHoZnRh9tNPhUnV77DO0fqr7JBGaOMeK/auWT8fX4IDerRBG5kZ5TrH4puofkYrcSY1KqzjgPc7dOT0npDuffvGTOSUlzChulFhQuItpskSeZUvBFNaVWVEQ/CGHUDeXPm6sCXoZ6R1eZnW20Rpja96uwS92zETrvVfFxrpD2g9IlsN2Y72bPmyBJbCSf04xWibiqxp3dI6/FSqkn0ehWGsOMHxIAAAAASUVORK5CYII=);
+}
+.icon-only-inline i.icon-thumbs-down-alt {
+    background: center/18px no-repeat url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAgVBMVEUAAAAhISEgICAhISEhISEhISEhISEgICAhISEhISEgICAgICAhISEgICAgICAhISEgICAhISEhISEhISEhISEgICAeHh4fHx8dHR0kJCQiIiIhISEhISEgICAhISEgICAgICAgICAgICAfHx8hISEhISEiIiIiIiIhISEhISEhISG3k/OsAAAAKnRSTlMAwIBQ9uWxdtmUSUHw3dTRy6qicWc7KiARCaeajGBdVjYvJxnr2Il4bRffQK9nAAAA+UlEQVQ4y62RWXaDMAwALUMCJGwhQCBJs3ad+x+wBENpKbg/nR/rPY1lS1L/zM7xDiJyPE8l73kW0SPOkKh0S+DyIMmaOAW36PMnvvCDlTJcnpFeWICAiHjqGx5RH8JWbTp/YA1/Cn1FzBNqhCYdBCYEB9cu5GAXbrCyCmrP0S4ELK3CR4K2V3glsgu1S2F2YQRZjw2fvD3f6NC/hl2aaKUfLGFrZmxYhm0XA7uY8Nr6dMSjJ8vYXKl9pGGv1Zjrgo3Zo6umOZuPXqCaMTSLe9u4MyOU8NQcglYzCIFd8Eibhts60zhwen/Br+aEWgDCQs1yO5BkP3v4BKoyIgYzaWCZAAAAAElFTkSuQmCC);
+}
+
+.optional, .readOnly, .unimplemented {
+  color: #888;
+  font-size: 14px;
+}
+.interactive-examples-link {
+  background-color: #546B83;
+  color: #fff;
+  border-radius: 3px;
+  display: block;
+  width: 120px;
+  text-align: center;
+  padding: 3px 0;
+  margin: 0 auto;
+}
+.hidden {
+  display: none;
+}
+.bc-browser-name {
+  display: none;
+}
+.only-icon span {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.bc-legend {
+  display: none;
+}
+
+.warning {
+  background: #ffe7e8;
+  padding: 10px;
+}
+
+.indicator-warning {
+  background: #fff3d4;
+  padding: 10px;
+}
+.indicator-warning>p, .warning>p{
+  margin: 0;
+}
+.bc-data {
+  width: 100%;
+  overflow-x: auto;
+}
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+.hljs {
+    display: block;
+    overflow-x: auto;
+    color: #333;
+    background: #f8f8f8;
+  }
+  
+  .hljs-comment,
+  .hljs-quote {
+    color: #998;
+    font-style: italic;
+  }
+  
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-subst {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .hljs-number,
+  .hljs-literal,
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-tag .hljs-attr {
+    color: #008080;
+  }
+  
+  .hljs-string,
+  .hljs-doctag {
+    color: #d14;
+  }
+  
+  .hljs-title,
+  .hljs-section,
+  .hljs-selector-id {
+    color: #900;
+    font-weight: bold;
+  }
+  
+  .hljs-subst {
+    font-weight: normal;
+  }
+  
+  .hljs-type,
+  .hljs-class .hljs-title {
+    color: #458;
+    font-weight: bold;
+  }
+  
+  .hljs-tag,
+  .hljs-name,
+  .hljs-attribute {
+    color: #000080;
+    font-weight: normal;
+  }
+  
+  .hljs-regexp,
+  .hljs-link {
+    color: #009926;
+  }
+  
+  .hljs-symbol,
+  .hljs-bullet {
+    color: #990073;
+  }
+  
+  .hljs-built_in,
+  .hljs-builtin-name {
+    color: #0086b3;
+  }
+  
+  .hljs-meta {
+    color: #999;
+    font-weight: bold;
+  }
+  
+  .hljs-deletion {
+    background: #fdd;
+  }
+  
+  .hljs-addition {
+    background: #dfd;
+  }
+  
+  .hljs-emphasis {
+    font-style: italic;
+  }
+  
+  .hljs-strong {
+    font-weight: bold;
+  }
+  

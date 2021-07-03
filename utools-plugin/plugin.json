@@ -1,0 +1,68 @@
+{
+  "pluginName": "插件名称",
+  "version": "0.0.1",
+  "description": "插件描述",
+  "author": "开发者",
+  "homepage": "https://u.tools",
+  "main": "index.html",
+  "preload": "preload.js",
+  "logo": "logo.png",
+  "platform": ["win32", "darwin", "linux"],
+  "development": {
+    "main": "",
+    "preload": "",
+    "logo": "",
+    "buildPath": ""
+  },
+  "pluginSetting": {
+    "single": true,
+    "height": 0
+  },
+  "features": [
+    {
+      "code": "uuid",
+      "explain": "随机唯一值",
+      "icon": "res/xxxx.png",
+      "platform": ["win32", "darwin", "linux"],
+      "cmds": [
+        "uTools",
+        "中文",
+        {
+          "type": "img",
+          "label": "图片匹配"
+        },
+        {
+          "type": "files",
+          "label": "文件匹配",
+          "fileType": "file",
+          "match": "/xxx/",
+          "minLength": 1,
+          "maxLength": 1
+        },
+        {
+          "type": "regex",
+          "label": "文本正则匹配",
+          "match": "/xxx/i",
+          "minLength": 1,
+          "maxLength": 1
+        },
+        {
+          "type": "over",
+          "label": "无匹配时",
+          "exclude": "/xxx/i",
+          "minLength": 1,
+          "maxLength": 1
+        },
+        {
+          "type": "window",
+          "label": "窗口动作",
+          "match": {
+            "app": ["xxx.app", "xxx.exe"],
+            "title": "/xxxx/",
+            "class": ["xxx"]
+          }
+        }
+      ]
+    }
+  ]
+}

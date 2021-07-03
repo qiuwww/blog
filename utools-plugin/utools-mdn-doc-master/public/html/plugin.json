@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "pluginName": "HTML 文档",
+  "description": "HTML MDN 文档",
+  "author": "uTools官方",
+  "homepage": "https://u.tools",
+  "preload": "preload.js",
+  "logo": "logo.png",
+  "features": [
+    {
+      "code": "html",
+      "explain": "HTML MDN 文档速查",
+      "cmds": [
+        "HTML"
+      ]
+    }
+  ]
+}

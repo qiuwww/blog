@@ -1,0 +1,16 @@
+{
+    "version": "1.0.0",
+    "pluginName": "Web API/DOM 文档",
+    "description": "Web API/DOM MDN 文档",
+    "author": "uTools官方",
+    "homepage": "https://u.tools",
+    "preload": "preload.js",
+    "logo": "logo.png",
+    "features": [
+        {
+            "code": "api",
+            "explain": "Web API/DOM MDN 文档速查",
+            "cmds": ["Web Api", "DOM"]
+        }
+    ]
+}
