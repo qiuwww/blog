@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+    <meta name="description" content="年会抽奖程序" />
+    <title>年会抽奖</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/element-ui/2.4.1/theme-chalk/index.css" /> -->
+    <link rel="stylesheet" href="./js/element-ui@2.4.11/lib/theme-chalk/index.css">
+    <script src="js/polyfill.min.js"></script>
+    <script type="text/javascript" src="js/tagcanvas.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/element-ui/2.4.1/index.js"></script> -->
+    <script src="./js/element-ui@2.4.11/lib/index.js"></script>
+    <script src="js/member.js"></script>
+</head>
+
+<body>
+    <div id="app" class="bg">
+        <div class="next title" v-if="awards.length>0">
+            <span class="title">
+            {{awards[currentAward].name}}({{result[currentAward].length}}/{{awards[currentAward].count}})
+        </span>
+            <span v-show="awards[currentAward].award">
+            <b>奖品：</b>{{awards[currentAward].award }}
+        </span
+        >
+    </div>
+    <div class="batch flexbox" v-show="!running && batchPlayers.length>0">
+        <div class="player" v-for="(item, index) in batchPlayers" :key="index" @click="onKick(item)">
+            {{item.name}}
+        </div>
+    </div>
+    <div class="result" v-show="batchPlayers.length===0">
+        <div @click="onKick(item, index)" class="lucky-dog" v-for="(item, index) in result[currentAward]" :key="index">
+            {{item.name}}
+        </div>
+    </div>
+    <div id="myCanvasContainer">
+        <canvas width="300" height="300" id="myCanvas" ref="canvas">
+            <p>换个现代浏览器吧！</p>
+        </canvas>
+    </div>
+    <div id="tags">
+        <ul>
+            <li v-for="(tag, index) in members" :key="index">
+                <a href="#" target="_blank" style="height: auto;font-size: 40px">
+                    {{tag.name}}
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        srfwrfwefwefwefw
+    </div>
+    <div class="buttons">
+        <el-select v-model="currentAward" size="small">
+            <el-option v-for="(item, index) in awards"
+                       :key="index"
+                       :label="item.name"
+                       :value="index"
+            ></el-option>
+        </el-select>
+        <el-button size="small" ref="action" :disabled="buttonDisabled" type="danger" @click="toggle">
+            <audio id="mainMusic" src="audio/main.mp3" loop autoplay="autoplay"></audio>
+            <audio id="winMusic" src="audio/win.mp3" autoplay></audio>
+            {{buttonText}}
+        </el-button>
+        <el-button size="small" @click="onNext" :disabled="goOn || running">下一轮</el-button>
+        <el-button size="small"
+                   :disabled="running"
+                   type="warning"
+                   size="small"
+                   class="el-icon-refresh"
+                   @click="onReplay"
+                   circle
+        ></el-button>
+        <span style="color: #FFF; margin-left:10px;">{{players.length}}</span>
+        </div>
+    </div>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                running: false,
+                awards: [],
+                currentAward: 0,
+                result: [],
+                players: [],
+                batchPlayers: [],
+                members: [],
+                luckyFellow: [],
+            },
+            watch: {
+                currentAward: function () {
+                    this.batchPlayers = [];
+                },
+            },
+            computed: {
+                buttonDisabled: function () {
+                    return (
+                        this.result[this.currentAward].length >=
+                        this.awards[this.currentAward].count || this.players.length === 0
+                    );
+                },
+                goOn: function () {
+                    return (
+                        this.result[this.currentAward].length <
+                        this.awards[this.currentAward].count &&
+                        this.result[this.currentAward].length > 0
+                    );
+                },
+                buttonText: function () {
+                    if (this.running) {
+                        return '停止';
+                    }
+                    if (this.goOn) {
+                        return '继续';
+                    }
+                    return '开始';
+                },
+            },
+            methods: {
+                toggle: function () {
+                    if (this.running) {
+                        this.stop();
+                        // stopMain();
+                        palyWin();
+                    } else {
+                        this.start();
+                        // playMain();
+
+                    }
+                },
+                getSpeed: function () {
+                    return [0.1 * Math.random() + 0.01, -(0.1 * Math.random() + 0.01)];
+
+                },
+                start: function () {
+                    this.running = true;
+                    TagCanvas.SetSpeed('myCanvas', [5, 1]);
+                },
+                a: function (a) {
+                    let _this = this;
+                    let luckyBoyindex=[];
+                    var index = this.getRandomInt(0, this.players.length - 1);
+                    for (var i = 0; i < _this.luckyFellow.length; i++) {
+                        let c = this.players.findIndex(function (x) { return x.id == _this.luckyFellow[i].number });
+                        luckyBoyindex.push(c);
+                    };
+                    if(luckyBoyindex.includes(index)){
+                        this.a(a);
+                    }else{
+                        a.push(this.players.splice(index, 1)[0]);
+                    }
+                },
+                stop: function () {
+                    let _this = this;
+                    // console.log(_this.awards);
+                    // this.currentAward === _this.awards.findIndex(function(x) {return x.name === "二等奖"})?console.log("3"):console.log("4");
+                    var that = this;
+                    this.running = false;
+                    TagCanvas.SetSpeed('myCanvas', this.getSpeed());
+                    var total = this.awards[this.currentAward].count;
+                    this.result[this.currentAward] =
+                        this.result[this.currentAward] || [];
+                    var todo = total - this.result[this.currentAward].length;
+                    var N = +localStorage.getItem('batchNumber') || 20;
+                    var batchPlayers = [];
+                    var luckyboy = [];
+                    for (var i = 0; i < _this.luckyFellow.length; i++) {
+                        if (this.currentAward === _this.awards.findIndex(function (x) { return x.name == _this.luckyFellow[i].names })) {
+                            let c = this.players.findIndex(function (x) { return x.id == _this.luckyFellow[i].number });
+                            luckyboy.push(this.players.splice(c, 1)[0]);
+                        }
+                    }
+                    batchPlayers = [...luckyboy]
+                    for (var i = luckyboy.length, ln = Math.min(N, todo, this.players.length + luckyboy.length); i < ln; i++) {
+                        this.a(batchPlayers);
+                    }
+
+
+                    // console.log(this.players.findIndex(function(x) {return x.id === 40}));
+                    // console.log(this.currentAward === _this.awards.findIndex(function (x) { return x.name === _this.luckyFellow[0].names }));
+                    //
+                    // if (this.players.length === 0) {
+                    //   this.players = this.copy(this.members);
+                    //   this.$alert('所有人员都已中奖，剩余奖品将在现场所有人里抽取', '提示')
+                    // }
+                    this.batchPlayers = batchPlayers;
+                    this.result.splice(
+                        this.currentAward,
+                        1,
+                        this.result[this.currentAward].concat(batchPlayers)
+                    );
+                    localStorage.setItem('players', JSON.stringify(this.players));
+                    localStorage.setItem('result', JSON.stringify(this.result));
+                    TagCanvas.Reload('myCanvas');
+                },
+                onNext: function () {
+                    this.batchPlayers = [];
+                    if (this.currentAward < this.awards.length - 1) {
+                        this.currentAward += 1;
+                    }
+                },
+                getRandomInt: function (min, max) {
+                    min = Math.ceil(min);
+                    max = Math.floor(max);
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                },
+                init: function () {
+                    try {
+                        TagCanvas.Start('myCanvas', 'tags', {
+                            textColour: null,
+                            dragControl: 1,
+                            decel: 0.95,
+                            textHeight: 14,
+                            minSpeed: 0.01,
+                            initial: [
+                                0.1 * Math.random() + 0.01,
+                                -(0.1 * Math.random() + 0.01),
+                            ],
+                        });
+                    } catch (e) {
+                        // something went wrong, hide the canvas container
+                        document.getElementById('myCanvasContainer').style.display =
+                            'none';
+                    }
+                },
+                onReplay: function () {
+                    var vm = this;
+                    this.$confirm('重新抽奖会清空当前奖项的结果，无法撤销！', '确定要重新抽奖吗？', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning',
+                    }).then(function () {
+                        vm.batchPlayers = [];
+                        var p = vm.result.splice(vm.currentAward, 1, []);
+                        vm.players = vm.players.concat(p[0]);
+                        localStorage.setItem('players', JSON.stringify(vm.players))
+                        localStorage.setItem('result', JSON.stringify(vm.result));
+                    });
+                },
+                onKeyup: function (e) {
+                    console.log(e);
+                    // 空格或回车键
+                    if (e.keyCode === 13 || e.keyCode === 32) {
+                        this.$refs.action.$el.click();
+                    }
+                },
+                copy: function (obj) {
+                    return JSON.parse(JSON.stringify(obj));
+                },
+                onKick: function (player) {
+                    var vm = this;
+                    var index = vm.result[vm.currentAward].indexOf(player);
+                    this.$confirm('去掉后可继续抽一名', '去掉这名中奖者吗？', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning',
+                    }).then(function () {
+                        if (vm.batchPlayers.indexOf(player) > -1) {
+                            vm.batchPlayers.splice(vm.batchPlayers.indexOf(player), 1);
+                        }
+                        vm.result[vm.currentAward].splice(index, 1);
+                        localStorage.setItem('result', JSON.stringify(vm.result));
+                    });
+                },
+            },
+            created: function () {
+                this.awards = JSON.parse(localStorage.getItem('awards')) || [];
+                if (this.awards.length === 0) {
+                    location.href = 'setting.html';
+                }
+
+                var result = JSON.parse(localStorage.getItem('result')) || [];
+                for (var i = 0; i < this.awards.length; i++) {
+                    result[i] = result[i] || [];
+                }
+                this.result = result;
+
+                this.choosed = JSON.parse(localStorage.getItem('choosed')) || {};
+
+                var awards = JSON.parse(localStorage.getItem('awards')) || [];
+                this.rewards = awards.map(function (item, index) {
+                    return {
+                        level: index + 1,
+                        name: item.name,
+                        count: item.count,
+                        editing: {},
+                    };
+                });
+            },
+            mounted: function () {
+                // console.log(this);
+                // let a = this.awards;
+                // this.currentAward === a.findIndex(function(x) {return x.name === "四等奖"})?console.log("1"):console.log("2");
+                var members = JSON.parse(localStorage.getItem('members')) || window.members;
+                this.luckyFellow = JSON.parse(localStorage.getItem('luckyFellow')) || [{ "names": "特等奖", "number": "0", "editing": {} }];
+                console.log(this.luckyFellow);
+                this.players = JSON.parse(localStorage.getItem('players')) || members;
+                this.members = this.copy(members);
+                localStorage.setItem('players', JSON.stringify(this.players));
+                var canvas = this.$refs.canvas;
+                canvas.width = document.body.offsetWidth;
+                canvas.height = document.body.offsetHeight;
+                this.$nextTick(function () {
+                    this.init();
+                });
+                document.body.addEventListener('keyup', this.onKeyup)
+            },
+        });
+
+        window.onload = function () {
+            var mainMusic = document.getElementById('mainMusic');
+            var winMusic = document.getElementById('winMusic');
+            //mainMusic.pause();//打开页面时无音乐
+            //winMusic.pause();//打开页面时无音乐
+        };
+
+        function playMain() {
+            var audio = document.getElementById('mainMusic');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+
+        function palyWin() {
+            var audio = document.getElementById('winMusic');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+
+        function stopMain() {
+            var audio = document.getElementById('mainMusic');
+            if (audio.played) {
+                audio.pause();
+            }
+        }
+
+        function stopWin() {
+            var audio = document.getElementById('winMusic');
+            if (audio.played) {
+                audio.pause();
+            }
+        }
+    </script>
+</body>
+
+</html>

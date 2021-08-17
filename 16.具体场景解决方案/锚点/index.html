@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="header">
+      <a href="#a">跳转到a</a>
+      <a href="#b">跳转到b</a>
+      <a href="#c">跳转到c</a>
+      <a href="#d">跳转到d</a>
+    </div>
+
+    <div class="divide"></div>
+    <a id="a">a</a>
+    <div class="divide"></div>
+
+    <a id="b">b</a>
+    <div class="divide"></div>
+
+    <a id="c">c</a>
+
+    <div class="divide"></div>
+
+    <a id="d">d</a>
+    <div class="divide"></div>
+  </body>
+  <style>
+    .divide {
+      background-color: aquamarine;
+      height: 500px;
+      width: 100%;
+    }
+    a[id] {
+      height: 30px;
+      width: 100px;
+      background-color: blueviolet;
+    }
+    .header a:active {
+      color: red;
+    }
+  </style>
+</html>

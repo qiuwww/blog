@@ -1,5 +1,7 @@
 # yarn&npm 常用命令
 
+[文章参考](https://segmentfault.com/a/1190000022116379)
+
 ## yarn
 
 ```bash

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>梅花</title>
+  </head>
+  <body>
+    <style>
+      #canvas {
+        background-color: white;
+        border: 1px solid red;
+      }
+    </style>
+    <canvas id="canvas" width="800px" height="800px"></canvas>
+
+    <script>
+      // 这个版本需要随机控制展示与否
+      const config = {
+        // 调整如下的几个参数，可以获取不同的形状
+        layers: 10,
+        lengthMultiple: 0.7,
+        changeAngleX: Math.PI / 6,
+        changeAngleY: Math.PI / 6,
+
+        rootX: 400,
+        rootY: 750,
+        startX: 400,
+        startY: 600,
+        timeOut: 200,
+      };
+      config.initLength = config.lengthMultiple * (config.rootY - config.startY);
+
+      config.colors = Array.from({ length: config.layers * 2 }).map((item) => {
+        const color = randomColor();
+        return color;
+      });
+
+      function randomColor() {
+        return '#' + (~~(Math.random() * (1 << 24))).toString(16);
+      }
+
+      function Node(x, y, l, a, parent, color) {
+        this.x = x;
+        this.y = y;
+        this.l = l;
+        this.a = a;
+        this.parent = parent;
+        this.color = color;
+      }
+
+      function draw(node, layer) {
+        if (layer === 1) {
+          const ctx = window.ctx;
+          const { parent } = node;
+          ctx.beginPath();
+
+          ctx.moveTo(parent.x, parent.y);
+          ctx.lineTo(node.x, node.y);
+          ctx.strokeStyle = node.color;
+          ctx.lineWidth = node.l / 10;
+
+          ctx.stroke();
+          ctx.closePath();
+
+          ctx.beginPath();
+          ctx.fillStyle = 'red';
+          ctx.arc(node.x, node.y, node.l / 2, Math.PI * 2, 0, true);
+          ctx.closePath();
+          ctx.fill();
+
+          return;
+        }
+
+        const ctx = window.ctx;
+        const { parent } = node;
+        ctx.beginPath();
+        ctx.moveTo(parent.x, parent.y);
+        ctx.lineTo(node.x, node.y);
+        ctx.strokeStyle = '#008604';
+        ctx.lineWidth = node.l / 10;
+
+        ctx.stroke();
+        ctx.closePath();
+      }
+
+      let nodeList = [new Node(config.startX, config.startY, config.initLength, Math.PI)];
+
+      function reduceArr(nodeList, layer) {
+        const nextList = [];
+        nodeList.forEach((item) => {
+          const { x, y, l, a } = item;
+          const angleLeft = (a - config.changeAngleX) % (2 * Math.PI);
+          const angleRight = (a + config.changeAngleY) % (2 * Math.PI);
+          const angleMiddle = (angleLeft + angleRight) / 2;
+          const angleMiddleLeft = (angleRight + angleMiddle) / 2;
+
+          const nodeLeft = new Node(
+            x + l * Math.sin(angleLeft),
+            y + l * Math.cos(angleLeft),
+            l * config.lengthMultiple,
+            angleLeft,
+            item,
+            config.colors[layer],
+          );
+
+          const nodeRight = new Node(
+            x + l * Math.sin(angleRight),
+            y + l * Math.cos(angleRight),
+            l * config.lengthMultiple,
+            angleRight,
+            item,
+            config.colors[layer],
+          );
+
+          const minLayer = config.layers - 3;
+          console.log('minLayer', minLayer, layer);
+
+          if (Math.random() > 0.1 || layer > minLayer) {
+            nextList.push(nodeLeft);
+            draw(nodeLeft, layer);
+          }
+
+          if (Math.random() > 0.2 || layer > minLayer) {
+            nextList.push(nodeRight);
+            draw(nodeRight, layer);
+          }
+        });
+        return nextList;
+      }
+
+      window.onload = () => {
+        var canvas = document.getElementById('canvas');
+        if (canvas.getContext) {
+          var ctx = canvas.getContext('2d');
+          ctx.beginPath();
+          ctx.moveTo(config.rootX, config.rootY);
+          ctx.lineTo(config.startX, config.startY);
+
+          ctx.lineWidth = config.initLength / 10;
+          ctx.strokeStyle = '#008604';
+          ctx.stroke();
+          ctx.closePath();
+
+          window.ctx = ctx;
+
+          let length = config.layers;
+          let timeId = setInterval(() => {
+            nodeList = reduceArr(nodeList, length);
+            length--;
+            if (length === 0) {
+              clearInterval(timeId);
+            }
+          }, config.timeOut);
+        }
+      };
+    </script>
+  </body>
+</html>

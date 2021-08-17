@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>分形树</title>
+  </head>
+  <body>
+    <style>
+      #canvas {
+        background-color: black;
+      }
+    </style>
+    <canvas id="canvas" width="600px" height="600px"></canvas>
+
+    <script>
+      const config = {
+        // 调整如下的几个参数，可以获取不同的形状
+        layers: 12,
+        lengthMultiple: 0.618,
+        changeAngleX: Math.PI / 0.618,
+        changeAngleY: Math.PI / 0.618,
+
+        rootX: 300,
+        rootY: 550,
+        startX: 300,
+        startY: 400,
+        timeOut: 200,
+      };
+      config.initLength = config.lengthMultiple * (config.rootY - config.startY);
+
+      config.colors = Array.from({ length: config.layers * 2 }).map((item) => {
+        const color = randomColor();
+        return color;
+      });
+
+      function randomColor() {
+        return '#' + (~~(Math.random() * (1 << 24))).toString(16);
+      }
+
+      function Node(x, y, l, a, parent, color) {
+        this.x = x;
+        this.y = y;
+        this.l = l;
+        this.a = a;
+        this.parent = parent;
+        this.color = color;
+      }
+
+      function draw(node) {
+        const ctx = window.ctx;
+        const { parent } = node;
+        ctx.beginPath();
+        ctx.moveTo(parent.x, parent.y);
+        ctx.lineTo(node.x, node.y);
+        ctx.strokeStyle = node.color;
+
+        ctx.stroke();
+        ctx.closePath();
+      }
+
+      let nodeList = [new Node(config.startX, config.startY, config.initLength, Math.PI)];
+
+      function reduceArr(nodeList, layer) {
+        const nextList = [];
+        nodeList.forEach((item) => {
+          const { x, y, l, a } = item;
+          const angleLeft = (a - config.changeAngleX) % (2 * Math.PI);
+          const angleRight = (a + config.changeAngleY) % (2 * Math.PI);
+
+          const nodeLeft = new Node(
+            x + l * Math.sin(angleLeft),
+            y + l * Math.cos(angleLeft),
+            l * config.lengthMultiple,
+            angleLeft,
+            item,
+            config.colors[layer],
+          );
+
+          const nodeRight = new Node(
+            x + l * Math.sin(angleRight),
+            y + l * Math.cos(angleRight),
+            l * config.lengthMultiple,
+            angleRight,
+            item,
+            config.colors[layer],
+          );
+
+          nextList.push(nodeLeft);
+          draw(nodeLeft);
+          nextList.push(nodeRight);
+          draw(nodeRight);
+        });
+        return nextList;
+      }
+
+      window.onload = () => {
+        var canvas = document.getElementById('canvas');
+        if (canvas.getContext) {
+          var ctx = canvas.getContext('2d');
+          ctx.beginPath();
+          ctx.moveTo(config.rootX, config.rootY);
+          ctx.lineTo(config.startX, config.startY);
+
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = config.colors[0];
+          ctx.stroke();
+          ctx.closePath();
+
+          window.ctx = ctx;
+
+          let length = config.layers;
+          let timeId = setInterval(() => {
+            nodeList = reduceArr(nodeList, length);
+            length--;
+            if (length === 0) {
+              clearInterval(timeId);
+            }
+          }, config.timeOut);
+        }
+      };
+    </script>
+  </body>
+</html>
