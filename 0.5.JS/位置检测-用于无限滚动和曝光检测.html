@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>元素或者组件曝光检测</title>
+  </head>
+  <body>
+    <div class="wrap" style="height: 2000px; background-color: blue"></div>
+    <div id="example" style="height: 1000px; background-color: green"></div>
+    <div
+      class="item"
+      style="height: 500px; background-color: blueviolet; margin-bottom: 20px"
+    ></div>
+    <div
+      class="item"
+      style="height: 500px; background-color: blueviolet; margin-bottom: 20px"
+    ></div>
+    <div
+      class="item"
+      style="height: 500px; background-color: blueviolet; margin-bottom: 20px"
+    ></div>
+    <div
+      class="item"
+      style="height: 500px; background-color: blueviolet; margin-bottom: 20px"
+    ></div>
+    <div
+      class="item"
+      style="height: 500px; background-color: blueviolet; margin-bottom: 20px"
+    ></div>
+    <div id="example" style="height: 1000px; background-color: green"></div>
+    <div class="wrap2" style="height: 2000px; background-color: blue"></div>
+    <!-- 1. 传统的实现方法是，监听到 scroll 事件后，调用目标元素的 getBoundingClientRect()方法，得到它对应于视口左上角的坐标，再判断是否在视口之内。这种方法的缺点是，由于 scroll 事件密集发生，计算量很大，容易造成性能问题。2. 目前有一个新的 IntersectionObserver API，可以自动"观察"元素是否可见。-->
+
+    <script>
+      window.onload = () => {
+        (() => {
+          console.log('window onload');
+
+          var io = new IntersectionObserver((entries) => {
+            console.log('Loaded new items', entries);
+          });
+
+          const ele = document.getElementById('example');
+          // 开始观察
+          io.observe(ele);
+
+          // 停止观察
+          // io.unobserve(ele);
+
+          // 关闭观察器
+          // io.disconnect();
+        })();
+        (() => {
+          function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+
+            var width_st = rect.width / 2,
+              height_st = rect.height / 2;
+
+            var innerHeight = window.innerHeight,
+              innerWidth = window.innerWidth;
+
+            if (
+              (rect.top <= 0 && rect.height > innerHeight) ||
+              (rect.left <= 0 && rect.width > innerWidth)
+            ) {
+              return rect.left * rect.right <= 0 || rect.top * rect.bottom <= 0;
+            }
+
+            return (
+              rect.height > 0 &&
+              rect.width > 0 &&
+              ((rect.top >= 0 && rect.top <= innerHeight - height_st) ||
+                (rect.bottom >= height_st && rect.bottom <= innerHeight)) &&
+              ((rect.left >= 0 && rect.left <= innerWidth - width_st) ||
+                (rect.right >= width_st && rect.right <= innerWidth))
+            );
+          }
+
+          var nodes = document.querySelectorAll('.item');
+          var timeId = null;
+          function report(node) {
+            // 上报的逻辑
+            clearTimeout(timeId);
+            timeId = setTimeout(() => {
+              console.log('scroll', node);
+            }, 300);
+          }
+          window.onscroll = function () {
+            nodes.forEach((node) => {
+              if (isElementInViewport(node)) {
+                report(node);
+              }
+            });
+          };
+        })();
+      };
+    </script>
+  </body>
+</html>

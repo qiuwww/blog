@@ -241,3 +241,4 @@ setting -> more tools -> rendering -> FPS meter。
 ## 具体优化原则及策略
 
 1. [避免大型、复杂的布局和布局抖动](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing#avoidforcedsynchronous_layouts)
+2. [Web 性能领域常见的专业术语](https://zhuanlan.zhihu.com/p/98880815)

@@ -88,3 +88,7 @@ Promise.any([
 'xxx'.replaceAll('', '_');
 // → '_x_x_x_'
 ```
+
+## 参考
+
+[ES2021 Features](https://h3manth.com/ES2021/)
