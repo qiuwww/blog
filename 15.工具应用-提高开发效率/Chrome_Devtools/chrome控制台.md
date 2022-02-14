@@ -32,7 +32,7 @@ console.log，console.debug，console.warn，console.info，console.error
 5. 自定义 log 函数，显示描述、值、颜色。当然这里还可以添加别的一些属性，实用%c 来添加样式
 
 ```js
-let log = function(desc, msg, color) {
+let log = function (desc, msg, color) {
   console.log(`%c ${desc}: `, `color: ${color};font-size: 20px;`, msg);
 };
 log('desc', 'msg', 'red');
@@ -85,7 +85,7 @@ console.table(data);
 
 ```js
 console.log('HelloWorld');
-var fake = function() {};
+var fake = function () {};
 window['console']['log'] = fake;
 console.log("You can't see me!");
 ```
@@ -133,3 +133,22 @@ setTimeout(function(){while (true) {eval("debugger")
 
 api 为: <http://www.xxx.com/api/v1/list>
 在根目录下，新建文件 www.xxx.com/api/v1/list，list 文件中的内容，与正常接口返回格式相同。
+
+## Store as global variable
+
+**如果在 console 中打印了一堆数据，想对这堆数据做额外的操作，可以将它存储为一个全局变量**。只需要右击它，并选择 “Store as global variable”选项。
+
+## CSS/JS 覆盖率 ✅
+
+Chrome DevTools 中的 Coverage 功能可以帮助我们查看代码的覆盖率。
+
+打开调试面板，用快捷键 shift+command+P （mac）输入 Show Coverage 调出相应面板。
+
+## 将图片复制为数据 URI 🦊
+
+打开方式
+选择 Network 面板；
+在资源面板中选择 Img，预览状态下进行复制；
+右键单击将其复制为数据 URI（已编码为 base 64）；
+
+

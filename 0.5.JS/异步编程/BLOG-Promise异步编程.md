@@ -19,11 +19,13 @@ categories:
    1. `then/catch/finally -> on`，使用 then/catch 来订阅；
    2. `resolvedCallBacks/rejectedCallBacks` 存储事件；
    3. 调用 `resolve/reject` 来执行发布。
+   4. **promise.then(onFulfilled, onRejected)，promise 简化了对 error 的处理，promise.then(onFulfilled).catch(onRejected)**；
 
 ### Promise 的特点
 
 1. 状态改变**只受异步操作的结果影响**，不受外界影响；
-2. **状态一旦改变就不能再变**，要么 Fullfilled，要么 Rejected，这里只能关注到当前一步，then 方法会返回一个**新的 promise 对象，从新开始从 pending 到凝聚状态**；
+2. **状态一旦改变就不能再变**，要么 Fullfilled，要么 Rejected，这里只能关注到当前一步，then 方法会返回一个**新的 promise 对象，将从新开始从 pending 到凝聚状态**；
+   1. 也就是这里的每一个 then 返回的都是一个新的，如果后边出错就走 catch，不出错就走 then；
 3. 缺点：
    1. **不能中断** promise，无法取消；
    2. **如果不设置回调，内部错误不能反应到外部**；
@@ -82,8 +84,8 @@ console.log('promise5: ', promise5);
       1. 都返回才返回；
       2. 一个出错就返回；
    4. Promise.race()，同样用来将**多个 Promise 实例包装成一个新的 Promise 实例**。
-      1. 一个返回就返回；
-      2. 一个出错就出错；
+      1. **一个返回就返回**；
+      2. **一个出错就出错**；
 
 3. 处理函数注册方法 **then/catch** 方法：
    1. Promise.prototype.then(onFulfilled, onRejected)
@@ -94,7 +96,7 @@ console.log('promise5: ', promise5);
 ### then/catch 方法
 
 1. **每次 then 都会返回一个新的 promise 对象**，不是原来的 promise 对象；
-2. 每次返回this，状态变为一个新的promise的pending，因此可以**采用链式调用**；
+2. 每次返回 this，状态变为一个新的 promise 的 pending，因此可以**采用链式调用**；
 3. 所以 then 之后的**状态还要重新确认**，**重新回到 pending**，等待当前回调的执行结果（确认是 Fullfilled 还是 Rejected），**结果通过 return 传递**到后边的管道；
 4. `catch -> then(null, rejection)`，发生错误时候的回调。
 5. promise 对象的错误，具有“冒泡”的特性，会一直向后传递，知道被捕获为止。
@@ -382,3 +384,50 @@ console.log(3);
 3. setTimeout 是浏览器/node 环境或者 j2v8 等环境自己封装的 api，性能上不如 promise。
 4. 机场也有 vip 通道，**任务分优先级**是很正常的。
 5. microtask,**可以理解是在当前 task 执行结束后立即执行的任务**。也就是说，在当前 task 任务后，下一个 task 之前，在渲染之前。
+
+## 为什么不依赖微任务模拟出的 Promise，也能符合 Promises/A+ 规范？
+
+在具体的 host 里——比如浏览器中，**你必须将 Promise 映射到由 html 标准定义的调度机制上，那么就有微任务和宏任务的差别**，所以要么映射到微任务要么映射到宏任务。Node 的调度机制并不存在 html 那样的标准，但所设计的机制是类似的。从各个方面考虑，Promise 应该是具有更高优先级的，所以映射到微任务或类似的机制是更合适的。
+
+1. 所以这里并没有规定 promise 一定是 microtask, 而 ECMAScript 的标准里只谈 Job
+2. 规定了 Promise 是 microtask 的地方是 html 标准。
+   1. 采用 微任务 实现的 浏览器端 Promise 只是 Promise 行为实现的一种方式，现阶段看，仅在浏览器上，或者说仅在 JS 引擎的某种具体实现中体现。
+
+[参考文章地址](https://www.zhihu.com/question/422187172)
+
+## 实现一个完美符合 Promise/A+规范的 Promise
+
+[参考文章地址](https://github.com/forthealllight/blog/issues/4)
+
+## Promise.then 返回一个 Promise 对象，这个与原来的 Promise 是否是一个？
+
+```js
+const promise1 = Promise.resolve(1);
+const promise2 = promise1.then((result) => {
+  console.log(result);
+});
+
+console.log('promise1、promise2:', promise1, promise2, promise1 === promise2);
+const promise3 = promise2.then((result) => {
+  throw Error('Error');
+});
+
+const promise4 = promise3
+  .then(
+    (result) => {
+      console.log('result', result);
+    },
+    (e) => {
+      console.log('e', e);
+      return { e: e };
+    },
+  )
+  .then((result2) => {
+    console.log('result2', result2);
+  })
+  .catch((e2) => {
+    console.log('e2', e2);
+  });
+```
+
+这样可以看到**明显不是同一个**，虽然状态都是`[[PromiseState]]: "fulfilled"`， 但是`<fulfilled>:`的结果可能不同，这里的引用也绝对不是同一个。

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>检测两个图片的不同</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>原始的图片</legend>
+      <img src="./1.jpeg" id="image1" alt="" />
+      <img src="./2.jpeg" id="image2" alt="" />
+    </fieldset>
+
+    <fieldset>
+      <style>
+        img {
+          height: 200px;
+        }
+        #canvas {
+          height: 320px;
+          width: 320px;
+        }
+      </style>
+
+      <script>
+        window.onload = () => {
+          var page = {
+            init() {
+              var canvasLeft = document.getElementById('canvasLeft');
+              var canvasRight = document.getElementById('canvasRight');
+              var canvasResult = document.getElementById('canvasResult');
+
+              canvasLeft.width = 320;
+              canvasLeft.height = 320;
+
+              canvasRight.width = 320;
+              canvasRight.height = 320;
+
+              canvasResult.width = 320;
+              canvasResult.height = 320;
+
+              this.contextLeft = canvasLeft.getContext('2d');
+              this.contextRight = canvasRight.getContext('2d');
+              this.contextResult = canvasResult.getContext('2d');
+
+              var image1 = document.getElementById('image1');
+              var image2 = document.getElementById('image2');
+
+              this.contextLeft.drawImage(image1, 0, 0, 1280, 1280, 0, 0, 640, 640);
+              this.contextRight.drawImage(image2, 0, 0, 1280, 1280, 0, 0, 640, 640);
+
+              return this;
+            },
+
+            drawImageCompose() {
+              var imageData1 = this.contextLeft.getImageData(0, 0, 320, 320);
+              var pixelData1 = imageData1.data;
+
+              var imageData2 = this.contextRight.getImageData(0, 0, 320, 320);
+              var pixelData2 = imageData2.data;
+
+              for (var i = 0; i < 320 * 320; i++) {
+                var r1 = pixelData1[i * 4 + 0];
+                var g1 = pixelData1[i * 4 + 1];
+                var b1 = pixelData1[i * 4 + 2];
+
+                var r2 = pixelData2[i * 4 + 0];
+                var g2 = pixelData2[i * 4 + 1];
+                var b2 = pixelData2[i * 4 + 2];
+
+                imageData1.data[i * 4 + 0] = r1 - r2;
+                imageData1.data[i * 4 + 1] = g1 - g2;
+                imageData1.data[i * 4 + 2] = b1 - b2;
+              }
+
+              this.contextResult.putImageData(imageData1, 0, 0, 0, 0, 320, 320);
+
+              return this;
+            },
+          };
+
+          page.init().drawImageCompose();
+        };
+      </script>
+      <legend>对比图片</legend>
+      <canvas id="canvasLeft"></canvas>
+      <canvas id="canvasRight"></canvas>
+
+      <canvas id="canvasResult"></canvas>
+    </fieldset>
+  </body>
+</html>

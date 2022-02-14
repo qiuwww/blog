@@ -1,8 +1,0 @@
-.DS_Store
-.vscode
-package-lock.json
-
-/node_modules
-/data/*
-/public/*/docs/*
-/public/*/indexes.json

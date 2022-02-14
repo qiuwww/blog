@@ -33,5 +33,6 @@
 ## 在命令行内打开图片
 
 ```bash
-imgcat /Users/qww/Documents/learn/blog/3.浏览器原理/渲染流程图.png
+# 安装imgcat：curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+imgcat /Users/qiuww/code/learn/blog/15.工具应用-提高开发效率/imgs/mac系统快捷键.jpg
 ```

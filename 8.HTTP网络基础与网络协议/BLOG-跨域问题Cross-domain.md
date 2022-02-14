@@ -171,17 +171,17 @@ ws.onclose = function (evt) {
 2. **服务端开启跨域**，服务端**允许来自某个域的接口请求数据**。
 3. `Access-Control-Allow-Origin: *`
 
-### 4 Hash/window.name
+### 4 location.hash + iframe
 
 hashchange，**取检测 hash 变化，和 hash 带过来的参数**。
 
 ### 5 [postMessage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage)()方法
 
-`window.postMessage()` 方法可以安全地实现跨源通信。通常，对于两个不同页面的脚本，只有当执行它们的页面位于**具有相同的协议**（通常为 https），**端口号**（443 为 https 的默认值），**以及主机 (两个页面的模数 Document.domain 设置为相同的值) 时**，这两个脚本才能相互通信。window.postMessage() 方法提供了一种受控机制来规避此限制，只要正确的使用，这种方法就很安全。
+`window.postMessage()` 方法可以**安全地实现跨源通信**。通常，对于两个不同页面的脚本，只有当执行它们的页面位于**具有相同的协议**（通常为 https），**端口号**（443 为 https 的默认值），**以及主机 (两个页面的模数 Document.domain 设置为相同的值) 时**，这两个脚本才能相互通信。window.postMessage() 方法提供了一种受控机制来规避此限制，只要正确的使用，这种方法就很安全。
 
 **不同域页面间可以相互发送消息**，页面进程间通信。
 
-`H5`中新增的`postMessage()``方法，可以用来做跨域通信。既然是 H5 中新增的，那就一定要提到。
+`H5`中新增的`postMessage()`方法，可以用来做跨域通信。既然是 H5 中新增的，那就一定要提到。
 
 **场景**：窗口 A (`http:A.com`)向跨域的窗口 B (`http:B.com`)发送信息。步骤如下
 

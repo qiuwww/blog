@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>
+      拖拽，在mouseover阶段就用transform，在mousedown阶段在再用position绝对定位，这样是不是就可以减少repaint和reflow的操作呢
+    </h3>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      .ball-running {
+        animation: run-around2 4s infinite;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+      }
+
+      @keyframes run-around2 {
+        0%: {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(200px, 0);
+        }
+        50% {
+          transform: translate(200px, 200px);
+        }
+        75% {
+          transform: translate(0, 200px);
+        }
+      }
+    </style>
+
+    <body>
+      <div class="ball-running"></div>
+    </body>
+  </body>
+</html>

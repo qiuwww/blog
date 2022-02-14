@@ -6,11 +6,10 @@ tags:
   - 函数式编程
   - 函数合成
   - 函数柯里化
+  - Functional programming
 categories:
   - [设计模式, 函数式编程]
 ---
-
-函数式编程（Functional programming）
 
 [函数式编程](http://www.ruanyifeng.com/blog/2017/02/fp-tutorial.html)
 
@@ -31,6 +30,8 @@ categories:
 
 如果一个值要经过**多个函数**，才能变成另外一个值，就可以把所有中间步骤合并成一个函数，这叫做"**函数的合成**"（compose）。
 
+这其实就是把逐步计算的
+
 ```js
 const compose = function (f, g) {
   return function (x) {
@@ -50,7 +51,7 @@ var shout = compose(exclaim, toUpperCase);
 console.log(shout('hello world')); // HELLO WORLD!
 ```
 
-### 函数柯里化 Currying)，预置参数，转为有预定功能的函数
+### 函数柯里化 Currying，预置参数，转为有预定功能的函数
 
 1. 通常也称**部分求值**，含义是给函数分步传递参数，**每次递参部分应用参数，并返回一个更具体的函数**，继续接受剩余参数；
 2. 期间会连续返回具体函数，直至返回最后结果。因此，**函数柯里化是逐步传参**，逐步缩小函数的适用范围，逐步求解的过程；
@@ -84,7 +85,7 @@ dev(1); // 0
 
 也就是说偏函数包含柯里化函数，都属于高阶函数。
 
-## 函数柯里化的引用
+## 函数柯里化的应用
 
 ```js
 // 1. bind调用

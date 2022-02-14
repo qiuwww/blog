@@ -606,3 +606,15 @@ qiuwww-2020.6.20
 ## contact
 
 [github 源文件地址](https://github.com/qiuwww/blog/blob/master/BLOG-markdown%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0.zh-CN.md)
+
+## xMind 与 md 文件的格式对应关系
+
+1. 这里是可以被渲染为下一级的；
+   1. 这里应该是更下一级；
+2. 这里是第二个子类；
+
+### 这里是描述
+
+这里的内容是隐藏的，但是可以被查看。
+
+### 更多的可以查看大纲与导图的切换

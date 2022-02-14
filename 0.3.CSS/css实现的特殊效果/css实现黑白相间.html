@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css实现黑白相间</title>
+  </head>
+  <body>
+    <div class="repeating-linear-gradient">repeating-linear-gradient</div>
+    <style>
+      .repeating-linear-gradient {
+        border: 1px solid blueviolet;
+
+        margin: 0 auto;
+        width: 400px;
+        height: 400px;
+
+        /* ,
+          linear-gradient(45deg, #000 25%, transparent 0, transparent 75%, #000 0) */
+        /* 坐下45度开始渲染背景色，#000 25%, transparent 0是一组*/
+
+        background-image: linear-gradient(45deg, #000 25%, transparent 0, transparent 75%, #000 0),
+          linear-gradient(45deg, #000 25%, transparent 0, transparent 75%, #000 0);
+        background-size: 100px 100px;
+        background-position: 0 0, 50px 50px;
+
+        /* background-image: linear-gradient(red 0%, #fff 25%, yellow 50%, green 75%, blue 100%); */
+      }
+    </style>
+  </body>
+</html>

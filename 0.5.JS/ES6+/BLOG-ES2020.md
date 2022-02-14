@@ -79,11 +79,13 @@ console.log(adventurer.someNonExistentMethod?.());
 // expected output: undefined
 ```
 
-### Nullish coalescing Operator，空值合并运算符（??）
+### Nullish coalescing Operator，空值合并运算符（??），注意区别于||
 
-空值合并运算符（`??`）是一个**逻辑运算符**。**当左侧操作数为 null 或 undefined 时，其返回右侧的操作数**。否则返回左侧的操作数。
+空值合并运算符（`??`）是一个**逻辑运算符**。**当左侧操作数为 null 或 undefined 时，其返回右侧的操作数**。否则返回左侧的操作数（`''`、`NaN`、`0`、`false`都会返回左边的值）。
 
 与逻辑或（`||`）操作符不同，逻辑或会在左操作数为 假值 时返回右侧操作数。也就是说，如果你使用 `||` 来为某些变量设置默认的值时，你可能会遇到意料之外的行为。比如为**假值（例如，'' 或 0）**时。
+
+函数默认参数允许在**没有值或 undefined 被传入时使用默认形参**。
 
 ```js
 const foo = null ?? 'default string';

@@ -10,15 +10,11 @@ categories:
   - [HTML, canvas]
 ---
 
-[TOC]
-
 ## 使用 canvas 对图片进行像素级处理
 
 [用 canvas 实现一个自动识别两张图片差异（图片找不同）的功能](https://zhuanlan.zhihu.com/p/56094629)
 
-## 绘制
-
-### 长尾效应
+## 长尾效应
 
 [长尾效果](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Advanced_animations#%E9%95%BF%E5%B0%BE%E6%95%88%E6%9E%9C)
 

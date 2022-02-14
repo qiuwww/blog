@@ -1,0 +1,10 @@
+{
+  "name": "babel-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "babel-types": "^6.26.0"
+  }
+}

@@ -28,8 +28,8 @@ categories:
 
 ### 如何创建堆叠上下文
 
-1. 根元素 (HTML)，
-2. z-index 值不为 "auto"的 绝对/相对定位，
+1. 根元素 (HTML)；
+2. z-index 值不为 "auto"的 绝对/相对定位；
 3. 一个 z-index 值不为 "auto"的 flex 项目 (flex item)，即：父元素 display: flex|inline-flex，
 4. opacity 属性值小于 1 的元素（参考 the specification for opacity），
 5. transform 属性值不为 "none" 的元素，
@@ -46,17 +46,24 @@ categories:
 ![经典的7阶层叠水平](./imgs/经典的7阶层叠水平.png)
 
 1. 也就是 background-color 永远在**最底一层**；
+   1. background/border;
 2. 标准文档流在负的 z-index 之上，这个容易理解；
-3. **浮动元素会漂到标准文档流上一层，仅仅一点点**，可能是 0.00001；
-4. 也就是说**标准文档流处在一个 0-，小于 0，但是大于一切负数**；
-5. **inline/inline-block，在浮动元素之上**，设置了非负的 z-index 之下；
-6. z-index 为正，在最上层；
+   1. z-index: -1;
+3. block 块状水平盒子;
+4. **浮动元素会漂到标准文档流上一层，仅仅一点点**，可能是 0.00001；
+   1. float: left;
+5. 也就是说**标准文档流处在一个 0-，小于 0，但是大于一切负数**；
+6. **inline/inline-block，在浮动元素之上**，设置了非负的 z-index 之下，在 z-index：: 0 之下；
+   1. inline/inline-block 元素的层叠顺序要高于 block(块级)/float(浮动)元素。
+7. z-index: auto; z-index: 0;
+8. z-index 为正，在最上层；
 
 ## 缺失的关键信息包括
 
-- 位于最低水平的 border/background 指的是层叠上下文元素的边框和背景色。每一个层叠顺序规则适用于一个完整的层叠上下文元素。
-- 原图没有呈现 inline-block 的层叠顺序，实际上，inline-block 和 inline 水平元素是同等 level 级别。
-- z-index:0 实际上和 z-index:auto 单纯从层叠水平上看，是可以看成是一样的。注意这里的措辞——“单纯从层叠水平上看”，实际上，两者在层叠上下文领域有着根本性的差异。
+1. 位于最低水平的 border/background 指的是层叠上下文元素的边框和背景色。每一个层叠顺序规则适用于一个完整的层叠上下文元素。
+2. 原图没有呈现 inline-block 的层叠顺序，实际上，inline-block 和 inline 水平元素是同等 level 级别。
+3. z-index:0 实际上和 z-index:auto 单纯从层叠水平上看，是可以看成是一样的。注意这里的措辞——“单纯从层叠水平上看”，实际上，两者在层叠上下文领域有着根本性的差异。
+   1. 这里的差异主要是 0，会对其后设置的 z-index 进行比较，而 auto 不会；
 
 ## 深层次的理解
 

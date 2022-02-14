@@ -22,19 +22,21 @@ categories:
 
 [TOC]
 
-> 动画是指由许多帧**静止的画面**，以一定的速度（如**每秒 16 张**）连续播放时，肉眼因视觉**残象产生错觉**，而误以为画面活动的作品。-- 维基百科
+> 动画是指由许多帧**静止的画面**，以一定的速度连续播放时，肉眼因视觉**残象产生错觉**，而误以为画面活动的作品。
 
 ## 动画的基本概念
 
 1. 帧：在动画过程中，每一幅静止画面即为一“帧”；
-2. 帧率：即**每秒钟播放的静止画面的数量**，单位是 fps(Frame per second)或赫兹(Hz)；
+2. 帧率：即**每秒钟播放的静止画面的数量**，单位是 fps(Frame per second)或赫兹(Hz)，60 帧的动画看起来很流畅，这样每帧基本停留的时间是 16ms；
 3. 帧时长：即**每一幅静止画面的停留时间**，单位一般是 ms(毫秒)；
 4. 丢帧：在帧率固定的动画中，**某一帧的时长远高于平均帧时长**，导致**其后续数帧被挤压而丢失**的现象；
 
 ## 动画实现方式
 
 1. JavaScript：通过定时器（ `setTimeout` 和 `setInterval` ）来**间隔来改变**元素样式，或者使用 `requestAnimationFrame`；
-2. CSS3：`transition` 和 `animation`；
+2. CSS3：`transition` 和 `animation + keyframes`；
+   1. transition：过渡可以为一个元素在不同状态之间切换的时候定义不同的过渡效果，需要条件触发，需要渐变的始终的状态值；
+   2. animation：可以认为是带循环的 transition；
 3. HTML5：使用 HTML5 提供的**绘图**方式（`canvas、svg、webgl`）；
 
 ### requestAnimationFrame，js 刷新帧操作接口
@@ -48,6 +50,7 @@ categories:
 4. 代码中使用这个 API，就是告诉浏览器希望执行一个动画，让浏览器在下一个动画帧安排一次网页重绘。
 
 5. 可以这么说，`requestAnimationFrame`就是一个**性能优化版、专为动画量身打造的`setTimeout`**，不同的是`requestAnimationFrame`不是自己指定回调函数运行的时间，而是**跟着浏览器内建的刷新频率来执行回调**，这当然就能达到浏览器所能实现动画的最佳效果了。
+   1. 相对于 setTimeout 的优点是，可以不受 js 的执行顺序影响；
 
 [查看实例](./requestAnimationFrame动画实现.html)
 
@@ -72,6 +75,8 @@ categories:
 5. 最适合**图像密集型的游戏**，其中的许多对象会被频繁重绘；
 
 大多数 Canvas 绘图 API 都没有定义在 `<canvas>` 元素本身上，而是定义在通过画布的`getContext()`方法获得的一个“绘图环境”对象上。Canvas API 也使用了路径的表示法。
+
+**这里不断的调用 translate 等可以改变参数的方法，改变参数，然后使用 requestAnimationFrame 刷新动画**。
 
 ### SVG 图，可缩放矢量图形
 
@@ -131,6 +136,7 @@ WebGL (Web 图形库) 是一种 JavaScript API，用于在任何兼容的 Web �
 1. 除了优化我们的代码，我们还可以**让 GPU 来代替 CPU 渲染页面**。
    1. 通过设置`transform: translate3d(0,0)`或者`tanslateZ(0)`属性就可以做到，原因是，通过设置该属性，**浏览器会创建独立图层**，图层中有动画的话用 GPU 进行硬件加速。
 2. 最好**提前申明动画**，这样能让浏览器提前对动画进行优化。由于 GPU 的参与，现在用来做动画的最好属性是如下几个：
+
    1. opacity
    2. translate
    3. rotate

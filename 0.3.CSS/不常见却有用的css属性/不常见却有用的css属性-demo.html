@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>不常见却有用的css属性-demo</title>
+  </head>
+  <body>
+    <a href="https://zhuanlan.zhihu.com/p/146737631">参考文档</a>
+    <fieldset>
+      <style>
+        .-webkit-line-clamp {
+          display: -webkit-box; /*值必须为-webkit-box或者-webkit-inline-box*/
+          -webkit-box-orient: vertical; /*值必须为vertical*/
+          -webkit-line-clamp: 2; /*值为数字，表示一共显示几行*/
+          overflow: hidden;
+        }
+      </style>
+      <legend>-webkit-line-clamp</legend>
+      <div class="-webkit-line-clamp">
+        <code>-webkit-line-clamp</code>
+        -webkit-line-clamp CSS 属性 可以把 块容器 中的内容限制为指定的行数. 它只有在 display
+        属性设置成 -webkit-box 或者 -webkit-inline-box 并且 -webkit-box-orient (en-US) 属性设置成
+        vertical时才有效果 在大部分情况下,也需要设置 overflow 属性为 hidden,
+        否则,里面的内容不会被裁减,并且在内容显示为指定行数后还会显示省略号(ellipsis ).
+        当他应用于锚(anchor)元素时,截取动作可以发生在文本中间,而不必在末尾.
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <style></style>
+      <legend>all</legend>
+      <div class="all">
+        将除却 unicode-bidi 与 direction 之外的所有属性重设至其初始值，或继承值。
+        <code>all: unset; /*initial | inherit | unset*/</code>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <style>
+        .box-decoration-break {
+          background: linear-gradient(to bottom right, yellow, green);
+          box-shadow: 8px 8px 10px 0px deeppink, -5px -5px 5px 0px blue, 5px 5px 15px 0px yellow;
+          padding: 0em 1em;
+          border-radius: 16px;
+          border-style: solid;
+          margin-left: 10px;
+          font: 24px sans-serif;
+          line-height: 2;
+        }
+      </style>
+      <legend>box-decoration-break</legend>
+      <span class="box-decoration-break">The<br />quick<br />orange fox</span>
+      <b>这个属性的支持度非常的差劲，不用为好</b>
+      <div>
+        slice
+        元素被按照盒子被切割前的原始样式渲染，之后，针对每个行/列/页面将此假设框渲染成片段。请注意，假设框对于每个片段可以是不同的，因为如果中断发生在行内方向，则它使用自己的高度，如果中断发生在块方向，则它使用自己的宽度。有关详细信息，请参阅CSS规范。
+        <br />
+        clone 每个框片段与指定的边框、填充和边距独立呈现。The border-radius、border-image、
+        box-shadow独立地应用于每个片段,每个片段的背景也是独立绘制的, 这意味着使用 background-repeat:
+        no-repeat 的背景图片仍然可能重复多次.
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <style>
+        .caret-color {
+          caret-color: hotpink;
+        }
+      </style>
+      <legend>caret-color</legend>
+
+      <input type="text" class="caret-color" />
+      <p>
+        用来定义插入光标（caret）的颜色，这里说的插入光标，就是那个在网页的可编辑器区域内，用来指示用户的输入具体会插入到哪里的那个一闪一闪的形似竖杠
+        | 的东西。
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <style>
+        .clip-path {
+          /* clip-path: ellipse(130px 140px at 10% 20%); */
+
+          clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+          shape-outside: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        }
+      </style>
+      <legend>clip-path</legend>
+
+      <input type="text" class="clip-path" />
+      <div>
+        <p>
+          clip-path
+          属性使用裁剪方式创建元素的可显示区域。区域内的部分显示，区域外的隐藏。类似的裁剪还有 svg
+          的 clipPath。 clip-path 的取值有以下几种图形 inset(xxx): 裁剪为长方形circle(xx):
+          裁剪为原型 ellipse(xxx): 裁剪为椭圆 polygon(xx): 裁剪为多边形 none: 不裁剪
+        </p>
+
+        <div
+          style="
+            width: 500px;
+            height: 500px;
+            text-align: left;
+            background-color: gray;
+            color: white;
+          "
+        >
+          <img
+            class="clip-path"
+            style="float: left; margin: 20px"
+            src="https://interactive-examples.mdn.mozilla.net/media/examples/balloon-small.jpg"
+            width="150"
+          />
+          We had agreed, my companion and I, that I should call for him at his house, after dinner,
+          not later than eleven o’clock. This athletic young Frenchman belongs to a small set of
+          Parisian sportsmen, who have taken up “ballooning” as a pastime. After having exhausted
+          all the sensations that are to be found in ordinary sports, even those of “automobiling”
+          at a breakneck speed, the members of the “Aéro Club” now seek in the air, where they
+          indulge in all kinds of daring feats, the nerve-racking excitement that they have ceased
+          to find on earth.
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <style>
+        .object-fit {
+          object-fit: fill;
+          object-position: 50px 50px;
+        }
+      </style>
+      <legend>object-fit / object-position</legend>
+      <p>
+        object-fit 属性指定可替换元素的内容应该如何适应到其使用的高度和宽度确定的框。object-position
+        属性来指定被替换元素的内容对象在元素框内的对齐方式。 object-position: 10px 10px; 可以设置
+        px，第一个值代表距离父容器左边的距离，第二个值代表距离父容器顶部的距离。只有一个数值则只代表距离父容器左侧的距离。也可以设置%数值，但此时只有某一边有空白才会起作用，如果没有空白，刚好铺满父元素，则不起作用。设置
+        px 就没有这样的问题，任何之后都会起作用。object-position: right
+        top;可以设置关键字，第一个值关键字可设置（left|center|right），第二个关键字可设置(top|center|bottom),此时不表示距离左侧或者顶部的距离，而表示放置在父元素的什么位置。
+      </p>
+
+      <div style="width: 300px; height: 300px; background-color: gray">
+        <img
+          class="object-fit"
+          style="height: 100%; width: 100%"
+          src="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg"
+        />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <style>
+        /* 没啥用？ */
+        .font-stretch {
+          font-stretch: semi-condensed;
+        }
+      </style>
+      <legend>font-stretch</legend>
+      <p>
+        为字体定义一个正常或经过伸缩变形的字体外观，它仅仅意味着当有多种字体可供选择时，会为字体选择最适合的大小。
+      </p>
+      <p class="font-stretch">
+        为字体定义一个正常或经过伸缩变形的字体外观，它仅仅意味着当有多种字体可供选择时，会为字体选择最适合的大小。
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <style>
+        .font-variant-caps {
+        }
+        .small-caps {
+          font-variant-caps: all-small-caps;
+          font-style: italic;
+        }
+        .normal {
+          font-variant-caps: normal;
+          font-style: italic;
+        }
+      </style>
+      <legend>font-variant-caps</legend>
+      <p>可以控制大写字母特殊字符的使用。</p>
+
+      <div class="font-variant-caps">
+        <p class="small-caps">Firefox rocks, small caps!</p>
+        <p class="normal">Firefox rocks, normal caps!</p>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <style>
+        .scroll-behavior {
+          /* scroll-behavior: auto; */
+          /* scroll-behavior: smooth; */
+        }
+
+        .scroll-behavior a {
+          display: inline-block;
+          width: 50px;
+          text-decoration: none;
+        }
+        .scroll-behavior nav,
+        .scroll-behavior scroll-container {
+          display: block;
+          margin: 0 auto;
+          text-align: center;
+        }
+        .scroll-behavior nav {
+          width: 339px;
+          padding: 5px;
+          border: 1px solid black;
+        }
+        .scroll-behavior scroll-container {
+          display: block;
+          width: 350px;
+          height: 200px;
+          overflow-y: scroll;
+          /* scroll-behavior: smooth; */
+          scroll-behavior: auto;
+        }
+        .scroll-behavior scroll-page {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          font-size: 5em;
+        }
+      </style>
+      <legend>scroll-behavior</legend>
+      <div class="scroll-behavior">
+        <nav>
+          <a href="#page-1">1</a>
+          <a href="#page-2">2</a>
+          <a href="#page-3">3</a>
+        </nav>
+        <scroll-container>
+          <scroll-page id="page-1">1</scroll-page>
+          <scroll-page id="page-2">2</scroll-page>
+          <scroll-page id="page-3">3</scroll-page>
+        </scroll-container>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <style>
+        /* 不生效 */
+        .width-value{
+          width: -webkit-max-content;
+          /* height: -webkit-max-content; */
+
+          /* width: -webkit-min-content;
+          height: -webkit-min-content; */
+        }
+      </style>
+      <legend>max-content / min-content / fill-available / fit-content</legend>
+
+      <div>
+        width 属性也指定为：
+          下面关键字值之一：min-content，max-content，fit-content，auto。
+          一个长度值 <length> 或者百分比值 <percentage>。
+
+        这几个值都可用在 width, height, min-width, min-height, max-width 和 max-height 属性上。
+        display 必须为 inline-block 或者 block，否则上面的值不起作用。
+
+      </div>
+
+        <div style="width: 300px; height: 100px; background-color:gray;">
+          <span class="width-value" style="display:inline-block; background-color: burlywood;"
+            >这是子元素的内容</span
+          >
+        </div>
+    </fieldset>
+
+    <fieldset>
+      <style>
+        .max {
+          width: max(50vw, 300px);
+        }
+        .clamp {
+          width: clamp(200rem, 25vw, 150px);
+        }
+      </style>
+      <legend>max() / min() / clamp()</legend>
+
+      <div class="max">
+        max 在两者这件取最大；min 函数在两者之间取最小。
+
+        <code>max，min 可以用在任何可以设置 <length>, <frequency>, <angle>, <time>, <percentage>, <number>, or <integer> 等值的地方</code>
+
+        clamp 函数会在定义的 三个值之间，取中间的那个值，是大小在中间，不是位置在中间，
+      </div>
+
+      <div class="clamp">
+        clamp 函数会在定义的 三个值之间，取中间的那个值，是大小在中间，不是位置在中间，
+
+        clamp(MIN, VAL, MAX)
+        <code>和 max，min 函数一样，可以用在任何可以设置 <length>, <frequency>, <angle>, <time>, <percentage>, <number>, or <integer> 等值的地方
+        </code>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <style>
+        .Shape-outside .main {
+            width: 500px;
+          }
+
+          .Shape-outside .left,
+          .Shape-outside .right {
+            width: 40%;
+            height: 12ex;
+            background-color: lightgray;
+          }
+
+          .Shape-outside .left {
+            -webkit-shape-outside: polygon(0 0, 100% 100%, 0 100%);
+            shape-outside: polygon(0 0, 100% 100%, 0 100%);
+            float: left;
+            -webkit-clip-path: polygon(0 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 100%, 0 100%);
+          }
+
+          .Shape-outside .right {
+            -webkit-shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+            shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+            float: right;
+            -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+          }
+
+          .Shape-outside p {
+            text-align: center;
+          }
+      </style>
+
+      <legend>使用 Shape-outside 在浮动图像周围弯曲文本</legend>
+
+      <div class="Shape-outside">
+        <div class="main">
+          <div class="left"></div>
+          <div class="right"></div>
+          <p>
+            Sometimes a web page's text content appears to be
+            funneling your attention towards a spot on the page
+            to drive you to follow a particular link. Sometimes
+            you don't notice.
+          </p>
+        </div>
+      </div>
+      </fieldset>
+  </body>
+</html>

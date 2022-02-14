@@ -15,7 +15,7 @@ console.dir()可以显示一个对象所有的属性和方法。
 var dog = {};
 dog.name = '大毛';
 dog.color = '黄色';
-dog.bark = function() {
+dog.bark = function () {
   alert('汪汪汪');
 };
 console.dir(dog);
@@ -23,11 +23,13 @@ console.dir(dog);
 
 ## dirxml，显示该节点包含的代码
 
-console.dirxml()用来显示网页的某个节点（node）所包含的 html/xml 代码。
+`console.dirxml()`用来显示网页的某个节点（node）所包含的 html/xml 代码。
 
 ## clear()，清空控制台的信息
 
 ## trace()，用来追踪函数的调用轨迹
+
+`console.trace(window.onload)`
 
 ## group()与 groupEnd()成对出现，对输出进行分组
 
