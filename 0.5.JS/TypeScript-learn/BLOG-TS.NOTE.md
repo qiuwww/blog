@@ -136,8 +136,8 @@ x[6] = true; // Error, 布尔不是(string | number)类型
 
 let list: any[] = [1, true, 'free'];
 list[1] = 100;
-// 枚举
 
+// 枚举
 enum Color {
   Red,
   Green,

@@ -32,7 +32,7 @@ export class World extends Vue {
   world = 'World';
 }
 
-// 1. 不管是有有，必须添加@Component修饰
+// 1. 不管是有，必须添加@Component修饰
 @Component({
   // 7. 混入类型，等价于继承
   mixins: [myMixins],

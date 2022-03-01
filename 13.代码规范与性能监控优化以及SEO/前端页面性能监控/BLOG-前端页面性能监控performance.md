@@ -16,7 +16,7 @@ categories:
 
 [Performance](https://developer.mozilla.org/zh-CN/docs/Web/API/Performance) 接口**可以获取到当前页面中与性能相关的信息**。它是 High Resolution Time API 的一部分，同时也融合了 Performance Timeline API、Navigation Timing API、 User Timing API 和 Resource Timing API。
 
-该类型的对象可以**通过调用只读属性 Window.performance 来获得**。
+该类型的对象可以**通过调用只读属性 window.performance 来获得**。
 
 1. Performance 接口**没有继承任何属性**。
 2. 常用到的属性：
@@ -93,7 +93,7 @@ propsArr.forEach((item) => {
 5. **白屏时间**：**domLoading - navigationStart**
    1. 用户从打开页面开始到**页面开始有东西呈现为止**；
    2. 很多地方说是以 responseStart 为结束时间，但是我觉得还是 domLoading。
-6. domready 时间(用户**可操作时间节点**) ：`domContentLoadedEventEnd - navigationStart`
+6. domReady 时间(用户**可操作时间节点**) ：`domContentLoadedEventEnd - navigationStart`
 7. **onload 时间/首屏时间**(**总下载时间**) ：`loadEventEnd - navigationStart`
 
 ```js
@@ -168,8 +168,7 @@ var n = [
   },
   {
     key: 'Waiting(TTFB)',
-    desc:
-      '\u4ece\u5ba2\u6237\u7aef\u53d1\u8d77\u8bf7\u6c42\u5230\u63a5\u6536\u5230\u54cd\u5e94\u7684\u65f6\u95f4 / Time To First Byte',
+    desc: '\u4ece\u5ba2\u6237\u7aef\u53d1\u8d77\u8bf7\u6c42\u5230\u63a5\u6536\u5230\u54cd\u5e94\u7684\u65f6\u95f4 / Time To First Byte',
     value: t.responseStart - t.requestStart,
   },
   {

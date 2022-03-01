@@ -11,26 +11,22 @@ categories:
   - [设计模式, 函数式编程]
 ---
 
-[函数式编程](http://www.ruanyifeng.com/blog/2017/02/fp-tutorial.html)
-
-与面向对象编程（Object-oriented programming）和过程式编程（Procedural programming）并列的编程范式。
-
 ## 什么是函数式编程
 
-1. 与面向对象编程（Object-oriented programming）和过程式编程（Procedural programming）并列的**编程范式**。
+1. 与**面向对象编程**（Object-oriented programming）和**过程式编程**（Procedural programming）并列的编程范式。
 2. 最主要的特征是，函数是[第一等公民](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/ch2.html)。
-3. 强调将计算过程**分解成可复用的函数**，典型例子就是`map`方法和`reduce`方法组合而成  [MapReduce 算法](https://zh.wikipedia.org/wiki/MapReduce)。
+3. 强调将计算过程**分解成可复用的函数**，典型例子就是`map`方法和`reduce`方法组合而成[MapReduce 算法](https://zh.wikipedia.org/wiki/MapReduce)。
 4. 只有[纯的](https://zh.wikipedia.org/wiki/%E7%BA%AF%E5%87%BD%E6%95%B0)、没有[副作用](https://zh.wikipedia.org/wiki/%E5%87%BD%E6%95%B0%E5%89%AF%E4%BD%9C%E7%94%A8)的函数，才是合格的函数。
 
 ## 合成与柯里化
 
 函数式编程有两个**最基本的运算**：合成和柯里化。
 
-### 合成（compose），多个函数合成一个，用于组合操作
+### 合成（compose），多个函数合成一个，用于组合操作，函数作为参数参与计算，与 vue 的多级过滤器类似
 
 如果一个值要经过**多个函数**，才能变成另外一个值，就可以把所有中间步骤合并成一个函数，这叫做"**函数的合成**"（compose）。
 
-这其实就是把逐步计算的
+这其实就是把**逐步计算的过程**。
 
 ```js
 const compose = function (f, g) {
@@ -85,18 +81,34 @@ dev(1); // 0
 
 也就是说偏函数包含柯里化函数，都属于高阶函数。
 
-## 函数柯里化的应用
-
 ```js
-// 1. bind调用
-// 区别于闭包缓存当前的结果
-function add(a, b) {
-  return a + b;
+/**
+ * @description 偏函数 偏函数就是将一个 n 参的函数转换成固定 x 参的函数，剩余参数（n - x）将在下次调用全部传入。
+ */
+
+function partial(func, ...argsBound) {
+  return function (...args) {
+    // (*)
+    return func.call(this, ...argsBound, ...args);
+  };
 }
 
-var addThirtySeven = add.bind(null, 37);
-var addThirtySix = add.bind(null, 36);
+function add(a, b, c) {
+  return a + b + c;
+}
+let partialAdd = partial(add, 1);
 
-console.log('addThirtySeven: ', addThirtySeven(10), addThirtySeven(100));
-console.log('addThirtySix: ', addThirtySix(10), addThirtySix(100));
+partialAdd(2, 3);
+
+// --------------
+function mul(a, b) {
+  return a * b;
+}
+let double = mul.bind(null, 2);
+alert(double(3)); // = mul(2, 3) = 6
+alert(double(4)); // = mul(2, 4) = 8
 ```
+
+## 参考
+
+[函数式编程](http://www.ruanyifeng.com/blog/2017/02/fp-tutorial.html)

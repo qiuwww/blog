@@ -30,14 +30,14 @@ JavaScript 在设计时定位原因，**没有提供类似的功能**，开发�
 2. 更好的**分离**, 按需加载
 3. 更高**复用**性
 4. 高**可维护**性
-5. 浏览器端，加载 JavaScript 最佳、最容易的方式是在 document 中插入 script  标签。**但脚本标签天生异步**，传统 CommonJS 模块在浏览器环境中无法正常加载，需要对模块代码作静态分析，将模块与它的依赖列表一起返回给浏览器端。
+5. 浏览器端，加载 JavaScript 最佳、最容易的方式是在 document 中插入 script 标签。**但脚本标签天生异步**，传统 CommonJS 模块在浏览器环境中无法正常加载，需要对模块代码作静态分析，将模块与它的依赖列表一起返回给浏览器端。
 
 ## how，模块化的进程
 
 1. 全局 function 模式：将不同的功能封装成不同的全局函数
 2. namespace 模式：简单对象封装
 3. IIFE 模式：匿名函数**自调用(闭包)**
-4. IIFE 模式增强 : 引入依赖。 amd|cmd -> commonjs -> ESM
+4. IIFE 模式增强 : 引入依赖，amd|cmd -> commonjs -> ESM
 
 ## JS 模块化发展
 
@@ -103,7 +103,7 @@ console.info(module.\_count); //undefined
 
 requirejs 统治了 ES6 之前的所有模块化编程。
 
-node 的 module 遵循 CommonJS 规范，requirejs 遵循 AMD，seajs 遵循 CMD，虽各有不同，但总之还是希望**保持较为统一的代码风格**。
+node 的 module 遵循 CommonJS 规范，requirejs 遵循 AMD，sea.js 遵循 CMD，虽各有不同，但总之还是希望**保持较为统一的代码风格**。
 
 加载模块使用 require 方法，该方法读取一个文件并执行，**返回文件内部的 module.exports 对象**。
 
@@ -175,7 +175,7 @@ require([module], callback);
 
 #### CMD，使用的时候加载，就近加载
 
-CMD (Common Module Definition), 是 seajs 推崇的规范，CMD 则是**依赖就近，用的时候再 require。**
+CMD (Common Module Definition), 是 sea.js 推崇的规范，CMD 则是**依赖就近，用的时候再 require。**
 
 它写起来是这样的：
 
@@ -343,9 +343,9 @@ var a = require('./a')[0]; // a模块导出的是一个数组
 require(process.cwd() + '/a');
 ```
 
-### require 的特点
+### require 的特点 / node
 
-1. **第一次加载解析模块，后续使用的是第一次加载的缓存**，
+1. **第一次加载解析模块，后续使用的是第一次加载的缓存，缓存不修改**，
    1. 基本类型是值，
    2. 引用类型是引用地址，也是可以改变的，也就是在读取的文件中自动修改。
 2. **基础类型 num 是复制，object 的值是引用**，**都可修改，但是不会重新读取**。
@@ -358,12 +358,12 @@ require(process.cwd() + '/a');
 7. 可以把它当做一个 **node 内置的全局函数**；
 8. 地址可以是一个变量。
 
-### import 的特点
+### import 的特点 / es6
 
 1. **加载的是一个引用**
-2. **基本类型加载后当作常量，不可修改**，引用类型是可以修改的。
-3. import是**编译时的（require 是运行时的）**
-4. 它**必须放在文件开头**;
+2. **基本类型加载后当作常量，不可修改**，引用类型是可以修改的；
+3. import 是**编译时的（require 是运行时的）**
+4. 它**必须放在文件开头**
 5. 而且使用格式也是确定的，不容置疑，**from 之后的内容必须是一个常量，不能是变量**。
 6. 它**不会**将整个模块运行后赋值给某个变量，而是**只选择 import 的接口进行编译**，这样在性能上比 require 好很多。
 

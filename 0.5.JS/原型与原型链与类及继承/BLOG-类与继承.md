@@ -61,17 +61,43 @@ function Cat(name, color) {
 
 借用构造函数继承的优缺点：
 
-没有原型，**则复用无从谈起**。所以我们需要**原型链+借用构造函数的模式**，这种模式称为**组合继承**。
+没有原型，**则复用无从谈起**，每次实例化都是重新运行。所以我们需要**原型链+借用构造函数的模式**，这种模式称为**组合继承**。
 
 ### 2.组合继承，组合式继承 = 原型继承 + 借用构造函数继承，重要
 
+原型实现方法共享，构造函数实现具体属性的设置。
+
 ```js
+function Animal(name) {
+  this.name = name;
+  this.run = function () {
+    /*实例方法*/
+    console.log(this.name + '在运动');
+  };
+}
+// 这个时候，只是在原型对象上添加属性，所以constructor是没有改变的
+Animal.prototype.work = function () {
+  console.log(this.name + '在工作');
+};
+
 function Cat(name, color) {
+  // 属性的设置调用，继承Animal的构造函数属性设置
   Animal.call(this, name);
   this.color = color;
 }
+// 方法的继承
 Cat.prototype = new Animal();
 Cat.prototype.constructor = Cat;
+
+var cat = new Cat('小花', '黄色');
+// color: "黄色"
+// name: "小花"
+// run: ƒ ()
+// [[Prototype]]: Animal
+//   constructor: ƒ Cat(name, color)
+//   name: undefined
+//   run: ƒ ()
+//   [[Prototype]]: Object
 ```
 
 #### 组合继承的优缺点
@@ -82,7 +108,7 @@ Cat.prototype.constructor = Cat;
 2. 而通过**借用构造函数来实现对实例属性的继承**；
 3. 这样，既通过在原型上定义方法实现了函数复用，又保证每个实例都有它自己的属性。
 
-缺点：**需要调用两次超类的构造函数**。在调用子类构造函数的时候，会重写从父类实例继承的属性和方法。
+缺点：**需要调用两次超类的构造函数**。在调用子类构造函数的时候，会重写（相同的名字）从父类实例继承的属性和方法。
 
 ### 3.原型式继承
 
@@ -108,6 +134,7 @@ Person.prototype.sayName = function () {
 
 // 子类
 function Female(name, gender, age) {
+  // 属性设置
   Person.call(this, name); // 第一次调用父类构造函数
 
   this.age = age;
@@ -121,6 +148,7 @@ function Female(name, gender, age) {
   protoType.constructor = Female;
   Female.prototype = protoType;
 })(Female, Person);
+
 // 取代
 // Female.prototype = new Person();
 // Female.prototype.constrcutor=Female
@@ -130,9 +158,41 @@ Female.prototype.sayAge = function () {
 };
 
 var fm = new Female('skila', 'female', 19);
-
+// age: 19
+// gender: "female"
+// name: "skila"
+//   [[Prototype]]: Person
+//   constructor: ƒ Female(name, gender, age)
+//   sayAge: ƒ ()
+//   [[Prototype]]: Object
+//      sayName: ƒ ()
+//      constructor: ƒ Person(name)
+//      [[Prototype]]: Object
 fm.sayName(); // skila female 19
 fm.sayAge(); // skila 19
+```
+
+```js
+// Object.create使用实例，整体被添加为新的对象的__proto__属性，而直接
+var obj = {
+  a: 1,
+  b: () => {},
+};
+
+var c = Object.create(obj);
+
+c.a = 2;
+c.b = () => {
+  console.log(1);
+};
+
+// 这个时候，obj作为c的原型，整体被继承，但是c上添加同名属性和方法不会覆盖obj上的属性和方法
+// a: 2
+// b: () => { console.log(1); }
+//   [[Prototype]]: Object
+//   a: 1
+//   b: () => {}
+//   [[Prototype]]: Object
 ```
 
 ## 评价一下三种方法实现继承的优缺点,并改进

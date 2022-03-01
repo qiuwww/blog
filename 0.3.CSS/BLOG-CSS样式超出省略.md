@@ -9,6 +9,8 @@ categories:
 
 [TOC]
 
+[demo]<blog/0.3.CSS/CSS 实现的特殊效果/文本超出样式处理.html>
+
 ## 超出限制，显示省略号
 
 这里的单行的设置原理与多行的原理有什么不同？
@@ -53,4 +55,12 @@ div {
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
+```
+
+## 末尾展示展开与收缩按钮的样式
+
+checked 伪类是个好东西，能满足很多需求而不用写 JS，因此凡是有关切换类的操作都可以考虑用它（switch、菜单栏收缩等）。
+
+```html
+
 ```

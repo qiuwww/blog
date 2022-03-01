@@ -54,6 +54,8 @@ type SetUser = (name: string, age: number): void;
 
 2. 都**允许拓展**（extends）；
 
+interface 可以拓展自 interface 或者 type，且这里用到的拓展关键字都是 extends。
+
 ```ts
 // interface extends interface
 interface Name {
@@ -71,6 +73,8 @@ interface User extends Name {
   age: number;
 }
 ```
+
+type 可以拓展接口 interface 和 type 类型的，且拓展关键字都是`&`。
 
 ```ts
 // type extends type
@@ -94,9 +98,9 @@ type User = Name & {
    1. type 可以声明**基本类型别名**，联合类型，元组等类型；
       1. 基本类型别名，type Name = string；
    2. type 语句中还可以**使用 `typeof` 获取实例** 的类型进行赋值；
-      1. 当你想获取一个变量的类型时，使用 typeof `let div = document.createElement('div'); type B = typeof div`；
+      1. 当你想获取一个变量的类型时，使用 typeof 如`let div = document.createElement('div'); type B = typeof div`；
 2. interface 可以而 type 不行：
-   1. interface 能够**声明合并**；
+   1. interface 能够**声明合并**，这里区别于重写接口；
 
 ```ts
 // 两个相同的接口会进行合并
@@ -114,9 +118,10 @@ console.log(box);
 
 ## 声明 window 上不存在的属性
 
-解决: s 根目录新建文件:类型定义文件(.d.ts\*) .d.ts
+解决: 根目录新建文件 => 类型定义文件(.d.ts\*) .d.ts
 
 ```ts
+// interface 联合声明
 interface Window {
   ga: (
     command: 'send',
@@ -126,51 +131,6 @@ interface Window {
   reloadAuthorized: () => void;
   wx: string;
 }
-```
-
-## type 与 interface 区别
-
-```ts
-// 在基础类型之上更进一步，或者声明一个新的类型
-type C = A & B;
-// 接口一般用来声明对象数据，可以继承，组合
-interface C extends A, B {}
-```
-
-### 接口合并
-
-1. 分别声明；
-
-```ts
-interface Box {
-  height: number;
-  width: number;
-}
-interface Box {
-  scale: number;
-}
-let box: Box = { height: 5, width: 6, scale: 10 };
-```
-
-2. 合并两个已声明的接口，这里是接口的继承，😂；
-
-```ts
-interface Shape {
-  color: string;
-}
-
-interface PenStroke {
-  penWidth: number;
-}
-
-interface Square extends Shape, PenStroke {
-  sideLength: number;
-}
-
-let square = <Square>{};
-square.color = 'blue';
-square.sideLength = 10;
-square.penWidth = 5.0;
 ```
 
 ## 接口初始化必须赋值的问题，具体的内部的字段需要赋值
@@ -191,7 +151,6 @@ export default class AppointmentInformation extends Vue {
   detail = {} as Detail;
   // 这样的断言就不可以
   detail = <Detail>{};
-
   // 这里要注意断言的两种形式：
   // 两种形式是等价的。 至于使用哪个大多数情况下是凭个人喜好；然而，当你在 TypeScript 里使用 JSX 时，只有 as 语法断言是被允许的。
 }
@@ -217,7 +176,7 @@ const obj: Obj = {
 };
 ```
 
-## keyof 的用法
+## keyof 的用法 <https://www.typescriptlang.org/docs/handbook/2/keyof-types.html>
 
 ```ts
 type RouteTypes = typeof screens;
@@ -226,4 +185,19 @@ type RouteTypeKeys = keyof RouteTypes;
 type RootStackParamList = {
   [key in RouteTypeKeys]: RouteTypes[key]['initialparams'];
 };
+```
+
+该操作符可以用于获取某种类型的所有键，其返回类型是联合类型：
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+}
+
+type K1 = keyof Person; // "name" | "age"
+// 这个时候获取的是数组的方法key
+type K2 = keyof Person[]; // "length" | "toString" | "pop" | "push" | "concat" | "join"
+// 这个时候获取到了value
+type K3 = keyof { [x: string]: Person }; // string | number
 ```

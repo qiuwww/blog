@@ -1,12 +1,13 @@
-.container{
-    -webkit-column-width:160px;
-    -moz-column-width:160px; 
-	  -webkit-column-gap:5px;
-	  -moz-column-gap:5px;
+.container {
+  -webkit-column-width: 180px;
+  -moz-column-width: 180px;
+  -webkit-column-gap: 30px;
+  -moz-column-gap: 30px;
 }
-
 
 /*数据块 砖块*/
 
-.container div{width:160px;
-               margin:4px 0;}
+.container div {
+  width: 160px;
+  margin: 4px 0;
+}

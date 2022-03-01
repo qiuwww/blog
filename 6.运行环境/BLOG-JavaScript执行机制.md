@@ -129,7 +129,7 @@ while (queue.waitForMessage()) {
   2. 包括**整体代码 script**，同步代码
   3. setTimeout
   4. setInterval
-  5. setImmediate，该方法用来把一些需要长时间运行的操作放在一个回调函数里，在浏览器完成后面的其他语句后，就立刻执行这个回调函数。等于 setTimeout(func, 0)。
+  5. setImmediate，该方法用来把一些需要长时间运行的操作放在一个回调函数里，在浏览器完成后面的其他语句后，就立刻执行这个回调函数，**等于 setTimeout(func, 0)**。
   6. I/O
   7. script
   8. requestAnimationFrame
@@ -140,12 +140,14 @@ while (queue.waitForMessage()) {
 - micro-task(微任务)，语言本身提供的
 
   1. 原生 Promise(有些实现的 promise 将 then 方法放到了宏任务中)（定义函数是同步代码，**then 的回掉函数是微任务代码**），queueMicrotask(基于 then)
-  2. process.nextTick，nodejs 的接口
+  2. process.nextTick，nodejs 的接口:
      1. **node 中存在优先级：process.nextTick()>Promise.then()>setTimeout>setImmediate**。
   3. mutationObserver(浏览器提供)
   4. Object.observe(已废弃)
 
-- **UI rendering**，需要在微任务之后执行。requestAnimationFrame 也属于这里，**也就是 requestAnimationFrame（重绘之前） 需要在微任务之后执行**。
+- **UI rendering**，**需要在微任务之后执行**。
+  1. requestAnimationFrame 也属于这里，**也就是 requestAnimationFrame（重绘之前） 需要在微任务之后执行**；
+  2. 同样 nodejs 也有任务执行为空的时候，紧接着就执行了 process.nextTick；
 
 ### 各部分的执行顺序
 
