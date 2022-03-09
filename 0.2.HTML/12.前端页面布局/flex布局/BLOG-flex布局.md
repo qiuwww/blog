@@ -8,14 +8,15 @@ categories:
   - [CSS, flex]
 ---
 
-[在线测试属性](https://flexboxfroggy.com/)
+## 参考
 
-[MDN flex](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex)
+1. [在线测试属性](https://flexboxfroggy.com/)
+2. [MDN flex](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex)
 
 ## display:flex
 
-1. 当我们使用 flexbox 布局时候，需要先给父容器的 display 值定位 flex（块级）或者 inline-flex（行内级）。
-2. 当使用了这个值以后，伸缩容器会为内容建立新的**伸缩格式化上下文（FFC）**，它的上下文展示效果和 BFC 根元素相同（**BFC 特性：浮动不会闯入伸缩容器，且伸缩容器的边界不会与其内容边界叠加(margin 叠加的处理原理)**）。
+1. 当我们使用 flexbox 布局时候，需要先给父容器的 display 值定位 flex（块级）或者 inline-flex（行内级）；
+2. 当使用了这个值以后，伸缩容器会为内容建立新的**伸缩格式化上下文（FFC）**，它的上下文展示效果和 BFC 根元素相同（**BFC 特性：浮动不会闯入伸缩容器，且伸缩容器的边界不会与其内容边界叠加(margin 叠加的处理原理)**）；
 3. 伸缩容器不是**块容器**，因此有些设计用来控制块布局的属性，**在伸缩布局中不适用**，特别是多栏（column)，float，clear，vertical-align 这些属性。
 
 ## flex-direction，伸缩主轴方向

@@ -572,6 +572,80 @@
       <div class="flex-item last-item">5</div>
   </div>
 
+
+  <fieldset>
+    <style>
+      .flex-value{
+        background-color: aquamarine;
+        width: 300px;
+        height: 300px;
+        display: flex;
+      }
+      .flex-value .left{
+        width: 100px;
+        height: 300px;
+        background-color: gold;
+      }
+      .flex-value .center{
+        width: 100px;
+        /* 这个时候，除了当前模块，剩余模块都等比例压缩 */
+        flex-shrink: 0;
+        height: 300px;
+
+        background-color: rosybrown;
+      }
+      .flex-value .right{
+        width: 200px;
+        height: 300px;
+
+        background-color: #500;
+      }
+
+    </style>
+    <legend>测试flex复合属性</legend>
+
+    <p>1. 这里总的是300px，子元素宽度总长超过300；这个时候，元素都被等比例压缩了；</p>
+
+    <div class="flex-value">
+      <div class="left"></div>
+      <div class="center"></div>
+      <div class="right"></div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>除了颠倒显示弹性项目的顺序之外，您还可以使用order 属性指定单个项目并更改其在视觉顺序中的显示位置。<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Ordering_Flex_Items#order_%E5%B1%9E%E6%80%A7">order</a></legend>
+
+    <p>弹性项目默认 order 值为 0, 因此整数值大于 0 的项目，将会显示在那些未指定 order 值的项目之后。</p>
+
+    <p>这里排序的只跟排序的相比，大于0 就靠后，小于0 就靠前，默认就是0</p>
+    <style>
+      .flex-order .box {
+          display: flex;
+          flex-direction: row;
+        }
+      .flex-order .box .sort2 { order: -1; }
+      .flex-order .box .sort3 { order: 2; }
+      .flex-order .box .sort4 { order: 1; }
+      .flex-order .box > div{
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        background-color: aquamarine;
+      }
+    </style>
+    <div class="flex-order">
+      <div class="box">
+        <div><a href="#">1</a></div>
+        <div class="sort2"><a href="#">2</a></div>
+        <div class="sort3"><a href="#">3</a></div>
+        <div class="sort4"><a href="#">4</a></div>
+        <div><a href="#">5</a></div>
+    </div>
+    </div>
+  </fieldset>
+
+
 </body>
 
 </html>
