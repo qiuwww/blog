@@ -1,8 +1,9 @@
 # 微前端
 
-[参考文档](https://juejin.cn/post/6844904158349246477)
-[实施微前端的六种方式](https://segmentfault.com/a/1190000015566927)
-[qiankun](https://qiankun.umijs.org/zh/guide/getting-started#%E4%B8%BB%E5%BA%94%E7%94%A8)
+1. 方便于使用不同的技术，构建大型项目；
+2. 解决微服务中的瓶颈问题：Micro Frontends；
+   1. 解决方案实际上非常明显，采用了多年来为后端服务工作的相同原则：**将前端整体划分为小的 UI 片段**。但 UI 与服务并不十分相似，它是最终用户与产品之间的接口，**应该是一致且无缝的**。更重要的是，在单页面应用时代，整个应用在客户端的浏览器上运行。它们不再是简单的 HTML 文件，相反，它们是复杂的软件，达到了非常复杂的水平。
+3. 定义：Micro Frontends 背后的想法是将网站或 Web 应用视为独立团队拥有的功能组合。每个团队都有一个独特的业务或任务领域，做他们关注和专注的事情。团队是跨职能的，从数据库到用户界面开发端到端的功能。
 
 ## demo
 
@@ -58,3 +59,10 @@ single-spa 使用的主要难点在于：
 [与前一个差不多，](https://qiankun.umijs.org/zh/guide/tutorial#%E4%B8%BB%E5%BA%94%E7%94%A8)，空了可以配置一下。
 
 1. qiankun 基于 single-spa
+
+## 参考资料
+
+1. [参考文档](https://juejin.cn/post/6844904158349246477)
+2. [实施微前端的六种方式](https://segmentfault.com/a/1190000015566927)
+3. [qiankun](https://qiankun.umijs.org/zh/guide/getting-started#%E4%B8%BB%E5%BA%94%E7%94%A8)
+4. [了解什么是微前端](https://mp.weixin.qq.com/s/awBqvJmqWc7JGxwgB0QQZA)

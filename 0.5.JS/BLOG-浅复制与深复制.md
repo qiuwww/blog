@@ -145,16 +145,16 @@ var $ = (function () {
 // 迭代循环调用实现深层复制
 function deepClone(target) {
   var result;
-  // 1. 这里认为是基本类型可以直接复制
-  if (target === null || typeof target !== 'object') {
-    result = target;
-    // 2. object的函数类型
-  } else if ($.isFunction(target)) {
+  // 2. 函数类型
+  if ($.isFunction(target)) {
     // new Function ([arg1[, arg2[, ...argN]],] functionBody)
     // Function.prototype.toString() 方法返回一个表示当前函数源代码的字符串。
     result = new Function('return ' + target.toString())();
     // bind方法是不是也可以呀
     // return obj.bind(null)
+    // 1. 这里认为是基本类型可以直接复制
+  } else if (target === null || typeof target !== 'object') {
+    result = target;
     // 3. object & array
   } else if ($.isArray(target) || $.isObject(target)) {
     result = $.isArray(target) ? [] : {};
