@@ -70,6 +70,9 @@ console.log('promise5: ', promise5);
 // catch2  Error: then2
 ```
 
+### promise 内部实现
+
+
 ## Promise 对象的属性和方法
 
 1. promise 对象实例 **有 3 个状态**，分别是 pending, fulfilled 和 rejected。

@@ -98,7 +98,7 @@ JS 任务分类：
 
 1. 同步和异步任务分别进入不同的执行"场所"，**同步的进入主线程，异步的进入 Event Table 并注册回调函数**，当指定的注册事情完成时，**Event Table 会将这个函数移入 Event Queue**；
 2. 执行同步代码，这属于**宏任务**；
-3. **执行栈为空，查询是否有微任务(当前宏任务衍生的微任务)需要执行**；
+3. **执行栈为空，查询是否有微任务(当前宏任务衍生的微任务)需要执行（其实就是当前的同步代码是为宏任务）**；
 4. 执行所有微任务；
 5. **此时本轮循环结束**，**开始执行 UI render**。
 6. UI render 完毕之后接着下一轮循环，**也就是说 UI render 在本次 event loop 中最后执行**；
@@ -132,16 +132,16 @@ while (queue.waitForMessage()) {
   5. setImmediate，该方法用来把一些需要长时间运行的操作放在一个回调函数里，在浏览器完成后面的其他语句后，就立刻执行这个回调函数，**等于 setTimeout(func, 0)**。
   6. I/O
   7. script
-  8. requestAnimationFrame
-  9. messageChannel
-  10. UI 渲染
-  11. 一些浏览器 api
+  8. messageChannel
+  9. UI 渲染
+  10. 一些浏览器 api
 
 - micro-task(微任务)，语言本身提供的
 
   1. 原生 Promise(有些实现的 promise 将 then 方法放到了宏任务中)（定义函数是同步代码，**then 的回掉函数是微任务代码**），queueMicrotask(基于 then)
   2. process.nextTick，nodejs 的接口:
-     1. **node 中存在优先级：process.nextTick()>Promise.then()>setTimeout>setImmediate**。
+     1. **node 中存在优先级：process.nextTick()>Promise.then()**；
+     2. setTimeout>setImmediate。
   3. mutationObserver(浏览器提供)
   4. Object.observe(已废弃)
 

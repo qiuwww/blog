@@ -437,8 +437,15 @@ vim # 编辑保存
 这就需要用到 git cherry-pick 命令。
 
 1. 首先，切换到 develop 分支，敲 git log 命令，**查找需要合并的 commit 记录**，比如 commitID：7fcb3defff；
-2. 然后，**切换到 master 分支，使用 git cherry-pick 7fcb3defff 命令**，就把该条 commit 记录合并到了 master 分支，这只是在本地合并到了 master 分支；
+2. 然后，**切换到 master 分支，使用 git cherry-pick 7fcb3defff  命令**，就把该条 commit 记录合并到了 master 分支，这只是在本地合并到了 master 分支；
 3. 最后，**git push 提交到 master 远程**，至此，就把 develop 分支的这条 commit 所涉及的更改合并到了 master 分支。
+
+## 在开发过程中使用 git rebase 还是 git merge，优缺点分别是什么<https://www.zhihu.com/question/36509119/answer/1990894567?utm_source=wechat_session&utm_medium=social&utm_oi=72254268375040&utm_content=group3_Answer&utm_campaign=shareopn>
+
+1. 在**本地分支中使用 rebase 来合并主分支的改动**，是为了让你的本地提交记录清晰可读；
+   1. 当然， rebase 不只用来合并 master 的改动，还可以在协同开发时 rebase 队友的改动；
+2. 在主分支中使用 merge 来把 feature 分支的改动合并进来，是为了保留分支信息；
+   1. 如果全使用 merge 就会导致提交历史繁复交叉，错综复杂。如果全使用 rebase 就会让你的 commits history 变成一条光秃秃的直线；
 
 ## 标准操作
 

@@ -163,7 +163,7 @@ Cache-control 的优先级高于 Expires，为了兼容 HTTP/1.0 和 HTTP/1.1，
 3. 对比缓存是可以和强制缓存一起使用的，作为在强制缓存失效后的一种后备方案。
 4. 先检查[If-None-Match](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-None-Match)，不相同再检查[If-Modified-Since](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-Modified-Since)。
 
-#### 协商缓存的字段，Last-Modified(本地缓存记录的时间) & If-Modified-Since(请求头，发送给服务器的时间)，也就是服务端认为资源没有修改告诉浏览器，直接用原来请求的数据
+#### 协商缓存的字段，Last-Modified(本地缓存记录的时间) & If-Modified-Since(请求头，发送给服务器的时间，就是前面返回的 Last-Modified)，也就是服务端认为资源没有修改告诉浏览器，直接用原来请求的数据
 
 1. 服务器通过 **Last-Modified 字段告知客户端**，资源最后一次被修改的时间，
 2. 例如`Last-Modified: Mon, 10 Nov 2018 09:10:11 GMT`，浏览器将这个值和内容一起记录在缓存数据库中。
@@ -175,7 +175,7 @@ Cache-control 的优先级高于 Expires，为了兼容 HTTP/1.0 和 HTTP/1.1，
 1. 如果资源更新的速度是秒以下单位，那么该缓存是不能被使用的，因为它的时间单位最低是秒。
 2. **如果文件是通过服务器动态生成的，那么该方法的更新时间永远是生成的时间**，尽管文件可能没有变化，所以起不到缓存的作用。
 
-#### Etag(HTTP 响应头是资源的特定版本的标识符) & If-None-Match(随请求发送到服务端)
+#### Etag(HTTP 响应头是资源的特定版本的标识符) & If-None-Match(随请求发送到服务端，就是上一次返回的 Etag)
 
 为了解决上述问题，出现了一组新的字段 Etag 和 If-None-Match
 
@@ -318,7 +318,7 @@ Cache-Control: no-cache
 
 Cache-Control: max-age=600, must-revalidate
 
-表面上看这很美好：资源可以缓存 10 分钟，10 分钟内读取缓存，10 分钟后和服务器进行一次验证，集两种模式之大成，但实际线上暗存风险。因为上面提过，浏览器的缓存有自动清理机制，开发者并不能控制。
+表面上看这很美好：**资源可以缓存 10 分钟（也就是上边设置的 600s）**，10 分钟内读取缓存，10 分钟后和服务器进行一次验证，集两种模式之大成，但实际线上暗存风险。因为上面提过，浏览器的缓存有自动清理机制，开发者并不能控制。
 
 举个例子：当我们有 3 种资源： index.html, index.js, index.css。我们对这 3 者进行上述配置之后，假设在某次访问时，index.js 已经被缓存清理而不存在，但 index.html, index.css 仍然存在于缓存中。这时候浏览器会向服务器请求新的 index.js，然后配上老的 index.html, index.css 展现给用户。这其中的风险显而易见：不同版本的资源组合在一起，报错是极有可能的结局。
 
