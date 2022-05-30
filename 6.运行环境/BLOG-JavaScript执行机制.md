@@ -133,8 +133,7 @@ while (queue.waitForMessage()) {
   6. I/O
   7. script
   8. messageChannel
-  9. UI 渲染
-  10. 一些浏览器 api
+  9. 一些浏览器 api
 
 - micro-task(微任务)，语言本身提供的
 

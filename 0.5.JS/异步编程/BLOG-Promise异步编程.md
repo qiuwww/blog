@@ -72,7 +72,6 @@ console.log('promise5: ', promise5);
 
 ### promise 内部实现
 
-
 ## Promise 对象的属性和方法
 
 1. promise 对象实例 **有 3 个状态**，分别是 pending, fulfilled 和 rejected。
@@ -434,3 +433,13 @@ const promise4 = promise3
 ```
 
 这样可以看到**明显不是同一个**，虽然状态都是`[[PromiseState]]: "fulfilled"`， 但是`<fulfilled>:`的结果可能不同，这里的引用也绝对不是同一个。
+
+## 用 promise，延迟函数 delay
+
+```js
+const delay = (timeout) => new Promise((resolve) => setTimeout(resolve, timeout));
+
+delay(1000).then((_) => {
+  console.log('executed');
+});
+```
