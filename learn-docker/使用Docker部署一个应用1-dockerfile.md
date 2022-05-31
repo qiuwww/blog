@@ -49,7 +49,7 @@ FROM node:12.18.4
 WORKDIR /app
 COPY package.json yarn.lock index.js /app/
 
-RUN npm config set registry http://npmreg.qa.91jkys.com/
+RUN npm config set registry http://npmreg.qa.92jkys.com/
 
 RUN npm install
 ADD . /app

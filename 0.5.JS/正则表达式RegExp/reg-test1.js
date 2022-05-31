@@ -18,9 +18,9 @@ var str = `是这里设置的吗?
 
 is_need_shield_channel
 内容分享
-static.qa.91jkys.com
+static.qa.92jkys.com
 
-http://static.qa.91jkys.com/web/business-admin/#/index
+http://static.qa.92jkys.com/web/business-admin/#/index
 晚上我们抽个时间回顾一下年中总结吧？希望你可以花点时间准备一下以下问题：
 1. 总结一下自己上半年的工作，半年来对自己的工作是否满意？是否和自己的预期匹配
 2. 对团队的意见、TL的意见

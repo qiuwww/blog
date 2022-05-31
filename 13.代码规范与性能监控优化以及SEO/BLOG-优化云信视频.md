@@ -47,16 +47,16 @@ Dear All,
 测试环境：
 小程序体验版，需要的要先加体验权限，小程序二维码，
 
-1. 患者端 h5 及小程序，http://static.qa.91jkys.com/f2e/minses/#/，需要微信内访问
-2. 运营系统，http://static.qa.91jkys.com/web/minses-admin/operation-management/#/admin-navigation?type=wlzj
-3. 医生端 pc，https://static.qa.91jkys.com/web/minses-admin/workbench/#/login
+1. 患者端 h5 及小程序，http://static.qa.92jkys.com/f2e/minses/#/，需要微信内访问
+2. 运营系统，http://static.qa.92jkys.com/web/minses-admin/operation-management/#/admin-navigation?type=wlzj
+3. 医生端 pc，https://static.qa.92jkys.com/web/minses-admin/workbench/#/login
 
 线上演示环境：
 目前小程序正在提交审核中
 
-1.  患者端 h5 及小程序， http://minses.91jkys.com/qa/minses/qatest-minses/#/
-2.  运营系统，http://static.pre.91jkys.com/web/minses-admin/operation-management/#/admin-navigation
-3.  医生端 pc，https://static.pre.91jkys.com/web/minses-admin/workbench/#/login
+1.  患者端 h5 及小程序， http://minses.92jkys.com/qa/minses/qatest-minses/#/
+2.  运营系统，http://static.pre.92jkys.com/web/minses-admin/operation-management/#/admin-navigation
+3.  医生端 pc，https://static.pre.92jkys.com/web/minses-admin/workbench/#/login
 
 注：本次遗留较多体验问题以及因为云信造成的视频边界问题，后续版本会次序优化，在对外使用前达到体验标准。以下为本次主要遗留的问题及风险点
 
