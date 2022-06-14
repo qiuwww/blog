@@ -27,6 +27,28 @@ sudo /usr/local/mysql/support-files/mysql.server restart
 
 左侧菜单栏 mysql -> 右键 -> 运行 SQL 文件
 
+## brew 管理 mysql
+
+```bash
+# 启动 mysql, 并设置为开机启动
+brew services start mysql
+# 关闭 mysql
+brew services stop mysql
+# 重启 mysql
+brew services restart mysql
+```
+
+## 8.0 以上版本，设置数据库密码
+
+[参考](https://www.feiniaomy.com/post/632.html)，这里的操作不同于原来的 8.0 以下的版本，网上常见的处理方式会提示语法错误。
+
+```bash
+$: mysql -u root
+$: alter user'root'@'localhost' identified by '新密码';
+$: flush privileges;
+$: quit
+```
+
 ## 常用 sql
 
 1. 进入 mysql 的指令 bin 目录`cd /usr/local/mysql/bin`
@@ -200,9 +222,9 @@ const pool = mysql.createPool({
 3. 链接数据库并查询表
 
 ```js
-let query = function(sql, values) {
+let query = function (sql, values) {
   return new Promise((resolve, reject) => {
-    pool.getConnection(function(err, connection) {
+    pool.getConnection(function (err, connection) {
       if (err) {
         reject(err);
       } else {
