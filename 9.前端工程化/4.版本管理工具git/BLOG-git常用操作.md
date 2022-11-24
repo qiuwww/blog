@@ -493,3 +493,15 @@ git push
 1. 找到指定的提交，右键，回滚到当前节点：代码 push 上去了，已经覆盖了**线上的代码**，就需要先用本地：`git revert + 版本号` 或者 HEAD(回到上一个 push 的版本)，将线上的代码回滚；
 2. **这个时候是本地回滚，线上代码需要提交 push**：用`git push -u origin master:master`(可以不写，默认与分支相同) -f 强制提交。如果没有-f gitlab 会拒绝你的操作。
 3. **从错误的发布位置拉出来一个分支**，然后修改，修改之后，重新合并提交。
+
+## 删除 git 库中 untracked files（未监控）的文件<https://blog.csdn.net/RonnyJiang/article/details/53507306>
+
+1. git checkout .
+2. git clean -fd
+
+```bash
+git clean -fd // 连 untracked 的目录也一起删掉
+git clean -nxfd
+git clean -nf
+git clean -nfd
+```

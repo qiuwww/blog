@@ -13,3 +13,176 @@ nginx 是一个高性能的 HTTP 和反向代理服务器，也是一个通用�
 ## 参考文章
 
 [前端开发者必备的 Nginx 知识](https://mp.weixin.qq.com/s/BA_JZ_kMBFZBE7jjQDNc1Q)
+
+正向代理，也就是 在**用户与服务**之间的代理。
+本质就是域名/端口转发。
+
+与直接修改域名转发到固定的 80 端口不同的是：
+
+1. 指定的 80 端口只有一个，对于一个主机来说，但是可以访问的域名的 80 端口确实有很多个。
+   1. 127.0.0.1 local.apigw.qa.92jkys.com
+   2. 127.0.0.1 xbf.apigw.qa.92jkys.com
+   3. 上边的两个同时只能启动一个访问到 127.0.0.1:80 上的服务。
+2. 但是使用 nginx，却可以根据域名访问的配置，将多个域名分开，分别请求到不同的端口上；
+   1. test.qa.92jkys.com -》 http://localhost:1024
+   2. test2.qa.92jkys.com -》 http://localhost:1025
+   3. 上边的请求，都是请求了域名的 80，但是最终都会被代理到 localhost 的不同端口。
+
+也就是只要访问域名就需要映射到本地，因为 nginx 本质也是检测本地的端口的。
+
+## 删除 dns 缓存
+
+`sudo dscacheutil -flushcache`
+
+## apache
+
+[参考文档](https://www.jianshu.com/p/24cda13b51a4)
+
+开启 apache: sudo apachectl start
+
+重启 apache: sudo apachectl restart
+
+关闭 apache: sudo apachectl stop
+
+默认占用 80 端口，所以开启之后，可以直接访问`localhost`，可查看服务启动成功；
+
+## nginx
+
+1. brew install nginx
+
+2. 修改配置文件，端口设置为 80，/usr/local/etc/nginx/nginx.conf
+
+3. 通过 nginx -V，可以查看详细信息；
+
+4. 添加权限；
+
+sudo chown root:wheel /usr/local/Cellar/nginx/1.17.9/bin/nginx
+sudo chmod u+s /usr/local/Cellar/nginx/1.17.9/bin/nginx
+sudo chown -R root:wheel /usr/local/etc/nginx/
+
+5. 这里的版本号要根据自己的做修改，用 brew info nginx 来查看路径
+
+### 配置文件地址
+
+/usr/local/opt/nginx/bin/nginx -t
+
+/usr/local/etc/nginx
+
+### 开启和关闭命令
+
+1. brew services start nginx
+2. nginx
+3. nginx -t
+4. nginx -s reload
+5. sudo nginx -s reload // 重载配置文件
+6. sudo nginx -s stop // 停止 nginx 服务
+7. sudo nginx // 开启 nginx 服务
+
+### 设置反向代理
+
+目标是：代理`http://apigw.qa.92jkys.com/api/activity/1.0/save_user_info`
+
+代理到
+
+### nginx 请求转发
+
+1. [参考文章](https://www.jianshu.com/p/66d3957c6698)
+
+原路径： http://source.server.com/callback/test/test?username=xx
+
+转发到：http://10.1.9.1:8088/callback/test/test?username=xx
+
+配置如下：
+
+server {
+   listen      80;
+   server_name source.server.com;
+  # 匹配 callback
+   location /callback/ {
+       proxy_pass http://10.1.9.1:8088;
+   }
+
+# 默认其他
+
+location / {
+     proxy_pass http://10.2.2.1:8088;
+     # root  html;
+     # index  index.html index.htm;
+   }
+}
+
+```conf
+# 配置接口转发
+server {
+    listen   1024;
+    server_name  apigw.qa.92jkys.com;
+    location /api/ {
+        proxy_pass http://apigw.qa.92jkys.com:80
+    }
+}
+```
+
+## 同一个端口不能被多次监听
+
+如不能同时被 nginx 和 node 监听；
+
+似乎 charles 是一个不错的选择。
+
+**可以的**
+
+```
+<!-- 这里表示，hy.qa.92jkys.com:80的请求被代理到了，http://localhost:9001，所以服务需要启动在9001， --port 9001 -->
+server{
+  index       index.html;
+  listen 80;
+  server_name     hy.qa.92jkys.com;
+  location / {
+      proxy_pass      http://localhost:9001;
+      index                    index.js index.html index.htm;
+      proxy_buffer_size        128k;
+      proxy_buffers            64 64k;
+      proxy_busy_buffers_size  256k;
+      proxy_set_header         Host $host;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header http_x_forwarded_for $proxy_add_x_forwarded_for;
+  }
+}
+```
+
+## 纯转发简单配置
+
+[nginx 的纯代理转发简单配置](https://www.cnblogs.com/AdamChen/p/12431533.html)
+
+## 字段说明
+
+.conf 文件内容说明：
+
+- listen，服务器的端口号；
+- server_name，服务器域名，或者 ip，多个域名的话用空格隔开；
+- root，项目的绝对路径；
+- index，设置打开的默认页面，默认为 index.html；
+- location，配置代理，可以进行跨域访问数据，后面跟的是要转发的请求；
+  - rewrite，路径重写，"[原路径] [新路径] break;"
+  - proxy_pass，访问的目标地址；
+
+### 端口代理
+
+​nginx 代理
+
+--port 8090
+
+需要先绑定到本地，再代理 nginx
+
+1. 首先工程要在指定的端口启动；`yarn run serve --port 9001`；
+2. 配置访问的地址到指定的本地端口，通过访问的地址来判断，地址都是访问到 80，然后代理到 localhost 的指定的地址。
+
+#### nginx 配置
+
+1. 启动：sudo nginx
+
+2. sudo nginx -s reload // 重载配置文件
+
+3. sudo nginx -s stop // 停止 nginx 服务
+
+互联网医院， --port 9001 hy.qa.92jkys.com

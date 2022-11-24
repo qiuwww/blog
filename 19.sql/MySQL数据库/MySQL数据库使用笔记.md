@@ -38,6 +38,13 @@ brew services stop mysql
 brew services restart mysql
 ```
 
+这里使用如下的命令：
+
+```bash
+sudo mysql.server start
+sudo mysql.server stop
+```
+
 ## 8.0 以上版本，设置数据库密码
 
 [参考](https://www.feiniaomy.com/post/632.html)，这里的操作不同于原来的 8.0 以下的版本，网上常见的处理方式会提示语法错误。
@@ -396,3 +403,7 @@ truncate table 表名
 - TINYINT、SMALLINT、MEDIUMINT、INT 和 BIGINT 的长度，其实和数据的大小无关！Length 指的是显示宽度。
 
 [参考文章](https://blog.csdn.net/DayDreamingBoy/article/details/6310907)
+
+## 使用 Navicat 生成 ER 关系图并导出<https://blog.csdn.net/xu1227233860/article/details/78278393>
+
+逆向table 到 model。

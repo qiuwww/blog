@@ -13,3 +13,7 @@ find . -name node_modules -type d -mindepth 2
 2. 看到进程的 PID，可以将进程杀死。
    kill PID（此处是 pid 号）
    如：kill 30118
+
+## Linux crontab 是用来定期执行程序的命令
+
+1. <https://www.runoob.com/linux/linux-comm-crontab.html>

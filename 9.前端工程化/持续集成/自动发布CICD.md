@@ -33,6 +33,23 @@ GitHub 注意到了这一点，想出了一个很妙的点子，允许开发者�
 （3）step（步骤）：每个 job 由多个 step 构成，一步步完成。
 （4）action （动作）：每个 step 可以依次执行一个或多个命令（action）。
 
-GitHub Actions 的配置文件叫做 workflow 文件，**存放在代码仓库的.github/workflows目录。**
+GitHub Actions 的配置文件叫做 workflow 文件，**存放在代码仓库的.github/workflows 目录。**
 
 [GitHub 操作的工作流程语法](https://help.github.com/cn/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)
+
+## [使用 GitLab 实现 CI/CD](https://zhuanlan.zhihu.com/p/136843588)
+
+<https://www.jianshu.com/p/2ed650d705dc>
+
+**一旦你已经添加了.gitlab-ci.yml 到仓库中，GitLab 将检测到该文件，并使用名为 GitLab Runner 的工具运行你的脚本**。该工具的操作与终端类似。
+
+1. 添加.gitlab-ci.yml；
+2. 提交这个文件；
+3. 配置一个 Runner；
+   1. 在 GitLab 中，Runner 运行你定义在.gitlab-ci.yml 中的作业（job）
+   2. 一个 Runner 可以是一个虚拟机、物理机、docker 容器，或者一个容器集群
+   3. GitLab 与 Runner 之间通过 API 进行通信，因此只需要 Runner 所在的机器有网络并且可以访问 GitLab 服务器即可
+   4. 设置 Runner
+      1. GitLab runner 是一个构建实例，用于在多台机器上运行作业，并将结果发送到 GitLab，并可将其放置在单独的用户，服务器和本地计算机上。
+4. Kubernetes cluster?
+   1. 是一个开源的容器编排引擎，用来对容器化应用进行自动化部署、 扩缩和管理。

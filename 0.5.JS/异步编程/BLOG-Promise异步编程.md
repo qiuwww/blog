@@ -443,3 +443,13 @@ delay(1000).then((_) => {
   console.log('executed');
 });
 ```
+
+## 通过添加监听 unhandledrejection 事件获取由于未处理 catch 的 promise
+
+```js
+// node
+process.on('unhandledRejection', function (err, promise) {});
+
+// browser
+window.addEventListener('unhandledrejection', function (event) {});
+```
