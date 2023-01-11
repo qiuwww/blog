@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>俄罗斯方块</title>
+  <script>
+    // 获取<canvas>元素
+    var canvas = document.getElementById('game');
+    // 获取画布的2D上下文
+    var context = canvas.getContext('2d');
+
+    // 设置游戏参数
+    var blockSize = 30; // 方块的大小
+    var width = 10; // 画布的宽度（以方块为单位）
+    var height = 20; // 画布的高度（以方块为单位）
+    var score = 0; // 当前得分
+  </script>
+</head>
+<body>
+  <canvas id="game" width="400" height="600"></canvas>
+</body>
+</html>

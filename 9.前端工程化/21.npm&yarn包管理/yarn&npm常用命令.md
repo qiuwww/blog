@@ -27,3 +27,11 @@ npm list -g --depth 0 # 全局包
 2. 删除 npm 全局安装包？
    1. npm uninstall -g \*\*；
    2. 找到目标目录，直接删除(/usr/local/lib)；
+
+## 安装确定版本的安装包，安装之后不会主动升级
+
+```bash
+yarn add XXX -D -E
+
+npm install XXX --save-exact --save-dev
+```

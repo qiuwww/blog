@@ -528,7 +528,8 @@ setTimeout(() => {
 
 ## 参考文章
 
-[JavaScript 执行机制](https://segmentfault.com/a/1190000018227028)
-[JS 运行机制及 Event Loop](https://zhuanlan.zhihu.com/p/52114921)
-[JS 事件循环机制（event loop）之宏任务/微任务](https://juejin.im/post/5b498d245188251b193d4059)
-[EventLoop 事件循环](https://juejin.cn/post/7016593221815910408#heading-49)
+1. [JavaScript 执行机制](https://segmentfault.com/a/1190000018227028)
+2. [JS 运行机制及 Event Loop](https://zhuanlan.zhihu.com/p/52114921)
+3. [JS 事件循环机制（event loop）之宏任务/微任务](https://juejin.im/post/5b498d245188251b193d4059)
+4. [EventLoop 事件循环](https://juejin.cn/post/7016593221815910408#heading-49)
+5. [执行过程动画](https://www.jsv9000.app/)
