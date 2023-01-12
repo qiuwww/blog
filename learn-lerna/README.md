@@ -7,6 +7,7 @@
 ## 常用命令
 
 ```bash
+$ yarn global add lerna
 # 创建目标文件夹
 $ mkdir projectFolder
 # 初始化包
