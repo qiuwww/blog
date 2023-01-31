@@ -24,6 +24,9 @@ $ lerna bootstrap # yarn install
 $ lerna list
 # 发布
 $ lerna publish
+
+# 给某个包安装依赖
+$ lerna add inquirer --scope=cli
 ```
 
 ## 发布

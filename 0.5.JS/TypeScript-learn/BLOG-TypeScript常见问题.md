@@ -116,6 +116,14 @@ let box: Box = { height: 5, width: 6, scale: 10 };
 console.log(box);
 ```
 
+### 什么时候推荐用 type 什么时候用 interface ？<https://pro.ant.design/zh-CN/docs/type-script>
+
+1. 推荐任何时候都是用 type， type 使用起来更像一个变量，与 interface 相比，type 的特点如下：
+   1. 表达功能更强大，不局限于 object/class/function；
+   2. 要扩展已有 type 需要创建新 type，不可以重名；
+   3. 支持更复杂的类型操作。
+2. 基本上所有用 interface 表达的类型都有其等价的 type 表达。在实践的过程中，我们也发现了一种类型只能用 interface 表达，无法用 type 表达，那就是往函数上挂载属性。
+
 ## 声明 window 上不存在的属性
 
 解决: 根目录新建文件 => 类型定义文件(.d.ts\*) .d.ts
