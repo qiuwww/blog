@@ -40,3 +40,6 @@ new EJS({ url: '/template.ejs' }).update(document.body, data2);
 ```
 
 该模版中包含一个子模版 partial.ejs。这样对结构重用有很大的益处。
+
+### 嵌套子模板，子模板包含js和css
+

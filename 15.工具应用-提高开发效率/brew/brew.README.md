@@ -26,6 +26,7 @@ Homebrew 通过简单的一条指令，就可以实现包管理，不需要关�
 8. 安装软件：brew cask install xxx（xxx 为软件名称）
 9. 卸载软件：brew cask uninstall xxx
 10. 查找软件安装位置：which xxx （xxx 为软件名 2）
+11. brew doctor `brew doctor --list-checks | grep -v stray_headers`
 
 ## cask
 

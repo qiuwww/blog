@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .tooltip {
+        position: relative;
+        border-bottom: 1px dotted black;
+      }
+
+      .tooltip:before {
+        content: attr(tooltip-data);
+        position: absolute;
+        width: 250px;
+        background-color: #efba93;
+        color: #fff;
+        text-align: center;
+        padding: 15px;
+        line-height: 1.1;
+        border-radius: 5px;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.5s;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        font-size: 0.7em;
+        visibility: hidden;
+      }
+
+      .tooltip:after {
+        content: '';
+        position: absolute;
+        bottom: 75%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        opacity: 0;
+        transition: opacity 0.5s;
+        border-color: #000 transparent transparent transparent;
+        visibility: hidden;
+      }
+
+      .tooltip:hover:before,
+      .tooltip:hover:after {
+        opacity: 1;
+        visibility: visible;
+      }
+    </style>
+
+    <h1>HTML/CSS tooltip</h1>
+    <p>
+      Hover <span class="tooltip" tooltip-data="Tooltip Content">Here</span> to see the tooltip.
+    </p>
+    <p>
+      You can also hover
+      <span class="tooltip" tooltip-data="This is another Tooltip Content">here</span> to see
+      another example.
+    </p>
+  </body>
+</html>

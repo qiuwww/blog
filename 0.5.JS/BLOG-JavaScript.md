@@ -2,6 +2,10 @@
 
 [TOC]
 
+## 查看js的执行工具
+
+1. <https://www.jsv9000.app/>
+
 ## 工具函数
 
 **JavaScript 的组成**
@@ -381,9 +385,9 @@ window.onresize = function(){
 
 - 答案:[1, NaN, NaN]
 
-* parseInt(string, radix) 第 2 个参数 radix 表示进制。省略 radix 或 radix = 0，则数字将以十进制解析
-* map 每次为 parseInt 传 3 个参数(elem, index, array)，其中 index 为数组索引
-* 因此，map 遍历 ["1", "2", "3"]，相应 parseInt 接收参数如下
+- parseInt(string, radix) 第 2 个参数 radix 表示进制。省略 radix 或 radix = 0，则数字将以十进制解析
+- map 每次为 parseInt 传 3 个参数(elem, index, array)，其中 index 为数组索引
+- 因此，map 遍历 ["1", "2", "3"]，相应 parseInt 接收参数如下
 
 ```
 parseInt('1', 0);  // 1
@@ -420,7 +424,7 @@ parseInt('3', 2);  // NaN
 - 6. `~~Math.random()*(1<<24)` // `~~` 作用相当于 parseInt 取整
 - 7. `(~~(Math.random()*(1<<24))).toString(16)` // 转换为一个十六进制-
 
-** JavaScript 实现异步编程的方法？**
+**JavaScript 实现异步编程的方法？**
 
 - 回调函数
 - 事件监听
@@ -967,7 +971,7 @@ func.bind(that, arg1, arg2)();
 func.bind(that)(arg1, arg2);
 ```
 
-** 列举一下 JavaScript 数组和对象有哪些原生方法？**
+**列举一下 JavaScript 数组和对象有哪些原生方法？**
 
 - 数组：
 
@@ -1224,11 +1228,11 @@ so on...
 
 ### 对象拷贝
 
-https://github.com/wengjq/Blog/issues/3
+<https://github.com/wengjq/Blog/issues/3>
 
-https://mp.weixin.qq.com/s/scz9gRJeh7PM6GJ7wvnTsA
+<https://mp.weixin.qq.com/s/scz9gRJeh7PM6GJ7wvnTsA>
 
-https://mp.weixin.qq.com/s/SvtRJXtquh7dJxATCIwNgw
+<https://mp.weixin.qq.com/s/SvtRJXtquh7dJxATCIwNgw>
 
 ### 前端异步
 
@@ -1555,7 +1559,7 @@ var EventUtil = {
 
 ## \$javascript 编程部分
 
-### 请用原生 js 实现一个函数,给页面制定的任意一个元素添加一个透明遮罩(透明度可变,默认 0.2),使这个区域点击无效,要求兼容 IE8+及各主流浏览器,遮罩层效果如下图所示:
+### 请用原生 js 实现一个函数,给页面制定的任意一个元素添加一个透明遮罩(透明度可变,默认 0.2),使这个区域点击无效,要求兼容 IE8+及各主流浏览器,遮罩层效果如下图所示
 
 ![遮罩效果](img/element-mask.jpg)
 
@@ -2145,7 +2149,7 @@ function getViewportSize(w) {
         };
     }
 
-### 现有一个字符串 richText,是一段富文本,需要显示在页面上.有个要求,需要给其中只包含一个 img 元素的 p 标签增加一个叫 pic 的 class.请编写代码实现.可以使用 jQuery 或 KISSY.
+### 现有一个字符串 richText,是一段富文本,需要显示在页面上.有个要求,需要给其中只包含一个 img 元素的 p 标签增加一个叫 pic 的 class.请编写代码实现.可以使用 jQuery 或 KISSY
 
     function richText(text) {
         var div = document.createElement('div');
@@ -2461,7 +2465,6 @@ EventUtil.on(nav, 'click', function (event) {
 });
 ```
 
-
 10，写出 3 个使用 this 的典型应用
 
 1. 事件引用当前的元素；
@@ -2471,7 +2474,7 @@ EventUtil.on(nav, 'click', function (event) {
 21，请编写一个 JavaScript 函数 parseQueryString，它的用途是把 URL 参数解析为一个对象，如：
 正则匹配
 function parseQueryString(argu){
-  var str = argu.split('?')[1];
+  var str = argu.split['?'](1);
   var result = {};
   var temp = str.split('&');
   for(var i=0; i<temp.length; i++)
@@ -2497,7 +2500,7 @@ function bindThis (func, context) {
 }
 // 调用，生成bind函数
 var newFunc = bindThis(function(a, b){
-	return this.test + a + b
+ return this.test + a + b
 }, {test: 1});
 // 使用bind函数
 newFunc(2, 3);
@@ -2508,31 +2511,31 @@ newFunc(2, 3);
 ```
 //借助于浏览器内置的方法，a标签的href属性
 function parseURL(url) {
- 	var a =  document.createElement('a');
- 	a.href = url;
- 	return {
- 		source: url,
- 		protocol: a.protocol.replace(':',''),
- 		host: a.hostname,
- 		port: a.port,
- 		query: a.search,
-		params: (function(){
-     		var ret = {},
-        	seg = a.search.replace(/^\?/,'').split('&'),
-        	len = seg.length, i = 0, s;
-    		for (;i<len;i++) {
-         		if (!seg[i]) { continue; }
-         		s = seg[i].split('=');
-         		ret[s[0]] = s[1];
-     		}
-     		return ret;
- 		})(),
- 		file: (a.pathname.match(/\/([^\/?#]+)$/i) || [,''])[1],
- 		hash: a.hash.replace('#',''),
- 		path: a.pathname.replace(/^([^\/])/,'/$1'),
- 		relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [,''])[1],
- 		segments: a.pathname.replace(/^\//,'').split('/')
- 	};
+  var a =  document.createElement('a');
+  a.href = url;
+  return {
+   source: url,
+   protocol: a.protocol.replace(':',''),
+   host: a.hostname,
+   port: a.port,
+   query: a.search,
+  params: (function(){
+       var ret = {},
+         seg = a.search.replace(/^\?/,'').split('&'),
+         len = seg.length, i = 0, s;
+      for (;i<len;i++) {
+           if (!seg[i]) { continue; }
+           s = seg[i].split('=');
+           ret[s[0]] = s[1];
+       }
+       return ret;
+   })(),
+   file: (a.pathname.match(/\/([^\/?#]+)$/i) || [,''])[1],
+   hash: a.hash.replace('#',''),
+   path: a.pathname.replace(/^([^\/])/,'/$1'),
+   relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [,''])[1],
+   segments: a.pathname.replace(/^\//,'').split('/')
+  };
 }
 var myURL = parseURL('http://abc.com:8080/dir/index.html?id=255&m=hello#top');
 //var myURL = parseURL('http://localhost:8080/test/mytest/toLogina.ction?m=123&pid=abc');
@@ -2558,7 +2561,7 @@ function commonParentNode(oNode1, oNode2) {
 
    ```
    Array.prototype.uniq = function (arr) {
-   	return [...new Set(arr)]
+    return [...new Set(arr)]
    };
    ```
 
@@ -2584,7 +2587,6 @@ function commonParentNode(oNode1, oNode2) {
        return resArr;
    }
    ```
-
 
 ### 6. 格式化时间
 
@@ -2626,7 +2628,7 @@ function rgb2hex(sRGB) {
         for(var i=1;i<=3;i++){
             var m=parseInt(ret[i]);
             if(m<=255&&m>=0){
-            	// 十进制转16进制
+             // 十进制转16进制
                 str+=(m<16?'0'+m.toString(16):m.toString(16));
             }else{
                 return sRGB;
@@ -2659,7 +2661,7 @@ fontSize
 ```
 var length = 10;
 function fn() {
-	console.log(this.length);
+ console.log(this.length);
 }
 var obj = {
     length: 5,
@@ -2798,7 +2800,7 @@ testObj.c === copyObj.c // true, 复制了指向
 
 ### 浏览器缓存与应用缓存
 
-## 以下是你应该熟悉的 JavaScript 知识点：
+## 以下是你应该熟悉的 JavaScript 知识点
 
 你需要了解 JavaScript，而且是彻底地了解。你面试的职位越高，对语言知识的要求就越高。
 
@@ -2812,7 +2814,7 @@ testObj.c === copyObj.c // true, 复制了指向
 - 使用回调、promise、await 和 async 处理异步调用；
 - 什么时候可以使用函数声明和表达式。
 
-### 自己实现一个 Symbol Interator 。
+### 自己实现一个 Symbol Interator
 
 // 给一个对象设置 Symbol Interator
 

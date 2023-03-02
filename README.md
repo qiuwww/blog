@@ -44,3 +44,7 @@ npm server
 
 `markmap BLOG-markdown语法学习.zh-CN.md --no-open -o ./_markmap/markdown语法学习.html`
 `markmap README.md --no-open -o ./_markmap/README.html`
+
+## 使用工具预览当前项目
+
+<https://github1s.com/qiuwww/blog>

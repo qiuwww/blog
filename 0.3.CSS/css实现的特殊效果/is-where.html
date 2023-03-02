@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 class="content-title">Header 2 <b>content title</span></h2>
+
+
+    <style>
+      /* this query will select the b element within a heading and change its color. */
+
+      :where(h2, h3, h4) > b {
+        color: blue;
+      }
+
+      :is(h2):where(.content-title) {
+        text-transform: uppercase;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+
+<!-- saved from url=(0052)http://tools.jb51.net/static/api/css3path/index.html -->
+<html lang="zh-CN" class="-webkit- js csstransforms3d csstransitions js csstransforms3d csstransitions"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script type="text/javascript" src="./jquery.min.js"></script>
+<title>HTML5在线工具</title>
+    <link rel="stylesheet prefetch" href="http://tools.jb51.net/static/skin/css/font-awesome.min.css">
+    </head>
+<body style="">
+
+<link rel="stylesheet prefetch" href="http://tools.jb51.net/static/api/css3path/css/mod_css-clip-path.min.css">
+
+<style>
+
+body{
+	font-family: Microsoft Yahei,sans-serif
+	margin:0;
+	padding:0;
+}
+
+.clippath{
+	width: 100%;
+	margin: 0 auto;
+	font-size: 15px;
+	width: 100%;
+	margin-bottom: 10px;
+	border: 1px dashed whitesmoke;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAH0lEQVQIW2NkYGBg+P///38QzQgCIA6IhklgCqBrAQA/2xf95FNTIAAAAABJRU5ErkJggg==) repeat;
+	background-color: #F2F2F2;
+	padding: 10px 20px;
+	text-align:left;
+}
+
+.clippath h2 {
+	font-size: 22px;
+	margin-bottom:10px;
+}
+
+a.browser_item {
+	width: 30%;
+	margin: 0 5% 2.5% 0;
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	padding-left: 29px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: contain;
+	font-size: 12px;
+	font-weight: normal;
+	color: #5c5c5c;
+	display: inline-block;
+	display: inline-block;
+}
+
+a.chrome {
+	background-image: url('image/chrome_24x24.png');
+}
+
+a.safari {
+	background-image: url('image/safari_24x24.png');
+}
+
+a.firefox {
+	background-image: url('image/firefox_24x24.png');
+}
+
+a.opera {
+	background-image: url('image/opera_24x24.png');
+}
+
+a.edge {
+	background-image: url('image/edge_24x24.png');
+}
+
+a.ie9_10 {
+	background-image: url('image/ie9-10_24x24.png');
+}
+
+#GENERATOR_DIV{
+	width:100%;
+	overflow:hidden;
+	margin-bottom:20px;
+	background-color:#ffffff;
+}
+
+#GENERATOR_DIV #EFFECTION_DIV{
+	float:left;
+	width:56.7%;
+	overflow:hidden;
+}
+
+#GENERATOR_DIV #PARAMETER_DIV{
+	float:right;
+	width:43.3%;
+	overflow:hidden;
+}
+#GENERATOR_DIV #PARAMETER_DIV ul{
+	margin:0;
+	padding:0;
+}
+
+</style>
+<div class="clippath text-left" id="CLIPPATH">
+	<h2 class="arrow">CSS3 剪贴路径（Clip-path）在线生成器</h2>
+	<div id="GENERATOR_DIV">
+		<div id="EFFECTION_DIV">
+			<div class="demo">
+				<div id="box" class="box" style="width: 390px; height: 390px;">
+					<div class="shadowboard"></div>
+					<div class="clipboard" style="-webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"></div>
+					<div class="handles"><div class="handle" data-handle="0" style="top: 0px; left: 185px;"><div class="delete-point"></div></div><div class="handle" data-handle="1" style="top: 370px; left: 0px;"><div class="delete-point"></div></div><div class="handle" data-handle="2" style="top: 370px; left: 370px;"><div class="delete-point"></div></div></div>
+				</div>
+			</div>
+			<div class="options">
+				<div class="grid panel fade-content">
+					<h2 style="font-size:18px;">显示路径外图像</h2>
+					<input type="checkbox" id="shadowboard-toggle" name="prefix">
+					<label for="shadowboard-toggle" class="joined" style="min-width:100px;"></label>
+				</div>
+				<div class="grid panel flex fade-content">
+					<h2 style="font-size:18px;">CSS前缀</h2>
+					<input type="checkbox" checked="checked" id="webkit" value="5" name="prefix">
+					<label for="webkit">webkit</label>
+				</div>
+			</div>
+			<div class="css-code code fade-content">
+				<code class="webkit block show">-webkit-clip-path: <span class="functions">polygon(<code class="point" data-point="0">50% 0%</code>, <code class="point" data-point="1">0% 100%</code>, <code class="point" data-point="2">100% 100%</code>)</span>;</code> <code class="unprefixed block show">clip-path: <span class="functions">polygon(<code class="point" data-point="0">50% 0%</code>, <code class="point" data-point="1">0% 100%</code>, <code class="point" data-point="2">100% 100%</code>)</span>;</code>
+			</div>
+			<div class="grid panel fade-content">
+				<h2 style="font-size:18px;">浏览器兼容性支持</h2>
+				<p>
+					<a href="javascript:void(0)" class="browser_item chrome">Chrome 24+</a>
+					<a href="javascript:void(0)" class="browser_item safari">Safari 8+</a>
+					<a href="javascript:void(0)" class="browser_item opera">Opera 15+</a>
+					<a href="javascript:void(0)" class="browser_item firefox">不支持Firefox</a>
+					<a href="javascript:void(0)" class="browser_item ie9_10">不支持IE</a>
+				</p>
+			</div>
+		</div>
+		<div id="PARAMETER_DIV">
+			<div tabindex="-1" class="shapes vertical">
+				<ul><figure class="gallery-cell on" data-name="三角形" data-type="polygon" data-coords="50,0 0,100 100,100"><div style="-webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);  clip-path: polygon(50% 0%, 0% 100%, 100% 100%)" class="shape 三角形"></div><figcaption>三角形</figcaption></figure><figure class="gallery-cell" data-name="梯形" data-type="polygon" data-coords="20,0 80,0 100,100 0,100"><div style="-webkit-clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)" class="shape 梯形"></div><figcaption>梯形</figcaption></figure><figure class="gallery-cell" data-name="平行四边形" data-type="polygon" data-coords="25,0 100,0 75,100 0,100"><div style="-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)" class="shape 平行四边形"></div><figcaption>平行四边形</figcaption></figure><figure class="gallery-cell" data-name="菱形" data-type="polygon" data-coords="50,0 100,50 50,100 0,50"><div style="-webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" class="shape 菱形"></div><figcaption>菱形</figcaption></figure><figure class="gallery-cell" data-name="五边形" data-type="polygon" data-coords="50,0 100,38 82,100 18,100 0,38"><div style="-webkit-clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)" class="shape 五边形"></div><figcaption>五边形</figcaption></figure><figure class="gallery-cell" data-name="六边形" data-type="polygon" data-coords="50,0 100,25 100,75 50,100 0,75 0,25"><div style="-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" class="shape 六边形"></div><figcaption>六边形</figcaption></figure><figure class="gallery-cell" data-name="七边形" data-type="polygon" data-coords="50,0 90,20 100,60 75,100 25,100 0,60 10,20"><div style="-webkit-clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);  clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%)" class="shape 七边形"></div><figcaption>七边形</figcaption></figure><figure class="gallery-cell" data-name="八边形" data-type="polygon" data-coords="30,0 70,0 100,30 100,70 70,100 30,100 0,70 0,30"><div style="-webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)" class="shape 八边形"></div><figcaption>八边形</figcaption></figure><figure class="gallery-cell" data-name="九边形" data-type="polygon" data-coords="50,0 83,12 100,43 94,78 68,100 32,100 6,78 0,43 17,12"><div style="-webkit-clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);  clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%)" class="shape 九边形"></div><figcaption>九边形</figcaption></figure><figure class="gallery-cell" data-name="十边形" data-type="polygon" data-coords="50,0 80,10 100,35 100,70 80,90 50,100 20,90 0,70 0,35 20,10"><div style="-webkit-clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);  clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%)" class="shape 十边形"></div><figcaption>十边形</figcaption></figure><figure class="gallery-cell" data-name="锥形" data-type="polygon" data-coords="20,0 80,0 100,20 100,80 80,100 20,100 0,80 0,20"><div style="-webkit-clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%)" class="shape 锥形"></div><figcaption>锥形</figcaption></figure><figure class="gallery-cell" data-name="槽口形" data-type="polygon" data-coords="0,15 15,15 15,0 85,0 85,15 100,15 100,85 85,85 85,100 15,100 15,85 0,85"><div style="-webkit-clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);  clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%)" class="shape 槽口形"></div><figcaption>槽口形</figcaption></figure><figure class="gallery-cell" data-name="左箭头形" data-type="polygon" data-coords="40,0 40,20 100,20 100,80 40,80 40,100 0,50"><div style="-webkit-clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);  clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%)" class="shape 左箭头形"></div><figcaption>左箭头形</figcaption></figure><figure class="gallery-cell" data-name="右箭头形" data-type="polygon" data-coords="0,20 60,20 60,0 100,50 60,100 60,80 0,80"><div style="-webkit-clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);  clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%)" class="shape 右箭头形"></div><figcaption>右箭头形</figcaption></figure><figure class="gallery-cell" data-name="左指示形" data-type="polygon" data-coords="25,0 100,1 100,100 25,100 0,50"><div style="-webkit-clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);  clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%)" class="shape 左指示形"></div><figcaption>左指示形</figcaption></figure><figure class="gallery-cell" data-name="右指示形" data-type="polygon" data-coords="0,0 75,0 100,50 75,100 0,100"><div style="-webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%)" class="shape 右指示形"></div><figcaption>右指示形</figcaption></figure><figure class="gallery-cell" data-name="左臂章形" data-type="polygon" data-coords="100,0 75,50 100,100 25,100 0,50 25,0"><div style="-webkit-clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);  clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%)" class="shape 左臂章形"></div><figcaption>左臂章形</figcaption></figure><figure class="gallery-cell" data-name="右臂章形" data-type="polygon" data-coords="75,0 100,50 75,100 0,100 25,50 0,0"><div style="-webkit-clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)" class="shape 右臂章形"></div><figcaption>右臂章形</figcaption></figure><figure class="gallery-cell" data-name="星形" data-type="polygon" data-coords="50,0 61,35 98,35 68,57 79,91 50,70 21,91 32,57 2,35 39,35"><div style="-webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)" class="shape 星形"></div><figcaption>星形</figcaption></figure><figure class="gallery-cell" data-name="十字形" data-type="polygon" data-coords="10,25 35,25 35,0 65,0 65,25 90,25 90,50 65,50 65,100 35,100 35,50 10,50"><div style="-webkit-clip-path: polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 65% 100%, 35% 100%, 35% 50%, 10% 50%);  clip-path: polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 65% 100%, 35% 100%, 35% 50%, 10% 50%)" class="shape 十字形"></div><figcaption>十字形</figcaption></figure><figure class="gallery-cell" data-name="消息窗口形" data-type="polygon" data-coords="0,0 100,0 100,75 75,75 75,100 50,75 0,75"><div style="-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%)" class="shape 消息窗口形"></div><figcaption>消息窗口形</figcaption></figure><figure class="gallery-cell" data-name="关闭按钮形" data-type="polygon" data-coords="20,0 0,20 30,50 0,80 20,100 50,70 80,100 100,80 70,50 100,20 80,0 50,30"><div style="-webkit-clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);  clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%)" class="shape 关闭按钮形"></div><figcaption>关闭按钮形</figcaption></figure><figure class="gallery-cell" data-name="空心框架形" data-type="polygon" data-coords="0,0 0,100 25,100 25,25 75,25 75,75 25,75 25,100 100,100 100,0"><div style="-webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);  clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%)" class="shape 空心框架形"></div><figcaption>空心框架形</figcaption></figure><figure class="gallery-cell" data-name="实心框架形" data-type="inset" data-coords="5 20 15 10"><div style="-webkit-clip-path: inset(5% 20% 15% 10%);  clip-path: inset(5% 20% 15% 10%)" class="shape 实心框架形"></div><figcaption>实心框架形</figcaption></figure><figure class="gallery-cell" data-name="自定义" data-type="custom" data-coords="10,75 10,25 35,0 100,10 90,30 50,30 40,40 40,60 50,70 90,70 100,90 35,100"><div style="-webkit-clip-path: polygon(10% 75%, 10% 25%, 35% 0%, 100% 10%, 90% 30%, 50% 30%, 40% 40%, 40% 60%, 50% 70%, 90% 70%, 100% 90%, 35% 100%);  clip-path: polygon(10% 75%, 10% 25%, 35% 0%, 100% 10%, 90% 30%, 50% 30%, 40% 40%, 40% 60%, 50% 70%, 90% 70%, 100% 90%, 35% 100%)" class="shape 自定义"></div><figcaption>自定义</figcaption></figure><figure class="gallery-cell" data-name="Circle" data-type="circle"><div style="-webkit-clip-path: circle(50% at 50% 50%);  clip-path: circle(50% at 50% 50%)" class="shape 圆形"></div><figcaption>圆形</figcaption></figure><figure class="gallery-cell" data-name="Ellipse" data-type="ellipse"><div style="-webkit-clip-path: ellipse(25% 40% at 50% 50%);  clip-path: ellipse(25% 40% at 50% 50%)" class="shape 椭圆形"></div><figcaption>椭圆形</figcaption></figure></ul>
+			</div>
+			<div class="options">
+				<div class="grid panel fade-content">
+					<h2>演示背景图片</h2>
+					<div class="backgrounds">
+						<img src="./pittsburgh.jpg">
+						<img src="./fierenze.jpg">
+						<img src="./sparkler.jpg">
+						<img src="./miami.jpg">
+					</div>
+					<input type="url" name="background" id="custom_url" placeholder="请输入您图片的URL">
+					<style id="custom_background">
+						.shadowboard,
+						.clipboard { background-image: url(img/pittsburgh.jpg); }
+					</style>
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="./flickity.pkgd.min.js"></script>
+<script src="./draggabilly.min.js"></script>
+<script src="./clip.js"></script>
+
+<script type="text/javascript" src="./modernizr.min.js"></script>
+<script type="text/javascript" src="./flame.min.js"></script>
+
+
+<audio controls="controls" style="display: none;"></audio></body><style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style></html>
