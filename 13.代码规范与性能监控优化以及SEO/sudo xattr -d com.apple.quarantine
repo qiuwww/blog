@@ -1,0 +1,5 @@
+sudo xattr -d com.apple.quarantine /Applications/Android\ Studio.app
+sudo codesign --force --deep --sign - /Applications/Android\ Studio.app
+
+sudo codesign --force --deep --sign - /Applications/GoLand.app
+sudo xattr -rd com.apple.quarantine /Applications/GoLand.app

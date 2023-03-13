@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="screen-orientation" content="portrait" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="full-screen" content="yes">
+  <meta name="x5-fullscreen" content="true">
+	<title>运营商认证</title>
+	<style>
+		*{padding:0;margin:0;font-size:0.16rem;font-family: "PingFangSC-Regular";color:#4c4c4c;box-sizing: border-box;}
+		.box{
+			padding-top: 0.72rem;
+			text-align: center;
+		}
+		.imgBox{
+			width: 0.96rem;
+			height: 0.96rem;
+			margin: 0 auto 0.4rem;
+			position: relative;
+		}
+		.imgBox img{
+			width: 100%;
+			height: 100%;
+		}
+		#loadingImg{
+			position: absolute;
+			left: 0;
+			top: 0;
+			transition: 30s all linear;
+		}
+	</style>
+	<script>
+		(function(doc, win) {var docEl = doc.documentElement, resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize', recalc = function() {var clientWidth = docEl.clientWidth; if (!clientWidth) return; if (clientWidth >= 640) {clientWidth = 640; } else if (clientWidth <= 320) {clientWidth = 320; } else {} docEl.style.fontSize = 100 * (clientWidth / 375) + 'px'; }; if (!doc.addEventListener) return; win.addEventListener(resizeEvt, recalc, false); doc.addEventListener('DOMContentLoaded', recalc, false); })(document, window);
+	</script>
+	<script>
+		function getLocationSearch() {
+			var href = location.href;
+			var search = location.search;
+			var theRequest = new Object();
+		  if (href.indexOf("?") > -1) {
+		  	var url = search ? search : href;
+		    var hrefStr = href.substring(href.indexOf("?") + 1);
+		    while(hrefStr.indexOf('/') > -1) {
+		    	hrefStr = hrefStr.substring(0, (hrefStr.indexOf("/")));
+		    }
+		    var arr = hrefStr.split("&");
+		    arr.filter(item => {
+		      theRequest[item.split('=')[0]] = item.split('=')[1];
+		    })
+		    return theRequest;
+		  }
+		  return '';
+		}
+		window.onload = function() {
+			var resultMsg = document.getElementById('resultMsg');
+			var intervalText = document.getElementById('intervalText');
+			var timer = null;
+			var timers = null;
+			var status = getLocationSearch().success;
+			var second = 3;
+			var isAndroid = window.android ? true : false;
+
+			if (status && status === 'true') {
+				resultMsg.innerHTML = '成功';
+			} else {
+				resultMsg.innerHTML = '失败';
+			}
+
+			timer = setInterval(function() {
+				second--;
+				intervalText.innerHTML = second;
+				if (second === 0) {
+					if (isAndroid) {
+		     		if (window.android.closeCarriersH5) window.android.closeCarriersH5();
+		     	} else {
+		     		setupWebViewJavascriptBridge(function(bridge) {
+							bridge.callHandler('closeCarriersH5');
+						});
+		     	}
+					clearInterval(timer);
+				}
+			}, 1000);
+			document.getElementById('loadingImg').style.transform = 'rotate(7200deg)';
+			function setupWebViewJavascriptBridge(callback) {
+				if (window.WebViewJavascriptBridge) { return callback(window.WebViewJavascriptBridge); }
+				if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+				window.WVJBCallbacks = [callback];
+				console.log(window.WVJBCallbacks);
+				console.log(callback);
+				var WVJBIframe = document.createElement('iframe');
+				WVJBIframe.style.display = 'none';
+				WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+				document.documentElement.appendChild(WVJBIframe);
+				setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 100);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<div class="imgBox" id="imgBox">
+			<img src="./img/going.png">
+			<img src="./img/loading.png" id="loadingImg" alt="">
+		</div>
+		<div>
+			运营商认证<span id="resultMsg">中</span>，<span id="intervalText">3</span>秒后返回
+		</div>
+	</div>
+</body>
+</html>
