@@ -49,14 +49,14 @@ categories:
    1. background/border;
 2. 标准文档流在负的 z-index 之上，这个容易理解；
    1. z-index: -1;
-3. block 块状水平盒子;
+3. block 块状水平盒子（想一下，浮动元素上浮到该类型元素之上）;
 4. **浮动元素会漂到标准文档流上一层，仅仅一点点**，可能是 0.00001；
    1. float: left;
-5. 也就是说**标准文档流处在一个 0-，小于 0，但是大于一切负数**；
-6. **inline/inline-block，在浮动元素之上**，设置了非负的 z-index 之下，在 z-index：: 0 之下；
+   2. 也就是说**标准文档流处在一个 0-，小于 0，但是大于一切负数**；
+5. **inline/inline-block，在浮动元素之上**，设置了非负的 z-index 之下，在 z-index：: 0 之下；
    1. inline/inline-block 元素的层叠顺序要高于 block(块级)/float(浮动)元素。
-7. z-index: auto; z-index: 0;
-8. z-index 为正，在最上层；
+6. z-index: auto; z-index: 0;
+7. z-index 为正，在最上层；
 
 ## 缺失的关键信息包括
 
