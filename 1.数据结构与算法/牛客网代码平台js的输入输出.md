@@ -10,7 +10,7 @@
 
 这里得到的结果可都是字符串呀。
 
-JavaScript(V8)
+**JavaScript(V8)**
 
 ```js
 // 单行
@@ -20,16 +20,17 @@ while ((line = readline())) {
   var b = parseInt(lines[1]);
   print(a + b);
 }
-// 多行
 
+// 多行
 var inputArr = [];
 var line = '';
 while ((line = readline())) {
+  // 这里会得到一个二维数组来保存多行的结果
   inputArr.push(line.split(' '));
 }
 ```
 
-JavaScript(Node)
+**JavaScript(Node)**
 
 ```js
 // 单行
@@ -39,6 +40,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 rl.on('line', function (line) {
+  // 这里与上边一样
   var tokens = line.split(' ');
   console.log(parseInt(tokens[0]) + parseInt(tokens[1]));
 });
@@ -52,6 +54,7 @@ const rl = readline.createInterface({
 let lines = [];
 rl.on('line', (line) => {
   lines.push(line);
+  // 一个意思，这里每行没有分割
   if (lines.length === 2) {
   }
 });

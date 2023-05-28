@@ -71,8 +71,9 @@ function entryNodeOfLoop(cities) {
   var fast = pHead;
   var slow = pHead;
 
-  while (fast.next !== null && fast.next.next !== null) {
+  while (slow.next !== null && fast.next.next !== null) {
     // 快指针每次走两步；慢指针每次走一步
+    // 这里是关键
     slow = slow.next;
     fast = fast.next.next;
     // 快慢指针相遇时，跳出while循环，直接函数返回真

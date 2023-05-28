@@ -73,17 +73,9 @@ function insert(data) {
   }
 }
 
-function inOrder(node) {
-  // 中序遍历
-  if (!(node == null)) {
-    inOrder(node.left);
-    console.log(node.show() + ' ');
-    inOrder(node.right);
-  }
-}
-
+// 前中后遍历方法
 function preOrder(node) {
-  // 前序遍历
+  // 前序遍历，中，左右
   if (!(node == null)) {
     console.log(node.show() + ' ');
     preOrder(node.left);
@@ -91,8 +83,17 @@ function preOrder(node) {
   }
 }
 
+function inOrder(node) {
+  // 中序遍历，左中右
+  if (!(node == null)) {
+    inOrder(node.left);
+    console.log(node.show() + ' ');
+    inOrder(node.right);
+  }
+}
+
 function postOrder(node) {
-  // 后序遍历
+  // 后序遍历，左右中
   if (!(node == null)) {
     postOrder(node.left);
     postOrder(node.right);
