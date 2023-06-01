@@ -108,3 +108,37 @@ console.log('4 test end...');
 // 8 v2 hello async
 // 9 v1, v2 testSometing hello async
 ```
+
+```js
+async function testSometing() {
+  console.log('2 执行testSometing');
+  return 'testSometing';
+}
+
+async function testAsync() {
+  console.log('6 执行testAsync');
+  return Promise.resolve('hello async');
+}
+
+async function test() {
+  console.log('1 test start...');
+  // 关键点1，这里的函数是同步执行的，但是后续的结果还是在回调函数里边，需要等待整体的同步函数执行完成才可以执行的，这里很关键
+  // await会让出线程就会区执行后面的，可以理解为await封装了当前的代码后边的内容等待执行
+  // 这里衍生出了一个微任务，微任务一起同步执行
+  try{
+    const v1 = await testSometing();
+    console.log('5 v1', v1);
+    // 这里的error，不catch后续的就不会执行
+    throw Error("err");
+    const v2 = await testAsync();
+    console.log('8 v2', v2);
+    console.log('9 v1, v2', v1, v2);
+   }catch(e) {
+    console.log("catch", e);
+  }
+}
+
+test();
+// 如果不catch，这里的test end是不会执行的
+console.log("test end");
+```
