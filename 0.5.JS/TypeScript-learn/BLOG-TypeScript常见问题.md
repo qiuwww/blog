@@ -74,7 +74,7 @@ interface User extends Name {
 }
 ```
 
-type 可以拓展接口 interface 和 type 类型的，且拓展关键字都是`&`。
+type 可以拓展extends接口 interface 和 type 类型的，且拓展关键字都是`&`。
 
 ```ts
 // type extends type
@@ -100,7 +100,7 @@ type User = Name & {
    2. type 语句中还可以**使用 `typeof` 获取实例** 的类型进行赋值；
       1. 当你想获取一个变量的类型时，使用 typeof 如`let div = document.createElement('div'); type B = typeof div`；
 2. interface 可以而 type 不行：
-   1. interface 能够**声明合并**，这里区别于重写接口；
+   1. interface 能够**声明合并**，这里区别于重写接口的参数定义；
 
 ```ts
 // 两个相同的接口会进行合并
@@ -118,11 +118,11 @@ console.log(box);
 
 ### 什么时候推荐用 type 什么时候用 interface ？<https://pro.ant.design/zh-CN/docs/type-script>
 
-1. 推荐任何时候都是用 type， type 使用起来更像一个变量，与 interface 相比，type 的特点如下：
+1. **推荐任何时候都是用 type**， type 使用起来更像一个变量，与 interface 相比，type 的特点如下：
    1. 表达功能更强大，不局限于 object/class/function；
-   2. 要扩展已有 type 需要创建新 type，不可以重名；
+   2. **要扩展已有 type 需要创建新 type，不可以重名**；
    3. 支持更复杂的类型操作。
-2. 基本上所有用 interface 表达的类型都有其等价的 type 表达。在实践的过程中，我们也发现了一种类型只能用 interface 表达，无法用 type 表达，那就是往函数上挂载属性。
+2. **基本上所有用 interface 表达的类型都有其等价的 type 表达**。在实践的过程中，我们也发现了一种类型只能用 interface 表达，无法用 type 表达，那就是往函数上挂载属性。
 
 ## 声明 window 上不存在的属性
 
