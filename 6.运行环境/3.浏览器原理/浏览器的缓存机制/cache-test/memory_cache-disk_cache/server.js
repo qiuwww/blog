@@ -23,7 +23,7 @@ const mime = {
   xml: 'text/xml',
 };
 http
-  .createServer(function(request, response) {
+  .createServer(function (request, response) {
     let fileName = request.url;
     if (fileName === '/') {
       fileName = 'index.html';
@@ -38,6 +38,9 @@ http
     response.writeHead(200, {
       'Content-Type': `${mime[fileType]}`,
       'Cache-Control': 'max-age=86400',
+      // 'Cache-Control': 'max-age=1, no-cache',
+      // 2s后的请求会重新
+      // 'Cache-Control': 'max-age=1, no-store',
     });
     // response.write(resource, 'binary');
     response.end(resource, 'binary');

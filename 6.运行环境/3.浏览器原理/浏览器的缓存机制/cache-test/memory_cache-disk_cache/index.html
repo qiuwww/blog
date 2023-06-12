@@ -13,5 +13,14 @@
   </head>
   <body>
     <img src="index.jpg" alt="老虎" />
+
+    <!-- 异步请求图片 -->
+    <script>
+      setTimeout(function () {
+        let img = document.createElement('img');
+        img.src = 'index.jpg';
+        document.body.appendChild(img);
+      }, 2000);
+    </script>
   </body>
 </html>
