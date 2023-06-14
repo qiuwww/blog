@@ -1,3 +1,4 @@
+// 正圆
 // 方式1，根据原点与应处的位置来计算当前应该处在的坐标，这种方式以来碰撞边界的规则性，只能是 90度的倍数，能处理矩形边界
 
 const canvas = document.querySelector('canvas');

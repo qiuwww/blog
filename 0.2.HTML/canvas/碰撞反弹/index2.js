@@ -1,3 +1,4 @@
+// 椭圆
 // 方式2，需要根据当前的位置与 速度 * 倾角来计算下一帧应该的位置。
 
 const canvas = document.querySelector('canvas');
