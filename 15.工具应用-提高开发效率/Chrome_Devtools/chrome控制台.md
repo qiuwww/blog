@@ -19,9 +19,25 @@ var animals = [
 console.table(animals);
 ```
 
-3. 代码执行时间的问题
+3. 代码执行时间的问题，这里的执行时间不受影响
 
 用 console.time() 和 console.timeEnd() 打印中间的代码执行时间（可测试同步代码和异步代码）;
+
+```js
+console.time("answer time");
+alert("Click to continue");
+console.timeLog("answer time");
+alert("Do a bunch of other stuff…");
+console.timeEnd("answer time");
+
+// 测试异步的时候的时间
+
+console.time("async");
+
+setTimeout(() => {
+  console.timeEnd("async");
+}, 2000);
+```
 
 4. console 的一些别的方法
 
@@ -132,7 +148,7 @@ setTimeout(function(){while (true) {eval("debugger")
 比如：
 
 api 为: <http://www.xxx.com/api/v1/list>
-在根目录下，新建文件 www.xxx.com/api/v1/list，list 文件中的内容，与正常接口返回格式相同。
+在根目录下，新建文件 <www.xxx.com/api/v1/list，list> 文件中的内容，与正常接口返回格式相同。
 
 ## Store as global variable
 
@@ -150,5 +166,3 @@ Chrome DevTools 中的 Coverage 功能可以帮助我们查看代码的覆盖率
 选择 Network 面板；
 在资源面板中选择 Img，预览状态下进行复制；
 右键单击将其复制为数据 URI（已编码为 base 64）；
-
-
