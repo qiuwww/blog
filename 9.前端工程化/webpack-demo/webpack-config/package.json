@@ -1,0 +1,35 @@
+{
+  "name": "webpack-config",
+  "version": "1.0.0",
+  "description": "dev prod",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./node_modules/webpack/bin/webpack.js --progress --profile --colors --config webpack.config.js -p",
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.config.dev.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.17.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "express": "^4.16.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "fetch-mock": "^5.13.1",
+    "mockjs": "^1.0.1-beta3",
+    "style-loader": "^0.19.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  },
+  "dependencies": {
+    "npm": "^2.0.2"
+  }
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>根据地址查询经纬度</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=53oVIOgmSIejwV7EfphPgTynOZbIiVYu"></script>
+    <!-- aNReveqbjkv0e9u061Wkvw5mQVwi0C1m -->
+  </head>
+
+  <body style="background: #cbe1ff">
+    <div style="width: 1200px; margin: auto">
+      要查询的地址：
+      <input id="text_" type="text" value="广州" />
+
+      <input type="button" value="查询" onclick="searchByStationName();" />
+      <div
+        id="container"
+        style="
+          position: absolute;
+          margin-top: 30px;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          border: 1px solid gray;
+          overflow: hidden;
+        "
+      ></div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    // getParentAddressName();
+    var map = new BMap.Map('container');
+    map.centerAndZoom('广州', 12);
+    map.enableScrollWheelZoom(); //启用滚轮放大缩小，默认禁用
+    map.enableContinuousZoom(); //启用地图惯性拖拽，默认禁用
+
+    map.addControl(new BMap.NavigationControl()); //添加默认缩放平移控件
+    map.addControl(new BMap.OverviewMapControl()); //添加默认缩略地图控件
+    map.addControl(
+      new BMap.OverviewMapControl({
+        isOpen: true,
+        anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+      }),
+    ); //右下角，打开
+
+    map.addEventListener('click', function (e) {
+      //点击地图获取经纬度
+      console.log(e.point);
+      map.clearOverlays(); //清空原来的标注
+      var marker = new BMap.Marker(new BMap.Point(e.point.lng, e.point.lat)); // 创建标注，为要查询的地方对应的经纬度
+      map.addOverlay(marker);
+      getAddress(e.point);
+    });
+
+    var gc = new BMap.Geocoder();
+    function getAddress(point) {
+      gc.getLocation(point, function (searchResult) {
+        console.log(searchResult.address);
+        document.getElementById('text_').value = searchResult.address;
+      });
+    }
+
+    var localSearch = new BMap.LocalSearch(map);
+    localSearch.enableAutoViewport(); //允许自动调节窗体大小
+    function searchByStationName() {
+      map.clearOverlays(); //清空原来的标注
+      var keyword = document.getElementById('text_').value;
+      localSearch.setSearchCompleteCallback(function (searchResult) {
+        var poi = searchResult.getPoi(0);
+
+        map.centerAndZoom(poi.point, 13);
+        var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat)); // 创建标注，为要查询的地方对应的经纬度
+        map.addOverlay(marker);
+
+        marker.addEventListener('click', function () {
+          this.openInfoWindow(infoWindow);
+        });
+      });
+      localSearch.search(keyword);
+    }
+
+    // 获取当前的坐标
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function (e) {
+      map.panTo(e.point);
+
+      var marker = new BMap.Marker(new BMap.Point(e.point.lng, e.point.lat)); // 创建标注，为要查询的地方对应的经纬度
+      map.addOverlay(marker);
+
+      //   if(this.getStatus() == BMAP_STATUS_SUCCESS){
+      //     var mk = new BMap.Marker(r.point);
+      //     map.addOverlay(mk);
+      //     map.panTo(r.point);
+      //     alert('您的位置：'+r.point.lng+','+r.point.lat);
+      // }
+      // else {
+      //     alert('failed'+this.getStatus());
+      // }
+    });
+  </script>
+
+  <!-- <script type="text/javascript">
+    var map = new BMap.Map('allmap'); //创建Map实例，注意页面中一定要有个id为allmp的div
+    var point = new BMap.Point(116.331398, 39.897445); //创建定坐标
+    map.centerAndZoom(point, 12); //// 初始化地图,设置中心点坐标和地图级别
+
+    var geolocation = new BMap.Geolocation();
+    var gc = new BMap.Geocoder(); //创建地理编码器
+    // 开启SDK辅助定位
+    geolocation.enableSDKLocation();
+
+    geolocation.getCurrentPosition(function (r) {
+      if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+        var mk = new BMap.Marker(r.point);
+        map.addOverlay(mk);
+        map.panTo(r.point);
+        alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+
+        var pt = r.point;
+        map.panTo(pt); //移动地图中心点
+        //alert(r.point.lng);//X轴
+        //alert(r.point.lat);//Y轴
+
+        gc.getLocation(pt, function (rs) {
+          var addComp = rs.addressComponents;
+          //alert(addComp.city);
+          alert(addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
+        });
+      } else {
+        alert('failed' + this.getStatus());
+      }
+    });
+  </script> -->
+</html>
