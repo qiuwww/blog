@@ -24,8 +24,8 @@ nginx 是一个高性能的 HTTP 和反向代理服务器，也是一个通用�
    2. 127.0.0.1 xbf.apigw.qa.92jkys.com
    3. 上边的两个同时只能启动一个访问到 127.0.0.1:80 上的服务。
 2. 但是使用 nginx，却可以根据域名访问的配置，将多个域名分开，分别请求到不同的端口上；
-   1. test.qa.92jkys.com -》 http://localhost:1024
-   2. test2.qa.92jkys.com -》 http://localhost:1025
+   1. test.qa.92jkys.com -》 <http://localhost:1024>
+   2. test2.qa.92jkys.com -》 <http://localhost:1025>
    3. 上边的请求，都是请求了域名的 80，但是最终都会被代理到 localhost 的不同端口。
 
 也就是只要访问域名就需要映射到本地，因为 nginx 本质也是检测本地的端口的。
@@ -49,6 +49,7 @@ nginx 是一个高性能的 HTTP 和反向代理服务器，也是一个通用�
 ## nginx
 
 1. brew install nginx
+   1. 使用brew安装的nginx的配置文件：`vi /opt/homebrew/etc/nginx/nginx.conf`
 
 2. 修改配置文件，端口设置为 80，/usr/local/etc/nginx/nginx.conf
 
@@ -71,8 +72,11 @@ sudo chown -R root:wheel /usr/local/etc/nginx/
 ### 开启和关闭命令
 
 1. brew services start nginx
+   1. <http://localhost:8080/>
 2. nginx
+   1. 这个也是启动
 3. nginx -t
+   1. 查看配置
 4. nginx -s reload
 5. sudo nginx -s reload // 重载配置文件
 6. sudo nginx -s stop // 停止 nginx 服务
@@ -88,9 +92,9 @@ sudo chown -R root:wheel /usr/local/etc/nginx/
 
 1. [参考文章](https://www.jianshu.com/p/66d3957c6698)
 
-原路径： http://source.server.com/callback/test/test?username=xx
+原路径： <http://source.server.com/callback/test/test?username=xx>
 
-转发到：http://10.1.9.1:8088/callback/test/test?username=xx
+转发到：<http://10.1.9.1:8088/callback/test/test?username=xx>
 
 配置如下：
 
@@ -99,13 +103,13 @@ server {
    server_name source.server.com;
   # 匹配 callback
    location /callback/ {
-       proxy_pass http://10.1.9.1:8088;
+       proxy_pass <http://10.1.9.1:8088>;
    }
 
 # 默认其他
 
 location / {
-     proxy_pass http://10.2.2.1:8088;
+     proxy_pass <http://10.2.2.1:8088>;
      # root  html;
      # index  index.html index.htm;
    }
