@@ -2,6 +2,9 @@
 
 https://www.modb.pro/db/46193
 
+
+ 需要区分mac和linux。
+
 ## 自增 id 还是 uuid
 
 1. 自增 id：
