@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>demo2</title>
+  </head>
+  <body>
+    <style>
+      .demo {
+        height: 400px;
+        display: flex;
+      }
+      .list {
+        background-color: aquamarine;
+
+        display: flex;
+        align-items: center;
+
+        /* flex-direction: column;
+        flex: 1;
+        overflow-x: hidden;
+        overflow-y: auto; */
+
+        width: 100%;
+
+        /* 修改为如下方式，可以滚动了 */
+        flex-direction: row;
+        overflow: scroll;
+        flex-wrap: wrap;
+      }
+      .item {
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 150px;
+      }
+    </style>
+    <div class="demo">
+      <div class="list">
+        <div class="item">
+          <h3>title</h3>
+          <p>
+            对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。
+          </p>
+        </div>
+        <div class="item">
+          <h3>title</h3>
+          <p>
+            对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。
+          </p>
+        </div>
+        <div class="item">
+          <h3>title</h3>
+          <p>
+            对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。
+          </p>
+        </div>
+        <div class="item">
+          <h3>title</h3>
+          <p>
+            对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。
+          </p>
+        </div>
+        <div class="item">
+          <h3>title</h3>
+          <p>
+            对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

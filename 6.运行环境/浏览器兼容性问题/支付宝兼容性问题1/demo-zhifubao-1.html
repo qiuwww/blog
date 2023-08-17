@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>demo1</title>
+  </head>
+  <body>
+    <style>
+      html,
+      body {
+        margin: 0;
+        overflow: hidden;
+        background-color: black;
+      }
+      .demo {
+        height: 100%;
+        background-color: crimson;
+      }
+      .box {
+        background-color: gold;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 50px;
+        /* box-sizing: border-box; */
+        /* box-sizing: content-box; */
+      }
+      .box p {
+        padding: 10px;
+      }
+    </style>
+
+    <div class="demo">
+      <div class="box">
+        <p>
+          这里有一个问题，一般的浏览器都正常，但是在支付宝浏览器内部&钉钉，都会展示黑色的body的背景，也就是说这个时候，内容超出了。
+        </p>
+        <p>
+          这里有一个简单的知识点，设置了position:
+          absolute;的属性的元素的width和height，也会跟left、right一样继承自上层最近的非static的定位的元素或者body
+        </p>
+        <p>
+          上边的代码，属于历史代码，经过多人之手，也是改来改去的，所以才会出现这样的问题。一般正常写，肯定不会这样的。
+        </p>
+        <p>
+          问题产生的原理：猜测可能是body的overflow在支付宝浏览器下无效果。因为支付宝的内置浏览器环境暂时还没有测试渠道，这个问题也是盲改，感觉这段比较奇葩就改了下，谁知竟然可以。
+        </p>
+        <p>这个问题的解决方案也很简单，去掉没必要的属性就好，或者只用padding来替代margin。</p>
+      </div>
+    </div>
+  </body>
+</html>
