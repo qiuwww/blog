@@ -7,27 +7,32 @@
   </head>
   <body>
     <style>
+      html,
+      body {
+        margin: 0;
+      }
       .demo {
         height: 400px;
         display: flex;
       }
       .list {
+        padding: 10px;
         background-color: aquamarine;
 
         display: flex;
         align-items: center;
 
-        /* flex-direction: column;
-        flex: 1;
-        overflow-x: hidden;
-        overflow-y: auto; */
-
         width: 100%;
 
+        flex-direction: column;
+        flex: 1;
+        overflow-x: hidden;
+        overflow-y: auto;
+
         /* 修改为如下方式，可以滚动了 */
-        flex-direction: row;
+        /* flex-direction: row;
         overflow: scroll;
-        flex-wrap: wrap;
+        flex-wrap: wrap; */
       }
       .item {
         padding-bottom: 10px;
