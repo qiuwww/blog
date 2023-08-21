@@ -4,11 +4,11 @@
 
 原始开发的时候，直接在chrome内进行开发，只在最后才对支付宝app进行兼容性测试，还好问题不是很多。
 
-主要是如下两个问题，主要的问题是chrome和微信下都是正常的，只在uc相关的一些浏览器内会出现。主要
+主要是如下两个问题，主要的问题是chrome和微信下都是正常的，只在uc相关的一些浏览器内会出现。
 
 ## 页面超出滚动，overflow不生效
 
-正常的情况：
+正常的情况，微信、其他浏览器扫码可查看：
 
 ![overflow滚动超出，正常表现](./imgs/WX20230817-211801.png)
 
@@ -77,91 +77,117 @@
 
 可测试地址二维码：
 
-
-
-微信、其他浏览器扫码可查看
+![可测试地址二维码](./imgs/1.png)
 
 ## flex与overflow结合导致的元素被挤压的问题
 
-## 浏览器内核不支持的问题处理
+正常的情况，微信、其他浏览器扫码可查看：
 
-1. 支付宝浏览器内核的一些兼容问题；
-2. 查看浏览器内核：
-   1. navigator.userAgent；
+![正常滚动，内容没有被挤压，复合预期](./imgs/WX20230817-213659.png)
 
-### 对比浏览器内核
+不正常的时候的表现，具体表现就是在uc系浏览器下会压缩内容，不出现滚动条：
 
-1. 支付宝小程序的webview：'Mozilla/5.0 (Android 9.0; Mi 10 Pro Build/QKQ1) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/15E148 ChannelId(0) LyraVM Nebula  AlipayDefined(nt:WIFI,ws:360|0|2.75) AliApp(AP/10.3.70) AlipayClient/10.3.70 Language/zh-Hans AlipayIDE'
-   1. 'Mozilla/5.0 (Android 9.0; Mi 10 Pro Build/QKQ1) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/15E148 ChannelId(0) LyraVM Nebula  AlipayDefined(nt:WIFI,ws:360|0|2.75) AliApp(AP/10.3.70) AlipayClient/10.3.70 Language/zh-Hans AlipayIDE MiniProgram'
+![内容被挤压，异常表现](./imgs/WechatIMG107.jpeg)
 
-2. chrome：'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'
+具体代码案例：
 
-3. 支付宝app：$$Mozilla/5.0(Linux U: Android13 zh-CN Mi 10 Pro Build/
-TKQ1.221114.001) AppleWebKit/537.36(KHTMLlike Gecko)Version/4.0 Chrome/69.0.3497100 UWS/3.22.2.59 Mobile Safari/53736 UCBS/322.2.59 230213152242 Channelld(0) NebulaSDK/1.8.100112 Nebula AlipayDefined(nt:4Gws:393|0|2.75) AliApp(AP/10.5.8.8000) AlipayClient/10.5.8.8000 Language/zh-Hans useStatusBar/true isConcaveScreen/true Region/CNAriver/1.0.0
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>demo2</title>
+  </head>
+  <body>
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+      .demo {
+        height: 400px;
+        display: flex;
+      }
+      .list {
+        padding: 10px;
+        background-color: aquamarine;
 
-#### <https://blog.csdn.net/qq_42363090/article/details/112535117，用谷歌浏览器模拟微信和支付宝浏览器环境>
+        display: flex;
+        align-items: center;
 
-<https://blog.csdn.net/weixin_44142611/article/details/107067626，这个也是不行的>
+        width: 100%;
 
-### 现在的问题就是支付宝内的浏览器内核比较高，并且出了样式的问题，别的位置模拟不出来这个结果
+        flex-direction: column;
+        flex: 1;
+        overflow-x: hidden;
+        overflow-y: auto;
 
-### <https://m-test.funtown.cn/main?id=cef5cf43eaee43e5b27c2c0e30c9df2d&vconsole=9999&test=testtest，标记调试>
-
-### 这里的100%，确实包括了浏览器的导航的高度，就导致实际占有的高度是755 - 导航高度，但是100%后，导航被加了进去
-
-1. 主动去计算导航的高度，然后删除；
-2. 正常应该是688，这里相差67px；
-
-### style
-
-1. height: -webkit-fill-available;
-
-## 关于今天遇到的三个问题
-
-```css
-/* <!-- 默认的样式 --> */
-{
-      /* 原本设置的滚动方式，表现就是在一般的浏览器内都可以正常滚动，但是在支付宝浏览器内不能滚动，会被压缩在一起 */
-     display: flex;
-     flex-direction: column;
-     flex: 1;
-     overflow-x: hidden;
-     overflow-y: auto;
-     width: 100%;
-   
-   /* 修改为如下方式，可以滚动了 */
-    flex-direction: row;
-    overflow: scroll;
-    flex-wrap: wrap;
-}
+        /* 修改为如下方式，可以滚动了 */
+        /* flex-direction: row;
+        overflow: scroll;
+        flex-wrap: wrap; */
+      }
+      .item {
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 150px;
+      }
+    </style>
+    <div class="demo">
+      <div class="list">
+        <div class="item">
+          <h3>title</h3>
+          <p>
+            对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。
+          </p>
+        </div>
+        <div class="item">
+          <h3>title</h3>
+          <p>
+            对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。
+          </p>
+        </div>
+        <div class="item">
+          <h3>title</h3>
+          <p>
+            对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。
+          </p>
+        </div>
+        <div class="item">
+          <h3>title</h3>
+          <p>
+            对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。
+          </p>
+        </div>
+        <div class="item">
+          <h3>title</h3>
+          <p>
+            对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。对任何人任何事过分期待都是一件危险的事。
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
 ```
 
-## 最主要的一个问题是，没法本地调试，只能每次发布测试环境，忙试
+可测试地址二维码：
 
-1. 后续，需要配置好charles本地代理工具，遇到限制不严重的，可以代理本地的文件到测试手机；
-2. 最好能拿到本地开发环境；
-3. 遇到问题不要慌，通常情况下只是没想道，一般都不困难；
-   1. 从根本上对问题进行分析；
-4. 调试技术很重要，特别是在移动端，特定的运行场景，不方便复现的时候，就很考验调试技术和基础工具支持了；
-5. 不要写那多的骚操作代码，正常一点；
+![可测试地址二维码](./imgs/2.png)
 
-以前遇到一个人非要问我写数组有没有遇到什么问题。自己通常正常操作，肯定也不会遇到，这尼玛真没法回答的问题
+## 总结
 
-## 开发的流程
+1. 对于h5，可以通过添加url上的可变参数，来控制页面的调试工具的展示，是一个不错的方案；
+   1. 比如在url上添加`vConsole=1`，来初始化vConsole，并展示出来调试框，类似的可以用在其他的一些调试工具和方法；
+2. 对于h5的调试，最好的方式还是连接到本地开发环境，在真机上运行本地的开发代码，类似微信开发工具相关的功能，日常可用的方式如：
+   1. chrome的`chrome://inspect/#devices`远程调试；
+   2. charles代理工具，代理本地服务到特定预设的域名；
+      1. 127.0.0.1:3000 => test.aaa.com，处理跨域限制；
+3. 调试技术很重要，特别是在移动端，特定的运行场景，不方便复现的时候，就很考验调试技术和基础工具掌握程度了；
+4. **不要写那多的骚操作代码**，正常一点写；
+   1. 上边的两个问题，可能是一些历史的问题，多人累加的结果，日常开发避免这些骚操作，正常的写，一般也不会出现这些奇怪的问题；
 
-1. 本地修改，提交到开发分支feat-test；
-2. 线上合并到test；
-3. test检测到变化，自动执行流水线；
-4. 发布到线上；
-5. 获取发布的地址；
-6. 转换为二维码；
-7. 支付宝扫码查看页面；
-
-## 开发调试环境
-
-1. 对外有 debug的支付宝版本，但是没找到；
-2. 代理本地html，似乎也是行不通，charles；
-3. chrome远程调试h5；
-   1. <https://www.frontendjs.com/article/6201d1a4e8a3c7241be33282>
-4. 每次都发布到测试环境；
-5. vconsole，对于处理样式兼容问题，用途不大；
+[测试代码github地址](https://github.com/qiuwww/blog/blob/28eaedb74e0973bfc6dca2f5dd22c20fd32fe538/6.%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/%E6%94%AF%E4%BB%98%E5%AE%9D%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%981)。
