@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>计算canvas文本宽度方法measureText</title>
+  </head>
+
+  <body>
+    <style type="text/css">
+      #myCanvas {
+        border: 1px solid darkblue;
+        background-color: skyblue;
+      }
+    </style>
+    <select name="" id="select">
+      <option value="top">top</option>
+      <option value="left">left</option>
+      <option value="center">center</option>
+      <option value="right">right</option>
+    </select>
+    <br />
+    <canvas id="myCanvas" width="600" height="600"></canvas>
+    <script type="text/javascript">
+      var c = document.getElementById('myCanvas');
+      var ctx = c.getContext('2d');
+      ctx.font = '30px Arial';
+      var txt = 'Hello World, hello World';
+
+      const handler = (value) => {
+        let canvasWidth = document.querySelector('#myCanvas').clientWidth;
+        let canvasHeight = document.querySelector('#myCanvas').clientHeight;
+        // 清空画布
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        let left = null;
+        let top = 100;
+        if (value == 'left') {
+          left = 0;
+        } else if (value == 'center') {
+          left = (canvasWidth - ctx.measureText(txt).width) / 2;
+        } else if (value == 'right') {
+          left = canvasWidth - ctx.measureText(txt).width;
+        } else if (value == 'top') {
+          left = 0;
+          top = 10;
+        }
+        ctx.fillText('width:' + ctx.measureText(txt).width, 0, 300);
+        ctx.fillText(txt, left, top);
+      };
+
+      window.onload = function () {
+        document.querySelector('#select').addEventListener(
+          'change',
+          function (e) {
+            let target = e.currentTarget;
+            let value = target.value;
+
+            handler(value);
+          },
+          false,
+        );
+
+        // 自动触发
+        const select = document.querySelector('#select');
+        select.focus();
+        select.value = 'center'; // 自动赋值以后文本框已经change，理论上要发生onchange事件
+        // 但是如果不加以下这句是不会触发onchange事件的
+        handler(select.value);
+      };
+      // fillText接口 context.fillText(text,x,y,maxWidth); fillText() 方法在画布上绘制填色的文本。文本的默认颜色是黑色。
+      // x,初始为0的时候的位置在左侧边线上，y,初始为0的时候文字的底线在canvas画布最上沿
+      // context.measureText(text).width; 在画布上输出文本之前，检查字体的宽度：
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>封装canvas绘制圆的接口</title>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="600" height="600"></canvas>
+    <script type="text/javascript">
+      window.onload = function () {
+        var canvasTools = {
+          ctx: null,
+          init: function (canvas) {
+            if (canvas.getContext) {
+              this.ctx = canvas.getContext('bitmaprenderer');
+              console.log("this.ctx", this.ctx);
+
+            } else {
+              throw Error('canvas.getContext 不可用');
+            }
+            return this;
+          },
+          addShape: function (type, attrs = {}) {
+            const {
+              x,
+              y,
+              r,
+              sAngle = 0,
+              eAngle = 2 * Math.PI,
+              strokeStyle,
+              counterclockwise = true,
+            } = attrs;
+            const ctx = this.ctx;
+            if (type === 'circle') {
+              // 开始一个新的绘制路径
+              ctx.beginPath();
+              // 设置弧线的颜色为蓝色
+              ctx.strokeStyle = strokeStyle;
+              // context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+              ctx.arc(x, y, r, sAngle, eAngle);
+              // 按照指定的路径绘制弧线
+              ctx.stroke();
+            }
+          },
+        };
+
+        //获取Canvas对象(画布)
+        var canvas = document.getElementById('myCanvas');
+        //简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误
+        var canvasToolsObj = canvasTools.init(canvas);
+        // x,y,r,sAngle,eAngle,counterclockwise
+        if (!canvasToolsObj) {
+          return;
+        }
+
+        canvasToolsObj.addShape('circle', {
+          x: 100,
+          y: 75,
+          r: 50,
+          strokeStyle: 'blue',
+        });
+
+        canvasToolsObj.addShape('circle', {
+          x: 240,
+          y: 175,
+          r: 80,
+          strokeStyle: 'green',
+        });
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>添加滤镜操作图片</title>
+  </head>
+  <body>
+    <style>
+      .content {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+    <fieldset>
+      <legend>原始的图片，可以自行上传测试</legend>
+      <img id="base64" src="" width="300px" height="300px" />
+      <input type="file" id="setPic" onchange="readFile(this)" />
+    </fieldset>
+
+    <fieldset>
+      <legend>读取展示的图片，右侧是结果</legend>
+
+      <div class="content">
+        <canvas id="canvasA" width="300" height="300"> </canvas>
+        <ul>
+          <h3>这里调节不同的过滤方法</h3>
+          <li><a href="javascript:blackEffect()">黑白效果</a></li>
+          <li><a href="javascript:reverseEffect()">反转色值</a></li>
+          <li><a href="javascript:mosaicEffect()">马赛克</a></li>
+          <!-- <li><a href="javascript:blurEffect()">Blur Effect</a></li> -->
+          <!-- <li><a href="javascript:greyEffect()">Grey Effect</a></li> -->
+          <!-- <li><a href="javascript:reverseImage()">reverseImage Effect</a></li> -->
+        </ul>
+        <canvas id="canvasB" width="300" height="300"> </canvas>
+      </div>
+    </fieldset>
+
+    <script>
+      // 原图，左
+      var canvas = document.getElementById('canvasA');
+      var contextA = canvasA.getContext('2d');
+      // 效果显示窗口，右
+      var canvasB = document.getElementById('canvasB');
+      var contextB = canvasB.getContext('2d');
+
+      // 读取base64到浏览器本地
+      function readFile(obj) {
+        // 这里用来限制图片的大小，似乎可以很大
+        if (obj.files[0].size < 8000 * 1024) {
+          var file = obj.files[0];
+          //判断类型是不是图片
+          if (!/image\/\w+/.test(file.type)) {
+            alert('请确保文件为图像类型');
+            return false;
+          }
+          var reader = new FileReader();
+          reader.readAsDataURL(file);
+
+          reader.onload = function (e) {
+            // 确保加载完成
+            document.getElementById('base64').setAttribute('src', this.result);
+            // 创建图片对象
+            var image = new Image();
+            // image.src = "autumn.jpg"，本来的图片是本地的一个地址，这种情况下chrome的getImageData不可用，所以改为上传base64，进而读取图片的内容
+            // 给图片对象添加src的值
+            // image.src = document.getElementById("base64").getAttribute("src");
+            image.src = this.result;
+
+            image.onload = function () {
+              // 图片生成之后执行函数，在canvas画布上绘制图片
+              contextA.drawImage(image, 0, 0, canvasA.width, canvasA.height);
+            };
+          };
+        } else {
+          alert('上传图片不要大于8000kb！');
+        }
+      } // 读取base64，生成图片，以及canvas图片
+
+      // 黑白图像
+      function blackEffect() {
+        var imageData = contextA.getImageData(0, 0, canvasA.width, canvasA.height);
+        var pixelData = imageData.data;
+
+        for (var i = 0; i < canvasB.width * canvasB.height; i++) {
+          var r = pixelData[i * 4 + 0];
+          var g = pixelData[i * 4 + 1];
+          var b = pixelData[i * 4 + 2];
+          var grey = r * 0.3 + g * 0.59 + b * 0.11;
+          if (grey > 125) {
+            pv = 200;
+          } else {
+            pv = 0;
+          }
+          pixelData[i * 4 + 0] = pv;
+          pixelData[i * 4 + 1] = pv;
+          pixelData[i * 4 + 2] = pv;
+        }
+        contextB.putImageData(imageData, 0, 0, 0, 0, canvasA.width, canvasA.height);
+      }
+
+      // 反转颜色值
+      function reverseEffect() {
+        var imageData = contextA.getImageData(0, 0, canvasA.width, canvasA.height);
+        var pixelData = imageData.data;
+        for (var i = 0; i < canvasB.width * canvasB.height; i++) {
+          var r = pixelData[i * 4 + 0];
+          var g = pixelData[i * 4 + 1];
+          var b = pixelData[i * 4 + 2];
+          pixelData[i * 4 + 0] = 255 - r;
+          pixelData[i * 4 + 1] = 255 - g;
+          pixelData[i * 4 + 2] = 255 - b;
+        }
+        contextB.putImageData(imageData, 0, 0, 0, 0, canvasB.width, canvasB.height);
+      }
+
+      // 马赛克处理，与模糊滤镜的原理刚好相反，一个是多到一，一个是一到多
+      function mosaicEffect() {
+        var tmpImageData = contextA.getImageData(0, 0, canvasA.width, canvasA.height);
+        var tmpPixelData = tmpImageData.data;
+        var imageData = contextA.getImageData(0, 0, canvasA.width, canvasA.height);
+        var pixelData = imageData.data;
+        var size = 16;
+        var totalNum = size * size;
+        for (var i = 0; i < canvasB.height; i += size) {
+          for (var j = 0; j < canvasB.width; j += size) {
+            var totalr = 0,
+              totalg = 0,
+              totalb = 0;
+            for (var dx = 0; dx < size; dx++) {
+              for (var dy = 0; dy < size; dy++) {
+                var x = i + dx;
+                var y = j + dy;
+                var p = x * canvasB.width + y;
+                totalr += tmpPixelData[p * 4 + 0];
+                totalg += tmpPixelData[p * 4 + 1];
+                totalb += tmpPixelData[p * 4 + 2];
+              }
+            }
+            var p = i * canvasB.width + j;
+            var resr = totalr / totalNum;
+            var resg = totalg / totalNum;
+            var resb = totalb / totalNum;
+            for (var dx = 0; dx < size; dx++) {
+              for (var dy = 0; dy < size; dy++) {
+                var x = i + dx;
+                var y = j + dy;
+                var p = x * canvasB.width + y;
+                pixelData[p * 4 + 0] = resr;
+                pixelData[p * 4 + 1] = resg;
+                pixelData[p * 4 + 2] = resb;
+              }
+            }
+          }
+        }
+        contextB.putImageData(imageData, 0, 0, 0, 0, canvasB.width, canvasB.height);
+      }
+
+      // 模糊化处理,需要惨开一个像素周围的像素值
+      function blurEffect() {
+        var tmpImageData = contextA.getImageData(0, 0, canvasA.width, canvasA.height);
+        var tmpPixelData = tmpImageData.data;
+        var imageData = contextA.getImageData(0, 0, canvasA.width, canvasA.height);
+        var pixelData = imageData.data;
+        var blurR = 3;
+        var totalNum = (2 * blurR + 1) * (2 * blurR + 1);
+        for (var i = blurR; i < canvasB.height - blurR; i++) {
+          //遍历到(i,j)元素的时候
+          for (var j = blurR; j < canvasB.width - blurR; j++) {
+            var totalr = 0,
+              totalg = 0,
+              totalb = 0;
+            for (var dx = -blurR; dx <= blurR; dx++) {
+              //基于中心的点在x，y方向上的平均值，一共走了九次
+              for (var dy = -blurR; dy <= blurR; dy++) {
+                var x = i + dx;
+                var y = j + dy;
+                var p = x * canvasB.width + y;
+                totalr += tmpPixelData[p * 4 + 0];
+                totalg += tmpPixelData[p * 4 + 1];
+                totalb += tmpPixelData[p * 4 + 2];
+              }
+            }
+            var p = i * canvasB.width + j;
+            pixelData[p * 4 + 0] = totalr / totalNum; //中心点的像素等于周围的方块的平均值
+            pixelData[p * 4 + 1] = totalg / totalNum;
+            pixelData[p * 4 + 2] = totalb / totalNum;
+          }
+        }
+        contextB.putImageData(imageData, 0, 0, 0, 0, canvasB.width, canvasB.height);
+      }
+
+      // 反转像素位值
+      function reverseImage() {
+        //获取原始图片的高度的数据
+        var tmpImageData = contextA.getImageData(0, 0, canvasA.width, canvasA.height);
+        //像素数据
+        var tmpPixelData = tmpImageData.data;
+        // 生成的图片的数据
+        var imageData = contextA.getImageData(0, 0, canvasA.width, canvasA.height);
+        //像素数据
+        var pixelData = imageData.data;
+        var len = canvasB.width * canvasB.height;
+        console.log(len);
+        console.log(tmpPixelData);
+        // for( var i=0;i<len;i++){
+        //     pixelData[4*i+0] = tmpPixelData[4*(len-i)+2];
+        //     pixelData[4*i+1] = tmpPixelData[4*(len-i)+1];
+        //     pixelData[4*i+2] = tmpPixelData[4*(len-i)+0];
+        // }
+        var len_width = canvasB.width;
+        var len_height = canvasB.height;
+        for (var i = 0; i < len_width; i++) {
+          for (var j = 0; j < len_height; j++) {
+            pixelData[4 * (i * len_height - len_height + j) + 0] =
+              tmpPixelData[Math.floor(Math.random() * 255)];
+            pixelData[4 * (i * len_height - len_height + j) + 1] =
+              tmpPixelData[Math.floor(Math.random() * 255)];
+            pixelData[4 * (i * len_height - len_height + j) + 2] =
+              tmpPixelData[Math.floor(Math.random() * 255)];
+          }
+        }
+        contextB.putImageData(imageData, 0, 0, 0, 0, canvasB.width, canvasB.height);
+      }
+
+      // 灰化的图片函数
+      function greyEffect() {
+        //http://www.w3school.com.cn/tags/canvas_getimagedata.asp
+        //var imgData=context.getImageData(x,y,width,height);
+        var imageData = contextA.getImageData(0, 0, canvasA.width, canvasA.height);
+        //占满整个画布，也就是画布的长宽就等于实际图像的长宽
+        //getImageData() 方法返回 ImageData 对象，该对象拷贝了画布指定矩形的像素数据。
+        var pixelData = imageData.data;
+        //对于 ImageData 对象中的每个像素，都存在着四方面的信息，即 RGBA 值：
+        //上边对象的i*4+0表示：r(0~255),后边的依次
+        for (var i = 0; i < canvasB.width * canvasB.height; i++) {
+          var r = pixelData[i * 4 + 0];
+          var g = pixelData[i * 4 + 1];
+          var b = pixelData[i * 4 + 2];
+          var grey = r * 0.3 + g * 0.59 + b * 0.11; //灰化计算算法
+          pixelData[i * 4 + 0] = grey;
+          pixelData[i * 4 + 1] = grey;
+          pixelData[i * 4 + 2] = grey;
+        }
+        //http://www.w3school.com.cn/tags/canvas_putimagedata.asp
+        //context.putImageData(imgData,x,y,dirtyX,dirtyY,dirtyWidth,dirtyHeight);
+        //putImageData() 方法将图像数据（从指定的 ImageData 对象）放回画布上。
+        //dirtyX可选。水平值（x），以像素计，在画布上放置图像的位置。
+        //x ,ImageData 对象左上角的 x 坐标，以像素计。
+        contextB.putImageData(imageData, 0, 0, 0, 0, canvasB.width, canvasB.height);
+      }
+    </script>
+  </body>
+</html>

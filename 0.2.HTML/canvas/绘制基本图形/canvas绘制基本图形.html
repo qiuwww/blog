@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>绘制canvas基本图形</title>
+    <meta charset="utf-8" />
+    <style>
+      #canvas {
+        width: 900px;
+        height: 900px;
+        border: 1px solid black;
+        cursor: pointer;
+      }
+      #export {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <wrapper>
+      <canvas id="canvas"></canvas>
+      <br />
+      <button id="export">导出canvas为图片，需要本地服务，直接file协议不可以</button>
+    </wrapper>
+    <script src="./drawAnimationUtil.js"></script>
+    <script>
+      (function () {
+        const canvas = {
+          // 记录当前的绘制canvas元素的context
+          config: {
+            canvas: document.getElementById('canvas'),
+            ctx: document.getElementById('canvas').getContext('2d'),
+            canvasWidth: document.getElementById('canvas').clientWidth,
+          },
+          // 绘制格子，将绘图区域分成几份
+          drawGrid: function () {
+            const { ctx } = this.config;
+
+            ctx.beginPath();
+            // 这里的小数是为了处理1px线条模糊的问题
+            ctx.moveTo(299.5, 0);
+            ctx.lineTo(299.5, 900);
+
+            ctx.moveTo(599.5, 0);
+            ctx.lineTo(599.5, 900);
+
+            ctx.moveTo(0, 299.5);
+            ctx.lineTo(900, 299.5);
+
+            ctx.moveTo(0, 599.5);
+            ctx.lineTo(900, 599.5);
+
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#000000';
+            ctx.stroke();
+          },
+          // 绘制一个点，占一个像素的点
+          drawDot: function () {
+            const { ctx } = this.config;
+            ctx.beginPath();
+            ctx.moveTo(149, 150);
+            ctx.lineTo(150, 150);
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#000000';
+            ctx.stroke();
+          },
+
+          // 绘制一条线段，会包括很多的像素点
+          drawLine: function () {
+            const { ctx } = this.config;
+            ctx.beginPath();
+            ctx.moveTo(350, 150);
+            ctx.lineTo(550, 150);
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#000000';
+            ctx.stroke();
+          },
+
+          // 绘制一个封闭的矩形
+          drawRect() {
+            const { ctx } = this.config;
+            ctx.beginPath();
+            ctx.moveTo(620, 50);
+            ctx.lineTo(820, 50);
+            ctx.lineTo(820, 150);
+            ctx.lineTo(620, 150);
+            // 下边的两句是等效的
+            ctx.lineTo(620, 50);
+            // ctx.closePath();
+
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#000000';
+            ctx.stroke();
+          },
+
+          // 使用strokeRect绘制
+          drawRect2() {
+            const { ctx } = this.config;
+            // 使用方便的快捷的接口填充图形
+            ctx.strokeStyle = 'green';
+            ctx.strokeRect(650, 100, 200, 100);
+          },
+
+          // 绘制一个面，矩形的面
+          drawFillRect: function () {
+            const { ctx } = this.config;
+
+            ctx.beginPath();
+            ctx.moveTo(50, 320);
+            ctx.lineTo(250, 320);
+            ctx.lineTo(250, 420);
+            ctx.lineTo(50, 420);
+
+            ctx.fillStyle = 'gold';
+            ctx.fill();
+          },
+
+          drawFillRect2() {
+            const { ctx } = this.config;
+            // 使用方便的快捷的接口填充图形
+            ctx.fillStyle = 'green';
+            ctx.fillRect(50, 450, 200, 100);
+          },
+
+          // 绘制一个面，绘制一个圆
+          drawFillArc: function () {
+            const { ctx } = this.config;
+            ctx.beginPath();
+
+            ctx.arc(430, 430, 100, 0, 2 * Math.PI);
+
+            ctx.fillStyle = 'gold';
+
+            ctx.fill();
+          },
+
+          drawStrokeArc: function () {
+            const { ctx } = this.config;
+            ctx.beginPath();
+
+            ctx.arc(460, 460, 100, 0, 2 * Math.PI);
+
+            ctx.fillStyle = 'yellow';
+
+            ctx.stroke();
+          },
+
+          drawCurve: function () {
+            const { ctx } = this.config;
+            ctx.strokeStyle = 'blue';
+            // 起点
+            ctx.moveTo(650, 350);
+            // 二次贝塞尔曲线
+            // 绘制二次贝塞尔曲线，cp1x,cp1y 为一个控制点，x,y 为结束点。
+            ctx.quadraticCurveTo(600, 450, 850, 400);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.strokeStyle = 'blueviolet';
+            // 起点
+            ctx.moveTo(650, 450);
+            // 绘制三次贝塞尔曲线，cp1x,cp1y为控制点一，cp2x,cp2y为控制点二，x,y为结束点。
+            // bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+            // 相对于二次，多了一个控制点
+            ctx.bezierCurveTo(600, 600, 900, 600, 850, 500);
+
+            ctx.stroke();
+          },
+
+          drawTitleText() {
+            const { ctx } = this.config;
+            ctx.font = '24px serif';
+            ctx.fillStyle = 'skyBlue';
+            ctx.fillText('贝塞尔曲线', 700, 350);
+
+            ctx.font = '48px serif';
+            ctx.strokeStyle = 'red';
+            ctx.strokeText('Hello world', 350, 100);
+          },
+
+          // 绘制图片到canvas上
+          drawImage() {
+            const { ctx } = this.config;
+            ctx.beginPath();
+
+            const img = document.createElement('img');
+            // 这里的图片可以是远端、本地或者base64类型的；
+            img.src = './imgs/cat.jpg';
+
+            img.onload = function () {
+              // drawImage(image, x, y, width, height)
+              // 这里图片原本大小80，这里被放大到200
+              ctx.drawImage(this, 50, 650, 200, 200);
+            };
+          },
+
+          drawAnimation() {
+            // 这里只需要不断的修改小球的属性，然后绘制就可以了
+            const { ctx } = this.config;
+            drawAnimationBall(ctx);
+          },
+
+          // 绘制一个笑脸
+          drawSmiley: function (strokeStyle = 'coral') {
+            const { ctx } = this.config;
+
+            ctx.beginPath();
+            ctx.strokeStyle = strokeStyle;
+
+            ctx.arc(750, 750, 50, 0, Math.PI * 2, true); // 绘制
+            ctx.moveTo(785, 750);
+            ctx.arc(750, 750, 35, 0, Math.PI, false); // 口 (顺时针)
+            ctx.moveTo(740, 740);
+            ctx.arc(735, 740, 5, 0, Math.PI * 2, true); // 左眼
+            ctx.moveTo(770, 740);
+            ctx.arc(765, 740, 5, 0, Math.PI * 2, true); // 右眼
+            ctx.stroke();
+
+            // 这里会清空前面绘制的所有的内容，但是后续新绘制的就不受影响；
+            // ctx.reset();
+          },
+
+          init: function () {
+            let that = this;
+            const { ctx } = this.config;
+
+            const { canvas, canvasWidth } = this.config;
+            canvas.width = canvasWidth;
+            canvas.height = canvasWidth;
+
+            // 添加事件
+            window.addEventListener(
+              'mousedown',
+              function (e) {
+                // cxt.clearRect(0, 0, canvas.width, canvas.height);
+
+                let x = e.offsetX;
+                let y = e.offsetY;
+
+                var center = { x: 750, y: 750 };
+
+                var r = Math.sqrt(Math.pow(x - center.x, 2) + Math.pow(y - center.y, 2));
+
+                // 判断点击到了当前的圆脸区域
+                if (x >= 698 && x <= 802 && y >= 698 && y <= 802 && r <= 52) {
+                  console.log(e.offsetX, e.offsetY, r);
+
+                  var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+                  that.drawSmiley(randomColor);
+
+                  ctx.beginPath();
+                  ctx.font = '16px serif';
+                  ctx.fillStyle = randomColor;
+                  ctx.fillText('你点击了一次笑脸', 685, 650);
+                }
+              },
+              false,
+            );
+
+            window.addEventListener('click', function (e) {
+              if (event.target.id === 'export') {
+                // 通过 API 获取目标 canvas 元素
+                const canvas = document.querySelector('#canvas');
+
+                // 创建一个 a 标签，并设置 href 和 download 属性
+                const el = document.createElement('a');
+                // 设置 href 为图片经过 base64 编码后的字符串，默认为 png 格式
+                el.href = canvas.toDataURL();
+
+                el.download = 'canvas';
+
+                // 创建一个点击事件并对 a 标签进行触发
+                const event = new MouseEvent('click');
+                el.dispatchEvent(event);
+              }
+            });
+
+            return this;
+          },
+          draw() {
+            this.drawGrid();
+
+            this.drawDot();
+            this.drawLine();
+            this.drawRect();
+            this.drawRect2();
+
+            this.drawFillRect();
+            this.drawFillRect2();
+            this.drawFillArc();
+            this.drawStrokeArc();
+            this.drawCurve();
+            this.drawTitleText();
+
+            this.drawImage();
+            this.drawAnimation();
+            this.drawSmiley();
+          },
+        };
+        // 绘制
+        canvas.init().draw();
+      })();
+    </script>
+  </body>
+</html>

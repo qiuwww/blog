@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>疯狂俄罗斯方块</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+    <script type="text/javascript" src="./BlockGame.js"></script>
+
+    <style type="text/css">
+      @font-face {
+        font-family: water;
+        src: url('water.TTF') format('TrueType');
+      }
+      body > div {
+        font-size: 13pt;
+        padding-bottom: 8px;
+      }
+      span {
+        font-family: water;
+        font-size: 20pt;
+        color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>疯狂俄罗斯方块</h1>
+    <div style="width: 336px; height: 20pt; border: 1px solid black; background: #ff9">
+      &nbsp;
+      <div style="float: left">
+        速度：<span id="curSpeedEle"></span>&nbsp;当前积分：<span id="curScoreEle"></span>
+      </div>
+      <div style="float: right">最高积分：<span id="maxScoreEle"></span></div>
+    </div>
+  </body>
+</html>

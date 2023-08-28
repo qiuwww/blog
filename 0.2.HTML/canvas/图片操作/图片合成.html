@@ -1,0 +1,144 @@
+<!-- two-img.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Html5 Canvas 实现图片合成</title>
+    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/Canvas2Image.js" type="text/javascript" charset="utf-8"></script>
+    <style></style>
+  </head>
+
+  <body>
+    <fieldset>
+      <legend>原始图片</legend>
+      <div class="content">
+        <div align="left" class="imgs">
+          <img src="imgs/1.jpg" width="200" />
+          <img src="imgs/3.jpg" width="200" />
+          <img src="imgs/4.png" width="200" />
+          <img src="imgs/2.jpg" width="200" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>图片操作</legend>
+      <div class="content">
+        <p>需要图片可以转base64，需要起服务</p>
+        <div>
+          <button onClick="draw()">一键合成</button>
+          <button onClick="watermark()">添加水印</button>
+          <button onClick="saveCanvasImg()">导出图片</button>
+        </div>
+        <p>如下是生成结果：</p>
+        <canvas id="canvas"></canvas>
+        <div id="imgBox" align="center"></div>
+      </div>
+    </fieldset>
+
+    <script>
+      var canvas = document.querySelector('#canvas');
+      var ctx = canvas.getContext('2d');
+
+      canvas.width = 400;
+      canvas.height = 400;
+
+      // 绘制图片基底颜色
+      ctx.rect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'green'; // 画布填充颜色
+      ctx.fill();
+
+      var imgArr = new Array();
+      for (var i = 0; i < $('.imgs img').length; i++) {
+        imgArr[i] = $('.imgs img').eq(i).attr('src');
+      }
+
+      var len = imgArr.length;
+
+      // 加载水印图片
+      var watermarkImg = new Image();
+      watermarkImg.crossOrigin = 'Anonymous'; // 解决跨域
+      watermarkImg.src = './imgs/watermark.jpg';
+
+      function draw(fn) {
+        function drawing(n) {
+          if (n < len) {
+            var img = new Image();
+            img.crossOrigin = 'Anonymous'; // 解决跨域
+            img.src = imgArr[n];
+            img.onload = function () {
+              // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+              // 取每个图片的中心区域，对角线绘制到canvas上
+              ctx.drawImage(img, 0, 0, 200, 200, n * 100, n * 100, 100, 100);
+              drawing(n + 1); //递归
+            };
+          }
+        }
+        // 执行绘制
+        drawing(0);
+      }
+
+      function removeBackground() {
+        var canvasWaterMark = document.createElement('canvas');
+        var ctxWaterMark = canvasWaterMark.getContext('2d');
+
+        canvasWaterMark.width = 100;
+        canvasWaterMark.height = 100;
+
+        ctxWaterMark.drawImage(watermarkImg, 0, 0, canvasWaterMark.width, canvasWaterMark.height);
+        // ctxWaterMark.fillStyle = 'rgba(255, 255, 255, 0)';
+
+        ctxWaterMark.font = '24px serif';
+        ctxWaterMark.strokeStyle = 'red';
+        ctxWaterMark.rotate((45 * Math.PI) / 180);
+        ctxWaterMark.strokeText('我是水印', 10, 10);
+
+        var imageData = ctxWaterMark.getImageData(
+          0,
+          0,
+          canvasWaterMark.width,
+          canvasWaterMark.height,
+        );
+
+        var pixelData = imageData.data;
+        for (var i = 0; i < canvasWaterMark.width * canvasWaterMark.height; i++) {
+          var r = pixelData[i * 4 + 0];
+          var g = pixelData[i * 4 + 1];
+          var b = pixelData[i * 4 + 2];
+
+          if (r == 86 && g == 86 && b == 86) {
+            // pixelData[i * 4 + 0] = 0;
+            // pixelData[i * 4 + 1] = 0;
+            // pixelData[i * 4 + 2] = 0;
+            pixelData[i * 4 + 3] = 0;
+          }
+        }
+
+        return { pixelData, wh: canvasWaterMark.width };
+      }
+
+      function watermark() {
+        const positionX = Math.random() * 300;
+        const positionY = Math.random() * 300;
+
+        const { pixelData, wh } = removeBackground();
+        // 去掉图片的背景色
+        // (86, 86, 86, 1)
+        // var data = new ImageData(new Uint8ClampedArray(4 * wh * wh), wh, wh);
+        const data = new Uint8ClampedArray(pixelData, wh, wh);
+        // 必须保证 Uint8ClampedArray 的 length = 4*width*height 才不会报错
+        const imageData = new ImageData(data, wh, wh);
+
+        // void ctx.putImageData(imagedata, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight);
+        ctx.putImageData(imageData, positionX, positionY, 0, 0, wh, wh);
+
+        // ctx.drawImage(removeBackground(), 0, 0, 640, 640, positionX, positionY, 100, 100);
+      }
+
+      function saveCanvasImg() {
+        Canvas2Image.saveAsJPEG(canvas); //保存到电脑
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!-- html2canvas -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>html2canvas导出图片并合并图层</title>
+  </head>
+
+  <!-- <img id="smiley" src="imgs/watermark.jpg" border="1" title="Image tag" /> -->
+
+  <body>
+    <script src="./js/html2canvas.js" type="text/javascript"></script>
+    <script src="./js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <fieldset>
+      <legend>原始网页</legend>
+      <div class="content" id="html" style="background-color: blueviolet; padding: 20px">
+        <p>这里是一个p标签</p>
+        <img src="imgs/1.jpg" alt="这是一个图片" width="200" />
+        <ol>
+          <li>哈哈哈</li>
+          <li>哈哈哈</li>
+          <li>哈哈哈</li>
+          <li>哈哈哈</li>
+          <li>哈哈哈</li>
+        </ol>
+        <div id="online">
+          古之欲明明德于天下者，先治其国。欲治其国者，先齐其家，欲齐其家者，先修其身。欲修其身者，先正其心。欲正其心者，先诚其意。欲诚其意者，先致其知。致知在格物。
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        $(function () {
+          var $div = $('#online');
+          var html = $div.html();
+          html = html.length > 20 ? html.substring(0, 20) + '...' : html;
+          $div.html(html);
+        });
+      </script>
+    </fieldset>
+
+    <fieldset>
+      <legend>处理html为canvas</legend>
+      <div class="content">
+        <button onclick="draw()">网页部分转为图片</button>
+        <button onclick="saveFile()">保存图片</button>
+      </div>
+      <img id="html-img" src="" alt="" />
+      <canvas id="drawing" width="300" height="300"
+        >Your browser doesn't support the canvas tag.</canvas
+      >
+    </fieldset>
+
+    <script type="text/javascript">
+      var drawing = document.getElementById('drawing');
+      function draw2img(imageData) {
+        drawing.width = 300;
+        drawing.height = 300;
+
+        drawing.style.border = '1px solid red';
+
+        var context = drawing.getContext('2d');
+
+        context.drawImage(imageData, 0, 0, 600, 600, 0, 0, 300, 300);
+      }
+      // 网页部分转为图片
+      function draw() {
+        html2canvas(document.getElementById('html'), {
+          onrendered: function (canvas) {
+            var dataUrl = canvas.toDataURL();
+            var newImg = document.createElement('img');
+            newImg.src = dataUrl;
+
+            document.querySelector('#html-img').src = dataUrl;
+
+            newImg.onload = function () {
+              draw2img(newImg);
+            };
+          },
+          width: 600,
+          height: 600,
+        });
+      }
+
+      /**
+       * 在本地进行文件保存
+       * @param  {String} data     要保存到本地的图片数据
+       * @param  {String} filename 文件名
+       */
+      var saveFile = function () {
+        var data = drawing.toDataURL();
+
+        var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+        save_link.href = data;
+        save_link.download = 'test.png';
+
+        var event = document.createEvent('MouseEvents');
+        event.initMouseEvent(
+          'click',
+          true,
+          false,
+          window,
+          0,
+          0,
+          0,
+          0,
+          0,
+          false,
+          false,
+          false,
+          false,
+          0,
+          null,
+        );
+        save_link.dispatchEvent(event);
+      };
+    </script>
+  </body>
+</html>

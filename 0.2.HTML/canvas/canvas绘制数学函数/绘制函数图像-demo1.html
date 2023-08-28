@@ -1,0 +1,313 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;">-->
+    <title>三角函数图</title>
+  </head>
+
+  <body>
+    <canvas id="sinCanvas" height="300px" width="300px"></canvas>
+    <canvas id="cosCanvas" height="300px" width="300px"></canvas>
+    <canvas id="tanCanvas" height="300px" width="300px"></canvas>
+    <p></p>
+    <canvas id="sinhCanvas" height="300px" width="300px"></canvas>
+    <canvas id="coshCanvas" height="300px" width="300px"></canvas>
+    <canvas id="tanhCanvas" height="300px" width="300px"></canvas>
+
+    <script>
+      //线宽为奇数不能被整除，导致绘制坐标为整数时，上下偏移出0.5像素。又由于0.5像素不能被显示，
+      // 自动补足为1像素。于是整体像素+1。
+      // 具体如
+      //当绘制直线L:0,0),(100,0)时，画笔中线y坐标=0。由于线宽的存在，
+      //实际绘制线条有一半线宽在y的负半轴。导致不可见。
+      //如若绘制时，画笔中线坐标y为1，线宽也为1，那么线条区域Rect（left:0,top:-0.5,right:100;bottom:0.5）
+      //由于0.5像素不足以被显示，实际渲染时，上下各加0.5，于是线条变成2px：
+      // Rect（left:0,top:-1,right:100;bottom:1）
+      //当线宽为2时，则不存在这个现象。
+      //解决办法:
+      // var fix1px = (cxt.lineWidth % 2 === 0) ?0: 0.5;
+      //线宽不为整数，不用管。
+      //纵向线条，x坐标偏移
+      // x = x+fix1px ;
+      //横向线条，y坐标偏移
+      // y = y+ fix1px ;
+
+      var angularHelper = function (canvas, config) {
+        config = config ? config : {};
+        var deConfig = {
+          fn: config.fn ? config.fn : 'tan',
+          fontSize: 12,
+          // desColor:config.desColor?config.desColor:"",
+          lineColor: config.lineColor ? config.lineColor : '#7389B9', //曲线颜色
+          arrowL: config.arrowL ? config.arrowL : 4, //箭头线长
+          arrowArg: Math.PI / 3, //箭头夹角
+          cellXs: config.cellXs ? config.cellXs : 8, //x轴分割数
+          cellYs: config.cellYs ? config.cellYs : 6, //y轴分割数
+          cellLH: config.cellLH ? config.cellLH : 6, //分割线高度
+          cellXV: config.cellXV ? config.cellXV : Math.PI, //每个x单元的值（弧度）
+          cellYV: config.cellYV ? config.cellYV : 1, //每个y单元的值
+          cellXUnit: config.cellXUnit || config.cellXUnit === '' ? config.cellXUnit : 'π', //单位
+          cellYUnit: config.cellYUnit || config.cellYUnit === '' ? config.cellYUnit : '', //单位
+          cellXMins: config.cellXMins ? config.cellXMins : 1, //x轴一单位尺度拆分为更小份数
+          cellYMins: config.cellYMins ? config.cellYMins : 1, //y轴一单位尺度拆分为更小份数,
+          spaceXMText: config.spaceXMText ? config.spaceXMText : 0, //x轴每间隔多少个更小单位，标注文字
+          spaceYMText: config.spaceYMText ? config.spaceYMText : 0, //y轴每间隔多少个更小单位，标注文字
+        };
+        var cxt = canvas.getContext('2d');
+        cxt.lineWidth = 1;
+        var width = canvas.width;
+        var height = canvas.height;
+        var arrowL = deConfig.arrowL;
+        //箭头三角形中线长
+        var arrowLin = arrowL * Math.cos(deConfig.arrowArg / 2);
+        //箭头三角形底边/2
+        var arrowDui = arrowL * Math.sin(deConfig.arrowArg / 2);
+
+        //每份x对应的像素长度
+        var cellXL = width / deConfig.cellXs;
+        var cellYL = height / deConfig.cellYs;
+
+        //y=sin(x)
+        var oneXV = deConfig.cellXV / cellXL; //一个x像素点对应的x值
+        var oneYV = deConfig.cellYV / cellYL; //一个x像素点对应的y值
+
+        var fix1px = cxt.lineWidth % 2 === 0 ? 0 : 0.5;
+
+        function draw() {
+          drawDes();
+          drawXY();
+          drawUnitXY();
+          drawFnLine();
+        }
+
+        //描述
+        function drawDes() {
+          cxt.font = deConfig.fontSize + 'px sinsum';
+          var fw = cxt.measureText('x').width;
+
+          cxt.fillText('y = ' + deConfig.fn + '(x)  x∈R', deConfig.fontSize, deConfig.fontSize);
+          cxt.fillText('x', width - fw, height / 2 + deConfig.fontSize);
+          cxt.fillText('y', width / 2 + fw, fw);
+          // cxt.stroke();
+        }
+
+        //xy轴
+        function drawXY() {
+          var ox = Math.floor(width / 2) + fix1px; //1px显示变粗修复
+          var oy = Math.floor(height / 2) + fix1px; //1px显示变粗修复
+
+          //x轴
+          cxt.moveTo(0, oy);
+          cxt.lineTo(width, oy);
+
+          //y轴
+          cxt.moveTo(ox, height);
+          cxt.lineTo(ox, 0);
+          // cxt.stroke();
+
+          //x箭头
+          // cxt.beginPath();
+          cxt.moveTo(width - arrowLin - cxt.lineWidth / 2, oy - arrowDui);
+          cxt.lineTo(width, oy);
+          cxt.lineTo(width - arrowLin - cxt.lineWidth / 2, oy + arrowDui);
+          // cxt.closePath();
+          // cxt.stroke();
+
+          //y箭头
+          // cxt.beginPath();
+          cxt.moveTo(ox - arrowDui, arrowLin + cxt.lineWidth / 2);
+          cxt.lineTo(ox, 0);
+          cxt.lineTo(ox + arrowDui, arrowLin + cxt.lineWidth / 2);
+          // cxt.closePath();
+
+          cxt.stroke();
+        }
+
+        //单元格
+        function drawUnitXY() {
+          //x轴分割
+          var x = 0;
+          //整除
+          // var xExact = deConfig.cellXs % 2 === 0;
+
+          var xText = '';
+          cxt.beginPath();
+
+          //x轴
+          var xCount = Math.floor((deConfig.cellXs * deConfig.cellXMins) / 2);
+          // xExact ? (xCount = xCount - 1) : xCount;
+          cxt.font = deConfig.fontSize + 'px sinsum';
+
+          // 起始和结束不绘制
+          for (var i = 1; i <= xCount; i++) {
+            //负数轴
+            x = Math.floor(width / 2 - (i * cellXL) / deConfig.cellXMins);
+
+            if (x > 0) {
+              x = x + fix1px;
+              //当i%deConfig.cellXMins==0时，进位，画长线条,否则短线条，以做区分
+              if (i % deConfig.cellXMins === 0) {
+                cxt.moveTo(x, height / 2 - deConfig.cellLH);
+              } else {
+                cxt.moveTo(x, height / 2 - deConfig.cellLH / 1.5);
+              }
+              cxt.lineTo(x, height / 2);
+
+              xText = -i / deConfig.cellXMins + '' + deConfig.cellXUnit;
+
+              if (i % (deConfig.spaceXMText + 1) === 0) {
+                cxt.fillText(
+                  xText,
+                  x - cxt.measureText(xText).width / 2,
+                  height / 2 + deConfig.fontSize,
+                );
+              }
+            }
+
+            //正数轴
+            x = Math.floor(width / 2 + (i * cellXL) / deConfig.cellXMins);
+            if (x < width) {
+              x = x + fix1px; //1px显示粗细修复
+              if (i % deConfig.cellXMins === 0) {
+                cxt.moveTo(x, height / 2 - deConfig.cellLH);
+              } else {
+                cxt.moveTo(x, height / 2 - deConfig.cellLH / 1.5);
+              }
+              cxt.lineTo(x, height / 2 - 0.5);
+
+              xText = i / deConfig.cellXMins + '' + deConfig.cellXUnit;
+              if (i % (deConfig.spaceXMText + 1) === 0) {
+                cxt.fillText(
+                  xText,
+                  x - cxt.measureText(xText).width / 2,
+                  height / 2 + deConfig.fontSize,
+                );
+              }
+            }
+          }
+
+          //y轴分割
+          var y = 0;
+          // var yExact = deConfig.cellYs % 2 === 0;
+          var yCount = Math.floor((deConfig.cellYs * deConfig.cellYMins) / 2);
+          // yExact ? (yCount = yCount - 1) : yCount;
+          //整除
+
+          // 起始和结束不绘制
+          for (var j = 1; j <= yCount; j++) {
+            //负轴
+            y = Math.floor(height / 2 + (j * cellYL) / deConfig.cellYMins);
+            console.log(deConfig.fn, y, yCount, '下');
+            if (y < height) {
+              y = y + fix1px;
+              //当j%deConfig.cellXMins==0时，进位，画长线条,否则短线条，以做区分
+              if (j % deConfig.cellYMins === 0) {
+                cxt.moveTo(Math.floor(width / 2 + deConfig.cellLH), y);
+              } else {
+                cxt.moveTo(Math.floor(width / 2 + deConfig.cellLH / 1.5), y);
+              }
+              cxt.lineTo(width / 2, y);
+              if (j % (deConfig.spaceYMText + 1) === 0) {
+                cxt.fillText(
+                  -j / deConfig.cellYMins + '' + deConfig.cellYUnit,
+                  width / 2 + deConfig.fontSize,
+                  y + deConfig.fontSize / 2,
+                );
+              }
+            }
+
+            //正轴
+            y = Math.floor(height / 2 - (j * cellYL) / deConfig.cellYMins);
+            console.log(deConfig.fn, y, yCount, '上');
+            if (y > 0) {
+              y = y + fix1px;
+              if (j % deConfig.cellYMins === 0) {
+                cxt.moveTo(Math.floor(width / 2 + deConfig.cellLH), y);
+              } else {
+                cxt.moveTo(Math.floor(width / 2 + deConfig.cellLH / 1.5), y);
+              }
+              cxt.lineTo(width / 2, y);
+              if (j % (deConfig.spaceYMText + 1) === 0) {
+                cxt.fillText(
+                  j / deConfig.cellYMins + '' + deConfig.cellYUnit,
+                  width / 2 + deConfig.fontSize,
+                  y + deConfig.fontSize / 2,
+                );
+              }
+            }
+          }
+          // cxt.closePath();
+          cxt.stroke();
+        }
+
+        //函数曲线
+        function drawFnLine() {
+          var startXV = (-width / 2) * oneXV; //最左方x的值
+          var startYV = (height / 2) * oneYV; //最上方y的值
+
+          var yv = 0;
+          //为每个x像素点计算y值,并连接
+          var y = 0;
+          cxt.strokeStyle = deConfig.lineColor;
+          cxt.beginPath();
+          for (var x = 0; x <= width; x++) {
+            eval('yv = Math.' + deConfig.fn + '(startXV + oneXV * x);');
+
+            y = (startYV - yv) / oneYV;
+            if (Math.abs(x) > width || Math.abs(y) > height || x <= 0 || x >= width) {
+              cxt.moveTo(x + fix1px, y);
+              continue;
+            }
+            cxt.lineTo(x + fix1px, y);
+          }
+          // cxt.closePath();
+          cxt.stroke();
+        }
+
+        return { draw: draw };
+      };
+
+      var sinCanvas = document.getElementById('sinCanvas');
+      var cosCanvas = document.getElementById('cosCanvas');
+      var tanCanvas = document.getElementById('tanCanvas');
+      var sinhCanvas = document.getElementById('sinhCanvas');
+      var coshCanvas = document.getElementById('coshCanvas');
+      var tanhCanvas = document.getElementById('tanhCanvas');
+
+      angularHelper(sinCanvas, {
+        fn: 'sin',
+        cellXV: Math.PI,
+        cellXs: 5,
+        cellYs: 7,
+        cellXMins: 2,
+        cellYMins: 2,
+      }).draw();
+      angularHelper(cosCanvas, {
+        fn: 'cos',
+        cellXV: Math.PI,
+        cellXs: 4,
+        cellYs: 4,
+        cellXMins: 2,
+      }).draw();
+      angularHelper(tanCanvas, {
+        fn: 'tan',
+        cellXV: Math.PI,
+        cellXs: 5,
+        cellYs: 4,
+        cellXMins: 2,
+        spaceXMText: 1,
+      }).draw();
+
+      angularHelper(sinhCanvas, {
+        fn: 'sinh',
+        cellXV: 1,
+        cellXs: 8,
+        cellXUnit: '',
+        cellXMins: 10,
+        spaceXMText: 4,
+      }).draw();
+      angularHelper(coshCanvas, { fn: 'cosh', cellXV: 1, cellXs: 7, cellXUnit: '' }).draw();
+      angularHelper(tanhCanvas, { fn: 'tanh', cellXV: 1, cellXs: 7, cellXUnit: '' }).draw();
+    </script>
+  </body>
+</html>

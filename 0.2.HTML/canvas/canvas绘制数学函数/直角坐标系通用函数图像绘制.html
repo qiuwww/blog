@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>直角坐标系通用函数图像绘制</title>
+  </head>
+  <body>
+    <style>
+      html,
+      body {
+        margin: 10;
+      }
+      #canvas {
+        margin-top: 10px;
+      }
+      .canvas-wrap {
+        display: inline-block;
+        padding: 20px;
+        border: 1px solid black;
+      }
+      .preset {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .preset button {
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+      .custom {
+        display: inline-flex;
+        margin: 10px 0;
+        background-color: aquamarine;
+      }
+    </style>
+    <div class="btns">
+      <div class="preset">
+        <button onClick="pageObj.drawExpression('y=x')">绘制y=x</button>
+        <button onClick="pageObj.drawExpression('y=2*x + 1')">绘制y=2*x + 1</button>
+        <button onClick="pageObj.drawExpression('y=x*x - 1')">绘制y=x*x - 1</button>
+        <button onClick="pageObj.drawExpression('y=x * x * x')">绘制y=x*x*x</button>
+        <button onClick="pageObj.drawExpression('y=Math.sin(x)')">绘制y=Math.sin(x)</button>
+        <button onClick="pageObj.drawExpression('y=Math.sin(x * x * x)')">
+          绘制y=Math.sin(x * x * x)
+        </button>
+        <button onClick="pageObj.drawExpression('y=Math.sin(Math.tan(x))')">
+          绘制y=Math.sin(Math.tan(x))
+        </button>
+        <button onClick="pageObj.drawExpression('y=1/x')">绘制y=1/x</button>
+        <button onClick="pageObj.drawExpression('y=x + 1/x')">绘制y=x + 1/x</button>
+
+        <button onClick="pageObj.drawExpression('y= Math.sin(5 * x) / x')">
+          绘制y= Math.sin(5 * x) / x
+        </button>
+
+        <button
+          onClick="pageObj.drawExpression('y=Math.sqrt(x*x, 3) + 0.99 * Math.sqrt((3.3 - x*x), 2) * Math.sin(9.9 * Math.PI * x)')"
+        >
+          绘制y=Math.sqrt(x*x, 3) + 0.99 * Math.sqrt((3.3 - x*x), 2) * Math.sin(9.9 * Math.PI * x)
+        </button>
+      </div>
+
+      <div class="custom">
+        <span>y=</span>
+        <input type="text" id="input" />
+        <button onClick="runCustomExpress()">自定义绘制</button>
+      </div>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <script>
+      /**
+       * 这里要注意真是的坐标与绘制的位置的关系
+       */
+
+      // 线条变粗，整体向右下偏移0.5px;
+      var page = {
+        config: {
+          wh: 600,
+          padding: 50,
+          coordinate: {
+            color: 'black',
+            // 如下表示分了6分，绘制5份
+            scales: 6,
+            range: 5,
+
+            // 这里遇到js精度丢失的问题0.1 + 0.2的问题
+            // 刻度绘制最小单位
+            minimumScale: 0.1,
+
+            // 绘制曲线的步福
+            step: 0.01,
+
+            // 小刻度的长度
+            minScale: 5,
+            // 大刻度的长度
+            maxScale: 10,
+            scaleColor: 'darkgray',
+          },
+        },
+        init(canvas) {
+          this.canvas = document.getElementById('canvas');
+
+          this.ctx = this.canvas.getContext('2d');
+          this.canvas.width = this.config.wh;
+          this.canvas.height = this.config.wh;
+
+          // 原点位置
+          this.centerXY = this.fixLineWidth(this.config.wh / 2);
+
+          // this.canvas.style.border = '1px solid black';
+          return this;
+        },
+
+        fixLineWidth(coordinate) {
+          // return coordinate;
+          var fix1px = coordinate % 2 !== 0 ? 0 : 0.5;
+          return coordinate + fix1px;
+        },
+
+        // 绘制坐标系
+        // 横纵坐标、刻度、箭头
+        drawCoordinateSystem() {
+          const ctx = this.ctx;
+          const {
+            wh,
+            padding,
+            coordinate: {
+              color: coordinateColor,
+              scales,
+              minScale,
+              maxScale,
+              step,
+              minimumScale,
+              scaleColor,
+            },
+          } = this.config;
+
+          const centerXY = this.centerXY;
+
+          // 绘制纵横轴
+          ctx.moveTo(padding, centerXY);
+          ctx.lineTo(wh - padding, centerXY);
+          ctx.moveTo(centerXY, padding);
+          ctx.lineTo(centerXY, wh - padding);
+
+          ctx.strokeStyle = coordinateColor;
+          ctx.stroke();
+
+          return this;
+        },
+
+        // 绘制刻度
+        drawCoordinateSystem2() {
+          const ctx = this.ctx;
+          const centerXY = this.centerXY;
+          const {
+            wh,
+            padding,
+            coordinate: {
+              color: coordinateColor,
+              scales,
+              minScale,
+              maxScale,
+              step,
+              minimumScale,
+              scaleColor,
+            },
+          } = this.config;
+
+          // 绘制刻度
+
+          // 每一份对应的长度，这里与坐标轴
+          const divideLength = (wh - 2 * padding) / (2 * scales);
+
+          ctx.beginPath();
+
+          // 刻度的范围 [-scales, scales]
+          for (let x = -scales; x <= scales - 0.5; x += minimumScale) {
+            // 端点不绘制，0点不绘制
+            if (x % scales === 0 || Math.round(x * 1000) === 0) {
+              continue;
+            }
+            const xPoint = centerXY + x * divideLength;
+
+            ctx.moveTo(xPoint, centerXY);
+
+            if (Math.round(x * 10) % 10 === 0) {
+              ctx.lineTo(xPoint, centerXY - maxScale);
+
+              // 绘制刻度值
+              const textWidth = ctx.measureText(Math.round(x)).width;
+              ctx.fillText(Math.round(x), xPoint - textWidth / 2, centerXY - maxScale + 25);
+            } else {
+              ctx.lineTo(xPoint, centerXY - minScale);
+            }
+          }
+
+          for (let y = -scales; y <= scales - 0.5; y += minimumScale) {
+            // 端点不绘制
+            if (y % scales === 0 || Math.round(y * 1000) === 0) {
+              continue;
+            }
+            const yPoint = centerXY - y * divideLength;
+
+            ctx.moveTo(centerXY, yPoint);
+            if (Math.round(y * 10) % 10 === 0) {
+              ctx.lineTo(centerXY + maxScale, yPoint);
+              // 绘制刻度值
+              ctx.fillText(Math.round(y), centerXY - 15, yPoint + 3);
+            } else {
+              ctx.lineTo(centerXY + minScale, yPoint);
+            }
+          }
+          ctx.strokeStyle = scaleColor;
+          ctx.stroke();
+          return this;
+        },
+
+        // 绘制箭头
+        drawCoordinateSystem3() {
+          const ctx = this.ctx;
+          const centerXY = this.centerXY;
+          const {
+            wh,
+            padding,
+            coordinate: {
+              color: coordinateColor,
+              scales,
+              minScale,
+              maxScale,
+              step,
+              minimumScale,
+              scaleColor,
+            },
+          } = this.config;
+
+          ctx.beginPath();
+
+          ctx.moveTo(centerXY, padding);
+          ctx.lineTo(centerXY - 5, padding + 20);
+          ctx.moveTo(centerXY, padding);
+          ctx.lineTo(centerXY + 5, padding + 20);
+
+          ctx.moveTo(wh - padding, centerXY);
+          ctx.lineTo(wh - padding - 20, centerXY - 5);
+          ctx.moveTo(wh - padding, centerXY);
+          ctx.lineTo(wh - padding - 20, centerXY + 5);
+
+          ctx.strokeStyle = coordinateColor;
+          ctx.stroke();
+
+          return this;
+        },
+
+        // 绘制真实的图像
+        drawExpression(expression) {
+          const ctx = this.ctx;
+          const centerXY = this.centerXY;
+          const {
+            wh,
+            padding,
+            coordinate: {
+              color: coordinateColor,
+              scales,
+              minScale,
+              maxScale,
+              step,
+              minimumScale,
+              scaleColor,
+              range,
+            },
+          } = this.config;
+
+          console.log('expression', expression);
+          const [, yExpression] = expression.split('=');
+
+          var x = 1;
+
+          const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+          // eval(2 * x) => 2
+          ctx.beginPath();
+
+          let y = 0;
+          let axisX = 0;
+          let axisY = 0;
+
+          // 这里是[-6, 6] => [100, 500]
+          function axisTransfer(direction, scalesAxis) {
+            const scale = (wh - 2 * padding) / (scales * 2);
+            if (direction === 'X') {
+              return scalesAxis * scale + centerXY;
+            } else {
+              return -scalesAxis * scale + centerXY;
+            }
+          }
+
+          let drawExpressAxis = [];
+
+          for (let x = -range; x <= range - 0.5; x += step) {
+            axisX = axisTransfer('X', x);
+            axisY = axisTransfer('Y', eval(yExpression));
+
+            // 1. 使用点连接
+            // ctx.moveTo(axisX, axisY);
+            // ctx.arc(axisX, axisY, 1, 0, 2 * Math.PI);
+            // ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            // ctx.fill();
+
+            // 2. 使用线连接
+            ctx.lineTo(axisX, axisY);
+            ctx.strokeStyle = randomColor;
+            ctx.stroke();
+
+            console.log('parseInt(x)', range, parseInt(x), parseInt(x) === range);
+
+            if (
+              (parseInt(x) === Math.ceil(range / 2) ||
+                parseInt(eval(yExpression)) === Math.ceil(range / 2)) &&
+              !drawExpressAxis[0]
+            ) {
+              drawExpressAxis = [axisX, axisY];
+            }
+          }
+
+          // 右上角绘制函数的name
+          ctx.font = '14px Microsoft YaHei';
+          ctx.fillStyle = randomColor;
+          ctx.fillText(expression, ...drawExpressAxis);
+        },
+      };
+
+      var pageObj = page
+        .init()
+        .drawCoordinateSystem()
+        .drawCoordinateSystem2()
+        .drawCoordinateSystem3();
+
+      function runCustomExpress() {
+        const val = document.querySelector('#input').value;
+        pageObj.drawExpression('y=' + val);
+      }
+    </script>
+  </body>
+</html>
