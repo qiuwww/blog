@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>canvas-painter</title>
+    <title>canvas-painter<%= htmlWebpackPlugin.options.title %></title>
+
     <style type="text/css">
       canvas {
         border: 1px solid #ccc;
@@ -120,9 +121,5 @@
       </div>
       <canvas width="600" height="600" id="canvas" style="width: 600px; height: 600px"></canvas>
     </div>
-    <!-- <script type="text/javascript" src="dist/painter.js"></script>
-    <script type="text/javascript" src="dist/setting.js"></script>
-    <script type="text/javascript" src="dist/toolbar.js"></script> -->
-    <!-- <script type="text/javascript"></script> -->
   </body>
 </html>

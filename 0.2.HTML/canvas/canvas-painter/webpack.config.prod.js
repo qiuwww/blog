@@ -6,6 +6,9 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = merge(baseConfig, {
+  output: {
+    publicPath: './', // 通常是CDN地址
+  },
   mode: 'production',
   devtool: 'source-map',
   // optimization: {

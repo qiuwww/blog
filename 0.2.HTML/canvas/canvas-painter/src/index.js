@@ -1,4 +1,4 @@
-console.log('canvas-painter');
+console.log('canvas-painter', DEV, FLAG);
 
 import Painter from './Painter.js';
 import Setting from './Setting.js';
