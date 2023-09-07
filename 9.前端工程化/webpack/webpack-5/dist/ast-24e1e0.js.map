@@ -1,0 +1,1 @@
+{"version":3,"file":"ast-24e1e0.js","mappings":"yBAAAA,QAAQC,IAAI,c","sources":["webpack://canvas-painter/./src/ast.js"],"sourcesContent":["console.log('ast-demo.js');\n"],"names":["console","log"],"sourceRoot":""}

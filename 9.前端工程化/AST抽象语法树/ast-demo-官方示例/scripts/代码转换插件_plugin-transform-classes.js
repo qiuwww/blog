@@ -36,7 +36,7 @@ let ClassPlugin = {
         let body = classList[index].body;
 
         // 获取参数
-        let params = item.params.length ? item.params.map(val => val.name) : [];
+        let params = item.params.length ? item.params.map((val) => val.name) : [];
 
         // 转化参数为标识符
         params = types.identifier(params);

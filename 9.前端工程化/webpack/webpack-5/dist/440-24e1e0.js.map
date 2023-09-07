@@ -1,0 +1,1 @@
+{"version":3,"file":"440-24e1e0.js","mappings":"6KAAe,WACbA,QAAQC,IAAI,QACd,C","sources":["webpack://canvas-painter/./src/handle.js"],"sourcesContent":["export default function hello() {\n  console.log('hello');\n}\n"],"names":["console","log"],"sourceRoot":""}
