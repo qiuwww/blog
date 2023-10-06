@@ -259,6 +259,8 @@ canvas可以绘制各种图形以及动画，开发一些可交互的小游戏�
 
 [俄罗斯方块游戏:https://github.com/qiuwww/blog/blob/master/0.2.HTML/canvas/html5%E5%B0%8F%E6%B8%B8%E6%88%8F/h5%E6%96%B9%E5%9D%97%E6%B8%B8%E6%88%8F](https://github.com/qiuwww/blog/blob/master/0.2.HTML/canvas/html5%E5%B0%8F%E6%B8%B8%E6%88%8F/h5%E6%96%B9%E5%9D%97%E6%B8%B8%E6%88%8F)
 
+[一个基础的移动的元素：https://github.com/qiuwww/blog/blob/master/0.2.HTML/canvas/%E7%BB%98%E5%88%B6%E5%9F%BA%E6%9C%AC%E5%9B%BE%E5%BD%A2/%E7%A7%BB%E5%8A%A8%E7%9A%84%E5%A4%A7%E5%98%B4.html](https://github.com/qiuwww/blog/blob/master/0.2.HTML/canvas/%E7%BB%98%E5%88%B6%E5%9F%BA%E6%9C%AC%E5%9B%BE%E5%BD%A2/%E7%A7%BB%E5%8A%A8%E7%9A%84%E5%A4%A7%E5%98%B4.html)
+
 ## more
 
 以上的内容主要介绍了canvas操作2d绘图的内容，使用canvas还可以进行3d的绘制，随着移动端设备性能的提高，这方面还是有很大的发展潜力的。主要webgl及相关的一些操作库。后续会继续介绍相关的内容。

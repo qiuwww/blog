@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>移动的大嘴</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+      const canvas = document.querySelector('#canvas');
+      canvas.width = 600;
+      canvas.height = 600;
+      const ctx = canvas.getContext('2d');
+
+      let x = 150,
+        y = 300;
+      let toBigger = 1;
+
+      startAngle = 0.1 * Math.PI;
+      endAngle = 1.9 * Math.PI;
+
+      radius = 100;
+
+      var angleSpeed = 0.03;
+      var lineSpeed = 0.5;
+
+      function draw() {
+        ctx.clearRect(0, 0, 600, 600);
+        ctx.beginPath();
+
+        x += lineSpeed;
+
+        if (x >= 450) x = 100;
+
+        if (startAngle > 0.2 * Math.PI) {
+          toBigger = -1;
+        }
+
+        if (startAngle <= 0.1 * Math.PI) {
+          toBigger = 1;
+        }
+
+        startAngle += angleSpeed * toBigger;
+        endAngle -= angleSpeed * toBigger;
+
+        ctx.moveTo(x, y);
+
+        ctx.lineTo(x + Math.cos(startAngle) * radius, y + Math.sin(startAngle) * radius);
+
+        ctx.arc(x, y, radius, startAngle, endAngle);
+
+        ctx.closePath();
+
+        // ctx.stroke();
+        ctx.fill();
+        window.requestAnimationFrame(draw);
+      }
+
+      requestAnimationFrame(draw);
+    </script>
+  </body>
+</html>
