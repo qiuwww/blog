@@ -65,6 +65,20 @@
       .text p + p {
         margin-top: 20px;
       }
+
+      .father {
+        width: 400px;
+      }
+
+      .multilineText2 {
+        /*这里当文本大于三行的时候就会截断，也可以自己来控制每行的长度*/
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        /*限制在一个块元素显示的文本的行数。*/
+        /* width: 300px; */
+      }
     </style>
 
     <h3>CSS控制单行文本溢出，显示省略号</h3>
@@ -74,6 +88,14 @@
     <h3>CSS控制多行文本溢出，显示省略号</h3>
     <div class="multilineText">
       我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本。
+    </div>
+
+    <div class="father">
+      <h3>CSS控制多行文本溢出，显示省略号2</h3>
+      <div class="multilineText2">
+        我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本。
+        <div class="btn">btn</div>
+      </div>
     </div>
 
     <h3>js+css控制显示省略号</h3>

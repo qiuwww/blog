@@ -83,3 +83,13 @@ find . -name node_modules -type d -mindepth 2
 36. env
 37. du 查询磁盘使用情况 du -k subdir
 38. tree -l 2 -o output.txt
+
+## 查找文件 `find / -name mysql.sock`
+
+## 设置文件权限 `chmod u+x ~/.ssh`
+
+## 利用Linux sz和rz命令实现下载和上传文件功能记录
+
+我们一般从服务器端下载文件到本地和上传文件用到FTP或者SFTP比较多，直接用的是客户端连接软件。在这篇文章中，我们来介绍直接用linux sz和rz命令来实现下载和上传文件的，我们也一起学习一下。
+
+<https://www.itbulu.com/linux-sz-rz.html>

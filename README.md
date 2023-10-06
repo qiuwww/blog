@@ -15,6 +15,8 @@ npm server
 
 在页面地址前面添加：`http://htmlpreview.github.io/?`
 
+文件的github地址，直接vscode里边复制远端文件地址。
+
 查看当前页面的地址二维码：`http://htmlpreview.github.io/?https://github.com/qiuwww/blog/blob/master/0.5.JS/js%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81/url%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81.html`
 
 ## description

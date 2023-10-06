@@ -112,3 +112,15 @@ Babel 支持自定义的预设(presets)或插件(plugins)。如果你的插件�
   "comments": true
 }
 ```
+
+## babel 常用相关插件说明
+
+1. babel-loader => webpack中转换babel的工具，相当于一个平台不做具体的工作
+2. @babel/core => babel转换语言的核心功能，核心api等；
+3. babel/preset-env => babel转换语言的内容包，包括es6+所有特性；
+4. @babel/cli => 使node环境支持es6语法；@babel/core也能是node环境支持es6语法；
+5. @babel/polyfill =>（一些全局方法和变量）Babel默认只转换新的JavaScript句法（syntax），而不转换新的API，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如Object.assign）都不会转码。举例来说，ES6在Array对象上新增了Array.from方法。Babel就不会转码这个方法。如果想让这个方法运行，必须使用babel-polyfill，为当前环境提供一个垫片。babel-polyfill相对来说比较大。
+6. @babel/runtime  => 如果不想用babel-polyfill污染全局环境，就是用babel-runtime+babel-plugin-transform-runtime；
+7. @babel/plugin-transform-runtime => babel-plugin-transform-runtime依赖于babel-runtime
+8. @babel/eslint-parser => babel + eslint 的解析器（好像也没有使用？）
+9. 插件名互换：@babel/core === 等同于 babel-core

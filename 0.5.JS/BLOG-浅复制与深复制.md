@@ -373,6 +373,35 @@ test();
 1. 不支持复制函数；
 2. 不支持 Symbol；
 
+## [js提供了一种原始深复制](https://developer.mozilla.org/zh-CN/docs/Web/API/structuredClone)
+
+全局的 structuredClone() 方法使用结构化克隆算法将给定的值进行深拷贝。
+
+该方法还支持把原始值中的可转移对象转移到新对象，而不是把属性引用拷贝过去。 可转移对象与原始对象分离并附加到新对象;它们不可以在原始对象中访问被访问到。
+
+[polyfill](https://github.com/zloirock/core-js#structuredclone)。
+
+```js
+// Create an object with a value and a circular reference to itself.
+const original = { name: "MDN" };
+original.itself = original;
+
+// Clone it
+const clone = structuredClone(original);
+
+console.assert(clone !== original); // the objects are not the same (not same identity)
+console.assert(clone.name === "MDN"); // they do have the same values
+console.assert(clone.itself === clone); // and the circular reference is preserved
+
+const b = {a: {
+  c: original
+}};
+
+const bCopy = structuredClone(b, {
+  // transfer: [original]
+});
+```
+
 ## 参考文章
 
 1. [js 如何实现一个对象的深拷贝](https://juejin.cn/post/6844904170332356616)

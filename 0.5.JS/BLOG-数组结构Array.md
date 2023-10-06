@@ -211,6 +211,110 @@ console.log(
 1. `Array.isArray()`
    1. 如果值是 Array，则为 true; 否则为 false。
 
-## concact
+## 一定注意reduce的用法
+
+```js
+const objects = [{ x: 1 }, { x: 2 }, { x: 3 }];
+// 这里的前一个参数是accumulator，而不是accumulator.x，因为是保留的是上次的结果
+const sum = objects.reduce(
+  (accumulator, currentValue) => accumulator + currentValue.x,
+  0,
+);
+
+console.log(sum); // 6
+
+//  ！如下的方式是错误的，谨记，大概率会得到一个非数
+const objects2 = [{ x: 1 }, { x: 2 }, { x: 3 }];
+const sum = objects2.reduce(
+  (accumulator, currentValue) => accumulator.x + currentValue.x,
+   {x: 0},
+);
+
+console.log(sum); // 6
+```
+
+**这里有个明显的特征，初始值的结果与最终的目标的结果格式是一样的**，比如初始为为一个数值，就会得到一个数值。如果初始化一个对象，就会得到一个对象。
+
+```js
+const goods = [{type: 'plate', No: 123}, {type: 'bowl', No: 321}]
+ 
+const result = goods.reduce((prev, cur) => {
+  !prev[cur.No] && (prev[cur.No] = cur)
+  return prev
+}, {})
+ 
+console.log(result ) // {123: {type: "plate", No: 123}, 321: {type: "bowl", No: 321}}
+```
+
+```js
+// 合并/操作一些属性，这里可以连续操作所有的item
+const goods = [{type: 'plate', No: 123}, {type: 'bowl', No: 321}]
+ 
+const result = goods.reduce((prev, cur) => {
+  console.log(prev, cur);
+  return {No: prev?.No + cur?.No}
+}, {No: 0})
+ 
+console.log(result.No);
+```
+
+## [为什么forEach要比for循环慢](https://juejin.cn/post/7018097650687803422)
+
+1. for循环是js提出时就有的循环方法。forEach是ES5提出的，挂载在可迭代对象原型上的方法，例如Array Set Map。
+2. forEach是一个迭代器，负责遍历可迭代对象。
+   1. forEach 其实是一个迭代器，他与 for 循环本质上的区别是 forEach 是负责遍历（Array Set Map）可迭代对象的，而 for 循环是一种循环机制，只是能通过它遍历出数组。
+3. **Symbol.iterator 都会提供一个迭代器，并根据迭代器返回的next方法来访问内部**，这也是 for...of 的实现原理。
+   1. 所以for...of的性能与这些迭代器方法是接近的，是要低于for循环的；
+4. forEach属于迭代器，只能按序依次遍历完成，**所以不支持上述的中断行为**。
+
+### for循环和forEach的性能区别
+
+1. 性能比较：for > forEach > map；
+2. for循环没有额外的函数调用栈和上下文，所以它的实现最为简单。
+3. forEach：对于forEach来说，它的函数签名中包含了参数和上下文，所以性能会低于 for 循环。
+4. map 最慢的原因是因为 map 会返回一个新的数组，数组的创建和赋值会导致分配内存空间，因此会带来较大的性能开销。
+   1. **它不是普通的 for 循环的语法糖，还有诸多参数和上下文需要在执行的时候考虑进来**，这里可能拖慢性能。
+5. 数据结构上：**for循环是随机访问元素，foreach是顺序链表访问元素**。
+
+```js
+var l = [];
+for (var i = 0; i < 100000000; i++) {
+    l.push(i);
+}
+
+var a = Date.now();
+for (var i = 0, len = l.length; i < len; i++) {
+    (function f(item) {}());
+}
+var b = Date.now();
+console.log('for: ', b - a);
+
+var a = Date.now();
+l.forEach(function (item) {});
+var b = Date.now();
+console.log('forEach: ', b - a);
+```
+
+### forEach的源码
+
+[分析源码](https://zhuanlan.zhihu.com/p/385521894)。
+
+FastArrayForEach 的核心逻辑是 for 循环，在 for 循环中对每一个元素，都调用 callbackfn，但是不要 callbackfn 的返回结果。最后整个函数 return Undefined。
+
+**forEach() 遍历的范围在第一次调用 callback 前就会确定**。调用 forEach 后添加到数组中的项不会被 callback 访问到。如果已经存在的值被改变，则传递给 callback 的值是 forEach() 遍历到他们那一刻的值。已删除的项不会被遍历到。
+
+```js
+// 简易版 forEach
+function forEach(callback, thisArg) {
+  const array = this
+  const len = array.length
+  for (i = 0; i < len; i++) {
+    callback.call(thisArg, array[i], i, array)
+  }
+  return undefined
+}
+```
+
+## contact
 
 [github 源文件地址](https://github.com/qiuwww/blog/blob/master/0.5.JS/BLOG-%E6%95%B0%E7%BB%84%E7%BB%93%E6%9E%84Array.md)
