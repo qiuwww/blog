@@ -1,0 +1,85 @@
+{
+  "hooks": {
+    "evaluateTypeof": { "_map": {}, "_interceptors": [] },
+    "evaluate": { "_map": {}, "_interceptors": [] },
+    "evaluateIdentifier": { "_map": {}, "_interceptors": [] },
+    "evaluateDefinedIdentifier": { "_map": {}, "_interceptors": [] },
+    "evaluateNewExpression": { "_map": {}, "_interceptors": [] },
+    "evaluateCallExpression": { "_map": {}, "_interceptors": [] },
+    "evaluateCallExpressionMember": { "_map": {}, "_interceptors": [] },
+    "isPure": { "_map": {}, "_interceptors": [] },
+    "preStatement": { "_args": ["statement"], "taps": [], "interceptors": [] },
+    "blockPreStatement": { "_args": ["declaration"], "taps": [], "interceptors": [] },
+    "statement": { "_args": ["statement"], "taps": [], "interceptors": [] },
+    "statementIf": { "_args": ["statement"], "taps": [], "interceptors": [] },
+    "classExtendsExpression": {
+      "_args": ["expression", "classDefinition"],
+      "taps": [],
+      "interceptors": []
+    },
+    "classBodyElement": { "_args": ["element", "classDefinition"], "taps": [], "interceptors": [] },
+    "classBodyValue": {
+      "_args": ["expression", "element", "classDefinition"],
+      "taps": [],
+      "interceptors": []
+    },
+    "label": { "_map": {}, "_interceptors": [] },
+    "import": { "_args": ["statement", "source"], "taps": [], "interceptors": [] },
+    "importSpecifier": {
+      "_args": ["statement", "source", "exportName", "identifierName"],
+      "taps": [],
+      "interceptors": []
+    },
+    "export": { "_args": ["statement"], "taps": [], "interceptors": [] },
+    "exportImport": { "_args": ["statement", "source"], "taps": [], "interceptors": [] },
+    "exportDeclaration": { "_args": ["statement", "declaration"], "taps": [], "interceptors": [] },
+    "exportExpression": { "_args": ["statement", "declaration"], "taps": [], "interceptors": [] },
+    "exportSpecifier": {
+      "_args": ["statement", "identifierName", "exportName", "index"],
+      "taps": [],
+      "interceptors": []
+    },
+    "exportImportSpecifier": {
+      "_args": ["statement", "source", "identifierName", "exportName", "index"],
+      "taps": [],
+      "interceptors": []
+    },
+    "preDeclarator": { "_args": ["declarator", "statement"], "taps": [], "interceptors": [] },
+    "declarator": { "_args": ["declarator", "statement"], "taps": [], "interceptors": [] },
+    "varDeclaration": { "_map": {}, "_interceptors": [] },
+    "varDeclarationLet": { "_map": {}, "_interceptors": [] },
+    "varDeclarationConst": { "_map": {}, "_interceptors": [] },
+    "varDeclarationVar": { "_map": {}, "_interceptors": [] },
+    "pattern": { "_map": {}, "_interceptors": [] },
+    "canRename": { "_map": {}, "_interceptors": [] },
+    "rename": { "_map": {}, "_interceptors": [] },
+    "assign": { "_map": {}, "_interceptors": [] },
+    "assignMemberChain": { "_map": {}, "_interceptors": [] },
+    "typeof": { "_map": {}, "_interceptors": [] },
+    "importCall": { "_args": ["expression"], "taps": [], "interceptors": [] },
+    "topLevelAwait": { "_args": ["expression"], "taps": [], "interceptors": [] },
+    "call": { "_map": {}, "_interceptors": [] },
+    "callMemberChain": { "_map": {}, "_interceptors": [] },
+    "memberChainOfCallMemberChain": { "_map": {}, "_interceptors": [] },
+    "callMemberChainOfCallMemberChain": { "_map": {}, "_interceptors": [] },
+    "optionalChaining": { "_args": ["optionalChaining"], "taps": [], "interceptors": [] },
+    "new": { "_map": {}, "_interceptors": [] },
+    "binaryExpression": { "_args": ["binaryExpression"], "taps": [], "interceptors": [] },
+    "expression": { "_map": {}, "_interceptors": [] },
+    "expressionMemberChain": { "_map": {}, "_interceptors": [] },
+    "unhandledExpressionMemberChain": { "_map": {}, "_interceptors": [] },
+    "expressionConditionalOperator": { "_args": ["expression"], "taps": [], "interceptors": [] },
+    "expressionLogicalOperator": { "_args": ["expression"], "taps": [], "interceptors": [] },
+    "program": { "_args": ["ast", "comments"], "taps": [], "interceptors": [] },
+    "finish": {
+      "_args": ["ast", "comments"],
+      "taps": [
+        { "type": "sync", "name": "JavascriptParser" },
+        { "type": "sync", "name": "JavascriptParser" },
+        { "type": "sync", "name": "JavascriptParser" }
+      ],
+      "interceptors": []
+    }
+  },
+  "sourceType": "auto"
+}
