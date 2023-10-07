@@ -14,8 +14,8 @@ module.exports = {
     plugins: [
         new webpack.DllPlugin({
             //name和library一致
-            name: '[name]_dll', 
-            path: path.resolve(__dirname, 'dist', 'dll', 'manifest.json') 
+            name: '[name]_dll',
+            path: path.resolve(__dirname, 'dist', 'dll', 'manifest.json')
         })
     ]
 }

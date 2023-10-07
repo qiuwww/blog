@@ -73,7 +73,15 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        use: 'ts-loader',
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              // 设置transpileOnly为true， 就会关闭项目运行时的类型检查，只做编译。
+              transpileOnly: true,
+            },
+          },
+        ],
       },
       {
         //  解释(interpret) @import 和 url() ，会 import/require() 后再解析(resolve)它们。

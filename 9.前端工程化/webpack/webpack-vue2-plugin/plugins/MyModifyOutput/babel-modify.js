@@ -9,12 +9,13 @@ const generate = require('@babel/generator').default;
 const fs = require('fs');
 
 function modify(code) {
-  // fs.writeFile(__dirname + '/res/code.js', code, (err) => {
-  //   console.log('err', err);
-  // });
+  fs.writeFile(__dirname + '/mid/code-in.js', code, (err) => {
+    console.log('err', err);
+  });
 
   const ast = parser.parse(code);
 
+  // 这里解析得到的结果不是目标文件内容
   traverse(ast, {
     // 这里的enter，表示对每个节点都调用
     enter(path) {
@@ -25,22 +26,9 @@ function modify(code) {
       // }
       if (types.isStringLiteral(path.node)) {
         if ('哈哈哈哈哈😄' === path.node.value) {
-          // console.log('######', path.node);
-          // 这里如何替换一个字符串？？？
+          console.log('######', path.node);
         }
-        // 这里为什么不能替换？
         // path.node = types.stringLiteral('hello world');
-      }
-
-      if (types.isStringLiteral(path.node)) {
-        if ('哈哈哈哈哈😄' === path.node.value) {
-          // path.arguments
-          // console.log('######', path.parentPath.parentPath);
-          // fs.writeFile(__dirname + '/res/code-sub.json', JSON.stringify(path.parentPath), (err) => {
-          //   console.log('err', err);
-          // });
-          // path.parentPath.arguments.push(types.stringLiteral('hello world'));
-        }
       }
 
       if (types.isIdentifier({ name: 'add' })) {
@@ -50,16 +38,11 @@ function modify(code) {
 
     Program(path) {
       const { node } = path;
-      console.log('Program path', path.node);
     },
   });
 
-  // fs.writeFile(__dirname + '/res/code.json', JSON.stringify(ast), (err) => {
-  //   console.log('err', err);
-  // });
-
-  fs.writeFileSync(__dirname + '/middle/0.js', generate(ast, {}).code);
-  fs.writeFileSync(__dirname + '/middle/0.json', JSON.stringify(ast));
+  fs.writeFileSync(__dirname + '/mid/code-out.js', generate(ast, {}).code);
+  fs.writeFileSync(__dirname + '/mid/code-out.json', JSON.stringify(ast));
 
   return generate(ast, {}).code;
 }

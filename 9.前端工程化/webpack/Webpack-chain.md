@@ -1,4 +1,4 @@
-# Webpack-chain
+# webpack-chain
 
 [文档](https://github.com/neutrinojs/webpack-chain#getting-started)
 [需要学习一下：前端工程化：webpack-chain](https://juejin.cn/post/6844904138954801166)

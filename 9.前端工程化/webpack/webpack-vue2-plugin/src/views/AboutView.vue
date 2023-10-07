@@ -4,12 +4,12 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 var str = 'str';
 
 const typeA = typeof str; // 触发钩子
 
-const add = (a: number, b: number) => {
+const add = (a, b) => {
   // debugger;
   console.log('add function');
   return a + b;

@@ -1,0 +1,1 @@
+{"version":3,"file":"ast-68db6b.js","mappings":"yBACCA,QAAQC,IAAI,oB","sources":["webpack://canvas-painter/./src/ast.js"],"sourcesContent":["export default \"console.log('ast-demo.js');\\n\" \n console.log(\"loader-modify add\")"],"names":["console","log"],"sourceRoot":""}

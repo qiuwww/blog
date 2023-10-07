@@ -6,7 +6,7 @@ const isDev = process.env.NODE_ENV === 'development';
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const plugins = require('./plugins/index.js');
+const plugins = require('./scripts/plugins/index.js');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -28,7 +28,20 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.js$/, use: 'babel-loader' },
+      {
+        test: /\.js$/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: path.resolve(__dirname, './scripts/loader-modify.js'),
+            options: {
+              name: '[name]',
+            },
+          },
+        ],
+      },
       {
         test: /\.(c|le)ss$/,
         use: [
@@ -84,7 +97,7 @@ module.exports = {
       patterns: [
         {
           from: 'public/js/*.js',
-          to: path.resolve(__dirname, 'dist', 'js'),
+          to: path.resolve(__dirname, 'dist', './'),
           // flatten: true,
           globOptions: {
             ignore: ['other.js'],

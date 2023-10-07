@@ -1,10 +1,11 @@
 const merge = require('webpack-merge');
 const base = require('./webpack.base.js');
 const webpack = require('webpack');
+
 const MyPlugin = require('./MyPlugin');
+
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // 这里可以访问到cross-env注入的变量
-console.log('process.env', process.env);
 
 const isAnalyze = process.env.NODE_ENV === 'analyze';
 
@@ -18,9 +19,9 @@ const plugins = [
     // "process.env": require("../config/dev.env")
     // "process.env.BASE_URL": '"' + process.env.BASE_URL + '"'
   }),
-  // new MyPlugin({
-  //   name: "MyPlugin"
-  // })
+  new MyPlugin({
+    name: 'MyPlugin',
+  }),
 ];
 
 // NODE_ENV=analyze，代码分析模式
@@ -37,8 +38,8 @@ const devConfig = merge(base, {
     // hot: true,
     inline: true,
     host: 'localhost',
-    port: '1314',
-    // open: true,
+    port: 8989,
+    open: true,
     // proxy： xxx,
     // 在页面上全屏输出报错信息
     overlay: {
