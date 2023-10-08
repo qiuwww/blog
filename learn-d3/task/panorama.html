@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>全景图</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./dest/panorama.css">
+</head>
+<body>
+<div class="wrap">	
+	<!-- 第一个图，svg图 -->
+	<section id="chart1" class="block-wrap">
+		<div class="title">品种涨跌幅和持仓变化</div>
+		<div class="btns-date clearfix">
+			<div class="btns">
+				<ul class="clearfix">
+					<li class="hide"></li>
+					<!-- <li class="increase"></li> -->
+					<!-- <li class="decrease"></li> -->
+					<li class="reset"></li>
+				</ul>				
+			</div>
+			<div class="date">2017-08-01</div>
+		</div>	
+		<div class="chart clearfix">
+			<div id="SvgChartLeft"></div>
+			<div id="SvgChartRight"></div>	
+			<div id="tips">
+				<ul>
+					<li>品种简称:<span class='pzjc'></span></li>
+					<li>涨跌幅(%):<span class='zdf'></span></li>
+					<li>增仓比(%):<span class='zcb'></span></li>
+					<li>前5名尽持仓合计(手):<span class='q5'></span></li>
+					<li>前10名尽持仓合计(手):<span class='q10'></span></li>
+					<li>前20名尽持仓合计(手):<span class='q20'></span></li>				
+				</ul>
+			</div>	
+		</div>
+		<div class="remark">注：滚动鼠标可放大缩小图形</div>
+	</section>
+	<!-- 第二个图 -->
+	<section id="chart2" class="block-wrap"> 
+		<div class="title">商品期货市场成家量和持仓量</div>
+		<div class="btns-date">
+			<div class="date">2017-08-01</div>
+		</div>
+		<div class="chart clearfix">
+			 <div id="Echarts2" class="echart"></div>
+		</div>
+		<div class="remark">注：商品市场成交持仓数据为国内三大商品期货交易所全部品种的总量</div>		
+	</section>	
+
+	<section id="chart3" class="block-wrap">
+		<div class="title">品种仓单日报</div>
+		<div class="btns-date">
+			<div class="date">2017-08-01</div>
+		</div>
+		<div class="chart clearfix">
+			 <div id="Echarts3" class="echart"></div>
+		</div>
+		<div class="remark">注：注册仓单数据由三大交易所公布</div>
+	</section>	
+	<section id="chart4" class="block-wrap">
+		<div class="title">品种资金流向</div>
+		<div class="btns-date">
+			<div class="date">2017-08-01</div>
+		</div>
+		<div class="chart clearfix">
+			 <div id="Echarts4" class="echart"></div>
+		</div>
+		<div class="remark">注：1)品种资金流向通过计某品种的所有合约前后两个交易日持仓额的变化得到。其中：持仓额=∑(单个合约街管家*交易单位*持仓量);
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2)持仓额没有考虑保证金比例
+		</div>
+	</section>	
+	<section id="chart5" class="block-wrap">
+		<div class="title">品种基差率</div>
+		<div class="btns-date">
+			<div class="date">2017-08-01</div>
+		</div>
+		<div class="chart clearfix">
+			 <div id="Echarts5" class="echart"></div>
+		</div>
+		<div class="remark">注：基差率=(现货价-主力合约期货价)/主力合约期货价*100%</div>
+	</section>
+
+</div>
+
+
+<script type="text/javascript" src="./jquery.min.js"></script>
+<script type="text/javascript" src="./mock-min.js"></script>
+<script type="text/javascript" src="./d3.min.js"></script>
+<script type="text/javascript" src="./echarts.common.min.js"></script>
+
+<script type="text/javascript" src="./dest/panorama.js"></script>
+
+</body>
+</html>

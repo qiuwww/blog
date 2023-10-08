@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>in-page</title>
+        <meta charset="utf-8">
+        <script src="https://cdn.bootcss.com/jquery/1.12.2/jquery.js"></script>
+        <script src = "mock.js"></script>
+        <script src = 'mock-router.js'></script> 
+        
+    </head>
+    <body>
+        
+
+        <script>            
+                $.ajax({
+                    url: '/mock',
+                }).done(function(data, status, xhr){
+                    console.log(data);
+                    console.log(
+                        $('body').html(JSON.stringify(data, null, 4))                   
+                    )    
+                })
+                $.ajax({
+                    url: '/express-server',
+                }).done(function(data, status, xhr){
+                    console.log("express-server", data)    
+                })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "frontend-mock-data-sever",
+  "version": "1.0.0",
+  "description": "frontend-mock-data-sever",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moonbreezee/frontend-mock-data-sever.git"
+  },
+  "keywords": [
+    "mock"
+  ],
+  "author": "qiu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moonbreezee/frontend-mock-data-sever/issues"
+  },
+  "homepage": "https://github.com/moonbreezee/frontend-mock-data-sever#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "mockjs": "^1.1.0"
+  }
+}

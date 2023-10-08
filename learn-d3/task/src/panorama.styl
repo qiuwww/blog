@@ -1,0 +1,137 @@
+/*changes-in-prices-and-positions.styl*/
+
+
+@import './common.styl';
+body {
+  	/*font: 12px Arial;*/
+}
+
+path {
+	/*stroke: steelblue;*/
+	stroke-width: 2;
+	fill: none;
+}
+
+.axis path,
+.axis line {
+	fill: #797979;
+	stroke: #797979;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+}
+.axis path.domain{
+	fill: none;
+}
+/*svg{
+	border: 1px solid red;
+}*/
+text{
+	fill: #333;
+}
+.point.active{
+	/*stroke-width: 6;*/
+	stroke-opacity: 0.5;
+	/*cursor: pointer;*/
+}
+
+.wrap{
+	width: 100%;
+	min-width: 1200px;
+	background-color: #f6f9fd;
+	.block-wrap{
+		width: 1200px;
+		margin: 0 auto;
+		margin-bottom: 30px;
+		.title{
+			width: 100%;
+			height: 30px;
+			line-height: 28px;
+			color: #1a67c3;
+			text-indent: 10px;
+			border: 1px solid #c5d7ee;
+			background-color: #e6f1fe;
+		}
+		.chart{
+			.echart{
+				width: 100%;
+				height: 400px;
+			}
+		}
+		.remark{
+			margin-left: 86px;
+			color: #989898;
+		}
+		.btns-date{
+			height: 50px;
+			line-height: 50px;
+			width: 100%;
+			.date{
+				float: right;
+				margin-right: 70px;
+				color: #333;
+			}			
+		}
+	}
+	.block-wrap:last-child{
+		margin-bottom: 0;
+	}
+}
+
+
+#chart1{
+	.chart{
+		position: relative;
+		& > div{
+			float: left;
+		}
+		#tips{
+			position: absolute;
+			display: none;
+			opacity: 0.8;
+			ul{
+				list-style: none;
+				padding: 10px;
+				background-color: #7f7f7f;
+				border-radius: 3px;
+				li{
+					color: #fff;
+					line-height: 1.8;
+				}
+			}
+		}
+	}
+
+	.btns-date{
+		.btns{
+			float: left;
+			margin-left: 70px;
+			margin-top: 15px;
+			ul{
+				li{
+					float: left;
+					display: inline-block;
+					width: 25px;
+					height: 25px;
+					margin-left: 8px;
+					padding-top: 25px;
+					cursor: pointer;
+					&.hide{
+						background: url(./imgs/see.jpg) no-repeat center center;
+					}	
+					&.show{
+						background: url(./imgs/no-see.jpg) no-repeat center center;							
+					}						
+/*					&.increase{
+						background: url(./imgs/increase.png) no-repeat center center;							
+					}						
+					&.decrease{
+						background: url(./imgs/decrease.png) no-repeat center center;							
+					}	*/					
+					&.reset{
+						background: url(./imgs/reset.jpg) no-repeat center center;							
+					}
+				}
+			}
+		}
+	}
+}

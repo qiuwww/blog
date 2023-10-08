@@ -1,0 +1,117 @@
+{
+  "title":"API配置",
+  "description":"xx APi 配置",
+  "type": "object",
+  "properties": {
+    "user":{
+      "title":"user路由",
+      "description":"xx user  配置",
+      "type": "object",
+      "properties":{
+        "code":{
+          "title":"返回代码",
+          "description":"服务器返回代码",
+          "type":"integer",
+          "minimum": 0,
+          "maximum":10,
+          "exclusiveMinimum": true
+        },
+        "message":{
+          "title":"返回信息",
+          "description":"服务器返回信息",
+          "type":"string",
+          "chance":{
+            "sentence":{
+              "words":5
+            }
+          }
+        },
+        "userlist":{
+          "title":"用户组",
+          "description":"用户列表",
+          "type":"array",
+          "minItems":10,
+          "items":{
+
+            "name":{
+              "title":"名称",
+              "description":"用户名称",
+              "type":"string",
+              "faker":"name.findName"
+            },
+            "age":{
+              "title":"年龄",
+              "description":"用户年龄",
+              "type": "integer",
+              "minimum": 0,
+              "maximum":100,
+              "exclusiveMinimum": true
+            }
+          }
+        }
+
+      },
+       "required": ["userlist","code","message"]
+
+    },
+    "article":{
+      "title":"article 路由",
+      "description":"article 接口信息配置",
+      "type":"object",
+      "properties":{
+        "code":{
+          "title":"返回代码",
+          "description":"服务器返回代码",
+          "type":"integer",
+          "minimum": 0,
+          "maximum":10,
+          "exclusiveMinimum": true
+        },
+        "message":{
+          "title":"返回信息",
+          "description":"服务器返回信息",
+          "type":"string",
+          "chance":{
+            "sentence":{
+              "words":5
+            }
+          }
+        },
+        "articlelist":{
+          "title":"文章列表",
+          "description":"文章列表",
+          "type":"array",
+          "minItems":10,
+          "items":{
+
+            "name":{
+              "title":"文章名称",
+              "description":"文章名称",
+              "type":"string",
+              "chance":{
+                "sentence":{
+                  "words":5
+                }
+              }
+            },
+            "time":{
+              "title":"出版时间",
+              "description":"出版时间",
+              "type": "string",
+              "chance":{
+                "date":{
+                  "string":true,
+                  "american": false
+                }
+              }
+            }
+          }
+        }
+
+      },
+      "required": ["articlelist","code","message"]
+    }
+
+  },
+   "required": ["user","article"]
+}
