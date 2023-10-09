@@ -1,19 +1,16 @@
 {
-  "name": "webpack-5",
-  "version": "1.0.0",
-  "description": "webpack-5",
-  "main": "index.js",
-  "author": "qiuwww",
-  "license": "MIT",
+  "name": "webpack-multiple-frames",
+  "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack server --config=webpack.config.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --config=webpack.config.prod.js"
+    "dev": "cross-env NODE_ENV=development webpack server --config ./scripts/webpack.config.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config ./scripts/webpack.config.prod.js"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",
     "@babel/plugin-transform-runtime": "^7.22.10",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.22.10",
+    "@babel/preset-react": "^7.22.15",
     "@babel/runtime": "^7.22.11",
     "autoprefixer": "9.0.0",
     "babel-loader": "^9.1.3",
@@ -32,6 +29,9 @@
     "style-loader": "^3.3.3",
     "terser-webpack-plugin": "^5.3.9",
     "url-loader": "^4.1.1",
+    "vue-loader": "^17.3.0",
+    "vue-style-loader": "^4.1.3",
+    "vue-template-compiler": "^2.7.14",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
@@ -39,11 +39,16 @@
     "webpack-sources": "^3.2.3"
   },
   "dependencies": {
+    "EventEmitter": "^1.0.0",
     "express": "^4.18.2",
     "jquery": "^3.7.1",
     "lodash": "^4.17.21",
     "map": "^1.0.1",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "vue": "^3.3.4"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
 }

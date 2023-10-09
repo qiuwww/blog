@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title><%= (htmlWebpackPlugin.options.config.title) %></title>
+  </head>
+  <body>
+    <noscript>
+      <strong>
+        We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without
+        JavaScript enabled. Please enable it to continue.
+      </strong>
+    </noscript>
+
+    <div class="develop">
+      <div id="app-vue"></div>
+      <div id="app-react"></div>
+      <div id="app-jquery"></div>
+    </div>
+
+    <style>
+      body,
+      html {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .develop {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+      }
+
+      .develop > div {
+        flex: 1;
+        padding: 5px;
+        /* margin: 5px;
+        border: 2px solid greenyellow; */
+      }
+    </style>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
