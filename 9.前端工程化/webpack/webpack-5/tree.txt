@@ -1,0 +1,44 @@
+
+/Users/qiuwww/code/learn/blog/9.前端工程化/webpack/webpack-5
+├── README.md
+├── babel.config.js
+├── dist
+|  ├── ast-68db6b.js
+|  ├── ast-68db6b.js.map
+|  ├── fileList.md
+|  ├── index-68db6b.js
+|  ├── index.html
+|  ├── login-68db6b.js
+|  └── public
+├── package.json
+├── public
+|  ├── config.js
+|  ├── favicon.ico
+|  ├── index.html
+|  ├── js
+|  └── login.html
+├── scripts
+|  ├── loader-modify.js
+|  └── plugins
+├── server.js
+├── src
+|  ├── a.js
+|  ├── ast.js
+|  ├── css
+|  ├── handle.js
+|  ├── imgs
+|  ├── index.js
+|  ├── login.js
+|  └── logo.webp
+├── tree.txt
+├── webpack.config.base.js
+├── webpack.config.dev.js
+├── webpack.config.prod.js
+└── yarn.lock
+
+directory: 451 file: 26
+
+ignored: directory (1)
+
+
+[2K[1G
