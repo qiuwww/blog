@@ -1,10 +1,8 @@
-# 如何修改webpack的输出-webpack插件开发
+# 如何修改webpack的输出-webpack插件开发 ｜ 使用webpack来修改源码&webpack插件开发
 
 ## 总结
 
-通过这个插件的开发，整体的学习了一下webpack的配置及babel的使用，以及ast的使用；
-
-如果说Compiler是流程，那么Compilation就是编译主场了。也就是源代码经过他加工之后才得到了升华变成了规规矩矩的模样。
+通过这个插件的开发，整体的学习了一下webpack的配置及babel的使用，以及ast的使用，对webpack打包的中间产物有了一定的了解。
 
 ### 其他的一些理解
 

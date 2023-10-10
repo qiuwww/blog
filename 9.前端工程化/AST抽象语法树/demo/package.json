@@ -15,7 +15,8 @@
     "recast": "^0.23.4"
   },
   "scripts": {
-    "dev": "node ./scripts/1.types.js",
-    "dev0": "node ./scripts/0.parser-generator.js"
+    "parser-generator": "node ./scripts/0.parser-generator.js",
+    "types": "node ./scripts/1.types.js",
+    "traverse": "node ./scripts/2.traverse.js"
   }
 }
