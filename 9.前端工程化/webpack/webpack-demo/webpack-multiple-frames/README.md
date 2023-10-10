@@ -1,4 +1,4 @@
-# webpack脚手架，在同一个项目中同时存在vue、react、jquery的代码
+# webpack 脚手架，在同一个项目中同时存在 vue、react、jquery 的代码
 
 但是这些内容相互没有办法相互调用，如果相互之间可以调用，那就是微服务了。
 
@@ -6,9 +6,9 @@
 
 ## 目标
 
-1. 学习webpack的配置；
+1. 学习 webpack 的配置；
 2. 学习各种框架之间的差异；
-   1. 对比 jquery / js / ts /vue3.0+ / react18+(hooks) /angular2+，知识串一下；
+   1. 对比 jquery / js / ts /vue3.0+ / react18+(hooks)，知识串一下；
 
 ## 主要关注点
 
@@ -29,12 +29,11 @@
    1. 异步加载包；
    2. 多核打包；
 9. github，cicd 操作，生成打包代码；
-10. ？？切换 vite 打包测试一下？
 
 ## 通过不同的类型的代码，实现相同的功能
 
-如渲染一个list、实现一个数据双向绑定、操作dom等。
+如渲染一个 list、实现一个数据双向绑定、操作 dom 等。
 
 ## 参考
 
-1. [vue、react、angular三大框架对比 && 与jQuery的对比](https://www.cnblogs.com/zhuzhenwei918/p/7447434.html)；
+1. [vue、react、angular 三大框架对比 && 与 jQuery 的对比](https://www.cnblogs.com/zhuzhenwei918/p/7447434.html)；
