@@ -7,7 +7,7 @@ const webpack = require('webpack');
 module.exports = merge(baseConfig, {
   mode: 'development',
   devServer: {
-    port: '3000',
+    port: '4000',
   },
 
   plugins: [new webpack.HotModuleReplacementPlugin()],
