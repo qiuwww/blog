@@ -71,7 +71,7 @@ Babel 是一个广泛用于 JavaScript 代码转换和编译的工具链，它�
 1. @babel/core： `@babel/core` 是 Babel 工具链的核心模块，它提供了核心的编译功能。通常，你需要将它作为 Babel 插件和工具的依赖；
 2. @babel/cli： `@babel/cli` 是一个命令行工具，允许你使用命令行界面运行 Babel 转换。它通常用于将整个项目中的文件或文件夹转换为兼容的代码；
 3. @babel/parser： 可以把源码转换成 AST；
-   1. babel 之前的版本是直接调用了 recast 库，来生成的 AST。现在的 @babel/parser 很大程度借鉴了 acorn。
+   1. babel 之前的版本是直接调用了 [recast](https://www.npmjs.com/package/recast) 库，来生成的 AST。现在的 @babel/parser 很大程度借鉴了 acorn。
 4. @babel/traverse： 用于对 AST 的遍历，维护了整棵树的状态，并且负责替换、移除和添加节点；
 5. @babel/generate： 可以把 AST 生成源码，**同时生成 sourcemap**；
 6. @babel/types： 用于 AST 节点的 Lodash 式工具库, 它包含了构造、验证以及变换 AST 节点的方法，对编写处理 AST 逻辑非常有用；
