@@ -1,6 +1,7 @@
 console.log('modify-by-plugin!');
 
 function square(n) {
+  console.log('n', n);
   return n * n;
 }
 
@@ -10,4 +11,6 @@ debugger;
 
 console.log('[APPID]');
 
-var num = 9527;
+var hahaha = 9527;
+
+console.log('heiheihei');
