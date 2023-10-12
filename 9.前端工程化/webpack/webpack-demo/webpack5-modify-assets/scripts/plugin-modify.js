@@ -7,6 +7,8 @@ const babel = require('@babel/core');
 
 const pluginName = 'PluginModify';
 
+const babelModify = require('./babelModify.js');
+
 /**
  * 这里似乎可以这样理解：
  * 1. assets代表的是原始的代码，修改了会影响到目标结果；=》 修改模块代码:在 compilation 阶段，你可以监听 optimize-chunk-assets 事件，它会提供输出的 chunk 对象。你可以遍历这些 chunk，获取模块的代码，然后修改代码，最后通过 compilation.assets 对象将修改后的代码重新写入到输出文件中。
@@ -51,11 +53,12 @@ class PluginModify {
               source +
               "\n;console.log('add by plugin-modify-1!');";
             // 通过babel分析后，结构化添加
-            // source = babelModify(source);
+            source = babelModify(source);
             source = `${source}`;
           }
 
           // 这里修改的是assets
+          // !这里是最核心的一句
           compilation.assets[filename] = {
             source: function () {
               return source;
@@ -99,7 +102,6 @@ class PluginModify {
     // test3
     // 使用 compilation 钩子注册插件逻辑
     // !这个会在emit前面添加
-
     compiler.hooks.compilation.tap(pluginName, (compilation) => {
       // 使用 optimize-chunk-assets 钩子监听资源生成事件
       // !在 optimizeChunkAssets 阶段，这个阶段拿到的 chunk 资源已经完成各种 Loader 的处理，这个时候如果新增源码内容是 ES6，将不会再被转化。

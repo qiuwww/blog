@@ -1,5 +1,13 @@
 # 如何修改 webpack 的输出-webpack 插件开发 ｜ 使用 webpack 来修改源码&webpack 插件开发
 
+## 分析插件
+
+https://github.com/webpack-contrib/uglifyjs-webpack-plugin/blob/master/src/index.js
+
+类似的操作逻辑。
+
+后边只需要整理一下结果就好了
+
 ## 总结
 
 通过这个插件的开发，整体的学习了一下 webpack 的配置及 babel 的使用，以及 ast 的使用，对 webpack 打包的中间产物有了一定的了解。
