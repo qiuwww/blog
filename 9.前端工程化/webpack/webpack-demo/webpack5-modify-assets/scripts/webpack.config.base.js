@@ -6,7 +6,8 @@ const PluginModify = require('./plugin-modify');
 module.exports = {
   entry: {
     index: './src/index.js',
-    ast: './src/ast.js',
+    modifyByLoader: './src/modify-by-loader.js',
+    modifyByLoader2: './src/modify-by-loader2.js',
     modifyByPlugin: './src/modify-by-plugin.js',
   },
 
@@ -26,7 +27,9 @@ module.exports = {
           },
           {
             loader: path.resolve(__dirname, './loader-modify.js'),
-            options: {},
+            options: {
+              appId: '123456',
+            },
           },
         ],
       },
@@ -37,7 +40,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: './public/index.html',
-      chunks: ['index', 'ast', 'modifyByPlugin'],
+      chunks: ['index', 'modifyByLoader', 'modifyByLoader2', 'modifyByPlugin'],
     }),
 
     new PluginModify({
