@@ -151,3 +151,11 @@ Vite 是一个相对较新的构建工具，它旨在解决 Webpack 的一些问
 ## 测试 demo
 
 1. <https://stackblitz.com/edit/vitejs-vite-zr7byr?file=vite.config.js>
+
+## vite 打包原理
+
+我们知道，当声明一个  script  标签类型为  module  时，浏览器会对其内部的  import  引用发起  HTTP  请求获取模块内容。那么，vite 会劫持这些请求并进行相应处理。因为浏览器只会对用到的模块发送 http 请求，所以 vite 不用对项目中所有文件都打包，而是按需加载，大大减少了 AST 树的生成和代码转换，降低服务启动的时间和项目复杂度的耦合，提升了开发者的体验。
+
+### vite 热更新
+
+我们可以使用 **[chokidar](https://www.npmjs.com/package/chokidar) 库来监听某个文件夹的变更**，只要监听到有文件变更，就用 websocket 通知浏览器重新发一个请求，浏览器就会在代码每次变更之后立刻重新请求这份资源。

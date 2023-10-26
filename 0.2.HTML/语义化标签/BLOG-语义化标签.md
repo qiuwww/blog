@@ -18,6 +18,7 @@ categories:
 ## 为什么需要语义化
 
 1. 在没有 CSS 的情况下**，**页面也能呈现出很好地内容结构**、代码结构（为了裸奔时好看）**;
+   1. 常用的 div 没有任何特殊的样式，也用于定义一个块的内容。
 2. **用户体验**：例如 title、alt 用于解释名词或解释图片信息、label 标签的活用;
 3. **有利于 SEO**：和**搜索引擎**建立良好沟通，有助于爬虫抓取更多的有效信息：爬虫依赖于标签来确定上下文和各个关键字的权重;
 4. 方便其他设备解析(如屏幕阅读器、盲人阅读器、移动设备)**以意义的方式来渲染网页**;
@@ -35,7 +36,7 @@ categories:
 
 [具体参考：语义化标签.html](./语义化标签.html)
 
-基本上都是围绕着几个主要的标签，像
+基本上都是围绕着几个主要的标签，如：
 
 ### `<Hx>`
 
@@ -169,7 +170,7 @@ aside 的内容应该与 article 的内容相关。
 
 使用 `<figcaption>` 元素为元素组添加标题。
 
-### `<a>`标签，不仅仅可以挑战链接，还可以跳转电话，email 等
+### `<a>`标签，不仅仅可以跳转链接，还可以跳转电话，email 等
 
 ```html
 <a href="mailto:{email}?subject={subject}&body={content}"> Send us an email </a>
@@ -225,12 +226,64 @@ aside 的内容应该与 article 的内容相关。
 <p>You can use the <mark> tag to highlight text.</p>
 ```
 
-### `<input type="search" />`
+### HTML Native Search，`<input list="list" />`，通过 list 指定搜索选项，支持模糊搜索
 
 ```html
+<input class="search-input" list="items" />
 
+<datalist id="items">
+  <option value="Marko Denic"></option>
+  <option value="FreeCodeCamp"></option>
+  <option value="FreeCodeTools"></option>
+  <option value="Web Development"></option>
+  <option value="Web Developer"></option>
+</datalist>
+```
+
+### meter
+
+```html
+<label class="meter-label" for="value1">Low</label>
+<meter id="value1" min="0" max="100" low="30" high="75" optimum="80" value="25"></meter>
+```
+
+### Fieldset Element
+
+```html
+<fieldset>
+  <legend>Choose your favorite language</legend>
+  <input type="radio" id="javascript" name="language" />
+  <label for="javascript">JavaScript</label><br />
+
+  <input type="radio" id="python" name="language" />
+  <label for="python">Python</label><br />
+
+  <input type="radio" id="java" name="language" />
+  <label for="java">Java</label>
+</fieldset>
+```
+
+### rel="noopener"，打开添加了 rel=noopener 的链接， window.opener 会为 null。避免用户暴露在一个钓鱼网站攻击之下
+
+```html
+<a href="https://markodenic.com/" target="_blank" rel="noopener"> Marko's website </a>
+```
+
+### a 标签下载
+
+```html
+<a href="path/to/file" download> Download </a>
+```
+
+## input 标签
+
+### type="range"
+
+```html
+<input type="range" />
 ```
 
 ## 参考文章
 
 [HTML Tips](https://markodenic.com/html-tips/)
+[html5 语义化标签](https://juejin.cn/post/6844903544995184653)
