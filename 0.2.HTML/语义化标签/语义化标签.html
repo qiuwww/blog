@@ -11,11 +11,6 @@
   </head>
 
   <body>
-
-
-    <img src="https://github.com/qiuwww/blog/blob/a183894738d8291a1ec0dd4b659cdecc7493f74d/0.2.HTML/%E7%85%A7%E7%89%87%E5%A2%99/img/1.jpg?raw=true" alt="">
-
-
     <hgroup id="document-title">
       <h1>hgroup元素代表“网页”或“section”的标题</h1>
       <h2>它将一个h1–h6元素与一个或多个p元素组合在一起。</h2>
@@ -55,7 +50,11 @@
       <h3>figure，图片，使用figure元素标记文档中的一个图像。figure元素带有一个标题</h3>
 
       <figure>
-        <img src="./imgs/cat.jpg" alt="img" width="300" />
+        <img
+          src="https://github.com/qiuwww/blog/blob/43f14973bb4c247d79f2be1cc31375594eebdc6f/0.2.HTML/%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/imgs/cat.jpg?raw=true"
+          alt="img"
+          width="300"
+        />
         <figcaption>cat</figcaption>
       </figure>
     </section>
@@ -140,44 +139,6 @@
     </footer>
 
     <section>
-      <p>
-        <button onclick="geoFindMe()">Show my location</button>
-      </p>
-      <div id="out"></div>
-      <div id="allMap"></div>
-
-      <script type="text/javascript">
-        function geoFindMe() {
-          var output = document.getElementById('out');
-
-          if (!navigator.geolocation) {
-            output.innerHTML = '<p>您的浏览器不支持地理位置</p>';
-            return;
-          }
-
-          function success(position) {
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
-            output.innerHTML =
-              '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
-          }
-
-          function error() {
-            output.innerHTML = '无法获取您的位置';
-          }
-
-          output.innerHTML = '<p>Locating…</p>';
-
-          navigator.geolocation.getCurrentPosition(success, error, {
-            enableHighAccuracy: true,
-            timeout: 10000,
-            maximumAge: 25000,
-          });
-        }
-      </script>
-    </section>
-
-    <section>
       <h3>使用一组radio，必须确保name属性一致</h3>
       <form action="" method="get">
         您最喜欢水果？
@@ -252,7 +213,12 @@
 
     <section>
       <h3>img[loading='lazy']</h3>
-      <img src="./imgs/cat.jpg" loading="lazy" alt="Alternative Text" width="300" />
+      <img
+        src="https://github.com/qiuwww/blog/blob/43f14973bb4c247d79f2be1cc31375594eebdc6f/0.2.HTML/%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/imgs/cat.jpg?raw=true"
+        loading="lazy"
+        alt="Alternative Text"
+        width="300"
+      />
     </section>
 
     <section class="wrapper datalist">
@@ -293,8 +259,16 @@
 
     <section>
       <h3>a标签下载</h3>
-      <a href="./imgs/cat.jpg" download="w3logo">
-        <img border="0" src="./imgs/cat.jpg" alt="W3School" width="300" />
+      <a
+        href="https://github.com/qiuwww/blog/blob/43f14973bb4c247d79f2be1cc31375594eebdc6f/0.2.HTML/%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/imgs/cat.jpg?raw=true"
+        download="w3logo"
+      >
+        <img
+          border="0"
+          src="https://github.com/qiuwww/blog/blob/43f14973bb4c247d79f2be1cc31375594eebdc6f/0.2.HTML/%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/imgs/cat.jpg?raw=true"
+          alt="W3School"
+          width="300"
+        />
       </a>
     </section>
 

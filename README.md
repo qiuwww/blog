@@ -15,7 +15,7 @@ npm server
 
 在页面地址前面添加：`http://htmlpreview.github.io/?`
 
-文件的github地址，直接vscode里边复制远端文件地址。
+文件的 github 地址，直接 vscode 里边复制远端文件地址。
 
 查看当前页面的地址二维码：`http://htmlpreview.github.io/?https://github.com/qiuwww/blog/blob/master/0.5.JS/js%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81/url%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81.html`
 
@@ -40,9 +40,9 @@ npm server
 
 用来存放相关的截图及 md 文件插图。
 
-## 使用markmap生成md文档的思维导图
+## 使用 markmap 生成 md 文档的思维导图
 
-输出的是一个html文件。
+输出的是一个 html 文件。
 
 `markmap BLOG-markdown语法学习.zh-CN.md --no-open -o ./_markmap/markdown语法学习.html`
 `markmap README.md --no-open -o ./_markmap/README.html`
@@ -50,3 +50,7 @@ npm server
 ## 使用工具预览当前项目
 
 <https://github1s.com/qiuwww/blog>
+
+## 访问 github 上的图片，可以作为图片的存放地址，不过可能加载不出来，如下
+
+<https://github.com/qiuwww/blog/blob/43f14973bb4c247d79f2be1cc31375594eebdc6f/0.2.HTML/%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/imgs/cat.jpg?raw=true>
