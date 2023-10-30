@@ -35,7 +35,7 @@ describe: 语义化标签是一种HTML标签的使用方法，旨在更准确地
 
 ## 常用的有哪些标签
 
-[具体参考：语义化标签.html](<[./语义化标签.html](https://github.com/qiuwww/blog/blob/43f14973bb4c247d79f2be1cc31375594eebdc6f/0.2.HTML/%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE.html)>)
+[具体参考：语义化标签.html](https://github.com/qiuwww/blog/blob/43f14973bb4c247d79f2be1cc31375594eebdc6f/0.2.HTML/%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE.html)
 
 [查看代码演示，https://code.juejin.cn/pen/7294129161021423626](https://code.juejin.cn/pen/7294129161021423626)
 
