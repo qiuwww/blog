@@ -30,5 +30,5 @@ Homebrew 通过简单的一条指令，就可以实现包管理，不需要关�
 
 ## cask
 
-brew install 用来安装一些不带界面的命令行工具和第三方库。
-brew cask install 用来安装一些带界面的应用软件。
+1. brew install 用来安装一些不带界面的命令行工具和第三方库。
+2. brew cask install 用来安装一些带界面的应用软件。
