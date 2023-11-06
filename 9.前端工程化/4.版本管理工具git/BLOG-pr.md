@@ -14,21 +14,21 @@ categories:
 
 ## pr 流程
 
-### Fork（复制）本代码仓库
+### 1. Fork（复制）本代码仓库
 
 将代码仓库复制到你的账户名下。
 
-### Clone（克隆）代码仓库
+### 2. Clone（克隆）代码仓库
 
 Clone（克隆）代码仓库，代码 clone 到本地。
 
-### 新建一个分支
+### 3. 新建一个分支
 
-### 对代码进行修改，而後 Commit (提交) 修改
+### 4. 对代码进行修改，而後 Commit (提交) 修改
 
-### 将改动 Push（发布）到 GitHub
+### 5. 将改动 Push（发布）到 GitHub
 
-### 提出 Pull Request 将你的修改供他人审阅
+### 6. 提出 Pull Request 将你的修改供他人审阅
 
 1. 前往 Github **你的代码仓库**，你会看到一个 Compare & pull request 的按钮。点击该按钮。
 2. 接着再点击 Create pull request 按钮，正式提交 pull request。

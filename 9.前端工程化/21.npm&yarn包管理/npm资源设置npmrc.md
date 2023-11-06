@@ -1,5 +1,9 @@
-新建  .npmrc SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/
+# npm 资源设置 npmrc
 
+1. 新建；
+   1. .npmrc
+2. 添加；
+   1. SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/
 
 registry=https://registry.npm.taobao.org
 disturl=https://npm.taobao.org/dist

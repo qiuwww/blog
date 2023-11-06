@@ -2,7 +2,7 @@
 
 ## 操作步骤
 
-1. **开发包**内运行`npm link`，这个时候会生成一个全局安装包的链接，具体的地址可以通过`npm config get prefix`(/usr/local)，`{prefix}/lib/node_modules/<package>`，开发包需要时一个可 publish 的项目；
+1. **开发包**内运行`npm link`，这个时候**会生成一个全局安装包的链接**，具体的地址可以通过`npm config get prefix`(/usr/local)，`{prefix}/lib/node_modules/<package>`，开发包需要时一个可 publish 的项目；
 2. 然后在**测试项目内**，运行`npm link packageName`(@zyf2e/adapt)，这个时候就会链接到项目的 node_modules 下边。
 
 > /Users/qiuww/code/ks/adapt-demo/node_modules/@zyf2e/adapt -> /usr/local/lib/node_modules/@zyf2e/adapt -> /Users/qiuww/code/ks/adapt
