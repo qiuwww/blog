@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>内凹圆角</title>
+    <meta name="description" content="css3，内凹圆角" />
+    <meta name="author" content="郭菊锋702004176@qq.com" />
+    <style type="text/css">
+      .egg {
+        display: block;
+        margin-top: 30px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        background: radial-gradient(at 35px 35px, #fff, #ccc, #fff);
+        background: -webkit-radial-gradient(35px 35px, #fff, #ccc, #fff);
+      }
+
+      .something-meaningful {
+        display: inline-block;
+        width: 55px;
+        height: 55px;
+        overflow: hidden;
+        line-height: 130px;
+        background: #655;
+        text-align: center;
+        /* padding: .8em; */
+        position: relative;
+        float: left;
+      }
+
+      .brdradius {
+        border-top-left-radius: 45%;
+      }
+
+      .something-meaningful > div {
+        width: 100px;
+        height: 100px;
+        background: #fff;
+        border-radius: 5em;
+        position: absolute;
+        top: -46px;
+        left: 2px;
+        /*padding: 1em;*/
+      }
+
+      .radius {
+        width: 50px;
+        height: 50px;
+        line-height: 100px;
+        display: block;
+        text-align: center;
+        background-image: radial-gradient(200px at 50px 0px, #fff 50px, #4169e1 50px);
+      }
+      .uls {
+        list-style-type: none;
+        *zoom: -1;
+      }
+      .uls:after {
+        content: '';
+        clear: both;
+        display: block;
+      }
+      .uls li {
+        display: block;
+        float: left;
+        width: 120px;
+        height: 35px;
+        background-color: #4169e1;
+        text-align: center;
+        line-height: 35px;
+        color: white;
+        /*做上圆角*/
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+      .li-boradiu {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        /*background-color: #4169E1;*/
+        background-image: radial-gradient(70px at 17.5px 0, #f00);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>1.网上看到的一个很有趣的小案例——用radial-gradient制作立体质感圆球。</h3>
+    <!--http://blog.csdn.net/playboyanta123/article/details/9303857-->
+    <span class="egg"></span>
+
+    <!--手动内凹！-->
+    <h3>2.如下是一种用一个圆和一个方形盒子叠加做出的内凹圆角的的效果。</h3>
+    <div class="something-meaningful brdradius"></div>
+    <div class="something-meaningful">
+      <div>
+        <a href="http://www.w3cplus.com/css3/css-secrets/inner-rounding.html"></a>
+      </div>
+    </div>
+    <h3 style="clear: both; padding-top: 10px">3.自己也来玩玩</h3>
+    <span class="radius"></span>
+    <p>
+      这样 利用个背景色的径向渐变background-image: radial-gradient(200px at 50px 0px, #fff 50px,
+      #4169E1 50px);，就画出这么一个小内凹角来，想要另外方向的也可以变化。如下的一个完整案例
+    </p>
+    <ul class="uls">
+      <li>
+        1
+        <span class="li-boradiu"></span>
+      </li>
+      <li>
+        2
+        <span class="li-boradiu"></span>
+      </li>
+      <li>3</li>
+    </ul>
+
+    <a href="http://blog.csdn.net/playboyanta123/article/details/9303857"
+      >参考资料：radial-gradient CSS3的蛋疼的径向渐变</a
+    >
+  </body>
+</html>

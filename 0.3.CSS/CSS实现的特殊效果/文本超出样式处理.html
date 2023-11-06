@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <style type="text/css">
+      div {
+        background-color: darkolivegreen;
+      }
+
+      .singleLine {
+        /*overflow 属性规定如何处理如何处理不符合元素框的内容。内容会被修剪，但是浏览器不会显示供查看内容的滚动条。*/
+        overflow: hidden;
+        /*text-overflow 属性规定当文本溢出包含元素时发生的事情。ellipsis：显示省略符号来代表被修剪的文本。string：使用给定的字符串来代表被修剪的文本。clip：修剪文本。*/
+        text-overflow: ellipsis;
+        /*white-space 属性设置如何处理元素内的空白。nowrap文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。*/
+        white-space: nowrap;
+        width: 300px;
+        /*注意设置这一行的宽度，不然就会根据自己的实际的长度来进行修饰*/
+      }
+
+      .multilineText {
+        /*这里当文本大于三行的时候就会截断，也可以自己来控制每行的长度*/
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        /*限制在一个块元素显示的文本的行数。*/
+        width: 300px;
+      }
+
+      /*js+css*/
+      .text {
+        color: #707070;
+        padding: 0 12px;
+        position: relative;
+        line-height: 20px;
+        overflow: hidden;
+        margin-bottom: 12px;
+        max-height: 100px;
+        width: 300px;
+      }
+
+      .points {
+        content: '...';
+        position: absolute;
+        bottom: 0;
+        right: 16px;
+        padding-left: 40px;
+        font-size: 18px;
+        letter-spacing: 3px;
+        background: -webkit-linear-gradient(left, transparent, #fff 55%);
+        background: -o-linear-gradient(right, transparent, #fff 55%);
+        background: -moz-linear-gradient(right, transparent, #fff 55%);
+        background: linear-gradient(to right, transparent, #fff 55%);
+      }
+
+      .text p {
+        margin: 0;
+      }
+
+      .text p + p {
+        margin-top: 20px;
+      }
+
+      .father {
+        width: 400px;
+      }
+
+      .multilineText2 {
+        /*这里当文本大于三行的时候就会截断，也可以自己来控制每行的长度*/
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        /*限制在一个块元素显示的文本的行数。*/
+        /* width: 300px; */
+      }
+    </style>
+
+    <h3>CSS控制单行文本溢出，显示省略号</h3>
+    <div class="singleLine">
+      我要溢出，我要溢出，我要溢出，我要溢出，我要溢出，我要溢出，我要溢出，我要溢出，我要溢出，我要溢出，我要溢出，我要溢出。
+    </div>
+    <h3>CSS控制多行文本溢出，显示省略号</h3>
+    <div class="multilineText">
+      我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本。
+    </div>
+
+    <div class="father">
+      <h3>CSS控制多行文本溢出，显示省略号2</h3>
+      <div class="multilineText2">
+        我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本，我要溢出，多行文本。
+        <div class="btn">btn</div>
+      </div>
+    </div>
+
+    <h3>js+css控制显示省略号</h3>
+    <div class="text">
+      <p>
+        我在网上看了很多例子，各有各的好，我使用的是给固定的line-height，换行也是每行在固定的的高度，如：line-height:20px;，每次换空行也要让空行是20px，这样我们就可以利用20的倍数来合理的显示内容要显示的行数和内容
+        我在网上看了很多例子，各有各的好，我使用的是给固定的line-height，换行也是每行在固定的的高度，如：line-height:20px;，每次换空行也要让空行是20px，这样我们就可以利用20的倍数来合理的显示内容要显示的行数和内容
+        我在网上看了很多例子，各有各的好，我使用的是给固定的line-height，换行也是每行在固定的的高度，如：line-height:20px;，每次换空行也要让空行是20px，这样我们就可以利用20的倍数来合理的显示内容要显示的行数和内容
+      </p>
+      <p>
+        欢迎大家参加早起的鸟儿有虫吃－21天早起计划。一日之计在于晨，在沐浴晨光的过程中，我们祝愿大家开始美好的一天！
+      </p>
+      <span class="points">...</span>
+    </div>
+
+    <script type="text/javascript">
+      // 字体显示
+      var showBoo = true;
+      document.querySelector('.text').addEventListener('click', function () {
+        if (showBoo) {
+          $('.text').css('maxHeight', 'none');
+          $('.points').hide();
+          showBoo = false;
+        } else {
+          $('.text').css('maxHeight', '60px');
+          $('.points').show();
+          showBoo = true;
+        }
+      });
+    </script>
+
+    <h3>尾部添加按钮操作</h3>
+
+    <style>
+      .type4 {
+        background-color: transparent;
+      }
+      .type4 .with-btn {
+        /*这里当文本大于三行的时候就会截断，也可以自己来控制每行的长度*/
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+
+        /*限制在一个块元素显示的文本的行数。*/
+        width: 300px;
+      }
+      .btn {
+        width: 100px;
+        background-color: blue;
+      }
+    </style>
+
+    <div class="type4">
+      <div class="with-btn">
+        <span>
+          我在网上看了很多例子，各有各的好，我使用的是给固定的我在网上看了很多例子，各有各的好，我使用的是给固定的我在网上看了很多例子，各有各的好，我使用的是给固定的我在网上看了很多例子，各有各的好，我使用的是给固定的我在网上看了很多例子，各有各的好，我使用的是给固定的我在网上看了很多例子，各有各的好，我使用的是给固定的我在网上看了很多例子，各有各的好，我使用的是给固定的我在网上看了很多例子，各有各的好，我使用的是给固定的我在网上看了很多例子，各有各的好，我使用的是给固定的我在网上看了很多例子，各有各的好，我使用的是给固定的line-height，换行也是每行在固定的的高度，如：line-height:20px;，每次换空行也要让空行是20px，这样我们就可以利用20的倍数来合理的显示内容要显示的行数和内容
+          我在网上看了很多例子，各有各的好，我使用的是给固定的line-height，换行也是每行在固定的的高度，如：line-height:20px;，每次换空行也要让空行是20px，这样我们就可以利用20的倍数来合理的显示内容要显示的行数和内容
+          我在网上看了很多例子，各有各的好，我使用的是给固定的line-height，换行也是每行在固定的的高度，如：line-height:20px;，每次换空行也要让空行是20px，这样我们就可以利用20的倍数来合理的显示内容要显示的行数和内容
+        </span>
+        <div class="btn">这里是按钮</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>冒泡与捕获事件</title>
+  </head>
+
+  <body>
+    <div id="outer">
+      outer
+      <div id="inner">
+        inner
+      </div>
+    </div>
+    <script type="text/javascript">
+      var outer = document.getElementById('outer');
+      var inner = document.getElementById('inner');
+      // useCapture 当useCapture(设为true) 时，沿着DOM树向上冒泡的事件，不会触发listener。当一个元素嵌套了另一个元素，并且两个元素都对同一事件注册了一个处理函数时，所发生的事件冒泡和事件捕获是两种不同的事件传播方式。事件传播模式决定了元素以哪个顺序接收事件。
+      // true - 事件句柄在捕获阶段执行（即在事件捕获阶段调用处理函数）
+      // false- false- 默认。事件句柄在冒泡阶段执行（即表示在事件冒泡的阶段调用事件处理函数）
+      outer.addEventListener(
+        'click',
+        function() {
+          alert('outer capture');
+        },
+        // 捕获
+        true,
+      );
+
+      outer.addEventListener(
+        'click',
+        function() {
+          alert('outer bubble');
+        },
+        // 冒泡，默认false
+        false,
+      );
+      inner.addEventListener(
+        'click',
+        function() {
+          alert('inner, capture');
+        },
+        true,
+      );
+      inner.addEventListener(
+        'click',
+        function() {
+          alert('inner, bubble');
+        },
+        false,
+      );
+    </script>
+  </body>
+</html>

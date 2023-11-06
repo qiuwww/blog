@@ -1,0 +1,36 @@
+<!-- test-event.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jq不同方式绑定的事件的执行顺序</title>
+  </head>
+  <body>
+    <script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      /**
+       * 测试结果，onclick最先执行，接着是click，接着是bind执行，最后是on执行，与代码的解析先后顺序无关
+       * 当然可以通过使用setTimeout来更改执行的顺序，事件绑定是异步操作
+       */
+      $(function() {
+        // 直接click
+        $('#test_btn').click(function() {
+          alert('click执行，click事件绑定');
+        });
+        // 事件委托
+        $('body').on('click', '#test_btn', function(e) {
+          alert('on执行，on方法事件绑定');
+        });
+        // bind
+        $('#test_btn').bind('click', function() {
+          alert('bind执行，click事件绑定');
+        });
+        // 元素内click
+        window.textOnclick = function() {
+          alert('onclick执行, html内嵌代码');
+        };
+      });
+    </script>
+    <button id="test_btn" onclick="textOnclick()">test_btn</button>
+  </body>
+</html>

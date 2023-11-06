@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文本超出样式处理-展开收起</title>
+  </head>
+  <body>
+    <style>
+      body > div {
+        margin-bottom: 20px;
+        background-color: aquamarine;
+        width: 50vw;
+        line-height: 30px;
+      }
+      .ell1 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .wrap2 {
+        display: flex;
+      }
+      .ell2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .ell2 .btn {
+        line-height: 30px;
+        float: right;
+        /*其他装饰样式*/
+        clear: both;
+      }
+      .ell2::before {
+        content: '';
+        float: right;
+        width: 0;
+        /* 如下两种方式都可以调节 */
+        /* height: calc(100% - 30px); */
+        height: 100%;
+        margin-bottom: -30px;
+      }
+
+      .wrapper {
+        display: flex;
+        margin: 50px auto;
+        width: 800px;
+        overflow: hidden;
+        /*   resize: horizontal; */
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+      }
+    </style>
+    <div class="ell1">
+      浮动元素是如何定位的，正如我们前面提到的那样，当一个元素浮动之后，它会被移出正常的文档流，然后向左或者向右平移，一直平移直到碰到了所处的容器的边框，或者碰到另外一个浮动的元素。
+    </div>
+    <h2>当前版本只能兼容到chrome</h2>
+    <div class="wrap2">
+      <div class="ell2">
+        <div class="btn">
+          <button>展开与关闭按钮</button>
+        </div>
+        浮动元素是如何定位的
+        正如我们前面提到的那样，当一个元素浮动之后，它会被移出正常的文档流，然后向左或者向右平移，一直平移直到碰到了所处的容器的边框，或者碰到另外一个浮动的元素。
+        这里展开与关闭只需要调节-webkit-line-clamp的行数就可以了
+      </div>
+    </div>
+  </body>
+</html>

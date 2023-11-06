@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>css-library</title>
+  </head>
+
+  <body>
+    <style type="text/css">
+      .style1 {
+        width: 400px;
+        height: 200px;
+        /* 渐变 */
+        background: linear-gradient(rgb(255, 187, 51), rgb(85, 136, 187));
+        /* 等宽渐变 */
+        /* background: linear-gradient(rgb(255, 187, 51) 50%, rgb(85, 136, 187) 50%); */
+        /* background-size: 100% 40px; */
+        /* 区分大小的背景 */
+        /* background: linear-gradient(rgb(255, 187, 51) 60%, rgb(85, 136, 187) 0); */
+        /* 三色渐变 */
+        /* background: linear-gradient(rgb(255, 187, 51) 33.3%,
+        rgb(85, 136, 187) 0,
+        rgb(85, 136, 187) 66.6%,
+        rgb(170, 255, 0) 0); */
+        /* background: linear-gradient(to right, rgb(255, 187, 51) 60%, rgb(85, 136, 187) 0); */
+        /* 斜条纹 */
+        /* background: linear-gradient(45deg,
+        rgb(255, 187, 51) 25%,
+        rgb(85, 136, 187) 0,
+        rgb(85, 136, 187) 50%,
+        rgb(255, 187, 51) 0%,
+        rgb(255, 187, 51) 75%,
+        rgb(85, 136, 187) 0); */
+        background-size: 30px 30px;
+        /* interesting */
+        background-size: 30px 290px;
+      }
+
+      .style2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 80px;
+        background: rgb(29, 77, 124);
+        color: #fff;
+        font-size: 14px;
+        transform: skewX(-30deg);
+        margin-left: 100px;
+      }
+
+      .style2 span {
+        transform: skewX(30deg);
+      }
+
+      /* 解决办法：将平行四边形的背景设置在伪元素上，对伪元素进行变形。  */
+      .style3 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 120px;
+        height: 60px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        margin-left: 100px;
+      }
+
+      .style3::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: skewX(-30deg);
+        background: rgb(85, 136, 187);
+        z-index: -1;
+      }
+
+      input[value=''] {
+        background: #ff0000;
+      }
+
+      /* 选择空内容的元素 */
+      p:empty {
+        border: 1px solid #ff0000;
+      }
+    </style>
+
+    <h2>使用css的linear-gradient实现条纹</h2>
+    <div class="style1">三个代表重要思想</div>
+
+    <h2>使用 transform 属性可以很轻松的创建一个平行四边形</h2>
+    <div class="style2">
+      <span>Content</span>
+    </div>
+
+    <h2>使用伪元素实现梯形</h2>
+    <div class="style3">Content</div>
+    <input type="text" value="empty" />
+    <input type="text" value="" />
+    <p>empty</p>
+    <p></p>
+  </body>
+</html>

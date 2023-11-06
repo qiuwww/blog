@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>url生成二维码</title>
+  </head>
+
+  <body>
+    <a href="https://www.runoob.com/w3cnote/javascript-qrcodejs-library.html"
+      >QRCode.js：使用 JavaScript 生成二维码</a
+    >
+    <div id="qrcode"></div>
+    <script src="qrcode.min.js"></script>
+    <script type="text/javascript">
+      var text = '人类命运共同体';
+      var qrcode = new QRCode(document.getElementById('qrcode'), {
+        text: text,
+        width: 200,
+        height: 200,
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+    </script>
+  </body>
+</html>

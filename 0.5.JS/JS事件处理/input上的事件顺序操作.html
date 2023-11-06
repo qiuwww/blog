@@ -1,0 +1,148 @@
+<!-- input上的事件顺序操作.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <input type="text" id="input" />
+    <p>
+      input事件说明<br />
+      <ul>
+        <li>1. keydown事件发生时，输入值并没有发生变化，所以keydown可用于阻止某些输入字符的显示。</li>
+        <li>2.input事件发生时，无法获取到keyCode值，并且紧随在keydown事件之后。</li>
+        <li>3.keyup事件最后发生，一次键盘敲入事件彻底完成。</li>
+        <li>4.change事件只会发生在输入完成后，也就是输入框失去焦点之前。</li>
+      </ul>
+    </p>
+    <!-- click：单击抄
+    dblclick：双击
+    mousedown：鼠zhidao标上的按钮被按下触发的事件
+    mouseup：鼠标按下后，松开时触发的事件
+    mouseover：鼠标悬浮
+    mouseout：鼠标离开
+    mousemove：鼠标移动
+    mouseenter：鼠标进入
+    mouseleave：鼠标离开 -->
+    <h3>从鼠标移入，输入，到离开经过的事件<br>
+      -> mouseover<br>
+      -> mouseenter<br>
+      -> mousedown<br>
+      -> focus<br>
+      -> mouseup<br>
+      -> click<br>
+      -> keydown<br>
+      -> input<br>
+      -> keyup<br>
+      -> mouseout<br>
+      -> mouseleave<br>
+      -> change<br>
+      -> blur<br>
+    </h3>
+  </body>
+  <script>
+    var dom = document.getElementById('input');
+
+    dom.addEventListener(
+      'mouseenter',
+      function() {
+        console.log('mouseenter');
+      },
+      false,
+    );
+    dom.addEventListener(
+      'mouseover',
+      function() {
+        console.log('mouseover');
+      },
+      false,
+    );
+
+    dom.addEventListener(
+      'mouseout',
+      function() {
+        console.log('mouseout');
+      },
+      false,
+    );
+    dom.addEventListener(
+      'mouseleave',
+      function() {
+        console.log('mouseleave');
+      },
+      false,
+    );
+    dom.addEventListener(
+      'focus',
+      function() {
+        console.log('focus');
+      },
+      false,
+    );
+
+    dom.addEventListener(
+      'mousedown',
+      function() {
+        console.log('mousedown');
+      },
+      false,
+    );
+
+    dom.addEventListener(
+      'mouseup',
+      function() {
+        console.log('mouseup');
+      },
+      false,
+    );
+
+    dom.addEventListener(
+      'input',
+      function() {
+        console.log('input');
+      },
+      false,
+    );
+
+    dom.addEventListener(
+      'change',
+      function() {
+        console.log('change');
+      },
+      false,
+    );
+
+    dom.addEventListener(
+      'blur',
+      function() {
+        console.log('blur');
+      },
+      false,
+    );
+
+    dom.addEventListener(
+      'click',
+      function() {
+        console.log('click');
+      },
+      false,
+    );
+
+    dom.addEventListener(
+      'keydown',
+      function() {
+        console.log('keydown');
+      },
+      false,
+    );
+
+    dom.addEventListener(
+      'keyup',
+      function() {
+        console.log('keyup');
+      },
+      false,
+    );
+  </script>
+</html>

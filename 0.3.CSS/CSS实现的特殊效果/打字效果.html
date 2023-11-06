@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="typing">
+      <div class="typing-effect">Typing effect for text</div>
+    </div>
+    <style>
+      .typing {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .typing-effect {
+        width: 22ch;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid;
+        font-family: monospace;
+        font-size: 2em;
+        animation: typing 2s steps(22), effect 0.5s step-end infinite alternate;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+      }
+
+      @keyframes effect {
+        50% {
+          border-color: transparent;
+        }
+      }
+    </style>
+  </body>
+</html>
