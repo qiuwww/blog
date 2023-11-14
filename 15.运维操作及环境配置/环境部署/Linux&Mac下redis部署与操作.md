@@ -17,7 +17,7 @@
    chkconfig redis on
 ```
 
-## 本地 redis 运行，[egg-redis](https://github.com/eggjs/egg-redis)
+## 本地(Mac) redis 运行，[egg-redis](https://github.com/eggjs/egg-redis)
 
 1. 不需要设置密码；
 2. 开启与关闭：

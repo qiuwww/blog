@@ -5,8 +5,9 @@
 1. yum install nginx
 2. whereis nginx
 3. nginx -t，查看配置文件：
-   1. /etc/nginx/nginx.conf 配置日志等
-   2. /etc/nginx/sites-available/default 配置项目路径等
+   1. /etc/nginx/nginx.conf 配置日志等；
+      1. 查看配置文件:`vi /etc/nginx/nginx.conf`；
+   2. /etc/nginx/sites-available/default 配置项目路径等；
 
 ## 使用
 
@@ -23,7 +24,7 @@
 
 ### 设置域名
 
-1. http://110.42.233.184/ 可以访问了
+1. <http://110.42.233.184/>可以访问了；
 2. 域名用一下；
 3. <http://demo.qiuwww.top/static/index.html>
 
@@ -87,6 +88,7 @@ server {
    1. 免费证书；
    2. 文件验证；
 2. 配置服务器 nginx，去验证文件；
+   1. 验证方式：文件验证；
 3. 配置总的入口:
 
    ```conf
