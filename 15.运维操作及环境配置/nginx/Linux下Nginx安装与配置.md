@@ -152,3 +152,28 @@ location /h5 {
 1. <https://blog.csdn.net/m0_37899908/article/details/125015061>
 
 这个时候是因为 nginx 的问题，限制了。所以添加配置`client_max_body_size 100M;`；
+
+## 同一个端口，只能被监听一次
+
+在 nginx 配置中，如果你在同一个 server 块（服务块）中对同一个目标服务使用多个 location 块并设置不同的 proxy_pass，则只有一个 proxy_pass 指令会生效。通常情况下，更具体的 location 块会优先匹配，因此会执行其对应的 proxy_pass 指令。
+
+例如，如果存在以下配置：
+
+```conf
+server {
+    listen 80;
+    server_name example.com;
+
+    location /service1/ {
+        proxy_pass http://127.0.0.1:9001/;
+    }
+
+    location /service2/ {
+        proxy_pass http://127.0.0.1:9002/;
+    }
+}
+```
+
+如果一个请求同时匹配到/service1/和/service2/这两个 location 块，那么只有/service1/的 proxy_pass 会生效，即请求会被代理到http://127.0.0.1:9001/。这是因为nginx会使用最具体的location匹配规则。
+
+但如果请求只匹配到一个 location 块，那么就会使用这个 location 块对应的 proxy_pass 指令进行代理。

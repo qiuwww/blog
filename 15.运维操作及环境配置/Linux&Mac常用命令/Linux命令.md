@@ -194,3 +194,7 @@ mac 上传文件到服务器。
 `scp -r /Users/zhangbin/Desktop/news root@149.129.100.132:/var/www/`
 
 **一定要加-r**,如上命令是采用递归的方式将 news 目录下的所有文件都复制到 www 下
+
+scp -r /home/myfile/ root@192.168.1.100:/data/
+
+scp -r /Users/qiuwww/code/learn/blog/0.2.HTML/contenteditable实现富文本编辑器/jquery-1.9.1.js root@110.42.233.184:/data/js/
