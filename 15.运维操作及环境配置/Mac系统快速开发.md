@@ -1,5 +1,9 @@
 # Mac 系统快速开发
 
+## mac 录屏
+
+command + shift + 5，直接可以录屏，还非常的清晰。
+
 ## Mac 系统常用 vsc 快捷键.md
 
 option+⬆️ : 当前行与前面的行交换位置；

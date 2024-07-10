@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      iframe {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+    <!--baidu-->
+    <div class="">
+      <form action="http://www.baidu.com/s">
+        <input type="text" name="wd" id="kw" />
+        <input type="submit" value="Baidu" />
+      </form>
+    </div>
+
+    <!--google-->
+    <div>
+      <form action="http://www.google.com/search" method="get">
+        <input type="text" name="q" size="20" maxlength="255" value="" />
+        <input type="submit" name="btnG" value="Google" />
+      </form>
+    </div>
+
+    <!--baidu search-->
+    <div>
+      <iframe
+        border="0"
+        vspace="0"
+        hspace="0"
+        marginwidth="0"
+        marginheight="0"
+        framespacing="0"
+        frameborder="0"
+        scrolling="no"
+        width="200"
+        height="30"
+        src="http://unstat.baidu.com/bdun.bsc?tn=dabaoku&cv=1&cid=31577&csid=102&rkcs=2&bgcr=EDEDEB&ftcr=FF0000&rk=1&bd=1&bdas=0"
+      >
+      </iframe>
+    </div>
+
+    <!--google search-->
+    <div>
+      <form method="GET" action="http://www.google.com/search">
+        <input type="hidden" value="GB2312" />
+        <input type="hidden" value="GB2312" />
+        <input type="hidden" value="zh-CN" />
+        <div style="float: left">
+          <img
+            src="http://www.google.com/logos/Logo_40wht.gif"
+            　border="0"
+            alt="Google"
+            height="20px"
+          />
+        </div>
+        <div style="float: left">
+          <input type="text" name="q" size="18" maxlength="255" value="" />
+          <input type="submit" name="btnG" value="Google搜索" />
+        </div>
+        <br /><br />
+        <div>
+          <input type="radio" name="sitesearch" value="这里输入你的网站地址" checked />全球搜索
+          <input type="radio" name="sitesearch" value="" /> 本站搜索
+        </div>
+      </form>
+    </div>
+
+    <iframe
+      src="https://www.baidu.com/s?wd=%E6%9D%AD%E5%B7%9E&rsv_spt=1&rsv_iqid=0x974d30a70047818b&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_dl=ib&rsv_sug3=18&rsv_sug1=22&rsv_sug7=100&rsv_sug2=0&rsv_btype=i&inputT=4458&rsv_sug4=5081"
+      frameborder="0"
+    ></iframe>
+    <iframe
+      src="https://www.google.com/search?q=%E6%9D%AD%E5%B7%9E&oq=%E6%9D%AD%E5%B7%9E&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg7MgYIAhBFGDsyBggDEEUYOzIGCAQQRRg8MgYIBRBFGDwyBggGEEUYQdIBCDM3NTJqMGo3qAIIsAIB&sourceid=chrome&ie=UTF-8"
+      frameborder="0"
+    ></iframe>
+  </body>
+</html>
