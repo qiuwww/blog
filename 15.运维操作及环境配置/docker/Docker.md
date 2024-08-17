@@ -2,7 +2,15 @@
 
 [docker-tutorial](https://www.runoob.com/docker/docker-tutorial.html)
 
-docker 使用的时候，客户端必须开着。
+1. **docker 使用的时候，客户端必须开着**。
+2. docker 有自己的远端同步工具；
+   1. 通常我们需要本地开发好后同步到线上；
+   2. 在运行的机器上安装 docker 并同步过去，然后运行就可以了；
+3. 也就是说我们每个容器都可以被多次运行在多个地方；
+   1. 这也就是**创建镜像**；
+   2. 每次运行还可以更新一下依赖的镜像；
+4. 直接安装一个 node，会在默认的系统上；
+   1. cat /proc/version
 
 ## 是什么
 
@@ -16,6 +24,7 @@ docker 使用的时候，客户端必须开着。
 5. 主要是为了解决：在我的机器上是正常的，为什么到你的机器上就不正常了的问题。
 6. build -》share -》run。
 7. 类似于虚拟机，但是比虚拟机更加的效率、稳定、节省空间。
+8. 由于不同的机器有不同的操作系统，以及不同的库和组件，在将一个应用部署到多台机器上需要进行大量的环境配置操作。Docker 主要解决环境配置问题，它是一种虚拟化技术，对进程进行隔离，被隔离的进程独立于宿主操作系统和其它隔离的进程。使用 Docker 可以不修改应用程序代码，不需要开发人员学习特定环境下的技术，就能够将现有的应用程序部署在其它机器上。
 
 ### Docker 架构/Docker 的一些概念
 
@@ -45,8 +54,8 @@ Docker 使用**客户端-服务器 (C/S) 架构模式**，使用远程 API 来�
 
 #### 主要概念
 
-1. 镜像 => 类
-2. 容器 => 对象
+1. 镜像 => 类（Image）
+2. 容器 => 对象实例（Container）
 3. Docker 主机(Host): 一个物理或者虚拟的机器**用于执行 Docker 守护进程和容器**。
 4. Docker Registry: Docker 仓库用来保存镜像，可以理解为**代码控制中的代码仓库**。
    1. 一个 Docker Registry 中可以包含**多个仓库（Repository）**；**每个仓库可以包含多个标签（Tag）；每个标签对应一个镜像**。
@@ -56,6 +65,12 @@ Docker 使用**客户端-服务器 (C/S) 架构模式**，使用远程 API 来�
    2. **而 container 则是 images 运行时的的状态**。docker 对于运行过的 image 都保留一个状态（container），可以使用命令 docker ps 来查看正在运行的 container，对于已经退出的 container，则可以使用 docker ps -a 来查看。 如果你退出了一个 container 而忘记保存其中的数据，你可以使用 docker ps -a 来找到对应的运行过的 container 使用 docker commit 命令将其保存为 image 然后运行。
    3. 由于 image 被某个 container 引用（拿来运行），**如果不将这个引用的 container 销毁（删除），那 image 肯定是不能被删除。**
    4. 所以想要删除运行过的 images 必须首先删除它的 container。
+
+##### 镜像与容器
+
+1. 镜像（）是一种静态的结构，**可以看成面向对象里面的类**，**而容器（）是镜像的一个实例**。
+
+镜像包含着容器运行时所需要的代码以及其它组件，它是一种分层结构，每一层都是只读的（read-only layers）。构建镜像时，会一层一层构建，前一层是后一层的基础。镜像的这种分层存储结构很适合镜像的复用以及定制。
 
 ## 为什么
 
@@ -220,6 +235,32 @@ Dockerfile 是一个**用来构建镜像的文本文件**，文本内容包含�
 
 [Docker 命令大全](https://www.runoob.com/docker/docker-command-manual.html)
 
+1. FROM：定制的镜像都是基于 FROM 的镜像，这里的 nginx 就是定制需要的基础镜像。后续的操作都是基于 nginx。
+   1. FROM 指定基础镜像，用于后续的指令构建。
+2. RUN：用于执行后面跟着的命令行命令。
+3. MAINTAINER **指定 Dockerfile 的作者/维护者**。（已弃用，推荐使用 LABEL 指令）
+4. LABEL 添加镜像的元数据，使用键值对的形式。
+5. **RUN 在构建过程中在镜像中执行命令**。
+6. CMD 指定容器创建时的默认命令。（可以被覆盖）
+7. **ENTRYPOINT 设置容器创建时的主要命令。（不可被覆盖）**
+   1. 比如 yarn；
+8. EXPOSE 声明容器运行时监听的特定网络端口。
+9. ENV 在容器内部设置环境变量。
+10. **ADD 将文件、目录或远程 URL 复制到镜像中。**
+    1. 添加本地文件；
+11. **COPY 将文件或目录复制到镜像中。**
+    1. 复制 docker 所在目录外的文件到某个地方；
+       1. 目标地址看 FROM 的系统的目录情况；
+    2. <目标路径>：容器内的指定路径，该路径不用事先建好，路径不存在的话，会自动创建。
+12. VOLUME 为容器创建挂载点或声明卷。
+13. **WORKDIR 设置后续指令的工作目录。**
+14. USER 指定后续指令的用户上下文。
+15. ARG 定义在构建过程中传递给构建器的变量，可使用 "docker build" 命令设置。
+16. ONBUILD 当该镜像被用作另一个构建过程的基础时，添加触发器。
+17. STOPSIGNAL 设置发送给容器以退出的系统调用信号。
+18. HEALTHCHECK 定义周期性检查容器健康状态的命令。
+19. SHELL 覆盖 Docker 中默认的 shell，用于 RUN、CMD 和 ENTRYPOINT 指令。
+
 ### Dockerfile，文件配置
 
 1. COPY：
@@ -247,6 +288,12 @@ Dockerfile 是一个**用来构建镜像的文本文件**，文本内容包含�
    1. 而 dockerfile 的作用是从无到有的构建镜像。
 2. Dockerfile - 为 docker build 命令准备的，用于建立一个独立的 image ，在 docker-compose 里也可以用来实时 build
    1. docker-compose.yml - 为 docker-compose 准备的脚本，可以同时管理多个 container ，包括他们之间的关系、用官方 image 还是自己 build（自定义镜像）、各种网络端口定义、储存空间定义等
+3. 相当于多个 FROM，而不是只能有一个基础，别的东西都需要自己安装；
+4. 用于处理多个镜像的运行；
+
+### [compose](https://www.runoob.com/docker/docker-compose.html)
+
+1. Compose 是用于定义和运行多容器 Docker 应用程序的工具。通过 Compose，您可以使用 YML 文件来配置应用程序需要的所有服务。然后，使用一个命令，就可以从 YML 文件配置中创建并启动所有服务。
 
 ## 构建 docker 镜像
 
@@ -321,6 +368,64 @@ $ docker ps
 $ docker logs
 $ docker stop amazing_cori
 ```
+
+## docker 常用命令解释
+
+1. `runoob@runoob:~$ docker run ubuntu:15.10 /bin/echo "Hello world"`；
+   1. docker: Docker 的二进制执行文件。
+   2. run: 与前面的 docker 组合来运行一个容器。
+   3. ubuntu:15.10 指定要运行的镜像，Docker 首先从本地主机上查找镜像是否存在，如果不存在，Docker 就会从镜像仓库 Docker Hub 下载公共镜像。
+   4. /bin/echo "Hello world": 在启动的容器里执行的命令
+2. `docker run -i -t ubuntu:15.10 /bin/bash`，我们通过 docker 的两个参数 -i -t，让 docker 运行的容器实现"对话"的能力；
+   1. 交互式终端退出: exit ;
+3. `docker run -d -p 5000:5000 training/webapp python app.py`
+   1. 运行了一个应用 training/webapp，端口映射内部到外部 5000;
+
+## docker 常用命令
+
+1. 通过 docker ps 查看
+2. 输入 docker 命令来查看到 Docker 客户端的所有命令选项；
+   1. docker
+3. 我们可以使用 docker pull 命令来载入 ubuntu 镜像；
+4. 以下命令使用 ubuntu 镜像启动一个容器，参数为以命令行模式进入该容器：
+   1. `docker run -it ubuntu /bin/bash`；
+5. 使用 docker start 启动一个已停止的容器: `docker start b750bbbcfd88`；
+6. 在大部分的场景下，我们希望 docker 的服务是在后台运行的，我们可以过 -d 指定容器的运行模式。
+
+## 搜索并 pull 一个可用镜像
+
+1. docker search centos
+2. docker pull centos
+3. 打开 bash：`docker run -i -t centos /bin/bash`
+   1. 指定名称：`docker run -i -t --name test-bash centos /bin/bash`
+
+## 如何运行当前文件内的 docker，比如当前的前端项目
+
+## 导出和导入容器
+
+1. 如果要导出本地某个容器，可以使用 docker export 命令。
+   1. docker export 1e560fca3906 > ubuntu.tar
+2. 导入容器快照：
+   1. cat docker/ubuntu.tar | docker import - test/ubuntu:v1
+
+## 如果我们需要用 docker 来做日常的开发
+
+1. 使用 docker 启动一个项目；
+2. 端口做好映射；
+
+## 构建镜像
+
+1. 使用 Dockerfile 指令来创建一个新的镜像；
+2. **构建镜像**；
+   1. 我们使用命令 docker build ， 从零开始来创建一个新的镜像。为此，我们需要创建一个 Dockerfile 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。
+   2. 这里构建出来的镜像就可以哪里都能使用了；
+      1. 所以发布的过程也是一个构建与运行的过程；
+   3. 这里的 dockerfile 包含了所有需要的依赖配置；
+   4. [Docker Dockerfile](https://www.runoob.com/docker/docker-dockerfile.html)；
+      1. Dockerfile 是一个文本文件，包含了构建 Docker 镜像的所有指令。
+      2. Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。
+      3. 通过定义一系列命令和参数，Dockerfile 指导 Docker 构建一个自定义的镜像。
+3. 用户登录后，可以通过 docker push 命令将自己的镜像推送到 Docker Hub。
 
 ## 部署实操
 
