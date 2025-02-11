@@ -1,0 +1,337 @@
+sdfdsf
+测试人员必备的 Linux 命令清单
+原创 huaan9527 测试开发学习交流 2024年08月30日 07:01 浙江
+
+文件管理
+
+ls —— 显示目录内容。
+
+ls -l
+
+使用 -l 选项查看详细信息。
+
+
+
+cd —— 改变当前工作目录。
+
+cd /path/to/directory
+
+
+
+mkdir —— 创建新目录。
+
+mkdir new_directory
+
+
+
+rm —— 删除文件或目录。
+
+rm filename
+
+rm -r directory
+
+
+
+使用 -r 选项递归删除目录。
+
+cp —— 复制文件或目录。
+
+cp file1 file2
+
+cp -r dir1 dir2
+
+使用 -r 选项复制目录。
+
+
+
+mv —— 移动或重命名文件或目录。
+
+mv file1 file2
+
+mv dir1 dir2
+
+
+
+touch —— 创建空文件或更新文件的时间戳。
+
+touch newfile.txt
+
+
+
+cat —— 显示文件内容。
+
+cat filename
+
+
+
+less —— 分页查看文件内容。
+
+less filename
+
+
+
+grep —— 在文件中搜索模式。
+
+grep pattern filename
+
+
+
+find —— 查找文件。
+
+find /path -name "filename"
+
+
+
+chmod —— 更改文件权限。
+
+chmod 755 filename
+
+chown —— 更改文件的所有者。
+
+chown user:group filename‍
+
+
+图片
+
+进程管理
+
+ps —— 显示进程信息。
+
+ps aux | grep process_name
+
+
+
+top —— 实时查看系统资源使用情况。
+
+top
+
+
+
+kill —— 终止进程。
+
+kill PID
+
+killall —— 终止所有同名进程。
+
+killall process_name
+
+
+
+nice —— 设置进程优先级。
+
+nice -n 19 ./process
+
+
+
+renice —— 动态更改进程优先级。
+
+renice -n 19 -p PID‍
+
+
+图片
+
+网络工具
+
+ping —— 测试网络连通性。
+
+ping www.example.com
+
+
+
+traceroute —— 跟踪数据包到达目标主机的路径。
+
+traceroute www.example.com
+
+
+
+netstat —— 显示网络连接、路由表等信息。
+
+netstat -tuln
+
+
+
+ifconfig —— 显示和配置网络接口。
+
+ifconfig eth0 up
+
+
+
+curl —— 传输数据。
+
+curl http://www.example.com
+
+
+
+wget —— 从网络上下载文件。
+
+wget http://www.example.com/file.tar.gz
+
+
+
+ssh —— 安全地登录远程计算机。
+
+ssh user@remote_host
+
+
+
+scp —— 安全地复制文件。
+
+scp file user@remote_host:/path
+
+
+
+nc —— 网络调试和探测工具。
+
+nc -l -p 8080
+
+
+
+iptables —— 配置防火墙规则。
+
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT‍
+
+
+图片
+
+系统管理
+
+df —— 显示磁盘空间使用情况。
+
+df -h
+
+
+
+du —— 显示目录或文件大小。
+
+du -sh directory
+
+
+
+free —— 显示系统内存使用情况。
+
+free -m
+
+
+
+uname —— 显示系统信息。
+
+uname -a
+
+
+
+date —— 显示或设置日期和时间。
+
+date
+
+
+
+cal —— 显示日历。
+
+cal
+
+
+
+whoami —— 显示当前用户名。
+
+whoami
+
+
+
+su —— 切换用户。
+
+su - user
+
+
+
+sudo —— 以管理员身份运行命令。
+
+sudo apt-get update
+
+
+
+tar —— 归档文件。
+
+tar -czvf archive.tar.gz directory
+
+
+
+gzip —— 压缩文件。
+
+gzip file
+
+gunzip —— 解压缩文件。
+
+gunzip file.gz‍
+
+
+图片
+
+软件包管理
+
+apt-get —— Debian/Ubuntu 系统的软件包管理器。
+
+sudo apt-get install package_name
+
+
+
+yum —— CentOS/RHEL 系统的软件包管理器。
+
+sudo yum install package_name
+
+
+
+dnf —— Fedora 系统的软件包管理器。
+
+sudo dnf install package_name
+
+
+
+rpm —— 管理 RPM 包。
+
+rpm -q package_name
+
+
+
+dpkg —— 管理 Debian 包。
+
+dpkg -i package.deb
+
+
+
+pip —— Python 包管理器。
+
+pip install package_name
+
+
+
+npm —— Node.js 包管理器。
+
+npm install package_name
+
+
+
+日志分析
+
+tail —— 显示文件末尾的内容。
+
+tail -f /var/log/syslog
+
+
+
+logrotate —— 自动轮转日志文件。
+
+sudo logrotate /etc/logrotate.conf‍
+
+
+图片
+图片
+
+
+
+
+
+
+​
+
+微信扫一扫
+关注该公众号

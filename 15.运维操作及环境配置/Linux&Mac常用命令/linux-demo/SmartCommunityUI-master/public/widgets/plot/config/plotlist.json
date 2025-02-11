@@ -1,0 +1,358 @@
+{
+    "二维平面类": [
+        {
+            "name": "线",
+            "image": "$plot$/img/polyline.jpg",
+            "type": "polyline",
+            "edittype": "polyline",
+            "style": {
+                "clampToGround": false
+            }
+        },
+        {
+            "name": "贴地线",
+            "image": "$plot$/img/polyline_clampToGround.jpg",
+            "type": "polyline",
+            "edittype": "polyline",
+            "style": {
+                "clampToGround": true,
+                "color": "#ffff00"
+            }
+        },
+        {
+            "name": "流动线",
+            "image": "$plot$/img/polyline_flow.jpg",
+            "type": "polyline",
+            "edittype": "polyline",
+            "style": {
+                "clampToGround": false,
+                "lineType": "animation",
+                "animationImage": "img/textures/lineClr.png",
+                "color": "#33e8df"
+            }
+        },
+        {
+            "name": "动态线",
+            "image": "$plot$/img/polyline_flow2.jpg",
+            "type": "polyline",
+            "edittype": "polyline",
+            "style": {
+                "clampToGround": false,
+                "lineType": "animation",
+                "animationImage": "img/textures/LinkPulse.png",
+                "color": "#33e8df",
+                "width": 8
+            }
+        },
+        {
+            "name": "曲线",
+            "image": "$plot$/img/curve.jpg",
+            "type": "curve",
+            "edittype": "polyline",
+            "style": {
+                "clampToGround": false
+            }
+        },
+        {
+            "name": "贴地曲线",
+            "image": "$plot$/img/curve_clampToGround.jpg",
+            "type": "curve",
+            "edittype": "polyline",
+            "style": {
+                "clampToGround": true,
+                "color": "#ffff00"
+            }
+        },
+        {
+            "name": "走廊",
+            "image": "$plot$/img/corridor.jpg",
+            "type": "corridor",
+            "edittype": "corridor"
+        },
+        {
+            "name": "贴地走廊",
+            "image": "$plot$/img/corridor_clampToGround.jpg",
+            "type": "corridor",
+            "edittype": "corridor",
+            "style": {
+                "clampToGround": true,
+                "color": "#ffff00"
+            }
+        },
+        {
+            "name": "面",
+            "image": "$plot$/img/polygon.jpg",
+            "type": "polygon",
+            "edittype": "polygon"
+        },
+        {
+            "name": "贴地面",
+            "image": "$plot$/img/polygon_clampToGround.jpg",
+            "type": "polygon",
+            "edittype": "polygon_clampToGround"
+        },
+        {
+            "name": "矩形",
+            "image": "$plot$/img/rectangle.jpg",
+            "type": "rectangle",
+            "edittype": "rectangle"
+        },
+        {
+            "name": "贴地矩形",
+            "image": "$plot$/img/rectangle_clampToGround.jpg",
+            "type": "rectangle",
+            "edittype": "rectangle",
+            "style": {
+                "clampToGround": true,
+                "color": "#ffff00"
+            }
+        },
+        {
+            "name": "平面",
+            "image": "$plot$/img/plane.jpg",
+            "type": "plane",
+            "edittype": "plane"
+        },
+        {
+            "name": "圆",
+            "image": "$plot$/img/circle.jpg",
+            "type": "circle",
+            "edittype": "circle"
+        },
+        {
+            "name": "贴地圆",
+            "image": "$plot$/img/circle_clampToGround.jpg",
+            "type": "circle",
+            "edittype": "circle_clampToGround"
+        },
+        {
+            "name": "动态圆",
+            "image": "$plot$/img/circle_animation.jpg",
+            "type": "circle",
+            "edittype": "circle",
+            "style": {
+                "fillType": "animationCircle",
+                "animationCount":2,
+                "outline":false
+            }
+        },
+        {
+            "name": "椭圆",
+            "image": "$plot$/img/ellipse.jpg",
+            "type": "ellipse",
+            "edittype": "ellipse"
+        },
+        {
+            "name": "贴地椭圆",
+            "image": "$plot$/img/ellipse_clampToGround.jpg",
+            "type": "ellipse",
+            "edittype": "ellipse_clampToGround"
+        }
+
+    ],
+    "三维立体类": [
+        {
+            "name": "墙体",
+            "image": "$plot$/img/wall.jpg",
+            "type": "wall",
+            "edittype": "wall"
+        },
+        {
+            "name": "动态墙体",
+            "image": "$plot$/img/wall_fence.jpg",
+            "type": "wall",
+            "edittype": "wall",
+            "style": {
+                "fillType": "animationLine",
+                "animationImage": "img/textures/fence.png",
+                "animationAxisY": true,
+                "color": "#36ff5b",
+                "outline":false
+            }
+        },
+        {
+            "name": "动态箭头墙体",
+            "image": "$plot$/img/wall_arrow.jpg",
+            "type": "wall",
+            "edittype": "wall",
+            "style": {
+                "fillType": "animationLine",
+                "animationImage": "img/textures/arrow.png",
+                "animationAxisY": false,
+                "animationRepeatX":10,
+                "color": "#36ff5b",
+                "outline":false
+            }
+        },
+
+        {
+            "name": "竖立图片(墙)",
+            "type": "wall",
+            "edittype": "wall",
+            "image": "$plot$/img/wall_tanhao.jpg",
+            "config":{ "maxPointNum": 2 },
+            "style": {
+                "fillType": "animationLine",
+                "animationImage": "img/textures/fence.png",
+                "animationAxisY": true,
+                "color": "#ff0000",
+                "bgUrl": "img/textures/tanhao.png",
+                "bgColor": "#FFFF00",
+                "outline":false
+            }
+        },
+
+        {
+            "name": "拉伸走廊",
+            "image": "$plot$/img/extrudedCorridor.jpg",
+            "type": "corridor",
+            "edittype": "extrudedCorridor",
+            "style": {
+                "extrudedHeight": 100
+            }
+        },
+        {
+            "name": "管道",
+            "image": "$plot$/img/polylineVolume.jpg",
+            "type": "polylineVolume",
+            "edittype": "polylineVolume" ,
+            "hide":true
+        },
+        {
+            "name": "球体",
+            "image": "$plot$/img/ellipsoid.jpg",
+            "type": "ellipsoid",
+            "edittype": "ellipsoid"
+        }
+    ],
+    "军事标绘":[
+        {
+            "name": "粗直箭头",
+            "image": "$plot$/img/straightArrow.jpg",
+            "type": "straightArrow",
+            "edittype": "polygon_clampToGround"
+        },
+        {
+            "name": "粗单尖直箭头",
+            "image": "$plot$/img/fineArrow.jpg",
+            "type": "fineArrow",
+            "edittype": "polygon_clampToGround"
+        },
+        {
+            "name": "燕尾直箭头",
+            "image": "$plot$/img/fineArrowYW.jpg",
+            "type": "fineArrowYW",
+            "edittype": "polygon_clampToGround"
+        },
+        {
+            "name": "攻击箭头",
+            "image": "$plot$/img/attackArrow.jpg",
+            "type": "attackArrow",
+            "edittype": "polygon_clampToGround"
+        },
+        {
+            "name": "平尾攻击箭头",
+            "image": "$plot$/img/attackArrowPW.jpg",
+            "type": "attackArrowPW",
+            "edittype": "polygon_clampToGround"
+        },
+        {
+            "name": "燕尾攻击箭头",
+            "image": "$plot$/img/attackArrowYW.jpg",
+            "type": "attackArrowYW",
+            "edittype": "polygon_clampToGround"
+        },
+        {
+            "name": "钳击箭头",
+            "image": "$plot$/img/doubleArrow.jpg",
+            "type": "doubleArrow",
+            "edittype": "polygon_clampToGround"
+        },
+        {
+            "name": "闭合曲面",
+            "image": "$plot$/img/closeVurve.jpg",
+            "type": "closeVurve",
+            "edittype": "polygon_clampToGround"
+        },
+        {
+            "name": "集结地",
+            "image": "$plot$/img/gatheringPlace.jpg",
+            "type": "gatheringPlace",
+            "edittype": "polygon_clampToGround"
+        }
+    ],
+    "点及文字": [
+        {
+            "name": "文字",
+            "image": "$plot$/img/label.jpg",
+            "type": "label",
+            "edittype": "label",
+            "iconClass": "fa fa-text-width"
+        },
+        {
+            "name": "点",
+            "image": "$plot$/img/point.jpg",
+            "type": "point",
+            "edittype": "point"
+        },
+        {
+            "name": "图标点1",
+            "type": "billboard",
+            "edittype": "billboard",
+            "style": {
+                "image": "img/marker/mark1.png"
+            }
+        },
+        {
+            "name": "图标点2",
+            "type": "billboard",
+            "edittype": "billboard",
+            "style": {
+                "image": "img/marker/mark2.png"
+            }
+        },
+        {
+            "name": "图标点2",
+            "type": "billboard",
+            "edittype": "billboard",
+            "style": {
+                "image": "img/marker/mark3.png"
+            }
+        },
+        {
+            "name": "图标点4",
+            "type": "billboard",
+            "edittype": "billboard",
+            "style": {
+                "image": "img/marker/mark4.png"
+            }
+        },
+        {
+            "name": "火焰点",
+            "type": "particleSystem",
+            "edittype": "ParticleSystem",
+            "style": {
+                "image": "img/fire.png"
+            }
+        },
+        {
+            "name": "烟雾点",
+            "type": "billboard",
+            "edittype": "billboard",
+            "style": {
+                "image": "img/smoke.png"
+            }
+        },
+        {
+            "name": "消防栓模型",
+            "type": "model",
+            "edittype": "model",
+            "style": {
+                "image": "img/marker/消防栓.png",
+                "scale": 1,
+                "modelUrl": "data/gltf/xiaofangshuibengjieheqi/xiaofangshuibengjieheqi.gltf"
+            }
+        }
+    ]
+
+}

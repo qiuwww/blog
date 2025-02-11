@@ -1,0 +1,48 @@
+<!-- 2017-11-6 09:38:52 | 修改 木遥（微信:  http://marsgis.cn/weixin.html ） -->
+<div id="map-querybar" class="querybar-ssk animation-slide-top   no-print-view">
+    <input id="txt_querypoi" type="search" class="querybar-ssk1" placeholder="搜索 地点  " autocomplete="off"  />
+    <button id="btn_querypoi" type="button" value="" class="querybar-ssk2">
+        <i class="fa fa-search fa-2x"></i>
+    </button>
+    <div class="querybar-clear"></div>
+
+    <!--历史记录-->
+    <div id="querybar_histroy_view" class="querybar-sbox " style="display: none;">
+        <div class="querybar-ssls">
+            <ul id="querybar_ul_history">
+            </ul>
+        </div>
+        <div>
+            <a href="javascript:widget_queryBaiduPOI.clearHistory();" class="querybar-more">删除历史</a>
+        </div>
+    </div>
+
+    <!--搜索智能提示-->
+    <div id="querybar_autotip_view" class="querybar-znbox" style="display: none;">
+        <div class="querybar-znts">
+            <ul id="querybar_ul_autotip">
+            </ul>
+        </div>
+    </div>
+
+    <!--搜索结果列表-->
+    <div id="querybar_resultlist_view" class="querybar-sbox" style="display: none;">
+
+    </div>
+
+    <!--查看单条结果-->
+    <div id="querybar_detail_view" class="querybar-sbox" style="display: none;">
+        <div class="querybar-dtit">
+            <span id="lbl_poi_name">名称</span>
+            <a id="querybar_detail_back" style="float: right; cursor: pointer; font-size: 12px;color: #ffffff;"> &lt;&lt;返回&nbsp;</a>
+        </div>
+        <div class="querybar-itr">
+            <div class="querybar-itrtit">
+                <img id="querybar_img_jianjie" src="images/jj.png" class="querybar-fl">&nbsp;简介
+                <a id="btnShowDetail" href="" target="_blank" class="querybar-more">详情&gt;</a>
+            </div>
+            <div id="poi_detail_info" class="querybar-itrcon">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+.btn_none {
+    background: none;
+    color: #fff;
+}
+
+.btn-group {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-left: 20px;
+}
+
+.tool-btn {
+    cursor: pointer;
+    user-select: none;
+    min-width: 62px;
+    height: 96px;
+    box-sizing: border-box;
+    margin: 0 30px 10px 0;
+    text-align: center;
+    padding-top: 12px;
+}
+
+
+.tool-thum {
+    transition: all .2s ease;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    background: #fd960f;
+    cursor: pointer;
+}
+
+.tool-thum img {
+    width: 24px;
+    height: 24px;
+    margin: 13px;
+}
+
+
+.mainbox{
+    padding: 0 10px;
+    display: none;
+}
+
+.headbox{
+    height: 40px;
+    border-bottom: 1px dotted #ffffff;
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 40px;
+    position: relative;
+}
+.headtitle{
+    position: absolute;
+    left: 0;
+}
+.headtitle i{
+    cursor: pointer;
+}
+.backmenu{
+    margin-right: 5px;
+}
+
+.del{
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+.rowview{
+    margin: 10px 0 0 0;
+    color: #ffffff;
+    line-height: 30px;
+}
+.rowview span{
+    float: left;
+    margin-right: 10px;
+}
+.rowview input{
+    margin-right: 10px;
+}
+.bfbtn{
+    border: 1px solid #20a0ff;
+    background: rgba(32, 160, 255, 0.2);  
+}
+
+.mainInfo{
+    text-align: left;
+    padding: 0;
+}
+ 
+.tip{
+    color: #cad1d1;
+    margin: 0;
+}
+.center{
+    text-align: center;
+}
+.btn-clipping{
+    padding: 4px 8px;
+}
+
+.form-control{
+    max-width: 150px;
+}
+
+
+#ksyAnal .rowview input,#mxpqAnal .rowview input{
+    float: left;
+}
+#range_ksy_horizontalAngle,#range_ksy_verticalAngle,#range_ksy_distance,#range_mxpq_Distance{
+    width: 125px;
+    margin-top: 10px;
+}
+#txt_ksy_horizontalAngle,#txt_ksy_verticalAngle,#txt_ksy_distance,#txt_mxpq_Distance{
+    width: 72px;
+}

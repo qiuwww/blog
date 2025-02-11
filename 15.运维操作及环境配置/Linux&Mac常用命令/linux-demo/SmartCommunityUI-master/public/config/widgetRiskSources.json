@@ -1,0 +1,25 @@
+{
+  "debugger": false,
+  "version": "20200510",
+  "defaultOptions": {
+    "style": "dark",
+    "windowOptions": {
+      "skin": "layer-mars-dialog animation-scale-up",
+      "position": {
+        "top": 50,
+        "right": 10
+      },
+      "maxmin": false,
+      "resize": true
+    },
+    "autoReset":false,
+    "autoDisable": true,
+    "disableOther": true
+  },
+  "widgetsAtStart": [
+    {
+      "name": "poi查询",
+      "uri": "../widgets/queryBaiduPOI/widget.js"
+    }
+  ]
+}

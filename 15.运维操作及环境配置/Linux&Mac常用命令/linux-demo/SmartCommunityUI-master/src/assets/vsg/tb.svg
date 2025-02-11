@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60"
+     viewBox="0 0 60 60">
+  <defs>
+    <style>.a{fill:none;}.b{fill:#FFCC21;}.c{fill:#fff;}.d{filter:url(#a);}</style>
+    <filter id="a" x="0" y="0" width="60" height="60" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" />
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feFlood flood-color="#ff3862" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="b"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="translate(4 1)">
+    <rect class="a" width="52" height="52"/>
+    <g class="d" transform="matrix(1, 0, 0, 1, -4, -1)">
+      <rect class="b" width="36" height="36" rx="16" transform="translate(12 7)"/>
+    </g>
+    <path class="c"
+          d="M309.783,79.9a.782.782,0,0,0,.865,0l5.544-5.542a.533.533,0,0,0,.174-.345c0-.346-.174-.693-.521-.693h-3.117v-8.8a.554.554,0,0,0-.521-.521h-4.157a.461.461,0,0,0-.521.521v8.62h-2.943a.636.636,0,0,0-.52.174.782.782,0,0,0,0,.865l5.716,5.716Z"
+          transform="translate(-283.936 -48)"/>
+  </g>
+</svg>

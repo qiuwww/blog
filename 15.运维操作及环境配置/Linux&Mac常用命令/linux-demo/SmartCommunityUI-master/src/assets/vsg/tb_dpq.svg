@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60"
+     viewBox="0 0 60 60">
+  <defs>
+    <style>.a{fill:none;}.b{fill:#ffac5a;}.c{fill:#fff;}.d{filter:url(#a);}</style>
+    <filter id="a" x="0" y="0" width="60" height="60" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" />
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feFlood flood-color="#ffac5a" flood-opacity="0.204"/>
+      <feComposite operator="in" in2="b"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="translate(4 1)">
+    <rect class="a" width="52" height="52"/>
+    <g class="d" transform="matrix(1, 0, 0, 1, -4, -1)">
+      <rect class="b" width="36" height="36" rx="16" transform="translate(12 7)"/>
+    </g>
+    <g transform="translate(-81.138 -79.607)">
+      <path class="c"
+            d="M394.987,327.708v-1.519a.59.59,0,0,0-.589-.589h-9.709a.59.59,0,0,0-.589.589v1.519a3.848,3.848,0,0,0,1.037,2.625l3.043,3.248-3.043,3.248a3.848,3.848,0,0,0-1.037,2.625v1.519a.59.59,0,0,0,.589.589h9.7a.59.59,0,0,0,.589-.589v-1.519a3.848,3.848,0,0,0-1.037-2.625L390.9,333.58l3.043-3.248A3.817,3.817,0,0,0,394.987,327.708Zm-3.132,10.554a.8.8,0,0,1,0,1.6h-4.626a.8.8,0,0,1,0-1.6Z"
+            transform="translate(-282.399 -229.972)"/>
+    </g>
+  </g>
+</svg>

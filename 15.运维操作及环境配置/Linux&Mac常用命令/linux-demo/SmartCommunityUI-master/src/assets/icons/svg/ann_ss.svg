@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"
+     viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .a{fill:#fff;}.b{clip-path:url(#a);}.c,.g{fill:none;}.c{stroke-width:2px;}.d{fill:#3083f2;}.e{opacity:0.5;}.f{}
+    </style>
+    <clipPath id="a">
+      <rect class="a" width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g class="b" stroke="currentColor">
+    <g transform="translate(8 3)">
+      <g class="c">
+        <rect class="f" width="8" height="8" rx="4"/>
+        <rect class="g" x="-1" y="-1" width="10" height="10" rx="5"/>
+      </g>
+      <path class="d"
+            d="M210.157,232.838a2.425,2.425,0,0,0-3.624,0,.739.739,0,0,0,0,.983.606.606,0,0,0,.907,0,1.215,1.215,0,0,1,1.813,0,.608.608,0,0,0,.906,0A.736.736,0,0,0,210.157,232.838Z"
+            transform="translate(-204.346 -230.525)"/>
+    </g>
+    <g class="e" transform="translate(14 13)">
+      <g class="c">
+        <rect class="f" width="8" height="8" rx="4"/>
+        <rect class="g" x="-1" y="-1" width="10" height="10" rx="5"/>
+      </g>
+      <path class="d"
+            d="M210.157,233.212a2.425,2.425,0,0,1-3.624,0,.739.739,0,0,1,0-.983.606.606,0,0,1,.907,0,1.215,1.215,0,0,0,1.813,0,.608.608,0,0,1,.906,0A.736.736,0,0,1,210.157,233.212Z"
+            transform="translate(-204.346 -227.525)"/>
+    </g>
+    <g transform="translate(2 13)">
+      <g class="c">
+        <rect class="f" width="8" height="8" rx="4"/>
+        <rect class="g" x="-1" y="-1" width="10" height="10" rx="5"/>
+      </g>
+      <path class="d"
+            d="M210.157,233.212a2.425,2.425,0,0,1-3.624,0,.739.739,0,0,1,0-.983.606.606,0,0,1,.907,0,1.215,1.215,0,0,0,1.813,0,.608.608,0,0,1,.906,0A.736.736,0,0,1,210.157,233.212Z"
+            transform="translate(-204.346 -227.525)"/>
+    </g>
+  </g>
+</svg>

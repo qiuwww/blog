@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title><%= webpackConfig.name %></title>
+
+  <!-- 第3方lib -->
+  <script type="text/javascript" src="/lib/include-lib.js" libpath="lib/"
+          include="jquery,bootstrap,bootstrap-checkbox,font-awesome,jquery.mCustomScrollbar,ztree,,jquery.range,web-icons,layer,haoutil,nprogress,toastr,admui,turf,mars3d,vectortile"></script>
+  <!--slider-->
+  <link href="/lib/jquery-ui/style.css" rel="stylesheet">
+  <!--slider-->
+  <script type="text/javascript" src="/lib/jquery-ui/jquery-ui.min.js"></script>
+  <!-- 引入layui -->
+  <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+  <script type="text/javascript" src="../layui/layui.js"></script>
+  <script type="text/javascript" src="/ezuikit.js"></script>
+  <link href="/css/imgs.css" rel="stylesheet"/>
+  <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.15&key=82b093b352423e0c152fc524179b1a2f"></script>
+  <script src='/turf.min.js'></script>
+  <script src='/BJ54GaoSi.js'></script>
+  <script src='/coordichange.js'></script>
+  <script src='/pointConvert.js'></script>
+</head>
+<body >
+<div id="app"></div>
+<!-- built files will be auto injected -->
+
+
+</body>
+<script>
+  $(function (){
+    Array.prototype.delNaN = function () {
+      var arr = [];
+      for (var i = 0; i < this.length; i++) {
+        if (this[i] === this[i]) {
+          arr.push(this[i]);
+        }
+      }
+      return arr;
+    }
+     console.clear();
+  });
+</script>
+<style>
+
+</style>
+</html>

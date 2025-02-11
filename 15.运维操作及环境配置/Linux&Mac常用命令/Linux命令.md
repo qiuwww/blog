@@ -146,6 +146,13 @@ find . -name node_modules -type d -mindepth 2
 
 1. 是一个命令行工具，用于从互联网上下载文件。
 2. wget [选项] [URL]
+3. wget 从 web 下载文件;
+   1. wget <https://gitee.com/qiuwww/SmartCommunityUI/repository/archive/master.zip>
+      1. 直接下载项目的安装包；
+      2. 同时也可以下载图片、txt 之类的；
+         1. wget <https://gitee.com/qiuwww/SmartCommunityUI/raw/master/vue.config.js>
+   2. 只要知道他的下 whereis 载地址，就可以直接使用 wget 进行下载；
+      1. wget <https://q2.itc.cn/images01/20240825/f34632cfc6fb4befaa7975b249b699ff.jpeg>
 
 ## systemctl 是什么
 
@@ -197,4 +204,85 @@ mac 上传文件到服务器。
 
 scp -r /home/myfile/ root@192.168.1.100:/data/
 
-scp -r /Users/qiuwww/code/learn/blog/0.2.HTML/contenteditable实现富文本编辑器/jquery-1.9.1.js root@110.42.233.184:/data/js/
+scp -r /Users/qiuwww/code/learn/blog/0.2.HTML/contenteditable 实现富文本编辑器/jquery-1.9.1.js root@110.42.233.184:/data/js/
+
+## 一般指令
+
+1. ls -l = ll
+2. 使用 -r 选项递归删除目录。
+   1. cp —— 复制文件或目录。
+   2. cp file1 file2
+      1. cp ../folder-1/fff.txt ./
+   3. cp -r dir1 dir2
+      1. cp -r ../folder-1 ./
+   4. 使用 -r 选项复制目录。
+3. mv —— 移动或重命名文件或目录。
+   1. mv file1 file2
+      1. mv ./new_directory/fff.txt ./
+   2. mv dir1 dir2
+      1. mv ./new_directory/folder-1 ./dfs
+   3. touch —— 创建空文件或更新文件的时间戳。
+      1. touch newfile.txt
+      2. echo '<html><span>dsfsdf</span></html>' > fff.html
+4. view file
+   1. view fff.html
+   2. = vi fff.html
+5. cat —— 显示文件内容。
+   1. cat filename
+   2. cat fff.html，直接可以看到内容，如果知识查看内容，就使用 cat 就可以了；
+6. less —— 分页查看文件内容。
+   1. less filename
+   2. 还是 cat 更好用；
+7. 打开浏览器并打开指定的地址：`open https://www.baidu.com/`
+   1. open 打开文件，默认使用的就是默认打开工具：
+      1. open ./fff.html
+      2. open ./fff.txt
+8. grep —— 在文件中搜索模式。
+   1. grep pattern filename
+   2. `grep whoami fff.txt`
+9. find —— 查找文件。
+   1. find /path -name "filename"
+10. chmod —— 更改文件权限。
+    1. chmod 755 filename
+11. chown —— 更改文件的所有者。
+    1. chown user:group filename‍
+
+## 进程管理
+
+1. ps —— 显示进程信息。
+   1. ps aux | grep process_name
+   2. ps -ef | grep mysql
+      1. Linux 查看 MySQL 后台进程的命令。
+2. top —— 实时查看系统资源使用情况。
+   1. top
+3. kill —— 终止进程。
+   1. kill PID
+      1. 经常结合 ps 来使用
+   2. killall —— 终止所有同名进程。
+   3. killall process_name
+   4. kill -9 MySQL 进程 ID：强杀 MySQL 服务的命令。
+4. nice —— 设置进程优先级。
+   1. nice -n 19 ./process
+5. renice —— 动态更改进程优先级。
+   1. renice -n 19 -p PID‍
+
+## unzip
+
+解压文件。
+
+1. unzip master.zip
+
+## ln
+
+1. 软连接；
+2. 创建文件链接
+
+## 查看文件大小
+
+du -sh ./  #统计当前文件夹的size，即当前相对路径下的整个文件夹大小。
+du -sh     #同上
+du -sh ./*#显示当前文件夹下所有文件和文件夹的大小
+du -sh*   #同上
+du -sh ./test #显示./test文件夹的大小
+du -sh *.[^.]* #显示当前文件夹下所有文件和文件夹的大小,包含隐藏文件和隐藏文件夹
+du -csh *.[^.]* #显示当前文件夹下所有文件和文件夹的大小,包含隐藏文件和隐藏文件夹和总计

@@ -1,0 +1,13 @@
+export const regexEnglish = /^[A-Z]+$/;
+export const regexLandline = /0\d{2,3}-\d{7,8}/;
+export const regexIntNumber = /^[1-9]*[1-9][0-9]*$/;
+export const regexNumberOrLetter = /^[0-9a-zA-Z]*$/g;
+export const regexPhone = /^(13|14|15|17|18|19)\d{9}$/;
+export const regexName = /^[\u4e00-\u9fa5a-zA-Z-z0-9]+$/;
+export const regexWeChat = /^[a-zA-Z][a-zA-Z0-9_-]{5,19}$/;
+export const replaceImage = /<img [^>]*src=['"]([^'"]+)*/gi;
+export const regexIdCard = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+export const regexAmountOfMoney = /^[1-9]{1}\d*(.\d{1,2})?$|^0.\d{1,2}$/;
+export const regexChineseOrNumberOrLetter = /^[A-Za-z0-9\u4e00-\u9fa5]+$/;
+export const regexLicensePlate = /^[\u4e00-\u9fa5]{1}[A-Z]{1}[A-Z_0-9]{5}$/;
+export const regexEmail = /^[A-Za-z0-9]+([_\.][A-Za-z0-9]+)*@([A-Za-z0-9\-]+\.)+[A-Za-z]{2,6}$/;

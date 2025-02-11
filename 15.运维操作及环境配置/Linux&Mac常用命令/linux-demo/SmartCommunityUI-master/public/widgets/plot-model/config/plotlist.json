@@ -1,0 +1,2295 @@
+{
+    "车辆": [
+        {
+            "name": "警车",
+            "image": "$serverURL$/gltf/mars/img/jingche.jpg",
+            "type": "model",
+            "style": {
+                "scale": 3,
+                "modelUrl": "$serverURL$/gltf/mars/jingche/jingche.gltf"
+            }
+        },
+        {
+            "name": "起重车",
+            "image": "$serverURL$/gltf/mars/img/qzcar.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/qzcar/GKZY_anim.gltf"
+            }
+        },
+        {
+            "name": "土方车",
+            "image": "$serverURL$/gltf/mars/img/tufangche.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/car/tufangche.glb"
+            }
+        },
+        {
+            "name": "挖掘机",
+            "image": "$serverURL$/gltf/mars/img/wajueji.jpg",
+            "type": "model",
+            "style": {
+                "scale": 3,
+                "modelUrl": "$serverURL$/gltf/mars/car/wajueji.glb"
+            }
+        },
+        
+        {
+            "name": "小汽车",
+            "image": "$serverURL$/gltf/mars/img/qiche.jpg",
+            "type": "model",
+            "style": {
+                "scale": 0.1,
+                "modelUrl": "$serverURL$/gltf/mars/qiche.gltf"
+            }
+        },
+        {
+            "name": "消防车",
+            "image": "$serverURL$/gltf/mars/img/xiaofangche.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/firedrill/xiaofangche.gltf"
+            }
+        },
+        {
+            "name": "消防车2",
+            "image": "$serverURL$/gltf/mars/img/xiaofangche2.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/firedrill/xiaofangche2.gltf"
+            }
+        }, 
+        {
+            "name": "小货车",
+            "image": "$serverURL$/gltf/sample/img/CesiumMilkTruck.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/sample/CesiumMilkTruck/CesiumMilkTruck.gltf"
+            }
+        },
+        {
+            "name": "越野车",
+            "image": "$serverURL$/gltf/sample/img/GroundVehicle.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/sample/GroundVehicle/GroundVehicle.glb"
+            }
+        },
+        {
+            "name": "汽车_海关车",
+            "image": "$serverURL$/gltf/imap/img/1564470050852.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/82bd55706595471793aed25081d923d3/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "汽车_货车",
+            "image": "$serverURL$/gltf/imap/img/1564470090396.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/1898a88a5f914fd884d55a6d3cb5fc8a/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "汽车_旅行车",
+            "image": "$serverURL$/gltf/imap/img/1564470147369.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/78b2fc0b7d25469face6912102167e0d/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "汽车_27",
+            "image": "$serverURL$/gltf/imap/img/1564469622135.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/6d303e03f480400fa66bc365a99c0633/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "汽车_28",
+            "image": "$serverURL$/gltf/imap/img/1564469638574.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/4ad445a3cade4e05981db027e420d571/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "汽车_29",
+            "image": "$serverURL$/gltf/imap/img/1564469652760.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/ce2fddca7bac436d8d318bcd4fdf2d69/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "汽车_30",
+            "image": "$serverURL$/gltf/imap/img/1564469672960.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/af6be6d04323452ba21ab20400c762a0/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "汽车_31",
+            "image": "$serverURL$/gltf/imap/img/1564469702042.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/faba303ffdd04399a9bd8f923ff063a7/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "汽车_32",
+            "image": "$serverURL$/gltf/imap/img/1564469726522.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/9a4d7fe12b8a49768bf440650ec5dc81/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "汽车_33",
+            "image": "$serverURL$/gltf/imap/img/1564469753766.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/3d7b17b5060c41d48d6773bec1a7c325/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "汽车_39",
+            "image": "$serverURL$/gltf/imap/img/1564469770606.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/2999d0c048eb40a49ccbb20e638ef5be/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通工具_05",
+            "image": "$serverURL$/gltf/imap/img/1564477385132.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/9506d2116b6c4a82b6575141364759db/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通工具_货车11",
+            "image": "$serverURL$/gltf/imap/img/1564479246160.jpg",
+            "type": "model",
+            "style": {
+                "scale": 2,
+                "modelUrl": "$serverURL$/gltf/imap/d8cb721fdc3642a085533583da944c79/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "工地建筑_L_14",
+            "image": "$serverURL$/gltf/imap/img/1564478006083.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/92da1bb2a08e4c73aadda8bbc6719fba/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "工地建筑_L_15",
+            "image": "$serverURL$/gltf/imap/img/1564477937331.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/1d4f63111fc9499dac5cee2286ad7bb3/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "铲车_32",
+            "image": "$serverURL$/gltf/imap/img/1564469862277.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/ea229c19b0424d9aa6bf7ec2b54b5e5c/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "军事装备_01",
+            "image": "$serverURL$/gltf/imap/img/1564471119884.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/897ec2fdcdcd4ac181ecc5ed1c48018c/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "军事装备_02",
+            "image": "$serverURL$/gltf/imap/img/1564471137512.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/40dfa9f495fd4d3a9274746053392d53/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通工具_自行车01",
+            "image": "$serverURL$/gltf/imap/img/1564477572748.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/15928c4e4e774f32ac1e299fe7774774/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通工具_电动车03",
+            "image": "$serverURL$/gltf/imap/img/1564477407001.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/8cdf82408c9f4add806d7f65d45d723e/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通工具_摩托车04",
+            "image": "$serverURL$/gltf/imap/img/1564477501378.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/2eb7131358e345c99ef776c2b1daf204/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "摩托车",
+            "image": "$serverURL$/gltf/mars/img/motorcar.jpg",
+            "type": "model",
+            "style": {
+                "scale": 0.01,
+                "modelUrl": "$serverURL$/gltf/mars/firedrill/motorcar.glb"
+            }
+        },
+        {
+            "name": "交通工具_有轨电车13",
+            "image": "$serverURL$/gltf/imap/img/1564477523711.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/8395cc3ed1f046ebaf4649bfc290fe4c/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通工具_有轨电车15",
+            "image": "$serverURL$/gltf/imap/img/1564477541733.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/639726c652384a3dac4d76b1120ff7d7/gltf/gltf2.gltf"
+            }
+        }
+    ],
+    "火车及铁路":[
+        {
+            "name": "高铁车头",
+            "image": "$serverURL$/gltf/mars/img/train-heada.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/train/heada.glb",
+                "scale":0.001
+
+            }
+        },        
+        {
+            "name": "高铁车身",
+            "image": "$serverURL$/gltf/mars/img/train-body.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/train/body.glb",
+                "scale":0.001
+            }
+        },
+        {
+            "name": "桥墩",
+            "image": "$serverURL$/gltf/mars/img/railway-bridge.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/railway/bridge.glb",
+                "scale":0.001
+            }
+        },
+        {
+            "name": "电线架子",
+            "image": "$serverURL$/gltf/mars/img/railway-jiazi.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/railway/jiazi.glb",
+                "scale":0.001
+            }
+        },
+        {
+            "name": "铁路路基",
+            "image": "$serverURL$/gltf/mars/img/railway-railway.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/railway/railway.glb",
+                "scale":0.001
+            }
+        },
+        {
+            "name": "车站",
+            "image": "$serverURL$/gltf/mars/img/railway-station.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/railway/station.glb",
+                "scale":0.001
+            }
+        },
+        {
+            "name": "隧道",
+            "image": "$serverURL$/gltf/mars/img/railway-suidao.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/railway/suidao.glb",
+                "scale":0.001
+
+            }
+        }
+    ],
+    "飞机及航空": [
+        {
+            "name": "无人机",
+            "image": "$serverURL$/gltf/mars/img/wrj.jpg",
+            "type": "model",
+            "style": {
+                "scale": 0.05,
+                "modelUrl": "$serverURL$/gltf/mars/wrj.glb"
+            }
+        },
+        {
+            "name": "火箭",
+            "image": "$serverURL$/gltf/sample/img/launchvehicle.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/sample/launchvehicle/launchvehicle.glb"
+            }
+        },
+        {
+            "name": "战机",
+            "image": "$serverURL$/gltf/mars/img/zhanji.jpg",
+            "type": "model",
+            "style": {
+                "scale": 0.1,
+                "modelUrl": "$serverURL$/gltf/mars/zhanji.glb"
+            }
+        },
+        {
+            "name": "飞机",
+            "image": "$serverURL$/gltf/mars/img/feiji.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/feiji.glb"
+            }
+        },
+        {
+            "name": "卫星",
+            "image": "$serverURL$/gltf/mars/img/weixin.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/weixin.gltf"
+            }
+        },
+        {
+            "name": "客机",
+            "image": "$serverURL$/gltf/sample/img/CesiumAir.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/sample/CesiumAir/Cesium_Air.glb"
+            }
+        },
+        {
+            "name": "热气球",
+            "image": "$serverURL$/gltf/sample/img/CesiumBalloon.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/sample/CesiumBalloon/CesiumBalloon.glb"
+            }
+        },
+        {
+            "name": "军事装备_03",
+            "image": "$serverURL$/gltf/imap/img/1564471147971.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/ad876a2e4017485693f0a2b1a0ea3f50/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "军事装备_04",
+            "image": "$serverURL$/gltf/imap/img/1564471165826.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/89ec16851215454eb0ad93e80f35ad2e/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "军事装备_05",
+            "image": "$serverURL$/gltf/imap/img/1564471103546.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/f916d50cacf94c2885536527ceef66b7/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "军事装备_06",
+            "image": "$serverURL$/gltf/imap/img/1564471185354.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/3664046b2add4be38b6c53ec4cdeaedb/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "军事装备_07",
+            "image": "$serverURL$/gltf/imap/img/1564471200664.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/98bd9b580b87490dabc4ac99bfed0161/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "军事装备_10",
+            "image": "$serverURL$/gltf/imap/img/1564471246485.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/484f2b2947d444798f9a5dcd0e03d47c/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "卫星雷达接收站",
+            "image": "$serverURL$/gltf/mars/img/leida.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/leida.glb"
+            }
+        }
+    ],
+    "船及水利航海": [
+        {
+            "name": "散货船",
+            "image": "$serverURL$/gltf/mars/img/ship-01.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/ship/ship01.glb",
+                "scale":1
+            }
+        },
+        {
+            "name": "油船",
+            "image": "$serverURL$/gltf/mars/img/ship-02.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/ship/ship02.glb",
+                "scale":1
+            }
+        },
+        {
+            "name": "集装箱船",
+            "image": "$serverURL$/gltf/mars/img/ship-03.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/ship/ship03.glb",
+                "scale":1
+            }
+        },
+        {
+            "name": "拖轮",
+            "image": "$serverURL$/gltf/mars/img/ship-04.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/ship/ship04.glb",
+                "scale":1
+            }
+        },
+        {
+            "name": "煤炭船",
+            "image": "$serverURL$/gltf/mars/img/ship-05.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/ship/ship05.glb",
+                "scale":1
+            }
+        }, 
+        {
+            "name": "铁矿石船",
+            "image": "$serverURL$/gltf/mars/img/ship-06.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/ship/ship06.glb",
+                "scale":1
+            }
+        }, 
+        {
+            "name": "滚装船",
+            "image": "$serverURL$/gltf/mars/img/ship-07.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/ship/ship07.glb",
+                "scale":1
+            }
+        },
+        {
+            "name": "化工品船",
+            "image": "$serverURL$/gltf/mars/img/ship-08.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/ship/ship08.glb",
+                "scale":1
+            }
+        },
+        {
+            "name": "渔船",
+            "image": "$serverURL$/gltf/mars/img/ship-09.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/ship/ship09.glb",
+                "scale":1
+            }
+        },
+
+        {
+            "name": "交通船",
+            "image": "$serverURL$/gltf/mars/img/ship-jiaotong.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/ship/jiaotong.glb"
+            }
+        }, 
+        {
+            "name": "护卫舰",
+            "image": "$serverURL$/gltf/mars/img/aegis-destroyer.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/sea/aegis-destroyer.gltf"
+            }
+        },
+        {
+            "name": "航空母舰",
+            "image": "$serverURL$/gltf/mars/img/aircraft-carrier.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/sea/aircraft-carrier.gltf"
+            }
+        },
+        {
+            "name": "闸门",
+            "image": "$serverURL$/gltf/mars/img/zhamen.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/zhamen.glb"
+            }
+        },
+        {
+            "name": "交通工具_轮船16",
+            "image": "$serverURL$/gltf/imap/img/1564477439420.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/be1f6f71e73c4d57bc099a28f6ce2a15/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通工具_轮船17",
+            "image": "$serverURL$/gltf/imap/img/1564477468596.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/ce6097ae41824cb981a66b82dd44578b/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通工具_轮船22",
+            "image": "$serverURL$/gltf/imap/img/1564477485005.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/184ea77fb7fd4411b7004eab1f27ee56/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "船_42",
+            "image": "$serverURL$/gltf/imap/img/1564478255708.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/bb62f662a549484e923e9be3b667aa19/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "船_51",
+            "image": "$serverURL$/gltf/imap/img/1564478283315.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/270621418ed849e593194dc4ac744308/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "燃料船",
+            "image": "$serverURL$/gltf/imap/img/1564478302488.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/a35533afdd894d6385e1690749a27659/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "军事装备_08",
+            "image": "$serverURL$/gltf/imap/img/1564471218071.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/a64cb3926a024fd8bc2638da6f7ebe32/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "栓船柱_01",
+            "image": "$serverURL$/gltf/imap/img/1564470306357.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/e090ee3fc42a46a687d8d58890459f45/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "水坝_22",
+            "image": "$serverURL$/gltf/imap/img/1564470335574.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/7637780556cd4a58a4b475f4b0ec4993/gltf/default.gltf"
+            }
+        },
+        {
+            "name": "港口高空设备_01",
+            "image": "$serverURL$/gltf/imap/img/1564478044720.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/4278feced41a426399ea53a73b091ddf/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "港口高空设备_02",
+            "image": "$serverURL$/gltf/imap/img/1564478059655.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/f6cc354bf1dd422d857c7fa489fca6f1/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "港口起重机03",
+            "image": "$serverURL$/gltf/imap/img/1564478076096.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/4f9959b415ab4adab869fde77079bae7/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "港口运输设施02",
+            "image": "$serverURL$/gltf/imap/img/1564478100294.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/eba589bbe3c142e4b68e648463bd7d9e/gltf/gltf2.gltf"
+            }
+        }
+    ],
+ 
+
+    "人物": [
+        {
+            "name": "巡逻人员",
+            "image": "$serverURL$/gltf/mars/img/ren.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/man/ren.glb"
+            }
+        },
+        {
+            "name": "巡逻人员",
+            "image": "$serverURL$/gltf/mars/img/gongren.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/man/gongren.glb"
+            }
+        },
+        {
+            "name": "行人",
+            "image": "$serverURL$/gltf/mars/img/man.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/man/walk.gltf"
+            }
+        },
+        {
+            "name": "消防员",
+            "image": "$serverURL$/gltf/mars/img/xiaofangyuan.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/firedrill/xiaofangyuan.glb"
+            }
+        },
+        {
+            "name": "奔跑的消防员",
+            "image": "$serverURL$/gltf/mars/img/xiaofangyuan-run.jpg",
+            "type": "model",
+            "style": {
+                "scale": 2,
+                "modelUrl": "$serverURL$/gltf/mars/firedrill/xiaofangyuan-run.gltf"
+            }
+        },
+        {
+            "name": "步行动画_人",
+            "image": "$serverURL$/gltf/sample/img/CesiumMan.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/sample/CesiumMan/Cesium_Man.gltf"
+            }
+        }
+    ],
+    "街道小品": [
+        {
+            "name": "铁围栏",
+            "image": "$serverURL$/gltf/mars/img/weilan.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/weilan.gltf"
+            }
+        },
+        {
+            "name": "交通相关_100",
+            "image": "$serverURL$/gltf/imap/img/1564471420853.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/dd3c8c65dd6a4869ab14c72fbba7363c/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_109",
+            "image": "$serverURL$/gltf/imap/img/1564471440760.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/86e2abd37cd04b18a5efb31cb9b9dffa/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_99",
+            "image": "$serverURL$/gltf/imap/img/1564471467664.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/31f72307a8db494a8de965f4e5dc20c2/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_公共座椅055",
+            "image": "$serverURL$/gltf/imap/img/1564471479134.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/7c7d2272b2974ffa81c617b869cb5f97/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_公共座椅056",
+            "image": "$serverURL$/gltf/imap/img/1564471492121.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/fc47453dc155428ea29f78ab59c9d0f5/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_广告牌001",
+            "image": "$serverURL$/gltf/imap/img/1564471571986.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/761c5cdc69f143f7ba32cf663ea766cf/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_广告牌005",
+            "image": "$serverURL$/gltf/imap/img/1564471587760.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/aa2a997ca8b34d809b7beeb2f7ecc10c/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_110",
+            "image": "$serverURL$/gltf/imap/img/1564471455855.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/9c8442a1b18b4db1b5f2963cdd538c51/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_红绿灯063",
+            "image": "$serverURL$/gltf/imap/img/1564471607120.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/995809a3f7834a619b9ae95c57545717/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_红绿灯064",
+            "image": "$serverURL$/gltf/imap/img/1564471621079.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/556482493305441880fa44d72323d1c3/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_红绿灯065",
+            "image": "$serverURL$/gltf/imap/img/1564471636892.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/3c311632e9c24621bf0acfe4955e05a0/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_减速带114",
+            "image": "$serverURL$/gltf/imap/img/1564471654546.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/5b28377c88a64732b3e25261891d72ad/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_垃圾桶048",
+            "image": "$serverURL$/gltf/imap/img/1564477007696.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/d143fe62ee374b41b80818cc6019be8d/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_垃圾桶049",
+            "image": "$serverURL$/gltf/imap/img/1564477058803.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/03fba0648bf1443ab1573e1d0e2093f7/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_垃圾桶053",
+            "image": "$serverURL$/gltf/imap/img/1564477077133.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/2e845accd75c4edeb537f40d8d853e7f/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "垃圾箱_41",
+            "image": "$serverURL$/gltf/imap/img/1564470108986.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/a370bbcfe3d44594a18bb38bf2ff9652/gltf/default.gltf"
+            }
+        },
+        {
+            "name": "移动式厕所_33",
+            "image": "$serverURL$/gltf/imap/img/1564470459895.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/85dfe537da1540d6938a3bb71b40a33c/gltf/gltf2.gltf"
+            }
+        },
+      
+        {
+            "name": "交通相关_信号灯091",
+            "image": "$serverURL$/gltf/imap/img/1564477293907.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/7520f5b3094b46e39c8b2c3764449897/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_站牌083",
+            "image": "$serverURL$/gltf/imap/img/1564477309182.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/8badc423c59b4d85b0e08d9b2d1547f8/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_站厅031",
+            "image": "$serverURL$/gltf/imap/img/1564477328484.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/7b00cf0e22884fdb887ba9c354787a77/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_站厅034",
+            "image": "$serverURL$/gltf/imap/img/1564477342290.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/b1c7ca3ce7d448baab34dfdb097dd939/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_站厅035",
+            "image": "$serverURL$/gltf/imap/img/1564477357780.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/33e9f72e2a7a40d59625cb28818ce17f/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "街道小品_公交亭01",
+            "image": "$serverURL$/gltf/imap/img/1564471323822.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/5d4c5688568e4184af06c58fd17c0bfc/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "街道小品_公交亭02",
+            "image": "$serverURL$/gltf/imap/img/1564471343790.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/4f491cf0494b487aa8337f5961cf349b/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "街道小品_广告牌01",
+            "image": "$serverURL$/gltf/imap/img/1564471361862.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/e3400e9fb3514c2e9b71828867210e47/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "街道小品_座椅01",
+            "image": "$serverURL$/gltf/imap/img/1564471381265.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/5cc3351db5d24366b52eddce000c8958/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "街道小品_座椅05",
+            "image": "$serverURL$/gltf/imap/img/1564471399798.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/b9fb9e10ac724425b971761f76e8f975/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "铁桥01",
+            "image": "$serverURL$/gltf/imap/img/1564470424094.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/d5a87b15d9fb4ca8872a596a5595bf05/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "工地建筑_L_04",
+            "image": "$serverURL$/gltf/imap/img/1564477831462.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/c0a36443fdf04ec4995da8d3d871a7d6/gltf/gltf2.gltf"
+            }
+        },
+     
+        {
+            "name": "工地建筑_L_12",
+            "image": "$serverURL$/gltf/imap/img/1564477890854.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/cb8974a26d0b45f4b58f92239b4c3e3a/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "工地建筑_L_33",
+            "image": "$serverURL$/gltf/imap/img/1564477956617.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/076a369f26624888a2416d24bb1b88b3/gltf/gltf2.gltf"
+            }
+        },
+    
+        {
+            "name": "家居配件_邮箱75",
+            "image": "$serverURL$/gltf/imap/img/1564477791752.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/9e857b0792784bbf83fe48b34e799085/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "家居配件_邮箱76",
+            "image": "$serverURL$/gltf/imap/img/1564477812399.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/967a9ff2ab89431abeda414b25f25ed9/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "军事装备_11",
+            "image": "$serverURL$/gltf/imap/img/1564471270812.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/6f8cde6c0b774e86962ce2723832ab7f/gltf/gltf2.gltf"
+            }
+        }
+    ],
+    "树及植物": [
+        {
+            "name": "树_005",
+            "image": "$serverURL$/gltf/imap/img/1564468860386.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/de07d417d587494291daccb7670609fb/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "树_008",
+            "image": "$serverURL$/gltf/imap/img/1564468889077.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/f97d5363970146ac90cb70adb26b2789/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "树_011",
+            "image": "$serverURL$/gltf/imap/img/1564468904579.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/444108c0e22d446992ade8ad5d61af07/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "树_014",
+            "image": "$serverURL$/gltf/imap/img/1564468936668.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/a0bed8789dd6453183be58e6850921f6/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "树_018",
+            "image": "$serverURL$/gltf/imap/img/1564468954070.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/dd090ab0e83a48b98e2cc017a06077aa/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "树_030",
+            "image": "$serverURL$/gltf/imap/img/1564468966603.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/29d6c57b0cf54dce8c8894e3728b08a8/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "树_041",
+            "image": "$serverURL$/gltf/imap/img/1564468980766.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/df7253735b5749d496daa42eb9a1a623/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "树_051",
+            "image": "$serverURL$/gltf/imap/img/1564469070232.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/bbbdc9800120489399e84f5e2fbee610/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "树_054",
+            "image": "$serverURL$/gltf/imap/img/1564469148632.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/bd24a22883be43c4b9e430c42ab1d4b8/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "植物_01",
+            "image": "$serverURL$/gltf/imap/img/1564478783626.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/71c45157f5464c10a608113f02c57266/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "植物_03",
+            "image": "$serverURL$/gltf/imap/img/1564020248741.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/8b950ad4e37441afaa23482728f29842/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "植物_12",
+            "image": "$serverURL$/gltf/imap/img/1564020262776.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/d27323e8a10e47e6970ca13380db261e/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "植物_13",
+            "image": "$serverURL$/gltf/imap/img/1564478797056.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/85a27e9f863d4ba0ae9442db7778aa14/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "植物_32",
+            "image": "$serverURL$/gltf/imap/img/1564478810469.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/c17dc79f015442fa9fea0d4f804a17b8/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "植物_38",
+            "image": "$serverURL$/gltf/imap/img/1564478826634.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/8c262a4ec3b843e0acc36ef56014a1c8/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "植物_41",
+            "image": "$serverURL$/gltf/imap/img/1564020367599.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/3c0b5f7ee96148af9f42cdecc8ce915d/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "植物_62",
+            "image": "$serverURL$/gltf/imap/img/1564020429348.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/3ac57f04b887417b928e7794cad32375/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "园艺植物_01",
+            "image": "$serverURL$/gltf/imap/img/1564468694759.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/eb408cc379d943428e7501d7f5e1e578/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "园艺植物_07",
+            "image": "$serverURL$/gltf/imap/img/1564468708411.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/77d89ea1c390446188303a59239b8f5b/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "园艺植物_22",
+            "image": "$serverURL$/gltf/imap/img/1564468721542.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/b69be1fbcb8c43d2b745478205ce2c76/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "园艺植物_33",
+            "image": "$serverURL$/gltf/imap/img/1564468734703.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/a0e834a35ecf4f90a513a5b3ee18ce98/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "园艺植物_46",
+            "image": "$serverURL$/gltf/imap/img/1564468663482.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/30dcf1b4c59d4240bef7afb9fc36d3cf/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "盆栽植物003",
+            "image": "$serverURL$/gltf/imap/img/1564470486467.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/e26a1072a2e84295b9c39e0a7d5b1c5e/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "盆栽植物016",
+            "image": "$serverURL$/gltf/imap/img/1564470509507.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/048b0e1dcbe94e8681f27237fe71a5cb/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "盆栽植物018",
+            "image": "$serverURL$/gltf/imap/img/1564470528495.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/5124851961ff4ed598336e9a26d65002/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "盆栽植物020",
+            "image": "$serverURL$/gltf/imap/img/1564470559273.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/ef4d7e0657ab4b7d88e3d5632e8fe800/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "盆栽植物027",
+            "image": "$serverURL$/gltf/imap/img/1564470575074.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/9c4f09841bc941aaa450e9b2b58c316d/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "盆栽植物056",
+            "image": "$serverURL$/gltf/imap/img/1564470607137.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/ef9f2bb42a1c4dd69e4ecca66d4a0d56/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "盆栽植物057",
+            "image": "$serverURL$/gltf/imap/img/1564470622636.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/5775f70065444501a66db9820b65bee2/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "盆栽植物063",
+            "image": "$serverURL$/gltf/imap/img/1564470637754.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/4b86f48d068f446cbefe4f37782ba810/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "盆栽植物065",
+            "image": "$serverURL$/gltf/imap/img/1564470665235.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/de2036d521184caf921259a94672fcac/gltf/gltf2.gltf"
+            }
+        }
+    ],
+    "建筑物": [
+        {
+            "name": "室内楼层",
+            "image": "$serverURL$/gltf/mars/img/floor.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/fang/floor.gltf"
+            }
+        },
+        {
+            "name": "室内房间",
+            "image": "$serverURL$/gltf/mars/img/shinei.jpg",
+            "type": "model",
+            "style": {
+                "scale": 0.01,
+                "modelUrl": "$serverURL$/gltf/mars/fang/shinei.gltf"
+            }
+        },
+        {
+            "name": "上海浦东",
+            "image": "$serverURL$/gltf/mars/img/shanghai.jpg",
+            "type": "model",
+            "style": {
+                "scale": 520,
+                "modelUrl": "$serverURL$/gltf/mars/shanghai/scene.gltf"
+            }
+        },
+        {
+            "name": "城市模型_001",
+            "image": "$serverURL$/gltf/imap/img/1564478318849.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/bbcfb4bee7d348a38577cd1d3cd57af8/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_003",
+            "image": "$serverURL$/gltf/imap/img/1564478330161.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/49c748e17c0446e59390639cb00abc96/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_011",
+            "image": "$serverURL$/gltf/imap/img/1564478339997.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/846b07f3050243d8a563c8c1485c2868/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_022",
+            "image": "$serverURL$/gltf/imap/img/1564478350947.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/3b86f72e90dd45e388413499d4af89b3/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_023",
+            "image": "$serverURL$/gltf/imap/img/1564478364015.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/9e1f98edda514846a1b179550d1b304b/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_031",
+            "image": "$serverURL$/gltf/imap/img/1564478378389.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/b5fb419707d94a1780f91a41b02ec5bc/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_037",
+            "image": "$serverURL$/gltf/imap/img/1564478395773.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/c9d453ccdb2c4cf1bbae52a831f41568/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_049",
+            "image": "$serverURL$/gltf/imap/img/1564478413006.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/32802d8ce44540cdbd2e7081eff4b609/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_050",
+            "image": "$serverURL$/gltf/imap/img/1564478438615.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/70994478f29e4f6b9a619424d9227c2d/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_052",
+            "image": "$serverURL$/gltf/imap/img/1564478454726.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/d17fb339cb1f46b9857447c654471281/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_069",
+            "image": "$serverURL$/gltf/imap/img/1564478470797.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/4d203339d6cc4b45972bce497625030f/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_070",
+            "image": "$serverURL$/gltf/imap/img/1564478483630.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/34eea9b28c55439984ea22f93eed3377/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_072",
+            "image": "$serverURL$/gltf/imap/img/1564478497384.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/cdad0f720ca54007b36caffb88130fa5/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_073",
+            "image": "$serverURL$/gltf/imap/img/1564478513539.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/cd783e8094f94def8b4844ebcabc434d/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "城市模型_078",
+            "image": "$serverURL$/gltf/imap/img/1564478546115.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/a7e3b092fc354d2b8e3fcf60877133e5/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "别墅_01",
+            "image": "$serverURL$/gltf/imap/img/1564478562704.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/129707a1798845f8a854eb3db4e12533/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "别墅_02",
+            "image": "$serverURL$/gltf/imap/img/1566373029778.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/57cb9237101c486980a61df9df36924b/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "别墅_03",
+            "image": "$serverURL$/gltf/imap/img/1564478594367.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/51d87248c8ff4b1a931343ead86110a7/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "别墅_04",
+            "image": "$serverURL$/gltf/imap/img/1564478609039.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/646ba9b5152142e9a9fbeda7ca1fdb72/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "别墅_08",
+            "image": "$serverURL$/gltf/imap/img/1564478628779.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/3ab0b53886ea4f42bc1fd46bd2e6d4a6/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "别墅_09",
+            "image": "$serverURL$/gltf/imap/img/1564478648683.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/b687e0fed4814f4f81fb598ef8fe316b/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "别墅_14",
+            "image": "$serverURL$/gltf/imap/img/1564478666171.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/f26a8da13cc1419a94f148bbb821e359/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "欧式建筑_21",
+            "image": "$serverURL$/gltf/imap/img/1564470909131.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/0cce510b9add470baf9315f03e36ed52/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "欧式建筑_23",
+            "image": "$serverURL$/gltf/imap/img/1564471005169.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/f4596b5baeb5441e8c104c13008b5fa0/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "欧式建筑_24",
+            "image": "$serverURL$/gltf/imap/img/1564471019674.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/b7931f4bab064d4b8e67c31121fb8e85/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "欧式建筑_25",
+            "image": "$serverURL$/gltf/imap/img/1564471029514.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/de163d716d98418eb23e90a13d671aa5/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "欧式建筑_27",
+            "image": "$serverURL$/gltf/imap/img/1564471041661.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/bdc1435efb2b420fae89a91bc2051303/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "欧式建筑_29",
+            "image": "$serverURL$/gltf/imap/img/1564471057297.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/3cee411252c944ad9c9bcf32266c91e6/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "欧式建筑_32",
+            "image": "$serverURL$/gltf/imap/img/1564471073287.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/b7c907519e234588b0a26439469058f6/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "欧式建筑_35",
+            "image": "$serverURL$/gltf/imap/img/1564471088921.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/99f9791d1ca84f449025db5d2dc0ef2e/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "商业建筑_39",
+            "image": "$serverURL$/gltf/imap/img/1564469381226.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/171112f22bf34b09a80dfe36b7a2c3ce/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "商业建筑_47",
+            "image": "$serverURL$/gltf/imap/img/1564469514768.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/81b5ae8c8bdc46a0ab3e45b9e6c47ea8/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "商业建筑_54",
+            "image": "$serverURL$/gltf/imap/img/1564469532643.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/0332d9cc05cc4128befe160b096cc6af/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "商业建筑_56",
+            "image": "$serverURL$/gltf/imap/img/1564469547022.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/97aef5750b604a94bad78b60ecd70c0b/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "商业建筑_61",
+            "image": "$serverURL$/gltf/imap/img/1564469461199.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/40676d827af74e58a8701e5b87b9f918/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "商业建筑_62",
+            "image": "$serverURL$/gltf/imap/img/1564469485804.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/f634772ca3f040bb827e2eb7b85f30a5/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "商业建筑_63",
+            "image": "$serverURL$/gltf/imap/img/1564469567422.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/3308f9b546cc4bc0acd9c52f9f634252/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "中式建筑",
+            "image": "$serverURL$/gltf/imap/img/1564469838765.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/236cec07b3ff49ef8ef23c55d66c07b0/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "工业建筑_20",
+            "image": "$serverURL$/gltf/imap/img/1564468632573.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/821216d8e8fe4c078831eb38eb994174/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "工地建筑_L_06",
+            "image": "$serverURL$/gltf/imap/img/1564477861044.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/9d3a5ca27bad426b81b05bca10aac9bd/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "工地建筑_L_10",
+            "image": "$serverURL$/gltf/imap/img/1564477875189.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/b04575a269e74d309d80fb4aa504c307/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "工地建筑_L_88",
+            "image": "$serverURL$/gltf/imap/img/1564477973098.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/4f99992dc26a43c2975038003879a8c2/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "顺德粮仓_仓体",
+            "image": "$serverURL$/gltf/imap/img/1564470369041.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/ecd074f5a7314d84ac4ed06eb66da6bd/gltf/gltf2.gltf"
+            }
+        }
+    ],
+
+
+    "电力设施": [
+        {
+            "name": "风力发电机",
+            "image": "$serverURL$/gltf/mars/img/fengche.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/fengche.gltf"
+            }
+        },
+        {
+            "name": "太阳能发电板",
+            "image": "$serverURL$/gltf/mars/img/taiyang.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/taiyang/taiyang.gltf"
+            }
+        },
+        {
+            "name": "电线塔",
+            "image": "$serverURL$/gltf/mars/img/tower.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/tower/tower.glb"
+            }
+        },
+        {
+            "name": "交通相关_路灯018",
+            "image": "$serverURL$/gltf/imap/img/1564477092720.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/e17c7f3a2ad7448399f605c2f3690ad7/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_路灯023",
+            "image": "$serverURL$/gltf/imap/img/1564477156785.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/7483136359034d028a695b5d595f9690/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_路灯024",
+            "image": "$serverURL$/gltf/imap/img/1564477138553.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/7f39ed34ab684dfdaf25d78cff16dd36/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_路灯025",
+            "image": "$serverURL$/gltf/imap/img/1564477175167.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/bca6e024881e4134953a54568d0a94ea/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_路灯026",
+            "image": "$serverURL$/gltf/imap/img/1564477198499.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/051ffb7edf194a4494c284966168f89c/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_路灯027",
+            "image": "$serverURL$/gltf/imap/img/1564477215220.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/e47b6fae4a3641fcae0e1767bcc86f47/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_路灯029",
+            "image": "$serverURL$/gltf/imap/img/1564477230043.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/d9222c3778fd4c0d826a2564ffc4c5a6/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "室外照明_008",
+            "image": "$serverURL$/gltf/imap/img/1564469202244.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/7bab0edfba0044ae9ef215c691025394/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "室外照明_036",
+            "image": "$serverURL$/gltf/imap/img/1564469225075.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/743212b03967462ea01724d1312b06f9/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "室外照明_052",
+            "image": "$serverURL$/gltf/imap/img/1564469243454.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/ad599019341e4245b617bcac4eb6b0d6/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "室外照明_069",
+            "image": "$serverURL$/gltf/imap/img/1564469285823.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/107fecdac89e4b6980d5442caecc284a/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "室外照明_072",
+            "image": "$serverURL$/gltf/imap/img/1564469176204.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/cfca7e7dde1c4d678649e60f404fef4f/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "室外照明_073",
+            "image": "$serverURL$/gltf/imap/img/1564469347605.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/110c71184966434fbd05170469feba29/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "室外照明_076",
+            "image": "$serverURL$/gltf/imap/img/1564469335071.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/0dd0658d82054c15bebfcee0f1f4d630/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "油田厂房_二层设备28",
+            "image": "$serverURL$/gltf/imap/img/1564468817170.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/085d653283404d3fa63f87c67b5ac415/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "油田厂房_二层设备86",
+            "image": "$serverURL$/gltf/imap/img/1564468841010.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/08d7116742b448458a449b7ae3073dd5/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "发动机_45",
+            "image": "$serverURL$/gltf/imap/img/1564469946263.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/750a30391931487c97519ac33d5ff8c6/gltf/default.gltf"
+            }
+        },
+        {
+            "name": "电箱_26",
+            "image": "$serverURL$/gltf/imap/img/1564469895914.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/0a7ea9162ff8429a99df86a8c416efd3/gltf/default.gltf"
+            }
+        },
+        {
+            "name": "电线塔_29",
+            "image": "$serverURL$/gltf/imap/img/1564478227102.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/64b2b420d1564777bb68c771f9c9e57e/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "电线塔_30",
+            "image": "$serverURL$/gltf/imap/img/1564478238011.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/029020c24f604b9e8a5621306889965e/gltf/default.gltf"
+            }
+        }
+    ],
+    "消防设备": [
+        {
+            "name": "二氧化碳灭火器",
+            "image": "$serverURL$/gltf/xiaofang/img/eryanghuatanmiehuoqi.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/eryanghuatanmiehuoqi/eryanghuatanmiehuoqi.gltf",
+                "scale": 0.1
+            }
+        },
+        {
+            "name": "水基型（水雾）灭火器",
+            "image": "$serverURL$/gltf/xiaofang/img/shuijimiehuoqi.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/shuijimiehuoqi/shuijimiehuoqi.gltf",
+                "scale": 0.1
+            }
+        },
+        {
+            "name": "干粉灭火器",
+            "image": "$serverURL$/gltf/xiaofang/img/ganfenmiehuoqi.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/ganfenniehuoqi/ganfenmiehuoqi.gltf",
+                "scale": 0.1
+            }
+        }, 
+        {
+            "name": "推车灭火器",
+            "image": "$serverURL$/gltf/xiaofang/img/tuichemiehuoqi.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/tuichemiehuoqi/tuichemiehuoqi.gltf",
+                "scale": 0.1
+            }
+        },
+       
+        {
+            "name": "杆",
+            "image": "$serverURL$/gltf/xiaofang/img/gan.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/gan/gan.gltf",
+                "scale": 0.1
+            }
+        },
+        {
+            "name": "圆盘杆",
+            "image": "$serverURL$/gltf/xiaofang/img/yuanpangan.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/yuanpangan/yuanpangan.gltf",
+                "scale": 0.1
+            }
+        },
+        {
+            "name": "报警立柱",
+            "image": "$serverURL$/gltf/xiaofang/img/baojinglizhu.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/baojinglizhu/baojinglizhu.gltf",
+                "scale": 0.01
+            }
+        },   {
+            "name": "球机",
+            "image": "$serverURL$/gltf/xiaofang/img/qiuji.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/qiuji/qiuji.gltf",
+                "scale": 0.1
+            }
+        },
+        {
+            "name": "定点摄像机",
+            "image": "$serverURL$/gltf/xiaofang/img/camera.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/camera/scene.gltf",
+                "scale": 0.01
+            }
+        },
+        {
+            "name": "全景摄像头",
+            "image": "$serverURL$/gltf/xiaofang/img/quanjingshexinagtyuan.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/quanjingshexinagtyuan/quanjingshexinagtyuan.gltf",
+                "scale": 0.1
+            }
+        },
+        {
+            "name": "短杆全景摄像头",
+            "image": "$serverURL$/gltf/xiaofang/img/duanganquanjingshexiangtou.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/duanganquanjingshexiangtou/duanganquanjingshexiangtou.gltf",
+                "scale": 0.1
+            }
+        },
+        {
+            "name": "摄像头",
+            "image": "$serverURL$/gltf/xiaofang/img/she160.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/she160/she160.gltf",
+                "scale": 1
+            }
+        },
+        {
+            "name": "摄像头-60度视椎体",
+            "image": "$serverURL$/gltf/xiaofang/img/she60.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/she60/she60.gltf",
+                "scale": 1
+            }
+        },
+        {
+            "name": "摄像头-90度视椎体",
+            "image": "$serverURL$/gltf/xiaofang/img/she90.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/she90/she90.gltf",
+                "scale": 1
+            }
+        },
+     
+        {
+            "name": "消防水泵接合器",
+            "image": "$serverURL$/gltf/xiaofang/img/xiaofangshuibengjieheqi.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/xiaofangshuibengjieheqi/xiaofangshuibengjieheqi.gltf",
+                "scale": 0.1
+            }
+        },
+        {
+            "name": "消防栓",
+            "image": "$serverURL$/gltf/xiaofang/img/xiaofangshuan.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/xiaofangshuan/xiaofangshuan.gltf",
+                "scale": 0.5
+            }
+        },
+        {
+            "name": "温度感应器",
+            "image": "$serverURL$/gltf/xiaofang/img/wengan.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/wengan/wengan.gltf",
+                "scale": 0.05
+            }
+        },
+        {
+            "name": "区域分机",
+            "image": "$serverURL$/gltf/xiaofang/img/quyufenji.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/xiaofang/quyufenji/quyufenji.gltf",
+                "scale": 0.1
+            }
+        },
+        {
+            "name": "交通相关_消火栓043",
+            "image": "$serverURL$/gltf/imap/img/1564477248191.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/317a12c4e9f349adbc97bbc5aa340a4c/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "交通相关_消火栓046",
+            "image": "$serverURL$/gltf/imap/img/1564477273251.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/051a4ff9d0064cc99658bebd701acf69/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "家居配件_摄像头47",
+            "image": "$serverURL$/gltf/imap/img/1564477754396.jpg",
+            "type": "model",
+            "style": {
+                "scale": 2,
+                "modelUrl": "$serverURL$/gltf/imap/8a1b2a19f1334a81b70c308da7bc338a/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "家居配件_摄像头48",
+            "image": "$serverURL$/gltf/imap/img/1564477773311.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/b01f89a2e8c44c5a9f381ec3edef6836/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "工地建筑_L_05",
+            "image": "$serverURL$/gltf/imap/img/1564477846403.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/0880ee73aa354792b263ee558148d9f6/gltf/gltf2.gltf"
+            }
+        }
+    ],
+    "测绘仪器": [
+        {
+            "name": "全站仪",
+            "image": "$serverURL$/gltf/mars/img/cehui-qzy.jpg",
+            "type": "model",
+            "edittype": "model",
+            "style": {
+                "scale": 1,
+                "modelUrl": "$serverURL$/gltf/mars/cehui/qzy.glb"
+            }
+        },
+        {
+            "name": "全站仪_无脚架",
+            "image": "$serverURL$/gltf/mars/img/cehui-qzy01.jpg",
+            "type": "model",
+            "edittype": "model",
+            "style": {
+                "scale": 1,
+                "modelUrl": "$serverURL$/gltf/mars/cehui/qzy01.glb"
+            }
+        },
+        {
+            "name": "RTK完整",
+            "image": "$serverURL$/gltf/mars/img/cehui-rtk.jpg",
+            "type": "model",
+            "edittype": "model",
+            "style": {
+                "scale": 1,
+                "modelUrl": "$serverURL$/gltf/mars/cehui/rtk.glb"
+            }
+        },
+        {
+            "name": "棱镜",
+            "image": "$serverURL$/gltf/mars/img/cehui-lj.jpg",
+            "type": "model",
+            "edittype": "model",
+            "style": {
+                "scale": 1,
+                "modelUrl": "$serverURL$/gltf/mars/cehui/lj.glb"
+            }
+        }
+    ],  
+    "超高机械": [
+        {
+            "name": "木楼",
+            "image": "$serverURL$/gltf/sample/img/WoodTower.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/sample/WoodTower/Wood_Tower.gltf"
+            }
+        },
+        {
+            "name": "起重机_02",
+            "image": "$serverURL$/gltf/imap/img/1564469798569.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/532d9f816aac4727a310e8f92fa52966/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "起重机_34",
+            "image": "$serverURL$/gltf/imap/img/1564469812852.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/aa91fed9c6d742028404ae0fac16d6cd/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "井塔_36",
+            "image": "$serverURL$/gltf/imap/img/1564471288694.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/7f08b9f6b80d4f1ea110f1d4d900978b/gltf/default.gltf"
+            }
+        },
+        {
+            "name": "井塔_49",
+            "image": "$serverURL$/gltf/imap/img/1564471302571.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/9efeecde30524307870697e0a8eac7e1/gltf/default.gltf"
+            }
+        },
+        {
+            "name": "储蓄罐_11",
+            "image": "$serverURL$/gltf/imap/img/1564469882362.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/406b6d6d8b9c455083b534dce948c61b/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "镀锌钢板仓",
+            "image": "$serverURL$/gltf/imap/img/1564469919631.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/5fb01d2598f24ce380ee81c6446edfc0/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "工业建筑_16",
+            "image": "$serverURL$/gltf/imap/img/1564042012814.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/bfdf7ad3ead74b7d9d4320fb56ad7d67/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "散货场取料机",
+            "image": "$serverURL$/gltf/imap/img/1564470227602.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/588a4b3e7dcc41479c9bedf7e8d195d1/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "碎石机_42",
+            "image": "$serverURL$/gltf/imap/img/1564470403406.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/572e5e0d18b4418dbd92afe6dedb9d0c/gltf/default.gltf"
+            }
+        }
+    ],
+
+    "其他": [
+        {
+            "name": "三轴",
+            "image": "$serverURL$/gltf/mars/img/axis.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/mars/axis.gltf"
+            }
+        },
+        {
+            "name": "军事装备_09",
+            "image": "$serverURL$/gltf/imap/img/1564471231177.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/6881109b291a422a85206f2a19a18e46/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "全方位探头",
+            "image": "$serverURL$/gltf/imap/img/1564470179885.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/94b65a9343ab4972b0223f0fcf02ef50/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "手持监管设备",
+            "image": "$serverURL$/gltf/imap/img/1564470285260.jpg",
+            "type": "model",
+            "style": {
+                "scale": 2,
+                "modelUrl": "$serverURL$/gltf/imap/2b8d80fc09ef4b68a3bd23572f988bdf/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "家居配件_04",
+            "image": "$serverURL$/gltf/imap/img/1564477624282.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/e07243b448c848d1a07b20d1a7fa2558/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "家居配件_23",
+            "image": "$serverURL$/gltf/imap/img/1564477668687.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/9a36609eadd94b0194ac9f1ee57f6e6b/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "家居配件_24",
+            "image": "$serverURL$/gltf/imap/img/1564477690670.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/df303e0323844b159e0aabaf0e937849/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "家居配件_38",
+            "image": "$serverURL$/gltf/imap/img/1564477717453.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/dee8c078d5194a4aafa26b0a985820a5/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "家居配件_01",
+            "image": "$serverURL$/gltf/imap/img/1564477592459.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/86a271535a81410785cfda11cd30404a/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "多层货架_12层",
+            "image": "$serverURL$/gltf/imap/img/1564478117958.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/231bc111b97f4367a79b95b6423d9332/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "多层货架3",
+            "image": "$serverURL$/gltf/imap/img/1564478134483.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/f24c4448086d4d8a87ad3acb95a97402/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "阀门_02",
+            "image": "$serverURL$/gltf/imap/img/1564469963072.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/bca16194b5cf4d4c86e810cfb817640b/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "围栏_03",
+            "image": "$serverURL$/gltf/imap/img/1564470442982.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/37eeb2e3095f46eca344a1f9b2d07748/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "雕塑_002",
+            "image": "$serverURL$/gltf/imap/img/1564478146715.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/e2c53debe2154d3ea4af32d594b95070/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "雕塑_009",
+            "image": "$serverURL$/gltf/imap/img/1564478170247.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/470c7dd2654b4764a45a0fc59900bb9a/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "雕塑_039",
+            "image": "$serverURL$/gltf/imap/img/1564478188430.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/2180451c8baf4b3aa7663e4ca3ed31f5/gltf/gltf2.gltf"
+            }
+        },
+        {
+            "name": "雕塑_048",
+            "image": "$serverURL$/gltf/imap/img/1564478211257.jpg",
+            "type": "model",
+            "style": {
+                "modelUrl": "$serverURL$/gltf/imap/e4a3737c66fb4cf4adb6706c33cfbdc8/gltf/gltf2.gltf"
+            }
+        }
+    ]
+}

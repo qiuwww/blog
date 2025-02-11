@@ -1,0 +1,266 @@
+{
+    "debugger": false,
+    "version": "20200510",
+    "defaultOptions": {
+        "style": "dark",
+        "windowOptions": {
+            "skin": "layer-mars-dialog animation-scale-up",
+            "position": {
+                "top": 50,
+                "right": 10
+            },
+            "maxmin": false,
+            "resize": true
+        },
+        "autoReset":false,
+        "autoDisable": true,
+        "disableOther": true
+    },
+    "widgetsAtStart": [
+        {
+            "name": "右上角工具栏",
+            "uri": "../widgets/toolBarRight/widget-emerg.js",
+            "css":{
+                "top": "10px",
+                "left": "auto",
+                "right": "10px"
+            }
+        },
+        {
+            "name": "放大缩小工具按钮",
+            "uri": "../widgets/toolbtn-zoom/widget.js"
+        }
+    ],
+    "widgets": [
+        {
+            "name": "模板",
+            "type": "group",
+            "children": [
+                {
+                    "name": "iframe弹窗模板",
+                    "uri": "widgets/_example/widget.js",
+                    "windowOptions": {
+                        "width": 300,
+                        "height": 400,
+                        "position": {
+                            "bottom": 10,
+                            "right": 10
+                        },
+                        "maxmin": true,
+                        "resize": true
+                    },
+                    "openAtStart": false
+                },
+                {
+                    "name": "div弹窗模板",
+                    "uri": "widgets/_example_divwin/widget.js"
+                },
+                {
+                    "name": "append模板",
+                    "uri": "widgets/_example_append/widget.js"
+                }
+            ]
+        },
+        {
+            "name": "地图工具",
+            "type": "group",
+            "children": [
+                {
+                    "id": "manageBasemaps",
+                    "name": "地图切换",
+                    "uri": "../widgets/manageBasemaps/widget.js",
+                    "group": "forlayer",
+                    "autoDisable": false,
+                    "disableOther": false
+                },
+                {
+                    "name": "图层管理",
+                    "uri": "../widgets/manageLayers/widget.js",
+                    "group": "forlayer",
+                    "autoCenter": true,
+                    "windowOptions": {
+                        "position": {
+                            "top": 50,
+                            "bottom": 30,
+                            "right": 10
+                        }
+                    },
+                    "css":{
+                        "max-width":"300px"
+                    },
+                    "autoDisable": false,
+                    "disableOther": false
+                },
+                {
+                    "name": "图上量算",
+                    "uri": "widgets/measure/widget.js"
+                },
+                {
+                    "name": "空间分析",
+                    "uri": "widgets/analysis/widget.js"
+                },
+                {
+                    "name": "剖面分析图表",
+                    "uri": "widgets/measureChars/widget.js",
+                    "windowOptions": {
+                        "noTitle": true,
+                        "position": {
+                            "bottom": 30,
+                            "left": 30,
+                            "right": 60
+                        }
+                    },
+                    "disableOther": false
+                },
+                {
+                    "name": "视角书签",
+                    "uri": "widgets/bookmark/widget.js",
+                    "windowOptions": {
+                        "position": {
+                            "top": 50,
+                            "bottom": 30,
+                            "right": 10
+                        }
+                    }
+                },
+                {
+                    "name": "坐标定位",
+                    "uri": "widgets/centerXY/widget.js"
+                },
+                {
+                    "name": "标记",
+                    "uri": "widgets/addmarker/widget.js"
+                },
+                {
+                    "name": "地区导航",
+                    "uri": "widgets/navXZQH/widget.js"
+                },
+                {
+                    "name": "漫游路线设置",
+                    "uri": "widgets/roamLine/widget.js",
+                    "windowOptions": {
+                        "position": {
+                            "top": 45,
+                            "bottom": 30,
+                            "right": 5
+                        }
+                    }
+                },
+                {
+                    "name": "漫游路线",
+                    "uri": "widgets/roamFly/widget.js",
+                    "windowOptions": {
+                        "position": {
+                            "bottom": 60,
+                            "right": 5
+                        }
+                    }
+                },
+                {
+                    "name": "路线剖面",
+                    "uri": "widgets/roamChars/widget.js",
+                    "windowOptions": {
+                        "noTitle": true,
+                        "position": {
+                            "top": 10,
+                            "left": 10,
+                            "right": 10
+                        }
+                    },
+                    "disableOther": false
+                },
+                {
+                    "name": "双屏对比",
+                    "uri": "widgets/mapCompare/widget.js",
+                    "autoDisable": false,
+                    "disableOther": false,
+                    "group": "mapCompare",
+                    "windowOptions": {
+                        "position": {
+                            "top": 160,
+                            "bottom": 40,
+                            "left": 10
+                        },
+                        "maxmin": true
+                    }
+                },
+                {
+                    "name": "卷帘对比",
+                    "uri": "widgets/mapSwipe/widget.js",
+                    "group": "mapCompare",
+                    "autoDisable": false,
+                    "disableOther": false
+                },
+                {
+                    "name": "标绘",
+                    "uri": "../widgets/plot/widget.js",
+                    "windowOptions": {
+                        "position": {
+                            "top": 45,
+                            "bottom": 30,
+                            "right": 5
+                        }
+                    },
+                    "openAtStart": false
+                },
+                {
+                    "name": "属性编辑",
+                    "uri": "../widgets/plotAttr/widget.js",
+                    "windowOptions": {
+                        "position": {
+                            "top": 60,
+                            "bottom": 30,
+                            "left": 10
+                        }
+                    },
+                    "disableOther": false
+                },
+                {
+                    "name": "打印",
+                    "uri": "widgets/print/widget.js",
+                    "autoDisable": false,
+                    "disableOther": false
+                },
+                {
+                    "name": "分享当前地图位置",
+                    "uri": "widgets/shareUrl/widget.js",
+                    "windowOptions": {
+                        "position": {
+                            "top": 1
+                        }
+                    }
+                },
+                {
+                    "name": "参数设置",
+                    "uri": "widgets/setting/widget.js"
+                }
+            ]
+        },
+        {
+            "name": "业务演示功能",
+            "type": "group",
+            "children": [
+                {
+                    "name": "企业-地图点",
+                    "uri": "widgetsTS/qyPoint/widget.js",
+                    "autoDisable": false,
+                    "disableOther": false
+                },
+                {
+                    "name": "企业详情",
+                    "uri": "widgetsTS/qyDetailsView/widget.js",
+                    "windowOptions": {
+                        "skin": "layer-mars-dialog2",
+                        "position": {
+                            "top": 50,
+                            "bottom": 50,
+                            "left": 120,
+                            "right": 120
+                        }
+                    },
+                    "disableOther": false
+                }
+            ]
+        }
+    ]
+}

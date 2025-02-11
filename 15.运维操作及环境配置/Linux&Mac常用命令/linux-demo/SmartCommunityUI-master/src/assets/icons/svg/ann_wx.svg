@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"
+     viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .a{fill:#fff;}.b{clip-path:url(#a);}.c,.d,.f{fill:none;}.c,.d{stroke-width:2px;}.c{stroke-linecap:round;opacity:0.5;}.e{stroke:none;}
+    </style>
+    <clipPath id="a">
+      <rect class="a" width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g class="b" stroke="currentColor">
+    <g transform="translate(-2.8 12.703) rotate(-45)">
+      <path class="c" d="M6,0A3,3,0,0,1,3,3,3,3,0,0,1,0,0" transform="translate(7.945 14.581)"/>
+      <path class="c" d="M14,0A7,7,0,0,1,0,0" transform="translate(3.945 14.581)"/>
+      <g class="d" transform="translate(0 4)">
+        <rect class="e" width="6" height="6"/>
+        <rect class="f" x="1" y="1" width="4" height="4"/>
+      </g>
+      <g class="d" transform="translate(16 4)">
+        <rect class="e" width="6" height="6"/>
+        <rect class="f" x="1" y="1" width="4" height="4"/>
+      </g>
+      <g class="d" transform="translate(7)">
+        <rect class="e" width="8" height="12"/>
+        <rect class="f" x="1" y="1" width="6" height="10"/>
+      </g>
+      <line class="d" x2="2" transform="translate(5.5 7)"/>
+      <line class="d" x2="2" transform="translate(14.892 7)"/>
+    </g>
+  </g>
+</svg>

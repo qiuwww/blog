@@ -1,0 +1,119 @@
+.dashboard-workplace-apps-item {
+	height: 100px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50%;
+	cursor: pointer;
+	border-radius: 3px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+	position: relative
+}
+
+.dashboard-workplace-apps-item:after {
+	content: "";
+	display: block;
+	position: absolute;
+	border-radius: 3px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, .1);
+	z-index: 0
+}
+
+.dashboard-workplace-apps-item-main {
+	position: relative;
+	z-index: 1
+}
+
+.dashboard-workplace-apps-desc,
+.dashboard-workplace-apps-name {
+	color: #fff;
+	font-weight: 700;
+	padding: 4px 0 0 8px;
+	font-size: 16px;
+	margin-right: 45px
+}
+
+.dashboard-workplace-apps-desc {
+	font-weight: 400;
+	font-size: 12px
+}
+
+.dashboard-workplace-apps-extra {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	color: #f8f8f9
+}
+
+.dashboard-workplace-apps-extra i {
+	margin-left: 4px;
+	font-size: 16px
+}
+
+.dashboard-workplace-apps-extra i.dashboard-workplace-apps-extra-star {
+	color: #f90
+}
+
+.dashboard-workplace-apps-extra i:not(.dashboard-workplace-apps-extra-star) {
+	display: none
+}
+
+.dashboard-workplace-apps-item:hover .dashboard-workplace-apps-extra i {
+	display: inline-block
+}
+
+.dashboard-workplace-shortcut a:hover {
+	color: #2d8cf0
+}
+
+.dashboard-workplace-todo {
+	padding-bottom: 8px
+}
+
+.dashboard-workplace-todo-move {
+	cursor: pointer;
+	position: relative;
+	left: -14px;
+	color: #808695
+}
+
+.dashboard-workplace-header-avatar {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin-right: 16px
+}
+
+.dashboard-workplace-header-tip {
+	display: inline-block;
+	vertical-align: middle
+}
+
+.dashboard-workplace-header-tip-title {
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 12px
+}
+
+.dashboard-workplace-header-tip-desc {
+	color: #808695
+}
+
+.dashboard-workplace-header-extra .ivu-col p {
+	text-align: right
+}
+
+.dashboard-workplace-header-extra .ivu-col p:first-child span:first-child {
+	margin-right: 4px
+}
+
+.dashboard-workplace-header-extra .ivu-col p:first-child span:last-child {
+	color: #808695
+}
+
+.dashboard-workplace-header-extra .ivu-col p:last-child {
+	font-size: 22px
+}

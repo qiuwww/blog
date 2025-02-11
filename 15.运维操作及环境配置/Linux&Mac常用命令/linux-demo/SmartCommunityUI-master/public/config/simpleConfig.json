@@ -1,0 +1,155 @@
+{
+  "map3d": {
+    "homeButton": false,
+    "sceneModePicker": false,
+    "navigationHelpButton": false,
+    "infoBox": false,
+    "vrButton": false,
+    "fullscreenButton": false,
+    "geocoder": false,
+    "baseLayerPicker": false,
+    "showRenderLoopErrors": false,    
+    "center":{"y":29.53513,"x":107.093646,"z":4377.44,"heading":291.3,"pitch":-43.8,"roll":359.8},
+    "minzoom": 1,
+    "maxzoom": 20000000,
+    "style": {
+      "atmosphere": true,
+      "lighting": false,
+      "fog": false,
+      "testTerrain": false
+    },
+    "contextmenu": true,
+    "mouseZoom": false,
+    "location":"",
+    "navigation":{
+      "legend": { "left": "100px", "bottom": "-1px" },
+      "compass": { "top": "1%", "right": "1%" ,"zIndex": "110"}
+    },
+    "terrain": {
+      "url": "http://data.marsgis.cn/terrain",
+      "visible": false
+    },
+    "basemaps": [
+      {
+        "name": "谷歌卫星",
+        "icon": "../img/basemaps/google_img.png",
+        "type": "xyz",
+        "url": "http://mt{s}.google.cn/vt/lyrs=s&x={x}&y={y}&z={z}",
+        "visible": true,
+        "subdomains": ["1","2","3"]
+      },
+      {
+        "name": "天地图注记",
+        "type": "www_tdt",
+        "layer": "vec_z",
+        "key": [
+          "83b36ded6b43b9bc81fbf617c40b83b5"
+        ],
+        "visible": false
+      },
+      {
+        "name": "ArcGIS卫星",
+        "icon": "../img/basemaps/esriWorldImagery.png",
+        "type": "arcgis",
+        "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+        "enablePickFeatures": false
+      },
+      {
+        "name": "微软卫星",
+        "icon": "../img/basemaps/bingAerial.png",
+        "type": "www_bing",
+        "layer": "Aerial"
+      },
+      {
+        "name": "天地图卫星",
+        "icon": "../img/basemaps/tdt_img.png",
+        "type": "www_tdt",
+        "layer": "img_d",
+        "key": [
+          "313cd4b28ed520472e8b43de00b2de56",
+          "83b36ded6b43b9bc81fbf617c40b83b5",
+          "0ebd57f93a114d146a954da4ecae1e67",
+          "6c99c7793f41fccc4bd595b03711913e",
+          "56b81006f361f6406d0e940d2f89a39c"
+        ],
+        "visible": false
+      },
+      {
+        "name": "天地图电子",
+        "icon": "../img/basemaps/tdt_vec.png",
+        "type": "group",
+        "layers": [
+          {
+            "name": "底图",
+            "type": "www_tdt",
+            "layer": "vec_d",
+            "key": [
+              "313cd4b28ed520472e8b43de00b2de56"
+            ]
+          },
+          {
+            "name": "注记",
+            "type": "www_tdt",
+            "layer": "vec_z",
+            "key": [
+              "83b36ded6b43b9bc81fbf617c40b83b5"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "OSM地图",
+        "type": "xyz",
+        "icon": "../img/basemaps/osm.png",
+        "url": "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "subdomains": "abc"
+      },
+      {
+        "name": "离线地图  (供参考)",
+        "type": "xyz",
+        "icon": "../img/basemaps/mapboxSatellite.png",
+        "url": "http://data.marsgis.cn/maptile/wgs3857img/{z}/{x}/{y}.jpg",
+        "minimumLevel": 1,
+        "maximumLevel": 18,
+        "minimumTerrainLevel": 1,
+        "maximumTerrainLevel": 18,
+        "rectangle": {
+          "xmin": -180,
+          "xmax": 180,
+          "ymin": -85,
+          "ymax": 85
+        }
+      },
+      {
+        "name": "单张图片  (本地离线)",
+        "icon": "../img/basemaps/offline.png",
+        "type": "image",
+        "url": "img/tietu/world.jpg"
+      }
+    ],
+    "operationallayers": [
+      {
+        "name": "行政区划界线",
+        "type": "xyz",
+        "url": "https://t{s}.tianditu.gov.cn/DataServer?T=ibo_w&x={x}&y={y}&l={z}&tk=56b81006f361f6406d0e940d2f89a39c",
+        "subdomains": "01234567",
+        "maximumLevel": 10,
+        "visible": true
+      },
+      {
+        "pid": 10,
+        "name": "天地图注记",
+        "type": "www_tdt",
+        "layer": "img_z",
+        "key": [
+          "313cd4b28ed520472e8b43de00b2de56",
+          "83b36ded6b43b9bc81fbf617c40b83b5",
+          "0ebd57f93a114d146a954da4ecae1e67",
+          "6c99c7793f41fccc4bd595b03711913e",
+          "56b81006f361f6406d0e940d2f89a39c"
+        ],
+        "visible": false
+      }
+    ]
+  }
+}

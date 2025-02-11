@@ -1,0 +1,1343 @@
+﻿{
+	"serverURL": "http://data.marsgis.cn",
+
+	"map3d": {
+		"animation": false,
+		"homeButton": true,
+		"sceneModePicker": false,
+		"navigationHelpButton": false,
+		"infoBox": false,
+		"vrButton": false,
+		"fullscreenButton": true,
+		"geocoder": false,
+		"showRenderLoopErrors": false,
+		"center": {
+			"y": 28.829111,
+			"x": 105.427132,
+			"z": 2600.9,
+			"heading": 359.9,
+			"pitch": -29.2,
+			"roll": 360
+		},
+		"minzoom": 1,
+		"maxzoom": 50000000,
+		"style": {
+			"atmosphere": true,
+			"lighting": false,
+			"fog": false,
+			"testTerrain": false
+		},
+		"contextmenu": true,
+		"mouseZoom": true,
+		"location": {
+			"fps": true,
+			"format": "<div>经度:{x}</div> <div>纬度:{y}</div> <div>海拔：{z}米</div> <div>方向：{heading}度</div> <div>俯仰角：{pitch}度</div>  <div>视高：{height}米</div>",
+			"crs": ""
+		},
+		"navigation": {
+			"legend": {
+				"left": "0px",
+				"bottom": "-1px"
+			},
+			"compass": {
+				"bottom": "240px",
+				"right": "2px"
+			}
+		},
+		"terrain": {
+			"url": "$serverURL$/terrain",
+			"visible": true
+		},
+		"basemaps": [
+			{
+				"id": 10,
+				"name": "地图底图",
+				"type": "group",
+				"open": false
+			},
+			{
+				"pid": 10,
+				"name": "谷歌卫星",
+				"icon": "img/basemaps/google_img.png",
+				"type": "www_google",
+				"crs": "wgs84",
+				"layer": "img_d",
+				"visible": true
+			},
+			{
+				"pid": 10,
+				"name": "天地图卫星",
+				"icon": "img/basemaps/tdt_img.png",
+				"type": "www_tdt",
+				"layer": "img_d",
+				"key": [
+					"313cd4b28ed520472e8b43de00b2de56",
+					"83b36ded6b43b9bc81fbf617c40b83b5",
+					"0ebd57f93a114d146a954da4ecae1e67",
+					"6c99c7793f41fccc4bd595b03711913e",
+					"56b81006f361f6406d0e940d2f89a39c"
+				]
+			},
+			{
+				"pid": 10,
+				"name": "天地图电子",
+				"icon": "img/basemaps/tdt_vec.png",
+				"type": "group",
+				"open": false,
+				"layers": [
+					{
+						"name": "底图",
+						"type": "www_tdt",
+						"layer": "vec_d",
+						"key": [
+							"313cd4b28ed520472e8b43de00b2de56"
+						]
+					},
+					{
+						"name": "注记",
+						"type": "www_tdt",
+						"layer": "vec_z",
+						"key": [
+							"83b36ded6b43b9bc81fbf617c40b83b5"
+						]
+					}
+				]
+			}
+		],
+		"operationallayers": [
+			{
+				"pid": 10,
+				"name": "天地图注记",
+				"type": "www_tdt",
+				"layer": "img_z",
+				"key": [
+					"313cd4b28ed520472e8b43de00b2de56",
+					"83b36ded6b43b9bc81fbf617c40b83b5",
+					"0ebd57f93a114d146a954da4ecae1e67",
+					"6c99c7793f41fccc4bd595b03711913e",
+					"56b81006f361f6406d0e940d2f89a39c"
+				],
+				"proxy": "http://data.marsgis.cn/proxy/",
+				"visible": false
+			},
+			{
+				"id": 699,
+				"name": "影像",
+				"type": "group",
+				"open": false
+			},
+			{
+				"pid": 699,
+				"id": 699101,
+				"name": "影像图层",
+				"icon": "img/basemaps/google_img.png",
+				"type": "xyz",
+				"url": "http://mt{s}.google.cn/vt/lyrs=s&x={x}&y={y}&z={z}",
+				"visible": true,
+				"subdomains": [
+					"1",
+					"2",
+					"3"
+				]
+			},
+			{
+				"id": 69910,
+				"pid": 699,
+				"type": "xyz",
+				"crs": "4490",
+				"name": "2016影像",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/DOM2016/MapServer/tile/{z}/{y}/{x}",
+				"layers": "0",
+				"showClickFeature": true,
+				"pickFeatureStyle": {
+					"clampToGround": true,
+					"fill": true,
+					"color": "#2deaf7",
+					"opacity": 0.6,
+					"outline": true,
+					"outlineWidth": 3,
+					"outlineColor": "#e000d9",
+					"outlineOpacity": 1.0
+				},
+				"popup": "",
+				"visible": true
+			},
+			{
+				"id": 6996,
+				"pid": 699,
+				"type": "xyz",
+				"crs": "4490",
+				"name": "2019影像",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/DOM2019/MapServer/tile/{z}/{y}/{x}",
+				"layers": "0",
+				"showClickFeature": true,
+				"pickFeatureStyle": {
+					"clampToGround": true,
+					"fill": true,
+					"color": "#2deaf7",
+					"opacity": 0.6,
+					"outline": true,
+					"outlineWidth": 3,
+					"outlineColor": "#e000d9",
+					"outlineOpacity": 1.0
+				},
+				"popup": "",
+				"visible": true
+			},
+			{
+				"id": 6997,
+				"pid": 699,
+				"type": "arcgis_dynamic",
+				"name": "天地图底图",
+				"url": "http://192.168.10.60:6080/arcgis/rest/services/MAP/map1/MapServer",
+				"showClickFeature": true,
+				"popup": "all"
+
+			},
+			{
+				"id": 57,
+				"name": "管网",
+				"type": "group",
+				"open": false
+			},
+			{
+				"id": 571,
+				"pid": 57,
+				"type": "3dtiles",
+				"url": "http://localhost:9000/model/010a37e0f66811eaab69539f5f73be5e/tileset.json",
+				"name": "管网点",
+				"maximumScreenSpaceError": 0.0625,
+				"offset": {
+					"z": 267.091
+				}
+			},
+			{
+				"id": 572,
+				"pid": 57,
+				"type": "3dtiles",
+				"url": "http://localhost:9000/model/6b3521d0f66711eaab69539f5f73be5e/tileset.json",
+				"name": "管网段",
+				"maximumScreenSpaceError": 0.0625,
+				"offset": {
+					"z": 266.497
+				}
+			},
+			{
+				"id": 73,
+				"name": "小三峡土石方",
+				"type": "group",
+				"open": false
+			},
+			{
+				"id": 736,
+				"pid": 73,
+				"type": "arcgis_dynamic",
+				"crs": "4490",
+				"name": "影像",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/qtc3/MapServer",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 731,
+				"pid": 73,
+				"name": "倾斜摄影",
+				"type": "3dtiles",
+				"url": "http://localhost:9005/model/ca9b61e0ffac11ea805b7bc2e432fafc/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"x": 109.734993,
+					"y": 31.141601,
+					"z": 1,
+					"transform": true,
+					"heading": 3
+				}
+			},
+			{
+				"id": 734,
+				"pid": 73,
+				"name": "坡梯模型",
+				"type": "3dtiles",
+				"url": "http://localhost:9005/model/58581ef0001711eb805b7bc2e432fafc/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"z": 784,
+					"transform": true,
+					"heading": 3
+				}
+			},
+			{
+				"id": 732,
+				"pid": 73,
+				"type": "terrain",
+				"name": "地形",
+				"terrain": {
+					"type": "default",
+					"url": "http://localhost:9005/terrain/347aaa90ffb111ea805b7bc2e432fafc"
+				},
+				"radio": true,
+				"visible": true
+			},
+			{
+				"id": 735,
+				"pid": 73,
+				"type": "arcgis_dynamic",
+				"crs": "4490",
+				"name": "挖填方量",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/qtc2/MapServer",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 733,
+				"pid": 73,
+				"type": "arcgis_dynamic",
+				"crs": "4490",
+				"name": "弃土场范围",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/qtc/MapServer",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 737,
+				"pid": 73,
+				"type": "arcgis_dynamic",
+				"crs": "4490",
+				"name": "设计图纸",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/qtcgdb/MapServer",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 32,
+				"name": "两江新城",
+				"type": "group",
+				"open": false
+			},
+			{
+				"id": 321,
+				"pid": 32,
+				"type": "xyz",
+				"crs": "4490",
+				"name": "范围线",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/ljxcfwx/MapServer/tile/{z}/{y}/{x}",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 322,
+				"pid": 32,
+				"type": "arcgis_dynamic",
+				"crs": "4490",
+				"name": "arcgis_dynamic",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/ljxcxzq/MapServer",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 323,
+				"pid": 32,
+				"name": "西纬六路总平",
+				"type": "wms",
+				"url": "http://192.168.30.55:6080/arcgis/services/管委会弃土平衡/西纬六路总平/MapServer/WmsServer",
+				"layers": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,39",
+				"crs": "EPSG:4326",
+				"parameters": {
+					"transparent": "true",
+					"format": "image/png"
+				},
+				"showClickFeature": true,
+				"pickFeatureStyle": {
+					"showTime": 5000,
+					"clampToGround": true,
+					"fill": true,
+					"color": "#2deaf7",
+					"opacity": 0.6,
+					"outline": true,
+					"outlineWidth": 3,
+					"outlineColor": "#e000d9",
+					"outlineOpacity": 1.0
+				},
+				"getFeatureInfoParameters": {
+					"feature_count": 10
+				},
+				"popup": "all"
+			},
+			{
+				"id": 324,
+				"pid": 32,
+				"name": "西纬七路西段总平面图",
+				"type": "wms",
+				"url": "http://192.168.30.55:6080/arcgis/services/管委会弃土平衡/西纬七路西段总平面图2/MapServer/WmsServer",
+				"layers": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,34",
+				"crs": "EPSG:4326",
+				"parameters": {
+					"transparent": "true",
+					"format": "image/png"
+				},
+				"showClickFeature": true,
+				"pickFeatureStyle": {
+					"showTime": 5000,
+					"clampToGround": true,
+					"fill": true,
+					"color": "#2deaf7",
+					"opacity": 0.6,
+					"outline": true,
+					"outlineWidth": 3,
+					"outlineColor": "#e000d9",
+					"outlineOpacity": 1.0
+				},
+				"getFeatureInfoParameters": {
+					"feature_count": 10
+				},
+				"popup": "all"
+			},
+			{
+				"id": 325,
+				"pid": 32,
+				"name": "西城三号路西段总平改展宽段",
+				"type": "wms",
+				"url": "http://192.168.30.55:6080/arcgis/services/管委会弃土平衡/西城三号路西段总平改展宽段/MapServer/WmsServer",
+				"layers": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,27",
+				"crs": "EPSG:4326",
+				"parameters": {
+					"transparent": "true",
+					"format": "image/png"
+				},
+				"showClickFeature": true,
+				"pickFeatureStyle": {
+					"showTime": 5000,
+					"clampToGround": true,
+					"fill": true,
+					"color": "#2deaf7",
+					"opacity": 0.6,
+					"outline": true,
+					"outlineWidth": 3,
+					"outlineColor": "#e000d9",
+					"outlineOpacity": 1.0
+				},
+				"getFeatureInfoParameters": {
+					"feature_count": 10
+				},
+				"popup": "all"
+			},
+			{
+				"id": 326,
+				"pid": 32,
+				"name": "地块控制图集",
+				"type": "wms",
+				"url": "http://192.168.30.55:6080/arcgis/services/管委会弃土平衡/地块控制图集/MapServer/WmsServer",
+				"layers": "0,1,2,3,4,5,6,7,8,9,10",
+				"crs": "EPSG:4326",
+				"parameters": {
+					"transparent": "true",
+					"format": "image/png"
+				},
+				"showClickFeature": true,
+				"pickFeatureStyle": {
+					"showTime": 5000,
+					"clampToGround": true,
+					"fill": true,
+					"color": "#2deaf7",
+					"opacity": 0.6,
+					"outline": true,
+					"outlineWidth": 3,
+					"outlineColor": "#e000d9",
+					"outlineOpacity": 1.0
+				},
+				"getFeatureInfoParameters": {
+					"feature_count": 10
+				},
+				"popup": "all"
+			},
+			{
+				"id": 327,
+				"pid": 32,
+				"name": "地块挖填方",
+				"type": "wms",
+				"url": "http://192.168.30.55:6080/arcgis/services/地块挖填方6/MapServer/WmsServer",
+				"layers": "0",
+				"crs": "EPSG:4326",
+				"parameters": {
+					"transparent": "true",
+					"format": "image/png"
+				},
+				"showClickFeature": true,
+				"pickFeatureStyle": {
+					"showTime": 5000,
+					"clampToGround": true,
+					"fill": true,
+					"color": "#2deaf7",
+					"opacity": 0.6,
+					"outline": true,
+					"outlineWidth": 3,
+					"outlineColor": "#e000d9",
+					"outlineOpacity": 1.0
+				},
+				"getFeatureInfoParameters": {
+					"feature_count": 10
+				},
+				"popup": "all"
+			},
+			{
+				"id": 328,
+				"pid": 32,
+				"name": "地块挖填方查询",
+				"type": "wms",
+				"url": "http://192.168.30.55:6080/arcgis/services/地块数据Q/MapServer/WmsServer",
+				"layers": "0,1",
+				"crs": "EPSG:4326",
+				"parameters": {
+					"transparent": "true",
+					"format": "image/png"
+				},
+				"showClickFeature": true,
+				"pickFeatureStyle": {
+					"showTime": 5000,
+					"clampToGround": true,
+					"fill": true,
+					"color": "#2deaf7",
+					"opacity": 0.6,
+					"outline": true,
+					"outlineWidth": 3,
+					"outlineColor": "#e000d9",
+					"outlineOpacity": 1.0
+				},
+				"getFeatureInfoParameters": {
+					"feature_count": 10
+				},
+				"popup": "all"
+			},
+			{
+				"id": 3291,
+				"pid": 32,
+				"name": "西城三号路东段挖填方查询",
+				"type": "wms",
+				"url": "http://192.168.30.55:6080/arcgis/services/西城三号路东段挖填方查询/MapServer/WmsServer",
+				"layers": "0",
+				"crs": "EPSG:4326",
+				"parameters": {
+					"transparent": "true",
+					"format": "image/png"
+				},
+				"showClickFeature": true,
+				"pickFeatureStyle": {
+					"showTime": 5000,
+					"clampToGround": true,
+					"fill": true,
+					"color": "#2deaf7",
+					"opacity": 0.6,
+					"outline": true,
+					"outlineWidth": 3,
+					"outlineColor": "#e000d9",
+					"outlineOpacity": 1.0
+				},
+				"getFeatureInfoParameters": {
+					"feature_count": 10
+				},
+				"popup": "all"
+			},
+			{
+				"id": 329,
+				"pid": 32,
+				"type": "xyz",
+				"crs": "4490",
+				"name": "西纬六路挖填方",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/管委会弃土平衡/道路挖2/MapServer/tile/{z}/{y}/{x}",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 330,
+				"pid": 32,
+				"type": "3dtiles",
+				"url": "http://localhost:9000/model/aa52ed50ddd711eabe493d3d1de83428/tileset.json",
+				"name": "西经六路",
+				"maximumScreenSpaceError": 0.0625,
+				"offset": {
+					"z": 294.223
+				}
+			},
+			{
+				"id": 331,
+				"pid": 32,
+				"type": "3dtiles",
+				"url": "http://localhost:9000/model/186ffb60de0b11eabe493d3d1de83428/tileset.json",
+				"name": "西城市三号路东",
+				"maximumScreenSpaceError": 0.0625,
+				"offset": {
+					"z": 282.944
+				}
+			},
+			{
+				"id": 30,
+				"name": "专题数据",
+				"type": "group",
+				"open": false
+			},
+			{
+				"id": 301,
+				"pid": 30,
+				"type": "arcgis_dynamic",
+				"name": "建筑物",
+				"url": "http://192.168.30.56:6080/arcgis/rest/services/build/build/MapServer",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 303,
+				"pid": 30,
+				"type": "xyz",
+				"crs": "4490",
+				"name": "城镇管网",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/GWJWD/MapServer/tile/{z}/{y}/{x}",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 309,
+				"pid": 30,
+				"type": "arcgis_dynamic",
+				"name": "主要道路",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/CSBJ/MapServer",
+				"showClickFeature": true,
+				"popup": "all",
+				"onWidget": "widgets/manageLayers-tuli/heatmap.js"
+			},
+			{
+				"id": 302,
+				"pid": 30,
+				"type": "xyz",
+				"crs": "4490",
+				"name": "城市部件",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/CSBJJWD/MapServer/tile/{z}/{y}/{x}",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 304,
+				"pid": 30,
+				"type": "arcgis_dynamic",
+				"name": "城市规划",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/GHTHBJWD/MapServer",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 305,
+				"pid": 30,
+				"type": "xyz",
+				"crs": "4490",
+				"name": "防洪警戒线",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/fhxjwd/MapServer/tile/{z}/{y}/{x}",
+				"layers": "0",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 309,
+				"pid": 30,
+				"type": "xyz",
+				"crs": "4490",
+				"name": "防洪警戒线加粗",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/防洪加粗/MapServer/tile/{z}/{y}/{x}",
+				"layers": "0",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 311,
+				"pid": 30,
+				"type": "xyz",
+				"crs": "4490",
+				"name": "高程点10米",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/高程点10米/MapServer/tile/{z}/{y}/{x}",
+				"layers": "0",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 312,
+				"pid": 30,
+				"type": "xyz",
+				"crs": "4490",
+				"name": "等值线",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/等值线/MapServer/tile/{z}/{y}/{x}",
+				"layers": "0",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 314,
+				"pid": 30,
+				"type": "xyz",
+				"crs": "4490",
+				"name": "等值线半米",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/等值线3/MapServer/tile/{z}/{y}/{x}",
+				"layers": "0",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 315,
+				"pid": 30,
+				"name": "等值线半米查询",
+				"type": "wms",
+				"url": "http://192.168.30.55:6080/arcgis/services/等值线3/MapServer/WmsServer",
+				"layers": "0",
+				"crs": "EPSG:4326",
+				"parameters": {
+					"transparent": "true",
+					"format": "image/png"
+				},
+				"showClickFeature": true,
+				"pickFeatureStyle": {
+					"showTime": 5000,
+					"clampToGround": true,
+					"fill": true,
+					"color": "#2deaf7",
+					"opacity": 0.6,
+					"outline": true,
+					"outlineWidth": 3,
+					"outlineColor": "#e000d9",
+					"outlineOpacity": 1.0
+				},
+				"getFeatureInfoParameters": {
+					"feature_count": 10
+				},
+				"popup": "all"
+			},
+			{
+				"id": 322,
+				"pid": 30,
+				"type": "xyz",
+				"crs": "4490",
+				"name": "9点",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/淹没区1/MapServer/tile/{z}/{y}/{x}",
+				"layers": "0",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 323,
+				"pid": 30,
+				"type": "xyz",
+				"crs": "4490",
+				"name": "淹没区",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/淹没区4/MapServer/tile/{z}/{y}/{x}",
+				"layers": "0",
+				"showClickFeature": true,
+				"popup": "all"
+			},
+			{
+				"id": 110,
+				"name": "弃土平衡",
+				"type": "group"
+			},
+			{
+				"id": 120,
+				"pid": 110,
+				"name": "弃土平衡模型",
+				"type": "group"
+			},
+			{
+				"id": 130,
+				"pid": 110,
+				"name": "弃土平衡查询",
+				"type": "group"
+			},
+			{
+				"id": 1301,
+				"pid": 130,
+				"type": "arcgis_dynamic",
+				"name": "道路挖填方量",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/弃土平衡6/MapServer",
+				"showClickFeature": true,
+				"popup": "all",
+				"showClickFeature": true,
+				"pickFeatureStyle": {
+					"showTime": 10000,
+					"clampToGround": true,
+					"fill": true,
+					"color": "#2deaf7",
+					"opacity": 0.6,
+					"outline": true,
+					"outlineWidth": 3,
+					"outlineColor": "#e000d9",
+					"outlineOpacity": 1.0
+				},
+				"getFeatureInfoParameters": {
+					"feature_count": 100
+				}
+			},
+			{
+				"id": 1302,
+				"pid": 130,
+				"type": "arcgis_dynamic",
+				"name": "地块挖填方量",
+				"url": "http://192.168.30.55:6080/arcgis/rest/services/地块821/MapServer",
+				"showClickFeature": true,
+				"popup": "all",
+				"showClickFeature": true,
+				"pickFeatureStyle": {
+					"showTime": 10000,
+					"clampToGround": true,
+					"fill": true,
+					"color": "#2deaf7",
+					"opacity": 0.6,
+					"outline": true,
+					"outlineWidth": 3,
+					"outlineColor": "#e000d9",
+					"outlineOpacity": 1.0
+				},
+				"getFeatureInfoParameters": {
+					"feature_count": 100
+				}
+			},
+			{
+				"id": 1202,
+				"pid": 120,
+				"type": "3dtiles",
+				"url": "http://localhost:9000/model/b962d820e20811ea8f245789d2b96be7/tileset.json",
+				"name": "西城三号路东段",
+				"maximumScreenSpaceError": 0.0625,
+				"offset": {
+					"z": 282.944
+				}
+			},
+			{
+				"id": 1203,
+				"pid": 120,
+				"type": "3dtiles",
+				"url": "http://localhost:9000/model/2a1ba7e0e20911ea8f245789d2b96be7/tileset.json",
+				"name": "西城三号路西段",
+				"maximumScreenSpaceError": 0.0625,
+				"offset": {
+					"z": 286.808
+				}
+			},
+			{
+				"id": 1204,
+				"pid": 120,
+				"type": "3dtiles",
+				"url": "http://localhost:9000/model/fdd135f0e27c11ea8f245789d2b96be7/tileset.json",
+				"name": "西经六路",
+				"maximumScreenSpaceError": 0.0625,
+				"offset": {
+					"z": 294.223
+				}
+			},
+			{
+				"id": 1206,
+				"pid": 120,
+				"type": "3dtiles",
+				"url": "http://localhost:9000/model/e909e2b0e27d11ea8f245789d2b96be7/tileset.json",
+				"name": "西经三路",
+				"maximumScreenSpaceError": 0.0625,
+				"offset": {
+					"z": 277.099
+				}
+			},
+			{
+				"id": 1207,
+				"pid": 120,
+				"type": "3dtiles",
+				"url": "http://localhost:9000/model/09de29a0e27f11ea8f245789d2b96be7/tileset.json",
+				"name": "西纬二路",
+				"maximumScreenSpaceError": 0.0625,
+				"offset": {
+					"z": 287.887
+				}
+			},
+			{
+				"id": 1208,
+				"pid": 120,
+				"type": "3dtiles",
+				"url": "http://localhost:9000/model/5e35f5a0e27f11ea8f245789d2b96be7/tileset.json",
+				"name": "西纬六路",
+				"maximumScreenSpaceError": 0.0625,
+				"offset": {
+					"z": 273.674
+				}
+			},
+			{
+				"id": 1209,
+				"pid": 120,
+				"type": "3dtiles",
+				"url": "http://localhost:9000/model/1caf4260e35311ea9fa63bfc440a2412/tileset.json",
+				"name": "未知路",
+				"maximumScreenSpaceError": 0.0625,
+				"offset": {
+					"z": 279.38
+				}
+			},
+			{
+				"id": 60,
+				"name": "地形",
+				"type": "group",
+				"open": false
+			},
+			{
+				"pid": 60,
+				"type": "terrain",
+				"name": "官方全球地形",
+				"terrain": {
+					"type": "ion"
+				},
+				"radio": true
+			},
+			{
+				"pid": 60,
+				"type": "terrain",
+				"name": "激光点云地形",
+				"terrain": {
+					"type": "default",
+					"url": "http://192.168.30.55:8087/%E6%95%B0%E6%8D%AE/dem"
+				},
+				"radio": true,
+				"visible": true
+			},
+			{
+				"pid": 60,
+				"type": "terrain",
+				"name": "规划道路DEM",
+				"terrain": {
+					"type": "default",
+					"url": "http://192.168.30.55:8087/%E6%95%B0%E6%8D%AE/dem3"
+				},
+				"radio": true
+			},
+			{
+				"pid": 60,
+				"type": "terrain",
+				"name": "ArcGIS地形",
+				"terrain": {
+					"type": "arcgis",
+					"url": "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer"
+				},
+				"radio": true
+			},
+			{
+				"pid": 60,
+				"type": "terrain",
+				"name": "无地形",
+				"terrain": {
+					"type": "ellipsoid"
+				},
+				"radio": true
+			},
+			{
+				"id": 5020,
+				"pid": 20,
+				"name": "广告",
+				"type": "group",
+				"open": false
+			},
+			{
+				"id": "50201",
+				"pid": "5020",
+				"name": "国窖大桥佳酿系列A",
+				"type": "3dtiles",
+				"url": "http://192.168.30.253:801/广告/国窖大桥佳酿系列A/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"x": 105.460591,
+					"y": 28.888286,
+					"z": 279.1,
+					"transform": true,
+					"heading": 264
+				}
+			},
+			{
+				"id": "50202",
+				"pid": "5020",
+				"name": "国窖大桥佳酿系列B",
+				"type": "3dtiles",
+				"url": "http://192.168.30.253:801/广告/国窖大桥佳酿系列B/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"x": 105.46251,
+					"y": 28.888182,
+					"z": 281,
+					"transform": true,
+					"heading": 185
+				}
+			},
+			{
+				"id": "50203",
+				"pid": "5020",
+				"name": "国窖大桥佳酿系列D",
+				"type": "3dtiles",
+				"url": "http://192.168.30.253:801/广告/国窖大桥佳酿系列D/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"x": 105.462768,
+					"y": 28.888563,
+					"z": 280,
+					"transform": true,
+					"heading": -23
+				}
+			},
+			{
+				"id": "50204",
+				"pid": "5020",
+				"name": "国窖大桥佳酿系列E",
+				"type": "3dtiles",
+				"url": "http://192.168.30.253:801/广告/国窖大桥佳酿系列E/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"x": 105.462834,
+					"y": 28.889166,
+					"z": 284.8,
+					"transform": true,
+					"heading": 260
+				}
+			},
+			{
+				"id": "50205",
+				"pid": "5020",
+				"name": "国窖大桥佳酿系列F",
+				"type": "3dtiles",
+				"url": "http://192.168.30.253:801/广告/国窖大桥佳酿系列F/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"x": 105.463843,
+					"y": 28.889713,
+					"z": 288.6,
+					"transform": true,
+					"heading": 6
+				}
+			},
+			{
+				"id": "5020911",
+				"pid": "5020",
+				"name": "望天龙酒樽A",
+				"type": "3dtiles",
+				"url": "http://192.168.30.253:801/广告/酒樽/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"x": 105.452412,
+					"y": 28.969967,
+					"z": 341,
+					"transform": true,
+					"heading": 190
+				}
+			},
+			{
+				"id": "5020912",
+				"pid": "5020",
+				"name": "望天龙酒樽B",
+				"type": "3dtiles",
+				"url": "http://192.168.30.253:801/广告/酒樽/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"x": 105.451419,
+					"y": 28.971247,
+					"z": 350,
+					"transform": true,
+					"heading": 140
+				}
+			},
+			{
+				"id": "50206",
+				"pid": "5020",
+				"name": "沱二桥桂花",
+				"type": "3dtiles",
+				"url": "http://192.168.30.253:801/广告/沱二桥桂花/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"x": 105.436812,
+					"y": 28.889848,
+					"z": 258,
+					"transform": true,
+					"heading": 25
+				}
+			},
+			{
+				"id": "50207",
+				"pid": "5020",
+				"name": "机场快速两江",
+				"type": "3dtiles",
+				"url": "http://192.168.30.253:801/广告/机场快速两江/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"x": 105.46984,
+					"y": 28.989513,
+					"z": 338,
+					"transform": true,
+					"heading": 3
+				}
+			},
+			{
+				"id": "50208",
+				"pid": "5020",
+				"name": "九狮路佳酿A",
+				"type": "3dtiles",
+				"url": "http://192.168.30.253:801/广告/九狮路佳酿/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"x": 105.40302,
+					"y": 28.928277,
+					"z": 282,
+					"transform": true,
+					"heading": -2
+				}
+			},
+			{
+				"id": 50209,
+				"pid": 5020,
+				"type": "3dtiles",
+				"url": "http://192.168.30.253:801/广告/九狮路佳酿/tileset.json",
+				"name": "九狮路佳酿B",
+				"maximumScreenSpaceError": 0.0625,
+				"offset": {
+					"x": 105.4030232,
+					"y": 28.9275851,
+					"z": 280.56,
+					"heading": -173.4,
+					"transform": true
+				}
+			},
+			{
+				"id": "50254",
+				"pid": "5020",
+				"name": "机场出口腾飞方案",
+				"type": "3dtiles",
+				"url": "http://192.168.30.253:801/广告/机场出口腾飞方案/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"x": 105.468108,
+					"y": 29.005689,
+					"z": 356,
+					"transform": true,
+					"heading": 187
+				}
+			},
+			{
+				"id": "50215",
+				"pid": "5020",
+				"name": "酒谷二环路交叉",
+				"type": "3dtiles",
+				"url": "http://192.168.30.253:801/广告/酒谷二环路交叉/tileset.json",
+				"maximumScreenSpaceError": 0.1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"x": 105.528317,
+					"y": 28.863416,
+					"z": 271,
+					"transform": true,
+					"heading": 301
+				}
+			},
+			{
+				"id": 2030,
+				"pid": 20,
+				"name": "倾斜摄影",
+				"type": "group",
+				"open": false
+			},
+			{
+				"id": 203021,
+				"pid": 2030,
+				"type": "3dtiles",
+				"name": "qx1",
+				"url": "http://192.168.30.253:801/qx1/tileset.json",
+				"maximumScreenSpaceError": 16,
+				"maximumMemoryUsage": 512,
+				"cullWithChildrenBounds": true,
+				"dynamicScreenSpaceErrorDensity": 0.00278,
+				"dynamicScreenSpaceErrorFactor": 4,
+				"dynamicScreenSpaceErrorHeightFalloff": 0.25,
+				"skipLevelOfDetail": true,
+				"baseScreenSpaceError": 1024,
+				"skipScreenSpaceErrorFactor": 16,
+				"skipLevels": 1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"z": 0
+				}
+			},
+			{
+				"id": 203022,
+				"pid": 2030,
+				"type": "3dtiles",
+				"name": "qx2",
+				"url": "http://192.168.30.253:801/qx2/tileset.json",
+				"maximumScreenSpaceError": 16,
+				"maximumMemoryUsage": 512,
+				"cullWithChildrenBounds": true,
+				"dynamicScreenSpaceErrorDensity": 0.00278,
+				"dynamicScreenSpaceErrorFactor": 4,
+				"dynamicScreenSpaceErrorHeightFalloff": 0.25,
+				"skipLevelOfDetail": true,
+				"baseScreenSpaceError": 1024,
+				"skipScreenSpaceErrorFactor": 16,
+				"skipLevels": 1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"z": 0
+				}
+			},
+			{
+				"id": 203023,
+				"pid": 2030,
+				"type": "3dtiles",
+				"name": "qx3",
+				"url": "http://192.168.30.253:801/qx3/tileset.json",
+				"maximumScreenSpaceError": 16,
+				"maximumMemoryUsage": 512,
+				"cullWithChildrenBounds": true,
+				"dynamicScreenSpaceErrorDensity": 0.00278,
+				"dynamicScreenSpaceErrorFactor": 4,
+				"dynamicScreenSpaceErrorHeightFalloff": 0.25,
+				"skipLevelOfDetail": true,
+				"baseScreenSpaceError": 1024,
+				"skipScreenSpaceErrorFactor": 16,
+				"skipLevels": 1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"z": 0
+				}
+			},
+			{
+				"id": 203024,
+				"pid": 2030,
+				"type": "3dtiles",
+				"name": "qx4",
+				"url": "http://192.168.30.253:801/qx4/tileset.json",
+				"maximumScreenSpaceError": 16,
+				"maximumMemoryUsage": 512,
+				"cullWithChildrenBounds": true,
+				"dynamicScreenSpaceErrorDensity": 0.00278,
+				"dynamicScreenSpaceErrorFactor": 4,
+				"dynamicScreenSpaceErrorHeightFalloff": 0.25,
+				"skipLevelOfDetail": true,
+				"baseScreenSpaceError": 1024,
+				"skipScreenSpaceErrorFactor": 16,
+				"skipLevels": 1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"z": 0
+				}
+			},
+			{
+				"id": 203025,
+				"pid": 2030,
+				"type": "3dtiles",
+				"name": "qx2",
+				"url": "http://192.168.30.253:801/qx5/tileset.json",
+				"maximumScreenSpaceError": 16,
+				"maximumMemoryUsage": 512,
+				"cullWithChildrenBounds": true,
+				"dynamicScreenSpaceErrorDensity": 0.00278,
+				"dynamicScreenSpaceErrorFactor": 4,
+				"dynamicScreenSpaceErrorHeightFalloff": 0.25,
+				"skipLevelOfDetail": true,
+				"baseScreenSpaceError": 1024,
+				"skipScreenSpaceErrorFactor": 16,
+				"skipLevels": 1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"z": 0
+				}
+			},
+			{
+				"id": 203026,
+				"pid": 2030,
+				"type": "3dtiles",
+				"name": "qx6",
+				"url": "http://192.168.30.253:801/qx6/tileset.json",
+				"maximumScreenSpaceError": 16,
+				"maximumMemoryUsage": 512,
+				"cullWithChildrenBounds": true,
+				"dynamicScreenSpaceErrorDensity": 0.00278,
+				"dynamicScreenSpaceErrorFactor": 4,
+				"dynamicScreenSpaceErrorHeightFalloff": 0.25,
+				"skipLevelOfDetail": true,
+				"baseScreenSpaceError": 1024,
+				"skipScreenSpaceErrorFactor": 16,
+				"skipLevels": 1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"z": 0
+				}
+			},
+			{
+				"id": 203027,
+				"pid": 2030,
+				"type": "3dtiles",
+				"name": "qx7",
+				"url": "http://192.168.30.253:801/qx7/tileset.json",
+				"maximumScreenSpaceError": 16,
+				"maximumMemoryUsage": 512,
+				"cullWithChildrenBounds": true,
+				"dynamicScreenSpaceErrorDensity": 0.00278,
+				"dynamicScreenSpaceErrorFactor": 4,
+				"dynamicScreenSpaceErrorHeightFalloff": 0.25,
+				"skipLevelOfDetail": true,
+				"baseScreenSpaceError": 1024,
+				"skipScreenSpaceErrorFactor": 16,
+				"skipLevels": 1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"z": 0
+				}
+			},
+			{
+				"id": 203028,
+				"pid": 2030,
+				"type": "3dtiles",
+				"name": "qx8",
+				"url": "http://192.168.30.253:801/qx8/tileset.json",
+				"maximumScreenSpaceError": 16,
+				"maximumMemoryUsage": 512,
+				"cullWithChildrenBounds": true,
+				"dynamicScreenSpaceErrorDensity": 0.00278,
+				"dynamicScreenSpaceErrorFactor": 4,
+				"dynamicScreenSpaceErrorHeightFalloff": 0.25,
+				"skipLevelOfDetail": true,
+				"baseScreenSpaceError": 1024,
+				"skipScreenSpaceErrorFactor": 16,
+				"skipLevels": 1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"z": 0
+				}
+			},
+			{
+				"id": 203029,
+				"pid": 2030,
+				"type": "3dtiles",
+				"name": "qx9",
+				"url": "http://192.168.30.253:801/qx9/tileset.json",
+				"maximumScreenSpaceError": 16,
+				"maximumMemoryUsage": 512,
+				"cullWithChildrenBounds": true,
+				"dynamicScreenSpaceErrorDensity": 0.00278,
+				"dynamicScreenSpaceErrorFactor": 4,
+				"dynamicScreenSpaceErrorHeightFalloff": 0.25,
+				"skipLevelOfDetail": true,
+				"baseScreenSpaceError": 1024,
+				"skipScreenSpaceErrorFactor": 16,
+				"skipLevels": 1,
+				"luminanceAtZenith": 0.2,
+				"offset": {
+					"z": 0
+				}
+			}
+		]
+	}
+}

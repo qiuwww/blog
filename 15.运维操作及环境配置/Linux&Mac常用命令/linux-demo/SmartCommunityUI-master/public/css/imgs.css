@@ -1,0 +1,251 @@
+.imgWrap {
+  position: relative;
+  width: 150px;
+  border: 1px dashed rgb(204, 204, 204);
+  margin-left: 20px;
+  height: 140px;
+  line-height: 93px;
+  margin-top: 4px;
+  text-align: center;
+  color: #ccc;
+  user-select: none;
+  font-size: 12px;
+}
+
+.upImg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.shadow {
+  position: absolute;
+  display: none;
+  /*width: 150px;*/
+  height: 140px;
+  background: rgba(0, 0, 0, .6);
+  transition: all 1s;
+  z-index: 1;
+  line-height: 140px;
+  text-align: center;
+}
+
+.imgWrap:hover .shadow {
+  display: block;
+  z-index: 3;
+}
+
+.noImg {
+  width: 150px;
+  border: 1px dashed rgb(204, 204, 204);
+  margin-left: 20px;
+  height: 140px;
+  line-height: 93px;
+  margin-top: 4px;
+  text-align: center;
+  color: #ccc;
+  user-select: none;
+  font-size: 12px;
+}
+.page{
+  margin-top: 10px;
+}
+
+.esri-zoom{
+  display: none !important;
+
+}
+.ivu-tooltip-inner {
+  max-width: 100% ;
+}
+
+.bianji {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  padding: 0;
+  background: url(/icons/btn_edit1.svg) no-repeat center !important;
+  transition: all 0.3s;
+
+}
+.bianji:hover {
+  background-image: url(/icons/btn_edit2.svg) !important;
+}
+.btnPrimary {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px !important;
+  background: #eceff1 !important;
+  color: #a0a8b5 !important;
+}
+
+.btnError {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px !important;
+  background: #eceff1 !important;
+  color: #a0a8b5 !important;
+}
+
+.btnPrimary:hover {
+  color: #fff !important;
+  background-color: #3083f2 !important;
+  border-color: #3083f2 !important;
+}
+
+.btnError:hover {
+  color: #fff !important;
+  background-color: #ff3862 !important;
+  border-color: #ff3862 !important;
+}
+
+.btnBd {
+  padding: 0px !important;
+  width: 32px;
+  border-radius: 16px !important;
+  background: #eceff1 !important;
+  color: #a0a8b5  !important;
+}
+
+.btnBd:hover {
+  color: #fff !important;
+  background-color: #12bbc2  !important;
+  border-color: #12bbc2  !important;
+}
+
+.btnJb {
+  padding: 0px !important;
+  width: 32px;
+  border-radius: 16px !important;
+  background: #eceff1  !important;
+  color: #a0a8b5  !important;
+}
+
+.btnJb:hover {
+  color: #fff !important;
+  background-color: #ff3862  !important;
+  border-color: #ff3862  !important;
+}
+.ivu-btn{
+  margin-right: 5px;
+}
+.w100{
+  width: 100%;
+}
+.h100 {
+  height: 100%;
+}
+
+.amap-logo {
+  display: none !important; //去掉高德地图logo
+}
+
+.amap-copyright {
+  opacity: 0; //去掉高德的版本号
+}
+.flex {
+  display: flex;
+}
+.tableHeaderOne .label {
+  width: 140px;
+  display: inline-block;
+  text-align: right;
+  font-size: 14px;
+  margin-left: 5px;
+  margin-right: 10px;
+  font-style: normal;
+  font-family: Microsoft YaHei, Microsoft YaHei-Bold;
+  font-weight: 700;
+  color: #3e3e3e;
+  margin-top: 0px;
+}
+.ivu-page.mini .ivu-page-item:active,
+.ivu-page.mini .ivu-page-item:focus,
+.ivu-page.mini .ivu-page-item:hover {
+  background: #3083f2 !important;
+  border-radius: 18px;
+  color: #fff !important;
+
+}
+
+.ivu-page-item-active {
+  background: #3083f2 !important;
+  border-radius: 18px !important;
+  color: #fff !important;
+}
+
+.ivu-page-item-active a {
+  width: 8px;
+  height: 17px;
+  font-size: 13px;
+  font-family: Microsoft YaHei, Microsoft YaHei-Bold;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff !important;
+  line-height: 20px;
+}
+.ivu-page-item:focus >a,
+.ivu-page-item:hover >a,
+.ivu-page-item:active >a{
+  color: #ffffff !important;
+  font-weight: 700;
+}
+.ivu-page-item a:focus,
+.ivu-page-item a:hover,
+.ivu-page-item a:active {
+  width: 8px;
+  height: 17px;
+  font-size: 13px;
+  font-family: Microsoft YaHei, Microsoft YaHei-Bold;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff !important;
+  line-height: 20px;
+}
+
+.ivu-form-item-content {
+  margin-right: 10px;
+}
+
+.page {
+  text-align: center;
+  height: 36px;
+  font-size: 13px;
+  font-family: Microsoft YaHei, Microsoft YaHei-Bold;
+}
+
+.page {
+  text-align: center;
+}
+
+.page ul {
+  display: inline-block;
+  height: 15px;
+  vertical-align: top;
+}
+
+.page ul li {
+  display: inline-block;
+}
+
+.page>.ivu-select-small.ivu-select-single .ivu-select-selection {
+  height: 36px;
+  line-height: 36px;
+}
+
+.page ul {
+  height: 36px;
+  line-height: 36px;
+}
+
+.page>.ivu-select-small.ivu-select-single .ivu-select-selection .ivu-select-placeholder,
+.ivu-select-small.ivu-select-single .ivu-select-selection .ivu-select-selected-value {
+  height: 36px;
+  line-height: 36px;
+}
+.viewer-container{
+  z-index: 2147483647 !important;
+}

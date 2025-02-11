@@ -1,0 +1,459 @@
+﻿<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+
+<head>
+    <title>弹窗子页面</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="火星科技 http://cesium.marsgis.cn ">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="img/png" href="../../img/favicon/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="img/favicon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="火星科技MarsGIS">
+    <!-- Win8标题栏及ICON图标 -->
+    <link rel="apple-touch-icon-precomposed" href="../../img/favicon/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="../../img/favicon/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#62a8ea">
+
+    <!-- 第3方lib引入 -->
+    <script type="text/javascript" src="../../lib/include-lib.js?time=20200510" libpath="../../lib/"
+        include="jquery,jquery.range,jedate,font-awesome,bootstrap,bootstrap-checkbox,haoutil,admui-frame"></script>
+
+    <link href="../../css/widget-win.css" rel="stylesheet" />
+    <link href="view.css" rel="stylesheet" />
+</head>
+
+
+<body style="padding:5px;text-align:center;">
+    <div class="basicbox">
+        <div class="btn-group">
+            <div id="btn_goto_rzfx" class="tool-btn">
+                <div class="tool-thum" style="background: #dd751b;"><img src="img/rzfx.svg" alt="日照分析"></div>
+                <span class="btn_none"> 日照分析 </span>
+            </div>
+
+
+            <div id="btn_goto_ksy" class="tool-btn">
+                <div class="tool-thum" style="background: #c092fe;"><img src="img/ksy.svg" alt="可视域"></div>
+                <span class="btn_none"> 可视域 </span>
+            </div>
+
+
+            <div id="btn_goto_flfx" class="tool-btn">
+                <div class="tool-thum" style="background: #88b8ff;"><img src="img/flfx.svg" alt="方量分析"></div>
+                <span class="btn_none"> 方量分析 </span>
+            </div>
+
+            <div id="btn_goto_dxkw" class="tool-btn">
+                <div class="tool-thum" style="background: #55d5a0;"><img src="img/dxkw.svg" alt="地形开挖"></div>
+                <span class="btn_none"> 地形开挖 </span>
+            </div>
+
+            <div id="btn_goto_dbtm" class="tool-btn">
+                <div class="tool-thum" style="background: #b85555;"><img src="img/dbtm.svg" alt="地表透明"></div>
+                <span class="btn_none"> 地表透明 </span>
+            </div>
+
+            <div id="btn_goto_pdpx" class="tool-btn">
+                <div class="tool-thum" style="background: #3de3f4;"><img src="img/pdpx.svg" alt="坡度坡向"></div>
+                <span class="btn_none"> 坡度坡向 </span>
+            </div>
+
+            <div id="btn_goto_mxpq" class="tool-btn">
+                <div class="tool-thum" style="background: #37bc41;"><img src="img/mxpq.svg" alt="模型剖切">
+                </div>
+                <span class="btn_none"> 模型剖切 </span>
+            </div>
+
+            <div id="btn_goto_mxyp" class="tool-btn">
+                <div class="tool-thum" style="background: #95d333;"><img src="img/mxyp.svg" alt="模型压平"></div>
+                <span class="btn_none"> 模型压平 </span>
+            </div>
+
+            <div id="btn_goto_mxcj" class="tool-btn">
+                <div class="tool-thum" style="background: #babc31;"><img src="img/mxcj.svg" alt="模型裁剪"></div>
+                <span class="btn_none"> 模型裁剪 </span>
+            </div>
+        </div>
+
+    </div>
+    <!-- 日照分析 -->
+    <div id="sunAnal" class="mainbox">
+        <div class="headbox">
+            <div class="headtitle">
+                <i id="btn_rzfx_destory" class="fa fa-chevron-left backmenu"></i>
+                <span>日照分析</span>
+            </div>
+            <div id="btn_rzfx_clear" class="del">
+                <i class="fa fa-trash-o"></i>
+                <span>清除</span>
+            </div>
+        </div>
+        <div class="mainInfo">
+
+            <div class="rowview clearfix tip">
+                提示:模拟设定时间范围内的太阳光照效果。
+            </div>
+
+
+            <div class="rowview clearfix">
+                <span>日期选择:</span>
+                <input type="text" class="form-control " id="txt_rzfx_Date" placeholder="YYYY-MM-DD" readonly>
+            </div>
+
+            <div class="rowview clearfix">
+                <span>开始时间:</span>
+                <input type="text" class="form-control " id="txt_rzfx_StartTime" readonly>
+            </div>
+
+            <div class="rowview clearfix">
+                <span>结束时间:</span>
+                <input type="text" class="form-control " id="txt_rzfx_EndTime" readonly>
+            </div>
+
+            <div class="rowview clearfix center">
+                <input id="btn_rzfx_Start" type="button" class="btn btn-primary" value="播放" />
+                <input id="btn_rzfx_btn_rzfx_pause" type="button" class="btn btn-primary" value="暂停" />
+            </div>
+
+            <div class="rowview clearfix">
+                <span>当前时间:</span><span id="lbl_rzfx_nowTime"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 可视域 -->
+    <div id="ksyAnal" class="mainbox">
+        <div class="headbox">
+            <div class="headtitle">
+                <i id="btn_ksy_destory" class="fa fa-chevron-left backmenu"></i>
+                <span>可视域</span>
+            </div>
+            <div id="btn_ksy_clear" class="del">
+                <i class="fa fa-trash-o"></i>
+                <span>清除</span>
+            </div>
+        </div>
+        <div class="mainInfo">
+            <div class="rowview clearfix tip">
+                提示:单击按钮后在图上绘制，红色代表不可视，绿色代表可视。
+            </div>
+
+
+            <div class="rowview clearfix">
+                <span>水平张角:</span>
+
+                <input id="range_ksy_horizontalAngle" title="角度（度）" type="range" min="1" max="120" step="1" value="120">
+                <input id="txt_ksy_horizontalAngle" min="1" max="120" value="120" type="number" class="form-control" />
+            </div>
+
+            <div class="rowview clearfix">
+                <span>垂直张角:</span>
+
+                <input id="range_ksy_verticalAngle" title="角度（度）" type="range" min="1" max="90" step="1" value="90">
+                <input id="txt_ksy_verticalAngle" min="1" max="90" value="90" type="number" class="form-control" />
+            </div>
+
+            <div class="rowview clearfix">
+                <span>视角距离:</span>
+
+                <input id="range_ksy_distance" title="距离（米）" type="range" min="1" max="1000" step="1" value="100">
+                <input id="txt_ksy_distance" min="1" max="5000" value="100" type="number" class="form-control" />
+            </div>
+
+            <div class="rowview clearfix center">
+                <input id="btn_ksy_add" type="button" class="btn btn-primary" value="添加可视域" />
+            </div>
+
+
+        </div>
+    </div>
+    <!-- 方量分析 -->
+    <div id="flAnal" class="mainbox">
+        <div class="headbox">
+            <div class="headtitle">
+                <i id="btn_flfx_destory" class="fa fa-chevron-left backmenu"></i>
+                <span>方量分析</span>
+            </div>
+            <div id="btn_flfx_clear" class="del">
+                <i class="fa fa-trash-o"></i>
+                <span>清除</span>
+            </div>
+        </div>
+        <div class="mainInfo">
+            <div class="rowview clearfix tip">
+                提示:请首先单击 “绘制区域” 按钮，再在图上绘制分析区域。
+            </div>
+
+
+            <div class="rowview clearfix center">
+                <button id='btn_flfx_draw' type="button" class="btn btn-primary">
+                    <i class="fa fa-edit"></i>
+                    绘制分析区域
+                </button>
+            </div>
+            <div class="rowview clearfix">
+                <span>基准面高:</span>
+                <input id="txt_flfx_Height" type="number" value="0" step="0.1" class="form-control" style="width: 100px;"
+                    title="计量单位:米" />
+                <input id='btn_flfx_selHeight' type="button" class="btn btn-primary" value="点选高度" />
+            </div>
+
+            <div class="rowview clearfix">
+                <span>围墙底高:</span>
+                <input id="txt_flfx_MinHeight" type="number" value="0" step="0.1" class="form-control"
+                    style="width: 100px;" title="计量单位:米" />
+                    （可选）
+            </div>
+            <div class="rowview clearfix">
+                <span>围墙顶高:</span>
+                <input id="txt_flfx_MaxHeight" type="number" value="0" step="0.1" class="form-control"
+                    style="width: 100px;" title="计量单位:米" />
+                    （可选）
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 地形开挖 -->
+    <div id="dxAnal" class="mainbox">
+        <div class="headbox">
+            <div class="headtitle">
+                <i id="btn_dxkw_destory" class="fa fa-chevron-left backmenu"></i>
+                <span>地形开挖</span>
+            </div>
+            <div id="btn_dxkw_clear" class="del">
+                <i class="fa fa-trash-o"></i>
+                <span>清除</span>
+            </div>
+        </div>
+        <div class="mainInfo">
+            <div class="rowview clearfix tip">
+                提示:请首先单击 “绘制区域” 按钮，再在图上绘制开挖区域。
+            </div>
+
+            <div class="rowview clearfix">
+                <span>开挖深度:</span>
+                <input id="txt_dxkw_clipHeight" type="number" value="30" min="0" step="1" max="999" class="form-control"
+                    style="width: 100px;" />（米）
+            </div>
+
+            <div class="rowview clearfix center">
+                <button id='bt_dxkw_draw' type="button" class="btn btn-primary">
+                    <i class="fa fa-edit"></i>
+                    绘制挖地区域
+                </button>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <!-- 地表透明 -->
+    <div id="dbAnal" class="mainbox">
+        <div class="headbox">
+            <div class="headtitle">
+                <i id="btn_dbtm_destory" class="fa fa-chevron-left backmenu"></i>
+                <span>地表透明</span>
+            </div>
+            <div id="btn_dbtm_clear" class="del">
+                <i class="fa fa-trash-o"></i>
+                <span>清除</span>
+            </div>
+        </div>
+        <div class="mainInfo">
+            <div class="rowview clearfix tip">
+                提示:可以透明地表，进入地下模式，可以看地下管网等数据。
+            </div>
+
+            <div class="rowview clearfix">
+                <span>开启状态:</span>
+
+                <div class="checkbox checkbox-primary checkbox-inline">
+                    <input id="chk_dbtm_Underground" class="styled" type="checkbox">
+                    <label for="chk_dbtm_Underground">
+                        开启地表透明
+                    </label>
+                </div>
+            </div>
+
+            <div class="rowview clearfix">
+                <span>地表透明度:</span>
+
+                <input id="txt_dbtm_alpha" type="range" min="0.0" max="1.0" step="0.1" value='0.5'>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    <!-- 坡度坡向 -->
+    <div id="tsAnal" class="mainbox">
+        <div class="headbox">
+            <div class="headtitle">
+                <i id="btn_pdpx_destory" class="fa fa-chevron-left backmenu"></i>
+                <span>坡度坡向</span>
+            </div>
+            <div id="btn_pdpx_clear" class="del">
+                <i class="fa fa-trash-o"></i>
+                <span>清除</span>
+            </div>
+        </div>
+        <div class="mainInfo">
+
+            <div class="rowview clearfix tip">
+                提示:单击按钮后在图上绘制区域。
+            </div>
+
+            <div class="rowview clearfix center">
+                插值数:
+                <input id="txt_pdpx_SplitNum" type="number" value="10" step="1" min="1" max="9999" class="form-control"
+                    style="width: 100px;" />
+                <input id="btn_pdpx_drawLine" type="button" class="btn btn-primary" value="绘制区域" />
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 模型剖切 -->
+    <div id="mxpqAnal" class="mainbox">
+        <div class="headbox">
+            <div class="headtitle">
+                <i id="btn_mxpq_destory" class="fa fa-chevron-left backmenu"></i>
+                <span>模型剖切</span>
+            </div>
+            <div id="btn_mxpq_clear" class="del">
+                <i class="fa fa-trash-o"></i>
+                <span>清除</span>
+            </div>
+        </div>
+        <div class="mainInfo">
+            <div class="rowview clearfix tip">
+                提示:请先图上点选模型后，设置剖切方向及距离。
+            </div>
+            <div class="rowview clearfix">
+                <span>选择模型:</span>
+                <button type="button" id="btn_mxpq_selectd" class="btn btn-primary">图上点选</button>
+                <span id="lbl_mxpq_mxmc">未选择</span>
+            </div>
+            <div class="rowview clearfix">
+                <span>剖切方向:</span>
+                <div class="btn-group" role="group">
+                    <button type="button" id="btn_mxpq_Clipping2" class="btn btn-primary btn-clipping">顶</button>
+                    <button type="button" id="btn_mxpq_Clipping1" class="btn btn-primary btn-clipping">底</button>
+
+                    <button type="button" id="btn_mxpq_Clipping3" class="btn btn-primary btn-clipping">东</button>
+                    <button type="button" id="btn_mxpq_Clipping4" class="btn btn-primary btn-clipping">西</button>
+
+                    <button type="button" id="btn_mxpq_Clipping5" class="btn btn-primary btn-clipping">南</button>
+                    <button type="button" id="btn_mxpq_Clipping6" class="btn btn-primary btn-clipping">北</button>
+                </div>
+            </div>
+
+            <div class="rowview clearfix">
+                <span>剖切距离:</span>
+
+                <input id="range_mxpq_Distance" title="距离（米）" type="range" min="-100" max="100" step="1.0" value="0">
+
+                <input id="txt_mxpq_Distance" value="0" type="number" class="form-control" />
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 模型压平 -->
+    <div id="mxypAnal" class="mainbox">
+        <div class="headbox">
+            <div class="headtitle">
+                <i id="btn_mxyp_destory" class="fa fa-chevron-left backmenu"></i>
+                <span>模型压平</span>
+            </div>
+            <div id="btn_mxyp_clear" class="del">
+                <i class="fa fa-trash-o"></i>
+                <span>清除</span>
+            </div>
+        </div>
+        <div class="mainInfo">
+
+            <div class="rowview clearfix tip">
+                提示: 模型压平只支持部分无着色器的3dtiles数据。
+            </div>
+
+            <div class="rowview clearfix">
+                <span>压平高度:</span>
+                <input id="txt_mxyp_flatHeight" type="number" value="0" class="form-control" style="width: 100px;" />（米）
+            </div>
+
+            <div class="rowview clearfix center">
+                <button id='bt_mxyp_draw' type="button" class="btn btn-primary">
+                    <i class="fa fa-edit"></i>
+                    绘制压平区域
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 模型裁剪 -->
+    <div id="mxcjAnal" class="mainbox">
+        <div class="headbox">
+            <div class="headtitle">
+                <i id="btn_mxcj_destory" class="fa fa-chevron-left backmenu"></i>
+                <span>模型裁剪</span>
+            </div>
+            <div id="btn_mxcj_clear" class="del">
+                <i class="fa fa-trash-o"></i>
+                <span>清除</span>
+            </div>
+        </div>
+        <div class="mainInfo">
+
+
+            <div class="rowview clearfix tip">
+                提示: 模型裁剪只支持部分无着色器的3dtiles数据。
+            </div>
+
+            <div class="rowview clearfix">
+                <span>裁剪方式:</span>
+
+                <div class="radio radio-info radio-inline">
+                    <input type="radio" id="radioMxcjType1" name="radioMxcjType" value="0" checked>
+                    <label for="radioMxcjType1">内裁剪</label>
+                </div>
+                <div class="radio radio-info radio-inline">
+                    <input type="radio" id="radioMxcjType2" name="radioMxcjType" value="1">
+                    <label for="radioMxcjType2">外裁剪 </label>
+                </div>
+
+            </div>
+
+            <div class="rowview clearfix center">
+                <button id='bt_mxcj_draw' type="button" class="btn btn-primary">
+                    <i class="fa fa-edit"></i>
+                    绘制裁剪区域
+                </button>
+            </div>
+
+
+        </div>
+    </div>
+    <!--页面js-->
+    <script src="view.js?time=20200510"></script>
+</body>
+
+</html>
