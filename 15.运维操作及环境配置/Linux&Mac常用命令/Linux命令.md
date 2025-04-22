@@ -169,6 +169,7 @@ find . -name node_modules -type d -mindepth 2
 ## 记录 ssh 的登录密码到本地
 
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@47.98.197.178
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@110.42.233.184
 
 [参考](https://blog.csdn.net/persist_xyz/article/details/90231433)。
 
