@@ -1,0 +1,597 @@
+2025-11-08 11:42:11
+  PID COMM             ARGS                                                              %CPU      VSZ     STIME USER               UID
+    1 /sbin/launchd    /sbin/launchd                                                      0.6 411090800  48:17.03 root                 0
+  305 /usr/libexec/log /usr/libexec/logd                                                  1.1 410556128   5:14.85 root                 0
+  307 /usr/libexec/Use /usr/libexec/UserEventAgent (System)                               0.0 410435456   0:14.63 root                 0
+  309 /System/Library/ /System/Library/PrivateFrameworks/Uninstall.framework/Resources/   0.0 410179120   0:08.02 root                 0
+  310 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Versions/A/Fra   0.1 410551536  11:53.21 root                 0
+  311 /System/Library/ /System/Library/PrivateFrameworks/MediaRemote.framework/Support/   0.0 410437088   0:10.15 root                 0
+  314 /usr/sbin/system /usr/sbin/systemstats --daemon                                     0.0 410451584   1:26.54 root                 0
+  317 /usr/libexec/con /usr/libexec/configd                                               0.0 410437456   0:39.39 root                 0
+  319 /System/Library/ /System/Library/CoreServices/powerd.bundle/powerd                  0.0 410434880   0:59.52 root                 0
+  320 /usr/libexec/IOM /usr/libexec/IOMFB_bics_daemon                                     0.0 410327728   0:00.20 root                 0
+  321 /System/Library/ /System/Library/PrivateFrameworks/BiomeStreams.framework/Support   0.0 410433408   0:04.74 _biome             289
+  325 /usr/libexec/rem /usr/libexec/remoted                                               0.0 410433008   0:00.06 root                 0
+  330 /usr/libexec/wat /usr/libexec/watchdogd                                             0.0 410189968   0:03.37 root                 0
+  334 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.3 410888224  23:36.10 root                 0
+  336 /usr/libexec/ker /usr/libexec/kernelmanagerd                                        0.0 410440096   0:00.57 root                 0
+  337 /usr/libexec/dis /usr/libexec/diskarbitrationd                                      0.0 410432800   0:07.76 root                 0
+  341 /usr/sbin/syslog /usr/sbin/syslogd                                                  0.0 410393296   0:09.02 root                 0
+  344 /usr/libexec/the /usr/libexec/thermalmonitord                                       0.0 410362576   0:20.26 root                 0
+  345 /usr/libexec/ope /usr/libexec/opendirectoryd                                        0.0 410463328   2:43.78 root                 0
+  346 /System/Library/ /System/Library/PrivateFrameworks/ApplePushService.framework/aps   0.0 410521328   0:25.69 root                 0
+  347 /System/Library/ /System/Library/CoreServices/launchservicesd                       0.1 410436896   0:40.22 root                 0
+  348 /usr/libexec/tim /usr/libexec/timed                                                 0.0 410433424   0:05.71 _timed             266
+  349 /System/Library/ /System/Library/PrivateFrameworks/MobileDevice.framework/Version   0.0 410407040   0:00.29 _usbmuxd           213
+  350 /usr/sbin/securi /usr/sbin/securityd -i                                             0.0 410434496   0:05.17 root                 0
+  352 /usr/libexec/loc /usr/libexec/locationd                                             0.0 410481088   1:27.01 _locationd         205
+  354 autofsd          autofsd                                                            0.0 410339392   0:00.03 root                 0
+  355 /usr/libexec/das /usr/libexec/dasd                                                  0.0 410440032   0:52.77 root                 0
+  356 /System/Library/ /System/Library/PrivateFrameworks/Heimdal.framework/Helpers/kdc    0.0 410425648   0:00.08 root                 0
+  358 /usr/sbin/distno /usr/sbin/distnoted daemon                                         0.1 410299424   0:38.27 _distnote          241
+  362 /System/Library/ /System/Library/CoreServices/logind                                0.0 410269280   0:00.13 root                 0
+  363 /System/Library/ /System/Library/PrivateFrameworks/GenerationalStorage.framework/   0.0 410434528   0:00.17 root                 0
+  364 /usr/sbin/Kernel /usr/sbin/KernelEventAgent                                         0.0 410196048   0:00.01 root                 0
+  367 /usr/sbin/blueto /usr/sbin/bluetoothd                                               0.0 410508448   0:27.85 root                 0
+  368 /usr/sbin/notify /usr/sbin/notifyd                                                  0.0 410392368   0:59.59 root                 0
+  370 /usr/libexec/cor /usr/libexec/corebrightnessd --launchd                             0.0 410433984   1:46.13 root                 0
+  371 /usr/libexec/Air /usr/libexec/AirPlayXPCHelper                                      0.0 410433904   0:00.98 root                 0
+  372 /System/Library/ /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/Reso   0.0 410434624   0:00.23 root                 0
+  375 /System/Library/ /System/Library/PrivateFrameworks/SkyLight.framework/Resources/W  40.7 418308592 236:51.79 _windowserver       88
+  376 /usr/sbin/cfpref /usr/sbin/cfprefsd daemon                                          0.0 410401040   1:12.32 root                 0
+  377 /System/Library/ /System/Library/PrivateFrameworks/TCC.framework/Support/tccd sys  39.4 410581328   7:49.36 root                 0
+  378 /System/Library/ /System/Library/CoreServices/loginwindow.app/Contents/MacOS/logi   0.0 412683936   1:44.71 qiuwww             501
+  379 /usr/libexec/run /usr/libexec/runningboardd                                         0.0 410458624   3:42.71 root                 0
+  382 /System/Library/ /System/Library/PrivateFrameworks/CoreDuetContext.framework/Reso   0.0 410443440   0:23.80 root                 0
+  384 /System/Library/ /System/Library/CoreServices/coreservicesd                         0.0 410403360   0:08.30 root                 0
+  416 /usr/libexec/lsd /usr/libexec/lsd runAsRoot                                         0.0 410448416   0:02.28 root                 0
+  424 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:05.11 root                 0
+  425 /usr/libexec/air /usr/libexec/airportd                                              0.0 410454224   6:54.81 root                 0
+  427 /usr/sbin/mDNSRe /usr/sbin/mDNSResponder                                            0.0 410434784   0:53.30 _mdnsresponder      65
+  429 /usr/libexec/apf /usr/libexec/apfsd                                                 0.0 410329920  20:04.92 root                 0
+  430 /usr/libexec/nsu /usr/libexec/nsurlsessiond --privileged                            0.0 410457904   0:12.64 _nsurlsessiond     242
+  433 /System/Library/ /System/Library/PrivateFrameworks/CoreAnalytics.framework/Suppor   0.0 410445984   0:17.77 _analyticsd        263
+  435 /System/Library/ /System/Library/PrivateFrameworks/SystemStatusServer.framework/S   0.0 410432128   0:05.13 root                 0
+  441 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:05.34 _windowserver       88
+  451 /System/Library/ /System/Library/Frameworks/Security.framework/Versions/A/XPCServ   0.0 410435264   0:01.41 root                 0
+  453 /usr/sbin/mDNSRe /usr/sbin/mDNSResponderHelper                                      0.0 410381200   0:05.75 root                 0
+  459 /usr/sbin/cupsd  /usr/sbin/cupsd -l                                                 0.0 410447024   3:39.70 root                 0
+  462 /usr/sbin/coreau /usr/sbin/coreaudiod                                               0.0 410476368   2:12.32 _coreaudiod        202
+  465 /usr/libexec/sym /usr/libexec/symptomsd                                             0.0 410438192   0:51.18 _networkd           24
+  469 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:04.93 _cmiodalassistants   262
+  470 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:04.57 _coreaudiod        202
+  476 /Library/Privile /Library/PrivilegedHelperTools/com.x1a0he.macOS.Adobe-Downloader   0.0 410612832   0:00.00 root                 0
+  499 /usr/sbin/appleh /usr/sbin/appleh13camerad                                          0.0 410437792   0:15.61 _cmiodalassistants   262
+  500 /usr/libexec/cam /usr/libexec/cameracaptured                                        0.0 411374912   0:00.13 _cmiodalassistants   262
+  501 /System/Library/ /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/Reso   0.0 410434736   0:00.11 _cmiodalassistants   262
+  512 /usr/libexec/aud /usr/libexec/audioclocksyncd                                       0.0 410820176   0:56.82 root                 0
+  514 /usr/libexec/sto /usr/libexec/storagekitd                                           0.0 410446288   0:20.16 root                 0
+  516 /usr/libexec/sys /usr/libexec/syspolicyd                                           87.5 410502848   1:49.49 root                 0
+  517 /System/Library/ /System/Library/CoreServices/Software Update.app/Contents/Resour   0.0 415152064   0:15.39 _softwareupdate    200
+  522 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:04.69 _locationd         205
+  523 /System/Library/ /System/Library/CoreServices/Software Update.app/Contents/Resour   0.0 410414160   0:00.23 root                 0
+  524 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:04.55 _softwareupdate    200
+  549 /usr/libexec/eli /usr/libexec/eligibilityd                                          0.0 410228112   0:00.39 root                 0
+  554 /usr/libexec/wif /usr/libexec/wifianalyticsd                                        0.0 410422336   0:48.23 root                 0
+  556 /usr/libexec/sea /usr/libexec/searchpartyd                                          0.0 410433232   0:04.68 root                 0
+  560 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.5 415290448  31:22.44 root                 0
+  570 /System/Library/ /System/Library/PrivateFrameworks/DataAccess.framework/Support/d   0.0 410370912   0:00.42 qiuwww             501
+  571 /System/Library/ /System/Library/PrivateFrameworks/People.framework/peopled         0.0 410398432   0:00.11 qiuwww             501
+  576 /System/Library/ /System/Library/CoreServices/appleeventsd --server                 0.0 410433600   0:02.93 _appleevents        55
+  579 /System/Library/ /System/Library/DriverExtensions/com.apple.DriverKit-IOUserDockC   0.0 410594032   0:00.02 _driverkit         270
+  581 /System/Library/ /System/Library/DriverExtensions/com.apple.AppleUserHIDDrivers.d   0.0 410598336   0:00.44 _driverkit         270
+  590 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:04.54 _spotlight          89
+  594 /System/Library/ /System/Library/Frameworks/LocalAuthentication.framework/Support   0.0 410434224   0:00.42 root                 0
+  595 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.3 410299424   0:51.17 qiuwww             501
+  596 /usr/sbin/cfpref /usr/sbin/cfprefsd agent                                           0.1 410407392   2:03.66 qiuwww             501
+  597 /usr/libexec/sec /usr/libexec/securityd_service                                     0.0 410328240   0:00.01 root                 0
+  599 /usr/libexec/Use /usr/libexec/UserEventAgent (Aqua)                                 0.0 410437776   0:11.45 qiuwww             501
+  604 /usr/sbin/univer /usr/sbin/universalaccessd launchd -s                              0.0 412322640   0:04.97 qiuwww             501
+  606 /usr/libexec/pbo /usr/libexec/pboard                                                0.0 410445200   0:24.73 qiuwww             501
+  609 /usr/libexec/lsd /usr/libexec/lsd                                                   0.0 410447328   0:14.04 qiuwww             501
+  612 /usr/libexec/sec /usr/libexec/secd                                                  0.0 410688736   0:07.65 qiuwww             501
+  613 /System/Library/ /System/Library/PrivateFrameworks/TCC.framework/Support/tccd      33.8 410449120   6:36.57 qiuwww             501
+  615 /System/Library/ /System/Library/Frameworks/Accounts.framework/Versions/A/Support   0.0 410643488   0:10.37 qiuwww             501
+  620 /System/Library/ /System/Library/PrivateFrameworks/IDS.framework/identityservices   0.0 410463872   0:06.95 qiuwww             501
+  621 /System/Library/ /System/Library/CoreServices/WindowManager.app/Contents/MacOS/Wi   2.3 412347664   0:39.70 qiuwww             501
+  623 /usr/libexec/rap /usr/libexec/rapportd                                              0.0 410441472   0:01.94 qiuwww             501
+  624 /usr/libexec/nsu /usr/libexec/nsurlsessiond                                         0.0 410456720   0:20.85 qiuwww             501
+  630 /usr/sbin/userno /usr/sbin/usernoted                                                0.0 410446624   0:01.51 qiuwww             501
+  631 /usr/libexec/rou /usr/libexec/routined LAUNCHED_BY_LAUNCHD                          0.0 410456720   1:10.09 qiuwww             501
+  632 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:04.33 _appleevents        55
+  633 /System/Library/ /System/Library/CoreServices/lockoutagent                          0.0 410433984   0:28.94 qiuwww             501
+  635 /System/Library/ /System/Library/CoreServices/talagent                              0.0 410563712   0:01.37 qiuwww             501
+  636 /System/Library/ /System/Library/PrivateFrameworks/HomeKitDaemon.framework/Suppor   0.0 410699696   0:05.19 qiuwww             501
+  638 /System/Library/ /System/Library/PrivateFrameworks/UserNotificationsCore.framewor   0.0 411656624   0:00.23 qiuwww             501
+  643 /System/Library/ /System/Library/CoreServices/NotificationCenter.app/Contents/Mac   0.0 412847968   0:10.95 qiuwww             501
+  648 /usr/libexec/con /usr/libexec/containermanagerd --runmode=agent --user-container-   0.0 410432672   0:12.58 qiuwww             501
+  649 /Applications/Go /Applications/Google Chrome.app/Contents/MacOS/Google Chrome       0.3 479018080  11:46.70 qiuwww             501
+  652 /System/Library/ /System/Library/CoreServices/WiFiAgent.app/Contents/MacOS/WiFiAg   0.0 410580656   0:24.55 qiuwww             501
+  653 /System/Library/ /System/Library/CoreServices/sharedfilelistd                       0.0 410446320   0:05.86 qiuwww             501
+  656 /System/Library/ /System/Library/Frameworks/CryptoTokenKit.framework/ctkd -st       0.0 410374368   0:00.04 _ctkd              259
+  659 /System/Library/ /System/Library/PrivateFrameworks/FileProvider.framework/Support   0.0 410460384   0:38.15 qiuwww             501
+  660 /usr/libexec/sha /usr/libexec/sharingd                                              0.0 410915168   0:13.73 qiuwww             501
+  670 /Applications/iT /Applications/iTerm.app/Contents/MacOS/iTerm2                     22.5 413390128  39:53.49 qiuwww             501
+  672 /Applications/Vi /Applications/Visual Studio Code.app/Contents/MacOS/Electron       0.7 1868421344   5:17.18 qiuwww             501
+  673 /Applications/QQ /Applications/QQ.app/Contents/MacOS/QQ                             0.2 1598254688  11:49.89 qiuwww             501
+  676 /usr/sbin/fileco /usr/sbin/filecoordinationd                                        0.0 410448144   0:04.73 root                 0
+  681 /System/Library/ /System/Library/PrivateFrameworks/UsageTracking.framework/Versio   0.0 410361968   0:23.66 qiuwww             501
+  685 /Applications/wp /Applications/wpsoffice.app/Contents/MacOS/wpsoffice               3.7 421393680  32:19.61 qiuwww             501
+  687 /System/Library/ /System/Library/PrivateFrameworks/WirelessDiagnostics.framework/   0.0 410425712   0:02.59 root                 0
+  691 /Applications/Na /Applications/Navicat Premium.app/Contents/MacOS/Navicat Premium   0.0 415155552   0:05.22 qiuwww             501
+  693 /System/Library/ /System/Library/PrivateFrameworks/FamilyCircle.framework/Version   0.0 410443584   0:01.97 qiuwww             501
+  694 /System/Applicat /System/Applications/Stickies.app/Contents/MacOS/Stickies          0.0 413114400   0:05.39 qiuwww             501
+  698 /Applications/Mi /Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge     0.0 478481936   0:40.11 qiuwww             501
+  703 /System/Library/ /System/Library/PrivateFrameworks/StatusKit.framework/StatusKitA   0.0 410438608   0:00.65 qiuwww             501
+  704 /Applications/Ty /Applications/Typora.app/Contents/MacOS/Typora                     0.0 417401920   0:26.58 qiuwww             501
+  706 /usr/libexec/Con /usr/libexec/ContinuityCaptureAgent server                         0.0 410435552   0:00.74 qiuwww             501
+  707 /System/Library/ /System/Library/PrivateFrameworks/ViewBridge.framework/Versions/   0.0 411746192   0:19.78 qiuwww             501
+  710 /Applications/QQ /Applications/QQLive.app/Contents/MacOS/QQLive                     4.4 419970640 192:21.73 qiuwww             501
+  711 /System/Library/ /System/Library/PrivateFrameworks/IMCore.framework/imagent.app/C   0.0 410439008   0:07.15 qiuwww             501
+  714 /Applications/So /Applications/Sourcetree.app/Contents/MacOS/Sourcetree             0.0 412632208   0:05.37 qiuwww             501
+  718 /Applications/Ba /Applications/BaiduNetdisk_mac.app/Contents/MacOS/BaiduNetdisk_m   0.0 42122496   1:51.65 qiuwww             501
+  720 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Framewo   0.0 410434800   0:09.15 qiuwww             501
+  721 /System/Library/ /System/Library/PrivateFrameworks/UserActivity.framework/Agents/   0.0 410435056   0:03.89 qiuwww             501
+  722 /System/Library/ /System/Library/PrivateFrameworks/MediaRemote.framework/Support/   0.0 410269200   0:00.22 qiuwww             501
+  727 /Applications/Tr /Applications/Trae.app/Contents/MacOS/Electron                     0.0 1868066304   2:35.40 qiuwww             501
+  730 /System/Applicat /System/Applications/Maps.app/Contents/MacOS/Maps                  0.0 412668480   0:15.35 qiuwww             501
+  732 /usr/libexec/avc /usr/libexec/avconferenced                                         0.0 411659856   0:00.76 qiuwww             501
+  734 /usr/libexec/ane /usr/libexec/aned                                                  0.0 410425952   0:14.24 root                 0
+  737 /Applications/Xm /Applications/Xmind.app/Contents/MacOS/Xmind                       0.0 450645600   0:09.27 qiuwww             501
+  740 /System/Applicat /System/Applications/Utilities/Terminal.app/Contents/MacOS/Termi   0.0 412421776   0:03.51 qiuwww             501
+  742 /System/Library/ /System/Library/CoreServices/Dock.app/Contents/MacOS/Dock          0.1 412891344   0:36.58 qiuwww             501
+  743 /System/Library/ /System/Library/CoreServices/ControlCenter.app/Contents/MacOS/Co   0.0 412725376   0:50.32 qiuwww             501
+  744 /System/Library/ /System/Library/CoreServices/SystemUIServer.app/Contents/MacOS/S   0.0 412306240   0:02.63 qiuwww             501
+  745 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Version   0.0 410467216   0:00.46 qiuwww             501
+  746 /System/Library/ /System/Library/CoreServices/Finder.app/Contents/MacOS/Finder      0.3 417794784   2:12.66 qiuwww             501
+  749 /System/Library/ /System/Library/CoreServices/WallpaperAgent.app/Contents/MacOS/W   0.0 412094400   0:03.87 qiuwww             501
+  754 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 443757216   0:00.24 qiuwww             501
+  756 automountd       automountd                                                         0.0 410270992   0:00.18 root                 0
+  757 /System/Library/ /System/Library/PrivateFrameworks/AMPDevices.framework/Versions/   0.0 410389056   0:01.03 qiuwww             501
+  763 /System/Library/ /System/Library/PrivateFrameworks/HearingCore.framework/heard      0.0 410440944   0:01.35 qiuwww             501
+  770 /usr/libexec/gam /usr/libexec/gamepolicyd                                           0.0 410448784   0:34.15 root                 0
+  774 /System/Library/ /System/Library/ExtensionKit/Extensions/WallpaperDynamicExtensio   0.0 411183664   0:00.90 qiuwww             501
+  778 /usr/libexec/ses /usr/libexec/seserviced                                            0.0 410328624   0:00.09 qiuwww             501
+  779 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   4.3 445494912  30:36.69 qiuwww             501
+  780 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 444446128   4:50.94 qiuwww             501
+  782 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 444240768   0:17.79 qiuwww             501
+  784 /Applications/iT /Applications/iTerm.app/Contents/XPCServices/pidinfo.xpc/Content   0.0 410829232   0:12.48 qiuwww             501
+  785 /Users/qiuwww/Li /Users/qiuwww/Library/Application Support/iTerm2/iTermServer-3.5   0.0 412079104   0:00.01 qiuwww             501
+  786 /System/Library/ /System/Library/CoreServices/UIKitSystem.app/Contents/MacOS/UIKi   0.0 411937344   0:05.44 qiuwww             501
+  787 /usr/libexec/nea /usr/libexec/nearbyd                                               0.0 410441600   0:17.09 _nearbyd           268
+  788 /usr/libexec/ros /usr/libexec/rosetta/oahd                                          0.0 410261744   0:00.46 _oahd              441
+  793 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0 411163968   0:06.57 qiuwww             501
+  794 /System/Library/ /System/Library/CoreServices/Spotlight.app/Contents/MacOS/Spotli   0.0 412575360   0:11.88 qiuwww             501
+  869 /usr/libexec/tas /usr/libexec/taskgated                                             0.0 410269776   0:01.91 root                 0
+  871 /System/Library/ /System/Library/PrivateFrameworks/CommerceKit.framework/Versions   0.0 410436800   0:00.11 qiuwww             501
+  873 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Electro   0.0 443777312   0:01.16 qiuwww             501
+  875 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.5 444451904   5:04.07 qiuwww             501
+  876 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0 444083056   0:18.78 qiuwww             501
+  878 /System/Library/ /System/Library/CoreServices/SubmitDiagInfo server-init            0.0 410367472   0:01.38 root                 0
+  881 /Applications/Tr /Applications/Trae.app/Contents/Frameworks/Electron Framework.fr   0.0 443846176   0:04.61 qiuwww             501
+  965 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Framewo   0.0 410467280   0:01.56 qiuwww             501
+  966 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0 1867033856   2:03.37 qiuwww             501
+  969 /System/Library/ /System/Library/CoreServices/Dock.app/Contents/XPCServices/com.a   0.0 411003584   0:03.38 qiuwww             501
+  983 /Applications/Tr /Applications/Trae.app/Contents/Frameworks/Trae Helper (GPU).app   0.0 444175264   0:07.67 qiuwww             501
+  984 /Applications/Tr /Applications/Trae.app/Contents/Frameworks/Trae Helper.app/Conte   0.0 444083728   0:04.26 qiuwww             501
+  985 /Applications/Tr /Applications/Trae.app/Contents/Frameworks/Trae Helper.app/Conte   0.0 444082976   0:35.59 qiuwww             501
+  987 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0 410434144   0:00.04 qiuwww             501
+  988 /System/Library/ /System/Library/ExtensionKit/Extensions/WallpaperVideoExtension.   0.0 414122320  80:10.06 qiuwww             501
+ 1007 /System/Library/ /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPC   0.0 412958464  54:51.60 qiuwww             501
+ 1043 /Applications/Tr /Applications/Trae.app/Contents/Frameworks/Trae Helper.app/Conte   0.0 444452976   1:21.01 qiuwww             501
+ 1044 /Applications/Tr /Applications/Trae.app/Contents/Resources/app/modules/ckg/binary   0.1 412624352   2:18.17 qiuwww             501
+ 1051 /System/Library/ /System/Library/PrivateFrameworks/AmbientDisplay.framework/Versi   0.1 410434944   1:21.76 root                 0
+ 1117 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:04.29 _assetcache        235
+ 1153 /System/Library/ /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries   0.0 410358960   0:00.01 root                 0
+ 1154 /System/Library/ /System/Library/Frameworks/InputMethodKit.framework/Resources/im   0.0 410303312   0:00.61 qiuwww             501
+ 1155 /System/Library/ /System/Library/PrivateFrameworks/TextInputUIMacHelper.framework   2.8 414030880   0:27.42 qiuwww             501
+ 1164 /System/Library/ /System/Library/Input Methods/PressAndHold.app/Contents/PlugIns/   0.0 410452384   0:04.19 qiuwww             501
+ 1166 /Applications/Tr /Applications/Trae.app/Contents/Frameworks/Trae Helper.app/Conte   0.0 1867084512   1:39.07 qiuwww             501
+ 1201 /usr/libexec/WiF /usr/libexec/WiFiVelocityAgent                                     0.0 410326640   0:00.41 qiuwww             501
+ 1202 /usr/libexec/wif /usr/libexec/wifivelocityd                                         0.0 410359280   0:01.54 root                 0
+ 1223 /Applications/Mi /Applications/Microsoft Edge.app/Contents/Frameworks/Microsoft E   0.0 443727328   0:00.21 qiuwww             501
+ 1252 /System/Library/ /System/Library/DriverExtensions/IOUserBluetoothSerialDriver.dex   0.0 410596160   0:00.01 _driverkit         270
+ 1255 /System/Library/ /System/Library/DriverExtensions/IOUserBluetoothSerialDriver.dex   0.0 410597184   0:00.01 _driverkit         270
+ 1259 /System/Library/ /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServic   0.0 411459200   0:02.44 qiuwww             501
+ 1261 /System/Library/ /System/Library/CoreServices/destinationd                          0.0 410439392   0:08.63 qiuwww             501
+ 1264 /Applications/Tr /Applications/Trae.app/Contents/Frameworks/Trae Helper.app/Conte   0.0 1867057712   0:08.17 qiuwww             501
+ 1356 /System/Library/ /System/Library/PrivateFrameworks/IMDPersistence.framework/XPCSe   0.0 410440192   0:00.13 qiuwww             501
+ 1357 /usr/libexec/sir /usr/libexec/siriknowledged                                        0.0 410396144   0:01.07 qiuwww             501
+ 1364 /Applications/Mi /Applications/Microsoft Edge.app/Contents/Frameworks/Microsoft E   0.0 444674816   0:06.65 qiuwww             501
+ 1365 /Applications/Mi /Applications/Microsoft Edge.app/Contents/Frameworks/Microsoft E   0.0 444498128   0:03.88 qiuwww             501
+ 1366 /Applications/Mi /Applications/Microsoft Edge.app/Contents/Frameworks/Microsoft E   0.0 444326128   0:01.13 qiuwww             501
+ 1369 /System/Library/ /System/Library/PrivateFrameworks/CascadeSets.framework/Versions   0.0 410359552   0:00.12 qiuwww             501
+ 1386 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0 410372592   0:06.96 qiuwww             501
+ 1396 /Applications/QQ /Applications/QQ.app/Contents/Frameworks/QQ Helper (GPU).app/Con   0.0 444620208   1:01.07 qiuwww             501
+ 1400 /Applications/QQ /Applications/QQ.app/Contents/Frameworks/QQ Helper.app/Contents/   0.0 444449904   0:03.51 qiuwww             501
+ 1401 /usr/libexec/tra /usr/libexec/transparencyd                                         0.0 410413120   0:00.74 qiuwww             501
+ 1402 /System/Library/ /System/Library/Frameworks/Security.framework/Versions/A/XPCServ   0.0 410664752   0:00.10 qiuwww             501
+ 1404 /usr/libexec/mob /usr/libexec/mobileactivationd                                     0.0 410359216   0:00.04 root                 0
+ 1407 /System/Library/ /System/Library/Frameworks/CryptoTokenKit.framework/ctkd -tw       0.0 410407168   0:00.05 qiuwww             501
+ 1437 /Applications/Xm /Applications/Xmind.app/Contents/Frameworks/Xmind Helper (GPU).a   0.0 412435984   0:00.49 qiuwww             501
+ 1439 /Applications/Xm /Applications/Xmind.app/Contents/Frameworks/Electron Framework.f   0.0 410672144   0:00.24 qiuwww             501
+ 1440 /System/Library/ /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServic   0.0 516882224   0:04.96 qiuwww             501
+ 1442 /System/Library/ /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServic   0.0 411591408   0:08.88 qiuwww             501
+ 1447 /Applications/Xm /Applications/Xmind.app/Contents/Frameworks/Xmind Helper.app/Con   0.0 411168448   0:00.28 qiuwww             501
+ 1455 /System/Library/ /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServic   0.0 411276880   0:02.22 qiuwww             501
+ 1459 /System/Library/ /System/Library/PrivateFrameworks/CommerceKit.framework/Versions   0.0 410360000   0:00.07 qiuwww             501
+ 1461 /System/Library/ /System/Library/CoreServices/diagnostics_agent                     0.0 410361280   0:04.80 qiuwww             501
+ 1469 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:04.21 _gamecontrollerd   247
+ 1478 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:04.18 _accessoryupdater   278
+ 1500 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:04.13 _nsurlsessiond     242
+ 1503 /Applications/wp /Applications/wpsoffice.app/Contents/SharedSupport/promecefplugi   0.0 412637040   0:09.70 qiuwww             501
+ 1505 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:04.13 _applepay          260
+ 1512 /Applications/wp /Applications/wpsoffice.app/Contents/SharedSupport/promecefplugi   0.0 412494016   0:02.17 qiuwww             501
+ 1546 /Applications/Ba /Applications/BaiduNetdisk_mac.app/Contents/Frameworks/Electron    0.0 34321588   0:00.23 qiuwww             501
+ 1551 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0 410361712   0:02.65 _spotlight          89
+ 1580 /Applications/Ba /Applications/BaiduNetdisk_mac.app/Contents/Frameworks/BaiduNetd   0.0 36253592   0:07.05 qiuwww             501
+ 1612 /System/Library/ /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPC   0.0 411144512   0:06.07 qiuwww             501
+ 1623 /opt/homebrew/op /opt/homebrew/opt/mongodb-community/bin/mongod --config /opt/hom   0.0 414403056   6:10.18 qiuwww             501
+ 1624 /System/Library/ /System/Library/PrivateFrameworks/CoreSpeech.framework/corespeec   0.0 410438912   0:01.64 qiuwww             501
+ 1629 nginx: master pr nginx: master process /opt/homebrew/opt/nginx/bin/nginx -g daemo   0.0 410891216   0:00.02 qiuwww             501
+ 1630 /opt/homebrew/op /opt/homebrew/opt/redis/bin/redis-server 127.0.0.1:6379            0.0 411184256   4:52.37 qiuwww             501
+ 1633 /System/Library/ /System/Library/Image Capture/Support/icdd                         0.0 410433088   0:00.17 qiuwww             501
+ 1634 /bin/sh          /bin/sh /opt/homebrew/opt/mysql@8.0/bin/mysqld_safe --datadir=/o   0.0 410614048   0:00.02 qiuwww             501
+ 1638 /System/Library/ /System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/A   0.0 412325392   0:01.87 qiuwww             501
+ 1640 /System/Library/ /System/Library/CoreServices/TextInputMenuAgent.app/Contents/Mac   0.0 412421488   0:14.51 qiuwww             501
+ 1643 /System/Library/ /System/Library/Frameworks/CryptoTokenKit.framework/ctkahp.bundl   0.0 410400400   0:00.20 root                 0
+ 1644 /Applications/Cl /Applications/ClashX.app/Contents/MacOS/ClashX                     0.0 413513664  14:15.94 qiuwww             501
+ 1645 /System/Library/ /System/Library/Frameworks/CryptoTokenKit.framework/ctkahp.bundl   0.0 410400432   0:00.04 qiuwww             501
+ 1665 /Library/Privile /Library/PrivilegedHelperTools/com.west2online.ClashX.ProxyConfi   0.0 410659536   0:12.87 root                 0
+ 1716 nginx: worker pr nginx: worker process                                              0.0 410890896   0:00.00 qiuwww             501
+ 1764 /opt/homebrew/op /opt/homebrew/opt/mysql@8.0/bin/mysqld --basedir=/opt/homebrew/o   0.0 412737952   2:57.07 qiuwww             501
+ 1781 /Applications/Ba /Applications/BaiduNetdisk_mac.app/Contents/Frameworks/BaiduNetd   0.0 35303648   0:00.52 qiuwww             501
+ 1784 /usr/libexec/osp /usr/libexec/ospredictiond                                         0.0 410360544   0:00.05 root                 0
+ 1786 /usr/sbin/Wirele /usr/sbin/WirelessRadioManagerd                                    0.0 410388544   0:00.06 root                 0
+ 1791 /System/Library/ /System/Library/PrivateFrameworks/BusinessChatService.framework/   0.0 410358512   0:00.02 qiuwww             501
+ 1838 /Applications/Ba /Applications/BaiduNetdisk_mac.app/Contents/Frameworks/BaiduNetd   0.0 39999536   0:00.74 qiuwww             501
+ 1841 /Applications/Ba /Applications/BaiduNetdisk_mac.app/Contents/Frameworks/BaiduNetd   0.0 40395824   0:00.70 qiuwww             501
+ 1842 /Applications/Ba /Applications/BaiduNetdisk_mac.app/Contents/Frameworks/BaiduNetd   0.0 40131624   0:00.70 qiuwww             501
+ 1846 /Applications/Ba /Applications/BaiduNetdisk_mac.app/Contents/Frameworks/BaiduNetd   1.3 40980400  10:00.32 qiuwww             501
+ 1849 /usr/sbin/system /usr/sbin/systemstats --logger-helper /private/var/db/systemstat   0.0 410360976   0:00.73 root                 0
+ 1851 /usr/libexec/rep /usr/libexec/replayd                                               0.0 410377280   0:00.32 qiuwww             501
+ 1872 /Applications/Mi /Applications/Microsoft Edge.app/Contents/Frameworks/Microsoft E   0.0 444442080   0:02.25 qiuwww             501
+ 1876 Core Audio Drive Core Audio Driver (OrayVirtualAudioDevice.driver)                  0.0 410270864   0:00.14 _coreaudiod        202
+ 1877 /usr/libexec/USB /usr/libexec/USBAgent                                              0.0 410327104   0:00.02 qiuwww             501
+ 1881 /Applications/Ba /Applications/BaiduNetdisk_mac.app/Contents/Frameworks/BaiduNetd   0.0 40532380   0:00.71 qiuwww             501
+ 1882 /usr/libexec/pow /usr/libexec/powerdatad                                            0.0 410362384   0:00.22 root                 0
+ 1883 /Applications/Ba /Applications/BaiduNetdisk_mac.app/Contents/Frameworks/BaiduNetd   0.0 34899604   0:03.42 qiuwww             501
+ 1884 /System/Library/ /System/Library/PrivateFrameworks/CoreKDL.framework/Support/core   0.0 410326560   0:00.01 root                 0
+ 1912 /usr/libexec/sec /usr/libexec/securityd_system                                      0.0 410327392   0:00.23 root                 0
+ 1916 /Applications/QQ /Applications/QQ.app/Contents/Frameworks/QQ Helper (Renderer).ap   0.0 1599351392   0:42.73 qiuwww             501
+ 1924 /System/Library/ /System/Library/Frameworks/CoreTelephony.framework/Support/CommC   0.0 410446304   0:00.82 qiuwww             501
+ 1925 /System/Library/ /System/Library/CoreServices/CoreLocationAgent.app/Contents/MacO   0.0 410580720   0:00.11 qiuwww             501
+ 1926 /System/Library/ /System/Library/PrivateFrameworks/SyncedDefaults.framework/Suppo   0.0 410449696   0:00.17 qiuwww             501
+ 1927 /usr/libexec/use /usr/libexec/usermanagerd -t 15                                    0.0 410384368   0:00.07 root                 0
+ 1932 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0 1867017904   3:23.47 qiuwww             501
+ 1933 /System/Library/ /System/Library/CoreServices/Keychain Circle Notification.app/Co   0.0 410467280   0:00.12 qiuwww             501
+ 1934 /System/Library/ /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/Vers   0.0 410445856   0:00.41 qiuwww             501
+ 1935 /System/Library/ /System/Library/Frameworks/ExtensionFoundation.framework/Version   0.0 410370368   0:00.01 qiuwww             501
+ 1936 /System/Library/ /System/Library/PrivateFrameworks/CloudDocs.framework/PlugIns/co   0.0 410381248   0:00.04 qiuwww             501
+ 1937 /System/Library/ /System/Library/PrivateFrameworks/iCloudDriveService.framework/X   0.0 410369968   0:00.06 qiuwww             501
+ 1939 /usr/libexec/int /usr/libexec/intelligentroutingd                                   0.0 410374256   0:00.06 qiuwww             501
+ 1948 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Squirre   0.0 410794512   0:00.01 qiuwww             501
+ 1976 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 444209952   2:08.39 qiuwww             501
+ 1984 /System/Library/ /System/Library/PrivateFrameworks/CacheDelete.framework/deleted    0.0 410445840   0:22.67 qiuwww             501
+ 1985 /System/Library/ /System/Library/PrivateFrameworks/CacheDelete.framework/deleted_   0.0 410225744   0:00.05 root                 0
+ 1987 /usr/libexec/ane /usr/libexec/aneuserd                                              0.0 410359856   0:00.04 _neuralengine      296
+ 1988 /System/Library/ /System/Library/PrivateFrameworks/PackageKit.framework/Resources   0.0 410196048   0:00.18 root                 0
+ 1989 /usr/libexec/Ass /usr/libexec/AssetCache/AssetCache                                 0.0 410360800   0:00.03 _assetcache        235
+ 1990 /System/Library/ /System/Library/PrivateFrameworks/CoreSymbolication.framework/co   0.0 410328160   0:00.04 root                 0
+ 1991 /System/Library/ /System/Library/PrivateFrameworks/PackageKit.framework/Resources   0.0 410359392   0:00.22 root                 0
+ 1992 /System/Library/ /System/Library/PrivateFrameworks/GeoServices.framework/geodMach   0.0 410327136   0:00.01 qiuwww             501
+ 1993 /System/Library/ /System/Library/PrivateFrameworks/CloudKitDaemon.framework/Suppo   0.0 410359600   0:00.04 root                 0
+ 1994 /System/Library/ /System/Library/Frameworks/QuickLookThumbnailing.framework/Suppo   0.0 410999024   0:00.21 qiuwww             501
+ 1995 /System/Library/ /System/Library/PrivateFrameworks/AssetCacheServicesExtensions.f   0.0 410333280   0:00.02 root                 0
+ 2005 /usr/libexec/tri /usr/libexec/triald_system                                         0.0 410327136   0:00.12 root                 0
+ 2017 /usr/sbin/system /usr/sbin/systemsoundserverd                                       0.0 410448128   0:00.11 root                 0
+ 2018 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/AudioComponent   0.0 410317936   0:00.02 root                 0
+ 2019 /System/Library/ /System/Library/Frameworks/AudioToolbox.framework/XPCServices/co   0.0 410327152   0:00.01 root                 0
+ 2020 /usr/libexec/aud /usr/libexec/audioanalyticsd                                       0.0 410371920   0:00.43 root                 0
+ 2021 /System/Library/ /System/Library/PrivateFrameworks/AppleCredentialManager.framewo   0.0 410235136   0:00.04 root                 0
+ 2030 /System/Library/ /System/Library/CoreServices/CrashReporterSupportHelper server-i   0.0 410326560   0:00.02 root                 0
+ 2035 /System/Library/ /System/Library/Input Methods/SCIM.app/Contents/PlugIns/SCIM_Ext   0.0 411364160   1:09.87 qiuwww             501
+ 2081 /System/Library/ /System/Library/PrivateFrameworks/Synapse.framework/Support/cont   0.0 410433376   0:00.37 qiuwww             501
+ 2102 /System/Library/ /System/Library/PrivateFrameworks/ScreenTimeCore.framework/Versi   0.0 410456528   0:02.16 qiuwww             501
+ 2103 /usr/libexec/dmd /usr/libexec/dmd                                                   0.0 410394288   0:00.05 qiuwww             501
+ 2104 /System/Library/ /System/Library/Frameworks/FamilyControls.framework/Versions/A/F   0.0 410196512   0:00.02 qiuwww             501
+ 2105 /System/Library/ /System/Library/Frameworks/ManagedSettings.framework/Versions/A/   0.0 410370320   0:00.02 qiuwww             501
+ 2117 /System/Library/ /System/Library/Services/AppleSpell.service/Contents/MacOS/Apple   0.0 410899056   0:00.32 qiuwww             501
+ 2118 /usr/libexec/key /usr/libexec/keyboardservicesd                                     0.0 410364992   0:00.14 qiuwww             501
+ 2119 /System/Library/ /System/Library/PrivateFrameworks/XprotectFramework.framework/Ve   0.0 411180096   0:00.04 root                 0
+ 2127 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:04.08 _rmd               277
+ 2290 /System/Library/ /System/Library/CoreServices/Applications/Feedback Assistant.app   0.0 410196080   0:00.02 root                 0
+ 2353 /usr/libexec/swc /usr/libexec/swcd                                                  0.0 410444320   0:00.94 qiuwww             501
+ 2441 /usr/libexec/smd /usr/libexec/smd                                                   0.0 410196144   0:00.01 root                 0
+ 2569 /Applications/Tr /Applications/Trae.app/Contents/Frameworks/Trae Helper.app/Conte   0.0 1867020240   0:18.28 qiuwww             501
+ 2629 /System/Library/ /System/Library/CoreServices/UserNotificationCenter.app/Contents   0.0 410600048   0:01.93 qiuwww             501
+ 2662 /usr/libexec/log /usr/libexec/logd_helper                                           0.0 410318624   0:00.06 root                 0
+ 2674 /System/Library/ /System/Library/CoreServices/ScopedBookmarkAgent                   0.0 410445408   0:00.85 qiuwww             501
+ 2677 /usr/libexec/amf /usr/libexec/amfid                                                 0.0 410433392   0:00.04 root                 0
+ 2686 /System/Library/ /System/Library/Frameworks/NetFS.framework/Versions/A/XPCService   0.0 410186928   0:00.01 qiuwww             501
+ 2726 /usr/libexec/bio /usr/libexec/biometrickitd --launchd                               0.0 410433792   0:00.12 root                 0
+ 2771 /usr/libexec/cou /usr/libexec/countryd                                              0.0 410359920   0:00.05 root                 0
+ 2772 /usr/libexec/con /usr/libexec/containermanagerd_system --runmode=privileged --use   0.0 410821856   0:00.03 root                 0
+ 2805 /System/Library/ /System/Library/CoreServices/pbs                                   0.0 410432784   0:00.02 qiuwww             501
+ 2855 /System/Library/ /System/Library/CryptoTokenKit/com.apple.ifdreader.slotd/Content   0.0 410358480   0:00.02 root                 0
+ 2856 /usr/libexec/usb /usr/libexec/usbd                                                  0.0 410326720   0:00.02 root                 0
+ 2865 /System/Library/ /System/Library/PrivateFrameworks/UserFS.framework/userfsd -c -S   0.0 410232928   0:00.01 root                 0
+ 2867 /System/Library/ /System/Library/PrivateFrameworks/UserFS.framework/Resources/use   0.0 410199104   0:00.01 root                 0
+ 2871 /System/Library/ /System/Library/Frameworks/NetFS.framework/Versions/A/XPCService   0.0 410196144   0:00.00 root                 0
+ 2884 /System/Library/ /System/Library/PrivateFrameworks/StorageManagement.framework/Re   0.0 410615072   0:00.20 qiuwww             501
+ 2885 /System/Library/ /System/Library/CoreServices/CoreServicesUIAgent.app/Contents/Ma   0.0 412316112   0:00.43 qiuwww             501
+ 2886 /System/Library/ /System/Library/CoreServices/iconservicesagent                     0.0 410408144   0:00.02 qiuwww             501
+ 2887 /System/Library/ /System/Library/CoreServices/iconservicesd                         0.0 410387168   0:00.02 _iconservices      240
+ 2898 /System/Library/ /System/Library/PrivateFrameworks/IntelligencePlatformCompute.fr   0.0 410368528   0:02.84 qiuwww             501
+ 2934 /System/Library/ /System/Library/PrivateFrameworks/Categories.framework/Versions/   0.0 410400128   0:00.01 qiuwww             501
+ 2935 /System/Library/ /System/Library/PrivateFrameworks/ContextKit.framework/Versions/   0.0 410519664   0:00.03 qiuwww             501
+ 2950 /usr/libexec/nat /usr/libexec/naturallanguaged                                      0.0 410367632   0:00.02 qiuwww             501
+ 2951 /usr/libexec/fin /usr/libexec/findmydeviced                                         0.0 410370592   0:00.55 root                 0
+ 2952 /usr/libexec/fin /usr/libexec/findmydevice-user-agent                               0.0 410358448   0:00.04 qiuwww             501
+ 3084 /System/Library/ /System/Library/Frameworks/LocalAuthentication.framework/Support   0.0 412444128   0:00.15 qiuwww             501
+ 3087 /System/Library/ /System/Library/PrivateFrameworks/AccountPolicy.framework/XPCSer   0.0 410400864   0:00.04 root                 0
+ 3243 /System/Library/ /System/Library/Frameworks/ExtensionFoundation.framework/Version   0.0 410444096   0:00.01 qiuwww             501
+ 3245 /System/Library/ /System/Library/CoreServices/TextInputSwitcher.app/Contents/MacO   0.0 410576800   0:00.19 qiuwww             501
+ 3348 /System/Library/ /System/Library/PrivateFrameworks/Categories.framework/Versions/   0.0 410388864   0:00.00 qiuwww             501
+ 3364 /System/Cryptexe /System/Cryptexes/App/System/Library/CoreServices/SafariSupport.   0.0 410765568   0:00.25 qiuwww             501
+ 3367 /System/Library/ /System/Library/PrivateFrameworks/SocialLayer.framework/socialla   0.0 410403040   0:00.05 qiuwww             501
+ 3374 /System/Cryptexe /System/Cryptexes/App/usr/libexec/SafariLaunchAgent                0.0 410591344   0:00.08 qiuwww             501
+ 3404 /usr/libexec/mlh /usr/libexec/mlhostd                                               0.0 410947056   0:00.72 qiuwww             501
+ 3405 /System/Library/ /System/Library/Frameworks/ExtensionFoundation.framework/Version   0.0 410239296   0:00.07 qiuwww             501
+ 3529 /System/Library/ /System/Library/Frameworks/Security.framework/Versions/A/Resourc   0.0 410326800   0:00.02 qiuwww             501
+ 3530 /System/Library/ /System/Library/PrivateFrameworks/IntlPreferences.framework/Supp   0.0 410409440   0:00.04 qiuwww             501
+ 3531 /System/Cryptexe /System/Cryptexes/App/usr/libexec/AuthenticationServicesAgent      0.0 410817408   0:00.29 qiuwww             501
+ 3532 /usr/libexec/key /usr/libexec/keychainsharingmessagingd                             0.0 410818880   0:00.02 qiuwww             501
+ 3543 /System/Library/ /System/Library/PrivateFrameworks/Categories.framework/Versions/   0.0 410370432   0:00.01 qiuwww             501
+ 3751 /System/Library/ /System/Library/Frameworks/Metal.framework/Versions/A/XPCService   0.0 410910800   0:00.02 qiuwww             501
+ 4108 /usr/libexec/app /usr/libexec/appleaccountd                                         0.0 410431600   0:00.27 qiuwww             501
+ 4535 /usr/libexec/sym /usr/libexec/symptomsd-diag                                        0.0 410363760   0:00.07 root                 0
+ 4608 /usr/libexec/dpr /usr/libexec/dprivacyd                                             0.0 410363968   0:00.08 root                 0
+ 4609 /System/Library/ /System/Library/PrivateFrameworks/DifferentialPrivacy.framework/   0.0 410361696   0:00.04 root                 0
+ 5679 /usr/libexec/col /usr/libexec/colorsync.displayservices                             0.0 410400320   0:00.02 root                 0
+ 5680 /System/Library/ /System/Library/Frameworks/ColorSync.framework/Versions/A/XPCSer   0.0 410208320   0:00.00 root                 0
+ 5681 /usr/libexec/col /usr/libexec/colorsyncd                                            0.0 410400272   0:00.02 root                 0
+ 5682 /System/Library/ /System/Library/Frameworks/ColorSync.framework/Support/colorsync   0.0 410187312   0:00.01 qiuwww             501
+ 5703 /usr/sbin/spindu /usr/sbin/spindump                                                 0.0 410414800   0:00.77 root                 0
+ 5704 /usr/libexec/spi /usr/libexec/spindump_agent                                        0.0 410188016   0:00.01 qiuwww             501
+ 5828 /System/Library/ /System/Library/Frameworks/QuickLookThumbnailing.framework/Versi   0.0 410539040   0:00.02 qiuwww             501
+ 6813 endpointsecurity endpointsecurityd                                                  0.0 410187344   0:00.01 root                 0
+ 7462 /System/Library/ /System/Library/PrivateFrameworks/IntelligencePlatformCore.frame   0.0 410362240   0:00.08 qiuwww             501
+ 8598 /usr/libexec/pro /usr/libexec/proactiveeventtrackerd                                0.0 410360112   0:00.04 qiuwww             501
+ 8599 /System/Library/ /System/Library/PrivateFrameworks/ProtectedCloudStorage.framewor   0.0 410359952   0:00.08 qiuwww             501
+ 8600 /System/Library/ /System/Library/PrivateFrameworks/CloudServices.framework/Helper   0.0 410365856   0:00.12 qiuwww             501
+ 8601 /System/Library/ /System/Library/PrivateFrameworks/iTunesCloud.framework/Support/   0.0 410379680   0:00.34 qiuwww             501
+ 8854 /usr/bin/ssh-age /usr/bin/ssh-agent -l                                              0.0 410088592   0:00.02 qiuwww             501
+ 9064 /System/Library/ /System/Library/PrivateFrameworks/KerberosHelper/Helpers/DiskUnm   0.0 410196016   0:00.01 qiuwww             501
+11553 /System/Library/ /System/Library/CoreServices/Dock.app/Contents/XPCServices/DockH   0.0 412126512   0:00.12 qiuwww             501
+11684 /System/Library/ /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPC   0.0 411779056   0:00.76 qiuwww             501
+11686 /System/Library/ /System/Library/CoreServices/OSDUIHelper.app/Contents/MacOS/OSDU   0.0 412231520   0:00.10 qiuwww             501
+12215 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents   0.0 1622846880   0:32.59 qiuwww             501
+12750 /usr/libexec/mma /usr/libexec/mmaintenanced                                         0.0 410327376   0:00.01 root                 0
+13118 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents   0.0 1622829856   0:31.06 qiuwww             501
+13995 /System/Library/ /System/Library/PrivateFrameworks/SoftwareUpdate.framework/Resou   0.0 410591232   0:00.17 qiuwww             501
+13996 /System/Library/ /System/Library/PrivateFrameworks/UIFoundation.framework/Version   0.0 410727664   0:00.66 qiuwww             501
+14004 /System/Library/ /System/Library/Frameworks/MediaAccessibility.framework/Versions   0.0 410337376   0:00.01 qiuwww             501
+14011 /System/Library/ /System/Library/PrivateFrameworks/MobileSoftwareUpdate.framework   0.0 410361888   0:00.15 _softwareupdate    200
+14012 /System/Library/ /System/Library/PrivateFrameworks/MobileSoftwareUpdate.framework   0.0 410229632   0:00.12 root                 0
+14013 /System/Library/ /System/Library/PrivateFrameworks/IASUtilities.framework/Version   0.0 410195472   0:00.01 qiuwww             501
+14014 /usr/libexec/NRD /usr/libexec/NRDUpdated                                            0.0 410364000   0:00.20 _softwareupdate    200
+14015 /private/var/db/ /private/var/db/com.apple.xpc.roleaccountd.staging/exec/16777233   0.0 411246336   0:00.13 root                 0
+14016 /usr/libexec/xpc /usr/libexec/xpcroleaccountd -launchd                              0.0 410327120   0:00.01 root                 0
+14023 /System/Library/ /System/Library/PrivateFrameworks/UIFoundation.framework/Version   0.0 410725632   0:00.46 _softwareupdate    200
+14024 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Version   0.0 410196160   0:00.02 _softwareupdate    200
+14025 /usr/sbin/cfpref /usr/sbin/cfprefsd agent                                           0.0 410327104   0:00.01 _softwareupdate    200
+14027 /System/Library/ /System/Library/Frameworks/MediaAccessibility.framework/Versions   0.0 410354784   0:00.01 _softwareupdate    200
+14053 /usr/libexec/tip /usr/libexec/tipsd                                                 0.0 410392000   0:00.30 qiuwww             501
+15387 /System/Library/ /System/Library/PrivateFrameworks/CoreFP.framework/Versions/A/fa   0.0 410347024   0:00.13 _fpsd              265
+15706 /System/Library/ /System/Library/PrivateFrameworks/AppleMediaServicesUI.framework   0.0 414839152   0:01.53 qiuwww             501
+15707 /System/Library/ /System/Library/PrivateFrameworks/MobileTimer.framework/Executab   0.0 410359248   0:01.19 qiuwww             501
+15717 aslmanager       aslmanager                                                         0.0 410326816   0:00.03 root                 0
+16633 /usr/libexec/cip /usr/libexec/ciphermld                                             0.0 410359232   0:00.04 qiuwww             501
+18141 /System/Library/ /System/Library/PrivateFrameworks/AppStoreDaemon.framework/Suppo   0.0 410413760   0:01.48 qiuwww             501
+18144 /System/Library/ /System/Library/PrivateFrameworks/InstallCoordination.framework/   0.0 410327376   0:00.03 _installcoordinationd   274
+18145 /System/Library/ /System/Library/PrivateFrameworks/AppStoreDaemon.framework/Versi   0.0 410884816   0:00.01 root                 0
+18414 /Library/Apple/S /Library/Apple/System/Library/CoreServices/XProtect.app/Contents   0.0 410621664   0:00.02 root                 0
+18415 /Library/Apple/S /Library/Apple/System/Library/CoreServices/XProtect.app/Contents   0.0 410359968   0:01.92 root                 0
+18418 /Library/Apple/S /Library/Apple/System/Library/CoreServices/XProtect.app/Contents   0.0 410621664   0:00.04 qiuwww             501
+18419 /Library/Apple/S /Library/Apple/System/Library/CoreServices/XProtect.app/Contents   0.0 410359984   0:02.13 qiuwww             501
+19462 /Applications/wp /Applications/wpsoffice.app/Contents/SharedSupport/promecefplugi   0.0 453151280   0:00.12 qiuwww             501
+22755 /usr/libexec/tru /usr/libexec/trustd                                               26.2 410445568   0:30.55 _trustd            282
+22763 /usr/libexec/tru /usr/libexec/trustd --agent                                       14.6 410444448   0:25.39 qiuwww             501
+23346 /usr/libexec/sea /usr/libexec/searchpartyuseragent                                  0.0 410430272   0:10.20 qiuwww             501
+23430 /usr/libexec/tzd /usr/libexec/tzd                                                   0.0 410196144   0:00.02 root                 0
+23445 /System/Library/ /System/Library/PrivateFrameworks/AXAssetLoader.framework/Suppor   0.0 410364544   0:00.16 qiuwww             501
+23719 /System/Library/ /System/Library/PrivateFrameworks/Noticeboard.framework/Versions   0.0 414967344   0:00.22 qiuwww             501
+23720 /System/Library/ /System/Library/PrivateFrameworks/Noticeboard.framework/Versions   0.0 410326544   0:00.01 root                 0
+23851 /usr/libexec/pro /usr/libexec/promotedcontentd                                      0.0 410361120   0:00.23 qiuwww             501
+26094 /usr/libexec/Per /usr/libexec/PerfPowerServices                                     0.0 410448464   0:12.41 root                 0
+26787 /usr/libexec/dir /usr/libexec/dirhelper                                             0.0 410179056   0:00.03 root                 0
+27172 /System/Library/ /System/Library/PrivateFrameworks/VoiceShortcuts.framework/Versi   0.0 410379200   0:00.28 qiuwww             501
+27323 /System/Library/ /System/Library/PrivateFrameworks/DeviceCheckInternal.framework/   0.0 410326576   0:00.01 qiuwww             501
+27325 /usr/libexec/gri /usr/libexec/griddatad                                             0.0 410327280   0:00.24 root                 0
+27327 /System/Library/ /System/Library/PrivateFrameworks/TextToSpeechVoiceBankingSuppor   0.0 410366592   0:00.08 qiuwww             501
+27328 /System/Library/ /System/Library/CoreServices/EscrowSecurityAlert.app/Contents/Ma   0.0 410358624   0:00.03 qiuwww             501
+27342 /usr/libexec/per /usr/libexec/periodic-wrapper daily                                0.0 410187984   0:00.01 root                 0
+27343 /System/Library/ /System/Library/CoreServices/Setup Assistant.app/Contents/Resour   0.0 410196192   0:00.03 qiuwww             501
+27361 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/Rem   0.0 410361392   0:00.06 qiuwww             501
+27362 /System/Library/ /System/Library/PrivateFrameworks/SiriTTSService.framework/sirit   0.0 410379232   0:00.07 qiuwww             501
+27363 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/rem   0.0 410360816   0:00.06 _rmd               277
+27364 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410753248   0:00.02 _rmd               277
+27365 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410753264   0:00.02 qiuwww             501
+27366 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410753152   0:00.02 qiuwww             501
+27367 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410884224   0:00.02 _rmd               277
+27368 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410753712   0:00.03 qiuwww             501
+27369 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410753696   0:00.03 _rmd               277
+27372 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410753152   0:00.02 _rmd               277
+27373 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410753152   0:00.02 qiuwww             501
+27374 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410753168   0:00.02 _rmd               277
+27375 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410753168   0:00.02 qiuwww             501
+27376 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410785088   0:00.02 qiuwww             501
+27377 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410884336   0:00.02 _rmd               277
+27378 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410884272   0:00.03 _rmd               277
+27379 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410753184   0:00.02 qiuwww             501
+27380 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410753184   0:00.02 _rmd               277
+27381 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410753200   0:00.02 qiuwww             501
+27382 /usr/libexec/key /usr/libexec/keybagd -t 15                                         0.0 410327808   0:00.03 root                 0
+27383 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410785040   0:00.01 qiuwww             501
+27384 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 410916688   0:00.01 _rmd               277
+27385 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 411062288   0:00.04 _rmd               277
+27386 /System/Library/ /System/Library/PrivateFrameworks/RemoteManagement.framework/XPC   0.0 411058576   0:00.03 qiuwww             501
+27394 /usr/libexec/lin /usr/libexec/linkd                                                 0.0 410329664   0:00.09 qiuwww             501
+27396 /usr/libexec/sys /usr/libexec/sysdiagnosed                                          0.0 410360448   0:00.02 root                 0
+27402 /usr/libexec/MTL /usr/libexec/MTLAssetUpgraderD                                     0.0 410327920   0:00.04 qiuwww             501
+27403 /System/Library/ /System/Library/Frameworks/FinanceKit.framework/financed           0.0 410546736   0:00.14 qiuwww             501
+27415 cloudphotod      cloudphotod                                                        0.0 410386096   0:00.17 qiuwww             501
+27435 /System/Library/ /System/Library/PrivateFrameworks/AppleNeuralEngine.framework/XP   0.0 410228624   0:00.04 root                 0
+27436 /System/Library/ /System/Library/PrivateFrameworks/AppleNeuralEngine.framework/XP   0.0 410228624   0:00.01 _neuralengine      296
+27461 /usr/libexec/per /usr/libexec/periodic-wrapper weekly                               0.0 410187984   0:00.01 root                 0
+27476 /System/Library/ /System/Library/PrivateFrameworks/AssistantServices.framework/Ve   0.0 410397648   0:00.05 qiuwww             501
+27482 /System/Library/ /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/   0.0 410418320   0:00.40 qiuwww             501
+27483 /System/Library/ /System/Library/PrivateFrameworks/PodcastServices.framework/XPCS   0.0 410360640   0:00.03 qiuwww             501
+27486 /System/Library/ /System/Library/PrivateFrameworks/BookKit.framework/Versions/A/X   0.0 410229024   0:00.04 qiuwww             501
+27487 /System/Library/ /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/   0.0 410366016   0:00.03 qiuwww             501
+27494 /System/Library/ /System/Library/PrivateFrameworks/FileProviderDaemon.framework/X   0.0 410927632   0:00.22 qiuwww             501
+27495 /usr/libexec/Dat /usr/libexec/DataDetectorsSourceAccess                             0.0 410326544   0:00.02 _datadetectors     257
+27810 /Applications/wp /Applications/wpsoffice.app/Contents/SharedSupport/wpscloudsvr.a   0.0 413186736   0:13.64 qiuwww             501
+27811 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Versions/A/Fra   0.0 410205248   0:00.01 qiuwww             501
+27905 /System/Library/ /System/Library/PrivateFrameworks/iCloudNotification.framework/i   0.0 410364496   0:00.16 qiuwww             501
+30006 /System/Library/ /System/Library/PrivateFrameworks/DistributedEvaluation.framewor   0.0 410327168   0:00.03 qiuwww             501
+30007 /System/Library/ /System/Library/PrivateFrameworks/PowerLog.framework/Versions/A/   0.0 410188416   0:00.01 qiuwww             501
+30041 /System/Library/ /System/Library/CoreServices/ReportCrash daemon                    0.0 410196368   0:00.01 root                 0
+30654 /System/Library/ /System/Library/CoreServices/ReportCrash agent                     0.0 410196368   0:00.01 qiuwww             501
+30872 /usr/libexec/mlr /usr/libexec/mlruntimed                                            0.0 410375216   0:00.10 qiuwww             501
+31330 /Users/qiuwww/.v /Users/qiuwww/.vscode/extensions/redhat.java-1.47.0-darwin-arm64   0.0 421969472   1:17.97 qiuwww             501
+35448 /Users/qiuwww/.v /Users/qiuwww/.vscode/extensions/ms-dotnettools.csdevkit-1.70.3-   0.0 412894400   0:02.49 qiuwww             501
+35449 /Users/qiuwww/.v /Users/qiuwww/.vscode/extensions/ms-dotnettools.csdevkit-1.70.3-   0.0 412365552   0:02.52 qiuwww             501
+36524 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 444231264   0:05.58 qiuwww             501
+40186 /System/Library/ /System/Library/PrivateFrameworks/CloudKitDaemon.framework/Suppo   0.0 410589056   0:08.27 qiuwww             501
+47441 /usr/libexec/rem /usr/libexec/remindd                                               0.0 410382576   0:00.35 qiuwww             501
+49536 /Applications/Te /Applications/TencentMeeting.app/Contents/MacOS/TencentMeeting     0.9 418391152  15:40.34 qiuwww             501
+49537 /System/Library/ /System/Library/PrivateFrameworks/CoreParsec.framework/parsecd     0.0 410374448   0:01.67 qiuwww             501
+49540 /System/Library/ /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServic   0.0 411331584  23:41.21 qiuwww             501
+49541 /System/Library/ /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServic   0.0 516369456  28:48.52 qiuwww             501
+49542 /System/Library/ /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServic   0.0 411037792   0:04.03 qiuwww             501
+49681 /usr/libexec/log /usr/libexec/logd_reporter                                         0.0 410196192   0:00.19 root                 0
+51712 /usr/libexec/nfc /usr/libexec/nfcd                                                  0.0 410365232   0:00.10 _applepay          260
+51749 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 1867174640   0:00.05 qiuwww             501
+51764 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   3.4 1865988016   0:06.48 qiuwww             501
+51767 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 1865527536   0:00.13 qiuwww             501
+51768 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 1865462320   0:00.02 qiuwww             501
+51970 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   1.2 1869054432   0:03.36 qiuwww             501
+52011 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0 1867033440   0:00.09 qiuwww             501
+52012 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He 142.2 1872160800   1:34.75 qiuwww             501
+52014 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0 1865296640   0:00.03 qiuwww             501
+52132 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0 1865256512   0:00.03 qiuwww             501
+52238 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Frameworks/Code He   0.0 1865314048   0:00.10 qiuwww             501
+52267 /Applications/Vi /Applications/Visual Studio Code.app/Contents/Resources/app/node   0.0 410569072   0:01.31 qiuwww             501
+52933 /System/Library/ /System/Library/PrivateFrameworks/XprotectFramework.framework/Ve   0.0 410419008   0:00.14 root                 0
+53004 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.1 410379072   0:00.03 qiuwww             501
+53030 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0 410379152   0:00.02 qiuwww             501
+53047 <defunct>        <defunct>                                                          0.0        0   0:00.00 qiuwww             501
+53056 /System/Library/ /System/Library/PrivateFrameworks/UniversalAccess.framework/Vers   0.0 411237888   0:00.02 qiuwww             501
+53057 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0 410379072   0:00.03 qiuwww             501
+53058 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.1 410379072   0:00.02 qiuwww             501
+53100 <defunct>        <defunct>                                                          0.0        0   0:00.00 qiuwww             501
+53132 <defunct>        <defunct>                                                          0.0        0   0:00.00 qiuwww             501
+53133 /Applications/Go /Applications/Google Chrome.app/Contents/Frameworks/Google Chrom   0.0 1867175504   0:00.02 qiuwww             501
+53140 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0 410378496   0:00.02 qiuwww             501
+53141 /System/Library/ /System/Library/Frameworks/CoreServices.framework/Frameworks/Met   0.0 410377936   0:00.02 qiuwww             501
+53549 /System/Library/ /System/Library/PrivateFrameworks/IMDPersistence.framework/IMAut   0.0 410358784   0:00.04 qiuwww             501
+53620 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:03.54 _neuralengine      296
+58597 /System/Library/ /System/Library/PrivateFrameworks/CoreSuggestions.framework/Vers   0.0 410657616   0:02.72 qiuwww             501
+58598 /System/Library/ /System/Library/PrivateFrameworks/CalendarDaemon.framework/Suppo   0.0 410455360   0:02.66 qiuwww             501
+58602 /usr/libexec/cor /usr/libexec/coreduetd                                             0.0 410443344   0:05.56 root                 0
+66410 /System/Library/ /System/Library/CoreServices/PowerChime.app/Contents/MacOS/Power   0.0 410579552   0:00.49 qiuwww             501
+66458 /usr/libexec/neh /usr/libexec/nehelper                                              0.0 410432864   0:00.38 root                 0
+66512 /Applications/Mi /Applications/Microsoft Edge.app/Contents/Frameworks/Microsoft E   0.0 1865647024   0:00.35 qiuwww             501
+66513 /Applications/Mi /Applications/Microsoft Edge.app/Contents/Frameworks/Microsoft E   0.0 1865502336   0:00.26 qiuwww             501
+67000 /usr/sbin/netbio /usr/sbin/netbiosd                                                 0.0 410327520   0:00.30 _netbios           222
+67148 Brother_DCP_9030 Brother_DCP_9030CDN__b42200ce709e_ 629 qiuwww 全国计算机技   0.0 411312432   0:00.08 _lp                 26
+67149 dnssd://Brother% dnssd://Brother%20DCP-9030CDN%20%5Bb42200ce709e%5D._ipp._tcp.loc   0.0 410792096   0:01.95 root                 0
+74360 /Applications/QQ /Applications/QQ.app/Contents/Frameworks/QQ Helper (Renderer).ap   0.0 1596956144   0:13.78 qiuwww             501
+78395 /Applications/wp /Applications/wpsoffice.app/Contents/SharedSupport/promecefplugi   0.0 454523744   0:00.41 qiuwww             501
+79515 /System/Library/ /System/Library/PrivateFrameworks/TVIdleServices.framework/idlea   0.0 411487152   0:00.57 root                 0
+83610 /Applications/We /Applications/WeChat.app/Contents/Frameworks/Sparkle.framework/V   0.0 412031088   0:00.94 qiuwww             501
+83611 /Users/qiuwww/Li /Users/qiuwww/Library/Caches/com.tencent.xinWeChat/org.sparkle-p   0.0 412323280   0:00.13 qiuwww             501
+86338 /System/Library/ /System/Library/PrivateFrameworks/TelephonyUtilities.framework/c   0.0 410462112   0:00.97 qiuwww             501
+86371 /usr/libexec/mob /usr/libexec/mobileassetd                                          0.0 410446048   0:09.12 root                 0
+86382 /usr/libexec/wif /usr/libexec/wifip2pd                                              0.0 410337744   0:02.46 root                 0
+86384 /System/Library/ /System/Library/Frameworks/Security.framework/Versions/A/XPCServ   0.0 410400816   0:00.72 root                 0
+86407 /System/Library/ /System/Library/PrivateFrameworks/MapsSync.framework/mapssyncd     0.0 410385552   0:02.87 qiuwww             501
+87023 /Applications/Tr /Applications/Trae.app/Contents/Frameworks/Squirrel.framework/Re   0.0 410811872   0:00.02 qiuwww             501
+88530 /usr/libexec/net /usr/libexec/networkserviceproxy                                   0.0 410424624   0:01.17 qiuwww             501
+89725 /System/Library/ /System/Library/PrivateFrameworks/PassKitCore.framework/passd      0.0 410443792   0:08.40 qiuwww             501
+91098 /System/Library/ /System/Library/CoreServices/mapspushd                             0.0 410378560   0:00.99 qiuwww             501
+91125 /System/Library/ /System/Library/PrivateFrameworks/CoreDuetContext.framework/Reso   1.8 410456144   0:02.10 qiuwww             501
+91126 /System/Library/ /System/Library/PrivateFrameworks/BiomeStreams.framework/Support   1.3 410436448   0:04.95 qiuwww             501
+91223 /System/Library/ /System/Library/CoreServices/backupd.bundle/Contents/Resources/b   0.0 410361872   0:02.08 root                 0
+91993 /System/Library/ /System/Library/PrivateFrameworks/ChronoCore.framework/Support/c   0.0 412645248   0:01.24 qiuwww             501
+91996 /System/Library/ /System/Library/Frameworks/ExtensionFoundation.framework/Version   0.0 410425664   0:00.18 qiuwww             501
+91997 /System/Applicat /System/Applications/Calendar.app/Contents/PlugIns/CalendarWidge   0.0 410526704   0:00.02 qiuwww             501
+91998 /System/Library/ /System/Library/CoreServices/Tips.app/Contents/PlugIns/TipsWidge   0.0 410549856   0:00.01 qiuwww             501
+91999 /System/Library/ /System/Library/CoreServices/Screen Time.app/Contents/PlugIns/Sc   0.0 410640624   0:00.92 qiuwww             501
+92000 /System/Applicat /System/Applications/Notes.app/Contents/PlugIns/com.apple.Notes.   0.0 410590736   0:00.02 qiuwww             501
+92002 /usr/libexec/kno /usr/libexec/knowledge-agent                                       0.0 410458064   0:00.92 qiuwww             501
+92797 /System/Applicat /System/Applications/FindMy.app/Contents/PlugIns/FindMyWidgetPeo   0.0 410654720   0:00.18 qiuwww             501
+93301 /usr/libexec/aud /usr/libexec/audiomxd                                              0.0 410858160   0:00.09 _audiomxd          294
+93377 /System/Library/ /System/Library/PrivateFrameworks/GeoServices.framework/Versions   0.0 410433552   0:01.50 qiuwww             501
+93378 /usr/libexec/sec /usr/libexec/secinitd                                              0.0 410444800   0:01.32 qiuwww             501
+93431 /System/Library/ /System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versio   0.0 410373136   0:02.22 qiuwww             501
+93631 /System/Library/ /System/Library/Frameworks/ApplicationServices.framework/Version   0.0 410269888   0:00.53 qiuwww             501
+93901 /usr/libexec/pro /usr/libexec/proactived                                            0.1 410446672   0:00.39 qiuwww             501
+94412 /Library/Java/Ja /Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/   0.0 422425104   2:00.21 qiuwww             501
+94476 /Library/Java/Ja /Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/   0.0 422517008   0:34.72 qiuwww             501
+94546 /Library/Java/Ja /Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/   0.0 422323456   0:21.39 qiuwww             501
+94609 /Library/Java/Ja /Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/   0.0 422796560   2:50.32 qiuwww             501
+94674 /Library/Java/Ja /Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/   0.0 422214256   0:51.91 qiuwww             501
+94757 /Library/Java/Ja /Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/   0.0 421863936   0:28.84 qiuwww             501
+94786 /Library/Java/Ja /Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/   0.0 413671696   0:20.69 qiuwww             501
+94819 /Applications/wp /Applications/wpsoffice.app/Contents/SharedSupport/promecefplugi   0.0 454186048   0:00.37 qiuwww             501
+95777 /System/Applicat /System/Applications/Utilities/Print Center.app/Contents/MacOS/P   0.0 412743248   4:53.65 qiuwww             501
+95779 /usr/sbin/distno /usr/sbin/distnoted agent                                          0.0 410299424   0:02.91 _lp                 26
+95814 /System/Library/ /System/Library/CoreServices/audioaccessoryd                       0.0 410436608   0:00.27 qiuwww             501
+97090 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChat                     0.2 481539456   2:55.83 qiuwww             501
+97096 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents   0.0 478679984   1:05.55 qiuwww             501
+97100 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents   0.0 444823792   0:28.86 qiuwww             501
+97101 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents   1.3 445016224   1:39.16 qiuwww             501
+97207 /Applications/We /Applications/WeChat.app/Contents/Frameworks/wxocr --base-bundle   0.0 446041248   0:00.94 qiuwww             501
+97208 /Applications/We /Applications/WeChat.app/Contents/Frameworks/wxplayer --base-bun   0.0 479607360   0:03.75 qiuwww             501
+97209 /Applications/We /Applications/WeChat.app/Contents/Frameworks/wxutility --base-bu   0.0 478507696   0:00.74 qiuwww             501
+97210 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents   0.0 444794304   0:28.28 qiuwww             501
+97212 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents   0.0 1622790256   0:28.11 qiuwww             501
+97213 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents   0.0 1656580720   1:50.52 qiuwww             501
+97214 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents   0.0 1638369104   0:49.85 qiuwww             501
+97217 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents   2.0 1622948480   1:11.35 qiuwww             501
+97243 /Applications/We /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents   0.0 1626354208   0:38.37 qiuwww             501
+98558 /System/Library/ /System/Library/PrivateFrameworks/CoreCDP.framework/Versions/A/R   0.0 410373456   0:00.09 qiuwww             501
+98645 /usr/libexec/onl /usr/libexec/online-auth-agent                                     0.0 410622432   0:00.04 root                 0
+98706 /usr/libexec/blu /usr/libexec/bluetoothuserd                                        0.0 410418448   0:00.13 qiuwww             501
+98714 /System/Library/ /System/Library/PrivateFrameworks/AuthKit.framework/Versions/A/S   0.0 410444688   0:00.55 qiuwww             501
+98715 /System/Library/ /System/Library/PrivateFrameworks/CoreADI.framework/adid           0.0 410204496   0:00.33 _fpsd              265
+98716 /usr/libexec/rtc /usr/libexec/rtcreportingd                                         0.0 410368480   0:00.66 root                 0
+98845 /System/Library/ /System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/c   0.0 410386704   0:05.12 qiuwww             501
+98863 /usr/libexec/pkd /usr/libexec/pkd                                                   0.0 410446080   0:00.41 qiuwww             501
+99241 /System/Library/ /System/Library/Frameworks/LocalAuthentication.framework/Support   0.0 410433456   0:00.06 qiuwww             501
+99245 /System/Library/ /System/Library/PrivateFrameworks/DoNotDisturbServer.framework/S   0.0 410451312   0:00.25 qiuwww             501
+99247 /System/Library/ /System/Library/Frameworks/Contacts.framework/Support/contactsd    0.0 410439840   0:02.62 qiuwww             501
+99414 /usr/libexec/Pow /usr/libexec/PowerUIAgent                                          0.0 410364672   0:00.24 root                 0
+99415 /usr/libexec/tri /usr/libexec/triald                                                0.0 410399792   0:05.61 qiuwww             501
+99416 /System/Library/ /System/Library/PrivateFrameworks/AppleMediaServices.framework/R   0.0 410410544   0:01.48 qiuwww             501
+99419 /System/Library/ /System/Library/CoreServices/osanalyticshelper server-init         0.0 410363568   0:00.15 root                 0
+99425 /System/Library/ /System/Library/PrivateFrameworks/IntelligencePlatformCore.frame   0.0 410417568   0:00.92 qiuwww             501
+99426 /usr/libexec/san /usr/libexec/sandboxd                                              2.5 410307424   0:04.84 root                 0
+99427 /System/Library/ /System/Library/PrivateFrameworks/PhotoLibraryServices.framework   0.0 410386240   0:05.29 qiuwww             501
+99447 /usr/libexec/sys /usr/libexec/sysmond                                               0.0 410195712   0:13.24 root                 0
+99449 /System/Library/ /System/Library/PrivateFrameworks/GeoServices.framework/Versions   0.0 410427904   0:00.94 _locationd         205
+99455 /System/Library/ /System/Library/PrivateFrameworks/GeoServices.framework/Versions   0.0 410423488   0:00.96 root                 0
+99471 /System/Library/ /System/Library/PrivateFrameworks/AssetCacheServices.framework/V   0.0 410361520   0:00.04 qiuwww             501
+99501 /System/Library/ /System/Library/PrivateFrameworks/AssistantServices.framework/Ve   0.0 410452688   0:01.57 qiuwww             501
+99504 /usr/libexec/nea /usr/libexec/neagent                                               0.0 410426176   0:00.05 qiuwww             501
+99622 /usr/libexec/fmf /usr/libexec/fmfd                                                  0.0 410433728   0:00.11 qiuwww             501
+99715 /System/Library/ /System/Library/PrivateFrameworks/CoreFollowUp.framework/Version   0.0 410336032   0:00.04 qiuwww             501
+99716 /System/Library/ /System/Library/CoreServices/backupd.bundle/Contents/Resources/b   0.0 410326752   0:00.44 root                 0
+99742 /usr/libexec/fin /usr/libexec/findmybeaconingd                                      0.0 410359872   0:00.18 root                 0
+52279 /usr/bin/login   /usr/bin/login -fpl qiuwww /Applications/iTerm.app/Contents/MacO   0.0 410817408   0:00.01 root                 0
+52280 -zsh             -zsh                                                              55.8 410958704   0:00.46 qiuwww             501
+53243 ps               ps -e -o pid,comm,args,pcpu,vsz,stime,user,uid                     0.0 410865376   0:00.00 root                 0
+---------------------

@@ -11,3 +11,7 @@ RUN yarn
 ENTRYPOINT [ "yarn"]
 
 CMD ["start"]
+
+
+# 构建并运行，但不保存镜像（适用于一次性测试）
+# podman run --rm $(podman build -q .)
